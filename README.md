@@ -13,7 +13,8 @@ that is using Qt/KDE.
 
 ### Build instructions:
 ```
-$ ./src/dbus/generate-interfaces-adaptors.sh
+$ cd src/dbus && ./generate-interfaces-adaptors.sh
+$ cd ../..
 $ mkdir build && cd build
 $ cmake .. [your_options]
 $ make -j5
