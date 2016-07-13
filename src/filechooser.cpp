@@ -84,6 +84,7 @@ uint FileChooser::OpenFile(const QDBusObjectPath &handle,
            files << url.toDisplayString();
         }
         results.insert(QLatin1String("uris"), files);
+        fileDialog->deleteLater();
         return 0;
     }
 
@@ -162,6 +163,7 @@ uint FileChooser::SaveFile(const QDBusObjectPath &handle,
            files << url.toDisplayString();
         }
         results.insert(QLatin1String("uris"), files);
+        fileDialog->deleteLater();
         return 0;
     }
 
