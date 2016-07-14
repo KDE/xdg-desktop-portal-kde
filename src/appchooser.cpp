@@ -98,6 +98,7 @@ uint AppChooser::ChooseApplication(const QDBusObjectPath& handle,
 
     if (appDialog->exec()) {
         results.insert(QLatin1String("choice"), appDialog->selectedApplication());
+        appDialog->deleteLater();
         return 0;
     }
 

@@ -64,6 +64,7 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, QDialog *parent, 
 
 AppChooserDialog::~AppChooserDialog()
 {
+    delete m_dialog;
 }
 
 QString AppChooserDialog::selectedApplication() const
