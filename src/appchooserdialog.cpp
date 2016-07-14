@@ -59,6 +59,7 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, QDialog *parent, 
 
     connect(m_dialog->buttonBox, &QDialogButtonBox::accepted, this, &AppChooserDialog::accept);
     connect(m_dialog->buttonBox, &QDialogButtonBox::rejected, this, &AppChooserDialog::reject);
+    connect(m_dialog->appView, &QListWidget::itemDoubleClicked, this, &AppChooserDialog::accept);
     connect(m_dialog->searchEdit, &QLineEdit::textChanged, this, &AppChooserDialog::searchTextChanged);
 }
 
