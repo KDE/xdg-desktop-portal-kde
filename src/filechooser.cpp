@@ -73,9 +73,7 @@ uint FileChooser::OpenFile(const QDBusObjectPath &handle,
     fileDialog->setModal(modalDialog);
     fileDialog->setFileMode(multipleFiles ? QFileDialog::ExistingFiles : QFileDialog::ExistingFile);
 
-    if (!acceptLabel.isEmpty()) {
-        fileDialog->setLabelText(QFileDialog::Accept, acceptLabel);
-    }
+    fileDialog->setLabelText(QFileDialog::Accept, !acceptLabel.isEmpty() ? acceptLabel : QLatin1String("Open"));
 
     if (fileDialog->exec() == QDialog::Accepted) {
         QStringList files;
