@@ -4,7 +4,6 @@ set(xdg_desktop_portal_kde_SRCS
     xdg-desktop-portal-kde.cpp
     appchooser.cpp
     appchooserdialog.cpp
-    desktopportal.cpp
     filechooser.cpp
 
     # DBus related stuff
