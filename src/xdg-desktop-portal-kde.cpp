@@ -22,6 +22,8 @@
 #include <QDBusConnection>
 #include <QLoggingCategory>
 
+#include "desktopportal.h"
+
 #include "appchooser.h"
 #include "dbus/AppChooserAdaptor.h"
 
@@ -36,25 +38,13 @@ int main(int argc, char *argv[])
     a.setQuitOnLastWindowClosed(false);
 
     QDBusConnection sessionBus = QDBusConnection::sessionBus();
+
     if (sessionBus.registerService(QLatin1String("org.freedesktop.impl.portal.desktop.kde"))) {
-        qCDebug(XdgDesktopPortalKde) << "Service org.freedesktop.impl.portal.desktop.kde registered successfuly";
-
-        // AppChooser
-        AppChooser *appChooser = new AppChooser(&a);
-        AppChooserAdaptor *appChooserAdaptor = new AppChooserAdaptor(appChooser);
-        if (sessionBus.registerObject(QLatin1String("/org/freedesktop/portal/desktop"), appChooser)) {
-            qCDebug(XdgDesktopPortalKde) << "Interface AppChooser registered successfuly";
+        DesktopPortal *desktopPortal = new DesktopPortal(&a);
+        if (sessionBus.registerVirtualObject(QLatin1String("/org/freedesktop/portal/desktop"), desktopPortal, QDBusConnection::VirtualObjectRegisterOption::SingleNode)) {
+            qCDebug(XdgDesktopPortalKde) << "Desktop portal registered successfuly";
         } else {
-            qCDebug(XdgDesktopPortalKde) << "Failed to register AppChooser interface";
-        }
-
-        // FileChooser
-        FileChooser *fileChooser = new FileChooser(&a);
-        FileChooserAdaptor *fileChooserAdaptor = new FileChooserAdaptor(fileChooser);
-        if (sessionBus.registerObject(QLatin1String("/org/freedesktop/portal/desktop"), fileChooser)) {
-            qCDebug(XdgDesktopPortalKde) << "Interface FileChooser registered successfuly";
-        } else {
-            qCDebug(XdgDesktopPortalKde) << "Failed to register FileChooser interface";
+            qCDebug(XdgDesktopPortalKde) << "Failed to register desktop portal";
         }
     } else {
         qCDebug(XdgDesktopPortalKde) << "Failed to register org.freedesktop.impl.portal.desktop.kde service";
