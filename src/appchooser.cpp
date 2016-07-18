@@ -1,22 +1,5 @@
 /*
  * Copyright © 2016 Red Hat, Inc
- *    QString acceptLabel;
-    bool modalDialog = true;
-    bool multipleFiles = false;
-
-    // TODO parse options - filters, choices
-
-    if (options.contains(QLatin1String("multiple"))) {
-        multipleFiles = options.value(QLatin1String("multiple")).toBool();
-    }
-
-    if (options.contains(QLatin1String("modal"))) {
-        modalDialog = options.value(QLatin1String("modal")).toBool();
-    }
-
-    if (options.contains(QLatin1String("accept_label"))) {
-        acceptLabel = options.value(QLatin1String("accept_label")).toString();
-    }
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
