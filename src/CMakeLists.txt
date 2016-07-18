@@ -7,11 +7,11 @@ set(xdg_desktop_portal_kde_SRCS
     desktopportal.cpp
     filechooser.cpp
 
-    # DBus related stuff
-    dbus/AppChooserAdaptor.cpp
-    dbus/AppChooserInterface.cpp
-    dbus/FileChooserAdaptor.cpp
-    dbus/FileChooserInterface.cpp
+    # DBus related stuff (not used right now)
+    # dbus/AppChooserAdaptor.cpp
+    # dbus/AppChooserInterface.cpp
+    # dbus/FileChooserAdaptor.cpp
+    # dbus/FileChooserInterface.cpp
 )
 
 ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
