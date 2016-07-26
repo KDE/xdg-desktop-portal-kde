@@ -37,7 +37,7 @@ public:
     ~AppChooserDialog();
 
     QString selectedApplication() const;
-    void setSelectedApplication(const QString &applicationDesktopFile);
+    void setSelectedApplication(const QString &applicationName);
 
     void setLabelText(const QString &label);
 

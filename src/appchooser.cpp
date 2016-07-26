@@ -61,8 +61,8 @@ uint AppChooser::ChooseApplication(const QDBusObjectPath& handle,
         heading = options.value(QLatin1String("heading")).toBool();
     }
 
-    if (options.contains(QLatin1String("latest_choice"))) {
-        latestChoice = options.value(QLatin1String("latest_choice")).toString();
+    if (options.contains(QLatin1String("last_choice"))) {
+        latestChoice = options.value(QLatin1String("last_choice")).toString();
     }
 
     if (options.contains(QLatin1String("title"))) {

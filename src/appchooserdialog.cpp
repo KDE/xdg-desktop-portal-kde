@@ -36,7 +36,8 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, QDialog *parent, 
     m_dialog->setupUi(this);
 
     Q_FOREACH (const QString &choice, m_choices) {
-        const QStringList desktopFilesLocations = QStandardPaths::locateAll(QStandardPaths::ApplicationsLocation, choice, QStandardPaths::LocateFile);
+        const QString desktopFile = choice + QLatin1String(".desktop");
+        const QStringList desktopFilesLocations = QStandardPaths::locateAll(QStandardPaths::ApplicationsLocation, desktopFile, QStandardPaths::LocateFile);
         Q_FOREACH (const QString desktopFile, desktopFilesLocations) {
             QString applicationIcon;
             QString applicationName;
@@ -73,11 +74,11 @@ QString AppChooserDialog::selectedApplication() const
     return m_dialog->appView->currentItem()->data(Qt::UserRole).toString();
 }
 
-void AppChooserDialog::setSelectedApplication(const QString &applicationDesktopFile)
+void AppChooserDialog::setSelectedApplication(const QString &applicationName)
 {
     for (int i = 0; i < m_dialog->appView->count(); i++) {
         QListWidgetItem *widgetItem = m_dialog->appView->item(i);
-        if (widgetItem->data(Qt::UserRole).toString() == applicationDesktopFile) {
+        if (widgetItem->data(Qt::UserRole).toString() == applicationName) {
             widgetItem->setSelected(true);
         }
     }
