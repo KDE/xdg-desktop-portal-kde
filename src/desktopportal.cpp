@@ -24,6 +24,7 @@
 #include "filechooser.h"
 
 #include <QDialog>
+#include <QDBusArgument>
 #include <QDBusMessage>
 #include <QDBusConnection>
 #include <QLoggingCategory>
@@ -54,12 +55,21 @@ bool DesktopPortal::handleMessage(const QDBusMessage &message, const QDBusConnec
     if (message.interface() == QLatin1String("org.freedesktop.impl.portal.AppChooser")) {
         if (message.member() == QLatin1String("ChooseApplication")) {
             QVariantMap results;
+            QVariantMap choices;
+
+            QDBusArgument dbusArgument = message.arguments().at(4).value<QDBusArgument>();
+            while (!dbusArgument.atEnd()) {
+                dbusArgument >> choices;
+            }
+
             AppChooser *appChooser = new AppChooser();
+
+            qCDebug(XdgDesktopPortalKdeDesktopPortal) << choices;
             uint response = appChooser->ChooseApplication(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),  // handle
                                                           message.arguments().at(1).toString(),                       // app_id
                                                           message.arguments().at(2).toString(),                       // parent_window
                                                           message.arguments().at(3).toStringList(),                   // choices
-                                                          message.arguments().at(4).toMap(),                          // options
+                                                          choices,                                                    // options
                                                           results);
             arguments << response;
             arguments << results;
@@ -68,20 +78,27 @@ bool DesktopPortal::handleMessage(const QDBusMessage &message, const QDBusConnec
     } else if (message.interface() == QLatin1String("org.freedesktop.impl.portal.FileChooser")) {
         uint response;
         QVariantMap results;
+        QVariantMap choices;
+
+        QDBusArgument dbusArgument = message.arguments().at(4).value<QDBusArgument>();
+        while (!dbusArgument.atEnd()) {
+            dbusArgument >> choices;
+        }
+
         FileChooser *fileChooser = new FileChooser();
         if (message.member() == QLatin1String("OpenFile")) {
             response = fileChooser->OpenFile(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),  // handle
                                              message.arguments().at(1).toString(),                       // app_id
                                              message.arguments().at(2).toString(),                       // parent_window
                                              message.arguments().at(3).toString(),                       // title
-                                             message.arguments().at(4).toMap(),                          // options
+                                             choices,                                                    // options
                                              results);
         } else if (message.member() == QLatin1String("SaveFile")) {
             response = fileChooser->SaveFile(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),  // handle
                                              message.arguments().at(1).toString(),                       // app_id
                                              message.arguments().at(2).toString(),                       // parent_window
                                              message.arguments().at(3).toString(),                       // title
-                                             message.arguments().at(4).toMap(),                          // options
+                                             choices,                                                    // options
                                              results);
         }
 
