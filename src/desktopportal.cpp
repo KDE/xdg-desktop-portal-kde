@@ -62,9 +62,7 @@ bool DesktopPortal::handleMessage(const QDBusMessage &message, const QDBusConnec
                                                           message.arguments().at(4).toMap(),                          // options
                                                           results);
             arguments << response;
-            if (!response) { // exit code for success is 0
-                arguments << results;
-            }
+            arguments << results;
             appChooser->deleteLater();
         }
     } else if (message.interface() == QLatin1String("org.freedesktop.impl.portal.FileChooser")) {
@@ -88,9 +86,7 @@ bool DesktopPortal::handleMessage(const QDBusMessage &message, const QDBusConnec
         }
 
         arguments << response;
-        if (!response) { // exit code for success is 0
-            arguments << results;
-        }
+        arguments << results;
         fileChooser->deleteLater();
     }
 
