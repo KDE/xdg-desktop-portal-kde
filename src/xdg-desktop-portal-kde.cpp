@@ -24,12 +24,6 @@
 
 #include "desktopportal.h"
 
-#include "appchooser.h"
-#include "dbus/AppChooserAdaptor.h"
-
-#include "filechooser.h"
-#include "dbus/FileChooserAdaptor.h"
-
 Q_LOGGING_CATEGORY(XdgDesktopPortalKde, "xdg-desktop-portal-kde")
 
 int main(int argc, char *argv[])
