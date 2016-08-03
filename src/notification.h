@@ -18,30 +18,33 @@
  *       Jan Grulich <jgrulich@redhat.com>
  */
 
-#ifndef XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
-#define XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
+#ifndef XDG_DESKTOP_PORTAL_KDE_NOTIFICATION_H
+#define XDG_DESKTOP_PORTAL_KDE_NOTIFICATION_H
 
 #include <QObject>
-#include <QDBusVirtualObject>
+#include <QDBusObjectPath>
 
-#include "appchooser.h"
-#include "filechooser.h"
-#include "notification.h"
+#include <KNotification>
 
-class DesktopPortal : public QDBusVirtualObject
+class Notification : public QObject
 {
     Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Notification")
 public:
-    explicit DesktopPortal(QObject *parent = 0);
-    ~DesktopPortal();
+    Notification(QObject *parent = 0);
+    ~Notification();
 
-    bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) Q_DECL_OVERRIDE;
-    QString introspect(const QString &path) const Q_DECL_OVERRIDE;
+public Q_SLOTS:
+    void AddNotification(const QString &app_id,
+                         const QString &id,
+                         const QVariantMap &notification);
+    void RemoveNotification(const QString &app_id,
+                            const QString &id);
+private Q_SLOTS:
+    void notificationClosed();
+
 private:
-    AppChooser *m_appChooser;
-    FileChooser *m_fileChooser;
-    Notification *m_notification;
+    QHash<QString, KNotification*> m_notifications;
 };
 
-#endif // XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
-
+#endif // XDG_DESKTOP_PORTAL_KDE_NOTIFICATION_H

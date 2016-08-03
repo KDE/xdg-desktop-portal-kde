@@ -20,9 +20,6 @@
 
 #include "desktopportal.h"
 
-#include "appchooser.h"
-#include "filechooser.h"
-
 #include <QDialog>
 #include <QDBusArgument>
 #include <QDBusMessage>
@@ -33,11 +30,17 @@ Q_LOGGING_CATEGORY(XdgDesktopPortalKdeDesktopPortal, "xdg-desktop-portal-kde-des
 
 DesktopPortal::DesktopPortal(QObject *parent)
     : QDBusVirtualObject(parent)
+    , m_appChooser(new AppChooser())
+    , m_fileChooser(new FileChooser())
+    , m_notification(new Notification())
 {
 }
 
 DesktopPortal::~DesktopPortal()
 {
+    delete m_appChooser;
+    delete m_fileChooser;
+    delete m_notification;
 }
 
 bool DesktopPortal::handleMessage(const QDBusMessage &message, const QDBusConnection &connection)
@@ -62,18 +65,15 @@ bool DesktopPortal::handleMessage(const QDBusMessage &message, const QDBusConnec
                 dbusArgument >> choices;
             }
 
-            AppChooser *appChooser = new AppChooser();
-
             qCDebug(XdgDesktopPortalKdeDesktopPortal) << choices;
-            uint response = appChooser->ChooseApplication(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),  // handle
-                                                          message.arguments().at(1).toString(),                       // app_id
-                                                          message.arguments().at(2).toString(),                       // parent_window
-                                                          message.arguments().at(3).toStringList(),                   // choices
-                                                          choices,                                                    // options
-                                                          results);
+            uint response = m_appChooser->ChooseApplication(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),  // handle
+                                                            message.arguments().at(1).toString(),                       // app_id
+                                                            message.arguments().at(2).toString(),                       // parent_window
+                                                            message.arguments().at(3).toStringList(),                   // choices
+                                                            choices,                                                    // options
+                                                            results);
             arguments << response;
             arguments << results;
-            appChooser->deleteLater();
         }
     } else if (message.interface() == QLatin1String("org.freedesktop.impl.portal.FileChooser")) {
         uint response;
@@ -85,26 +85,39 @@ bool DesktopPortal::handleMessage(const QDBusMessage &message, const QDBusConnec
             dbusArgument >> choices;
         }
 
-        FileChooser *fileChooser = new FileChooser();
         if (message.member() == QLatin1String("OpenFile")) {
-            response = fileChooser->OpenFile(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),  // handle
-                                             message.arguments().at(1).toString(),                       // app_id
-                                             message.arguments().at(2).toString(),                       // parent_window
-                                             message.arguments().at(3).toString(),                       // title
-                                             choices,                                                    // options
-                                             results);
+            response = m_fileChooser->OpenFile(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),  // handle
+                                               message.arguments().at(1).toString(),                       // app_id
+                                               message.arguments().at(2).toString(),                       // parent_window
+                                               message.arguments().at(3).toString(),                       // title
+                                               choices,                                                    // options
+                                               results);
         } else if (message.member() == QLatin1String("SaveFile")) {
-            response = fileChooser->SaveFile(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),  // handle
-                                             message.arguments().at(1).toString(),                       // app_id
-                                             message.arguments().at(2).toString(),                       // parent_window
-                                             message.arguments().at(3).toString(),                       // title
-                                             choices,                                                    // options
-                                             results);
+            response = m_fileChooser->SaveFile(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),  // handle
+                                               message.arguments().at(1).toString(),                       // app_id
+                                               message.arguments().at(2).toString(),                       // parent_window
+                                               message.arguments().at(3).toString(),                       // title
+                                               choices,                                                    // options
+                                               results);
         }
 
         arguments << response;
         arguments << results;
-        fileChooser->deleteLater();
+    } else if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Notification")) {
+        if (message.member() == QLatin1String("AddNotification")) {
+            QVariantMap notificationParams;
+
+            QDBusArgument dbusArgument = message.arguments().at(2).value<QDBusArgument>();
+            while (!dbusArgument.atEnd()) {
+                dbusArgument >> notificationParams;
+            }
+            m_notification->AddNotification(message.arguments().at(0).toString(),                           // app_id
+                                            message.arguments().at(1).toString(),                           // id
+                                            notificationParams);                                            // notification
+        } else if (message.member() == QLatin1String("RemoveNotification")) {
+            m_notification->RemoveNotification(message.arguments().at(0).toString(),                        // app_id
+                                               message.arguments().at(1).toString());                       // id
+        }
     }
 
     QDBusMessage reply = message.createReply();
@@ -147,6 +160,17 @@ QString DesktopPortal::introspect(const QString &path) const
             "        <arg type=\"a{sv}\" name=\"options\" direction=\"in\"/>"
             "        <arg type=\"u\" name=\"response\" direction=\"out\"/>"
             "        <arg type=\"a{sv}\" name=\"results\" direction=\"out\"/>"
+            "    </method>"
+            "</interface>"
+            "<interface name=\"org.freedesktop.impl.portal.Notification\">"
+            "    <method name=\"AddNotification\">"
+            "        <arg type=\"s\" name=\"app_id\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"id\" direction=\"in\"/>"
+            "        <arg type=\"a{sv}\" name=\"notification\" direction=\"in\"/>"
+            "    </method>"
+            "    <method name=\"RemoveNotification\">"
+            "        <arg type=\"s\" name=\"app_id\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"id\" direction=\"in\"/>"
             "    </method>"
             "</interface>");
     }

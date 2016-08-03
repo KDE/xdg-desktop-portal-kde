@@ -6,6 +6,7 @@ set(xdg_desktop_portal_kde_SRCS
     appchooserdialog.cpp
     desktopportal.cpp
     filechooser.cpp
+    notification.cpp
 
     # DBus related stuff (not used right now)
     # dbus/AppChooserAdaptor.cpp
@@ -25,6 +26,7 @@ target_link_libraries(xdg-desktop-portal-kde
     Qt5::DBus
     Qt5::Widgets
     KF5::I18n
+    KF5::Notifications
 )
 
 install(TARGETS xdg-desktop-portal-kde DESTINATION ${KDE_INSTALL_LIBEXECDIR})
