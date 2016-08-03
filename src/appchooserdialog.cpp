@@ -79,7 +79,7 @@ void AppChooserDialog::setSelectedApplication(const QString &applicationName)
     for (int i = 0; i < m_dialog->appView->count(); i++) {
         QListWidgetItem *widgetItem = m_dialog->appView->item(i);
         if (widgetItem->data(Qt::UserRole).toString() == applicationName) {
-            widgetItem->setSelected(true);
+            m_dialog->appView->setCurrentItem(widgetItem, QItemSelectionModel::Select);
         }
     }
 }
