@@ -217,11 +217,11 @@ uint FileChooser::SaveFile(const QDBusObjectPath &handle,
     }
 
     if (options.contains(QLatin1String("current_folder"))) {
-        currentFolder = options.value(QLatin1String("current_folder")).toString();
+        currentFolder = options.value(QLatin1String("current_folder")).toByteArray();
     }
 
     if (options.contains(QLatin1String("current_file"))) {
-        currentFile = options.value(QLatin1String("current_file")).toString();
+        currentFile = options.value(QLatin1String("current_file")).toByteArray();
     }
 
     if (options.contains(QLatin1String("filters"))) {
@@ -247,16 +247,17 @@ uint FileChooser::SaveFile(const QDBusObjectPath &handle,
     fileDialog->setModal(modalDialog);
     fileDialog->setAcceptMode(QFileDialog::AcceptSave);
 
-    if (!currentName.isEmpty()) {
-        fileDialog->selectFile(currentName);
-    }
+    // TODO: Looks Qt doesn't have API for this
+    // if (!currentName.isEmpty()) {
+    //    fileDialog->selectFile(currentName);
+    // }
 
     if (!currentFolder.isEmpty()) {
-        fileDialog->setDirectory(currentFolder);
+        fileDialog->setDirectoryUrl(QUrl(currentFolder));
     }
 
     if (!currentFile.isEmpty()) {
-        fileDialog->selectFile(currentName);
+        fileDialog->selectFile(currentFile);
     }
 
     if (!acceptLabel.isEmpty()) {
