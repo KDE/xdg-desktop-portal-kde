@@ -21,14 +21,28 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_FILECHOOSER_H
 #define XDG_DESKTOP_PORTAL_KDE_FILECHOOSER_H
 
-#include <QObject>
 #include <QDBusObjectPath>
+#include <QMetaType>
+#include <QObject>
 
 class FileChooser : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.FileChooser")
 public:
+    // Keep in sync with qflatpakfiledialog from flatpak-platform-plugin
+    typedef struct {
+        uint type;
+        QString filterString;
+    } Filter;
+    typedef QList<Filter> Filters;
+
+    typedef struct {
+        QString userVisibleName;
+        Filters filters;
+    } FilterList;
+    typedef QList<FilterList> FilterListList;
+
     FileChooser(QObject *parent = 0);
     ~FileChooser();
 

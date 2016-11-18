@@ -20,15 +20,68 @@
 
 #include "filechooser.h"
 
+#include <QtDBus/QtDBus>
+#include <QDBusArgument>
 #include <QLoggingCategory>
 #include <QFileDialog>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeFileChooser, "xdg-desktop-portal-kde-file-chooser")
 
+// Keep in sync with qflatpakfiledialog from flatpak-platform-plugin
+Q_DECLARE_METATYPE(FileChooser::Filter);
+Q_DECLARE_METATYPE(FileChooser::Filters);
+Q_DECLARE_METATYPE(FileChooser::FilterList);
+Q_DECLARE_METATYPE(FileChooser::FilterListList);
+
+QDBusArgument &operator << (QDBusArgument &arg, const FileChooser::Filter &filter)
+{
+    arg.beginStructure();
+    arg << filter.type << filter.filterString;
+    arg.endStructure();
+    return arg;
+}
+
+const QDBusArgument &operator >> (const QDBusArgument &arg, FileChooser::Filter &filter)
+{
+    uint type;
+    QString filterString;
+    arg.beginStructure();
+    arg >> type >> filterString;
+    filter.type = type;
+    filter.filterString = filterString;
+    arg.endStructure();
+
+    return arg;
+}
+
+QDBusArgument &operator << (QDBusArgument &arg, const FileChooser::FilterList &filterList)
+{
+    arg.beginStructure();
+    arg << filterList.userVisibleName << filterList.filters;
+    arg.endStructure();
+    return arg;
+}
+
+const QDBusArgument &operator >> (const QDBusArgument &arg, FileChooser::FilterList &filterList)
+{
+    QString userVisibleName;
+    FileChooser::Filters filters;
+    arg.beginStructure();
+    arg >> userVisibleName >> filters;
+    filterList.userVisibleName = userVisibleName;
+    filterList.filters = filters;
+    arg.endStructure();
+
+    return arg;
+}
 
 FileChooser::FileChooser(QObject *parent)
     : QObject(parent)
 {
+    qDBusRegisterMetaType<Filter>();
+    qDBusRegisterMetaType<Filters>();
+    qDBusRegisterMetaType<FilterList>();
+    qDBusRegisterMetaType<FilterListList>();
 }
 
 FileChooser::~FileChooser()
@@ -50,30 +103,67 @@ uint FileChooser::OpenFile(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeFileChooser) << "    title: " << title;
     qCDebug(XdgDesktopPortalKdeFileChooser) << "    options: " << options;
 
-    QString acceptLabel;
     bool modalDialog = true;
     bool multipleFiles = false;
+    QString acceptLabel;
+    QStringList nameFilters;
+    QStringList mimeTypeFilters;
 
-    // TODO parse options - filters, choices
+    /* TODO
+     * choices a(ssa(ss)s)
+     * List of serialized combo boxes to add to the file chooser.
+     *
+     * For each element, the first string is an ID that will be returned with the response, te second string is a user-visible label.
+     * The a(ss) is the list of choices, each being a is an ID and a user-visible label. The final string is the initial selection,
+     * or "", to let the portal decide which choice will be initially selected. None of the strings, except for the initial selection, should be empty.
+     *
+     * As a special case, passing an empty array for the list of choices indicates a boolean choice that is typically displayed as a check button, using "true" and "false" as the choices.
+     * Example: [('encoding', 'Encoding', [('utf8', 'Unicode (UTF-8)'), ('latin15', 'Western')], 'latin15'), ('reencode', 'Reencode', [], 'false')]
+     */
 
-    if (options.contains(QLatin1String("multiple"))) {
-        multipleFiles = options.value(QLatin1String("multiple")).toBool();
+    if (options.contains(QLatin1String("accept_label"))) {
+        acceptLabel = options.value(QLatin1String("accept_label")).toString();
     }
 
     if (options.contains(QLatin1String("modal"))) {
         modalDialog = options.value(QLatin1String("modal")).toBool();
     }
 
-    if (options.contains(QLatin1String("accept_label"))) {
-        acceptLabel = options.value(QLatin1String("accept_label")).toString();
+    if (options.contains(QLatin1String("multiple"))) {
+        multipleFiles = options.value(QLatin1String("multiple")).toBool();
+    }
+
+    if (options.contains(QLatin1String("filters"))) {
+        FilterListList filterListList = qdbus_cast<FilterListList>(options.value(QLatin1String("filters")));
+        Q_FOREACH (const FilterList &filterList, filterListList) {
+            QStringList filterStrings;
+            Q_FOREACH (const Filter &filterStruct, filterList.filters) {
+                if (filterStruct.type == 0) {
+                    filterStrings << filterStruct.filterString;
+                } else {
+                    mimeTypeFilters << filterStruct.filterString;
+                }
+            }
+
+            if (!filterStrings.isEmpty()) {
+                nameFilters << QString("%1 (%2)").arg(filterList.userVisibleName).arg(filterStrings.join(QLatin1String(" ")));
+            }
+        }
     }
 
     QFileDialog *fileDialog = new QFileDialog();
     fileDialog->setWindowTitle(title);
     fileDialog->setModal(modalDialog);
     fileDialog->setFileMode(multipleFiles ? QFileDialog::ExistingFiles : QFileDialog::ExistingFile);
-
     fileDialog->setLabelText(QFileDialog::Accept, !acceptLabel.isEmpty() ? acceptLabel : QLatin1String("Open"));
+
+    if (!nameFilters.isEmpty()) {
+        fileDialog->setNameFilters(nameFilters);
+    }
+
+    if (!mimeTypeFilters.isEmpty()) {
+        fileDialog->setMimeTypeFilters(mimeTypeFilters);
+    }
 
     if (fileDialog->exec() == QDialog::Accepted) {
         QStringList files;
@@ -104,14 +194,15 @@ uint FileChooser::SaveFile(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeFileChooser) << "    title: " << title;
     qCDebug(XdgDesktopPortalKdeFileChooser) << "    options: " << options;
 
+    bool modalDialog = true;
     QString acceptLabel;
     QString currentName;
     QString currentFolder;
     QString currentFile;
+    QStringList nameFilters;
+    QStringList mimeTypeFilters;
 
-    bool modalDialog = true;
-
-    // TODO parse options - filters, choices
+    // TODO parse options - choices
 
     if (options.contains(QLatin1String("modal"))) {
         modalDialog = options.value(QLatin1String("modal")).toBool();
@@ -133,6 +224,24 @@ uint FileChooser::SaveFile(const QDBusObjectPath &handle,
         currentFile = options.value(QLatin1String("current_file")).toString();
     }
 
+    if (options.contains(QLatin1String("filters"))) {
+        FilterListList filterListList = qdbus_cast<FilterListList>(options.value(QLatin1String("filters")));
+        Q_FOREACH (const FilterList &filterList, filterListList) {
+            QStringList filterStrings;
+            Q_FOREACH (const Filter &filterStruct, filterList.filters) {
+                if (filterStruct.type == 0) {
+                    filterStrings << filterStruct.filterString;
+                } else {
+                    mimeTypeFilters << filterStruct.filterString;
+                }
+            }
+
+            if (!filterStrings.isEmpty()) {
+                nameFilters << QString("%1 (%2)").arg(filterList.userVisibleName).arg(filterStrings.join(QLatin1String(" ")));
+            }
+        }
+    }
+
     QFileDialog *fileDialog = new QFileDialog();
     fileDialog->setWindowTitle(title);
     fileDialog->setModal(modalDialog);
@@ -152,6 +261,14 @@ uint FileChooser::SaveFile(const QDBusObjectPath &handle,
 
     if (!acceptLabel.isEmpty()) {
         fileDialog->setLabelText(QFileDialog::Accept, acceptLabel);
+    }
+
+    if (!nameFilters.isEmpty()) {
+        fileDialog->setNameFilters(nameFilters);
+    }
+
+    if (!mimeTypeFilters.isEmpty()) {
+        fileDialog->setMimeTypeFilters(mimeTypeFilters);
     }
 
     if (fileDialog->exec() == QDialog::Accepted) {
