@@ -41,6 +41,7 @@ public Q_SLOTS:
     void RemoveNotification(const QString &app_id,
                             const QString &id);
 private Q_SLOTS:
+    void notificationActivated(uint action);
     void notificationClosed();
 
 private:

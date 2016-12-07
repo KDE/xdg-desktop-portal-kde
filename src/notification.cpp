@@ -19,6 +19,9 @@
 
 #include "notification.h"
 
+#include <QDBusArgument>
+#include <QDBusConnection>
+#include <QDBusMessage>
 #include <QLoggingCategory>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeNotification, "xdg-desktop-portal-kde-notification")
@@ -42,7 +45,8 @@ void Notification::AddNotification(const QString &app_id,
     qCDebug(XdgDesktopPortalKdeNotification) << "    id: " << id;
     qCDebug(XdgDesktopPortalKdeNotification) << "    notification: " << notification;
 
-    KNotification *notify = new KNotification(id, KNotification::CloseOnTimeout | KNotification::DefaultEvent, this);
+    // We have to use "notification" as an ID because any other ID will not be configured
+    KNotification *notify = new KNotification(QLatin1String("notification"), KNotification::CloseOnTimeout | KNotification::DefaultEvent, this);
     if (notification.contains(QLatin1String("title"))) {
         notify->setTitle(notification.value(QLatin1String("title")).toString());
     }
@@ -50,7 +54,6 @@ void Notification::AddNotification(const QString &app_id,
         notify->setText(notification.value(QLatin1String("body")).toString());
     }
     if (notification.contains(QLatin1String("icon"))) {
-        // TODO: needs check whether it works or not
         notify->setIconName(notification.value(QLatin1String("icon")).toString());
     }
     if (notification.contains(QLatin1String("priority"))) {
@@ -63,20 +66,62 @@ void Notification::AddNotification(const QString &app_id,
         // TODO KNotification has no option for default action
     }
     if (notification.contains(QLatin1String("buttons"))) {
-        // TODO There is an option to set notification actions, however there is
-        // no way how to get the response back so probably no point implementing
-        // it right now
+        QList<QVariantMap> buttons;
+        QDBusArgument dbusArgument = notification.value(QLatin1String("buttons")).value<QDBusArgument>();
+        while (!dbusArgument.atEnd()) {
+            dbusArgument >> buttons;
+        }
+
+        QStringList actions;
+        Q_FOREACH (const QVariantMap &button, buttons) {
+            actions << button.value(QLatin1String("label")).toString();
+        }
+
+        if (!actions.isEmpty()) {
+            notify->setActions(actions);
+        }
     }
 
-    notify->setProperty("id", QString(app_id + QLatin1Char(':') + id));
+    notify->setProperty("app_id", app_id);
+    notify->setProperty("id", id);
+    connect(notify, static_cast<void (KNotification::*)(uint)>(&KNotification::activated), this, &Notification::notificationActivated);
     connect(notify, &KNotification::closed, this, &Notification::notificationClosed);
     notify->sendEvent();
+
+    m_notifications.insert(QString("%1:%2").arg(app_id).arg(id), notify);
+}
+
+void Notification::notificationActivated(uint action)
+{
+    KNotification *notify = qobject_cast<KNotification*>(sender());
+
+    if (!notify) {
+        return;
+    }
+
+    const QString appId = notify->property("app_id").toString();
+    const QString id = notify->property("id").toString();
+
+    qCDebug(XdgDesktopPortalKdeNotification) << "Notification activated:";
+    qCDebug(XdgDesktopPortalKdeNotification) << "    app_id: " << appId;
+    qCDebug(XdgDesktopPortalKdeNotification) << "    id: " << id;
+    qCDebug(XdgDesktopPortalKdeNotification) << "    action: " << action;
+
+    QDBusMessage message = QDBusMessage::createSignal(QLatin1String("/org/freedesktop/portal/desktop"),
+                                                      QLatin1String("org.freedesktop.portal.impl.Notification"),
+                                                      QLatin1String("ActionInvoked"));
+    message << appId << id << QString::number(action) << QVariantList();
+    QDBusConnection::sessionBus().send(message);
 }
 
 void Notification::RemoveNotification(const QString &app_id,
                                       const QString &id)
 {
-    KNotification *notify = m_notifications.take(QString(app_id + QLatin1Char(':') + id));
+    qCDebug(XdgDesktopPortalKdeNotification) << "RemoveNotification called with parameters:";
+    qCDebug(XdgDesktopPortalKdeNotification) << "    app_id: " << app_id;
+    qCDebug(XdgDesktopPortalKdeNotification) << "    id: " << id;
+
+    KNotification *notify = m_notifications.take(QString("%1:%2").arg(app_id).arg(id));
     notify->close();
     notify->deleteLater();
 }
@@ -84,6 +129,14 @@ void Notification::RemoveNotification(const QString &app_id,
 void Notification::notificationClosed()
 {
     KNotification *notify = qobject_cast<KNotification*>(sender());
-    m_notifications.remove(notify->property("id").toString());
+
+    if (!notify) {
+        return;
+    }
+
+    const QString appId = notify->property("app_id").toString();
+    const QString id = notify->property("id").toString();
+
+    m_notifications.remove(QString("%1:%2").arg(appId).arg(id));
     notify->deleteLater();
 }

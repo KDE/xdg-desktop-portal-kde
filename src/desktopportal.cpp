@@ -172,6 +172,12 @@ QString DesktopPortal::introspect(const QString &path) const
             "        <arg type=\"s\" name=\"app_id\" direction=\"in\"/>"
             "        <arg type=\"s\" name=\"id\" direction=\"in\"/>"
             "    </method>"
+            "    <signal name=\"ActionInvoked\">"
+            "       <arg type=\"s\" name=\"app_id\"/>"
+            "       <arg type=\"s\" name=\"id\"/>"
+            "       <arg type=\"s\" name=\"action\"/>"
+            "       <arg type=\"av\" name=\"parameter\"/>"
+            "    </signal>"
             "</interface>");
     }
 
