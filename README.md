@@ -12,15 +12,7 @@ that is using Qt/KDE.
  - KDE Frameworks (build)
 
 ### Build instructions:
-#### Generate dbus adaptors and interfaces (not needed for now)
 ```
-$ cd src/dbus && ./generate-interfaces-adaptors.sh
-$ cd ../..
-```
-#### Build desktop portals
-```
-$ cd src/dbus && ./generate-interfaces-adaptors.sh
-$ cd ../..
 $ mkdir build && cd build
 $ cmake .. [your_options]
 $ make -j5
