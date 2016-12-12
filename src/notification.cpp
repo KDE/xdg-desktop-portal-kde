@@ -122,8 +122,10 @@ void Notification::RemoveNotification(const QString &app_id,
     qCDebug(XdgDesktopPortalKdeNotification) << "    id: " << id;
 
     KNotification *notify = m_notifications.take(QString("%1:%2").arg(app_id).arg(id));
-    notify->close();
-    notify->deleteLater();
+    if (notify) {
+        notify->close();
+        notify->deleteLater();
+    }
 }
 
 void Notification::notificationClosed()
