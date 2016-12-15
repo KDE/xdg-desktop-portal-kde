@@ -35,10 +35,10 @@ public:
     ~Notification();
 
 public Q_SLOTS:
-    void AddNotification(const QString &app_id,
+    void addNotification(const QString &app_id,
                          const QString &id,
                          const QVariantMap &notification);
-    void RemoveNotification(const QString &app_id,
+    void removeNotification(const QString &app_id,
                             const QString &id);
 private Q_SLOTS:
     void notificationActivated(uint action);

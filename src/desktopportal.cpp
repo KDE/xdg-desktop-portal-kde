@@ -33,6 +33,7 @@ DesktopPortal::DesktopPortal(QObject *parent)
     , m_appChooser(new AppChooser())
     , m_fileChooser(new FileChooser())
     , m_notification(new Notification())
+    , m_print(new Print())
 {
 }
 
@@ -41,6 +42,7 @@ DesktopPortal::~DesktopPortal()
     delete m_appChooser;
     delete m_fileChooser;
     delete m_notification;
+    delete m_print;
 }
 
 bool DesktopPortal::handleMessage(const QDBusMessage &message, const QDBusConnection &connection)
@@ -61,12 +63,9 @@ bool DesktopPortal::handleMessage(const QDBusMessage &message, const QDBusConnec
             QVariantMap choices;
 
             QDBusArgument dbusArgument = message.arguments().at(4).value<QDBusArgument>();
-            while (!dbusArgument.atEnd()) {
-                dbusArgument >> choices;
-            }
+            dbusArgument >> choices;
 
-            qCDebug(XdgDesktopPortalKdeDesktopPortal) << choices;
-            uint response = m_appChooser->ChooseApplication(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),  // handle
+            uint response = m_appChooser->chooseApplication(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),  // handle
                                                             message.arguments().at(1).toString(),                       // app_id
                                                             message.arguments().at(2).toString(),                       // parent_window
                                                             message.arguments().at(3).toStringList(),                   // choices
@@ -81,19 +80,17 @@ bool DesktopPortal::handleMessage(const QDBusMessage &message, const QDBusConnec
         QVariantMap choices;
 
         QDBusArgument dbusArgument = message.arguments().at(4).value<QDBusArgument>();
-        while (!dbusArgument.atEnd()) {
-            dbusArgument >> choices;
-        }
+        dbusArgument >> choices;
 
         if (message.member() == QLatin1String("OpenFile")) {
-            response = m_fileChooser->OpenFile(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),  // handle
+            response = m_fileChooser->openFile(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),  // handle
                                                message.arguments().at(1).toString(),                       // app_id
                                                message.arguments().at(2).toString(),                       // parent_window
                                                message.arguments().at(3).toString(),                       // title
                                                choices,                                                    // options
                                                results);
         } else if (message.member() == QLatin1String("SaveFile")) {
-            response = m_fileChooser->SaveFile(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),  // handle
+            response = m_fileChooser->saveFile(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),  // handle
                                                message.arguments().at(1).toString(),                       // app_id
                                                message.arguments().at(2).toString(),                       // parent_window
                                                message.arguments().at(3).toString(),                       // title
@@ -103,21 +100,64 @@ bool DesktopPortal::handleMessage(const QDBusMessage &message, const QDBusConnec
 
         arguments << response;
         arguments << results;
+
     } else if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Notification")) {
         if (message.member() == QLatin1String("AddNotification")) {
             QVariantMap notificationParams;
 
             QDBusArgument dbusArgument = message.arguments().at(2).value<QDBusArgument>();
-            while (!dbusArgument.atEnd()) {
-                dbusArgument >> notificationParams;
-            }
-            m_notification->AddNotification(message.arguments().at(0).toString(),                           // app_id
+            dbusArgument >> notificationParams;
+
+            m_notification->addNotification(message.arguments().at(0).toString(),                           // app_id
                                             message.arguments().at(1).toString(),                           // id
                                             notificationParams);                                            // notification
         } else if (message.member() == QLatin1String("RemoveNotification")) {
-            m_notification->RemoveNotification(message.arguments().at(0).toString(),                        // app_id
+            m_notification->removeNotification(message.arguments().at(0).toString(),                        // app_id
                                                message.arguments().at(1).toString());                       // id
         }
+    } else if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Print")) {
+        uint response;
+        QVariantMap results;
+
+        if (message.member() == QLatin1String("Print")) {
+            QVariantMap options;
+
+            QDBusArgument dbusArgument = message.arguments().at(5).value<QDBusArgument>();
+            dbusArgument >> options;
+
+            response = m_print->print(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),            // handle
+                                      message.arguments().at(1).toString(),                                 // app_id
+                                      message.arguments().at(2).toString(),                                 // parent_window
+                                      message.arguments().at(3).toString(),                                 // title
+                                      qvariant_cast<QDBusUnixFileDescriptor>(message.arguments().at(4)),    // fd
+                                      options,                                                              // options
+                                      results);
+        } else if (message.member() == QLatin1String("PreparePrint")) {
+            QVariantMap settings;
+            QVariantMap pageSetup;
+            QVariantMap options;
+
+            QDBusArgument dbusArgument = message.arguments().at(4).value<QDBusArgument>();
+            dbusArgument >> settings;
+
+            QDBusArgument dbusArgument1 = message.arguments().at(5).value<QDBusArgument>();
+            dbusArgument1 >> pageSetup;
+
+            QDBusArgument dbusArgument2 = message.arguments().at(6).value<QDBusArgument>();
+            dbusArgument2 >> options;
+
+            response = m_print->preparePrint(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),     // handle
+                                             message.arguments().at(1).toString(),                          // app_id
+                                             message.arguments().at(2).toString(),                          // parent_window
+                                             message.arguments().at(3).toString(),                          // title
+                                             settings,                                                      // settings
+                                             pageSetup,                                                     // page_setup
+                                             options,                                                       // options
+                                             results);
+        }
+
+        arguments << response;
+        arguments << results;
     }
 
     QDBusMessage reply = message.createReply();
@@ -178,6 +218,29 @@ QString DesktopPortal::introspect(const QString &path) const
             "       <arg type=\"s\" name=\"action\"/>"
             "       <arg type=\"av\" name=\"parameter\"/>"
             "    </signal>"
+            "</interface>"
+                    "<interface name=\"org.freedesktop.impl.portal.Print\">"
+            "    <method name=\"Print\">"
+            "        <arg type=\"o\" name=\"handle\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"app_id\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"parent_window\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"title\" direction=\"in\"/>"
+            "        <arg type=\"h\" name=\"fd\" direction=\"in\"/>"
+            "        <arg type=\"a{sv}\" name=\"options\" direction=\"in\"/>"
+            "        <arg type=\"u\" name=\"response\" direction=\"out\"/>"
+            "        <arg type=\"a{sv}\" name=\"results\" direction=\"out\"/>"
+            "    </method>"
+            "    <method name=\"PreparePrint\">"
+            "        <arg type=\"o\" name=\"handle\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"app_id\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"parent_window\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"title\" direction=\"in\"/>"
+            "        <arg type=\"a{sv}\" name=\"settings\" direction=\"in\"/>"
+            "        <arg type=\"a{sv}\" name=\"page_setup\" direction=\"in\"/>"
+            "        <arg type=\"a{sv}\" name=\"options\" direction=\"in\"/>"
+            "        <arg type=\"u\" name=\"response\" direction=\"out\"/>"
+            "        <arg type=\"a{sv}\" name=\"results\" direction=\"out\"/>"
+            "    </method>"
             "</interface>");
     }
 

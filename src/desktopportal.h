@@ -27,6 +27,7 @@
 #include "appchooser.h"
 #include "filechooser.h"
 #include "notification.h"
+#include "print.h"
 
 class DesktopPortal : public QDBusVirtualObject
 {
@@ -41,6 +42,7 @@ private:
     AppChooser *m_appChooser;
     FileChooser *m_fileChooser;
     Notification *m_notification;
+    Print *m_print;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H

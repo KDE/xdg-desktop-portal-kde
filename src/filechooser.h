@@ -47,14 +47,14 @@ public:
     ~FileChooser();
 
 public Q_SLOTS:
-    uint OpenFile(const QDBusObjectPath &handle,
+    uint openFile(const QDBusObjectPath &handle,
                   const QString &app_id,
                   const QString &parent_window,
                   const QString &title,
                   const QVariantMap &options,
                   QVariantMap &results);
 
-    uint SaveFile(const QDBusObjectPath &handle,
+    uint saveFile(const QDBusObjectPath &handle,
                   const QString &app_id,
                   const QString &parent_window,
                   const QString &title,

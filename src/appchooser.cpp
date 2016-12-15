@@ -34,7 +34,7 @@ AppChooser::~AppChooser()
 {
 }
 
-uint AppChooser::ChooseApplication(const QDBusObjectPath& handle,
+uint AppChooser::chooseApplication(const QDBusObjectPath& handle,
                                    const QString& app_id,
                                    const QString& parent_window,
                                    const QStringList& choices,

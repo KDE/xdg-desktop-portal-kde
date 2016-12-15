@@ -88,7 +88,7 @@ FileChooser::~FileChooser()
 {
 }
 
-uint FileChooser::OpenFile(const QDBusObjectPath &handle,
+uint FileChooser::openFile(const QDBusObjectPath &handle,
                            const QString &app_id,
                            const QString &parent_window,
                            const QString &title,
@@ -179,7 +179,7 @@ uint FileChooser::OpenFile(const QDBusObjectPath &handle,
     return 1;
 }
 
-uint FileChooser::SaveFile(const QDBusObjectPath &handle,
+uint FileChooser::saveFile(const QDBusObjectPath &handle,
                            const QString &app_id,
                            const QString &parent_window,
                            const QString &title,

@@ -33,7 +33,7 @@ public:
     ~AppChooser();
 
 public Q_SLOTS:
-    uint ChooseApplication(const QDBusObjectPath &handle,
+    uint chooseApplication(const QDBusObjectPath &handle,
                            const QString &app_id,
                            const QString &parent_window,
                            const QStringList &choices,

@@ -36,7 +36,7 @@ Notification::~Notification()
 {
 }
 
-void Notification::AddNotification(const QString &app_id,
+void Notification::addNotification(const QString &app_id,
                                    const QString &id,
                                    const QVariantMap &notification)
 {
@@ -114,7 +114,7 @@ void Notification::notificationActivated(uint action)
     QDBusConnection::sessionBus().send(message);
 }
 
-void Notification::RemoveNotification(const QString &app_id,
+void Notification::removeNotification(const QString &app_id,
                                       const QString &id)
 {
     qCDebug(XdgDesktopPortalKdeNotification) << "RemoveNotification called with parameters:";
