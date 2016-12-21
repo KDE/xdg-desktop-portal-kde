@@ -54,6 +54,22 @@ public Q_SLOTS:
                       QVariantMap &results);
 private:
     QMap<uint, QPrinter*> m_printers;
+
+    bool cupsAvailable();
+    QStringList printArguments(const QPrinter *printer, bool useCupsOptions, const QString &version,
+                               QPrinter::Orientation documentOrientation);
+    QStringList destination(const QPrinter *printer, const QString &version);
+    QStringList copies(const QPrinter *printer, const QString &version);
+    QStringList jobname(const QPrinter *printer, const QString &version);
+    QStringList cupsOptions(const QPrinter *printer, QPrinter::Orientation documentOrientation);
+    QStringList optionMedia(const QPrinter *printer);
+    QString mediaPaperSource(const QPrinter *printer);
+    QStringList optionOrientation(const QPrinter *printer, QPrinter::Orientation documentOrientation);
+    QStringList optionDoubleSidedPrinting(const QPrinter *printer);
+    QStringList optionPageOrder(const QPrinter *printer);
+    QStringList optionCollateCopies(const QPrinter *printer);
+    QStringList optionPageMargins(const QPrinter *printer);
+    QStringList optionCupsProperties(const QPrinter *printer);
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_PRINT_H

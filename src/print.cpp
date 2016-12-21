@@ -20,12 +20,18 @@
 
 #include "print.h"
 
+#include <KProcess>
+
+#include <QFile>
 #include <QLoggingCategory>
 #include <QPrinter>
+#include <QPrintEngine>
 #include <QPrintDialog>
+#include <QStandardPaths>
 // #include <QtPrintSupport/private/qprint_p.h>
 #include <QtPrintSupport/private/qcups_p.h>
 #include <QUrl>
+#include <QTemporaryFile>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdePrint, "xdg-desktop-portal-kde-print")
 
@@ -65,8 +71,8 @@ struct StandardPageSize {
 // Standard page sizes taken from the Postscript PPD Standard v4.3
 // See http://partners.adobe.com/public/developer/en/ps/5003.PPD_Spec_v4.3.pdf
 // Excludes all Transverse and Rotated sizes
-// NB! This table needs to be in sync with QPageSize::PageSizeId
-static const StandardPageSize qt_pageSizes[] = {
+// NB!This table needs to be in sync with QPageSize::PageSizeId
+const static StandardPageSize qt_pageSizes[] = {
 
     // Existing Qt sizes including ISO, US, ANSI and other standards
     {QPageSize::A4, "A4"},
@@ -256,6 +262,93 @@ uint Print::print(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdePrint) << "    fd: " << fd.fileDescriptor();
     qCDebug(XdgDesktopPortalKdePrint) << "    options: " << options;
 
+    QFile fileToPrint;
+    if (fileToPrint.open(fd.fileDescriptor(), QIODevice::ReadOnly)) {
+        QPrinter *printer = nullptr;
+        // Use printer associated with token if possible
+        if (options.contains(QLatin1String("token"))) {
+            printer = m_printers.value(options.value(QLatin1String("token")).toUInt());
+        } else {
+            // Use the last configured printer otherwise
+            if (m_printers.count()) {
+                printer = m_printers.last();
+            }
+        }
+
+        if (!printer) {
+            qCDebug(XdgDesktopPortalKdePrint) << "Failed to print: no QPrinter what can be used for printing";
+            return 1;
+        }
+
+        // We are going to print to a file
+        if (!printer->outputFileName().isEmpty()) {
+            if (QFile::exists(printer->outputFileName())) {
+                QFile::remove(printer->outputFileName());
+            }
+
+            QByteArray pdfContent = fileToPrint.readAll();
+            QFile outputFile(printer->outputFileName());
+            if (outputFile.open(QIODevice::ReadWrite)) {
+                outputFile.write(pdfContent);
+                outputFile.close();
+            } else {
+                qCDebug(XdgDesktopPortalKdePrint) << "Failed to print: couldn't open the file for writing";
+            }
+
+            fileToPrint.close();
+
+            return 0;
+
+            // TODO poscript support?
+
+            // Print to a printer via lpr command
+        } else {
+            // The code below is copied from Okular
+            bool useCupsOptions = cupsAvailable();
+            QString exe;
+            QStringList argList;
+
+            //Decide what executable to use to print with, need the CUPS version of lpr if available
+            //Some distros name the CUPS version of lpr as lpr-cups or lpr.cups so try those first
+            //before default to lpr, or failing that to lp
+            if (!QStandardPaths::findExecutable(QStringLiteral("lpr-cups")).isEmpty()) {
+                exe = QStringLiteral("lpr-cups");
+            } else if (!QStandardPaths::findExecutable(QStringLiteral("lpr.cups")).isEmpty()) {
+                exe = QStringLiteral("lpr.cups");
+            } else if (!QStandardPaths::findExecutable(QStringLiteral("lpr")).isEmpty()) {
+                exe = QStringLiteral("lpr");
+            } else if (!QStandardPaths::findExecutable(QStringLiteral("lp")).isEmpty()) {
+                exe = QStringLiteral("lp");
+            } else {
+                qCDebug(XdgDesktopPortalKdePrint) << "Failed to print: couldn't run lpr command for printing";
+                return 1;
+            }
+
+            QTemporaryFile tempFile;
+            if (tempFile.open()) {
+                tempFile.write(fileToPrint.readAll());
+                tempFile.close();
+            } else {
+                qCDebug(XdgDesktopPortalKdePrint) << "Failed to print: couldn't create temporary file for printing";
+                return 1;
+            }
+
+            argList = printArguments(printer, useCupsOptions, exe, printer->orientation()) << tempFile.fileName();
+            // qCDebug(XdgDesktopPortalKdePrint) << "Executing" << exe << "with arguments" << argList;
+            int retValue = KProcess::execute(exe, argList);
+
+            if (retValue <= 0) {
+                qCDebug(XdgDesktopPortalKdePrint) << "Failed to print: running KProcess failed";
+                return 1;
+            }
+
+            return retValue;
+        }
+    } else {
+        qCDebug(XdgDesktopPortalKdePrint) << "Failed to print: couldn't not read from fd";
+        return 1;
+    }
+
     return 0;
 }
 
@@ -371,7 +464,7 @@ uint Print::preparePrint(const QDBusObjectPath &handle,
             QCUPSSupport::setPageSet(printer, QCUPSSupport::OddPages);
         }
     }
-    QCUPSSupport::setPageSet(printer, QCUPSSupport::EvenPages);
+
     if (settings.contains(QLatin1String("finishings"))) {
         // TODO doesn't seem to be used by Qt
     }
@@ -472,7 +565,7 @@ uint Print::preparePrint(const QDBusObjectPath &handle,
     if (page_setup.contains(QLatin1String("DisplayName"))) {
         // TODO: This should just set a different name for the standardized one I guess
         printer->setPageSize(QPageSize(printer->pageLayout().pageSize().size(QPageSize::Millimeter),
-                                         QPageSize::Millimeter, page_setup.value(QLatin1String("DisplayName")).toString()));
+                                       QPageSize::Millimeter, page_setup.value(QLatin1String("DisplayName")).toString()));
     }
     if (page_setup.contains(QLatin1String("Width")) && page_setup.contains(QLatin1String("Height"))) {
         QSizeF paperSize;
@@ -495,7 +588,7 @@ uint Print::preparePrint(const QDBusObjectPath &handle,
     if (page_setup.contains(QLatin1String("Orientation"))) {
         const QString orientation = page_setup.value(QLatin1String("Orientation")).toString();
         if (orientation == QLatin1String("landscape") ||
-            orientation == QLatin1String("reverse_landscape")) {
+                orientation == QLatin1String("reverse_landscape")) {
             printer->setPageOrientation(QPageLayout::Landscape);
         } else if (orientation == QLatin1String("portrait") ||
                    orientation == QLatin1String("reverse_portrait")) {
@@ -544,9 +637,11 @@ uint Print::preparePrint(const QDBusObjectPath &handle,
         }
         // Set cups specific properties
         const QStringList cupsOptions = QCUPSSupport::cupsOptionsList(printer);
+        qCDebug(XdgDesktopPortalKdePrint) << cupsOptions;
         if (cupsOptions.contains(QLatin1String("page-set"))) {
             resultingSettings.insert(QLatin1String("page-set"), cupsOptions.at(cupsOptions.indexOf(QLatin1String("page-set")) + 1));
-        }        if (cupsOptions.contains(QLatin1String("number-up"))) {
+        }
+        if (cupsOptions.contains(QLatin1String("number-up"))) {
             resultingSettings.insert(QLatin1String("number-up"), cupsOptions.at(cupsOptions.indexOf(QLatin1String("number-up")) + 1));
         }
         if (cupsOptions.contains(QLatin1String("number-up-layout"))) {
@@ -561,24 +656,6 @@ uint Print::preparePrint(const QDBusObjectPath &handle,
             resultingSettings.insert(QLatin1String("output-uri"), QUrl::fromLocalFile(printer->outputFileName()).toDisplayString());
         }
 
-//         resultingSettings.insert(QLatin1String("printer"), QLatin1String("Canon_MG7500_series"));
-//         resultingSettings.insert(QLatin1String("print-at"), QLatin1String("now"));
-//         resultingSettings.insert(QLatin1String("scale"), QLatin1String("100"));
-//         resultingSettings.insert(QLatin1String("cups-job-sheets"), QLatin1String("none,none"));
-//         resultingSettings.insert(QLatin1String("cups-number-up"), QLatin1String("1"));
-//         resultingSettings.insert(QLatin1String("cups-Resolution"), QLatin1String("601x600dpi"));
-//         resultingSettings.insert(QLatin1String("cups-MediaType"), QLatin1String("Plain"));
-//         resultingSettings.insert(QLatin1String("default-source"), QLatin1String("cassette"));
-//         resultingSettings.insert(QLatin1String("cups-StpBrightness"), QLatin1String("None"));
-//         resultingSettings.insert(QLatin1String("cups-Duplex"), QLatin1String("None"));
-//         resultingSettings.insert(QLatin1String("cups-Resolution"), QLatin1String("601x600dpi"));
-//         resultingSettings.insert(QLatin1String("cups-ColorModel"), QLatin1String("RGB"));
-//         resultingSettings.insert(QLatin1String("dcups-StpQuality"), QLatin1String("Standard"));
-//         resultingSettings.insert(QLatin1String("media-type"), QLatin1String("Plain"));
-//         resultingSettings.insert(QLatin1String("cups-job-priority"), QLatin1String("50"));
-//         resultingSettings.insert(QLatin1String("cups-StpContrast"), QLatin1String("None"));
-//         resultingSettings.insert(QLatin1String("cups-StpInkType"), QLatin1String("CMYK"));
-
         // Process back page setup
         resultingPageSetup.insert(QLatin1String("PPDName"), qt_keyForPageSizeId(printer->pageLayout().pageSize().id()));
         // TODO: verify if this make sense
@@ -588,7 +665,7 @@ uint Print::preparePrint(const QDBusObjectPath &handle,
         resultingPageSetup.insert(QLatin1String("Width"), printer->pageLayout().pageSize().size(QPageSize::Millimeter).width());
         resultingPageSetup.insert(QLatin1String("Height"), printer->pageLayout().pageSize().size(QPageSize::Millimeter).height());
         resultingPageSetup.insert(QLatin1String("MarginTop"), printer->pageLayout().margins(QPageLayout::Millimeter).top());
-        resultingPageSetup.insert(QLatin1String("MarginBottom"),printer->pageLayout().margins(QPageLayout::Millimeter).bottom());
+        resultingPageSetup.insert(QLatin1String("MarginBottom"), printer->pageLayout().margins(QPageLayout::Millimeter).bottom());
         resultingPageSetup.insert(QLatin1String("MarginLeft"), printer->pageLayout().margins(QPageLayout::Millimeter).left());
         resultingPageSetup.insert(QLatin1String("MarginRight"), printer->pageLayout().margins(QPageLayout::Millimeter).right());
         resultingPageSetup.insert(QLatin1String("Orientation"), printer->pageLayout().orientation() == QPageLayout::Landscape ? QLatin1String("landscape") : QLatin1String("portrait"));
@@ -614,4 +691,260 @@ uint Print::preparePrint(const QDBusObjectPath &handle,
     }
 
     return 0;
+}
+
+QStringList Print::destination(const QPrinter *printer, const QString &version)
+{
+    if (version == QLatin1String("lp")) {
+        return QStringList(QStringLiteral("-d")) << printer->printerName();
+    }
+
+    if (version.startsWith(QLatin1String("lpr"))) {
+        return QStringList(QStringLiteral("-P")) << printer->printerName();
+    }
+
+    return QStringList();
+}
+
+QStringList Print::copies(const QPrinter *printer, const QString &version)
+{
+    int cp = printer->actualNumCopies();
+
+    if (version == QLatin1String("lp")) {
+        return QStringList(QStringLiteral("-n")) << QStringLiteral("%1").arg(cp);
+    }
+
+    if (version.startsWith(QLatin1String("lpr"))) {
+        return QStringList() << QStringLiteral("-#%1").arg(cp);
+    }
+
+    return QStringList();
+}
+
+QStringList Print::jobname(const QPrinter *printer, const QString &version)
+{
+    if (!printer->docName().isEmpty()) {
+
+        if (version == QLatin1String("lp")) {
+            return QStringList(QStringLiteral("-t")) << printer->docName();
+        }
+
+        if (version.startsWith(QLatin1String("lpr"))) {
+            const QString shortenedDocName = QString::fromUtf8(printer->docName().toUtf8().left(255));
+            return QStringList(QStringLiteral("-J")) << shortenedDocName;
+        }
+    }
+
+    return QStringList();
+}
+
+// What about Upper and MultiPurpose?  And others in PPD???
+QString Print::mediaPaperSource(const QPrinter *printer)
+{
+    switch (printer->paperSource()) {
+    case QPrinter::Auto:
+        return QString();
+    case QPrinter::Cassette:
+        return QStringLiteral("Cassette");
+    case QPrinter::Envelope:
+        return QStringLiteral("Envelope");
+    case QPrinter::EnvelopeManual:
+        return QStringLiteral("EnvelopeManual");
+    case QPrinter::FormSource:
+        return QStringLiteral("FormSource");
+    case QPrinter::LargeCapacity:
+        return QStringLiteral("LargeCapacity");
+    case QPrinter::LargeFormat:
+        return QStringLiteral("LargeFormat");
+    case QPrinter::Lower:
+        return QStringLiteral("Lower");
+    case QPrinter::MaxPageSource:
+        return QStringLiteral("MaxPageSource");
+    case QPrinter::Middle:
+        return QStringLiteral("Middle");
+    case QPrinter::Manual:
+        return QStringLiteral("Manual");
+    case QPrinter::OnlyOne:
+        return QStringLiteral("OnlyOne");
+    case QPrinter::Tractor:
+        return QStringLiteral("Tractor");
+    case QPrinter::SmallFormat:
+        return QStringLiteral("SmallFormat");
+    default:
+        return QString();
+    }
+}
+
+QStringList Print::optionOrientation(const QPrinter *printer, QPrinter::Orientation documentOrientation)
+{
+    // portrait and landscape options rotate the document according to the document orientation
+    // If we want to print a landscape document as one would expect it, we have to pass the
+    // portrait option so that the document is not rotated additionally
+    if (printer->orientation() == documentOrientation) {
+        // the user wants the document printed as is
+        return QStringList(QStringLiteral("-o")) << QStringLiteral("portrait");
+    } else {
+        // the user expects the document being rotated by 90 degrees
+        return QStringList(QStringLiteral("-o")) << QStringLiteral("landscape");
+    }
+}
+
+QStringList Print::optionDoubleSidedPrinting(const QPrinter *printer)
+{
+    switch (printer->duplex()) {
+    case QPrinter::DuplexNone:
+        return QStringList(QStringLiteral("-o")) << QStringLiteral("sides=one-sided");
+    case QPrinter::DuplexAuto:
+        if (printer->orientation() == QPrinter::Landscape) {
+            return QStringList(QStringLiteral("-o")) << QStringLiteral("sides=two-sided-short-edge");
+        } else {
+            return QStringList(QStringLiteral("-o")) << QStringLiteral("sides=two-sided-long-edge");
+        }
+    case QPrinter::DuplexLongSide:
+        return QStringList(QStringLiteral("-o")) << QStringLiteral("sides=two-sided-long-edge");
+    case QPrinter::DuplexShortSide:
+        return QStringList(QStringLiteral("-o")) << QStringLiteral("sides=two-sided-short-edge");
+    default:
+        return QStringList();  //Use printer default
+    }
+}
+
+QStringList Print::optionPageOrder(const QPrinter *printer)
+{
+    if (printer->pageOrder() == QPrinter::LastPageFirst) {
+        return QStringList(QStringLiteral("-o")) << QStringLiteral("outputorder=reverse");
+    }
+    return QStringList(QStringLiteral("-o")) << QStringLiteral("outputorder=normal");
+}
+
+QStringList Print::optionCollateCopies(const QPrinter *printer)
+{
+    if (printer->collateCopies()) {
+        return QStringList(QStringLiteral("-o")) << QStringLiteral("Collate=True");
+    }
+    return QStringList(QStringLiteral("-o")) << QStringLiteral("Collate=False");
+}
+
+QStringList Print::optionPageMargins(const QPrinter *printer)
+{
+    if (printer->printEngine()->property(QPrintEngine::PPK_PageMargins).isNull()) {
+        return QStringList();
+    } else {
+        qreal l, t, r, b;
+        printer->getPageMargins(&l, &t, &r, &b, QPrinter::Point);
+        return QStringList(QStringLiteral("-o")) << QStringLiteral("page-left=%1").arg(l)
+               <<  QStringLiteral("-o")  << QStringLiteral("page-top=%1").arg(t)
+               <<  QStringLiteral("-o")  << QStringLiteral("page-right=%1").arg(r)
+               <<  QStringLiteral("-o")  << QStringLiteral("page-bottom=%1").arg(b) << QStringLiteral("-o") << QStringLiteral("fit-to-page");
+    }
+}
+
+QStringList Print::optionCupsProperties(const QPrinter *printer)
+{
+    QStringList dialogOptions = printer->printEngine()->property(QPrintEngine::PrintEnginePropertyKey(0xfe00)).toStringList();
+    QStringList cupsOptions;
+
+    for (int i = 0; i < dialogOptions.count(); i = i + 2) {
+        if (dialogOptions[i + 1].isEmpty()) {
+            cupsOptions << QStringLiteral("-o") << dialogOptions[i];
+        } else {
+            cupsOptions << QStringLiteral("-o") << dialogOptions[i] + QLatin1Char('=') + dialogOptions[i + 1];
+        }
+    }
+
+    return cupsOptions;
+}
+
+QStringList Print::optionMedia(const QPrinter *printer)
+{
+    if (!qt_keyForPageSizeId(printer->pageLayout().pageSize().id()).isEmpty() &&
+            !mediaPaperSource(printer).isEmpty()) {
+        return QStringList(QStringLiteral("-o")) <<
+               QStringLiteral("media=%1,%2").arg(qt_keyForPageSizeId(printer->pageLayout().pageSize().id()), mediaPaperSource(printer));
+    }
+
+    if (!qt_keyForPageSizeId(printer->pageLayout().pageSize().id()).isEmpty()) {
+        return QStringList(QStringLiteral("-o")) <<
+               QStringLiteral("media=%1").arg(qt_keyForPageSizeId(printer->pageLayout().pageSize().id()));
+    }
+
+    if (!mediaPaperSource(printer).isEmpty()) {
+        return QStringList(QStringLiteral("-o")) <<
+               QStringLiteral("media=%1").arg(mediaPaperSource(printer));
+    }
+
+    return QStringList();
+}
+
+QStringList Print::cupsOptions(const QPrinter *printer, QPrinter::Orientation documentOrientation)
+{
+    QStringList optionList;
+
+    if (!optionMedia(printer).isEmpty()) {
+        optionList << optionMedia(printer);
+    }
+
+    if (!optionOrientation(printer, documentOrientation).isEmpty()) {
+        optionList << optionOrientation(printer, documentOrientation);
+    }
+
+    if (!optionDoubleSidedPrinting(printer).isEmpty()) {
+        optionList << optionDoubleSidedPrinting(printer);
+    }
+
+    if (!optionPageOrder(printer).isEmpty()) {
+        optionList << optionPageOrder(printer);
+    }
+
+    if (!optionCollateCopies(printer).isEmpty()) {
+        optionList << optionCollateCopies(printer);
+    }
+
+    if (!optionPageMargins(printer).isEmpty()) {
+        optionList << optionPageMargins(printer);
+    }
+
+    optionList << optionCupsProperties(printer);
+
+    return optionList;
+}
+
+QStringList Print::printArguments(const QPrinter *printer, bool useCupsOptions,
+                                  const QString &version, QPrinter::Orientation documentOrientation)
+{
+    QStringList argList;
+
+    if (!destination(printer, version).isEmpty()) {
+        argList << destination(printer, version);
+    }
+
+    if (!copies(printer, version).isEmpty()) {
+        argList << copies(printer, version);
+    }
+
+    if (!jobname(printer, version).isEmpty()) {
+        argList << jobname(printer, version);
+    }
+
+    if (useCupsOptions && !cupsOptions(printer, documentOrientation).isEmpty()) {
+        argList << cupsOptions(printer, documentOrientation);
+    }
+
+    if (version == QLatin1String("lp")) {
+        argList << QStringLiteral("--");
+    }
+
+    return argList;
+}
+
+bool Print::cupsAvailable()
+{
+    // Ideally we would have access to the private Qt method
+    // QCUPSSupport::cupsAvailable() to do this as it is very complex routine.
+    // However, if CUPS is available then QPrinter::numCopies() will always return 1
+    // whereas if CUPS is not available it will return the real number of copies.
+    // This behaviour is guaranteed never to change, so we can use it as a reliable substitute.
+    QPrinter testPrinter;
+    testPrinter.setNumCopies(2);
+    return (testPrinter.numCopies() == 1);
 }

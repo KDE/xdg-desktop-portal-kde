@@ -31,6 +31,7 @@ target_link_libraries(xdg-desktop-portal-kde
     Qt5::DBus
     Qt5::PrintSupport
     Qt5::Widgets
+    KF5::CoreAddons
     KF5::I18n
     KF5::Notifications
 )
