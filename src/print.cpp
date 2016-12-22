@@ -334,7 +334,7 @@ uint Print::print(const QDBusObjectPath &handle,
             }
 
             argList = printArguments(printer, useCupsOptions, exe, printer->orientation()) << tempFile.fileName();
-            // qCDebug(XdgDesktopPortalKdePrint) << "Executing" << exe << "with arguments" << argList;
+            // qCDebug(XdgDesktopPortalKdePrint) << "Executing" << exe << "with arguments" << argList << tempFile.fileName();
             int retValue = KProcess::execute(exe, argList);
 
             if (retValue <= 0) {
@@ -845,6 +845,11 @@ QStringList Print::optionCupsProperties(const QPrinter *printer)
     QStringList cupsOptions;
 
     for (int i = 0; i < dialogOptions.count(); i = i + 2) {
+        // Ignore some cups properties as the pdf we get is already formatted using these
+        if (dialogOptions[i] == QLatin1String("number-up") || dialogOptions[i] == QLatin1String("number-up-layout")) {
+            continue;
+        }
+
         if (dialogOptions[i + 1].isEmpty()) {
             cupsOptions << QStringLiteral("-o") << dialogOptions[i];
         } else {
@@ -876,17 +881,34 @@ QStringList Print::optionMedia(const QPrinter *printer)
     return QStringList();
 }
 
+QStringList Print::pages(const QPrinter *printer, bool useCupsOptions, const QString &version)
+{
+    if (printer->printRange() == QPrinter::PageRange) {
+        if (version == QLatin1String("lp")) {
+            return QStringList(QStringLiteral("-P")) << QStringLiteral("%1-%2").arg(printer->fromPage())
+                   .arg(printer->toPage());
+        }
+
+        if (version.startsWith(QLatin1String("lpr")) && useCupsOptions) {
+            return QStringList(QStringLiteral("-o")) << QStringLiteral("page-ranges=%1-%2").arg(printer->fromPage())
+                   .arg(printer->toPage());
+        }
+    }
+
+    return QStringList(); // AllPages
+}
+
 QStringList Print::cupsOptions(const QPrinter *printer, QPrinter::Orientation documentOrientation)
 {
     QStringList optionList;
 
-    if (!optionMedia(printer).isEmpty()) {
-        optionList << optionMedia(printer);
-    }
+    // if (!optionMedia(printer).isEmpty()) {
+    //     optionList << optionMedia(printer);
+    // }
 
-    if (!optionOrientation(printer, documentOrientation).isEmpty()) {
-        optionList << optionOrientation(printer, documentOrientation);
-    }
+    // if (!optionOrientation(printer, documentOrientation).isEmpty()) {
+    //     optionList << optionOrientation(printer, documentOrientation);
+    // }
 
     if (!optionDoubleSidedPrinting(printer).isEmpty()) {
         optionList << optionDoubleSidedPrinting(printer);
@@ -900,9 +922,9 @@ QStringList Print::cupsOptions(const QPrinter *printer, QPrinter::Orientation do
         optionList << optionCollateCopies(printer);
     }
 
-    if (!optionPageMargins(printer).isEmpty()) {
-        optionList << optionPageMargins(printer);
-    }
+    // if (!optionPageMargins(printer).isEmpty()) {
+    //     optionList << optionPageMargins(printer);
+    // }
 
     optionList << optionCupsProperties(printer);
 
@@ -918,13 +940,17 @@ QStringList Print::printArguments(const QPrinter *printer, bool useCupsOptions,
         argList << destination(printer, version);
     }
 
-    if (!copies(printer, version).isEmpty()) {
-        argList << copies(printer, version);
-    }
+    // if (!copies(printer, version).isEmpty()) {
+    //     argList << copies(printer, version);
+    // }
 
     if (!jobname(printer, version).isEmpty()) {
         argList << jobname(printer, version);
     }
+
+    // if (!pages(printer, useCupsOptions, version).isEmpty()) {
+    //     argList << pages(printer, useCupsOptions, version);
+    // }
 
     if (useCupsOptions && !cupsOptions(printer, documentOrientation).isEmpty()) {
         argList << cupsOptions(printer, documentOrientation);

@@ -62,6 +62,7 @@ private:
     QStringList copies(const QPrinter *printer, const QString &version);
     QStringList jobname(const QPrinter *printer, const QString &version);
     QStringList cupsOptions(const QPrinter *printer, QPrinter::Orientation documentOrientation);
+    QStringList pages(const QPrinter *printer, bool useCupsOptions, const QString &version);
     QStringList optionMedia(const QPrinter *printer);
     QString mediaPaperSource(const QPrinter *printer);
     QStringList optionOrientation(const QPrinter *printer, QPrinter::Orientation documentOrientation);
