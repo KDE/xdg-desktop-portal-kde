@@ -12,12 +12,6 @@ set(xdg_desktop_portal_kde_SRCS
     filechooser.cpp
     notification.cpp
     print.cpp
-
-    # DBus related stuff (not used right now)
-    # dbus/AppChooserAdaptor.cpp
-    # dbus/AppChooserInterface.cpp
-    # dbus/FileChooserAdaptor.cpp
-    # dbus/FileChooserInterface.cpp
 )
 
 ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
