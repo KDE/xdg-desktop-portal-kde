@@ -24,6 +24,7 @@
 #include <QDBusArgument>
 #include <QLoggingCategory>
 #include <QFileDialog>
+#include <KLocalizedString>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeFileChooser, "xdg-desktop-portal-kde-file-chooser")
 
@@ -155,7 +156,7 @@ uint FileChooser::openFile(const QDBusObjectPath &handle,
     fileDialog->setWindowTitle(title);
     fileDialog->setModal(modalDialog);
     fileDialog->setFileMode(multipleFiles ? QFileDialog::ExistingFiles : QFileDialog::ExistingFile);
-    fileDialog->setLabelText(QFileDialog::Accept, !acceptLabel.isEmpty() ? acceptLabel : QLatin1String("Open"));
+    fileDialog->setLabelText(QFileDialog::Accept, !acceptLabel.isEmpty() ? acceptLabel : i18n("Open"));
 
     if (!nameFilters.isEmpty()) {
         fileDialog->setNameFilters(nameFilters);

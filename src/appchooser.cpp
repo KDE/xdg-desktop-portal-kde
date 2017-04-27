@@ -22,6 +22,8 @@
 
 #include <QLoggingCategory>
 
+#include <KLocalizedString>
+
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAppChooser, "xdg-desktop-portal-kde-app-chooser")
 
 
@@ -72,8 +74,8 @@ uint AppChooser::chooseApplication(const QDBusObjectPath& handle,
     // TODO implement heading
 
     AppChooserDialog *appDialog = new AppChooserDialog(choices);
-    appDialog->setLabelText(acceptLabel.isEmpty() ? QLatin1String("Select") : acceptLabel);
-    appDialog->setWindowTitle(title.isEmpty() ? QLatin1String("Select application") : title);
+    appDialog->setLabelText(acceptLabel.isEmpty() ? i18n("Select") : acceptLabel);
+    appDialog->setWindowTitle(title.isEmpty() ? i18n("Select application") : title);
 
     if (!latestChoice.isEmpty()) {
         appDialog->setSelectedApplication(latestChoice);
