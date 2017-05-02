@@ -1,5 +1,7 @@
 /*
- * Copyright © 2016 Red Hat, Inc
+ * Copyright © 2016-2017 Jan Grulich <jgrulich@redhat.com>
+ * Copyright © 2007,2010 by John Layt <john@layt.net>
+ * Copyright © 2007 Alex Merry <huntedhacker@tiscali.co.uk>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -14,8 +16,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  *
- * Authors:
- *       Jan Grulich <jgrulich@redhat.com>
  */
 
 #include "print.h"
