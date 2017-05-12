@@ -62,6 +62,9 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, QDialog *parent, 
     connect(m_dialog->buttonBox, &QDialogButtonBox::rejected, this, &AppChooserDialog::reject);
     connect(m_dialog->appView, &QListWidget::itemDoubleClicked, this, &AppChooserDialog::accept);
     connect(m_dialog->searchEdit, &QLineEdit::textChanged, this, &AppChooserDialog::searchTextChanged);
+
+    m_dialog->buttonBox->button(QDialogButtonBox::Ok)->setText(i18n("Select"));
+    setWindowTitle(i18n("Select application"));
 }
 
 AppChooserDialog::~AppChooserDialog()
@@ -84,11 +87,6 @@ void AppChooserDialog::setSelectedApplication(const QString &applicationName)
     }
 }
 
-void AppChooserDialog::setLabelText(const QString &label)
-{
-    m_dialog->buttonBox->button(QDialogButtonBox::Ok)->setText(label);
-}
-
 void AppChooserDialog::searchTextChanged(const QString &text)
 {
     for (int i = 0; i < m_dialog->appView->count(); i++) {
@@ -100,4 +98,3 @@ void AppChooserDialog::searchTextChanged(const QString &text)
         }
     }
 }
-

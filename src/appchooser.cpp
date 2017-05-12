@@ -50,32 +50,13 @@ uint AppChooser::chooseApplication(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeAppChooser) << "    choices: " << choices;
     qCDebug(XdgDesktopPortalKdeAppChooser) << "    options: " << options;
 
-    QString acceptLabel;
-    QString heading;
     QString latestChoice;
-    QString title;
-
-    if (options.contains(QLatin1String("accept_label"))) {
-        acceptLabel = options.value(QLatin1String("accept_label")).toString();
-    }
-
-    if (options.contains(QLatin1String("heading"))) {
-        heading = options.value(QLatin1String("heading")).toString();
-    }
 
     if (options.contains(QLatin1String("last_choice"))) {
         latestChoice = options.value(QLatin1String("last_choice")).toString();
     }
 
-    if (options.contains(QLatin1String("title"))) {
-        title = options.value(QLatin1String("title")).toString();
-    }
-
-    // TODO implement heading
-
     AppChooserDialog *appDialog = new AppChooserDialog(choices);
-    appDialog->setLabelText(acceptLabel.isEmpty() ? i18n("Select") : acceptLabel);
-    appDialog->setWindowTitle(title.isEmpty() ? i18n("Select application") : title);
 
     if (!latestChoice.isEmpty()) {
         appDialog->setSelectedApplication(latestChoice);
