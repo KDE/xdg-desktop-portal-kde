@@ -26,7 +26,6 @@
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeNotification, "xdg-desktop-portal-kde-notification")
 
-
 Notification::Notification(QObject *parent)
     : QObject(parent)
 {
@@ -88,7 +87,7 @@ void Notification::addNotification(const QString &app_id,
     connect(notify, &KNotification::closed, this, &Notification::notificationClosed);
     notify->sendEvent();
 
-    m_notifications.insert(QString("%1:%2").arg(app_id).arg(id), notify);
+    m_notifications.insert(QString("%1:%2").arg(app_id, id), notify);
 }
 
 void Notification::notificationActivated(uint action)
@@ -121,7 +120,7 @@ void Notification::removeNotification(const QString &app_id,
     qCDebug(XdgDesktopPortalKdeNotification) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeNotification) << "    id: " << id;
 
-    KNotification *notify = m_notifications.take(QString("%1:%2").arg(app_id).arg(id));
+    KNotification *notify = m_notifications.take(QString("%1:%2").arg(app_id, id));
     if (notify) {
         notify->close();
         notify->deleteLater();
@@ -139,6 +138,6 @@ void Notification::notificationClosed()
     const QString appId = notify->property("app_id").toString();
     const QString id = notify->property("id").toString();
 
-    m_notifications.remove(QString("%1:%2").arg(appId).arg(id));
+    m_notifications.remove(QString("%1:%2").arg(appId, id));
     notify->deleteLater();
 }

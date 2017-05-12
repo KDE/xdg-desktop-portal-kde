@@ -32,7 +32,7 @@ class Print : public QObject
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Print")
 public:
-    Print(QObject *parent = 0);
+    Print(QObject *parent = nullptr);
     ~Print();
 
 public Q_SLOTS:

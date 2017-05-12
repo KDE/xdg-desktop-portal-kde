@@ -36,12 +36,12 @@ AppChooser::~AppChooser()
 {
 }
 
-uint AppChooser::chooseApplication(const QDBusObjectPath& handle,
-                                   const QString& app_id,
-                                   const QString& parent_window,
-                                   const QStringList& choices,
-                                   const QVariantMap& options,
-                                   QVariantMap& results)
+uint AppChooser::chooseApplication(const QDBusObjectPath &handle,
+                                   const QString &app_id,
+                                   const QString &parent_window,
+                                   const QStringList &choices,
+                                   const QVariantMap &options,
+                                   QVariantMap &results)
 {
     qCDebug(XdgDesktopPortalKdeAppChooser) << "ChooseApplication called with parameters:";
     qCDebug(XdgDesktopPortalKdeAppChooser) << "    handle: " << handle.path();
@@ -60,7 +60,7 @@ uint AppChooser::chooseApplication(const QDBusObjectPath& handle,
     }
 
     if (options.contains(QLatin1String("heading"))) {
-        heading = options.value(QLatin1String("heading")).toBool();
+        heading = options.value(QLatin1String("heading")).toString();
     }
 
     if (options.contains(QLatin1String("last_choice"))) {
@@ -86,6 +86,7 @@ uint AppChooser::chooseApplication(const QDBusObjectPath& handle,
         appDialog->deleteLater();
         return 0;
     }
+    appDialog->deleteLater();
 
     return 1;
 }

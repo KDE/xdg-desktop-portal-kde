@@ -687,6 +687,7 @@ uint Print::preparePrint(const QDBusObjectPath &handle,
         printDialog->deleteLater();
         return 0;
     } else {
+        printDialog->deleteLater();
         return 1;
     }
 

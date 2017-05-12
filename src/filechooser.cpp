@@ -177,6 +177,7 @@ uint FileChooser::openFile(const QDBusObjectPath &handle,
         return 0;
     }
 
+    fileDialog->deleteLater();
     return 1;
 }
 
@@ -284,6 +285,7 @@ uint FileChooser::saveFile(const QDBusObjectPath &handle,
         return 0;
     }
 
+    fileDialog->deleteLater();
     return 1;
 }
 
