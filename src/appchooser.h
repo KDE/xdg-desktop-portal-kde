@@ -29,7 +29,7 @@ class AppChooser : public QObject
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.AppChooser")
 public:
-    AppChooser(QObject *parent = 0);
+    AppChooser(QObject *parent = nullptr);
     ~AppChooser();
 
 public Q_SLOTS:
