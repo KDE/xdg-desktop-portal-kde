@@ -39,8 +39,6 @@ public:
     QString selectedApplication() const;
     void setSelectedApplication(const QString &applicationName);
 
-    void setLabelText(const QString &label);
-
 public Q_SLOTS:
     void searchTextChanged(const QString &text);
 
