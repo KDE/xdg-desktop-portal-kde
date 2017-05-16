@@ -1,7 +1,7 @@
 # xdg-desktop-portal-kde
 
 A backend implementation for [xdg-desktop-portal](http://github.com/flatpak/xdg-desktop-portal)
-that is using Qt/KDE.
+that is using Qt/KF5.
 
 ## Building xdg-desktop-portal-kde
 
