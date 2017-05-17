@@ -1,5 +1,5 @@
 /*
- * Copyright © 2016 Red Hat, Inc
+ * Copyright © 2017 Red Hat, Inc
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -18,34 +18,32 @@
  *       Jan Grulich <jgrulich@redhat.com>
  */
 
-#ifndef XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
-#define XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
+#ifndef XDG_DESKTOP_PORTAL_KDE_INHIBIT_H
+#define XDG_DESKTOP_PORTAL_KDE_INHIBIT_H
 
 #include <QObject>
-#include <QDBusVirtualObject>
+#include <QDBusObjectPath>
 
-#include "appchooser.h"
-#include "filechooser.h"
-#include "inhibit.h"
-#include "notification.h"
-#include "print.h"
+#include "request.h"
 
-class DesktopPortal : public QDBusVirtualObject
+class Inhibit : public QObject
 {
     Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Inhibit")
 public:
-    explicit DesktopPortal(QObject *parent = nullptr);
-    ~DesktopPortal();
+    Inhibit(QObject *parent = 0);
+    ~Inhibit();
 
-    bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) Q_DECL_OVERRIDE;
-    QString introspect(const QString &path) const Q_DECL_OVERRIDE;
+public Q_SLOTS:
+    void inhibit(const QDBusObjectPath &handle,
+                 const QString &app_id,
+                 const QString &window,
+                 uint flags,
+                 const QVariantMap &options);
+
 private:
-    AppChooser *m_appChooser;
-    FileChooser *m_fileChooser;
-    Inhibit *m_inhibit;
-    Notification *m_notification;
-    Print *m_print;
+    QList<Request*> m_requests;
 };
 
-#endif // XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
+#endif // XDG_DESKTOP_PORTAL_KDE_INHIBIT_H
 

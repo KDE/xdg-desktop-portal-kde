@@ -1,5 +1,5 @@
 /*
- * Copyright © 2016 Red Hat, Inc
+ * Copyright © 2017 Red Hat, Inc
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -18,34 +18,29 @@
  *       Jan Grulich <jgrulich@redhat.com>
  */
 
-#ifndef XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
-#define XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
+#ifndef XDG_DESKTOP_PORTAL_KDE_REQUEST_H
+#define XDG_DESKTOP_PORTAL_KDE_REQUEST_H
 
 #include <QObject>
 #include <QDBusVirtualObject>
 
-#include "appchooser.h"
-#include "filechooser.h"
-#include "inhibit.h"
-#include "notification.h"
-#include "print.h"
-
-class DesktopPortal : public QDBusVirtualObject
+class Request : public QDBusVirtualObject
 {
     Q_OBJECT
 public:
-    explicit DesktopPortal(QObject *parent = nullptr);
-    ~DesktopPortal();
+    explicit Request(QObject *parent = nullptr, const QString &portalName = QString(), const QVariant &data = QVariant());
+    ~Request();
 
     bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) Q_DECL_OVERRIDE;
     QString introspect(const QString &path) const Q_DECL_OVERRIDE;
+
+Q_SIGNALS:
+    void closeRequested();
+
 private:
-    AppChooser *m_appChooser;
-    FileChooser *m_fileChooser;
-    Inhibit *m_inhibit;
-    Notification *m_notification;
-    Print *m_print;
+    const QVariant m_data;
+    const QString m_portalName;
 };
 
-#endif // XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
+#endif // XDG_DESKTOP_PORTAL_KDE_REQUEST_H
 

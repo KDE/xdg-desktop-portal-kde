@@ -32,6 +32,7 @@ DesktopPortal::DesktopPortal(QObject *parent)
     : QDBusVirtualObject(parent)
     , m_appChooser(new AppChooser())
     , m_fileChooser(new FileChooser())
+    , m_inhibit(new Inhibit())
     , m_notification(new Notification())
     , m_print(new Print())
 {
@@ -41,6 +42,7 @@ DesktopPortal::~DesktopPortal()
 {
     delete m_appChooser;
     delete m_fileChooser;
+    delete m_inhibit;
     delete m_notification;
     delete m_print;
 }
@@ -75,7 +77,7 @@ bool DesktopPortal::handleMessage(const QDBusMessage &message, const QDBusConnec
             arguments << results;
         }
     } else if (message.interface() == QLatin1String("org.freedesktop.impl.portal.FileChooser")) {
-        uint response;
+        uint response = 2;
         QVariantMap results;
         QVariantMap choices;
 
@@ -116,7 +118,7 @@ bool DesktopPortal::handleMessage(const QDBusMessage &message, const QDBusConnec
                                                message.arguments().at(1).toString());                       // id
         }
     } else if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Print")) {
-        uint response;
+        uint response = 2;
         QVariantMap results;
 
         if (message.member() == QLatin1String("Print")) {
@@ -158,6 +160,19 @@ bool DesktopPortal::handleMessage(const QDBusMessage &message, const QDBusConnec
 
         arguments << response;
         arguments << results;
+    } if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Inhibit")) {
+        if (message.member() == QLatin1String("Inhibit")) {
+            QVariantMap options;
+
+            QDBusArgument dbusArgument = message.arguments().at(4).value<QDBusArgument>();
+            dbusArgument >> options;
+
+            m_inhibit->inhibit(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),     // handle
+                               message.arguments().at(1).toString(),                          // app_id
+                               message.arguments().at(2).toString(),                          // window
+                               message.arguments().at(3).toUInt(),                            // flags
+                               options);                                                      // options
+        }
     }
 
     QDBusMessage reply = message.createReply();
@@ -219,7 +234,7 @@ QString DesktopPortal::introspect(const QString &path) const
             "       <arg type=\"av\" name=\"parameter\"/>"
             "    </signal>"
             "</interface>"
-                    "<interface name=\"org.freedesktop.impl.portal.Print\">"
+            "<interface name=\"org.freedesktop.impl.portal.Print\">"
             "    <method name=\"Print\">"
             "        <arg type=\"o\" name=\"handle\" direction=\"in\"/>"
             "        <arg type=\"s\" name=\"app_id\" direction=\"in\"/>"
@@ -240,6 +255,15 @@ QString DesktopPortal::introspect(const QString &path) const
             "        <arg type=\"a{sv}\" name=\"options\" direction=\"in\"/>"
             "        <arg type=\"u\" name=\"response\" direction=\"out\"/>"
             "        <arg type=\"a{sv}\" name=\"results\" direction=\"out\"/>"
+            "    </method>"
+            "</interface>"
+            "<interface name=\"org.freedesktop.impl.portal.Inhibit\">"
+            "    <method name=\"Inhibit\">"
+            "        <arg type=\"o\" name=\"handle\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"app_id\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"window\" direction=\"in\"/>"
+            "        <arg type=\"u\" name=\"flags\" direction=\"in\"/>"
+            "        <arg type=\"a{sv}\" name=\"options\" direction=\"in\"/>"
             "    </method>"
             "</interface>");
     }
