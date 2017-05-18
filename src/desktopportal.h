@@ -25,6 +25,7 @@
 #include <QDBusVirtualObject>
 
 #include "appchooser.h"
+#include "email.h"
 #include "filechooser.h"
 #include "inhibit.h"
 #include "notification.h"
@@ -41,6 +42,7 @@ public:
     QString introspect(const QString &path) const Q_DECL_OVERRIDE;
 private:
     AppChooser *m_appChooser;
+    Email *m_email;
     FileChooser *m_fileChooser;
     Inhibit *m_inhibit;
     Notification *m_notification;

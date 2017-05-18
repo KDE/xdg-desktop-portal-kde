@@ -31,6 +31,7 @@ Q_LOGGING_CATEGORY(XdgDesktopPortalKdeDesktopPortal, "xdg-desktop-portal-kde-des
 DesktopPortal::DesktopPortal(QObject *parent)
     : QDBusVirtualObject(parent)
     , m_appChooser(new AppChooser())
+    , m_email(new Email())
     , m_fileChooser(new FileChooser())
     , m_inhibit(new Inhibit())
     , m_notification(new Notification())
@@ -41,6 +42,7 @@ DesktopPortal::DesktopPortal(QObject *parent)
 DesktopPortal::~DesktopPortal()
 {
     delete m_appChooser;
+    delete m_email;
     delete m_fileChooser;
     delete m_inhibit;
     delete m_notification;
@@ -76,6 +78,24 @@ bool DesktopPortal::handleMessage(const QDBusMessage &message, const QDBusConnec
             arguments << response;
             arguments << results;
         }
+    } else if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Email")) {
+        uint response = 2;
+        QVariantMap results;
+        QVariantMap options;
+
+        QDBusArgument dbusArgument = message.arguments().at(3).value<QDBusArgument>();
+        dbusArgument >> options;
+
+        if (message.member() == QLatin1String("ComposeEmail")) {
+            response = m_email->composeEmail(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),  // handle
+                                             message.arguments().at(1).toString(),                       // app_id
+                                             message.arguments().at(2).toString(),                       // parent_window
+                                             options,                                                    // options
+                                             results);
+        }
+
+        arguments << response;
+        arguments << results;
     } else if (message.interface() == QLatin1String("org.freedesktop.impl.portal.FileChooser")) {
         uint response = 2;
         QVariantMap results;
@@ -103,6 +123,19 @@ bool DesktopPortal::handleMessage(const QDBusMessage &message, const QDBusConnec
         arguments << response;
         arguments << results;
 
+    } else if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Inhibit")) {
+        if (message.member() == QLatin1String("Inhibit")) {
+            QVariantMap options;
+
+            QDBusArgument dbusArgument = message.arguments().at(4).value<QDBusArgument>();
+            dbusArgument >> options;
+
+            m_inhibit->inhibit(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),     // handle
+                               message.arguments().at(1).toString(),                          // app_id
+                               message.arguments().at(2).toString(),                          // window
+                               message.arguments().at(3).toUInt(),                            // flags
+                               options);                                                      // options
+        }
     } else if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Notification")) {
         if (message.member() == QLatin1String("AddNotification")) {
             QVariantMap notificationParams;
@@ -160,19 +193,6 @@ bool DesktopPortal::handleMessage(const QDBusMessage &message, const QDBusConnec
 
         arguments << response;
         arguments << results;
-    } if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Inhibit")) {
-        if (message.member() == QLatin1String("Inhibit")) {
-            QVariantMap options;
-
-            QDBusArgument dbusArgument = message.arguments().at(4).value<QDBusArgument>();
-            dbusArgument >> options;
-
-            m_inhibit->inhibit(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),     // handle
-                               message.arguments().at(1).toString(),                          // app_id
-                               message.arguments().at(2).toString(),                          // window
-                               message.arguments().at(3).toUInt(),                            // flags
-                               options);                                                      // options
-        }
     }
 
     QDBusMessage reply = message.createReply();
@@ -197,6 +217,16 @@ QString DesktopPortal::introspect(const QString &path) const
             "        <arg type=\"a{sv}\" name=\"results\" direction=\"out\"/>"
             "    </method>"
             "</interface>"
+            "<interface name=\"org.freedesktop.impl.portal.Email\">"
+            "    <method name=\"ComposeEmail\">"
+            "        <arg type=\"o\" name=\"handle\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"app_id\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"window\" direction=\"in\"/>"
+            "        <arg type=\"a{sv}\" name=\"options\" direction=\"in\"/>"
+            "        <arg type=\"u\" name=\"response\" direction=\"out\"/>"
+            "        <arg type=\"a{sv}\" name=\"results\" direction=\"out\"/>"
+            "    </method>"
+            "</interface>"
             "<interface name=\"org.freedesktop.impl.portal.FileChooser\">"
             "    <method name=\"OpenFile\">"
             "        <arg type=\"o\" name=\"handle\" direction=\"in\"/>"
@@ -215,6 +245,15 @@ QString DesktopPortal::introspect(const QString &path) const
             "        <arg type=\"a{sv}\" name=\"options\" direction=\"in\"/>"
             "        <arg type=\"u\" name=\"response\" direction=\"out\"/>"
             "        <arg type=\"a{sv}\" name=\"results\" direction=\"out\"/>"
+            "    </method>"
+            "</interface>"
+            "<interface name=\"org.freedesktop.impl.portal.Inhibit\">"
+            "    <method name=\"Inhibit\">"
+            "        <arg type=\"o\" name=\"handle\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"app_id\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"window\" direction=\"in\"/>"
+            "        <arg type=\"u\" name=\"flags\" direction=\"in\"/>"
+            "        <arg type=\"a{sv}\" name=\"options\" direction=\"in\"/>"
             "    </method>"
             "</interface>"
             "<interface name=\"org.freedesktop.impl.portal.Notification\">"
@@ -255,15 +294,6 @@ QString DesktopPortal::introspect(const QString &path) const
             "        <arg type=\"a{sv}\" name=\"options\" direction=\"in\"/>"
             "        <arg type=\"u\" name=\"response\" direction=\"out\"/>"
             "        <arg type=\"a{sv}\" name=\"results\" direction=\"out\"/>"
-            "    </method>"
-            "</interface>"
-            "<interface name=\"org.freedesktop.impl.portal.Inhibit\">"
-            "    <method name=\"Inhibit\">"
-            "        <arg type=\"o\" name=\"handle\" direction=\"in\"/>"
-            "        <arg type=\"s\" name=\"app_id\" direction=\"in\"/>"
-            "        <arg type=\"s\" name=\"window\" direction=\"in\"/>"
-            "        <arg type=\"u\" name=\"flags\" direction=\"in\"/>"
-            "        <arg type=\"a{sv}\" name=\"options\" direction=\"in\"/>"
             "    </method>"
             "</interface>");
     }

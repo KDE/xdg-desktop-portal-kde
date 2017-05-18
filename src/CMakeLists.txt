@@ -9,6 +9,7 @@ set(xdg_desktop_portal_kde_SRCS
     appchooser.cpp
     appchooserdialog.cpp
     desktopportal.cpp
+    email.cpp
     filechooser.cpp
     inhibit.cpp
     notification.cpp
