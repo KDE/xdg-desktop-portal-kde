@@ -40,9 +40,6 @@ public Q_SLOTS:
                  const QString &window,
                  uint flags,
                  const QVariantMap &options);
-
-private:
-    QList<Request*> m_requests;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_INHIBIT_H
