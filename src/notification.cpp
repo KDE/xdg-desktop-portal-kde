@@ -107,7 +107,7 @@ void Notification::notificationActivated(uint action)
     qCDebug(XdgDesktopPortalKdeNotification) << "    action: " << action;
 
     QDBusMessage message = QDBusMessage::createSignal(QLatin1String("/org/freedesktop/portal/desktop"),
-                                                      QLatin1String("org.freedesktop.portal.impl.Notification"),
+                                                      QLatin1String("org.freedesktop.impl.portal.Notification"),
                                                       QLatin1String("ActionInvoked"));
     message << appId << id << QString::number(action) << QVariantList();
     QDBusConnection::sessionBus().send(message);
