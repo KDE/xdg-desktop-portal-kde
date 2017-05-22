@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QDBusVirtualObject>
 
+#include "access.h"
 #include "appchooser.h"
 #include "email.h"
 #include "filechooser.h"
@@ -41,6 +42,7 @@ public:
     bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) Q_DECL_OVERRIDE;
     QString introspect(const QString &path) const Q_DECL_OVERRIDE;
 private:
+    Access *m_access;
     AppChooser *m_appChooser;
     Email *m_email;
     FileChooser *m_fileChooser;

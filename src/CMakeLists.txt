@@ -6,6 +6,8 @@ include_directories(
 
 set(xdg_desktop_portal_kde_SRCS
     xdg-desktop-portal-kde.cpp
+    access.cpp
+    accessdialog.cpp
     appchooser.cpp
     appchooserdialog.cpp
     desktopportal.cpp
@@ -18,6 +20,7 @@ set(xdg_desktop_portal_kde_SRCS
 )
 
 ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
+    accessdialog.ui
     appchooserdialog.ui
 )
 

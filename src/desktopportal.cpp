@@ -30,6 +30,7 @@ Q_LOGGING_CATEGORY(XdgDesktopPortalKdeDesktopPortal, "xdg-desktop-portal-kde-des
 
 DesktopPortal::DesktopPortal(QObject *parent)
     : QDBusVirtualObject(parent)
+    , m_access(new Access())
     , m_appChooser(new AppChooser())
     , m_email(new Email())
     , m_fileChooser(new FileChooser())
@@ -41,6 +42,7 @@ DesktopPortal::DesktopPortal(QObject *parent)
 
 DesktopPortal::~DesktopPortal()
 {
+    delete m_access;
     delete m_appChooser;
     delete m_email;
     delete m_fileChooser;
@@ -61,7 +63,26 @@ bool DesktopPortal::handleMessage(const QDBusMessage &message, const QDBusConnec
     qCDebug(XdgDesktopPortalKdeDesktopPortal) << message.path();
 
     QList<QVariant> arguments;
-    if (message.interface() == QLatin1String("org.freedesktop.impl.portal.AppChooser")) {
+    if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Access")) {
+        if (message.member() == QLatin1String("AccessDialog")) {
+            QVariantMap results;
+            QVariantMap options;
+
+            QDBusArgument dbusArgument = message.arguments().at(6).value<QDBusArgument>();
+            dbusArgument >> options;
+
+            uint response = m_access->accessDialog(qvariant_cast<QDBusObjectPath>(message.arguments().at(0)),  // handle
+                                                   message.arguments().at(1).toString(),                       // app_id
+                                                   message.arguments().at(2).toString(),                       // parent_window
+                                                   message.arguments().at(3).toString(),                       // title
+                                                   message.arguments().at(4).toString(),                       // subtitle
+                                                   message.arguments().at(5).toString(),                       // body
+                                                   options,                                                    // options
+                                                   results);
+            arguments << response;
+            arguments << results;
+        }
+    } else if (message.interface() == QLatin1String("org.freedesktop.impl.portal.AppChooser")) {
         if (message.member() == QLatin1String("ChooseApplication")) {
             QVariantMap results;
             QVariantMap choices;
@@ -206,6 +227,19 @@ QString DesktopPortal::introspect(const QString &path) const
 
     if (path == QLatin1String("/org/freedesktop/portal/desktop/") || path == QLatin1String("/org/freedesktop/portal/desktop")) {
         nodes = QStringLiteral(
+            "<interface name=\"org.freedesktop.impl.portal.Access\">"
+            "    <method name=\"AccessDialog\">"
+            "        <arg type=\"o\" name=\"handle\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"app_id\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"parent_window\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"title\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"subtitle\" direction=\"in\"/>"
+            "        <arg type=\"s\" name=\"body\" direction=\"in\"/>"
+            "        <arg type=\"a{sv}\" name=\"options\" direction=\"in\"/>"
+            "        <arg type=\"u\" name=\"response\" direction=\"out\"/>"
+            "        <arg type=\"a{sv}\" name=\"results\" direction=\"out\"/>"
+            "    </method>"
+            "</interface>"
             "<interface name=\"org.freedesktop.impl.portal.AppChooser\">"
             "    <method name=\"ChooseApplication\">"
             "        <arg type=\"o\" name=\"handle\" direction=\"in\"/>"
