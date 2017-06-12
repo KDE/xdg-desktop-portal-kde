@@ -27,16 +27,16 @@
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAppChooser, "xdg-desktop-portal-kde-app-chooser")
 
 
-AppChooser::AppChooser(QObject *parent)
-    : QObject(parent)
+AppChooserPortal::AppChooserPortal(QObject *parent)
+    : QDBusAbstractAdaptor(parent)
 {
 }
 
-AppChooser::~AppChooser()
+AppChooserPortal::~AppChooserPortal()
 {
 }
 
-uint AppChooser::chooseApplication(const QDBusObjectPath &handle,
+uint AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
                                    const QString &app_id,
                                    const QString &parent_window,
                                    const QStringList &choices,

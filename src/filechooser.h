@@ -23,9 +23,9 @@
 
 #include <QDBusObjectPath>
 #include <QMetaType>
-#include <QObject>
+#include <QDBusAbstractAdaptor>
 
-class FileChooser : public QObject
+class FileChooserPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.FileChooser")
@@ -43,18 +43,18 @@ public:
     } FilterList;
     typedef QList<FilterList> FilterListList;
 
-    FileChooser(QObject *parent = 0);
-    ~FileChooser();
+    FileChooserPortal(QObject *parent);
+    ~FileChooserPortal();
 
 public Q_SLOTS:
-    uint openFile(const QDBusObjectPath &handle,
+    uint OpenFile(const QDBusObjectPath &handle,
                   const QString &app_id,
                   const QString &parent_window,
                   const QString &title,
                   const QVariantMap &options,
                   QVariantMap &results);
 
-    uint saveFile(const QDBusObjectPath &handle,
+    uint SaveFile(const QDBusObjectPath &handle,
                   const QString &app_id,
                   const QString &parent_window,
                   const QString &title,

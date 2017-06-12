@@ -21,19 +21,19 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_APPCHOOSER_H
 #define XDG_DESKTOP_PORTAL_KDE_APPCHOOSER_H
 
-#include <QObject>
+#include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
-class AppChooser : public QObject
+class AppChooserPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.AppChooser")
 public:
-    AppChooser(QObject *parent = nullptr);
-    ~AppChooser();
+    AppChooserPortal(QObject *parent);
+    ~AppChooserPortal();
 
 public Q_SLOTS:
-    uint chooseApplication(const QDBusObjectPath &handle,
+    uint ChooseApplication(const QDBusObjectPath &handle,
                            const QString &app_id,
                            const QString &parent_window,
                            const QStringList &choices,

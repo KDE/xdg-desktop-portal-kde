@@ -26,16 +26,16 @@
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAccess, "xdg-desktop-portal-kde-access")
 
-Access::Access(QObject *parent)
-    : QObject(parent)
+AccessPortal::AccessPortal(QObject *parent)
+    : QDBusAbstractAdaptor(parent)
 {
 }
 
-Access::~Access()
+AccessPortal::~AccessPortal()
 {
 }
 
-uint Access::accessDialog(const QDBusObjectPath &handle,
+uint AccessPortal::AccessDialog(const QDBusObjectPath &handle,
                           const QString &app_id,
                           const QString &parent_window,
                           const QString &title,
@@ -53,7 +53,7 @@ uint Access::accessDialog(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeAccess) << "    body: " << body;
     qCDebug(XdgDesktopPortalKdeAccess) << "    options: " << options;
 
-    AccessDialog *accessDialog = new AccessDialog();
+    auto accessDialog = new ::AccessDialog();
     accessDialog->setBody(body);
     accessDialog->setTitle(title);
     accessDialog->setSubtitle(subtitle);

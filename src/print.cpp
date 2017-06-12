@@ -237,16 +237,16 @@ static QPageSize::PageSizeId qt_idForPpdKey(const QString &ppdKey)
     return QPageSize::Custom;
 }
 
-Print::Print(QObject *parent)
-    : QObject(parent)
+PrintPortal::PrintPortal(QObject *parent)
+    : QDBusAbstractAdaptor(parent)
 {
 }
 
-Print::~Print()
+PrintPortal::~PrintPortal()
 {
 }
 
-uint Print::print(const QDBusObjectPath &handle,
+uint PrintPortal::Print(const QDBusObjectPath &handle,
                   const QString &app_id,
                   const QString &parent_window,
                   const QString &title,
@@ -352,7 +352,7 @@ uint Print::print(const QDBusObjectPath &handle,
     return 0;
 }
 
-uint Print::preparePrint(const QDBusObjectPath &handle,
+uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
                          const QString &app_id,
                          const QString &parent_window,
                          const QString &title,
@@ -694,7 +694,7 @@ uint Print::preparePrint(const QDBusObjectPath &handle,
     return 0;
 }
 
-QStringList Print::destination(const QPrinter *printer, const QString &version)
+QStringList PrintPortal::destination(const QPrinter *printer, const QString &version)
 {
     if (version == QLatin1String("lp")) {
         return QStringList(QStringLiteral("-d")) << printer->printerName();
@@ -707,7 +707,7 @@ QStringList Print::destination(const QPrinter *printer, const QString &version)
     return QStringList();
 }
 
-QStringList Print::copies(const QPrinter *printer, const QString &version)
+QStringList PrintPortal::copies(const QPrinter *printer, const QString &version)
 {
     int cp = printer->actualNumCopies();
 
@@ -722,7 +722,7 @@ QStringList Print::copies(const QPrinter *printer, const QString &version)
     return QStringList();
 }
 
-QStringList Print::jobname(const QPrinter *printer, const QString &version)
+QStringList PrintPortal::jobname(const QPrinter *printer, const QString &version)
 {
     if (!printer->docName().isEmpty()) {
 
@@ -740,7 +740,7 @@ QStringList Print::jobname(const QPrinter *printer, const QString &version)
 }
 
 // What about Upper and MultiPurpose?  And others in PPD???
-QString Print::mediaPaperSource(const QPrinter *printer)
+QString PrintPortal::mediaPaperSource(const QPrinter *printer)
 {
     switch (printer->paperSource()) {
     case QPrinter::Auto:
@@ -776,7 +776,7 @@ QString Print::mediaPaperSource(const QPrinter *printer)
     }
 }
 
-QStringList Print::optionOrientation(const QPrinter *printer, QPrinter::Orientation documentOrientation)
+QStringList PrintPortal::optionOrientation(const QPrinter *printer, QPrinter::Orientation documentOrientation)
 {
     // portrait and landscape options rotate the document according to the document orientation
     // If we want to print a landscape document as one would expect it, we have to pass the
@@ -790,7 +790,7 @@ QStringList Print::optionOrientation(const QPrinter *printer, QPrinter::Orientat
     }
 }
 
-QStringList Print::optionDoubleSidedPrinting(const QPrinter *printer)
+QStringList PrintPortal::optionDoubleSidedPrinting(const QPrinter *printer)
 {
     switch (printer->duplex()) {
     case QPrinter::DuplexNone:
@@ -810,7 +810,7 @@ QStringList Print::optionDoubleSidedPrinting(const QPrinter *printer)
     }
 }
 
-QStringList Print::optionPageOrder(const QPrinter *printer)
+QStringList PrintPortal::optionPageOrder(const QPrinter *printer)
 {
     if (printer->pageOrder() == QPrinter::LastPageFirst) {
         return QStringList(QStringLiteral("-o")) << QStringLiteral("outputorder=reverse");
@@ -818,7 +818,7 @@ QStringList Print::optionPageOrder(const QPrinter *printer)
     return QStringList(QStringLiteral("-o")) << QStringLiteral("outputorder=normal");
 }
 
-QStringList Print::optionCollateCopies(const QPrinter *printer)
+QStringList PrintPortal::optionCollateCopies(const QPrinter *printer)
 {
     if (printer->collateCopies()) {
         return QStringList(QStringLiteral("-o")) << QStringLiteral("Collate=True");
@@ -826,7 +826,7 @@ QStringList Print::optionCollateCopies(const QPrinter *printer)
     return QStringList(QStringLiteral("-o")) << QStringLiteral("Collate=False");
 }
 
-QStringList Print::optionPageMargins(const QPrinter *printer)
+QStringList PrintPortal::optionPageMargins(const QPrinter *printer)
 {
     if (printer->printEngine()->property(QPrintEngine::PPK_PageMargins).isNull()) {
         return QStringList();
@@ -840,7 +840,7 @@ QStringList Print::optionPageMargins(const QPrinter *printer)
     }
 }
 
-QStringList Print::optionCupsProperties(const QPrinter *printer)
+QStringList PrintPortal::optionCupsProperties(const QPrinter *printer)
 {
     QStringList dialogOptions = printer->printEngine()->property(QPrintEngine::PrintEnginePropertyKey(0xfe00)).toStringList();
     QStringList cupsOptions;
@@ -861,7 +861,7 @@ QStringList Print::optionCupsProperties(const QPrinter *printer)
     return cupsOptions;
 }
 
-QStringList Print::optionMedia(const QPrinter *printer)
+QStringList PrintPortal::optionMedia(const QPrinter *printer)
 {
     if (!qt_keyForPageSizeId(printer->pageLayout().pageSize().id()).isEmpty() &&
             !mediaPaperSource(printer).isEmpty()) {
@@ -882,7 +882,7 @@ QStringList Print::optionMedia(const QPrinter *printer)
     return QStringList();
 }
 
-QStringList Print::pages(const QPrinter *printer, bool useCupsOptions, const QString &version)
+QStringList PrintPortal::pages(const QPrinter *printer, bool useCupsOptions, const QString &version)
 {
     if (printer->printRange() == QPrinter::PageRange) {
         if (version == QLatin1String("lp")) {
@@ -899,7 +899,7 @@ QStringList Print::pages(const QPrinter *printer, bool useCupsOptions, const QSt
     return QStringList(); // AllPages
 }
 
-QStringList Print::cupsOptions(const QPrinter *printer, QPrinter::Orientation documentOrientation)
+QStringList PrintPortal::cupsOptions(const QPrinter *printer, QPrinter::Orientation documentOrientation)
 {
     QStringList optionList;
 
@@ -932,7 +932,7 @@ QStringList Print::cupsOptions(const QPrinter *printer, QPrinter::Orientation do
     return optionList;
 }
 
-QStringList Print::printArguments(const QPrinter *printer, bool useCupsOptions,
+QStringList PrintPortal::printArguments(const QPrinter *printer, bool useCupsOptions,
                                   const QString &version, QPrinter::Orientation documentOrientation)
 {
     QStringList argList;
@@ -964,7 +964,7 @@ QStringList Print::printArguments(const QPrinter *printer, bool useCupsOptions,
     return argList;
 }
 
-bool Print::cupsAvailable()
+bool PrintPortal::cupsAvailable()
 {
     // Ideally we would have access to the private Qt method
     // QCUPSSupport::cupsAvailable() to do this as it is very complex routine.

@@ -31,16 +31,16 @@
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeInhibit, "xdg-desktop-portal-kde-inhibit")
 
-Inhibit::Inhibit(QObject *parent)
-    : QObject(parent)
+InhibitPortal::InhibitPortal(QObject *parent)
+    : QDBusAbstractAdaptor(parent)
 {
 }
 
-Inhibit::~Inhibit()
+InhibitPortal::~InhibitPortal()
 {
 }
 
-void Inhibit::inhibit(const QDBusObjectPath &handle, const QString &app_id, const QString &window, uint flags, const QVariantMap &options)
+void InhibitPortal::Inhibit(const QDBusObjectPath &handle, const QString &app_id, const QString &window, uint flags, const QVariantMap &options)
 {
     qCDebug(XdgDesktopPortalKdeInhibit) << "Inhibit called with parameters:";
     qCDebug(XdgDesktopPortalKdeInhibit) << "    handle: " << handle.path();

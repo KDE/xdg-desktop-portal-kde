@@ -21,19 +21,19 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_EMAIL_H
 #define XDG_DESKTOP_PORTAL_KDE_EMAIL_H
 
-#include <QObject>
+#include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
-class Email : public QObject
+class EmailPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Email")
 public:
-    Email(QObject *parent = 0);
-    ~Email();
+    EmailPortal(QObject *parent);
+    ~EmailPortal();
 
 public Q_SLOTS:
-    uint composeEmail(const QDBusObjectPath &handle,
+    uint ComposeEmail(const QDBusObjectPath &handle,
                       const QString &app_id,
                       const QString &window,
                       const QVariantMap &options,

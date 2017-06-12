@@ -32,23 +32,21 @@
 #include "notification.h"
 #include "print.h"
 
-class DesktopPortal : public QDBusVirtualObject
+class DesktopPortal : public QObject
 {
     Q_OBJECT
 public:
     explicit DesktopPortal(QObject *parent = nullptr);
     ~DesktopPortal();
 
-    bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) Q_DECL_OVERRIDE;
-    QString introspect(const QString &path) const Q_DECL_OVERRIDE;
 private:
-    Access *m_access;
-    AppChooser *m_appChooser;
-    Email *m_email;
-    FileChooser *m_fileChooser;
-    Inhibit *m_inhibit;
-    Notification *m_notification;
-    Print *m_print;
+    AccessPortal *m_access;
+    AppChooserPortal *m_appChooser;
+    EmailPortal *m_email;
+    FileChooserPortal *m_fileChooser;
+    InhibitPortal *m_inhibit;
+    NotificationPortal *m_notification;
+    PrintPortal *m_print;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H

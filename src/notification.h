@@ -21,24 +21,24 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_NOTIFICATION_H
 #define XDG_DESKTOP_PORTAL_KDE_NOTIFICATION_H
 
-#include <QObject>
+#include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
 #include <KNotification>
 
-class Notification : public QObject
+class NotificationPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Notification")
 public:
-    Notification(QObject *parent = 0);
-    ~Notification();
+    NotificationPortal(QObject *parent);
+    ~NotificationPortal();
 
 public Q_SLOTS:
-    void addNotification(const QString &app_id,
+    void AddNotification(const QString &app_id,
                          const QString &id,
                          const QVariantMap &notification);
-    void removeNotification(const QString &app_id,
+    void RemoveNotification(const QString &app_id,
                             const QString &id);
 private Q_SLOTS:
     void notificationActivated(uint action);

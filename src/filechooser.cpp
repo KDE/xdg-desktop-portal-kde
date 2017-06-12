@@ -29,12 +29,12 @@
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeFileChooser, "xdg-desktop-portal-kde-file-chooser")
 
 // Keep in sync with qflatpakfiledialog from flatpak-platform-plugin
-Q_DECLARE_METATYPE(FileChooser::Filter);
-Q_DECLARE_METATYPE(FileChooser::Filters);
-Q_DECLARE_METATYPE(FileChooser::FilterList);
-Q_DECLARE_METATYPE(FileChooser::FilterListList);
+Q_DECLARE_METATYPE(FileChooserPortal::Filter);
+Q_DECLARE_METATYPE(FileChooserPortal::Filters);
+Q_DECLARE_METATYPE(FileChooserPortal::FilterList);
+Q_DECLARE_METATYPE(FileChooserPortal::FilterListList);
 
-QDBusArgument &operator << (QDBusArgument &arg, const FileChooser::Filter &filter)
+QDBusArgument &operator << (QDBusArgument &arg, const FileChooserPortal::Filter &filter)
 {
     arg.beginStructure();
     arg << filter.type << filter.filterString;
@@ -42,7 +42,7 @@ QDBusArgument &operator << (QDBusArgument &arg, const FileChooser::Filter &filte
     return arg;
 }
 
-const QDBusArgument &operator >> (const QDBusArgument &arg, FileChooser::Filter &filter)
+const QDBusArgument &operator >> (const QDBusArgument &arg, FileChooserPortal::Filter &filter)
 {
     uint type;
     QString filterString;
@@ -55,7 +55,7 @@ const QDBusArgument &operator >> (const QDBusArgument &arg, FileChooser::Filter 
     return arg;
 }
 
-QDBusArgument &operator << (QDBusArgument &arg, const FileChooser::FilterList &filterList)
+QDBusArgument &operator << (QDBusArgument &arg, const FileChooserPortal::FilterList &filterList)
 {
     arg.beginStructure();
     arg << filterList.userVisibleName << filterList.filters;
@@ -63,10 +63,10 @@ QDBusArgument &operator << (QDBusArgument &arg, const FileChooser::FilterList &f
     return arg;
 }
 
-const QDBusArgument &operator >> (const QDBusArgument &arg, FileChooser::FilterList &filterList)
+const QDBusArgument &operator >> (const QDBusArgument &arg, FileChooserPortal::FilterList &filterList)
 {
     QString userVisibleName;
-    FileChooser::Filters filters;
+    FileChooserPortal::Filters filters;
     arg.beginStructure();
     arg >> userVisibleName >> filters;
     filterList.userVisibleName = userVisibleName;
@@ -76,8 +76,8 @@ const QDBusArgument &operator >> (const QDBusArgument &arg, FileChooser::FilterL
     return arg;
 }
 
-FileChooser::FileChooser(QObject *parent)
-    : QObject(parent)
+FileChooserPortal::FileChooserPortal(QObject *parent)
+    : QDBusAbstractAdaptor(parent)
 {
     qDBusRegisterMetaType<Filter>();
     qDBusRegisterMetaType<Filters>();
@@ -85,11 +85,11 @@ FileChooser::FileChooser(QObject *parent)
     qDBusRegisterMetaType<FilterListList>();
 }
 
-FileChooser::~FileChooser()
+FileChooserPortal::~FileChooserPortal()
 {
 }
 
-uint FileChooser::openFile(const QDBusObjectPath &handle,
+uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
                            const QString &app_id,
                            const QString &parent_window,
                            const QString &title,
@@ -181,7 +181,7 @@ uint FileChooser::openFile(const QDBusObjectPath &handle,
     return 1;
 }
 
-uint FileChooser::saveFile(const QDBusObjectPath &handle,
+uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
                            const QString &app_id,
                            const QString &parent_window,
                            const QString &title,

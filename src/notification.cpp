@@ -24,18 +24,19 @@
 #include <QDBusMessage>
 #include <QLoggingCategory>
 
+
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeNotification, "xdg-desktop-portal-kde-notification")
 
-Notification::Notification(QObject *parent)
-    : QObject(parent)
+NotificationPortal::NotificationPortal(QObject *parent)
+    : QDBusAbstractAdaptor(parent)
 {
 }
 
-Notification::~Notification()
+NotificationPortal::~NotificationPortal()
 {
 }
 
-void Notification::addNotification(const QString &app_id,
+void NotificationPortal::AddNotification(const QString &app_id,
                                    const QString &id,
                                    const QVariantMap &notification)
 {
@@ -83,14 +84,14 @@ void Notification::addNotification(const QString &app_id,
 
     notify->setProperty("app_id", app_id);
     notify->setProperty("id", id);
-    connect(notify, static_cast<void (KNotification::*)(uint)>(&KNotification::activated), this, &Notification::notificationActivated);
-    connect(notify, &KNotification::closed, this, &Notification::notificationClosed);
+    connect(notify, static_cast<void (KNotification::*)(uint)>(&KNotification::activated), this, &NotificationPortal::notificationActivated);
+    connect(notify, &KNotification::closed, this, &NotificationPortal::notificationClosed);
     notify->sendEvent();
 
     m_notifications.insert(QString("%1:%2").arg(app_id, id), notify);
 }
 
-void Notification::notificationActivated(uint action)
+void NotificationPortal::notificationActivated(uint action)
 {
     KNotification *notify = qobject_cast<KNotification*>(sender());
 
@@ -113,7 +114,7 @@ void Notification::notificationActivated(uint action)
     QDBusConnection::sessionBus().send(message);
 }
 
-void Notification::removeNotification(const QString &app_id,
+void NotificationPortal::RemoveNotification(const QString &app_id,
                                       const QString &id)
 {
     qCDebug(XdgDesktopPortalKdeNotification) << "RemoveNotification called with parameters:";
@@ -127,7 +128,7 @@ void Notification::removeNotification(const QString &app_id,
     }
 }
 
-void Notification::notificationClosed()
+void NotificationPortal::notificationClosed()
 {
     KNotification *notify = qobject_cast<KNotification*>(sender());
 

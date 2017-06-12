@@ -26,16 +26,16 @@
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeEmail, "xdg-desktop-portal-kde-email")
 
-Email::Email(QObject *parent)
-    : QObject(parent)
+EmailPortal::EmailPortal(QObject *parent)
+    : QDBusAbstractAdaptor(parent)
 {
 }
 
-Email::~Email()
+EmailPortal::~EmailPortal()
 {
 }
 
-uint Email::composeEmail(const QDBusObjectPath &handle, const QString &app_id, const QString &window, const QVariantMap &options, QVariantMap &results)
+uint EmailPortal::ComposeEmail(const QDBusObjectPath &handle, const QString &app_id, const QString &window, const QVariantMap &options, QVariantMap &results)
 {
     Q_UNUSED(results)
 

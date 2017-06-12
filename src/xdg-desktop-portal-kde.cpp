@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 
     if (sessionBus.registerService(QLatin1String("org.freedesktop.impl.portal.desktop.kde"))) {
         DesktopPortal *desktopPortal = new DesktopPortal(&a);
-        if (sessionBus.registerVirtualObject(QLatin1String("/org/freedesktop/portal/desktop"), desktopPortal, QDBusConnection::VirtualObjectRegisterOption::SingleNode)) {
+        if (sessionBus.registerObject(QLatin1String("/org/freedesktop/portal/desktop"), desktopPortal, QDBusConnection::ExportAdaptors)) {
             qCDebug(XdgDesktopPortalKde) << "Desktop portal registered successfuly";
         } else {
             qCDebug(XdgDesktopPortalKde) << "Failed to register desktop portal";

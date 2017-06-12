@@ -21,19 +21,19 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_ACCESS_H
 #define XDG_DESKTOP_PORTAL_KDE_ACCESS_H
 
-#include <QObject>
+#include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
-class Access : public QObject
+class AccessPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Access")
 public:
-    Access(QObject *parent = nullptr);
-    ~Access();
+    AccessPortal(QObject *parent);
+    ~AccessPortal();
 
 public Q_SLOTS:
-    uint accessDialog(const QDBusObjectPath &handle,
+    uint AccessDialog(const QDBusObjectPath &handle,
                       const QString &app_id,
                       const QString &parent_window,
                       const QString &title,

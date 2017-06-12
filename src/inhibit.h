@@ -21,21 +21,21 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_INHIBIT_H
 #define XDG_DESKTOP_PORTAL_KDE_INHIBIT_H
 
-#include <QObject>
+#include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
 #include "request.h"
 
-class Inhibit : public QObject
+class InhibitPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Inhibit")
 public:
-    Inhibit(QObject *parent = 0);
-    ~Inhibit();
+    InhibitPortal(QObject *parent);
+    ~InhibitPortal();
 
 public Q_SLOTS:
-    void inhibit(const QDBusObjectPath &handle,
+    void Inhibit(const QDBusObjectPath &handle,
                  const QString &app_id,
                  const QString &window,
                  uint flags,

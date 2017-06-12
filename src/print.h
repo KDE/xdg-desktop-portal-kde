@@ -21,22 +21,22 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_PRINT_H
 #define XDG_DESKTOP_PORTAL_KDE_PRINT_H
 
-#include <QObject>
+#include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 #include <QDBusUnixFileDescriptor>
 #include <QPrinter>
 #include <QPageSize>
 
-class Print : public QObject
+class PrintPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Print")
 public:
-    Print(QObject *parent = nullptr);
-    ~Print();
+    PrintPortal(QObject *parent);
+    ~PrintPortal();
 
 public Q_SLOTS:
-    uint print(const QDBusObjectPath &handle,
+    uint Print(const QDBusObjectPath &handle,
                const QString &app_id,
                const QString &parent_window,
                const QString &title,
@@ -44,7 +44,7 @@ public Q_SLOTS:
                const QVariantMap &options,
                QVariantMap &results);
 
-    uint preparePrint(const QDBusObjectPath &handle,
+    uint PreparePrint(const QDBusObjectPath &handle,
                       const QString &app_id,
                       const QString &parent_window,
                       const QString &title,
