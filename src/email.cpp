@@ -45,12 +45,16 @@ uint EmailPortal::ComposeEmail(const QDBusObjectPath &handle, const QString &app
     qCDebug(XdgDesktopPortalKdeEmail) << "    window: " << window;
     qCDebug(XdgDesktopPortalKdeEmail) << "    options: " << options;
 
-    // TODO attachements
-    const QString mailtoUrl = QStringLiteral("mailto:%1?subject=%2&body=%3").arg(options.value(QLatin1String("address")).toString())
-                                                                            .arg(options.value(QLatin1String("subject")).toString())
-                                                                            .arg(options.value(QLatin1String("body")).toString());
-    qCDebug(XdgDesktopPortalKdeEmail) << "Mailto url: " << mailtoUrl;
+    QString attachmentString;
+    const QStringList attachments = options.value(QLatin1String("attachments")).toStringList();
+    Q_FOREACH (const QString &attachment, attachments) {
+        attachmentString += QStringLiteral("&attachment=%1").arg(attachment);
+    }
 
+    const QString mailtoUrl = QStringLiteral("mailto:%1?subject=%2&body=%3%4").arg(options.value(QLatin1String("address")).toString())
+                                                                              .arg(options.value(QLatin1String("subject")).toString())
+                                                                              .arg(options.value(QLatin1String("body")).toString())
+                                                                              .arg(attachmentString);
     return QDesktopServices::openUrl(QUrl(mailtoUrl));
 }
 
