@@ -636,7 +636,7 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
             resultingSettings.insert(QLatin1String("page-ranges"), QString("%1-%2").arg(printer->fromPage()).arg(printer->toPage()));
         }
         // Set cups specific properties
-        const QStringList cupsOptions = QCUPSSupport::cupsOptionsList(printer);
+        const QStringList cupsOptions = printer->printEngine()->property(PPK_CupsOptions).toStringList();
         qCDebug(XdgDesktopPortalKdePrint) << cupsOptions;
         if (cupsOptions.contains(QLatin1String("page-set"))) {
             resultingSettings.insert(QLatin1String("page-set"), cupsOptions.at(cupsOptions.indexOf(QLatin1String("page-set")) + 1));
