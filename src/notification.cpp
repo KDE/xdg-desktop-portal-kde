@@ -25,7 +25,7 @@
 #include <QLoggingCategory>
 
 
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeNotification, "xdg-desktop-portal-kde-notification")
+Q_LOGGING_CATEGORY(XdgDesktopPortalKdeNotification, "xdp-kde-notification")
 
 NotificationPortal::NotificationPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)

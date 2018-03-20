@@ -24,7 +24,7 @@
 
 #include "desktopportal.h"
 
-Q_LOGGING_CATEGORY(XdgDesktopPortalKde, "xdg-desktop-portal-kde")
+Q_LOGGING_CATEGORY(XdgDesktopPortalKde, "xdp-kde")
 
 int main(int argc, char *argv[])
 {

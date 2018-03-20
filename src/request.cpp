@@ -28,7 +28,7 @@
 #include <QDBusPendingCallWatcher>
 #include <QLoggingCategory>
 
-Q_LOGGING_CATEGORY(XdgRequestKdeRequest, "xdg-desktop-portal-kde-request")
+Q_LOGGING_CATEGORY(XdgRequestKdeRequest, "xdp-kde-request")
 
 Request::Request(QObject *parent, const QString &portalName, const QVariant &data)
     : QDBusVirtualObject(parent)

@@ -24,7 +24,7 @@
 #include <QLoggingCategory>
 #include <QUrl>
 
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeEmail, "xdg-desktop-portal-kde-email")
+Q_LOGGING_CATEGORY(XdgDesktopPortalKdeEmail, "xdp-kde-email")
 
 EmailPortal::EmailPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)

@@ -26,7 +26,7 @@
 #include <QStandardPaths>
 #include <QPushButton>
 
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAppChooserDialog, "xdg-desktop-portal-kde-app-chooser-dialog")
+Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAppChooserDialog, "xdp-kde-app-chooser-dialog")
 
 AppChooserDialog::AppChooserDialog(const QStringList &choices, QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)

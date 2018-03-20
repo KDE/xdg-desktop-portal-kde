@@ -33,7 +33,7 @@
 #include <QUrl>
 #include <QTemporaryFile>
 
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdePrint, "xdg-desktop-portal-kde-print")
+Q_LOGGING_CATEGORY(XdgDesktopPortalKdePrint, "xdp-kde-print")
 
 // INFO: code below is copied from Qt as there is no public API for converting key to PageSizeId
 

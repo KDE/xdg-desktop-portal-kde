@@ -26,7 +26,7 @@
 #include <QFileDialog>
 #include <KLocalizedString>
 
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeFileChooser, "xdg-desktop-portal-kde-file-chooser")
+Q_LOGGING_CATEGORY(XdgDesktopPortalKdeFileChooser, "xdp-kde-file-chooser")
 
 // Keep in sync with qflatpakfiledialog from flatpak-platform-plugin
 Q_DECLARE_METATYPE(FileChooserPortal::Filter);

@@ -24,7 +24,7 @@
 
 #include <KLocalizedString>
 
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAccess, "xdg-desktop-portal-kde-access")
+Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAccess, "xdp-kde-access")
 
 AccessPortal::AccessPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)

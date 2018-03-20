@@ -2,6 +2,8 @@ add_definitions(-DTRANSLATION_DOMAIN="xdg-desktop-portal-kde")
 
 include_directories(
     ${Qt5PrintSupport_PRIVATE_INCLUDE_DIRS}
+    ${PIPEWIRE_INCLUDE_DIRS} ${SPA_INCLUDE_DIRS} ${GLIB_INCLUDE_DIRS}
+    ${gbm_INCLUDE_DIRS}
 )
 
 set(xdg_desktop_portal_kde_SRCS
@@ -17,11 +19,16 @@ set(xdg_desktop_portal_kde_SRCS
     notification.cpp
     print.cpp
     request.cpp
+    screencast.cpp
+    screencaststream.cpp
+    screenchooserdialog.cpp
+    session.cpp
 )
 
 ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
     accessdialog.ui
     appchooserdialog.ui
+    screenchooserdialog.ui
 )
 
 add_executable(xdg-desktop-portal-kde ${xdg_desktop_portal_kde_SRCS})
@@ -34,6 +41,12 @@ target_link_libraries(xdg-desktop-portal-kde
     KF5::CoreAddons
     KF5::I18n
     KF5::Notifications
+    KF5::WaylandClient
+    ${PIPEWIRE_LIBRARIES}
+    ${SPA_LIBRARIES}
+    ${GLIB_LIBRARIES}
+    ${epoxy_LIBRARY}
+    gbm::gbm
 )
 
 install(TARGETS xdg-desktop-portal-kde DESTINATION ${KDE_INSTALL_LIBEXECDIR})

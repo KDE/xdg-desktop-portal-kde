@@ -24,7 +24,7 @@
 
 #include <KLocalizedString>
 
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAppChooser, "xdg-desktop-portal-kde-app-chooser")
+Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAppChooser, "xdp-kde-app-chooser")
 
 
 AppChooserPortal::AppChooserPortal(QObject *parent)

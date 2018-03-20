@@ -26,7 +26,7 @@
 #include <QStandardPaths>
 #include <QPushButton>
 
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAccessDialog, "xdg-desktop-portal-kde-access-dialog")
+Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAccessDialog, "xdp-kde-access-dialog")
 
 AccessDialog::AccessDialog(QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)

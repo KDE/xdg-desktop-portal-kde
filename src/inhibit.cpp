@@ -29,7 +29,7 @@
 #include <QDBusPendingCallWatcher>
 #include <QLoggingCategory>
 
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeInhibit, "xdg-desktop-portal-kde-inhibit")
+Q_LOGGING_CATEGORY(XdgDesktopPortalKdeInhibit, "xdp-kde-inhibit")
 
 InhibitPortal::InhibitPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)

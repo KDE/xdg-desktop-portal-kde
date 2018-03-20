@@ -1,5 +1,5 @@
 /*
- * Copyright © 2016 Red Hat, Inc
+ * Copyright © 2018 Red Hat, Inc
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -18,38 +18,35 @@
  *       Jan Grulich <jgrulich@redhat.com>
  */
 
-#ifndef XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
-#define XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
+#ifndef XDG_DESKTOP_PORTAL_KDE_SESSION_H
+#define XDG_DESKTOP_PORTAL_KDE_SESSION_H
 
 #include <QObject>
 #include <QDBusVirtualObject>
 
-#include "access.h"
-#include "appchooser.h"
-#include "email.h"
-#include "filechooser.h"
-#include "inhibit.h"
-#include "notification.h"
-#include "print.h"
-#include "screencast.h"
-
-class DesktopPortal : public QObject
+class Session : public QDBusVirtualObject
 {
     Q_OBJECT
 public:
-    explicit DesktopPortal(QObject *parent = nullptr);
-    ~DesktopPortal();
+    explicit Session(QObject *parent = nullptr, const QString &appId = QString(), const QString &path = QString());
+    ~Session();
+
+    bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) Q_DECL_OVERRIDE;
+    QString introspect(const QString &path) const Q_DECL_OVERRIDE;
+
+    bool close();
+
+    bool multipleSources() const;
+    void setMultipleSources(bool multipleSources);
+
+Q_SIGNALS:
+    void closed();
 
 private:
-    AccessPortal *m_access;
-    AppChooserPortal *m_appChooser;
-    EmailPortal *m_email;
-    FileChooserPortal *m_fileChooser;
-    InhibitPortal *m_inhibit;
-    NotificationPortal *m_notification;
-    PrintPortal *m_print;
-    ScreenCastPortal *m_screenCast;
+    bool m_multipleSources;
+    const QString m_appId;
+    const QString m_path;
 };
 
-#endif // XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
+#endif // XDG_DESKTOP_PORTAL_KDE_SESSION_H
 
