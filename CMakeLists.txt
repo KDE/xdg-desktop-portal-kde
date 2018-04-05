@@ -21,24 +21,32 @@ include(FeatureSummary)
 
 include(FindPkgConfig)
 
-# remove?
-pkg_check_modules(PIPEWIRE REQUIRED libpipewire-0.1)
-pkg_check_modules(SPA REQUIRED libspa-0.1)
-pkg_check_modules(GLIB REQUIRED glib-2.0)
+pkg_check_modules(PIPEWIRE libpipewire-0.1)
+pkg_check_modules(SPA libspa-0.1)
+pkg_check_modules(GLIB glib-2.0)
 
-find_package(gbm REQUIRED)
+find_package(gbm)
 set_package_properties(gbm PROPERTIES DESCRIPTION "GBM - Generic Buffer Management"
-    TYPE REQUIRED
+    TYPE OPTIONAL
     PURPOSE "Required for egl ouput of drm backend."
 )
 
-find_package(epoxy REQUIRED)
+find_package(epoxy)
 include_directories(${epoxy_INCLUDE_DIRS})
 set_package_properties(epoxy PROPERTIES DESCRIPTION "libepoxy"
     URL "http://github.com/anholt/libepoxy"
-    TYPE REQUIRED
+    TYPE OPTIONAL
     PURPOSE "OpenGL dispatch library for GBM backend"
 )
+
+if (${PIPEWIRE_FOUND} AND ${SPA_FOUND} AND ${GLIB_FOUND} AND ${GBM_FOUND} AND ${EPOXY_FOUND})
+    set (SCREENCAST_ENABLED true)
+else()
+    set (SCREENCAST_ENABLED false)
+endif()
+add_definitions(-DSCREENCAST_ENABLED=${SCREENCAST_ENABLED})
+
+add_feature_info ("Screencast portal" ${SCREENCAST_ENABLED} "Support for screen sharing")
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core

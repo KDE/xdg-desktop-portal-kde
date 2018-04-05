@@ -31,7 +31,9 @@
 #include "inhibit.h"
 #include "notification.h"
 #include "print.h"
+#if SCREENCAST_ENABLED
 #include "screencast.h"
+#endif
 
 class DesktopPortal : public QObject
 {
@@ -48,7 +50,9 @@ private:
     InhibitPortal *m_inhibit;
     NotificationPortal *m_notification;
     PrintPortal *m_print;
+#if SCREENCAST_ENABLED
     ScreenCastPortal *m_screenCast;
+#endif
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H

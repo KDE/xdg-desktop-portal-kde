@@ -19,16 +19,23 @@ set(xdg_desktop_portal_kde_SRCS
     notification.cpp
     print.cpp
     request.cpp
-    screencast.cpp
-    screencaststream.cpp
-    screenchooserdialog.cpp
     session.cpp
 )
+
+if (SCREENCAST_ENABLED)
+    set (xdg_desktop_portal_kde_SRCS
+         ${xdg_desktop_portal_kde_SRCS}
+         screencast.cpp
+         screencaststream.cpp
+         screenchooserdialog.cpp)
+
+    ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
+                  screenchooserdialog.ui)
+endif()
 
 ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
     accessdialog.ui
     appchooserdialog.ui
-    screenchooserdialog.ui
 )
 
 add_executable(xdg-desktop-portal-kde ${xdg_desktop_portal_kde_SRCS})
@@ -42,11 +49,15 @@ target_link_libraries(xdg-desktop-portal-kde
     KF5::I18n
     KF5::Notifications
     KF5::WaylandClient
-    ${PIPEWIRE_LIBRARIES}
-    ${SPA_LIBRARIES}
-    ${GLIB_LIBRARIES}
-    ${epoxy_LIBRARY}
-    gbm::gbm
 )
+
+if (SCREENCAST_ENABLED)
+    target_link_libraries(xdg-desktop-portal-kde
+                          ${PIPEWIRE_LIBRARIES}
+                          ${SPA_LIBRARIES}
+                          ${GLIB_LIBRARIES}
+                          ${epoxy_LIBRARY}
+                          gbm::gbm)
+endif()
 
 install(TARGETS xdg-desktop-portal-kde DESTINATION ${KDE_INSTALL_LIBEXECDIR})
