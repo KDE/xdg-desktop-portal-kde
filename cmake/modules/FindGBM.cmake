@@ -59,7 +59,7 @@
 
 # Use pkg-config to get the directories and then use these values
 # in the FIND_PATH() and FIND_LIBRARY() calls
-find_package(PkgConfig)
+find_package(PkgConfig QUIET)
 pkg_check_modules(PKG_GBM QUIET gbm)
 
 set(GBM_DEFINITIONS ${PKG_GBM_CFLAGS_OTHER})

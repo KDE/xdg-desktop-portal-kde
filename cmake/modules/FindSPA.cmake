@@ -61,7 +61,7 @@
 
 # Use pkg-config to get the directories and then use these values
 # in the FIND_PATH() and FIND_LIBRARY() calls
-find_package(PkgConfig)
+find_package(PkgConfig QUIET)
 pkg_check_modules(PKG_SPA QUIET libspa-0.1)
 
 set(SPA_DEFINITIONS ${PKG_SPA_CFLAGS_OTHER})
