@@ -1,11 +1,23 @@
-# - Try to find libepoxy
-# Once done this will define
+#.rst:
+# FindEpoxy
+# -------
 #
-#  Epoxy_FOUND        - System has libepoxy
-#  Epoxy_LIBRARIES      - The libepoxy library
-#  Epoxy_INCLUDE_DIRS  - The libepoxy include dir
-#  Epoxy_DEFINITIONS  - Compiler switches required for using libepoxy
-#  Epoxy_HAS_GLX      - Whether GLX support is available
+# - Try to find libepoxy.
+#
+# This will define the following variables:
+#
+#  ``Epoxy_FOUND``
+#     TRUE if libepoxy was found
+#  ``Epoxy_LIBRARIES``
+#     Pass this variable to target_link_libraries()
+#  ``Epoxy_INCLUDE_DIRS``
+#     This should be passed to target_include_directories() to use the
+#     libepoxy headers
+#  ``Epoxy_DEFINITIONS``
+#     Can be passed to target_compile_options() if necessary
+#
+#  ``Epoxy_HAS_GLX``
+#     Whether GLX support is available
 
 # Copyright (c) 2014 Fredrik Höglund <fredrik@kde.org>
 #

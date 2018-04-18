@@ -2,14 +2,14 @@
 # FindSPA
 # -------
 #
-# Try to find spa on a Unix system.
+# Try to find the Simple Plugin API (SPA) on a Unix system.
 #
 # This will define the following variables:
 #
 # ``SPA_FOUND``
-#     True if (the requested version of) spa is available
+#     True if (the requested version of) SPA is available
 # ``SPA_VERSION``
-#     The version of spa
+#     The version of SPA
 # ``SPA_LIBRARIES``
 #     This can be passed to target_link_libraries() instead of the ``SPA::SPA``
 #     target
@@ -23,7 +23,7 @@
 # If ``SPA_FOUND`` is TRUE, it will also define the following imported target:
 #
 # ``SPA::SPA``
-#     The spa library
+#     The SPA library
 #
 # In general we recommend using the imported target, as it is easier to use.
 # Bear in mind, however, that if the target is in the link interface of an

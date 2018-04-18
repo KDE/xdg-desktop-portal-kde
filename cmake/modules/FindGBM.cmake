@@ -7,13 +7,13 @@
 # This will define the following variables:
 #
 # ``GBM_FOUND``
-#     True if (the requested version of) gbm is available
+#     True if (the requested version of) GBM is available
 # ``GBM_VERSION``
-#     The version of gbm
+#     The version of GBM
 # ``GBM_LIBRARIES``
 #     This can be passed to target_link_libraries() instead of the ``GBM::GBM``
 #     target
-# ``GBM_INCLUDE_DIRSS``
+# ``GBM_INCLUDE_DIRS``
 #     This should be passed to target_include_directories() if the target is not
 #     used for linking
 # ``GBM_DEFINITIONS``
@@ -23,7 +23,7 @@
 # If ``GBM_FOUND`` is TRUE, it will also define the following imported target:
 #
 # ``GBM::GBM``
-#     The gbm library
+#     The GBM library
 #
 # In general we recommend using the imported target, as it is easier to use.
 # Bear in mind, however, that if the target is in the link interface of an

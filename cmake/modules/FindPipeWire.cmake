@@ -1,8 +1,8 @@
 #.rst:
-# Findpipewire
+# FindPipeWire
 # -------
 #
-# Try to find pipewire on a Unix system.
+# Try to find PipeWire on a Unix system.
 #
 # This will define the following variables:
 #
@@ -105,5 +105,5 @@ mark_as_advanced(PipeWire_LIBRARIES PipeWire_INCLUDE_DIRS)
 include(FeatureSummary)
 set_package_properties(PipeWire PROPERTIES
     URL "http://www.pipewire.org"
-    DESCRIPTION "Pipewire - multimedia processing"
+    DESCRIPTION "PipeWire - multimedia processing"
 )
