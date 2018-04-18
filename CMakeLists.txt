@@ -8,7 +8,7 @@ set(PROJECT_VERSION_MAJOR 5)
 
 ################# set KDE specific information #################
 
-find_package(ECM 1.3.0 REQUIRED NO_MODULE)
+find_package(ECM 5.41.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules")
 
 include(KDEInstallDirs)
@@ -19,27 +19,38 @@ include(ECMPackageConfigHelpers)
 include(ECMOptionalAddSubdirectory)
 include(FeatureSummary)
 
-include(FindPkgConfig)
-
-pkg_check_modules(PIPEWIRE libpipewire-0.1)
-pkg_check_modules(SPA libspa-0.1)
-pkg_check_modules(GLIB glib-2.0)
-
-find_package(gbm)
-set_package_properties(gbm PROPERTIES DESCRIPTION "GBM - Generic Buffer Management"
+find_package(GLIB2)
+set_package_properties(GLIB2 PROPERTIES
     TYPE OPTIONAL
-    PURPOSE "Required for egl ouput of drm backend."
+    PURPOSE "Required for screencast portal"
 )
 
-find_package(epoxy)
-include_directories(${epoxy_INCLUDE_DIRS})
-set_package_properties(epoxy PROPERTIES DESCRIPTION "libepoxy"
+find_package(SPA)
+set_package_properties(SPA PROPERTIES
+    TYPE OPTIONAL
+    PURPOSE "Required for screencast portal"
+)
+
+find_package(PipeWire)
+set_package_properties(PipeWire PROPERTIES
+    TYPE OPTIONAL
+    PURPOSE "Required for screencast portal"
+)
+
+find_package(GBM)
+set_package_properties(GBM PROPERTIES
+    TYPE OPTIONAL
+    PURPOSE "Required for screencast portal"
+)
+
+find_package(Epoxy)
+set_package_properties(Epoxy PROPERTIES DESCRIPTION "libepoxy"
     URL "http://github.com/anholt/libepoxy"
     TYPE OPTIONAL
-    PURPOSE "OpenGL dispatch library for GBM backend"
+    PURPOSE "Required for screencast portal"
 )
 
-if (${PIPEWIRE_FOUND} AND ${SPA_FOUND} AND ${GLIB_FOUND} AND ${GBM_FOUND} AND ${EPOXY_FOUND})
+if (${PIPEWIRE_FOUND} AND ${SPA_FOUND} AND ${GLIB2_FOUND} AND ${GBM_FOUND} AND ${EPOXY_FOUND})
     set (SCREENCAST_ENABLED true)
 else()
     set (SCREENCAST_ENABLED false)

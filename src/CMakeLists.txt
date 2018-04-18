@@ -1,10 +1,6 @@
 add_definitions(-DTRANSLATION_DOMAIN="xdg-desktop-portal-kde")
 
-include_directories(
-    ${Qt5PrintSupport_PRIVATE_INCLUDE_DIRS}
-    ${PIPEWIRE_INCLUDE_DIRS} ${SPA_INCLUDE_DIRS} ${GLIB_INCLUDE_DIRS}
-    ${gbm_INCLUDE_DIRS}
-)
+include_directories(${Qt5PrintSupport_PRIVATE_INCLUDE_DIRS})
 
 set(xdg_desktop_portal_kde_SRCS
     xdg-desktop-portal-kde.cpp
@@ -53,11 +49,11 @@ target_link_libraries(xdg-desktop-portal-kde
 
 if (SCREENCAST_ENABLED)
     target_link_libraries(xdg-desktop-portal-kde
-                          ${PIPEWIRE_LIBRARIES}
-                          ${SPA_LIBRARIES}
-                          ${GLIB_LIBRARIES}
-                          ${epoxy_LIBRARY}
-                          gbm::gbm)
+                          PipeWire::PipeWire
+                          SPA::SPA
+                          GLIB2::GLIB2
+                          ${Epoxy_LIBRARIES}
+                          GBM::GBM)
 endif()
 
 install(TARGETS xdg-desktop-portal-kde DESTINATION ${KDE_INSTALL_LIBEXECDIR})
