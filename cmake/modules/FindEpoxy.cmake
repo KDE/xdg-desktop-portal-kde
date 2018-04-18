@@ -48,7 +48,7 @@
 find_package(PkgConfig QUIET)
 pkg_check_modules(PKG_Epoxy QUIET epoxy)
 
-set(Epoxy_DEFINITIONS ${PKG_Epoxy_CFLAGS})
+set(Epoxy_DEFINITIONS "${PKG_Epoxy_CFLAGS}")
 
 find_path(Epoxy_INCLUDE_DIRS NAMES epoxy/gl.h HINTS ${PKG_Epoxy_INCLUDEDIR} ${PKG_Epoxy_INCLUDE_DIRS})
 find_library(Epoxy_LIBRARIES  NAMES epoxy      HINTS ${PKG_Epoxy_LIBDIR} ${PKG_Epoxy_LIBRARIES_DIRS})

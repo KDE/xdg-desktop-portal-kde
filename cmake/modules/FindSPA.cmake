@@ -64,8 +64,8 @@
 find_package(PkgConfig QUIET)
 pkg_check_modules(PKG_SPA QUIET libspa-0.1)
 
-set(SPA_DEFINITIONS ${PKG_SPA_CFLAGS_OTHER})
-set(SPA_VERSION ${PKG_SPA_VERSION})
+set(SPA_DEFINITIONS "${PKG_SPA_CFLAGS_OTHER}")
+set(SPA_VERSION "${PKG_SPA_VERSION}")
 
 find_path(SPA_INCLUDE_DIRS
     NAMES

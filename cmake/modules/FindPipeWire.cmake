@@ -63,8 +63,8 @@
 find_package(PkgConfig QUIET)
 pkg_check_modules(PKG_PipeWire QUIET libpipewire-0.1)
 
-set(PipeWire_DEFINITIONS ${PKG_PipeWire_CFLAGS_OTHER})
-set(PipeWire_VERSION ${PKG_PipeWire_VERSION})
+set(PipeWire_DEFINITIONS "${PKG_PipeWire_CFLAGS_OTHER}")
+set(PipeWire_VERSION "${PKG_PipeWire_VERSION}")
 
 find_path(PipeWire_INCLUDE_DIRS
     NAMES
