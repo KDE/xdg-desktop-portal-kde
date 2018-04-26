@@ -40,6 +40,7 @@ DesktopPortal::DesktopPortal(QObject *parent)
 #if SCREENCAST_ENABLED
     , m_screenCast(new ScreenCastPortal(this))
 #endif
+    , m_screenshot(new ScreenshotPortal(this))
 {
 }
 

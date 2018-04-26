@@ -17,6 +17,8 @@ set(xdg_desktop_portal_kde_SRCS
     print.cpp
     request.cpp
     session.cpp
+    screenshot.cpp
+    screenshotdialog.cpp
 )
 
 if (SCREENCAST_ENABLED)
@@ -32,6 +34,7 @@ endif()
 
 ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
     accessdialog.ui
+    screenshotdialog.ui
 )
 
 add_executable(xdg-desktop-portal-kde ${xdg_desktop_portal_kde_SRCS})
@@ -45,6 +48,7 @@ target_link_libraries(xdg-desktop-portal-kde
     KF5::I18n
     KF5::Notifications
     KF5::WaylandClient
+    KF5::WidgetsAddons
 )
 
 if (SCREENCAST_ENABLED)

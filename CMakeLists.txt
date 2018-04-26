@@ -71,6 +71,7 @@ find_package(KF5 REQUIRED
     I18n
     Notifications
     Wayland
+    WidgetsAddons
 )
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)

@@ -34,6 +34,7 @@
 #if SCREENCAST_ENABLED
 #include "screencast.h"
 #endif
+#include "screenshot.h"
 
 class DesktopPortal : public QObject
 {
@@ -53,6 +54,7 @@ private:
 #if SCREENCAST_ENABLED
     ScreenCastPortal *m_screenCast;
 #endif
+    ScreenshotPortal *m_screenshot;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
