@@ -56,11 +56,7 @@ uint AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
         latestChoice = options.value(QLatin1String("last_choice")).toString();
     }
 
-    AppChooserDialog *appDialog = new AppChooserDialog(choices);
-
-    if (!latestChoice.isEmpty()) {
-        appDialog->setSelectedApplication(latestChoice);
-    }
+    AppChooserDialog *appDialog = new AppChooserDialog(choices, latestChoice, options.value(QLatin1String("filename")).toString());
 
     if (appDialog->exec()) {
         results.insert(QLatin1String("choice"), appDialog->selectedApplication());

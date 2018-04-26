@@ -19,26 +19,50 @@
  */
 
 #include "appchooserdialog.h"
-#include "ui_appchooserdialog.h"
+#include "appchooserdialogitem.h"
 
+#include <QDialogButtonBox>
+#include <QGridLayout>
+#include <QVBoxLayout>
+#include <QLabel>
 #include <QLoggingCategory>
+#include <KLocalizedString>
 #include <QSettings>
 #include <QStandardPaths>
-#include <QPushButton>
+
+#include <KProcess>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAppChooserDialog, "xdp-kde-app-chooser-dialog")
 
-AppChooserDialog::AppChooserDialog(const QStringList &choices, QDialog *parent, Qt::WindowFlags flags)
+AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)
-    , m_dialog(new Ui::AppChooserDialog)
-    , m_choices(choices)
 {
-    m_dialog->setupUi(this);
+    setMinimumWidth(640);
 
-    Q_FOREACH (const QString &choice, m_choices) {
+    QVBoxLayout *vboxLayout = new QVBoxLayout(this);
+    vboxLayout->setSpacing(20);
+    vboxLayout->setMargin(20);
+
+    QLabel *label = new QLabel(this);
+    label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+    label->setScaledContents(true);
+    label->setWordWrap(true);
+    label->setText(i18n("Select application to open \"%1\". Other applications are available in <a href=#discover><span style=\"text-decoration: underline\">Discover</span></a>.", fileName));
+    label->setOpenExternalLinks(false);
+
+    connect(label, &QLabel::linkActivated, this, [] () {
+        KProcess::startDetached("plasma-discover");
+    });
+
+    vboxLayout->addWidget(label);
+
+    QGridLayout *gridLayout = new QGridLayout();
+
+    int i = 0, j = 0;
+    foreach (const QString &choice, choices) {
         const QString desktopFile = choice + QLatin1String(".desktop");
         const QStringList desktopFilesLocations = QStandardPaths::locateAll(QStandardPaths::ApplicationsLocation, desktopFile, QStandardPaths::LocateFile);
-        Q_FOREACH (const QString desktopFile, desktopFilesLocations) {
+        foreach (const QString desktopFile, desktopFilesLocations) {
             QString applicationIcon;
             QString applicationName;
             QSettings settings(desktopFile, QSettings::IniFormat);
@@ -50,51 +74,42 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, QDialog *parent, 
             }
             applicationIcon = settings.value(QLatin1String("Icon")).toString();
 
-            QListWidgetItem *widgetItem = new QListWidgetItem(m_dialog->appView);
-            widgetItem->setData(Qt::UserRole, QVariant::fromValue(choice));
-            // FIXME GTK icons will work only with Qt 5.7
-            widgetItem->setIcon(QIcon::fromTheme(applicationIcon));
-            widgetItem->setText(applicationName);
+            AppChooserDialogItem *item = new AppChooserDialogItem(applicationName, applicationIcon, choice);
+            gridLayout->addWidget(item, i, j++, Qt::AlignHCenter);
+
+            connect(item, &AppChooserDialogItem::doubleClicked, this, [this] (const QString &selectedApplication) {
+                m_selectedApplication = selectedApplication;
+                QDialog::accept();
+            });
+
+            if (choice == defaultApp) {
+                item->setDown(true);
+                item->setChecked(true);
+            }
+
+            if (j == 3) {
+                i++;
+                j = 0;
+            }
         }
     }
 
-    connect(m_dialog->buttonBox, &QDialogButtonBox::accepted, this, &AppChooserDialog::accept);
-    connect(m_dialog->buttonBox, &QDialogButtonBox::rejected, this, &AppChooserDialog::reject);
-    connect(m_dialog->appView, &QListWidget::itemDoubleClicked, this, &AppChooserDialog::accept);
-    connect(m_dialog->searchEdit, &QLineEdit::textChanged, this, &AppChooserDialog::searchTextChanged);
+    vboxLayout->addLayout(gridLayout);
 
-    m_dialog->buttonBox->button(QDialogButtonBox::Ok)->setText(i18n("Select"));
-    setWindowTitle(i18n("Select application"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel, this);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
+
+    vboxLayout->addWidget(buttonBox, 0, Qt::AlignBottom | Qt::AlignRight);
+
+    setLayout(vboxLayout);
+    setWindowTitle(i18n("Open with"));
 }
 
 AppChooserDialog::~AppChooserDialog()
 {
-    delete m_dialog;
 }
 
 QString AppChooserDialog::selectedApplication() const
 {
-    return m_dialog->appView->currentItem()->data(Qt::UserRole).toString();
-}
-
-void AppChooserDialog::setSelectedApplication(const QString &applicationName)
-{
-    for (int i = 0; i < m_dialog->appView->count(); i++) {
-        QListWidgetItem *widgetItem = m_dialog->appView->item(i);
-        if (widgetItem->data(Qt::UserRole).toString() == applicationName) {
-            m_dialog->appView->setCurrentItem(widgetItem, QItemSelectionModel::Select);
-        }
-    }
-}
-
-void AppChooserDialog::searchTextChanged(const QString &text)
-{
-    for (int i = 0; i < m_dialog->appView->count(); i++) {
-        QListWidgetItem *widgetItem = m_dialog->appView->item(i);
-        if (text.isEmpty()) {
-            widgetItem->setHidden(false);
-        } else {
-            widgetItem->setHidden(!widgetItem->text().toLower().contains(text.toLower()));
-        }
-    }
+    return m_selectedApplication;
 }

@@ -8,6 +8,7 @@ set(xdg_desktop_portal_kde_SRCS
     accessdialog.cpp
     appchooser.cpp
     appchooserdialog.cpp
+    appchooserdialogitem.cpp
     desktopportal.cpp
     email.cpp
     filechooser.cpp
@@ -31,7 +32,6 @@ endif()
 
 ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
     accessdialog.ui
-    appchooserdialog.ui
 )
 
 add_executable(xdg-desktop-portal-kde ${xdg_desktop_portal_kde_SRCS})

@@ -24,27 +24,17 @@
 #include <QAbstractListModel>
 #include <QDialog>
 
-namespace Ui
-{
-class AppChooserDialog;
-}
-
 class AppChooserDialog : public QDialog
 {
     Q_OBJECT
 public:
-    AppChooserDialog(const QStringList &choices, QDialog *parent = nullptr, Qt::WindowFlags flags = 0);
+    AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, QDialog *parent = nullptr, Qt::WindowFlags flags = 0);
     ~AppChooserDialog();
 
     QString selectedApplication() const;
-    void setSelectedApplication(const QString &applicationName);
-
-public Q_SLOTS:
-    void searchTextChanged(const QString &text);
 
 private:
-    Ui::AppChooserDialog * m_dialog;
-    QStringList m_choices;
+    QString m_selectedApplication;
 
 };
 
