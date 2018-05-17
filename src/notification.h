@@ -31,7 +31,7 @@ class NotificationPortal : public QDBusAbstractAdaptor
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Notification")
 public:
-    NotificationPortal(QObject *parent);
+    explicit NotificationPortal(QObject *parent);
     ~NotificationPortal();
 
 public Q_SLOTS:

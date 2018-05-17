@@ -32,7 +32,7 @@ class PrintPortal : public QDBusAbstractAdaptor
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Print")
 public:
-    PrintPortal(QObject *parent);
+    explicit PrintPortal(QObject *parent);
     ~PrintPortal();
 
 public Q_SLOTS:

@@ -29,7 +29,7 @@ class ScreenshotPortal : public QDBusAbstractAdaptor
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Screenshot")
 public:
-    ScreenshotPortal(QObject *parent);
+    explicit ScreenshotPortal(QObject *parent);
     ~ScreenshotPortal();
 
 public Q_SLOTS:

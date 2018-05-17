@@ -32,7 +32,7 @@ class AccessDialog : public QDialog
 {
     Q_OBJECT
 public:
-    AccessDialog(QDialog *parent = nullptr, Qt::WindowFlags flags = 0);
+    explicit AccessDialog(QDialog *parent = nullptr, Qt::WindowFlags flags = 0);
     ~AccessDialog();
 
     void setAcceptLabel(const QString &label);

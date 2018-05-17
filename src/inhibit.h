@@ -31,7 +31,7 @@ class InhibitPortal : public QDBusAbstractAdaptor
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Inhibit")
 public:
-    InhibitPortal(QObject *parent);
+    explicit InhibitPortal(QObject *parent);
     ~InhibitPortal();
 
 public Q_SLOTS:

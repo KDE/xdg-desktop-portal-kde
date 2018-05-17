@@ -29,7 +29,7 @@ class AccessPortal : public QDBusAbstractAdaptor
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Access")
 public:
-    AccessPortal(QObject *parent);
+    explicit AccessPortal(QObject *parent);
     ~AccessPortal();
 
 public Q_SLOTS:
