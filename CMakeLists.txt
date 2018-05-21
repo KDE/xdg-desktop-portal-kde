@@ -50,7 +50,7 @@ set_package_properties(Epoxy PROPERTIES DESCRIPTION "libepoxy"
     PURPOSE "Required for screencast portal"
 )
 
-if (${PipeWire_FOUND} AND ${SPA_FOUND} AND ${GLIB2_FOUND} AND ${GBM_FOUND} AND ${Epoxy_FOUND})
+if (PipeWire_FOUND AND SPA_FOUND AND GLIB2_FOUND AND GBM_FOUND AND Epoxy_FOUND)
     set (SCREENCAST_ENABLED true)
 else()
     set (SCREENCAST_ENABLED false)
