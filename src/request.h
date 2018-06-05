@@ -29,10 +29,10 @@ class Request : public QDBusVirtualObject
     Q_OBJECT
 public:
     explicit Request(QObject *parent = nullptr, const QString &portalName = QString(), const QVariant &data = QVariant());
-    ~Request() Q_DECL_OVERRIDE;
+    ~Request() override;
 
-    bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) Q_DECL_OVERRIDE;
-    QString introspect(const QString &path) const Q_DECL_OVERRIDE;
+    bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) override;
+    QString introspect(const QString &path) const override;
 
 Q_SIGNALS:
     void closeRequested();

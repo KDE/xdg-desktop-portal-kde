@@ -31,8 +31,8 @@ public:
     explicit Session(QObject *parent = nullptr, const QString &appId = QString(), const QString &path = QString());
     ~Session();
 
-    bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) Q_DECL_OVERRIDE;
-    QString introspect(const QString &path) const Q_DECL_OVERRIDE;
+    bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) override;
+    QString introspect(const QString &path) const override;
 
     bool close();
 
