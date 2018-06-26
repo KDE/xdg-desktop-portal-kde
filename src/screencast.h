@@ -120,6 +120,7 @@ private Q_SLOTS:
     void removeOutput(quint32 name);
     void processBuffer(const KWayland::Client::RemoteBuffer *rbuf);
     void setupRegistry();
+    void stopStreaming();
 
 private:
     void initDrm();
