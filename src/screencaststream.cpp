@@ -256,6 +256,14 @@ ScreenCastStream::~ScreenCastStream()
         delete pwType;
     }
 
+    if (pwStream) {
+        pw_stream_destroy(pwStream);
+    }
+
+    if (pwRemote) {
+        pw_remote_destroy(pwRemote);
+    }
+
     if (pwCore) {
         pw_core_destroy(pwCore);
     }
@@ -319,17 +327,21 @@ bool ScreenCastStream::createStream(const QSize &resolution)
     minFramerate = SPA_FRACTION(1, 1);
     maxFramerate = SPA_FRACTION((uint32_t)fraction.num, (uint32_t)fraction.denom);
 
+    spa_rectangle minResolution = SPA_RECTANGLE(1, 1);
+    int width = resolution.width();
+    int height = resolution.height();
+
     spa_fraction paramFraction = SPA_FRACTION(0, 1);
-    spa_rectangle paramRectangle = SPA_RECTANGLE((uint32_t)resolution.width(), (uint32_t)resolution.height());
+    spa_rectangle paramRectangle = SPA_RECTANGLE((uint32_t)width, (uint32_t)height);
 
     params[0] = (spa_pod*)spa_pod_builder_object(&podBuilder,
                                        pwCoreType->param.idEnumFormat, pwCoreType->spa_format,
                                        "I", pwType->media_type.video,
                                        "I", pwType->media_subtype.raw,
                                        ":", pwType->format_video.format, "I", pwType->video_format.RGBx,
-                                       ":", pwType->format_video.size, "R", &paramRectangle,
+                                       ":", pwType->format_video.size, "Rru", &minResolution, SPA_POD_PROP_MIN_MAX(&width, &height),
                                        ":", pwType->format_video.framerate, "F", &paramFraction,
-                                       ":", pwType->format_video.max_framerate, "Fr", &maxFramerate, PROP_RANGE (&minFramerate, &maxFramerate));
+                                       ":", pwType->format_video.max_framerate, "Fru", &maxFramerate, PROP_RANGE (&minFramerate, &maxFramerate));
 
     pw_stream_add_listener(pwStream, &streamListener, &pwStreamEvents, this);
 
@@ -393,8 +405,10 @@ bool ScreenCastStream::recordFrame(uint8_t *screenData)
 
 void ScreenCastStream::removeStream()
 {
-    pw_stream_destroy(pwStream);
-    pwStream = nullptr;
+    // FIXME destroying streams seems to be crashing, Mutter also doesn't remove them, maybe Pipewire does this automatically
+    // pw_stream_destroy(pwStream);
+    // pwStream = nullptr;
+    pw_stream_disconnect(pwStream);
 }
 
 void ScreenCastStream::initializePwTypes()

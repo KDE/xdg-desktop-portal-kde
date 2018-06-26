@@ -244,19 +244,7 @@ void ScreenCastPortal::initPipewire()
         }
     });
 
-    connect(m_stream, &ScreenCastStream::stopStreaming, this, [this] {
-        if (m_streamingEnabled) {
-            qCDebug(XdgDesktopPortalKdeScreenCast) << "Stop streaming";
-            m_remoteAccessManager->release();
-            m_remoteAccessManager->destroy();
-
-            m_streamingEnabled = false;
-            m_stream->removeStream();
-
-            qDeleteAll(m_bindOutputs);
-            m_bindOutputs.clear();
-        }
-    });
+    connect(m_stream, &ScreenCastStream::stopStreaming, this, &ScreenCastPortal::stopStreaming);
 }
 
 void ScreenCastPortal::initWayland()
@@ -315,6 +303,7 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
             m_sessionList.remove(session_handle.path());
             QDBusConnection::sessionBus().unregisterObject(session_handle.path());
             session->deleteLater();
+            stopStreaming();
         });
         m_sessionList.insert(session_handle.path(), session);
         return 0;
@@ -416,6 +405,8 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
 
         QTimer::singleShot(3000, &loop, &QEventLoop::quit);
         loop.exec();
+
+        disconnect(m_stream, &ScreenCastStream::streamReady, this, nullptr);
 
         if (!streamReady) {
             qCWarning(XdgDesktopPortalKdeScreenCast) << "Pipewire stream is not ready to be streamed";
@@ -570,4 +561,19 @@ void ScreenCastPortal::setupRegistry()
     m_registry->create(m_connection);
     m_registry->setEventQueue(m_queue);
     m_registry->setup();
+}
+
+void ScreenCastPortal::stopStreaming()
+{
+    if (m_streamingEnabled) {
+        qCDebug(XdgDesktopPortalKdeScreenCast) << "Stop streaming";
+        m_remoteAccessManager->release();
+        m_remoteAccessManager->destroy();
+
+        m_streamingEnabled = false;
+        m_stream->removeStream();
+
+        qDeleteAll(m_bindOutputs);
+        m_bindOutputs.clear();
+    }
 }
