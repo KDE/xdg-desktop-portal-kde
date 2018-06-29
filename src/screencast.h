@@ -89,7 +89,7 @@ public:
         Window
     };
 
-    ScreenCastPortal(QObject *parent);
+    explicit ScreenCastPortal(QObject *parent);
     ~ScreenCastPortal();
 
     uint version() const { return 1; }

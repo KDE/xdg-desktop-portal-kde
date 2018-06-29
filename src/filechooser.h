@@ -43,7 +43,7 @@ public:
     } FilterList;
     typedef QList<FilterList> FilterListList;
 
-    FileChooserPortal(QObject *parent);
+    explicit FileChooserPortal(QObject *parent);
     ~FileChooserPortal();
 
 public Q_SLOTS:
