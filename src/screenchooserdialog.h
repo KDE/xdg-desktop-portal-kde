@@ -35,7 +35,7 @@ class ScreenChooserDialog : public QDialog
 {
     Q_OBJECT
 public:
-    ScreenChooserDialog(const QMap<quint32, ScreenCastPortalOutput> &screens, bool multiple = false, QDialog *parent = nullptr, Qt::WindowFlags flags = 0);
+    ScreenChooserDialog(const QMap<quint32, ScreenCastPortalOutput> &screens, bool multiple = false, QDialog *parent = nullptr, Qt::WindowFlags flags = {});
     ~ScreenChooserDialog();
 
     QList<quint32> selectedScreens() const;

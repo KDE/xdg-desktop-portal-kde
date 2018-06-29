@@ -32,7 +32,7 @@ class ScreenshotDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ScreenshotDialog(QDialog *parent = nullptr, Qt::WindowFlags flags = 0);
+    explicit ScreenshotDialog(QDialog *parent = nullptr, Qt::WindowFlags flags = {});
     ~ScreenshotDialog();
 
     QImage image() const;

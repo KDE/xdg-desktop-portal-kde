@@ -28,7 +28,7 @@ class AppChooserDialog : public QDialog
 {
     Q_OBJECT
 public:
-    AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, QDialog *parent = nullptr, Qt::WindowFlags flags = 0);
+    AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, QDialog *parent = nullptr, Qt::WindowFlags flags = {});
     ~AppChooserDialog();
 
     QString selectedApplication() const;
