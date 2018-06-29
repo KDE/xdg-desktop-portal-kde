@@ -17,8 +17,6 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 
-include(ECMPackageConfigHelpers)
-include(ECMOptionalAddSubdirectory)
 include(FeatureSummary)
 
 find_package(GLIB2)
