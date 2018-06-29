@@ -2,10 +2,11 @@ cmake_minimum_required(VERSION 3.0)
 
 project(xdg-desktop-portal-kde)
 
-set(QT_MIN_VERSION "5.4.0")
-
 set(PROJECT_VERSION "5.13.80")
 set(PROJECT_VERSION_MAJOR 5)
+
+set(QT_MIN_VERSION "5.9.0")
+set(KF5_MIN_VERSION "5.42.0")
 
 ################# set KDE specific information #################
 
@@ -67,7 +68,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Widgets
 )
 
-find_package(KF5 REQUIRED
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     CoreAddons
     I18n
     Notifications
