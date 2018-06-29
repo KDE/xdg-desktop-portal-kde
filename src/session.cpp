@@ -18,8 +18,8 @@
  *       Jan Grulich <jgrulich@redhat.com>
  */
 
-#include "desktopportal.h"
 #include "session.h"
+#include "desktopportal.h"
 
 #include <QDBusArgument>
 #include <QDBusConnection>
