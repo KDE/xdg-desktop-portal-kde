@@ -20,7 +20,7 @@
 
 #include "filechooser.h"
 
-#include <QtDBus/QtDBus>
+#include <QDBusMetaType>
 #include <QDBusArgument>
 #include <QLoggingCategory>
 #include <QFileDialog>

@@ -28,7 +28,8 @@
 #include <QThread>
 #include <QTimer>
 
-#include <QtDBus/QtDBus>
+#include <QDBusMetaType>
+#include <QDBusError>
 #include <QDBusArgument>
 #include <QDBusConnection>
 
