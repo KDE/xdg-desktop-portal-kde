@@ -499,7 +499,7 @@ void ScreenCastPortal::processBuffer(const KWayland::Client::RemoteBuffer* rbuf)
     eglMakeCurrent(m_egl.display, EGL_NO_SURFACE, EGL_NO_SURFACE, m_egl.context);
 
     // create EGL image from imported BO
-    EGLImageKHR image = eglCreateImageKHR(m_egl.display, NULL, EGL_NATIVE_PIXMAP_KHR, imported, NULL);
+    EGLImageKHR image = eglCreateImageKHR(m_egl.display, nullptr, EGL_NATIVE_PIXMAP_KHR, imported, nullptr);
     if (image == EGL_NO_IMAGE_KHR) {
         qCritical() << "Error creating EGLImageKHR" << formatGLError(glGetError());
         return;

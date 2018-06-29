@@ -202,7 +202,7 @@ static void onStreamFormatChanged(void *data, struct spa_pod *format)
     const int bpp = 4;
 
     if (!format) {
-        pw_stream_finish_format(pw->pwStream, 0, NULL, 0);
+        pw_stream_finish_format(pw->pwStream, 0, nullptr, 0);
         return;
     }
 
