@@ -86,7 +86,7 @@ static PwFraction pipewireFractionFromDouble(double src)
     N = 1;
     D = 1;
 
-    for (i = 0; i < MAX_TERMS; i++) {
+    for (i = 0; i < MAX_TERMS; ++i) {
         /* get next term */
         A = (gint) F;               /* no floor() needed, F is always >= 0 */
         /* get new divisor */
