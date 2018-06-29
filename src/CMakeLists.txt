@@ -42,6 +42,7 @@ add_executable(xdg-desktop-portal-kde ${xdg_desktop_portal_kde_SRCS})
 target_link_libraries(xdg-desktop-portal-kde
     Qt5::Core
     Qt5::DBus
+    Qt5::Concurrent
     Qt5::PrintSupport
     Qt5::Widgets
     KF5::CoreAddons

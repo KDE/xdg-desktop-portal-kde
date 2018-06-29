@@ -61,6 +61,7 @@ add_feature_info ("Screencast portal" ${SCREENCAST_ENABLED} "Support for screen 
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
+    Concurrent
     DBus
     PrintSupport
     Widgets

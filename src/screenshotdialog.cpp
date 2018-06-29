@@ -30,7 +30,7 @@
 #include <QDBusUnixFileDescriptor>
 #include <QTimer>
 #include <QFutureWatcher>
-#include <QtConcurrent/QtConcurrentRun>
+#include <QtConcurrentRun>
 #include <qplatformdefs.h>
 
 #include <fcntl.h>
