@@ -53,7 +53,7 @@ class ScreenCastStream : public QObject
 {
     Q_OBJECT
 public:
-    explicit ScreenCastStream(QObject *parent = nullptr);
+    explicit ScreenCastStream(const QSize &resolution, QObject *parent = nullptr);
     ~ScreenCastStream();
 
     // Public
@@ -61,7 +61,7 @@ public:
     uint nodeId();
 
     // Public because we need access from static functions
-    bool createStream(const QSize &resolution);
+    bool createStream();
     bool recordFrame(uint8_t *screenData);
 
     void removeStream();
@@ -88,6 +88,7 @@ public:
     spa_hook remoteListener;
     spa_hook streamListener;
 
+    QSize resolution;
     QScopedPointer<QSocketNotifier> socketNotifier;
 
     spa_video_info_raw videoFormat;
