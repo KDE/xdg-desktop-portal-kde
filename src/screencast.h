@@ -123,9 +123,9 @@ private Q_SLOTS:
     void stopStreaming();
 
 private:
+    void createPipeWireStream(const QSize &resolution);
     void initDrm();
     void initEGL();
-    void initPipewire();
     void initWayland();
 
     bool m_registryInitialized;

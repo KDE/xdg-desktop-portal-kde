@@ -136,7 +136,6 @@ ScreenCastPortal::ScreenCastPortal(QObject *parent)
 {
     initDrm();
     initEGL();
-    initPipewire();
     initWayland();
 
     qDBusRegisterMetaType<ScreenCastPortal::Stream>();
@@ -154,6 +153,42 @@ ScreenCastPortal::~ScreenCastPortal()
     }
 
     m_stream->deleteLater();
+}
+
+void ScreenCastPortal::createPipeWireStream(const QSize &resolution)
+{
+    m_stream = new ScreenCastStream(resolution);
+    m_stream->init();
+
+    connect(m_stream, &ScreenCastStream::streamReady, this, [] (uint nodeId) {
+        qCDebug(XdgDesktopPortalKdeScreenCast) << "Pipewire stream is ready: " << nodeId;
+    });
+
+    connect(m_stream, &ScreenCastStream::startStreaming, this, [this] {
+        qCDebug(XdgDesktopPortalKdeScreenCast) << "Start streaming";
+        m_streamingEnabled = true;
+
+        if (!m_registryInitialized) {
+            qCWarning(XdgDesktopPortalKdeScreenCast) << "Cannot start stream because registry is not initialized yet";
+            return;
+        }
+        if (m_registry->hasInterface(KWayland::Client::Registry::Interface::RemoteAccessManager)) {
+            KWayland::Client::Registry::AnnouncedInterface interface = m_registry->interface(KWayland::Client::Registry::Interface::RemoteAccessManager);
+            if (!interface.name && !interface.version) {
+                qCWarning(XdgDesktopPortalKdeScreenCast) << "Cannot start stream because remote access interface is not initialized yet";
+                return;
+            }
+            m_remoteAccessManager = m_registry->createRemoteAccessManager(interface.name, interface.version);
+            connect(m_remoteAccessManager, &KWayland::Client::RemoteAccessManager::bufferReady, this, [this] (const void *output, const KWayland::Client::RemoteBuffer * rbuf) {
+                Q_UNUSED(output);
+                connect(rbuf, &KWayland::Client::RemoteBuffer::parametersObtained, this, [this, rbuf] {
+                    processBuffer(rbuf);
+                });
+            });
+        }
+    });
+
+    connect(m_stream, &ScreenCastStream::stopStreaming, this, &ScreenCastPortal::stopStreaming);
 }
 
 void ScreenCastPortal::initDrm()
@@ -209,42 +244,6 @@ void ScreenCastPortal::initEGL()
 
     qCDebug(XdgDesktopPortalKdeScreenCast) << "Egl initialization succeeded";
     qCDebug(XdgDesktopPortalKdeScreenCast) << QString("EGL version: %1.%2").arg(major).arg(minor);
-}
-
-void ScreenCastPortal::initPipewire()
-{
-    m_stream = new ScreenCastStream;
-    m_stream->init();
-
-    connect(m_stream, &ScreenCastStream::streamReady, this, [] (uint nodeId) {
-        qCDebug(XdgDesktopPortalKdeScreenCast) << "Pipewire stream is ready: " << nodeId;
-    });
-
-    connect(m_stream, &ScreenCastStream::startStreaming, this, [this] {
-        qCDebug(XdgDesktopPortalKdeScreenCast) << "Start streaming";
-        m_streamingEnabled = true;
-
-        if (!m_registryInitialized) {
-            qCWarning(XdgDesktopPortalKdeScreenCast) << "Cannot start stream because registry is not initialized yet";
-            return;
-        }
-        if (m_registry->hasInterface(KWayland::Client::Registry::Interface::RemoteAccessManager)) {
-            KWayland::Client::Registry::AnnouncedInterface interface = m_registry->interface(KWayland::Client::Registry::Interface::RemoteAccessManager);
-            if (!interface.name && !interface.version) {
-                qCWarning(XdgDesktopPortalKdeScreenCast) << "Cannot start stream because remote access interface is not initialized yet";
-                return;
-            }
-            m_remoteAccessManager = m_registry->createRemoteAccessManager(interface.name, interface.version);
-            connect(m_remoteAccessManager, &KWayland::Client::RemoteAccessManager::bufferReady, this, [this] (const void *output, const KWayland::Client::RemoteBuffer * rbuf) {
-                Q_UNUSED(output);
-                connect(rbuf, &KWayland::Client::RemoteBuffer::parametersObtained, this, [this, rbuf] {
-                    processBuffer(rbuf);
-                });
-            });
-        }
-    });
-
-    connect(m_stream, &ScreenCastStream::stopStreaming, this, &ScreenCastPortal::stopStreaming);
 }
 
 void ScreenCastPortal::initWayland()
@@ -390,6 +389,9 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     if (screenDialog->exec()) {
         ScreenCastPortalOutput selectedOutput = m_outputMap.value(screenDialog->selectedScreens().first());
 
+        // Initialize PipeWire
+        createPipeWireStream(selectedOutput.resolution);
+
         // HACK wait for stream to be ready
         bool streamReady = false;
         QEventLoop loop;
@@ -397,11 +399,6 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             loop.quit();
             streamReady = true;
         });
-
-        if (!m_stream->createStream(selectedOutput.resolution)) {
-            qCWarning(XdgDesktopPortalKdeScreenCast) << "Failed to create pipewire stream";
-            return 2;
-        }
 
         QTimer::singleShot(3000, &loop, &QEventLoop::quit);
         loop.exec();
@@ -571,9 +568,11 @@ void ScreenCastPortal::stopStreaming()
         m_remoteAccessManager->destroy();
 
         m_streamingEnabled = false;
-        m_stream->removeStream();
 
         qDeleteAll(m_bindOutputs);
         m_bindOutputs.clear();
+
+        delete m_stream;
+        m_stream = nullptr;
     }
 }

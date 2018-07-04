@@ -141,10 +141,11 @@ static PwFraction pipewireFractionFromDouble(double src)
     return fraction;
 }
 
-static void onStateChanged(void *_data, pw_remote_state old, pw_remote_state state, const char *error)
+static void onStateChanged(void *data, pw_remote_state old, pw_remote_state state, const char *error)
 {
     Q_UNUSED(old);
-    Q_UNUSED(_data);
+
+    ScreenCastStream *pw = static_cast<ScreenCastStream*>(data);
 
     switch (state) {
     case PW_REMOTE_STATE_ERROR:
@@ -154,6 +155,9 @@ static void onStateChanged(void *_data, pw_remote_state old, pw_remote_state sta
     case PW_REMOTE_STATE_CONNECTED:
         // TODO notify error
         qCDebug(XdgDesktopPortalKdeScreenCastStream) << "Remote state: " << pw_remote_state_as_string(state);
+        if (!pw->createStream()) {
+            pw->stopStreaming();
+        }
         break;
     default:
         qCDebug(XdgDesktopPortalKdeScreenCastStream) << "Remote state: " << pw_remote_state_as_string(state);
@@ -245,8 +249,9 @@ static const struct pw_stream_events pwStreamEvents = {
     .need_buffer = nullptr,
 };
 
-ScreenCastStream::ScreenCastStream(QObject *parent)
-    : QObject(parent)
+ScreenCastStream::ScreenCastStream(const QSize &resolution, QObject *parent)
+    : resolution(resolution)
+    , QObject(parent)
 {
 }
 
@@ -304,7 +309,7 @@ uint ScreenCastStream::nodeId()
     return 0;
 }
 
-bool ScreenCastStream::createStream(const QSize &resolution)
+bool ScreenCastStream::createStream()
 {
     if (pw_remote_get_state(pwRemote, nullptr) != PW_REMOTE_STATE_CONNECTED) {
         qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Cannot create pipewire stream";
