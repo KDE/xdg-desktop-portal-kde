@@ -39,6 +39,17 @@
 #include <pipewire/remote.h>
 #include <pipewire/stream.h>
 
+#ifdef __has_include
+#  if __has_include(<pipewire/version.h>)
+#    include<pipewire/version.h>
+#    define PW_API_PRE_0_2_0 false
+#  else
+#    define PW_API_PRE_0_2_0 true
+#  endif
+#else
+#define PW_API_PRE_0_2_0 true
+#endif
+
 class PwType {
 public:
   spa_type_media_type media_type;
