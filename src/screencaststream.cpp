@@ -193,11 +193,11 @@ static void onStreamStateChanged(void *data, pw_stream_state old, pw_stream_stat
     }
 }
 
-#if PW_API_PRE_0_2_0
+#if defined(PW_API_PRE_0_2_0)
 static void onStreamFormatChanged(void *data, struct spa_pod *format)
 #else
 static void onStreamFormatChanged(void *data, const struct spa_pod *format)
-#endif
+#endif // defined(PW_API_PRE_0_2_0)
 {
     qCDebug(XdgDesktopPortalKdeScreenCastStream) << "Stream format changed";
 
@@ -206,11 +206,11 @@ static void onStreamFormatChanged(void *data, const struct spa_pod *format)
     uint8_t paramsBuffer[1024];
     int32_t width, height, stride, size;
     struct spa_pod_builder pod_builder;
-#if PW_API_PRE_0_2_0
+#if defined(PW_API_PRE_0_2_0)
     struct spa_pod *params[1];
 #else
     const struct spa_pod *params[1];
-#endif
+#endif // defined(PW_API_PRE_0_2_0)
     const int bpp = 4;
 
     if (!format) {
@@ -253,12 +253,12 @@ static const struct pw_stream_events pwStreamEvents = {
     .format_changed = onStreamFormatChanged,
     .add_buffer = nullptr,
     .remove_buffer = nullptr,
-#if PW_API_PRE_0_2_0
+#if defined(PW_API_PRE_0_2_0)
     .new_buffer = nullptr,
     .need_buffer = nullptr,
 #else
     .process = nullptr,
-#endif
+#endif // defined(PW_API_PRE_0_2_0)
 };
 
 ScreenCastStream::ScreenCastStream(const QSize &resolution, QObject *parent)
@@ -361,11 +361,11 @@ bool ScreenCastStream::createStream()
 
     pw_stream_add_listener(pwStream, &streamListener, &pwStreamEvents, this);
 
-#if PW_API_PRE_0_2_0
+#if defined(PW_API_PRE_0_2_0)
     if (pw_stream_connect(pwStream, PW_DIRECTION_OUTPUT, nullptr, PW_STREAM_FLAG_NONE, params, G_N_ELEMENTS(&params)) != 0) {
 #else
     if (pw_stream_connect(pwStream, PW_DIRECTION_OUTPUT, nullptr, static_cast<pw_stream_flags>(PW_STREAM_FLAG_DRIVER | PW_STREAM_FLAG_MAP_BUFFERS), params, G_N_ELEMENTS(&params)) != 0) {
-#endif
+#endif // defined(PW_API_PRE_0_2_0)
         qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Could not connect to stream";
         return false;
     }
@@ -375,11 +375,11 @@ bool ScreenCastStream::createStream()
 
 bool ScreenCastStream::recordFrame(uint8_t *screenData)
 {
-#if PW_API_PRE_0_2_0
+#if defined(PW_API_PRE_0_2_0)
     uint32_t bufferId;
 #else
     struct pw_buffer *buffer;
-#endif
+#endif // defined(PW_API_PRE_0_2_0)
     struct spa_buffer *spa_buffer;
     uint8_t *map = nullptr;
     uint8_t *data = nullptr;
@@ -390,7 +390,7 @@ bool ScreenCastStream::recordFrame(uint8_t *screenData)
         return false;
     }
 
-#if PW_API_PRE_0_2_0
+#if defined(PW_API_PRE_0_2_0)
     bufferId = pw_stream_get_empty_buffer(pwStream);
 
     if (bufferId == SPA_ID_INVALID) {
@@ -401,9 +401,9 @@ bool ScreenCastStream::recordFrame(uint8_t *screenData)
     spa_buffer = pw_stream_peek_buffer(pwStream, bufferId);
 #else
     buffer = pw_stream_dequeue_buffer(pwStream);
-#endif
+#endif // defined(PW_API_PRE_0_2_0)
 
-#if PW_API_PRE_0_2_0
+#if defined(PW_API_PRE_0_2_0)
     if (spa_buffer->datas[0].type == pwCoreType->data.MemFd) {
 #else
     spa_buffer = buffer->buffer;
@@ -411,7 +411,7 @@ bool ScreenCastStream::recordFrame(uint8_t *screenData)
     if (spa_buffer->datas[0].data) {
         data = (uint8_t *) spa_buffer->datas[0].data;
     } else if (spa_buffer->datas[0].type == pwCoreType->data.MemFd) {
-#endif
+#endif // defined(PW_API_PRE_0_2_0)
         map = (uint8_t *)mmap(nullptr, spa_buffer->datas[0].maxsize + spa_buffer->datas[0].mapoffset, PROT_READ | PROT_WRITE, MAP_SHARED, spa_buffer->datas[0].fd, 0);
 
         if (map == MAP_FAILED) {
@@ -419,10 +419,10 @@ bool ScreenCastStream::recordFrame(uint8_t *screenData)
             return false;
         }
         data = SPA_MEMBER(map, spa_buffer->datas[0].mapoffset, uint8_t);
-#if PW_API_PRE_0_2_0
+#if defined(PW_API_PRE_0_2_0)
     } else if (spa_buffer->datas[0].type == pwCoreType->data.MemPtr) {
         data = (uint8_t *) spa_buffer->datas[0].data;
-#endif
+#endif // defined(PW_API_PRE_0_2_0)
     } else {
         return false;
     }
@@ -435,11 +435,11 @@ bool ScreenCastStream::recordFrame(uint8_t *screenData)
 
     spa_buffer->datas[0].chunk->size = spa_buffer->datas[0].maxsize;
 
-#if PW_API_PRE_0_2_0
+#if defined(PW_API_PRE_0_2_0)
     pw_stream_send_buffer(pwStream, bufferId);
 #else
     pw_stream_queue_buffer(pwStream, buffer);
-#endif
+#endif // defined(PW_API_PRE_0_2_0)
     return true;
 }
 
