@@ -21,7 +21,11 @@
 #include "screenshot.h"
 #include "screenshotdialog.h"
 
+#include <QColorDialog>
 #include <QDateTime>
+#include <QtDBus/QtDBus>
+#include <QDBusArgument>
+#include <QDBusReply>
 #include <QLoggingCategory>
 #include <QTemporaryFile>
 #include <QStandardPaths>
@@ -29,9 +33,53 @@
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeScreenshot, "xdp-kde-screenshot")
 
+// Keep in sync with qflatpakcolordialog from Qt flatpak platform theme
+Q_DECLARE_METATYPE(ScreenshotPortal::ColorRGB);
+
+QDBusArgument &operator <<(QDBusArgument &arg, const ScreenshotPortal::ColorRGB &color)
+{
+    arg.beginStructure();
+    arg << color.red << color.green << color.blue;
+    arg.endStructure();
+    return arg;
+}
+
+const QDBusArgument &operator >>(const QDBusArgument &arg, ScreenshotPortal::ColorRGB &color)
+{
+    double red, green, blue;
+    arg.beginStructure();
+    arg >> red >> green >> blue;
+    color.red = red;
+    color.green = green;
+    color.blue = blue;
+    arg.endStructure();
+
+    return arg;
+}
+
+QDBusArgument &operator<< (QDBusArgument &argument, const QColor &color)
+{
+    argument.beginStructure();
+    argument << color.rgba();
+    argument.endStructure();
+    return argument;
+}
+
+const QDBusArgument &operator>>(const QDBusArgument &argument, QColor &color)
+{
+    argument.beginStructure();
+    QRgb rgba;
+    argument >> rgba;
+    argument.endStructure();
+    color = QColor::fromRgba(rgba);
+    return argument;
+}
+
 ScreenshotPortal::ScreenshotPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
 {
+    qDBusRegisterMetaType<QColor>();
+    qDBusRegisterMetaType<ColorRGB>();
 }
 
 ScreenshotPortal::~ScreenshotPortal()
@@ -83,4 +131,33 @@ uint ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
     return 0;
 }
 
+uint ScreenshotPortal::PickColor(const QDBusObjectPath &handle,
+                                 const QString &app_id,
+                                 const QString &parent_window,
+                                 const QVariantMap &options,
+                                 QVariantMap &results)
+{
+    qCDebug(XdgDesktopPortalKdeScreenshot) << "PickColor called with parameters:";
+    qCDebug(XdgDesktopPortalKdeScreenshot) << "    handle: " << handle.path();
+    qCDebug(XdgDesktopPortalKdeScreenshot) << "    app_id: " << app_id;
+    qCDebug(XdgDesktopPortalKdeScreenshot) << "    parent_window: " << parent_window;
+    qCDebug(XdgDesktopPortalKdeScreenshot) << "    options: " << options;
 
+    QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.KWin"),
+                                                      QStringLiteral("/ColorPicker"),
+                                                      QStringLiteral("org.kde.kwin.ColorPicker"),
+                                                      QStringLiteral("pick"));
+    QDBusReply<QColor> reply = QDBusConnection::sessionBus().call(msg);
+    if (reply.isValid() && !reply.error().isValid()) {
+        QColor selectedColor = reply.value();
+        ColorRGB color;
+        color.red = selectedColor.redF();
+        color.green = selectedColor.greenF();
+        color.blue = selectedColor.blueF();
+
+        results.insert(QLatin1String("color"), QVariant::fromValue<ScreenshotPortal::ColorRGB>(color));
+        return 0;
+    }
+
+    return 1;
+}
