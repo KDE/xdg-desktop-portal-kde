@@ -54,7 +54,6 @@ target_link_libraries(xdg-desktop-portal-kde
 if (SCREENCAST_ENABLED)
     target_link_libraries(xdg-desktop-portal-kde
                           PipeWire::PipeWire
-                          SPA::SPA
                           GLIB2::GLIB2
                           ${Epoxy_LIBRARIES}
                           GBM::GBM)

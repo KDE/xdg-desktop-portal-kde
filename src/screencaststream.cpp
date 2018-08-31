@@ -303,8 +303,6 @@ void ScreenCastStream::init()
     pwCoreType = pw_core_get_type(pwCore);
     pwRemote = pw_remote_new(pwCore, nullptr, 0);
 
-    spa_debug_set_type_map(pwCoreType->map);
-
     initializePwTypes();
 
     pw_remote_add_listener(pwRemote, &remoteListener, &pwRemoteEvents, this);

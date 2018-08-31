@@ -25,12 +25,6 @@ set_package_properties(GLIB2 PROPERTIES
     PURPOSE "Required for screencast portal"
 )
 
-find_package(SPA)
-set_package_properties(SPA PROPERTIES
-    TYPE OPTIONAL
-    PURPOSE "Required for screencast portal"
-)
-
 find_package(PipeWire)
 set_package_properties(PipeWire PROPERTIES
     TYPE OPTIONAL
