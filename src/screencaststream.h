@@ -32,8 +32,6 @@
 #include <spa/param/video/raw-utils.h>
 #include <spa/param/props.h>
 
-#include <spa/lib/debug.h>
-
 #include <pipewire/factory.h>
 #include <pipewire/pipewire.h>
 #include <pipewire/remote.h>
