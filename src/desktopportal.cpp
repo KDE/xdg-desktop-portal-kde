@@ -39,6 +39,7 @@ DesktopPortal::DesktopPortal(QObject *parent)
     , m_print(new PrintPortal(this))
 #if SCREENCAST_ENABLED
     , m_screenCast(new ScreenCastPortal(this))
+    , m_remoteDesktop(new RemoteDesktopPortal(this))
 #endif
     , m_screenshot(new ScreenshotPortal(this))
 {

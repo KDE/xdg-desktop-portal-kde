@@ -31,9 +31,10 @@
 
 Q_LOGGING_CATEGORY(XdgSessionKdeSession, "xdp-kde-session")
 
+static QMap<QString, Session*> sessionList;
+
 Session::Session(QObject *parent, const QString &appId, const QString &path)
     : QDBusVirtualObject(parent)
-    , m_multipleSources(false)
     , m_appId(appId)
     , m_path(path)
 {
@@ -108,19 +109,78 @@ QString Session::introspect(const QString &path) const
     return nodes;
 }
 
-bool Session::multipleSources() const
-{
-    return m_multipleSources;
-}
-
-void Session::setMultipleSources(bool multipleSources)
-{
-    m_multipleSources = multipleSources;
-}
-
 bool Session::close()
 {
     QDBusMessage reply = QDBusMessage::createSignal(m_path, QLatin1String("org.freedesktop.impl.portal.Session"), QLatin1String("Closed"));
     return QDBusConnection::sessionBus().send(reply);
 }
 
+Session * Session::createSession(QObject *parent, SessionType type, const QString &appId, const QString &path)
+{
+    QDBusConnection sessionBus = QDBusConnection::sessionBus();
+
+    Session *session = nullptr;
+    if (type == ScreenCast) {
+        session = new ScreenCastSession(parent, appId, path);
+    } else {
+        session = new RemoteDesktopSession(parent, appId, path);
+    }
+
+    if (sessionBus.registerVirtualObject(path, session, QDBusConnection::VirtualObjectRegisterOption::SubPath)) {
+        connect(session, &Session::closed, [session, path] () {
+            sessionList.remove(path);
+            QDBusConnection::sessionBus().unregisterObject(path);
+            session->deleteLater();
+        });
+        sessionList.insert(path, session);
+        return session;
+    } else {
+        qCDebug(XdgSessionKdeSession) << sessionBus.lastError().message();
+        qCDebug(XdgSessionKdeSession) << "Failed to register session object: " << path;
+        session->deleteLater();
+        return nullptr;
+    }
+}
+
+Session * Session::getSession(const QString &sessionHandle)
+{
+    return sessionList.value(sessionHandle);
+}
+
+ScreenCastSession::ScreenCastSession(QObject *parent, const QString &appId, const QString &path)
+    : Session(parent, appId, path)
+{
+}
+
+ScreenCastSession::~ScreenCastSession()
+{
+}
+
+bool ScreenCastSession::multipleSources() const
+{
+    return m_multipleSources;
+}
+
+void ScreenCastSession::setMultipleSources(bool multipleSources)
+{
+    m_multipleSources = multipleSources;
+}
+
+RemoteDesktopSession::RemoteDesktopSession(QObject *parent, const QString &appId, const QString &path)
+    : ScreenCastSession(parent, appId, path)
+{
+}
+
+RemoteDesktopSession::~RemoteDesktopSession()
+{
+}
+
+RemoteDesktopPortal::DeviceTypes RemoteDesktopSession::deviceTypes() const
+{
+    return m_deviceTypes;
+}
+
+void RemoteDesktopSession::setDeviceTypes(RemoteDesktopPortal::DeviceTypes deviceTypes)
+{
+    m_deviceTypes = deviceTypes;
+}

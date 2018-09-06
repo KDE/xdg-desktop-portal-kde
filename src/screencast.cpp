@@ -296,23 +296,17 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    options: " << options;
 
-    QDBusConnection sessionBus = QDBusConnection::sessionBus();
-    Session *session = new Session(this, app_id, session_handle.path());
-    if (sessionBus.registerVirtualObject(session_handle.path(), session, QDBusConnection::VirtualObjectRegisterOption::SubPath)) {
-        connect(session, &Session::closed, [this, session, session_handle] () {
-            m_sessionList.remove(session_handle.path());
-            QDBusConnection::sessionBus().unregisterObject(session_handle.path());
-            session->deleteLater();
-            stopStreaming();
-        });
-        m_sessionList.insert(session_handle.path(), session);
-        return 0;
-    } else {
-        qCDebug(XdgDesktopPortalKdeScreenCast) << sessionBus.lastError().message();
-        qCDebug(XdgDesktopPortalKdeScreenCast) << "Failed to register session object: " << session_handle.path();
-        session->deleteLater();
+    Session *session = Session::createSession(this, Session::ScreenCast, app_id, session_handle.path());
+
+    if (!session) {
         return 2;
     }
+
+    connect(session, &Session::closed, [this] () {
+        stopStreaming();
+    });
+
+    return 0;
 }
 
 uint ScreenCastPortal::SelectSources(const QDBusObjectPath &handle,
@@ -330,9 +324,8 @@ uint ScreenCastPortal::SelectSources(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    options: " << options;
 
     uint types = Monitor;
-    Session *session = nullptr;
 
-    session = m_sessionList.value(session_handle.path());
+    ScreenCastSession *session = qobject_cast<ScreenCastSession*>(Session::getSession(session_handle.path()));
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeScreenCast) << "Tried to select sources on non-existing session " << session_handle.path();
@@ -371,8 +364,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    parent_window: " << parent_window;
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    options: " << options;
 
-    Session *session = nullptr;
-    session = m_sessionList.value(session_handle.path());
+    ScreenCastSession *session = qobject_cast<ScreenCastSession*>(Session::getSession(session_handle.path()));
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeScreenCast) << "Tried to select sources on non-existing session " << session_handle.path();

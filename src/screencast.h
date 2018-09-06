@@ -42,7 +42,6 @@ namespace KWayland {
     }
 }
 
-class Session;
 class ScreenChooserDialog;
 class ScreenCastStream;
 
@@ -131,7 +130,6 @@ private:
     bool m_registryInitialized;
     bool m_streamingEnabled;
 
-    QMap<QString, Session*> m_sessionList;
     QMap<quint32, ScreenCastPortalOutput> m_outputMap;
     QList<KWayland::Client::Output*> m_bindOutputs;
 

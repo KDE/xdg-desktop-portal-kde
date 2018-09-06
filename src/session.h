@@ -24,6 +24,8 @@
 #include <QObject>
 #include <QDBusVirtualObject>
 
+#include "remotedesktop.h"
+
 class Session : public QDBusVirtualObject
 {
     Q_OBJECT
@@ -31,21 +33,53 @@ public:
     explicit Session(QObject *parent = nullptr, const QString &appId = QString(), const QString &path = QString());
     ~Session();
 
+    enum SessionType {
+        ScreenCast = 0,
+        RemoteDesktop = 1
+    };
+
     bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) override;
     QString introspect(const QString &path) const override;
 
     bool close();
 
-    bool multipleSources() const;
-    void setMultipleSources(bool multipleSources);
+    static Session *createSession(QObject *parent, SessionType type, const QString &appId, const QString &path);
+    static Session *getSession(const QString &sessionHandle);
 
 Q_SIGNALS:
     void closed();
 
 private:
-    bool m_multipleSources;
     const QString m_appId;
     const QString m_path;
+};
+
+class ScreenCastSession : public Session
+{
+    Q_OBJECT
+public:
+    explicit ScreenCastSession(QObject *parent = nullptr, const QString &appId = QString(), const QString &path = QString());
+    ~ScreenCastSession();
+
+    bool multipleSources() const;
+    void setMultipleSources(bool multipleSources);
+private:
+    bool m_multipleSources;
+    // TODO type
+};
+
+class RemoteDesktopSession : public ScreenCastSession
+{
+    Q_OBJECT
+public:
+    explicit RemoteDesktopSession(QObject *parent = nullptr, const QString &appId = QString(), const QString &path = QString());
+    ~RemoteDesktopSession();
+
+    RemoteDesktopPortal::DeviceTypes deviceTypes() const;
+    void setDeviceTypes(RemoteDesktopPortal::DeviceTypes deviceTypes);
+
+private:
+    RemoteDesktopPortal::DeviceTypes m_deviceTypes;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SESSION_H
