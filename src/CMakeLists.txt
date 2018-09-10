@@ -28,7 +28,8 @@ if (SCREENCAST_ENABLED)
          screencaststream.cpp
          screenchooserdialog.cpp
          remotedesktop.cpp
-         remotedesktopdialog.cpp)
+         remotedesktopdialog.cpp
+         waylandintegration.cpp)
 
     ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
                   screenchooserdialog.ui

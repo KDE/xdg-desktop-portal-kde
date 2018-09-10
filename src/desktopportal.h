@@ -34,6 +34,7 @@
 #if SCREENCAST_ENABLED
 #include "screencast.h"
 #include "remotedesktop.h"
+#include "waylandintegration.h"
 #endif
 #include "screenshot.h"
 

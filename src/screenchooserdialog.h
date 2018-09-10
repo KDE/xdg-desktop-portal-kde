@@ -29,19 +29,17 @@ namespace Ui
 class ScreenChooserDialog;
 }
 
-class ScreenCastPortalOutput;
-
 class ScreenChooserDialog : public QDialog
 {
     Q_OBJECT
 public:
-    ScreenChooserDialog(const QMap<quint32, ScreenCastPortalOutput> &screens, bool multiple = false, QDialog *parent = nullptr, Qt::WindowFlags flags = {});
+    ScreenChooserDialog(bool multiple = false, QDialog *parent = nullptr, Qt::WindowFlags flags = {});
     ~ScreenChooserDialog();
 
     QList<quint32> selectedScreens() const;
 
 private:
-    Ui::ScreenChooserDialog * m_dialog;
+    Ui::ScreenChooserDialog *m_dialog;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SCREENCHOOSER_DIALOG_H

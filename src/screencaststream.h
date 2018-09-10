@@ -70,9 +70,11 @@ public:
 
     // Public because we need access from static functions
     bool createStream();
+    void removeStream();
+
+public Q_SLOTS:
     bool recordFrame(uint8_t *screenData);
 
-    void removeStream();
 Q_SIGNALS:
     void streamReady(uint nodeId);
     void startStreaming();

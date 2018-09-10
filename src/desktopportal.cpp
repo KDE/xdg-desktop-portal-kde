@@ -43,6 +43,9 @@ DesktopPortal::DesktopPortal(QObject *parent)
 #endif
     , m_screenshot(new ScreenshotPortal(this))
 {
+#if SCREENCAST_ENABLED
+    WaylandIntegration::init();
+#endif
 }
 
 DesktopPortal::~DesktopPortal()

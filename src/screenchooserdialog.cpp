@@ -21,6 +21,7 @@
 #include "screenchooserdialog.h"
 #include "ui_screenchooserdialog.h"
 #include "screencast.h"
+#include "waylandintegration.h"
 
 #include <QLoggingCategory>
 #include <QSettings>
@@ -29,26 +30,26 @@
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeScreenChooserDialog, "xdp-kde-screen-chooser-dialog")
 
-ScreenChooserDialog::ScreenChooserDialog(const QMap<quint32, ScreenCastPortalOutput> &screens, bool multiple, QDialog *parent, Qt::WindowFlags flags)
+ScreenChooserDialog::ScreenChooserDialog(bool multiple, QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)
     , m_dialog(new Ui::ScreenChooserDialog)
 {
     m_dialog->setupUi(this);
 
-    QMapIterator<quint32, ScreenCastPortalOutput> it(screens);
+    QMapIterator<quint32, WaylandIntegration::WaylandOutput> it(WaylandIntegration::screens());
     while (it.hasNext()) {
         it.next();
         QListWidgetItem *widgetItem = new QListWidgetItem(m_dialog->screenView);
         widgetItem->setData(Qt::UserRole, it.key());
-        if (it.value().outputType == ScreenCastPortalOutput::Laptop) {
+        if (it.value().outputType() == WaylandIntegration::WaylandOutput::Laptop) {
             widgetItem->setIcon(QIcon::fromTheme("computer-laptop"));
-            widgetItem->setText(i18n("Laptop screen\nModel: %1", it.value().model));
-        } else if (it.value().outputType == ScreenCastPortalOutput::Monitor) {
+            widgetItem->setText(i18n("Laptop screen\nModel: %1", it.value().model()));
+        } else if (it.value().outputType() == WaylandIntegration::WaylandOutput::Monitor) {
             widgetItem->setIcon(QIcon::fromTheme("video-display"));
-            widgetItem->setText(i18n("Manufacturer: %1\nModel: %2", it.value().manufacturer, it.value().model));
+            widgetItem->setText(i18n("Manufacturer: %1\nModel: %2", it.value().manufacturer(), it.value().model()));
         } else {
             widgetItem->setIcon(QIcon::fromTheme("video-television"));
-            widgetItem->setText(i18n("Manufacturer: %1\nModel: %2", it.value().manufacturer, it.value().model));
+            widgetItem->setText(i18n("Manufacturer: %1\nModel: %2", it.value().manufacturer(), it.value().model()));
         }
     }
 
