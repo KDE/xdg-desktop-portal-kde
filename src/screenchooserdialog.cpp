@@ -20,15 +20,9 @@
 
 #include "screenchooserdialog.h"
 #include "ui_screenchooserdialog.h"
-#include "screencast.h"
-#include "waylandintegration.h"
 
-#include <QLoggingCategory>
-#include <QSettings>
-#include <QStandardPaths>
+#include <KLocalizedString>
 #include <QPushButton>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeScreenChooserDialog, "xdp-kde-screen-chooser-dialog")
 
 ScreenChooserDialog::ScreenChooserDialog(bool multiple, QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)
@@ -36,32 +30,13 @@ ScreenChooserDialog::ScreenChooserDialog(bool multiple, QDialog *parent, Qt::Win
 {
     m_dialog->setupUi(this);
 
-    QMapIterator<quint32, WaylandIntegration::WaylandOutput> it(WaylandIntegration::screens());
-    while (it.hasNext()) {
-        it.next();
-        QListWidgetItem *widgetItem = new QListWidgetItem(m_dialog->screenView);
-        widgetItem->setData(Qt::UserRole, it.key());
-        if (it.value().outputType() == WaylandIntegration::WaylandOutput::Laptop) {
-            widgetItem->setIcon(QIcon::fromTheme("computer-laptop"));
-            widgetItem->setText(i18n("Laptop screen\nModel: %1", it.value().model()));
-        } else if (it.value().outputType() == WaylandIntegration::WaylandOutput::Monitor) {
-            widgetItem->setIcon(QIcon::fromTheme("video-display"));
-            widgetItem->setText(i18n("Manufacturer: %1\nModel: %2", it.value().manufacturer(), it.value().model()));
-        } else {
-            widgetItem->setIcon(QIcon::fromTheme("video-television"));
-            widgetItem->setText(i18n("Manufacturer: %1\nModel: %2", it.value().manufacturer(), it.value().model()));
-        }
+    if (multiple) {
+        m_dialog->screenView->setSelectionMode(QAbstractItemView::ExtendedSelection);
     }
-
-    m_dialog->screenView->setItemSelected(m_dialog->screenView->itemAt(0, 0), true);
 
     connect(m_dialog->buttonBox, &QDialogButtonBox::accepted, this, &ScreenChooserDialog::accept);
     connect(m_dialog->buttonBox, &QDialogButtonBox::rejected, this, &ScreenChooserDialog::reject);
     connect(m_dialog->screenView, &QListWidget::itemDoubleClicked, this, &ScreenChooserDialog::accept);
-
-    if (multiple) {
-        m_dialog->screenView->setSelectionMode(QAbstractItemView::ExtendedSelection);
-    }
 
     m_dialog->buttonBox->button(QDialogButtonBox::Ok)->setText(i18n("Share"));
     setWindowTitle(i18n("Select screen to share"));
@@ -74,11 +49,5 @@ ScreenChooserDialog::~ScreenChooserDialog()
 
 QList<quint32> ScreenChooserDialog::selectedScreens() const
 {
-    QList<quint32> selectedScreens;
-
-    foreach (QListWidgetItem *item, m_dialog->screenView->selectedItems()) {
-        selectedScreens << item->data(Qt::UserRole).toUInt();
-    }
-
-    return selectedScreens;
+    return m_dialog->screenView->selectedScreens();
 }
