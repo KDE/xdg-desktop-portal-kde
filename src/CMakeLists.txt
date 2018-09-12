@@ -26,6 +26,7 @@ if (SCREENCAST_ENABLED)
          ${xdg_desktop_portal_kde_SRCS}
          screencast.cpp
          screencaststream.cpp
+         screencastwidget.cpp
          screenchooserdialog.cpp
          remotedesktop.cpp
          remotedesktopdialog.cpp
