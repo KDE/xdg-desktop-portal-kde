@@ -327,8 +327,6 @@ void WaylandIntegration::WaylandIntegrationPrivate::processBuffer(const KWayland
 
     qCDebug(XdgDesktopPortalKdeWaylandIntegration) << QString("Incoming GBM fd %1, %2x%3, stride %4, fourcc 0x%5").arg(gbmHandle).arg(width).arg(height).arg(stride).arg(QString::number(format, 16));
 
-    // TODO streaming m_streamingEnabled
-
     if (!m_streamingEnabled) {
         qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "Streaming is disabled";
         close(gbmHandle);

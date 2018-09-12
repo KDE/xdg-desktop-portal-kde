@@ -70,7 +70,6 @@ const QDBusArgument &operator << (QDBusArgument &arg, const ScreenCastPortal::St
 
 ScreenCastPortal::ScreenCastPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
-    , m_streamingEnabled(false)
 {
     qDBusRegisterMetaType<ScreenCastPortal::Stream>();
     qDBusRegisterMetaType<ScreenCastPortal::Streams>();
@@ -78,27 +77,15 @@ ScreenCastPortal::ScreenCastPortal(QObject *parent)
 
 ScreenCastPortal::~ScreenCastPortal()
 {
-    m_stream->deleteLater();
+    if (m_stream) {
+        delete m_stream;
+    }
 }
 
 void ScreenCastPortal::createPipeWireStream(const QSize &resolution)
 {
     m_stream = new ScreenCastStream(resolution);
     m_stream->init();
-
-    connect(m_stream, &ScreenCastStream::streamReady, this, [] (uint nodeId) {
-        qCDebug(XdgDesktopPortalKdeScreenCast) << "Pipewire stream is ready: " << nodeId;
-    });
-
-    connect(WaylandIntegration::waylandIntegration(), &WaylandIntegration::WaylandIntegration::newBuffer, m_stream, &ScreenCastStream::recordFrame);
-
-    connect(m_stream, &ScreenCastStream::startStreaming, this, [this] {
-        qCDebug(XdgDesktopPortalKdeScreenCast) << "Start streaming";
-        m_streamingEnabled = true;
-        WaylandIntegration::startStreaming();
-    });
-
-    connect(m_stream, &ScreenCastStream::stopStreaming, this, &ScreenCastPortal::stopStreaming);
 }
 
 uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
@@ -224,8 +211,6 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
 
         // TODO support multiple outputs
 
-        qCDebug(XdgDesktopPortalKdeScreenCast) << "Pipewire node id: " << m_stream->nodeId();
-
         WaylandIntegration::bindOutput(selectedOutput.waylandOutputName(), selectedOutput.waylandOutputVersion());
 
         Stream stream;
@@ -241,10 +226,8 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
 
 void ScreenCastPortal::stopStreaming()
 {
-    if (m_streamingEnabled) {
-        qCDebug(XdgDesktopPortalKdeScreenCast) << "Stop streaming";
-        WaylandIntegration::stopStreaming();
-        m_streamingEnabled = false;
+    if (m_stream) {
+        m_stream->stopStream();
         delete m_stream;
         m_stream = nullptr;
     }

@@ -80,8 +80,6 @@ private:
     void createPipeWireStream(const QSize &resolution);
 
     ScreenCastStream *m_stream;
-
-    bool m_streamingEnabled;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SCREENCAST_H
