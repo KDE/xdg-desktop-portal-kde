@@ -71,15 +71,14 @@ public:
     // Public because we need access from static functions
     bool createStream();
     void removeStream();
-    void stopStream();
 
 public Q_SLOTS:
     bool recordFrame(uint8_t *screenData);
 
 Q_SIGNALS:
     void streamReady(uint nodeId);
-    void startedStreaming();
-    void stoppedStreaming();
+    void startStreaming();
+    void stopStreaming();
 
 private:
     void initializePwTypes();
@@ -88,7 +87,6 @@ private Q_SLOTS:
     void processPipewireEvents();
 
 public:
-    bool streaming = false;
     pw_core *pwCore = nullptr;
     pw_loop *pwLoop = nullptr;
     pw_node *pwNode = nullptr;

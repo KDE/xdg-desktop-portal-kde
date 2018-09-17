@@ -19,25 +19,26 @@
  */
 
 #include "remotedesktop.h"
+#include "screencastcommon.h"
 #include "session.h"
+#include "remotedesktopdialog.h"
+#include "waylandintegration.h"
 
-#include <QDateTime>
-#include <QtDBus/QtDBus>
-#include <QDBusArgument>
-#include <QDBusReply>
 #include <QLoggingCategory>
-#include <QStandardPaths>
-#include <QPointer>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeRemoteDesktop, "xdp-kde-remotedesktop")
 
 RemoteDesktopPortal::RemoteDesktopPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
+    , m_screenCastCommon(new ScreenCastCommon())
 {
 }
 
 RemoteDesktopPortal::~RemoteDesktopPortal()
 {
+    if (m_screenCastCommon) {
+        delete m_screenCastCommon;
+    }
 }
 
 uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
@@ -59,7 +60,7 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
     }
 
     connect(session, &Session::closed, [this] () {
-        // TODO
+        m_screenCastCommon->stopStreaming();
     });
 
     return 0;
@@ -107,6 +108,40 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    parent_window: " << parent_window;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    options: " << options;
+
+    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession*>(Session::getSession(session_handle.path()));
+
+    if (!session) {
+        qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call start on non-existing session " << session_handle.path();
+        return 2;
+    }
+
+    // TODO check whether we got some outputs?
+    if (WaylandIntegration::screens().isEmpty()) {
+        qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Failed to show dialog as there is no screen to select";
+        return 2;
+    }
+
+    QScopedPointer<RemoteDesktopDialog, QScopedPointerDeleteLater> remoteDesktopDialog(new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled(), session->multipleSources()));
+
+    if (remoteDesktopDialog->exec()) {
+        if (session->screenSharingEnabled()) {
+            WaylandIntegration::WaylandOutput selectedOutput = WaylandIntegration::screens().value(remoteDesktopDialog->selectedScreens().first());
+
+            QVariant streams = m_screenCastCommon->startStreaming(selectedOutput);
+
+            if (!streams.isValid()) {
+                qCWarning(XdgDesktopPortalKdeRemoteDesktop()) << "Pipewire stream is not ready to be streamed";
+                return 2;
+            }
+
+            results.insert(QLatin1String("streams"), streams);
+        }
+
+        // TODO devices
+
+        return 0;
+    }
 
     return 0;
 }

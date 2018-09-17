@@ -176,8 +176,10 @@ void WaylandIntegration::WaylandIntegrationPrivate::startStreaming()
 
 void WaylandIntegration::WaylandIntegrationPrivate::stopStreaming()
 {
-    m_remoteAccessManager->release();
-    m_remoteAccessManager->destroy();
+    if (m_remoteAccessManager) {
+        m_remoteAccessManager->release();
+        m_remoteAccessManager->destroy();
+    }
 
     m_streamingEnabled = false;
 

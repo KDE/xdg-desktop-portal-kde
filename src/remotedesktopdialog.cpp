@@ -18,27 +18,36 @@
  *       Jan Grulich <jgrulich@redhat.com>
  */
 
-#include "screenchooserdialog.h"
-#include "ui_screenchooserdialog.h"
+#include "remotedesktopdialog.h"
+#include "ui_remotedesktopdialog.h"
 
-#include <KLocalizedString>
-#include <QPushButton>
+#include <QLoggingCategory>
 #include <QStandardPaths>
 #include <QSettings>
+#include <QPushButton>
 
-ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, QDialog *parent, Qt::WindowFlags flags)
+Q_LOGGING_CATEGORY(XdgDesktopPortalKdeRemoteDesktopDialog, "xdp-kde-remote-desktop-dialog")
+
+RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled,
+                                         bool multiple, QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)
-    , m_dialog(new Ui::ScreenChooserDialog)
+    , m_dialog(new Ui::RemoteDesktopDialog)
 {
     m_dialog->setupUi(this);
 
-    if (multiple) {
-        m_dialog->screenView->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    m_dialog->screenCastWidget->setVisible(screenSharingEnabled);
+    if (screenSharingEnabled) {
+        connect(m_dialog->screenCastWidget, &QListWidget::itemDoubleClicked, this, &RemoteDesktopDialog::accept);
+
+        if (multiple) {
+            m_dialog->screenCastWidget->setSelectionMode(QAbstractItemView::ExtendedSelection);
+        }
     }
 
-    connect(m_dialog->buttonBox, &QDialogButtonBox::accepted, this, &ScreenChooserDialog::accept);
-    connect(m_dialog->buttonBox, &QDialogButtonBox::rejected, this, &ScreenChooserDialog::reject);
-    connect(m_dialog->screenView, &QListWidget::itemDoubleClicked, this, &ScreenChooserDialog::accept);
+    // TODO
+
+    connect(m_dialog->buttonBox, &QDialogButtonBox::accepted, this, &RemoteDesktopDialog::accept);
+    connect(m_dialog->buttonBox, &QDialogButtonBox::rejected, this, &RemoteDesktopDialog::reject);
 
     m_dialog->buttonBox->button(QDialogButtonBox::Ok)->setText(i18n("Share"));
 
@@ -54,18 +63,23 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
     }
 
     if (applicationName.isEmpty()) {
-        setWindowTitle(i18n("Select screen to share with the requesting application"));
+        setWindowTitle(i18n("Select what to share with the requesting application"));
     } else {
-        setWindowTitle(i18n("Select screen to share with %1").arg(applicationName));
+        setWindowTitle(i18n("Select what to share with %1").arg(applicationName));
     }
 }
 
-ScreenChooserDialog::~ScreenChooserDialog()
+RemoteDesktopDialog::~RemoteDesktopDialog()
 {
     delete m_dialog;
 }
 
-QList<quint32> ScreenChooserDialog::selectedScreens() const
+QList<quint32> RemoteDesktopDialog::selectedScreens() const
 {
-    return m_dialog->screenView->selectedScreens();
+    return m_dialog->screenCastWidget->selectedScreens();
+}
+
+RemoteDesktopPortal::DeviceTypes RemoteDesktopDialog::deviceTypes() const
+{
+    return 0;
 }

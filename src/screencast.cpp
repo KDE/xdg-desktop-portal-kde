@@ -19,73 +19,27 @@
  */
 
 #include "screencast.h"
-#include "session.h"
-#include "screencaststream.h"
+#include "screencastcommon.h"
 #include "screenchooserdialog.h"
+#include "session.h"
 #include "waylandintegration.h"
 
-#include <QDBusMetaType>
-#include <QDBusError>
-#include <QDBusArgument>
-#include <QDBusConnection>
-
-#include <QEventLoop>
 #include <QLoggingCategory>
-#include <QTimer>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeScreenCast, "xdp-kde-screencast")
 
-Q_DECLARE_METATYPE(ScreenCastPortal::Stream);
-Q_DECLARE_METATYPE(ScreenCastPortal::Streams);
-
-const QDBusArgument &operator >> (const QDBusArgument &arg, ScreenCastPortal::Stream &stream)
-{
-    arg.beginStructure();
-    arg >> stream.nodeId;
-
-    arg.beginMap();
-    while (!arg.atEnd()) {
-        QString key;
-        QVariant map;
-        arg.beginMapEntry();
-        arg >> key >> map;
-        arg.endMapEntry();
-        stream.map.insert(key, map);
-    }
-    arg.endMap();
-    arg.endStructure();
-
-    return arg;
-}
-
-const QDBusArgument &operator << (QDBusArgument &arg, const ScreenCastPortal::Stream &stream)
-{
-    arg.beginStructure();
-    arg << stream.nodeId;
-    arg << stream.map;
-    arg.endStructure();
-
-    return arg;
-}
-
 ScreenCastPortal::ScreenCastPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
+    , m_screenCastCommon(new ScreenCastCommon())
+
 {
-    qDBusRegisterMetaType<ScreenCastPortal::Stream>();
-    qDBusRegisterMetaType<ScreenCastPortal::Streams>();
 }
 
 ScreenCastPortal::~ScreenCastPortal()
 {
-    if (m_stream) {
-        delete m_stream;
+    if (m_screenCastCommon) {
+        delete m_screenCastCommon;
     }
-}
-
-void ScreenCastPortal::createPipeWireStream(const QSize &resolution)
-{
-    m_stream = new ScreenCastStream(resolution);
-    m_stream->init();
 }
 
 uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
@@ -109,7 +63,9 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
     }
 
     connect(session, &Session::closed, [this] () {
-        stopStreaming();
+        if (m_screenCastCommon) {
+            m_screenCastCommon->stopStreaming();
+        }
     });
 
     return 0;
@@ -151,6 +107,14 @@ uint ScreenCastPortal::SelectSources(const QDBusObjectPath &handle,
         return 2;
     }
 
+    // Might be also a RemoteDesktopSession
+    if (session->type() == Session::RemoteDesktop) {
+        RemoteDesktopSession *remoteDesktopSession = qobject_cast<RemoteDesktopSession*>(session);
+        if (remoteDesktopSession) {
+            remoteDesktopSession->setScreenSharingEnabled(true);
+        }
+    }
+
     return 0;
 }
 
@@ -173,7 +137,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     ScreenCastSession *session = qobject_cast<ScreenCastSession*>(Session::getSession(session_handle.path()));
 
     if (!session) {
-        qCWarning(XdgDesktopPortalKdeScreenCast) << "Tried to select sources on non-existing session " << session_handle.path();
+        qCWarning(XdgDesktopPortalKdeScreenCast) << "Tried to call start on non-existing session " << session_handle.path();
         return 2;
     }
 
@@ -183,52 +147,22 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         return 2;
     }
 
-    QScopedPointer<ScreenChooserDialog, QScopedPointerDeleteLater> screenDialog(new ScreenChooserDialog(session->multipleSources()));
+    QScopedPointer<ScreenChooserDialog, QScopedPointerDeleteLater> screenDialog(new ScreenChooserDialog(app_id, session->multipleSources()));
 
     if (screenDialog->exec()) {
         WaylandIntegration::WaylandOutput selectedOutput = WaylandIntegration::screens().value(screenDialog->selectedScreens().first());
 
-        // Initialize PipeWire
-        createPipeWireStream(selectedOutput.resolution());
+        QVariant streams = m_screenCastCommon->startStreaming(selectedOutput);
 
-        // HACK wait for stream to be ready
-        bool streamReady = false;
-        QEventLoop loop;
-        connect(m_stream, &ScreenCastStream::streamReady, this, [&loop, &streamReady] {
-            loop.quit();
-            streamReady = true;
-        });
-
-        QTimer::singleShot(3000, &loop, &QEventLoop::quit);
-        loop.exec();
-
-        disconnect(m_stream, &ScreenCastStream::streamReady, this, nullptr);
-
-        if (!streamReady) {
+        if (!streams.isValid()) {
             qCWarning(XdgDesktopPortalKdeScreenCast) << "Pipewire stream is not ready to be streamed";
             return 2;
         }
 
-        // TODO support multiple outputs
-
-        WaylandIntegration::bindOutput(selectedOutput.waylandOutputName(), selectedOutput.waylandOutputVersion());
-
-        Stream stream;
-        stream.nodeId = m_stream->nodeId();
-        stream.map = QVariantMap({{QLatin1String("size"), selectedOutput.resolution()}});
-        results.insert(QLatin1String("streams"), QVariant::fromValue<ScreenCastPortal::Streams>({stream}));
+        results.insert(QLatin1String("streams"), streams);
 
         return 0;
     }
 
     return 0;
-}
-
-void ScreenCastPortal::stopStreaming()
-{
-    if (m_stream) {
-        m_stream->stopStream();
-        delete m_stream;
-        m_stream = nullptr;
-    }
 }

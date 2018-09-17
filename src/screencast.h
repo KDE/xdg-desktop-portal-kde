@@ -23,10 +23,8 @@
 
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
-#include <QSize>
 
-class ScreenChooserDialog;
-class ScreenCastStream;
+class ScreenCastCommon;
 
 class ScreenCastPortal : public QDBusAbstractAdaptor
 {
@@ -35,12 +33,6 @@ class ScreenCastPortal : public QDBusAbstractAdaptor
     Q_PROPERTY(uint version READ version)
     Q_PROPERTY(uint AvailableSourceTypes READ AvailableSourceTypes)
 public:
-    typedef struct {
-        uint nodeId;
-        QVariantMap map;
-    } Stream;
-    typedef QList<Stream> Streams;
-
     enum SourceType {
         Any = 0,
         Monitor,
@@ -73,13 +65,8 @@ public Q_SLOTS:
                const QVariantMap &options,
                QVariantMap &results);
 
-private Q_SLOTS:
-    void stopStreaming();
-
 private:
-    void createPipeWireStream(const QSize &resolution);
-
-    ScreenCastStream *m_stream;
+    ScreenCastCommon *m_screenCastCommon;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SCREENCAST_H

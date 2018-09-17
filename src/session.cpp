@@ -168,6 +168,7 @@ void ScreenCastSession::setMultipleSources(bool multipleSources)
 
 RemoteDesktopSession::RemoteDesktopSession(QObject *parent, const QString &appId, const QString &path)
     : ScreenCastSession(parent, appId, path)
+    , m_screenSharingEnabled(false)
 {
 }
 
@@ -183,4 +184,14 @@ RemoteDesktopPortal::DeviceTypes RemoteDesktopSession::deviceTypes() const
 void RemoteDesktopSession::setDeviceTypes(RemoteDesktopPortal::DeviceTypes deviceTypes)
 {
     m_deviceTypes = deviceTypes;
+}
+
+bool RemoteDesktopSession::screenSharingEnabled() const
+{
+    return m_screenSharingEnabled;
+}
+
+void RemoteDesktopSession::setScreenSharingEnabled(bool enabled)
+{
+    m_screenSharingEnabled = enabled;
 }

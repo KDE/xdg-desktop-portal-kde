@@ -42,6 +42,7 @@ public:
     QString introspect(const QString &path) const override;
 
     bool close();
+    virtual SessionType type() const = 0;
 
     static Session *createSession(QObject *parent, SessionType type, const QString &appId, const QString &path);
     static Session *getSession(const QString &sessionHandle);
@@ -63,6 +64,9 @@ public:
 
     bool multipleSources() const;
     void setMultipleSources(bool multipleSources);
+
+    SessionType type() const override { return SessionType::ScreenCast; }
+
 private:
     bool m_multipleSources;
     // TODO type
@@ -78,7 +82,13 @@ public:
     RemoteDesktopPortal::DeviceTypes deviceTypes() const;
     void setDeviceTypes(RemoteDesktopPortal::DeviceTypes deviceTypes);
 
+    bool screenSharingEnabled() const;
+    void setScreenSharingEnabled(bool enabled);
+
+    SessionType type() const override { return SessionType::RemoteDesktop; }
+
 private:
+    bool m_screenSharingEnabled;
     RemoteDesktopPortal::DeviceTypes m_deviceTypes;
 };
 

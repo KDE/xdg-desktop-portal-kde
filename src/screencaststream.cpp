@@ -157,7 +157,7 @@ static void onStateChanged(void *data, pw_remote_state old, pw_remote_state stat
         // TODO notify error
         qCDebug(XdgDesktopPortalKdeScreenCastStream) << "Remote state: " << pw_remote_state_as_string(state);
         if (!pw->createStream()) {
-            Q_EMIT pw->stoppedStreaming();
+            Q_EMIT pw->stopStreaming();
         }
         break;
     default:
@@ -184,16 +184,12 @@ static void onStreamStateChanged(void *data, pw_stream_state old, pw_stream_stat
     case PW_STREAM_STATE_CONNECTING:
     case PW_STREAM_STATE_READY:
     case PW_STREAM_STATE_PAUSED:
-        qCDebug(XdgDesktopPortalKdeScreenCastStream) << "Stream state: " << pw_stream_state_as_string(state) << pw->streaming;
-        if (pw->streaming) {
-            pw->stopStream();
-        }
+        qCDebug(XdgDesktopPortalKdeScreenCastStream) << "Stream state: " << pw_stream_state_as_string(state);
+        Q_EMIT pw->stopStreaming();
         break;
     case PW_STREAM_STATE_STREAMING:
         qCDebug(XdgDesktopPortalKdeScreenCastStream) << "Stream state: " << pw_stream_state_as_string(state);
-        pw->streaming = true;
-        WaylandIntegration::startStreaming();
-        Q_EMIT pw->startedStreaming();
+        Q_EMIT pw->startStreaming();
         break;
     }
 }
@@ -313,8 +309,6 @@ void ScreenCastStream::init()
     pw_remote_add_listener(pwRemote, &remoteListener, &pwRemoteEvents, this);
 
     pw_remote_connect(pwRemote);
-
-    connect(WaylandIntegration::waylandIntegration(), &WaylandIntegration::WaylandIntegration::newBuffer, this, &ScreenCastStream::recordFrame);
 }
 
 uint ScreenCastStream::nodeId()
@@ -358,7 +352,7 @@ bool ScreenCastStream::createStream()
                                        pwCoreType->param.idEnumFormat, pwCoreType->spa_format,
                                        "I", pwType->media_type.video,
                                        "I", pwType->media_subtype.raw,
-                                       ":", pwType->format_video.format, "I", pwType->video_format.xRGB,
+                                       ":", pwType->format_video.format, "I", pwType->video_format.RGBx,
                                        ":", pwType->format_video.size, "Rru", &maxResolution, SPA_POD_PROP_MIN_MAX(&minResolution, &maxResolution),
                                        ":", pwType->format_video.framerate, "F", &paramFraction,
                                        ":", pwType->format_video.max_framerate, "Fru", &maxFramerate, PROP_RANGE (&minFramerate, &maxFramerate));
@@ -453,18 +447,6 @@ void ScreenCastStream::removeStream()
     // pw_stream_destroy(pwStream);
     // pwStream = nullptr;
     pw_stream_disconnect(pwStream);
-}
-
-void ScreenCastStream::stopStream()
-{
-    qCDebug(XdgDesktopPortalKdeScreenCastStream) << "Stop streaming";
-    streaming = false;
-
-    WaylandIntegration::stopStreaming();
-
-    // removeStream();
-
-    Q_EMIT stoppedStreaming();
 }
 
 void ScreenCastStream::initializePwTypes()

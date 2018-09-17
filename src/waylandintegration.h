@@ -37,7 +37,6 @@ public:
         Monitor,
         Television
     };
-
     void setManufacturer(const QString &manufacturer) { m_manufacturer = manufacturer; }
     QString manufacturer() const { return m_manufacturer; }
 

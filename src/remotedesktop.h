@@ -24,7 +24,7 @@
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
-class Session;
+class ScreenCastCommon;
 
 class RemoteDesktopPortal : public QDBusAbstractAdaptor
 {
@@ -121,7 +121,7 @@ public Q_SLOTS:
                        uint slot);
 
 private:
-
+    ScreenCastCommon *m_screenCastCommon;
 
 };
 
