@@ -18,7 +18,7 @@
     <layout class="QHBoxLayout" name="horizontalLayout"/>
    </item>
    <item row="1" column="0">
-    <widget class="QListWidget" name="screenView">
+    <widget class="ScreenCastWidget" name="screenView">
      <property name="selectionMode">
       <enum>QAbstractItemView::SingleSelection</enum>
      </property>
@@ -42,6 +42,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ScreenCastWidget</class>
+   <extends>QListWidget</extends>
+   <header>screencastwidget.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

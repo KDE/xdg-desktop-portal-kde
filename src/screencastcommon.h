@@ -18,27 +18,39 @@
  *       Jan Grulich <jgrulich@redhat.com>
  */
 
-#ifndef XDG_DESKTOP_PORTAL_KDE_SCREENCHOOSER_DIALOG_H
-#define XDG_DESKTOP_PORTAL_KDE_SCREENCHOOSER_DIALOG_H
+#ifndef XDG_DESKTOP_PORTAL_KDE_SCREENCAST_COMMON_H
+#define XDG_DESKTOP_PORTAL_KDE_SCREENCAST_COMMON_H
 
-#include <QDialog>
+#include <QObject>
+#include <QMap>
+#include <QSize>
 
-namespace Ui
+#include "waylandintegration.h"
+
+class ScreenCastStream;
+
+class ScreenCastCommon : public QObject
 {
-class ScreenChooserDialog;
-}
-
-class ScreenChooserDialog : public QDialog
-{
-    Q_OBJECT
 public:
-    ScreenChooserDialog(const QString &appName, bool multiple, QDialog *parent = nullptr, Qt::WindowFlags flags = {});
-    ~ScreenChooserDialog();
+    typedef struct {
+        uint nodeId;
+        QVariantMap map;
+    } Stream;
+    typedef QList<Stream> Streams;
 
-    QList<quint32> selectedScreens() const;
+    explicit ScreenCastCommon(QObject *parent = nullptr);
+    ~ScreenCastCommon();
+
+    QVariant startStreaming(const WaylandIntegration::WaylandOutput &output);
+
+public Q_SLOTS:
+    void stopStreaming();
 
 private:
-    Ui::ScreenChooserDialog *m_dialog;
+    bool m_streamingEnabled;
+    ScreenCastStream *m_stream;
 };
 
-#endif // XDG_DESKTOP_PORTAL_KDE_SCREENCHOOSER_DIALOG_H
+#endif // XDG_DESKTOP_PORTAL_KDE_SCREENCAST_COMMON_H
+
+

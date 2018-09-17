@@ -18,27 +18,20 @@
  *       Jan Grulich <jgrulich@redhat.com>
  */
 
-#ifndef XDG_DESKTOP_PORTAL_KDE_SCREENCHOOSER_DIALOG_H
-#define XDG_DESKTOP_PORTAL_KDE_SCREENCHOOSER_DIALOG_H
+#ifndef XDG_DESKTOP_PORTAL_KDE_SCREENCAST_WIDGET_H
+#define XDG_DESKTOP_PORTAL_KDE_SCREENCAST_WIDGET_H
 
-#include <QDialog>
+#include <QListWidget>
 
-namespace Ui
-{
-class ScreenChooserDialog;
-}
-
-class ScreenChooserDialog : public QDialog
+class ScreenCastWidget : public QListWidget
 {
     Q_OBJECT
 public:
-    ScreenChooserDialog(const QString &appName, bool multiple, QDialog *parent = nullptr, Qt::WindowFlags flags = {});
-    ~ScreenChooserDialog();
+    ScreenCastWidget(QWidget *parent = nullptr);
+    ~ScreenCastWidget();
 
     QList<quint32> selectedScreens() const;
-
-private:
-    Ui::ScreenChooserDialog *m_dialog;
 };
 
-#endif // XDG_DESKTOP_PORTAL_KDE_SCREENCHOOSER_DIALOG_H
+#endif // XDG_DESKTOP_PORTAL_KDE_SCREENCAST_WIDGET_H
+

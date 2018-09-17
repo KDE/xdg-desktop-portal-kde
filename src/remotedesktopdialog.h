@@ -18,27 +18,32 @@
  *       Jan Grulich <jgrulich@redhat.com>
  */
 
-#ifndef XDG_DESKTOP_PORTAL_KDE_SCREENCHOOSER_DIALOG_H
-#define XDG_DESKTOP_PORTAL_KDE_SCREENCHOOSER_DIALOG_H
+#ifndef XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_DIALOG_H
+#define XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_DIALOG_H
 
+#include <QAbstractListModel>
 #include <QDialog>
+
+#include "remotedesktop.h"
 
 namespace Ui
 {
-class ScreenChooserDialog;
+class RemoteDesktopDialog;
 }
 
-class ScreenChooserDialog : public QDialog
+class RemoteDesktopDialog : public QDialog
 {
     Q_OBJECT
 public:
-    ScreenChooserDialog(const QString &appName, bool multiple, QDialog *parent = nullptr, Qt::WindowFlags flags = {});
-    ~ScreenChooserDialog();
+    RemoteDesktopDialog(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled = false,
+                        bool multiple = false, QDialog *parent = nullptr, Qt::WindowFlags flags = {});
+    ~RemoteDesktopDialog();
 
     QList<quint32> selectedScreens() const;
+    RemoteDesktopPortal::DeviceTypes deviceTypes() const;
 
 private:
-    Ui::ScreenChooserDialog *m_dialog;
+    Ui::RemoteDesktopDialog * m_dialog;
 };
 
-#endif // XDG_DESKTOP_PORTAL_KDE_SCREENCHOOSER_DIALOG_H
+#endif // XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_DIALOG_H

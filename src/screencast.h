@@ -23,51 +23,8 @@
 
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
-#include <QSize>
 
-#include <gbm.h>
-
-#include <epoxy/egl.h>
-#include <epoxy/gl.h>
-
-namespace KWayland {
-    namespace Client {
-        class ConnectionThread;
-        class EventQueue;
-        class OutputDevice;
-        class Registry;
-        class RemoteAccessManager;
-        class RemoteBuffer;
-        class Output;
-    }
-}
-
-class Session;
-class ScreenChooserDialog;
-class ScreenCastStream;
-
-class ScreenCastPortalOutput
-{
-    enum OutputType {
-        Laptop,
-        Monitor,
-        Television
-    };
-
-    void setOutputType(const QString &type);
-
-    QString manufacturer;
-    QString model;
-    QSize resolution;
-    OutputType outputType;
-
-    // Needed for later output binding
-    int waylandOutputName;
-    int waylandOutputVersion;
-
-    friend class ScreenCastPortal;
-    friend class ScreenChooserDialog;
-};
+class ScreenCastCommon;
 
 class ScreenCastPortal : public QDBusAbstractAdaptor
 {
@@ -75,14 +32,7 @@ class ScreenCastPortal : public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.ScreenCast")
     Q_PROPERTY(uint version READ version)
     Q_PROPERTY(uint AvailableSourceTypes READ AvailableSourceTypes)
-
 public:
-    typedef struct {
-        uint nodeId;
-        QVariantMap map;
-    } Stream;
-    typedef QList<Stream> Streams;
-
     enum SourceType {
         Any = 0,
         Monitor,
@@ -115,42 +65,8 @@ public Q_SLOTS:
                const QVariantMap &options,
                QVariantMap &results);
 
-private Q_SLOTS:
-    void addOutput(quint32 name, quint32 version);
-    void removeOutput(quint32 name);
-    void processBuffer(const KWayland::Client::RemoteBuffer *rbuf);
-    void setupRegistry();
-    void stopStreaming();
-
 private:
-    void createPipeWireStream(const QSize &resolution);
-    void initDrm();
-    void initEGL();
-    void initWayland();
-
-    bool m_registryInitialized;
-    bool m_streamingEnabled;
-
-    QMap<QString, Session*> m_sessionList;
-    QMap<quint32, ScreenCastPortalOutput> m_outputMap;
-    QList<KWayland::Client::Output*> m_bindOutputs;
-
-    QThread *m_thread;
-
-    ScreenCastStream *m_stream;
-
-    KWayland::Client::ConnectionThread *m_connection;
-    KWayland::Client::EventQueue *m_queue;
-    KWayland::Client::Registry *m_registry;
-    KWayland::Client::RemoteAccessManager *m_remoteAccessManager;
-
-    qint32 m_drmFd = 0; // for GBM buffer mmap
-    gbm_device *m_gbmDevice = nullptr; // for passed GBM buffer retrieval
-    struct {
-        QList<QByteArray> extensions;
-        EGLDisplay display = EGL_NO_DISPLAY;
-        EGLContext context = EGL_NO_CONTEXT;
-    } m_egl;
+    ScreenCastCommon *m_screenCastCommon;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SCREENCAST_H

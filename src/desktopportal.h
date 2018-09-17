@@ -33,6 +33,8 @@
 #include "print.h"
 #if SCREENCAST_ENABLED
 #include "screencast.h"
+#include "remotedesktop.h"
+#include "waylandintegration.h"
 #endif
 #include "screenshot.h"
 
@@ -53,6 +55,7 @@ private:
     PrintPortal *m_print;
 #if SCREENCAST_ENABLED
     ScreenCastPortal *m_screenCast;
+    RemoteDesktopPortal *m_remoteDesktop;
 #endif
     ScreenshotPortal *m_screenshot;
 };

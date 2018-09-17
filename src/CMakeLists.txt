@@ -25,11 +25,17 @@ if (SCREENCAST_ENABLED)
     set (xdg_desktop_portal_kde_SRCS
          ${xdg_desktop_portal_kde_SRCS}
          screencast.cpp
+         screencastcommon.cpp
          screencaststream.cpp
-         screenchooserdialog.cpp)
+         screencastwidget.cpp
+         screenchooserdialog.cpp
+         remotedesktop.cpp
+         remotedesktopdialog.cpp
+         waylandintegration.cpp)
 
     ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
-                  screenchooserdialog.ui)
+                  screenchooserdialog.ui
+                  remotedesktopdialog.ui)
 endif()
 
 ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
