@@ -25,12 +25,6 @@ set_package_properties(GLIB2 PROPERTIES
     PURPOSE "Required for screencast portal"
 )
 
-find_package(SPA)
-set_package_properties(SPA PROPERTIES
-    TYPE OPTIONAL
-    PURPOSE "Required for screencast portal"
-)
-
 find_package(PipeWire)
 set_package_properties(PipeWire PROPERTIES
     TYPE OPTIONAL
@@ -50,7 +44,7 @@ set_package_properties(Epoxy PROPERTIES DESCRIPTION "libepoxy"
     PURPOSE "Required for screencast portal"
 )
 
-if (PipeWire_FOUND AND SPA_FOUND AND GLIB2_FOUND AND GBM_FOUND AND Epoxy_FOUND)
+if (PipeWire_FOUND AND GLIB2_FOUND AND GBM_FOUND AND Epoxy_FOUND)
     set (SCREENCAST_ENABLED true)
 else()
     set (SCREENCAST_ENABLED false)

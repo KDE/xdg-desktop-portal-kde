@@ -303,8 +303,6 @@ void ScreenCastStream::init()
     pwCoreType = pw_core_get_type(pwCore);
     pwRemote = pw_remote_new(pwCore, nullptr, 0);
 
-    spa_debug_set_type_map(pwCoreType->map);
-
     initializePwTypes();
 
     pw_remote_add_listener(pwRemote, &remoteListener, &pwRemoteEvents, this);
@@ -345,8 +343,7 @@ bool ScreenCastStream::createStream()
     maxFramerate = SPA_FRACTION((uint32_t)fraction.num, (uint32_t)fraction.denom);
 
     spa_rectangle minResolution = SPA_RECTANGLE(1, 1);
-    int width = resolution.width();
-    int height = resolution.height();
+    spa_rectangle maxResolution = SPA_RECTANGLE((uint32_t)resolution.width(), (uint32_t)resolution.height());
 
     spa_fraction paramFraction = SPA_FRACTION(0, 1);
 
@@ -355,7 +352,7 @@ bool ScreenCastStream::createStream()
                                        "I", pwType->media_type.video,
                                        "I", pwType->media_subtype.raw,
                                        ":", pwType->format_video.format, "I", pwType->video_format.RGBx,
-                                       ":", pwType->format_video.size, "Rru", &minResolution, SPA_POD_PROP_MIN_MAX(&width, &height),
+                                       ":", pwType->format_video.size, "Rru", &maxResolution, SPA_POD_PROP_MIN_MAX(&minResolution, &maxResolution),
                                        ":", pwType->format_video.framerate, "F", &paramFraction,
                                        ":", pwType->format_video.max_framerate, "Fru", &maxFramerate, PROP_RANGE (&minFramerate, &maxFramerate));
 
