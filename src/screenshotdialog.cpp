@@ -72,7 +72,7 @@ static QImage readImage(int pipeFd)
     QImage image;
     ds >> image;
     return image;
-};
+}
 
 ScreenshotDialog::ScreenshotDialog(QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)

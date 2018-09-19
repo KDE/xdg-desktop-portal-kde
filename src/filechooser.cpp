@@ -29,10 +29,10 @@
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeFileChooser, "xdp-kde-file-chooser")
 
 // Keep in sync with qflatpakfiledialog from flatpak-platform-plugin
-Q_DECLARE_METATYPE(FileChooserPortal::Filter);
-Q_DECLARE_METATYPE(FileChooserPortal::Filters);
-Q_DECLARE_METATYPE(FileChooserPortal::FilterList);
-Q_DECLARE_METATYPE(FileChooserPortal::FilterListList);
+Q_DECLARE_METATYPE(FileChooserPortal::Filter)
+Q_DECLARE_METATYPE(FileChooserPortal::Filters)
+Q_DECLARE_METATYPE(FileChooserPortal::FilterList)
+Q_DECLARE_METATYPE(FileChooserPortal::FilterListList)
 
 QDBusArgument &operator << (QDBusArgument &arg, const FileChooserPortal::Filter &filter)
 {
@@ -147,7 +147,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
             }
 
             if (!filterStrings.isEmpty()) {
-                nameFilters << QString("%1 (%2)").arg(filterList.userVisibleName).arg(filterStrings.join(QLatin1String(" ")));
+                nameFilters << QStringLiteral("%1 (%2)").arg(filterList.userVisibleName).arg(filterStrings.join(QLatin1String(" ")));
             }
         }
     }
@@ -219,11 +219,11 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     }
 
     if (options.contains(QLatin1String("current_folder"))) {
-        currentFolder = options.value(QLatin1String("current_folder")).toByteArray();
+        currentFolder = QString::fromUtf8(options.value(QLatin1String("current_folder")).toByteArray());
     }
 
     if (options.contains(QLatin1String("current_file"))) {
-        currentFile = options.value(QLatin1String("current_file")).toByteArray();
+        currentFile = QString::fromUtf8(options.value(QLatin1String("current_file")).toByteArray());
     }
 
     if (options.contains(QLatin1String("filters"))) {
@@ -239,7 +239,7 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
             }
 
             if (!filterStrings.isEmpty()) {
-                nameFilters << QString("%1 (%2)").arg(filterList.userVisibleName).arg(filterStrings.join(QLatin1String(" ")));
+                nameFilters << QStringLiteral("%1 (%2)").arg(filterList.userVisibleName).arg(filterStrings.join(QLatin1String(" ")));
             }
         }
     }

@@ -34,7 +34,7 @@
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeScreenshot, "xdp-kde-screenshot")
 
 // Keep in sync with qflatpakcolordialog from Qt flatpak platform theme
-Q_DECLARE_METATYPE(ScreenshotPortal::ColorRGB);
+Q_DECLARE_METATYPE(ScreenshotPortal::ColorRGB)
 
 QDBusArgument &operator <<(QDBusArgument &arg, const ScreenshotPortal::ColorRGB &color)
 {

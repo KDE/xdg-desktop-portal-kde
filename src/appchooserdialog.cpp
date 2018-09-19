@@ -51,7 +51,7 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &de
     label->setOpenExternalLinks(false);
 
     connect(label, &QLabel::linkActivated, this, [] () {
-        KProcess::startDetached("plasma-discover");
+        KProcess::startDetached(QStringLiteral("plasma-discover"));
     });
 
     vboxLayout->addWidget(label);

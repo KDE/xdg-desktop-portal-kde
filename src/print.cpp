@@ -633,7 +633,7 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
             resultingSettings.insert(QLatin1String("print-pages"), QLatin1String("current"));
         } else if (printer->printRange() == QPrinter::PageRange) {
             resultingSettings.insert(QLatin1String("print-pages"), QLatin1String("ranges"));
-            resultingSettings.insert(QLatin1String("page-ranges"), QString("%1-%2").arg(printer->fromPage()).arg(printer->toPage()));
+            resultingSettings.insert(QLatin1String("page-ranges"), QStringLiteral("%1-%2").arg(printer->fromPage()).arg(printer->toPage()));
         }
         // Set cups specific properties
         const QStringList cupsOptions = printer->printEngine()->property(PPK_CupsOptions).toStringList();

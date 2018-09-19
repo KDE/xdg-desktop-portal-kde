@@ -88,7 +88,7 @@ void NotificationPortal::AddNotification(const QString &app_id,
     connect(notify, &KNotification::closed, this, &NotificationPortal::notificationClosed);
     notify->sendEvent();
 
-    m_notifications.insert(QString("%1:%2").arg(app_id, id), notify);
+    m_notifications.insert(QStringLiteral("%1:%2").arg(app_id, id), notify);
 }
 
 void NotificationPortal::notificationActivated(uint action)
@@ -121,7 +121,7 @@ void NotificationPortal::RemoveNotification(const QString &app_id,
     qCDebug(XdgDesktopPortalKdeNotification) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeNotification) << "    id: " << id;
 
-    KNotification *notify = m_notifications.take(QString("%1:%2").arg(app_id, id));
+    KNotification *notify = m_notifications.take(QStringLiteral("%1:%2").arg(app_id, id));
     if (notify) {
         notify->close();
         notify->deleteLater();
@@ -139,6 +139,6 @@ void NotificationPortal::notificationClosed()
     const QString appId = notify->property("app_id").toString();
     const QString id = notify->property("id").toString();
 
-    m_notifications.remove(QString("%1:%2").arg(appId, id));
+    m_notifications.remove(QStringLiteral("%1:%2").arg(appId, id));
     notify->deleteLater();
 }
