@@ -32,13 +32,13 @@ ScreenCastWidget::ScreenCastWidget(QWidget *parent)
         QListWidgetItem *widgetItem = new QListWidgetItem(this);
         widgetItem->setData(Qt::UserRole, it.key());
         if (it.value().outputType() == WaylandIntegration::WaylandOutput::Laptop) {
-            widgetItem->setIcon(QIcon::fromTheme("computer-laptop"));
+            widgetItem->setIcon(QIcon::fromTheme(QStringLiteral("computer-laptop")));
             widgetItem->setText(i18n("Laptop screen\nModel: %1", it.value().model()));
         } else if (it.value().outputType() == WaylandIntegration::WaylandOutput::Monitor) {
-            widgetItem->setIcon(QIcon::fromTheme("video-display"));
+            widgetItem->setIcon(QIcon::fromTheme(QStringLiteral("video-display")));
             widgetItem->setText(i18n("Manufacturer: %1\nModel: %2", it.value().manufacturer(), it.value().model()));
         } else {
-            widgetItem->setIcon(QIcon::fromTheme("video-television"));
+            widgetItem->setIcon(QIcon::fromTheme(QStringLiteral("video-television")));
             widgetItem->setText(i18n("Manufacturer: %1\nModel: %2", it.value().manufacturer(), it.value().model()));
         }
     }

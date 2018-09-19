@@ -112,10 +112,10 @@ void WaylandIntegration::WaylandOutput::setOutputType(const QString &type)
         }
     }
 
-    if (type.contains("VGA") || type.contains("DVI") || type.contains("HDMI") || type.contains("Panel") ||
-        type.contains("DisplayPort") || type.startsWith("DP") || type.contains("unknown")) {
+    if (type.contains(QLatin1String("VGA")) || type.contains(QLatin1String("DVI")) || type.contains(QLatin1String("HDMI")) || type.contains(QLatin1String("Panel")) ||
+        type.contains(QLatin1String("DisplayPort")) || type.startsWith(QLatin1String("DP")) || type.contains(QLatin1String("unknown"))) {
         m_outputType = OutputType::Monitor;
-    } else if (type.contains("TV")) {
+    } else if (type.contains(QLatin1String("TV"))) {
         m_outputType = OutputType::Television;
     } else {
         m_outputType = OutputType::Monitor;
@@ -244,7 +244,7 @@ void WaylandIntegration::WaylandIntegrationPrivate::initEGL()
     }
 
     qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "Egl initialization succeeded";
-    qCDebug(XdgDesktopPortalKdeWaylandIntegration) << QString("EGL version: %1.%2").arg(major).arg(minor);
+    qCDebug(XdgDesktopPortalKdeWaylandIntegration) << QStringLiteral("EGL version: %1.%2").arg(major).arg(minor);
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
@@ -327,7 +327,7 @@ void WaylandIntegration::WaylandIntegrationPrivate::processBuffer(const KWayland
     auto stride = rbuf->stride();
     auto format = rbuf->format();
 
-    qCDebug(XdgDesktopPortalKdeWaylandIntegration) << QString("Incoming GBM fd %1, %2x%3, stride %4, fourcc 0x%5").arg(gbmHandle).arg(width).arg(height).arg(stride).arg(QString::number(format, 16));
+    qCDebug(XdgDesktopPortalKdeWaylandIntegration) << QStringLiteral("Incoming GBM fd %1, %2x%3, stride %4, fourcc 0x%5").arg(gbmHandle).arg(width).arg(height).arg(stride).arg(QString::number(format, 16));
 
     if (!m_streamingEnabled) {
         qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "Streaming is disabled";
