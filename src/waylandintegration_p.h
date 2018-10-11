@@ -57,6 +57,8 @@ public:
     void initEGL();
     void initWayland();
 
+    bool isEGLInitialized() const;
+
     void bindOutput(int outputName, int outputVersion);
     void startStreaming();
     void stopStreaming();
@@ -69,6 +71,7 @@ protected Q_SLOTS:
     void setupRegistry();
 
 private:
+    bool m_eglInitialized;
     bool m_streamingEnabled;
     bool m_registryInitialized;
 

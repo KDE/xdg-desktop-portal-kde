@@ -75,6 +75,8 @@ Q_SIGNALS:
 
     void init();
 
+    bool isEGLInitialized();
+
     void bindOutput(int outputName, int outputVersion);
     void startStreaming();
     void stopStreaming();

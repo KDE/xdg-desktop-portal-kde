@@ -31,7 +31,6 @@ Q_LOGGING_CATEGORY(XdgDesktopPortalKdeScreenCast, "xdp-kde-screencast")
 ScreenCastPortal::ScreenCastPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
     , m_screenCastCommon(new ScreenCastCommon())
-
 {
 }
 
@@ -141,9 +140,13 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         return 2;
     }
 
-    // TODO check whether we got some outputs?
     if (WaylandIntegration::screens().isEmpty()) {
         qCWarning(XdgDesktopPortalKdeScreenCast) << "Failed to show dialog as there is no screen to select";
+        return 2;
+    }
+
+    if (!WaylandIntegration::isEGLInitialized()) {
+        qCWarning(XdgDesktopPortalKdeScreenCast) << "EGL is not properly initialized";
         return 2;
     }
 

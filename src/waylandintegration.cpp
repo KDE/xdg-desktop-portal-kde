@@ -46,8 +46,12 @@ Q_GLOBAL_STATIC(WaylandIntegration::WaylandIntegrationPrivate, globalWaylandInte
 void WaylandIntegration::init()
 {
     globalWaylandIntegration->initDrm();
-    globalWaylandIntegration->initEGL();
     globalWaylandIntegration->initWayland();
+}
+
+bool WaylandIntegration::isEGLInitialized()
+{
+    return globalWaylandIntegration->isEGLInitialized();
 }
 
 void WaylandIntegration::bindOutput(int outputName, int outputVersion)
@@ -124,6 +128,7 @@ void WaylandIntegration::WaylandOutput::setOutputType(const QString &type)
 
 WaylandIntegration::WaylandIntegrationPrivate::WaylandIntegrationPrivate()
     : WaylandIntegration()
+    , m_eglInitialized(false)
     , m_registryInitialized(false)
     , m_connection(nullptr)
     , m_queue(nullptr)
@@ -141,6 +146,11 @@ WaylandIntegration::WaylandIntegrationPrivate::~WaylandIntegrationPrivate()
     if (m_drmFd) {
         gbm_device_destroy(m_gbmDevice);
     }
+}
+
+bool WaylandIntegration::WaylandIntegrationPrivate::isEGLInitialized() const
+{
+    return m_eglInitialized;
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::bindOutput(int outputName, int outputVersion)
@@ -195,22 +205,31 @@ QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::WaylandInte
 void WaylandIntegration::WaylandIntegrationPrivate::initDrm()
 {
     m_drmFd = open("/dev/dri/renderD128", O_RDWR);
+
+    if (m_drmFd == -1) {
+        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Cannot open render node: " << strerror(errno);
+        return;
+    }
+
     m_gbmDevice = gbm_create_device(m_drmFd);
 
     if (!m_gbmDevice) {
-        qFatal("Cannot create GBM device: %s", strerror(errno));
+        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Cannot create GBM device: " << strerror(errno);
     }
+
+    initEGL();
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::initEGL()
 {
-    // Get the list of client extensions
+   // Get the list of client extensions
     const char* clientExtensionsCString = eglQueryString(EGL_NO_DISPLAY, EGL_EXTENSIONS);
     const QByteArray clientExtensionsString = QByteArray::fromRawData(clientExtensionsCString, qstrlen(clientExtensionsCString));
     if (clientExtensionsString.isEmpty()) {
         // If eglQueryString() returned NULL, the implementation doesn't support
         // EGL_EXT_client_extensions. Expect an EGL_BAD_DISPLAY error.
-        qFatal("No client extensions defined! %s", formatGLError(eglGetError()));
+        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "No client extensions defined! " << formatGLError(eglGetError());
+        return;
     }
 
     m_egl.extensions = clientExtensionsString.split(' ');
@@ -219,32 +238,39 @@ void WaylandIntegration::WaylandIntegrationPrivate::initEGL()
     // if the implementation supports it.
     if (!m_egl.extensions.contains(QByteArrayLiteral("EGL_EXT_platform_base")) ||
             !m_egl.extensions.contains(QByteArrayLiteral("EGL_MESA_platform_gbm"))) {
-        qFatal("One of required EGL extensions is missing");
+        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "One of required EGL extensions is missing";
+        return;
     }
 
     m_egl.display = eglGetPlatformDisplayEXT(EGL_PLATFORM_GBM_MESA, m_gbmDevice, nullptr);
 
     if (m_egl.display == EGL_NO_DISPLAY) {
-        qFatal("Error during obtaining EGL display: %s", formatGLError(eglGetError()));
+        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Error during obtaining EGL display: " << formatGLError(eglGetError());
+        return;
     }
 
     EGLint major, minor;
     if (eglInitialize(m_egl.display, &major, &minor) == EGL_FALSE) {
-        qFatal("Error during eglInitialize: %s", formatGLError(eglGetError()));
+        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Error during eglInitialize: " << formatGLError(eglGetError());
+        return;
     }
 
     if (eglBindAPI(EGL_OPENGL_API) == EGL_FALSE) {
-        qFatal("bind OpenGL API failed");
+        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "bind OpenGL API failed";
+        return;
     }
 
     m_egl.context = eglCreateContext(m_egl.display, nullptr, EGL_NO_CONTEXT, nullptr);
 
     if (m_egl.context == EGL_NO_CONTEXT) {
-        qFatal("Couldn't create EGL context: %s", formatGLError(eglGetError()));
+        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Couldn't create EGL context: " << formatGLError(eglGetError());
+        return;
     }
 
     qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "Egl initialization succeeded";
     qCDebug(XdgDesktopPortalKdeWaylandIntegration) << QStringLiteral("EGL version: %1.%2").arg(major).arg(minor);
+
+    m_eglInitialized = true;
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
