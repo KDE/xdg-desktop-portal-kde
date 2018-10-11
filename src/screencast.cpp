@@ -128,6 +128,7 @@ void ScreenCastPortalOutput::setOutputType(const QString &type)
 
 ScreenCastPortal::ScreenCastPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
+    , m_eglInitialized(false)
     , m_registryInitialized(false)
     , m_streamingEnabled(false)
     , m_connection(nullptr)
@@ -136,7 +137,6 @@ ScreenCastPortal::ScreenCastPortal(QObject *parent)
     , m_remoteAccessManager(nullptr)
 {
     initDrm();
-    initEGL();
     initWayland();
 
     qDBusRegisterMetaType<ScreenCastPortal::Stream>();
@@ -195,11 +195,20 @@ void ScreenCastPortal::createPipeWireStream(const QSize &resolution)
 void ScreenCastPortal::initDrm()
 {
     m_drmFd = open("/dev/dri/renderD128", O_RDWR);
+
+    if (m_drmFd == -1) {
+        qCWarning(XdgDesktopPortalKdeScreenCast) << "Cannot open render node: " << strerror(errno);
+        return;
+    }
+
     m_gbmDevice = gbm_create_device(m_drmFd);
 
     if (!m_gbmDevice) {
-        qFatal("Cannot create GBM device: %s", strerror(errno));
+        qCWarning(XdgDesktopPortalKdeScreenCast) << "Cannot create GBM device: " << strerror(errno);
+        return;
     }
+
+    initEGL();
 }
 
 void ScreenCastPortal::initEGL()
@@ -210,7 +219,8 @@ void ScreenCastPortal::initEGL()
     if (clientExtensionsString.isEmpty()) {
         // If eglQueryString() returned NULL, the implementation doesn't support
         // EGL_EXT_client_extensions. Expect an EGL_BAD_DISPLAY error.
-        qFatal("No client extensions defined! %s", formatGLError(eglGetError()));
+        qCWarning(XdgDesktopPortalKdeScreenCast) << "No client extensions defined! " << formatGLError(eglGetError());
+        return;
     }
 
     m_egl.extensions = clientExtensionsString.split(' ');
@@ -219,32 +229,39 @@ void ScreenCastPortal::initEGL()
     // if the implementation supports it.
     if (!m_egl.extensions.contains(QByteArrayLiteral("EGL_EXT_platform_base")) ||
             !m_egl.extensions.contains(QByteArrayLiteral("EGL_MESA_platform_gbm"))) {
-        qFatal("One of required EGL extensions is missing");
+        qCWarning(XdgDesktopPortalKdeScreenCast) << "One of required EGL extensions is missing";
+        return;
     }
 
     m_egl.display = eglGetPlatformDisplayEXT(EGL_PLATFORM_GBM_MESA, m_gbmDevice, nullptr);
 
     if (m_egl.display == EGL_NO_DISPLAY) {
-        qFatal("Error during obtaining EGL display: %s", formatGLError(eglGetError()));
+        qCWarning(XdgDesktopPortalKdeScreenCast) << "Error during obtaining EGL display: " << formatGLError(eglGetError());
+        return;
     }
 
     EGLint major, minor;
     if (eglInitialize(m_egl.display, &major, &minor) == EGL_FALSE) {
-        qFatal("Error during eglInitialize: %s", formatGLError(eglGetError()));
+        qCWarning(XdgDesktopPortalKdeScreenCast) << "Error during eglInitialize: " << formatGLError(eglGetError());
+        return;
     }
 
     if (eglBindAPI(EGL_OPENGL_API) == EGL_FALSE) {
-        qFatal("bind OpenGL API failed");
+        qCWarning(XdgDesktopPortalKdeScreenCast) << "bind OpenGL API failed";
+        return;
     }
 
     m_egl.context = eglCreateContext(m_egl.display, nullptr, EGL_NO_CONTEXT, nullptr);
 
     if (m_egl.context == EGL_NO_CONTEXT) {
-        qFatal("Couldn't create EGL context: %s", formatGLError(eglGetError()));
+        qCWarning(XdgDesktopPortalKdeScreenCast) << "Couldn't create EGL context: " << formatGLError(eglGetError());
+        return;
     }
 
     qCDebug(XdgDesktopPortalKdeScreenCast) << "Egl initialization succeeded";
     qCDebug(XdgDesktopPortalKdeScreenCast) << QString("EGL version: %1.%2").arg(major).arg(minor);
+
+    m_eglInitialized = true;
 }
 
 void ScreenCastPortal::initWayland()
@@ -379,9 +396,13 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         return 2;
     }
 
-    // TODO check whether we got some outputs?
     if (m_outputMap.isEmpty()) {
         qCWarning(XdgDesktopPortalKdeScreenCast) << "Failed to show dialog as there is no screen to select";
+        return 2;
+    }
+
+    if (!m_eglInitialized) {
+        qCWarning(XdgDesktopPortalKdeScreenCast) << "EGL is not initialized, we are not able to process screen content";
         return 2;
     }
 

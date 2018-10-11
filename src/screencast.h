@@ -128,6 +128,7 @@ private:
     void initEGL();
     void initWayland();
 
+    bool m_eglInitialized;
     bool m_registryInitialized;
     bool m_streamingEnabled;
 
