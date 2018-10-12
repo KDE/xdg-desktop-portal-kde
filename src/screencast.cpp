@@ -167,5 +167,5 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         return 0;
     }
 
-    return 0;
+    return 1;
 }

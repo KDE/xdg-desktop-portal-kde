@@ -143,7 +143,7 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
         return 0;
     }
 
-    return 0;
+    return 1;
 }
 
 void RemoteDesktopPortal::NotifyPointerMotion(const QDBusObjectPath &session_handle,
