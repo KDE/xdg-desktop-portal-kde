@@ -448,7 +448,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         return 0;
     }
 
-    return 0;
+    return 1;
 }
 
 void ScreenCastPortal::addOutput(quint32 name, quint32 version)
