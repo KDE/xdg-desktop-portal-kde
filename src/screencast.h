@@ -21,6 +21,7 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_SCREENCAST_H
 #define XDG_DESKTOP_PORTAL_KDE_SCREENCAST_H
 
+#include <QDateTime>
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 #include <QSize>
@@ -144,6 +145,8 @@ private:
     KWayland::Client::EventQueue *m_queue;
     KWayland::Client::Registry *m_registry;
     KWayland::Client::RemoteAccessManager *m_remoteAccessManager;
+
+    QDateTime m_lastFrameTime;
 
     qint32 m_drmFd = 0; // for GBM buffer mmap
     gbm_device *m_gbmDevice = nullptr; // for passed GBM buffer retrieval

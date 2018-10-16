@@ -66,6 +66,7 @@ public:
 
     // Public
     void init();
+    uint framerate();
     uint nodeId();
 
     // Public because we need access from static functions

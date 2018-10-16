@@ -502,6 +502,12 @@ void ScreenCastPortal::processBuffer(const KWayland::Client::RemoteBuffer* rbuf)
         return;
     }
 
+    if (m_lastFrameTime.isValid() &&
+        m_lastFrameTime.msecsTo(QDateTime::currentDateTime()) < (1000 / m_stream->framerate())) {
+        close(gbmHandle);
+        return;
+    }
+
     if (!gbm_device_is_format_supported(m_gbmDevice, format, GBM_BO_USE_SCANOUT)) {
         qCritical() << "GBM format is not supported by device!";
     }
@@ -518,10 +524,16 @@ void ScreenCastPortal::processBuffer(const KWayland::Client::RemoteBuffer* rbuf)
 
     // create EGL image from imported BO
     EGLImageKHR image = eglCreateImageKHR(m_egl.display, nullptr, EGL_NATIVE_PIXMAP_KHR, imported, nullptr);
+
+    // We can already close gbm handle
+    gbm_bo_destroy(imported);
+    close(gbmHandle);
+
     if (image == EGL_NO_IMAGE_KHR) {
         qCritical() << "Error creating EGLImageKHR" << formatGLError(glGetError());
         return;
     }
+
     // create GL 2D texture for framebuffer
     GLuint texture;
     glGenTextures(1, &texture);
@@ -550,16 +562,15 @@ void ScreenCastPortal::processBuffer(const KWayland::Client::RemoteBuffer* rbuf)
     glViewport(0, 0, width, height);
     glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, capture->bits());
 
-    m_stream->recordFrame(capture->bits());
+    if (m_stream->recordFrame(capture->bits())) {
+        m_lastFrameTime = QDateTime::currentDateTime();
+    }
 
-    gbm_bo_destroy(imported);
     glDeleteTextures(1, &texture);
     glDeleteFramebuffers(1, &framebuffer);
     eglDestroyImageKHR(m_egl.display, image);
 
     delete capture;
-
-    close(gbmHandle);
 }
 
 void ScreenCastPortal::setupRegistry()
