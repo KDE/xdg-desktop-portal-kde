@@ -509,14 +509,18 @@ void ScreenCastPortal::processBuffer(const KWayland::Client::RemoteBuffer* rbuf)
     }
 
     if (!gbm_device_is_format_supported(m_gbmDevice, format, GBM_BO_USE_SCANOUT)) {
-        qCritical() << "GBM format is not supported by device!";
+        qCWarning(XdgDesktopPortalKdeScreenCast) << "Failed to process buffer: GBM format is not supported by device!";
+        close(gbmHandle);
+        return;
     }
 
     // import GBM buffer that was passed from KWin
     gbm_import_fd_data importInfo = {gbmHandle, width, height, stride, format};
     gbm_bo *imported = gbm_bo_import(m_gbmDevice, GBM_BO_IMPORT_FD, &importInfo, GBM_BO_USE_SCANOUT);
     if (!imported) {
-        qCritical() << "Cannot import passed GBM fd:" << strerror(errno);
+        qCWarning(XdgDesktopPortalKdeScreenCast) << "Failed to process buffer: Cannot import passed GBM fd - " << strerror(errno);
+        close(gbmHandle);
+        return;
     }
 
     // bind context to render thread
@@ -530,7 +534,7 @@ void ScreenCastPortal::processBuffer(const KWayland::Client::RemoteBuffer* rbuf)
     close(gbmHandle);
 
     if (image == EGL_NO_IMAGE_KHR) {
-        qCritical() << "Error creating EGLImageKHR" << formatGLError(glGetError());
+        qCWarning(XdgDesktopPortalKdeScreenCast) << "Failed to process buffer: Error creating EGLImageKHR - " << formatGLError(glGetError());
         return;
     }
 
@@ -551,7 +555,7 @@ void ScreenCastPortal::processBuffer(const KWayland::Client::RemoteBuffer* rbuf)
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture, 0);
     const GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     if (status != GL_FRAMEBUFFER_COMPLETE) {
-        qCritical() << "glCheckFramebufferStatus failed:" << formatGLError(glGetError());
+        qCWarning(XdgDesktopPortalKdeScreenCast) << "Failed to process buffer: glCheckFramebufferStatus failed - " << formatGLError(glGetError());
         glDeleteTextures(1, &texture);
         glDeleteFramebuffers(1, &framebuffer);
         eglDestroyImageKHR(m_egl.display, image);
