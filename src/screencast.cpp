@@ -30,15 +30,11 @@ Q_LOGGING_CATEGORY(XdgDesktopPortalKdeScreenCast, "xdp-kde-screencast")
 
 ScreenCastPortal::ScreenCastPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
-    , m_screenCastCommon(new ScreenCastCommon())
 {
 }
 
 ScreenCastPortal::~ScreenCastPortal()
 {
-    if (m_screenCastCommon) {
-        delete m_screenCastCommon;
-    }
 }
 
 uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
@@ -62,9 +58,7 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
     }
 
     connect(session, &Session::closed, [this] () {
-        if (m_screenCastCommon) {
-            m_screenCastCommon->stopStreaming();
-        }
+        WaylandIntegration::stopStreaming();
     });
 
     return 0;
@@ -155,7 +149,11 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     if (screenDialog->exec()) {
         WaylandIntegration::WaylandOutput selectedOutput = WaylandIntegration::screens().value(screenDialog->selectedScreens().first());
 
-        QVariant streams = m_screenCastCommon->startStreaming(selectedOutput);
+        if (!WaylandIntegration::startStreaming(selectedOutput)) {
+            return 2;
+        }
+
+        QVariant streams = WaylandIntegration::streams();
 
         if (!streams.isValid()) {
             qCWarning(XdgDesktopPortalKdeScreenCast) << "Pipewire stream is not ready to be streamed";

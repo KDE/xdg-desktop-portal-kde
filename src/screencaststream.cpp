@@ -311,6 +311,15 @@ void ScreenCastStream::init()
     pw_remote_connect(pwRemote);
 }
 
+uint ScreenCastStream::framerate()
+{
+    if (pwStream) {
+        return videoFormat.max_framerate.num / videoFormat.max_framerate.denom;
+    }
+
+    return 0;
+}
+
 uint ScreenCastStream::nodeId()
 {
     if (pwStream) {

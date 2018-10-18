@@ -64,9 +64,6 @@ public Q_SLOTS:
                const QString &parent_window,
                const QVariantMap &options,
                QVariantMap &results);
-
-private:
-    ScreenCastCommon *m_screenCastCommon;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SCREENCAST_H

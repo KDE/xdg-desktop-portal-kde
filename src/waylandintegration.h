@@ -23,6 +23,7 @@
 
 #include <QObject>
 #include <QSize>
+#include <QVariant>
 
 #include <QtCore/QtGlobal>
 
@@ -77,10 +78,11 @@ Q_SIGNALS:
 
     bool isEGLInitialized();
 
-    void bindOutput(int outputName, int outputVersion);
-    void startStreaming();
+    bool startStreaming(const WaylandOutput &output);
     void stopStreaming();
+
     QMap<quint32, WaylandOutput> screens();
+    QVariant streams();
 
     WaylandIntegration *waylandIntegration();
 

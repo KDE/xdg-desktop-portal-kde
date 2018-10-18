@@ -25,7 +25,6 @@ if (SCREENCAST_ENABLED)
     set (xdg_desktop_portal_kde_SRCS
          ${xdg_desktop_portal_kde_SRCS}
          screencast.cpp
-         screencastcommon.cpp
          screencaststream.cpp
          screencastwidget.cpp
          screenchooserdialog.cpp

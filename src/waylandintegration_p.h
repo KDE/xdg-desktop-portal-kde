@@ -23,6 +23,7 @@
 
 #include "waylandintegration.h"
 
+#include <QDateTime>
 #include <QObject>
 #include <QMap>
 
@@ -30,6 +31,8 @@
 
 #include <epoxy/egl.h>
 #include <epoxy/gl.h>
+
+class ScreenCastStream;
 
 namespace KWayland {
     namespace Client {
@@ -50,6 +53,12 @@ class WaylandIntegrationPrivate : public WaylandIntegration::WaylandIntegration
 {
     Q_OBJECT
 public:
+    typedef struct {
+        uint nodeId;
+        QVariantMap map;
+    } Stream;
+    typedef QList<Stream> Streams;
+
     WaylandIntegrationPrivate();
     ~WaylandIntegrationPrivate();
 
@@ -60,9 +69,10 @@ public:
     bool isEGLInitialized() const;
 
     void bindOutput(int outputName, int outputVersion);
-    void startStreaming();
+    bool startStreaming(const WaylandOutput &output);
     void stopStreaming();
     QMap<quint32, WaylandOutput> screens();
+    QVariant streams();
 
 protected Q_SLOTS:
     void addOutput(quint32 name, quint32 version);
@@ -74,6 +84,10 @@ private:
     bool m_eglInitialized;
     bool m_streamingEnabled;
     bool m_registryInitialized;
+
+    quint32 m_output;
+    QDateTime m_lastFrameTime;
+    ScreenCastStream *m_stream;
 
     QThread *m_thread;
 

@@ -119,10 +119,6 @@ public Q_SLOTS:
     void NotifyTouchUp(const QDBusObjectPath &session_handle,
                        const QVariantMap &options,
                        uint slot);
-
-private:
-    ScreenCastCommon *m_screenCastCommon;
-
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_H

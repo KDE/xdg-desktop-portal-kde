@@ -20,6 +20,10 @@
 
 #include "waylandintegration.h"
 #include "waylandintegration_p.h"
+#include "screencaststream.h"
+
+#include <QDBusArgument>
+#include <QDBusMetaType>
 
 #include <QEventLoop>
 #include <QLoggingCategory>
@@ -54,14 +58,9 @@ bool WaylandIntegration::isEGLInitialized()
     return globalWaylandIntegration->isEGLInitialized();
 }
 
-void WaylandIntegration::bindOutput(int outputName, int outputVersion)
+bool WaylandIntegration::startStreaming(const WaylandOutput &output)
 {
-    globalWaylandIntegration->bindOutput(outputName, outputVersion);
-}
-
-void WaylandIntegration::startStreaming()
-{
-    globalWaylandIntegration->startStreaming();
+    return globalWaylandIntegration->startStreaming(output);
 }
 
 void WaylandIntegration::stopStreaming()
@@ -72,6 +71,11 @@ void WaylandIntegration::stopStreaming()
 QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::screens()
 {
     return globalWaylandIntegration->screens();
+}
+
+QVariant WaylandIntegration::streams()
+{
+    return globalWaylandIntegration->streams();
 }
 
 WaylandIntegration::WaylandIntegration * WaylandIntegration::waylandIntegration()
@@ -126,6 +130,39 @@ void WaylandIntegration::WaylandOutput::setOutputType(const QString &type)
     }
 }
 
+const QDBusArgument &operator >> (const QDBusArgument &arg, WaylandIntegration::WaylandIntegrationPrivate::Stream &stream)
+{
+    arg.beginStructure();
+    arg >> stream.nodeId;
+
+    arg.beginMap();
+    while (!arg.atEnd()) {
+        QString key;
+        QVariant map;
+        arg.beginMapEntry();
+        arg >> key >> map;
+        arg.endMapEntry();
+        stream.map.insert(key, map);
+    }
+    arg.endMap();
+    arg.endStructure();
+
+    return arg;
+}
+
+const QDBusArgument &operator << (QDBusArgument &arg, const WaylandIntegration::WaylandIntegrationPrivate::Stream &stream)
+{
+    arg.beginStructure();
+    arg << stream.nodeId;
+    arg << stream.map;
+    arg.endStructure();
+
+    return arg;
+}
+
+Q_DECLARE_METATYPE(WaylandIntegration::WaylandIntegrationPrivate::Stream)
+Q_DECLARE_METATYPE(WaylandIntegration::WaylandIntegrationPrivate::Streams)
+
 WaylandIntegration::WaylandIntegrationPrivate::WaylandIntegrationPrivate()
     : WaylandIntegration()
     , m_eglInitialized(false)
@@ -135,6 +172,8 @@ WaylandIntegration::WaylandIntegrationPrivate::WaylandIntegrationPrivate()
     , m_registry(nullptr)
     , m_remoteAccessManager(nullptr)
 {
+    qDBusRegisterMetaType<WaylandIntegrationPrivate::Stream>();
+    qDBusRegisterMetaType<WaylandIntegrationPrivate::Streams>();
 }
 
 WaylandIntegration::WaylandIntegrationPrivate::~WaylandIntegrationPrivate()
@@ -160,19 +199,44 @@ void WaylandIntegration::WaylandIntegrationPrivate::bindOutput(int outputName, i
     m_bindOutputs << output;
 }
 
-void WaylandIntegration::WaylandIntegrationPrivate::startStreaming()
+bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(const WaylandOutput &output)
 {
-    m_streamingEnabled = true;
+    m_stream = new ScreenCastStream(output.resolution());
+    m_stream->init();
 
-    if (!m_registryInitialized) {
-        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Cannot start stream because registry is not initialized yet";
-        return;
+    connect(m_stream, &ScreenCastStream::startStreaming, this, [this, output] {
+        m_streamingEnabled = true;
+        bindOutput(output.waylandOutputName(), output.waylandOutputVersion());
+    });
+
+    connect(m_stream, &ScreenCastStream::stopStreaming, this, &WaylandIntegrationPrivate::stopStreaming);
+
+    bool streamReady = false;
+    QEventLoop loop;
+    connect(m_stream, &ScreenCastStream::streamReady, this, [&loop, &streamReady] {
+        loop.quit();
+        streamReady = true;
+    });
+
+    // HACK wait for stream to be ready
+    QTimer::singleShot(3000, &loop, &QEventLoop::quit);
+    loop.exec();
+
+    disconnect(m_stream, &ScreenCastStream::streamReady, this, nullptr);
+
+    if (!streamReady) {
+        delete m_stream;
+        m_stream = nullptr;
+        return false;
     }
+
+    // TODO support multiple outputs
+
     if (m_registry->hasInterface(KWayland::Client::Registry::Interface::RemoteAccessManager)) {
         KWayland::Client::Registry::AnnouncedInterface interface = m_registry->interface(KWayland::Client::Registry::Interface::RemoteAccessManager);
         if (!interface.name && !interface.version) {
-            qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Cannot start stream because remote access interface is not initialized yet";
-            return;
+            qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Failed to start streaming: remote access manager interface is not initialized yet";
+            return false;
         }
         m_remoteAccessManager = m_registry->createRemoteAccessManager(interface.name, interface.version);
         connect(m_remoteAccessManager, &KWayland::Client::RemoteAccessManager::bufferReady, this, [this] (const void *output, const KWayland::Client::RemoteBuffer * rbuf) {
@@ -181,25 +245,47 @@ void WaylandIntegration::WaylandIntegrationPrivate::startStreaming()
                 processBuffer(rbuf);
             });
         });
+        m_output = output.waylandOutputName();
+        return true;
     }
+
+    delete m_stream;
+    m_stream = nullptr;
+
+    qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Failed to start streaming: no remote access manager interface";
+    return false;
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::stopStreaming()
 {
-    if (m_remoteAccessManager) {
-        m_remoteAccessManager->release();
-        m_remoteAccessManager->destroy();
+    if (m_streamingEnabled) {
+        // First unbound outputs and destroy remote access manager so we no longer recieve buffers
+        if (m_remoteAccessManager) {
+            m_remoteAccessManager->release();
+            m_remoteAccessManager->destroy();
+        }
+        qDeleteAll(m_bindOutputs);
+        m_bindOutputs.clear();
+
+        if (m_stream) {
+            delete m_stream;
+            m_stream = nullptr;
+        }
+        m_streamingEnabled = false;
     }
-
-    m_streamingEnabled = false;
-
-    qDeleteAll(m_bindOutputs);
-    m_bindOutputs.clear();
 }
 
 QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::WaylandIntegrationPrivate::screens()
 {
     return m_outputMap;
+}
+
+QVariant WaylandIntegration::WaylandIntegrationPrivate::streams()
+{
+    Stream stream;
+    stream.nodeId = m_stream->nodeId();
+    stream.map = QVariantMap({{QLatin1String("size"), m_outputMap.value(m_output).resolution()}});
+    return QVariant::fromValue<WaylandIntegrationPrivate::Streams>({stream});
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::initDrm()
@@ -275,8 +361,6 @@ void WaylandIntegration::WaylandIntegrationPrivate::initEGL()
 
 void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
 {
-    qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "InitWayland()";
-
     m_thread = new QThread(this);
     m_connection = new KWayland::Client::ConnectionThread;
 
@@ -361,15 +445,25 @@ void WaylandIntegration::WaylandIntegrationPrivate::processBuffer(const KWayland
         return;
     }
 
+    if (m_lastFrameTime.isValid() &&
+        m_lastFrameTime.msecsTo(QDateTime::currentDateTime()) < (1000 / m_stream->framerate())) {
+        close(gbmHandle);
+        return;
+    }
+
     if (!gbm_device_is_format_supported(m_gbmDevice, format, GBM_BO_USE_SCANOUT)) {
-        qCritical() << "GBM format is not supported by device!";
+        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Failed to process buffer: GBM format is not supported by device!";
+        close(gbmHandle);
+        return;
     }
 
     // import GBM buffer that was passed from KWin
     gbm_import_fd_data importInfo = {gbmHandle, width, height, stride, format};
     gbm_bo *imported = gbm_bo_import(m_gbmDevice, GBM_BO_IMPORT_FD, &importInfo, GBM_BO_USE_SCANOUT);
     if (!imported) {
-        qCritical() << "Cannot import passed GBM fd:" << strerror(errno);
+        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Failed to process buffer: Cannot import passed GBM fd - " << strerror(errno);
+        close(gbmHandle);
+        return;
     }
 
     // bind context to render thread
@@ -377,10 +471,16 @@ void WaylandIntegration::WaylandIntegrationPrivate::processBuffer(const KWayland
 
     // create EGL image from imported BO
     EGLImageKHR image = eglCreateImageKHR(m_egl.display, nullptr, EGL_NATIVE_PIXMAP_KHR, imported, nullptr);
+
+    // We can already close gbm handle
+    gbm_bo_destroy(imported);
+    close(gbmHandle);
+
     if (image == EGL_NO_IMAGE_KHR) {
-        qCritical() << "Error creating EGLImageKHR" << formatGLError(glGetError());
+        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Failed to process buffer: Error creating EGLImageKHR - " << formatGLError(glGetError());
         return;
     }
+
     // create GL 2D texture for framebuffer
     GLuint texture;
     glGenTextures(1, &texture);
@@ -398,7 +498,7 @@ void WaylandIntegration::WaylandIntegrationPrivate::processBuffer(const KWayland
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture, 0);
     const GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     if (status != GL_FRAMEBUFFER_COMPLETE) {
-        qCritical() << "glCheckFramebufferStatus failed:" << formatGLError(glGetError());
+        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Failed to process buffer: glCheckFramebufferStatus failed - " << formatGLError(glGetError());
         glDeleteTextures(1, &texture);
         glDeleteFramebuffers(1, &framebuffer);
         eglDestroyImageKHR(m_egl.display, image);
@@ -409,16 +509,15 @@ void WaylandIntegration::WaylandIntegrationPrivate::processBuffer(const KWayland
     glViewport(0, 0, width, height);
     glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, capture->bits());
 
-    Q_EMIT newBuffer(capture->bits());
+    if (m_stream->recordFrame(capture->bits())) {
+        m_lastFrameTime = QDateTime::currentDateTime();
+    }
 
-    gbm_bo_destroy(imported);
     glDeleteTextures(1, &texture);
     glDeleteFramebuffers(1, &framebuffer);
     eglDestroyImageKHR(m_egl.display, image);
 
     delete capture;
-
-    close(gbmHandle);
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::setupRegistry()

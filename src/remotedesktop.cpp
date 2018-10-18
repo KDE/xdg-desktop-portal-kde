@@ -30,15 +30,11 @@ Q_LOGGING_CATEGORY(XdgDesktopPortalKdeRemoteDesktop, "xdp-kde-remotedesktop")
 
 RemoteDesktopPortal::RemoteDesktopPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
-    , m_screenCastCommon(new ScreenCastCommon())
 {
 }
 
 RemoteDesktopPortal::~RemoteDesktopPortal()
 {
-    if (m_screenCastCommon) {
-        delete m_screenCastCommon;
-    }
 }
 
 uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
@@ -60,7 +56,7 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
     }
 
     connect(session, &Session::closed, [this] () {
-        m_screenCastCommon->stopStreaming();
+        WaylandIntegration::stopStreaming();
     });
 
     return 0;
@@ -128,7 +124,11 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
         if (session->screenSharingEnabled()) {
             WaylandIntegration::WaylandOutput selectedOutput = WaylandIntegration::screens().value(remoteDesktopDialog->selectedScreens().first());
 
-            QVariant streams = m_screenCastCommon->startStreaming(selectedOutput);
+            if (!WaylandIntegration::startStreaming(selectedOutput)) {
+                return 2;
+            }
+
+            QVariant streams = WaylandIntegration::streams();
 
             if (!streams.isValid()) {
                 qCWarning(XdgDesktopPortalKdeRemoteDesktop()) << "Pipewire stream is not ready to be streamed";
