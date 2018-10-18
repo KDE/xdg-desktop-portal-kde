@@ -19,7 +19,6 @@
  */
 
 #include "screencast.h"
-#include "screencastcommon.h"
 #include "screenchooserdialog.h"
 #include "session.h"
 #include "waylandintegration.h"

@@ -19,7 +19,6 @@
  */
 
 #include "remotedesktop.h"
-#include "screencastcommon.h"
 #include "session.h"
 #include "remotedesktopdialog.h"
 #include "waylandintegration.h"
