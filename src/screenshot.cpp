@@ -23,7 +23,7 @@
 
 #include <QColorDialog>
 #include <QDateTime>
-#include <QtDBus/QtDBus>
+#include <QtDBus>
 #include <QDBusArgument>
 #include <QDBusReply>
 #include <QLoggingCategory>

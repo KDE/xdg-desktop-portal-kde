@@ -25,7 +25,7 @@
 #include <QSize>
 #include <QVariant>
 
-#include <QtCore/QtGlobal>
+#include <QtGlobal>
 
 namespace WaylandIntegration
 {
