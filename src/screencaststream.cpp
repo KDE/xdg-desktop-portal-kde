@@ -194,11 +194,7 @@ static void onStreamStateChanged(void *data, pw_stream_state old, pw_stream_stat
     }
 }
 
-#if defined(PW_API_PRE_0_2_0)
-static void onStreamFormatChanged(void *data, struct spa_pod *format)
-#else
 static void onStreamFormatChanged(void *data, const struct spa_pod *format)
-#endif // defined(PW_API_PRE_0_2_0)
 {
     qCDebug(XdgDesktopPortalKdeScreenCastStream) << "Stream format changed";
 
@@ -207,11 +203,7 @@ static void onStreamFormatChanged(void *data, const struct spa_pod *format)
     uint8_t paramsBuffer[1024];
     int32_t width, height, stride, size;
     struct spa_pod_builder pod_builder;
-#if defined(PW_API_PRE_0_2_0)
-    struct spa_pod *params[1];
-#else
     const struct spa_pod *params[1];
-#endif // defined(PW_API_PRE_0_2_0)
     const int bpp = 4;
 
     if (!format) {
@@ -219,7 +211,11 @@ static void onStreamFormatChanged(void *data, const struct spa_pod *format)
         return;
     }
 
+#if PW_CHECK_VERSION(0, 2, 9)
+    spa_format_video_raw_parse (format, &pw->videoFormat);
+#else
     spa_format_video_raw_parse (format, &pw->videoFormat, &pw->pwType->format_video);
+#endif
 
     width = pw->videoFormat.size.width;
     height =pw->videoFormat.size.height;
@@ -228,13 +224,21 @@ static void onStreamFormatChanged(void *data, const struct spa_pod *format)
 
     pod_builder = SPA_POD_BUILDER_INIT (paramsBuffer, sizeof (paramsBuffer));
 
-    params[0] = (spa_pod*) spa_pod_builder_object (&pod_builder,
+#if PW_CHECK_VERSION(0, 2, 9)
+    params[0] = (spa_pod*) spa_pod_builder_add_object(&pod_builder,
+                                                   SPA_TYPE_OBJECT_ParamBuffers, SPA_PARAM_Buffers,
+                                                   ":", SPA_PARAM_BUFFERS_buffers, "?ri", SPA_CHOICE_RANGE(16, 2, 16),
+                                                   ":", SPA_PARAM_BUFFERS_size, "i", size,
+                                                   ":", SPA_PARAM_BUFFERS_stride, "i", stride,
+                                                   ":", SPA_PARAM_BUFFERS_align, "i", 16);
+#else
+    params[0] = (spa_pod*) spa_pod_builder_object(&pod_builder,
                                                    pw->pwCoreType->param.idBuffers, pw->pwCoreType->param_buffers.Buffers,
                                                    ":", pw->pwCoreType->param_buffers.size, "i", size,
                                                    ":", pw->pwCoreType->param_buffers.stride, "i", stride,
                                                    ":", pw->pwCoreType->param_buffers.buffers, "iru", 16, PROP_RANGE (2, 16),
                                                    ":", pw->pwCoreType->param_buffers.align, "i", 16);
-
+#endif
     pw_stream_finish_format (pw->pwStream, 0,
                              params, G_N_ELEMENTS (params));
 }
@@ -254,12 +258,7 @@ static const struct pw_stream_events pwStreamEvents = {
     .format_changed = onStreamFormatChanged,
     .add_buffer = nullptr,
     .remove_buffer = nullptr,
-#if defined(PW_API_PRE_0_2_0)
-    .new_buffer = nullptr,
-    .need_buffer = nullptr,
-#else
     .process = nullptr,
-#endif // defined(PW_API_PRE_0_2_0)
 };
 
 ScreenCastStream::ScreenCastStream(const QSize &resolution, QObject *parent)
@@ -270,9 +269,11 @@ ScreenCastStream::ScreenCastStream(const QSize &resolution, QObject *parent)
 
 ScreenCastStream::~ScreenCastStream()
 {
+#if !PW_CHECK_VERSION(0, 2, 9)
     if (pwType) {
         delete pwType;
     }
+#endif
 
     if (pwStream) {
         pw_stream_destroy(pwStream);
@@ -301,10 +302,14 @@ void ScreenCastStream::init()
     connect(socketNotifier.data(), &QSocketNotifier::activated, this, &ScreenCastStream::processPipewireEvents);
 
     pwCore = pw_core_new(pwLoop, nullptr);
+#if !PW_CHECK_VERSION(0, 2, 9)
     pwCoreType = pw_core_get_type(pwCore);
+#endif
     pwRemote = pw_remote_new(pwCore, nullptr, 0);
 
+#if !PW_CHECK_VERSION(0, 2, 9)
     initializePwTypes();
+#endif
 
     pw_remote_add_listener(pwRemote, &remoteListener, &pwRemoteEvents, this);
 
@@ -357,22 +362,35 @@ bool ScreenCastStream::createStream()
 
     spa_fraction paramFraction = SPA_FRACTION(0, 1);
 
+#if PW_CHECK_VERSION(0, 2, 9)
+    params[0] = (spa_pod*)spa_pod_builder_add_object(&podBuilder,
+                                        SPA_TYPE_OBJECT_Format, SPA_PARAM_EnumFormat,
+                                        ":", SPA_FORMAT_mediaType, "I", SPA_MEDIA_TYPE_video,
+                                        ":", SPA_FORMAT_mediaSubtype, "I", SPA_MEDIA_SUBTYPE_raw,
+                                        ":", SPA_FORMAT_VIDEO_format, "I", SPA_VIDEO_FORMAT_RGBx,
+                                        ":", SPA_FORMAT_VIDEO_size, "?rR", SPA_CHOICE_RANGE(&maxResolution, &minResolution, &maxResolution),
+                                        ":", SPA_FORMAT_VIDEO_framerate, "F", &paramFraction,
+                                        ":", SPA_FORMAT_VIDEO_maxFramerate, "?rF", SPA_CHOICE_RANGE(&maxFramerate, &minFramerate, &maxFramerate));
+#else
     params[0] = (spa_pod*)spa_pod_builder_object(&podBuilder,
-                                       pwCoreType->param.idEnumFormat, pwCoreType->spa_format,
-                                       "I", pwType->media_type.video,
-                                       "I", pwType->media_subtype.raw,
-                                       ":", pwType->format_video.format, "I", pwType->video_format.RGBx,
-                                       ":", pwType->format_video.size, "Rru", &maxResolution, SPA_POD_PROP_MIN_MAX(&minResolution, &maxResolution),
-                                       ":", pwType->format_video.framerate, "F", &paramFraction,
-                                       ":", pwType->format_video.max_framerate, "Fru", &maxFramerate, PROP_RANGE (&minFramerate, &maxFramerate));
+                                        pwCoreType->param.idEnumFormat, pwCoreType->spa_format,
+                                        "I", pwType->media_type.video,
+                                        "I", pwType->media_subtype.raw,
+                                        ":", pwType->format_video.format, "I", pwType->video_format.RGBx,
+                                        ":", pwType->format_video.size, "Rru", &maxResolution, SPA_POD_PROP_MIN_MAX(&minResolution, &maxResolution),
+                                        ":", pwType->format_video.framerate, "F", &paramFraction,
+                                        ":", pwType->format_video.max_framerate, "Fru", &maxFramerate, PROP_RANGE (&minFramerate, &maxFramerate));
+#endif
 
     pw_stream_add_listener(pwStream, &streamListener, &pwStreamEvents, this);
 
-#if defined(PW_API_PRE_0_2_0)
-    if (pw_stream_connect(pwStream, PW_DIRECTION_OUTPUT, nullptr, PW_STREAM_FLAG_NONE, params, G_N_ELEMENTS(&params)) != 0) {
+    auto flags = static_cast<pw_stream_flags>(PW_STREAM_FLAG_DRIVER | PW_STREAM_FLAG_AUTOCONNECT | PW_STREAM_FLAG_MAP_BUFFERS);
+
+#if PW_CHECK_VERSION(0, 2, 9)
+    if (pw_stream_connect(pwStream, PW_DIRECTION_OUTPUT, 0, flags, params, G_N_ELEMENTS(&params)) != 0) {
 #else
-    if (pw_stream_connect(pwStream, PW_DIRECTION_OUTPUT, nullptr, static_cast<pw_stream_flags>(PW_STREAM_FLAG_DRIVER | PW_STREAM_FLAG_MAP_BUFFERS), params, G_N_ELEMENTS(&params)) != 0) {
-#endif // defined(PW_API_PRE_0_2_0)
+    if (pw_stream_connect(pwStream, PW_DIRECTION_OUTPUT, nullptr, flags, params, G_N_ELEMENTS(&params)) != 0) {
+#endif
         qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Could not connect to stream";
         return false;
     }
@@ -382,71 +400,25 @@ bool ScreenCastStream::createStream()
 
 bool ScreenCastStream::recordFrame(uint8_t *screenData)
 {
-#if defined(PW_API_PRE_0_2_0)
-    uint32_t bufferId;
-#else
     struct pw_buffer *buffer;
-#endif // defined(PW_API_PRE_0_2_0)
     struct spa_buffer *spa_buffer;
-    uint8_t *map = nullptr;
     uint8_t *data = nullptr;
 
-    // TODO check timestamp like mutter does?
-
-    if (!pwStream) {
+    if (!(buffer = pw_stream_dequeue_buffer(pwStream))) {
         return false;
     }
 
-#if defined(PW_API_PRE_0_2_0)
-    bufferId = pw_stream_get_empty_buffer(pwStream);
-
-    if (bufferId == SPA_ID_INVALID) {
-        qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to get empty stream buffer: " << strerror(errno);
-        return false;
-    }
-
-    spa_buffer = pw_stream_peek_buffer(pwStream, bufferId);
-#else
-    buffer = pw_stream_dequeue_buffer(pwStream);
-#endif // defined(PW_API_PRE_0_2_0)
-
-#if defined(PW_API_PRE_0_2_0)
-    if (spa_buffer->datas[0].type == pwCoreType->data.MemFd) {
-#else
     spa_buffer = buffer->buffer;
 
-    if (spa_buffer->datas[0].data) {
-        data = (uint8_t *) spa_buffer->datas[0].data;
-    } else if (spa_buffer->datas[0].type == pwCoreType->data.MemFd) {
-#endif // defined(PW_API_PRE_0_2_0)
-        map = (uint8_t *)mmap(nullptr, spa_buffer->datas[0].maxsize + spa_buffer->datas[0].mapoffset, PROT_READ | PROT_WRITE, MAP_SHARED, spa_buffer->datas[0].fd, 0);
-
-        if (map == MAP_FAILED) {
-            qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to mmap pipewire stream buffer: " << strerror(errno);
-            return false;
-        }
-        data = SPA_MEMBER(map, spa_buffer->datas[0].mapoffset, uint8_t);
-#if defined(PW_API_PRE_0_2_0)
-    } else if (spa_buffer->datas[0].type == pwCoreType->data.MemPtr) {
-        data = (uint8_t *) spa_buffer->datas[0].data;
-#endif // defined(PW_API_PRE_0_2_0)
-    } else {
+    if (!(data = (uint8_t *) spa_buffer->datas[0].data)) {
         return false;
     }
 
     memcpy(data, screenData, BITS_PER_PIXEL * videoFormat.size.height * videoFormat.size.width * sizeof(uint8_t));
 
-    if (map) {
-        munmap(map, spa_buffer->datas[0].maxsize + spa_buffer->datas[0].mapoffset);
-    }
-
     spa_buffer->datas[0].chunk->size = spa_buffer->datas[0].maxsize;
 
-#if defined(PW_API_PRE_0_2_0)
-    pw_stream_send_buffer(pwStream, bufferId);
-#else
     pw_stream_queue_buffer(pwStream, buffer);
-#endif // defined(PW_API_PRE_0_2_0)
     return true;
 }
 
@@ -458,6 +430,7 @@ void ScreenCastStream::removeStream()
     pw_stream_disconnect(pwStream);
 }
 
+#if !PW_CHECK_VERSION(0, 2, 9)
 void ScreenCastStream::initializePwTypes()
 {
     // raw C-like ScreenCastStream type map
@@ -470,6 +443,7 @@ void ScreenCastStream::initializePwTypes()
     spa_type_format_video_map (map, &pwType->format_video);
     spa_type_video_format_map (map, &pwType->video_format);
 }
+#endif
 
 void ScreenCastStream::processPipewireEvents()
 {
