@@ -31,7 +31,6 @@
 #if !PW_CHECK_VERSION(0, 2, 9)
 #include <spa/support/type-map.h>
 #include <spa/param/format-utils.h>
-#include <spa/param/video/format-utils.h>
 #include <spa/param/video/raw-utils.h>
 #endif
 #include <spa/param/video/format-utils.h>

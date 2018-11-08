@@ -259,7 +259,7 @@ bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(const Wayland
 void WaylandIntegration::WaylandIntegrationPrivate::stopStreaming()
 {
     if (m_streamingEnabled) {
-        // First unbound outputs and destroy remote access manager so we no longer recieve buffers
+        // First unbound outputs and destroy remote access manager so we no longer receive buffers
         if (m_remoteAccessManager) {
             m_remoteAccessManager->release();
             m_remoteAccessManager->destroy();

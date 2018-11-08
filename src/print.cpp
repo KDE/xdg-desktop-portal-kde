@@ -454,7 +454,7 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
     }
     if (settings.contains(QLatin1String("page-set"))) {
         // WARNING Qt internal private API, anyway the print dialog doesn't seem to
-        // read these propertis, but I'll leave it here in case this changes in future
+        // read these properties, but I'll leave it here in case this changes in future
         const QString pageSet = settings.value(QLatin1String("page-set")).toString();
         if (pageSet == QLatin1String("all")) {
             QCUPSSupport::setPageSet(printer, QCUPSSupport::AllPages);
@@ -473,7 +473,7 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
     QCUPSSupport::PagesPerSheetLayout pagesPerSheetLayout = QCUPSSupport::LeftToRightTopToBottom;
     if (settings.contains(QLatin1String("number-up"))) {
         // WARNING Qt internal private API, anyway the print dialog doesn't seem to
-        // read these propertis, but I'll leave it here in case this changes in future
+        // read these properties, but I'll leave it here in case this changes in future
         const QString numberUp = settings.value(QLatin1String("number-up")).toString();
         if (numberUp == QLatin1String("1")) {
             pagesPerSheet = QCUPSSupport::OnePagePerSheet;
@@ -491,7 +491,7 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
     }
     if (settings.contains(QLatin1String("number-up-layout"))) {
         // WARNING Qt internal private API, anyway the print dialog doesn't seem to
-        // read these propertis, but I'll leave it here in case this changes in future
+        // read these properties, but I'll leave it here in case this changes in future
         const QString layout = settings.value(QLatin1String("number-up-layout")).toString();
         if (layout == QLatin1String("lrtb")) {
             pagesPerSheetLayout = QCUPSSupport::LeftToRightTopToBottom;
