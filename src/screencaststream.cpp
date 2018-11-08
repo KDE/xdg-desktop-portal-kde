@@ -384,7 +384,7 @@ bool ScreenCastStream::createStream()
 
     pw_stream_add_listener(pwStream, &streamListener, &pwStreamEvents, this);
 
-    auto flags = static_cast<pw_stream_flags>(PW_STREAM_FLAG_DRIVER | PW_STREAM_FLAG_AUTOCONNECT | PW_STREAM_FLAG_MAP_BUFFERS);
+    auto flags = static_cast<pw_stream_flags>(PW_STREAM_FLAG_DRIVER | PW_STREAM_FLAG_MAP_BUFFERS);
 
 #if PW_CHECK_VERSION(0, 2, 9)
     if (pw_stream_connect(pwStream, PW_DIRECTION_OUTPUT, 0, flags, params, G_N_ELEMENTS(&params)) != 0) {
