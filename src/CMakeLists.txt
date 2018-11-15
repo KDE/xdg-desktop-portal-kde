@@ -19,6 +19,7 @@ set(xdg_desktop_portal_kde_SRCS
     session.cpp
     screenshot.cpp
     screenshotdialog.cpp
+    settings.cpp
 )
 
 if (SCREENCAST_ENABLED)
@@ -51,6 +52,7 @@ target_link_libraries(xdg-desktop-portal-kde
     Qt5::PrintSupport
     Qt5::Widgets
     KF5::CoreAddons
+    KF5::ConfigCore
     KF5::I18n
     KF5::Notifications
     KF5::WaylandClient

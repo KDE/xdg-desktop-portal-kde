@@ -23,6 +23,7 @@
 
 #include <QObject>
 #include <QDBusVirtualObject>
+#include <QDBusContext>
 
 #include "access.h"
 #include "appchooser.h"
@@ -37,8 +38,9 @@
 #include "waylandintegration.h"
 #endif
 #include "screenshot.h"
+#include "settings.h"
 
-class DesktopPortal : public QObject
+class DesktopPortal : public QObject, public QDBusContext
 {
     Q_OBJECT
 public:
@@ -58,6 +60,7 @@ private:
     RemoteDesktopPortal *m_remoteDesktop;
 #endif
     ScreenshotPortal *m_screenshot;
+    SettingsPortal *m_settings;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H

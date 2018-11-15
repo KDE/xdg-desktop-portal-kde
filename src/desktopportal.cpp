@@ -42,6 +42,7 @@ DesktopPortal::DesktopPortal(QObject *parent)
     , m_remoteDesktop(new RemoteDesktopPortal(this))
 #endif
     , m_screenshot(new ScreenshotPortal(this))
+    , m_settings(new SettingsPortal(this))
 {
 #if SCREENCAST_ENABLED
     WaylandIntegration::init();
