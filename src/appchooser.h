@@ -1,5 +1,5 @@
 /*
- * Copyright © 2016 Red Hat, Inc
+ * Copyright © 2016-2018 Red Hat, Inc
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -24,6 +24,8 @@
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
+class AppChooserDialog;
+
 class AppChooserPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
@@ -39,6 +41,11 @@ public Q_SLOTS:
                            const QStringList &choices,
                            const QVariantMap &options,
                            QVariantMap &results);
+    void UpdateChoices(const QDBusObjectPath &handle,
+                       const QStringList &choices);
+
+private:
+    QMap<QString, AppChooserDialog*> m_appChooserDialogs;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_APPCHOOSER_H

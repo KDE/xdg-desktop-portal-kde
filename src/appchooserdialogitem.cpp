@@ -26,7 +26,7 @@
 
 #include <QDebug>
 
-AppChooserDialogItem::AppChooserDialogItem(const QString &applicationName, const QString &icon, const QString &applicationExec, QToolButton *parent)
+AppChooserDialogItem::AppChooserDialogItem(const QString &applicationName, const QString &icon, const QString &applicationExec, QWidget *parent)
     : QToolButton(parent)
     , m_applicationName(applicationExec)
 {

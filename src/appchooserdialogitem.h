@@ -29,7 +29,7 @@ class AppChooserDialogItem : public QToolButton
 {
     Q_OBJECT
 public:
-    explicit AppChooserDialogItem(const QString &applicationName, const QString &icon, const QString &applicationExec, QToolButton *parent = nullptr);
+    explicit AppChooserDialogItem(const QString &applicationName, const QString &icon, const QString &applicationExec, QWidget *parent = nullptr);
     ~AppChooserDialogItem() override;
 
     QString applicationName() const;

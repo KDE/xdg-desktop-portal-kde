@@ -1,5 +1,5 @@
 /*
- * Copyright © 2016 Red Hat, Inc
+ * Copyright © 2016-2018 Red Hat, Inc
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -24,6 +24,9 @@
 #include <QAbstractListModel>
 #include <QDialog>
 
+class AppChooserDialogItem;
+class QGridLayout;
+
 class AppChooserDialog : public QDialog
 {
     Q_OBJECT
@@ -31,11 +34,17 @@ public:
     AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, QDialog *parent = nullptr, Qt::WindowFlags flags = {});
     ~AppChooserDialog();
 
+    void updateChoices(const QStringList &choices);
+
     QString selectedApplication() const;
 
 private:
-    QString m_selectedApplication;
+    void addDialogItems();
 
+    QStringList m_choices;
+    QString m_defaultApp;
+    QString m_selectedApplication;
+    QGridLayout *m_gridLayout;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_APPCHOOSER_DIALOG_H

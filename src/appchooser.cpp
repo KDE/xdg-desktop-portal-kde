@@ -1,5 +1,5 @@
 /*
- * Copyright © 2016 Red Hat, Inc
+ * Copyright © 2016-2018 Red Hat, Inc
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -26,7 +26,6 @@
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAppChooser, "xdp-kde-app-chooser")
 
-
 AppChooserPortal::AppChooserPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
 {
@@ -37,11 +36,11 @@ AppChooserPortal::~AppChooserPortal()
 }
 
 uint AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
-                                   const QString &app_id,
-                                   const QString &parent_window,
-                                   const QStringList &choices,
-                                   const QVariantMap &options,
-                                   QVariantMap &results)
+                                         const QString &app_id,
+                                         const QString &parent_window,
+                                         const QStringList &choices,
+                                         const QVariantMap &options,
+                                         QVariantMap &results)
 {
     qCDebug(XdgDesktopPortalKdeAppChooser) << "ChooseApplication called with parameters:";
     qCDebug(XdgDesktopPortalKdeAppChooser) << "    handle: " << handle.path();
@@ -57,13 +56,27 @@ uint AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
     }
 
     AppChooserDialog *appDialog = new AppChooserDialog(choices, latestChoice, options.value(QLatin1String("filename")).toString());
+    m_appChooserDialogs.insert(handle.path(), appDialog);
 
-    if (appDialog->exec()) {
+    int result = appDialog->exec();
+
+    if (result) {
         results.insert(QLatin1String("choice"), appDialog->selectedApplication());
-        appDialog->deleteLater();
-        return 0;
     }
+
+    m_appChooserDialogs.remove(handle.path());
     appDialog->deleteLater();
 
-    return 1;
+    return !result;
+}
+
+void AppChooserPortal::UpdateChoices(const QDBusObjectPath &handle, const QStringList &choices)
+{
+    qCDebug(XdgDesktopPortalKdeAppChooser) << "UpdateChoices called with parameters:";
+    qCDebug(XdgDesktopPortalKdeAppChooser) << "    handle: " << handle.path();
+    qCDebug(XdgDesktopPortalKdeAppChooser) << "    choices: " << choices;
+
+    if (m_appChooserDialogs.contains(handle.path())) {
+        m_appChooserDialogs.value(handle.path())->updateChoices(choices);
+    }
 }
