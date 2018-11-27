@@ -73,7 +73,7 @@ void NotificationPortal::AddNotification(const QString &app_id,
         }
 
         QStringList actions;
-        Q_FOREACH (const QVariantMap &button, buttons) {
+        for (const QVariantMap &button : buttons) {
             actions << button.value(QLatin1String("label")).toString();
         }
 

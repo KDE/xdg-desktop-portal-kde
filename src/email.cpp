@@ -47,7 +47,7 @@ uint EmailPortal::ComposeEmail(const QDBusObjectPath &handle, const QString &app
 
     QString attachmentString;
     const QStringList attachments = options.value(QLatin1String("attachments")).toStringList();
-    Q_FOREACH (const QString &attachment, attachments) {
+    for (const QString &attachment : attachments) {
         attachmentString += QStringLiteral("&attachment=%1").arg(attachment);
     }
 

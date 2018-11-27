@@ -136,9 +136,9 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
 
     if (options.contains(QLatin1String("filters"))) {
         FilterListList filterListList = qdbus_cast<FilterListList>(options.value(QLatin1String("filters")));
-        Q_FOREACH (const FilterList &filterList, filterListList) {
+        for (const FilterList &filterList : filterListList) {
             QStringList filterStrings;
-            Q_FOREACH (const Filter &filterStruct, filterList.filters) {
+            for (const Filter &filterStruct : filterList.filters) {
                 if (filterStruct.type == 0) {
                     filterStrings << filterStruct.filterString;
                 } else {
@@ -168,7 +168,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
 
     if (fileDialog->exec() == QDialog::Accepted) {
         QStringList files;
-        Q_FOREACH (const QString &filename, fileDialog->selectedFiles()) {
+        for (const QString &filename : fileDialog->selectedFiles()) {
            QUrl url = QUrl::fromLocalFile(filename);
            files << url.toDisplayString();
         }
@@ -228,9 +228,9 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
 
     if (options.contains(QLatin1String("filters"))) {
         FilterListList filterListList = qdbus_cast<FilterListList>(options.value(QLatin1String("filters")));
-        Q_FOREACH (const FilterList &filterList, filterListList) {
+        for (const FilterList &filterList : filterListList) {
             QStringList filterStrings;
-            Q_FOREACH (const Filter &filterStruct, filterList.filters) {
+            for (const Filter &filterStruct : filterList.filters) {
                 if (filterStruct.type == 0) {
                     filterStrings << filterStruct.filterString;
                 } else {
@@ -276,7 +276,7 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
 
     if (fileDialog->exec() == QDialog::Accepted) {
         QStringList files;
-        Q_FOREACH (const QString &filename, fileDialog->selectedFiles()) {
+        for (const QString &filename : fileDialog->selectedFiles()) {
            QUrl url = QUrl::fromLocalFile(filename);
            files << url.toDisplayString();
         }
