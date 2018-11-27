@@ -22,14 +22,33 @@
 #include <QDBusArgument>
 #include <QDBusConnection>
 #include <QDBusMessage>
+#include <QDBusMetaType>
 #include <QLoggingCategory>
 
+QDBusArgument &operator<<(QDBusArgument &argument, const NotificationPortal::PortalIcon &icon)
+{
+    argument.beginStructure();
+    argument << icon.str << icon.data;
+    argument.endStructure();
+    return argument;
+}
+
+const QDBusArgument &operator>>(const QDBusArgument &argument, NotificationPortal::PortalIcon &icon)
+{
+    argument.beginStructure();
+    argument >> icon.str >> icon.data;
+    argument.endStructure();
+    return argument;
+}
+
+Q_DECLARE_METATYPE(NotificationPortal::PortalIcon)
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeNotification, "xdp-kde-notification")
 
 NotificationPortal::NotificationPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
 {
+    qDBusRegisterMetaType<PortalIcon>();
 }
 
 NotificationPortal::~NotificationPortal()
@@ -54,7 +73,22 @@ void NotificationPortal::AddNotification(const QString &app_id,
         notify->setText(notification.value(QLatin1String("body")).toString());
     }
     if (notification.contains(QLatin1String("icon"))) {
-        notify->setIconName(notification.value(QLatin1String("icon")).toString());
+        QVariant iconVariant = notification.value(QLatin1String("icon"));
+        if (iconVariant.type() == QVariant::String) {
+            notify->setIconName(iconVariant.toString());
+        } else {
+            QDBusArgument argument = iconVariant.value<QDBusArgument>();
+            PortalIcon icon = qdbus_cast<PortalIcon>(argument);
+            QVariant iconData = icon.data.variant();
+            if (icon.str == QStringLiteral("themed") && iconData.type() == QVariant::StringList) {
+                notify->setIconName(iconData.toStringList().first());
+            } else if (icon.str == QStringLiteral("bytes") && iconData.type() == QVariant::ByteArray) {
+                QPixmap pixmap;
+                if (pixmap.loadFromData(iconData.toByteArray(), "PNG")) {
+                    notify->setPixmap(pixmap);
+                }
+            }
+        }
     }
     if (notification.contains(QLatin1String("priority"))) {
         // TODO KNotification has no option for priority

@@ -31,6 +31,11 @@ class NotificationPortal : public QDBusAbstractAdaptor
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Notification")
 public:
+    struct PortalIcon {
+        QString str;
+        QDBusVariant data;
+    };
+
     explicit NotificationPortal(QObject *parent);
     ~NotificationPortal();
 
