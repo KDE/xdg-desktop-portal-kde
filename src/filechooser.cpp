@@ -249,17 +249,16 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     fileDialog->setModal(modalDialog);
     fileDialog->setAcceptMode(QFileDialog::AcceptSave);
 
-    // TODO: Looks Qt doesn't have API for this
-    // if (!currentName.isEmpty()) {
-    //    fileDialog->selectFile(currentName);
-    // }
-
     if (!currentFolder.isEmpty()) {
         fileDialog->setDirectoryUrl(QUrl(currentFolder));
     }
 
     if (!currentFile.isEmpty()) {
         fileDialog->selectFile(currentFile);
+    }
+
+    if (!currentName.isEmpty()) {
+        fileDialog->selectFile(currentName);
     }
 
     if (!acceptLabel.isEmpty()) {
