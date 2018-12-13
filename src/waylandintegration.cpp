@@ -225,8 +225,10 @@ bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(const Wayland
     disconnect(m_stream, &ScreenCastStream::streamReady, this, nullptr);
 
     if (!streamReady) {
-        delete m_stream;
-        m_stream = nullptr;
+        if (m_stream) {
+            delete m_stream;
+            m_stream = nullptr;
+        }
         return false;
     }
 
@@ -249,8 +251,10 @@ bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(const Wayland
         return true;
     }
 
-    delete m_stream;
-    m_stream = nullptr;
+    if (m_stream) {
+        delete m_stream;
+        m_stream = nullptr;
+    }
 
     qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Failed to start streaming: no remote access manager interface";
     return false;
@@ -259,6 +263,8 @@ bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(const Wayland
 void WaylandIntegration::WaylandIntegrationPrivate::stopStreaming()
 {
     if (m_streamingEnabled) {
+        m_streamingEnabled = false;
+
         // First unbound outputs and destroy remote access manager so we no longer receive buffers
         if (m_remoteAccessManager) {
             m_remoteAccessManager->release();
@@ -271,7 +277,6 @@ void WaylandIntegration::WaylandIntegrationPrivate::stopStreaming()
             delete m_stream;
             m_stream = nullptr;
         }
-        m_streamingEnabled = false;
     }
 }
 
