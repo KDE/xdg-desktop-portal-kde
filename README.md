@@ -7,7 +7,6 @@ that is using Qt/KF5.
 
 ### Dependencies:
  - xdg-desktop-portal (runtime dependency)
- - flatpak (runtime dependency)
  - Qt 5 (build dependency)
  - KDE Frameworks - KCoreAddons, KI18n, KNotifications(build dependency)
 
