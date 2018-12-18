@@ -20,6 +20,7 @@
 
 #include "screenshot.h"
 #include "screenshotdialog.h"
+#include "utils.h"
 
 #include <QColorDialog>
 #include <QDateTime>
@@ -99,6 +100,7 @@ uint ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeScreenshot) << "    options: " << options;
 
     QPointer<ScreenshotDialog> screenshotDialog = new ScreenshotDialog;
+    Utils::setParentWindow(screenshotDialog, parent_window);
 
     const bool modal = options.value(QLatin1String("modal"), false).toBool();
     screenshotDialog->setModal(modal);

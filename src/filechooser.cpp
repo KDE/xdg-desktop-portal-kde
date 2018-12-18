@@ -19,6 +19,7 @@
  */
 
 #include "filechooser.h"
+#include "utils.h"
 
 #include <QDialogButtonBox>
 #include <QDBusMetaType>
@@ -180,6 +181,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     }
 
     QScopedPointer<FileDialog, QScopedPointerDeleteLater> fileDialog(new FileDialog());
+    Utils::setParentWindow(fileDialog.data(), parent_window);
     fileDialog->setWindowTitle(title);
     fileDialog->setModal(modalDialog);
     fileDialog->m_fileWidget->setMode(multipleFiles ? KFile::Mode::File | KFile::Mode::ExistingOnly : KFile::Mode::Files | KFile::Mode::ExistingOnly);
@@ -270,6 +272,7 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     }
 
     QScopedPointer<FileDialog, QScopedPointerDeleteLater> fileDialog(new FileDialog());
+    Utils::setParentWindow(fileDialog.data(), parent_window);
     fileDialog->setWindowTitle(title);
     fileDialog->setModal(modalDialog);
     fileDialog->m_fileWidget->setOperationMode(KFileWidget::Saving);

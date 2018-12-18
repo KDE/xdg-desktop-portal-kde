@@ -69,6 +69,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     Notifications
     Wayland
     WidgetsAddons
+    WindowSystem
 )
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)

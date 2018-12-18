@@ -22,6 +22,7 @@
 #include "screenchooserdialog.h"
 #include "session.h"
 #include "waylandintegration.h"
+#include "utils.h"
 
 #include <QLoggingCategory>
 
@@ -144,6 +145,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     }
 
     QScopedPointer<ScreenChooserDialog, QScopedPointerDeleteLater> screenDialog(new ScreenChooserDialog(app_id, session->multipleSources()));
+    Utils::setParentWindow(screenDialog.data(), parent_window);
 
     if (screenDialog->exec()) {
         WaylandIntegration::WaylandOutput selectedOutput = WaylandIntegration::screens().value(screenDialog->selectedScreens().first());
