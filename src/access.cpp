@@ -19,6 +19,7 @@
 
 #include "access.h"
 #include "accessdialog.h"
+#include "utils.h"
 
 #include <QLoggingCategory>
 
@@ -54,6 +55,7 @@ uint AccessPortal::AccessDialog(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeAccess) << "    options: " << options;
 
     auto accessDialog = new ::AccessDialog();
+    Utils::setParentWindow(accessDialog, parent_window);
     accessDialog->setBody(body);
     accessDialog->setTitle(title);
     accessDialog->setSubtitle(subtitle);

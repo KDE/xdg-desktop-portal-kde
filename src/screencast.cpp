@@ -22,6 +22,7 @@
 #include "session.h"
 #include "screencaststream.h"
 #include "screenchooserdialog.h"
+#include "utils.h"
 
 #include <QEventLoop>
 #include <QLoggingCategory>
@@ -407,6 +408,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     }
 
     QScopedPointer<ScreenChooserDialog, QScopedPointerDeleteLater> screenDialog(new ScreenChooserDialog(m_outputMap, session->multipleSources()));
+    Utils::setParentWindow(screenDialog.data(), parent_window);
 
     if (screenDialog->exec()) {
         ScreenCastPortalOutput selectedOutput = m_outputMap.value(screenDialog->selectedScreens().first());

@@ -19,6 +19,7 @@
  */
 
 #include "print.h"
+#include "utils.h"
 
 #include <KProcess>
 
@@ -599,6 +600,7 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
     printer->setPageMargins(pageMargins, QPageLayout::Millimeter);
 
     QPrintDialog *printDialog = new QPrintDialog(printer);
+    Utils::setParentWindow(printDialog, parent_window);
 
     // Process options
 

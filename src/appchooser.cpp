@@ -19,6 +19,7 @@
 
 #include "appchooser.h"
 #include "appchooserdialog.h"
+#include "utils.h"
 
 #include <QLoggingCategory>
 
@@ -57,6 +58,7 @@ uint AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
     }
 
     AppChooserDialog *appDialog = new AppChooserDialog(choices, latestChoice, options.value(QLatin1String("filename")).toString());
+    Utils::setParentWindow(appDialog, parent_window);
 
     if (appDialog->exec()) {
         results.insert(QLatin1String("choice"), appDialog->selectedApplication());
