@@ -44,7 +44,9 @@ RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName, RemoteDesktopPo
         }
     }
 
-    // TODO
+    m_dialog->keyboardCheckbox->setChecked(deviceTypes.testFlag(RemoteDesktopPortal::Keyboard));
+    m_dialog->pointerCheckbox->setChecked(deviceTypes.testFlag(RemoteDesktopPortal::Pointer));
+    m_dialog->touchScreenCheckbox->setChecked(deviceTypes.testFlag(RemoteDesktopPortal::TouchScreen));
 
     connect(m_dialog->buttonBox, &QDialogButtonBox::accepted, this, &RemoteDesktopDialog::accept);
     connect(m_dialog->buttonBox, &QDialogButtonBox::rejected, this, &RemoteDesktopDialog::reject);
@@ -87,5 +89,13 @@ QList<quint32> RemoteDesktopDialog::selectedScreens() const
 
 RemoteDesktopPortal::DeviceTypes RemoteDesktopDialog::deviceTypes() const
 {
-    return 0;
+    RemoteDesktopPortal::DeviceTypes types = RemoteDesktopPortal::None;
+    if (m_dialog->keyboardCheckbox->isChecked())
+        types |= RemoteDesktopPortal::Keyboard;
+    if (m_dialog->pointerCheckbox->isChecked())
+        types |= RemoteDesktopPortal::Pointer;
+    if (m_dialog->touchScreenCheckbox->isChecked())
+        types |= RemoteDesktopPortal::TouchScreen;
+
+    return types;
 }

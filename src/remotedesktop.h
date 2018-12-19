@@ -120,6 +120,7 @@ public Q_SLOTS:
                        const QVariantMap &options,
                        uint slot);
 };
+Q_DECLARE_OPERATORS_FOR_FLAGS(RemoteDesktopPortal::DeviceTypes)
 
 #endif // XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_H
 

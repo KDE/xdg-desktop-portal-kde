@@ -73,7 +73,10 @@ uint RemoteDesktopPortal::SelectDevices(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    options: " << options;
 
-    RemoteDesktopPortal::DeviceTypes types = RemoteDesktopPortal::All;
+    RemoteDesktopPortal::DeviceTypes types = RemoteDesktopPortal::None;
+    if (options.contains(QStringLiteral("types"))) {
+        types = static_cast<RemoteDesktopPortal::DeviceTypes>(options.value(QStringLiteral("types")).toUInt());
+    }
 
     RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession*>(Session::getSession(session_handle.path()));
 
@@ -137,7 +140,7 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
             results.insert(QLatin1String("streams"), streams);
         }
 
-        // TODO devices
+        results.insert(QLatin1String("types"), QVariant::fromValue<uint>(remoteDesktopDialog->deviceTypes()));
 
         return 0;
     }
