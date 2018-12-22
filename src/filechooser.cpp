@@ -1,5 +1,5 @@
 /*
- * Copyright © 2016 Red Hat, Inc
+ * Copyright © 2016-2018 Red Hat, Inc
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,11 +20,16 @@
 
 #include "filechooser.h"
 
+#include <QDialogButtonBox>
 #include <QDBusMetaType>
 #include <QDBusArgument>
 #include <QLoggingCategory>
-#include <QFileDialog>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QUrl>
+
 #include <KLocalizedString>
+#include <KFileWidget>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeFileChooser, "xdp-kde-file-chooser")
 
@@ -74,6 +79,28 @@ const QDBusArgument &operator >> (const QDBusArgument &arg, FileChooserPortal::F
     arg.endStructure();
 
     return arg;
+}
+
+FileDialog::FileDialog(QDialog *parent, Qt::WindowFlags flags)
+    : QDialog(parent, flags)
+    , m_fileWidget(new KFileWidget(QUrl(), this))
+{
+    setLayout(new QVBoxLayout);
+    layout()->addWidget(m_fileWidget);
+
+    m_buttons = new QDialogButtonBox(this);
+    m_buttons->addButton(m_fileWidget->okButton(), QDialogButtonBox::AcceptRole);
+    m_buttons->addButton(m_fileWidget->cancelButton(), QDialogButtonBox::RejectRole);
+    connect(m_buttons, SIGNAL(rejected()), m_fileWidget, SLOT(slotCancel()));
+    connect(m_fileWidget->okButton(), SIGNAL(clicked(bool)), m_fileWidget, SLOT(slotOk()));
+    connect(m_fileWidget, SIGNAL(accepted()), m_fileWidget, SLOT(accept()));
+    connect(m_fileWidget, SIGNAL(accepted()), SLOT(accept()));
+    connect(m_fileWidget->cancelButton(), SIGNAL(clicked(bool)), SLOT(reject()));
+    layout()->addWidget(m_buttons);
+}
+
+FileDialog::~FileDialog()
+{
 }
 
 FileChooserPortal::FileChooserPortal(QObject *parent)
@@ -147,37 +174,35 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
             }
 
             if (!filterStrings.isEmpty()) {
-                nameFilters << QStringLiteral("%1 (%2)").arg(filterList.userVisibleName).arg(filterStrings.join(QLatin1String(" ")));
+                nameFilters << QStringLiteral("%1|%2").arg(filterStrings.join(QLatin1Char(' '))).arg(filterList.userVisibleName);
             }
         }
     }
 
-    QFileDialog *fileDialog = new QFileDialog();
+    QScopedPointer<FileDialog, QScopedPointerDeleteLater> fileDialog(new FileDialog());
     fileDialog->setWindowTitle(title);
     fileDialog->setModal(modalDialog);
-    fileDialog->setFileMode(multipleFiles ? QFileDialog::ExistingFiles : QFileDialog::ExistingFile);
-    fileDialog->setLabelText(QFileDialog::Accept, !acceptLabel.isEmpty() ? acceptLabel : i18n("Open"));
+    fileDialog->m_fileWidget->setMode(multipleFiles ? KFile::Mode::File | KFile::Mode::ExistingOnly : KFile::Mode::Files | KFile::Mode::ExistingOnly);
+    fileDialog->m_fileWidget->okButton()->setText(!acceptLabel.isEmpty() ? acceptLabel : i18n("Open"));
 
     if (!nameFilters.isEmpty()) {
-        fileDialog->setNameFilters(nameFilters);
+        fileDialog->m_fileWidget->setFilter(nameFilters.join(QLatin1Char('\n')));
     }
 
     if (!mimeTypeFilters.isEmpty()) {
-        fileDialog->setMimeTypeFilters(mimeTypeFilters);
+        fileDialog->m_fileWidget->setMimeFilter(mimeTypeFilters);
     }
 
     if (fileDialog->exec() == QDialog::Accepted) {
         QStringList files;
-        for (const QString &filename : fileDialog->selectedFiles()) {
+        for (const QString &filename : fileDialog->m_fileWidget->selectedFiles()) {
            QUrl url = QUrl::fromLocalFile(filename);
            files << url.toDisplayString();
         }
         results.insert(QLatin1String("uris"), files);
-        fileDialog->deleteLater();
         return 0;
     }
 
-    fileDialog->deleteLater();
     return 1;
 }
 
@@ -239,52 +264,49 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
             }
 
             if (!filterStrings.isEmpty()) {
-                nameFilters << QStringLiteral("%1 (%2)").arg(filterList.userVisibleName).arg(filterStrings.join(QLatin1String(" ")));
+                nameFilters << QStringLiteral("%1|%2").arg(filterStrings.join(QLatin1Char(' '))).arg(filterList.userVisibleName);
             }
         }
     }
 
-    QFileDialog *fileDialog = new QFileDialog();
+    QScopedPointer<FileDialog, QScopedPointerDeleteLater> fileDialog(new FileDialog());
     fileDialog->setWindowTitle(title);
     fileDialog->setModal(modalDialog);
-    fileDialog->setAcceptMode(QFileDialog::AcceptSave);
+    fileDialog->m_fileWidget->setOperationMode(KFileWidget::Saving);
 
     if (!currentFolder.isEmpty()) {
-        fileDialog->setDirectoryUrl(QUrl(currentFolder));
+        fileDialog->m_fileWidget->setUrl(QUrl::fromLocalFile(currentFolder));
     }
 
     if (!currentFile.isEmpty()) {
-        fileDialog->selectFile(currentFile);
+        fileDialog->m_fileWidget->setSelectedUrl(QUrl::fromLocalFile(currentFile));
     }
 
     if (!currentName.isEmpty()) {
-        fileDialog->selectFile(currentName);
+        const QUrl url = fileDialog->m_fileWidget->baseUrl();
+        fileDialog->m_fileWidget->setSelectedUrl(QUrl::fromLocalFile(QStringLiteral("%1/%2").arg(url.toDisplayString(QUrl::StripTrailingSlash), currentName)));
     }
 
     if (!acceptLabel.isEmpty()) {
-        fileDialog->setLabelText(QFileDialog::Accept, acceptLabel);
+        fileDialog->m_fileWidget->okButton()->setText(acceptLabel);
     }
 
     if (!nameFilters.isEmpty()) {
-        fileDialog->setNameFilters(nameFilters);
+        fileDialog->m_fileWidget->setFilter(nameFilters.join(QLatin1Char('\n')));
     }
 
     if (!mimeTypeFilters.isEmpty()) {
-        fileDialog->setMimeTypeFilters(mimeTypeFilters);
+        fileDialog->m_fileWidget->setMimeFilter(mimeTypeFilters);
     }
 
     if (fileDialog->exec() == QDialog::Accepted) {
         QStringList files;
-        for (const QString &filename : fileDialog->selectedFiles()) {
-           QUrl url = QUrl::fromLocalFile(filename);
-           files << url.toDisplayString();
-        }
+        QUrl url = QUrl::fromLocalFile(fileDialog->m_fileWidget->selectedFile());
+        files << url.toDisplayString();
         results.insert(QLatin1String("uris"), files);
-        fileDialog->deleteLater();
         return 0;
     }
 
-    fileDialog->deleteLater();
     return 1;
 }
 

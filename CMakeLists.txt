@@ -65,6 +65,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     CoreAddons
     Config
     I18n
+    KIO
     Notifications
     Wayland
     WidgetsAddons

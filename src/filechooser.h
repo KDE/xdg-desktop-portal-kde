@@ -1,5 +1,5 @@
 /*
- * Copyright © 2016 Red Hat, Inc
+ * Copyright © 2016-2018 Red Hat, Inc
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -24,6 +24,25 @@
 #include <QDBusObjectPath>
 #include <QMetaType>
 #include <QDBusAbstractAdaptor>
+#include <QDialog>
+
+class KFileWidget;
+class QDialogButtonBox;
+
+class FileDialog : public QDialog
+{
+    Q_OBJECT
+public:
+    friend class FileChooserPortal;
+
+    FileDialog(QDialog *parent = nullptr, Qt::WindowFlags flags = {});
+    ~FileDialog();
+
+private:
+    QDialogButtonBox *m_buttons;
+protected:
+    KFileWidget *m_fileWidget;
+};
 
 class FileChooserPortal : public QDBusAbstractAdaptor
 {
