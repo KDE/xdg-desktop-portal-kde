@@ -1,5 +1,5 @@
 /*
- * Copyright © 2016 Red Hat, Inc
+ * Copyright © 2016-2018 Red Hat, Inc
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -24,6 +24,7 @@
 #include <QDBusArgument>
 #include <QLoggingCategory>
 #include <QFileDialog>
+#include <QRegularExpression>
 #include <KLocalizedString>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeFileChooser, "xdp-kde-file-chooser")
@@ -74,6 +75,37 @@ const QDBusArgument &operator >> (const QDBusArgument &arg, FileChooserPortal::F
     arg.endStructure();
 
     return arg;
+}
+
+static bool isGtkFilterPattern(const QString &pattern)
+{
+    // We are looking for patterns containing regexp looking like "[Pp][Nn][Gg]"
+    QRegularExpression re(QStringLiteral("\\*\\.(\\w*(\\[\\w+\\])+\\w*)+"));
+    return re.match(pattern).hasMatch();
+}
+
+static QString gtkToQtFilterPattern(const QString &pattern)
+{
+    QRegularExpression re(QStringLiteral("[\\[\\]]"));
+
+    QString result;
+    const QStringList list = pattern.split(re, QString::SkipEmptyParts);
+    for (const QString &str : list) {
+        if (str.startsWith(QStringLiteral("*."))) {
+            result += str;
+        } else {
+            // Check if first and last letter are same
+            if (str.at(0).toLower() == str.at(str.length() - 1).toLower()) {
+                // Take first letter and convert it to lower, so for example from "[Aa]" we get just "a"
+                result += str.at(0).toLower();
+            } else {
+                // If not, take whole string as it's probably a string between two patterns, like [aA]bc[dD]
+                result += str;
+            }
+        }
+    }
+
+    return result;
 }
 
 FileChooserPortal::FileChooserPortal(QObject *parent)
@@ -140,7 +172,11 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
             QStringList filterStrings;
             Q_FOREACH (const Filter &filterStruct, filterList.filters) {
                 if (filterStruct.type == 0) {
-                    filterStrings << filterStruct.filterString;
+                    QString filterString = filterStruct.filterString;
+                    if (isGtkFilterPattern(filterString)) {
+                        filterString = gtkToQtFilterPattern(filterString);
+                    }
+                    filterStrings << filterString;
                 } else {
                     mimeTypeFilters << filterStruct.filterString;
                 }
@@ -232,7 +268,11 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
             QStringList filterStrings;
             Q_FOREACH (const Filter &filterStruct, filterList.filters) {
                 if (filterStruct.type == 0) {
-                    filterStrings << filterStruct.filterString;
+                    QString filterString = filterStruct.filterString;
+                    if (isGtkFilterPattern(filterString)) {
+                        filterString = gtkToQtFilterPattern(filterString);
+                    }
+                    filterStrings << filterString;
                 } else {
                     mimeTypeFilters << filterStruct.filterString;
                 }
