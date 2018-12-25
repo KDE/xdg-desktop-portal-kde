@@ -21,6 +21,7 @@
 #include "remotedesktop.h"
 #include "session.h"
 #include "remotedesktopdialog.h"
+#include "utils.h"
 #include "waylandintegration.h"
 
 #include <QLoggingCategory>
@@ -121,6 +122,7 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
     }
 
     QScopedPointer<RemoteDesktopDialog, QScopedPointerDeleteLater> remoteDesktopDialog(new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled(), session->multipleSources()));
+    Utils::setParentWindow(remoteDesktopDialog.data(), parent_window);
 
     if (remoteDesktopDialog->exec()) {
         if (session->screenSharingEnabled()) {
