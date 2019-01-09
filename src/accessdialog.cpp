@@ -37,7 +37,7 @@ AccessDialog::AccessDialog(QDialog *parent, Qt::WindowFlags flags)
     connect(m_dialog->buttonBox, &QDialogButtonBox::accepted, this, &AccessDialog::accept);
     connect(m_dialog->buttonBox, &QDialogButtonBox::rejected, this, &AccessDialog::reject);
 
-    m_dialog->iconLabel->setPixmap(QIcon::fromTheme(QLatin1String("dialog-question")).pixmap(QSize(64, 64)));
+    m_dialog->iconLabel->setPixmap(QIcon::fromTheme(QStringLiteral("dialog-question")).pixmap(QSize(64, 64)));
 
     setWindowTitle(i18n("Request device access"));
 }

@@ -46,14 +46,14 @@ uint EmailPortal::ComposeEmail(const QDBusObjectPath &handle, const QString &app
     qCDebug(XdgDesktopPortalKdeEmail) << "    options: " << options;
 
     QString attachmentString;
-    const QStringList attachments = options.value(QLatin1String("attachments")).toStringList();
+    const QStringList attachments = options.value(QStringLiteral("attachments")).toStringList();
     for (const QString &attachment : attachments) {
         attachmentString += QStringLiteral("&attachment=%1").arg(attachment);
     }
 
-    const QString mailtoUrl = QStringLiteral("mailto:%1?subject=%2&body=%3%4").arg(options.value(QLatin1String("address")).toString())
-                                                                              .arg(options.value(QLatin1String("subject")).toString())
-                                                                              .arg(options.value(QLatin1String("body")).toString())
+    const QString mailtoUrl = QStringLiteral("mailto:%1?subject=%2&body=%3%4").arg(options.value(QStringLiteral("address")).toString())
+                                                                              .arg(options.value(QStringLiteral("subject")).toString())
+                                                                              .arg(options.value(QStringLiteral("body")).toString())
                                                                               .arg(attachmentString);
     return QDesktopServices::openUrl(QUrl(mailtoUrl));
 }

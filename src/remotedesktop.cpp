@@ -86,8 +86,8 @@ uint RemoteDesktopPortal::SelectDevices(const QDBusObjectPath &handle,
         return 2;
     }
 
-    if (options.contains(QLatin1String("types"))) {
-        types = (DeviceTypes)(options.value(QLatin1String("types")).toUInt());
+    if (options.contains(QStringLiteral("types"))) {
+        types = (DeviceTypes)(options.value(QStringLiteral("types")).toUInt());
     }
     session->setDeviceTypes(types);
 
@@ -139,10 +139,10 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
                 return 2;
             }
 
-            results.insert(QLatin1String("streams"), streams);
+            results.insert(QStringLiteral("streams"), streams);
         }
 
-        results.insert(QLatin1String("types"), QVariant::fromValue<uint>(remoteDesktopDialog->deviceTypes()));
+        results.insert(QStringLiteral("types"), QVariant::fromValue<uint>(remoteDesktopDialog->deviceTypes()));
 
         return 0;
     }

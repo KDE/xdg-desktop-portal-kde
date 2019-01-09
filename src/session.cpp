@@ -111,7 +111,7 @@ QString Session::introspect(const QString &path) const
 
 bool Session::close()
 {
-    QDBusMessage reply = QDBusMessage::createSignal(m_path, QLatin1String("org.freedesktop.impl.portal.Session"), QLatin1String("Closed"));
+    QDBusMessage reply = QDBusMessage::createSignal(m_path, QStringLiteral("org.freedesktop.impl.portal.Session"), QStringLiteral("Closed"));
     return QDBusConnection::sessionBus().send(reply);
 }
 

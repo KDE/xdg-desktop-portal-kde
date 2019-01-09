@@ -52,18 +52,18 @@ uint AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
 
     QString latestChoice;
 
-    if (options.contains(QLatin1String("last_choice"))) {
-        latestChoice = options.value(QLatin1String("last_choice")).toString();
+    if (options.contains(QStringLiteral("last_choice"))) {
+        latestChoice = options.value(QStringLiteral("last_choice")).toString();
     }
 
-    AppChooserDialog *appDialog = new AppChooserDialog(choices, latestChoice, options.value(QLatin1String("filename")).toString());
+    AppChooserDialog *appDialog = new AppChooserDialog(choices, latestChoice, options.value(QStringLiteral("filename")).toString());
     m_appChooserDialogs.insert(handle.path(), appDialog);
     Utils::setParentWindow(appDialog, parent_window);
 
     int result = appDialog->exec();
 
     if (result) {
-        results.insert(QLatin1String("choice"), appDialog->selectedApplication());
+        results.insert(QStringLiteral("choice"), appDialog->selectedApplication());
     }
 
     m_appChooserDialogs.remove(handle.path());

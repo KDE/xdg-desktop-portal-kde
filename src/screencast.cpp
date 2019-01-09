@@ -87,12 +87,12 @@ uint ScreenCastPortal::SelectSources(const QDBusObjectPath &handle,
         return 2;
     }
 
-    if (options.contains(QLatin1String("multiple"))) {
-        session->setMultipleSources(options.value(QLatin1String("multiple")).toBool());
+    if (options.contains(QStringLiteral("multiple"))) {
+        session->setMultipleSources(options.value(QStringLiteral("multiple")).toBool());
     }
 
-    if (options.contains(QLatin1String("types"))) {
-        types = (SourceType)(options.value(QLatin1String("types")).toUInt());
+    if (options.contains(QStringLiteral("types"))) {
+        types = (SourceType)(options.value(QStringLiteral("types")).toUInt());
     }
 
     if (types == Window) {
@@ -161,7 +161,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             return 2;
         }
 
-        results.insert(QLatin1String("streams"), streams);
+        results.insert(QStringLiteral("streams"), streams);
 
         return 0;
     }

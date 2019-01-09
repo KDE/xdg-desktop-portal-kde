@@ -58,10 +58,10 @@ bool Request::handleMessage(const QDBusMessage &message, const QDBusConnection &
     if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Request")) {
         if (message.member() == QLatin1String("Close")) {
             if (m_portalName == QLatin1String("org.freedesktop.impl.portal.Inhibit")) {
-                QDBusMessage message = QDBusMessage::createMethodCall(QLatin1String("org.kde.Solid.PowerManagement"),
-                                                                      QLatin1String("/org/kde/Solid/PowerManagement/PolicyAgent"),
-                                                                      QLatin1String("org.kde.Solid.PowerManagement.PolicyAgent"),
-                                                                      QLatin1String("ReleaseInhibition"));
+                QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
+                                                                      QStringLiteral("/org/kde/Solid/PowerManagement/PolicyAgent"),
+                                                                      QStringLiteral("org.kde.Solid.PowerManagement.PolicyAgent"),
+                                                                      QStringLiteral("ReleaseInhibition"));
 
                 message << m_data.toUInt();
 
