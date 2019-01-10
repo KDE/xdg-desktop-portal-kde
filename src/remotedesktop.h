@@ -74,8 +74,8 @@ public Q_SLOTS:
     void NotifyPointerMotionAbsolute(const QDBusObjectPath &session_handle,
                              const QVariantMap &options,
                              uint stream,
-                             double dx,
-                             double dy);
+                             double x,
+                             double y);
 
     void NotifyPointerButton(const QDBusObjectPath &session_handle,
                              const QVariantMap &options,

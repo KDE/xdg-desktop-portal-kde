@@ -38,6 +38,7 @@ namespace KWayland {
     namespace Client {
         class ConnectionThread;
         class EventQueue;
+        class FakeInput;
         class OutputDevice;
         class Registry;
         class RemoteAccessManager;
@@ -62,6 +63,7 @@ public:
     WaylandIntegrationPrivate();
     ~WaylandIntegrationPrivate();
 
+    void authenticate();
     void initDrm();
     void initEGL();
     void initWayland();
@@ -69,8 +71,15 @@ public:
     bool isEGLInitialized() const;
 
     void bindOutput(int outputName, int outputVersion);
-    bool startStreaming(const WaylandOutput &output);
+    bool startStreaming(quint32 outputName);
     void stopStreaming();
+
+    void requestPointerButtonPress(quint32 linuxButton);
+    void requestPointerButtonRelease(quint32 linuxButton);
+    void requestPointerMotion(const QSizeF &delta);
+    void requestPointerMotionAbsolute(const QPointF &pos);
+    void requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta);
+
     QMap<quint32, WaylandOutput> screens();
     QVariant streams();
 
@@ -84,6 +93,7 @@ private:
     bool m_eglInitialized;
     bool m_streamingEnabled;
     bool m_registryInitialized;
+    bool m_waylandAuthenticationRequested;
 
     quint32 m_output;
     QDateTime m_lastFrameTime;
@@ -91,11 +101,14 @@ private:
 
     QThread *m_thread;
 
+    QPoint m_streamedScreenPosition;
+
     QMap<quint32, WaylandOutput> m_outputMap;
     QList<KWayland::Client::Output*> m_bindOutputs;
 
     KWayland::Client::ConnectionThread *m_connection;
     KWayland::Client::EventQueue *m_queue;
+    KWayland::Client::FakeInput *m_fakeInput;
     KWayland::Client::Registry *m_registry;
     KWayland::Client::RemoteAccessManager *m_remoteAccessManager;
 
