@@ -267,8 +267,8 @@ uint PrintPortal::Print(const QDBusObjectPath &handle,
     if (fileToPrint.open(fd.fileDescriptor(), QIODevice::ReadOnly)) {
         QPrinter *printer = nullptr;
         // Use printer associated with token if possible
-        if (options.contains(QLatin1String("token"))) {
-            printer = m_printers.value(options.value(QLatin1String("token")).toUInt());
+        if (options.contains(QStringLiteral("token"))) {
+            printer = m_printers.value(options.value(QStringLiteral("token")).toUInt());
         } else {
             // Use the last configured printer otherwise
             if (m_printers.count()) {
@@ -377,35 +377,35 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
     // First we have to load pre-configured options
 
     // Process settings (used by printer)
-    if (settings.contains(QLatin1String("orientation"))) {
+    if (settings.contains(QStringLiteral("orientation"))) {
         // TODO: what is the difference between this and the one in page setup
     }
-    if (settings.contains(QLatin1String("paper-format"))) {
+    if (settings.contains(QStringLiteral("paper-format"))) {
         // TODO: what is the difference between this and the one in page setup
     }
-    if (settings.contains(QLatin1String("paper-width"))) {
+    if (settings.contains(QStringLiteral("paper-width"))) {
         // TODO: what is the difference between this and the one in page setup
     }
-    if (settings.contains(QLatin1String("paper-height"))) {
+    if (settings.contains(QStringLiteral("paper-height"))) {
         // TODO: what is the difference between this and the one in page setup
     }
-    if (settings.contains(QLatin1String("n-copies"))) {
-        printer->setCopyCount(settings.value(QLatin1String("n-copies")).toString().toInt());
+    if (settings.contains(QStringLiteral("n-copies"))) {
+        printer->setCopyCount(settings.value(QStringLiteral("n-copies")).toString().toInt());
     }
-    if (settings.contains(QLatin1String("default-source"))) {
+    if (settings.contains(QStringLiteral("default-source"))) {
         // TODO seems to be windows only stuff
     }
-    if (settings.contains(QLatin1String("quality"))) {
+    if (settings.contains(QStringLiteral("quality"))) {
         // TODO doesn't seem to be used by Qt
     }
-    if (settings.contains(QLatin1String("resolution"))) {
-        printer->setResolution(settings.value(QLatin1String("resolution")).toString().toInt());
+    if (settings.contains(QStringLiteral("resolution"))) {
+        printer->setResolution(settings.value(QStringLiteral("resolution")).toString().toInt());
     }
-    if (settings.contains(QLatin1String("use-color"))) {
-        printer->setColorMode(settings.value(QLatin1String("use-color")).toString() == QLatin1String("yes") ? QPrinter::Color : QPrinter::GrayScale);
+    if (settings.contains(QStringLiteral("use-color"))) {
+        printer->setColorMode(settings.value(QStringLiteral("use-color")).toString() == QLatin1String("yes") ? QPrinter::Color : QPrinter::GrayScale);
     }
-    if (settings.contains(QLatin1String("duplex"))) {
-        const QString duplex = settings.value(QLatin1String("duplex")).toString();
+    if (settings.contains(QStringLiteral("duplex"))) {
+        const QString duplex = settings.value(QStringLiteral("duplex")).toString();
         if (duplex == QLatin1String("simplex")) {
             printer->setDuplex(QPrinter::DuplexNone);
         } else if (duplex == QLatin1String("horizontal")) {
@@ -414,24 +414,24 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
             printer->setDuplex(QPrinter::DuplexLongSide);
         }
     }
-    if (settings.contains(QLatin1String("collate"))) {
-        printer->setCollateCopies(settings.value(QLatin1String("collate")).toString() == QLatin1String("yes"));
+    if (settings.contains(QStringLiteral("collate"))) {
+        printer->setCollateCopies(settings.value(QStringLiteral("collate")).toString() == QLatin1String("yes"));
     }
-    if (settings.contains(QLatin1String("reverse"))) {
-        printer->setPageOrder(settings.value(QLatin1String("reverse")).toString() == QLatin1String("yes") ? QPrinter::LastPageFirst : QPrinter::FirstPageFirst);
+    if (settings.contains(QStringLiteral("reverse"))) {
+        printer->setPageOrder(settings.value(QStringLiteral("reverse")).toString() == QLatin1String("yes") ? QPrinter::LastPageFirst : QPrinter::FirstPageFirst);
     }
 
-    if (settings.contains(QLatin1String("media-type"))) {
+    if (settings.contains(QStringLiteral("media-type"))) {
         // TODO doesn't seem to be used by Qt
     }
-    if (settings.contains(QLatin1String("dither"))) {
+    if (settings.contains(QStringLiteral("dither"))) {
         // TODO doesn't seem to be used by Qt
     }
-    if (settings.contains(QLatin1String("scale"))) {
+    if (settings.contains(QStringLiteral("scale"))) {
         // TODO doesn't seem to be used by Qt
     }
-    if (settings.contains(QLatin1String("print-pages"))) {
-        const QString printPages = settings.value(QLatin1String("print-pages")).toString();
+    if (settings.contains(QStringLiteral("print-pages"))) {
+        const QString printPages = settings.value(QStringLiteral("print-pages")).toString();
         if (printPages == QLatin1String("all")) {
             printer->setPrintRange(QPrinter::AllPages);
         } else if (printPages == QLatin1String("selection")) {
@@ -442,8 +442,8 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
             printer->setPrintRange(QPrinter::PageRange);
         }
     }
-    if (settings.contains(QLatin1String("page-ranges"))) {
-        const QString range = settings.value(QLatin1String("page-ranges")).toString();
+    if (settings.contains(QStringLiteral("page-ranges"))) {
+        const QString range = settings.value(QStringLiteral("page-ranges")).toString();
         // Gnome supports format like 1-5,7,9,11-15, however Qt support only e.g.1-15
         // so get the first and the last value
         const QStringList ranges = range.split(QLatin1Char(','));
@@ -453,10 +453,10 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
             printer->setFromTo(firstRangeValues.first().toInt(), lastRangeValues.last().toInt());
         }
     }
-    if (settings.contains(QLatin1String("page-set"))) {
+    if (settings.contains(QStringLiteral("page-set"))) {
         // WARNING Qt internal private API, anyway the print dialog doesn't seem to
         // read these properties, but I'll leave it here in case this changes in future
-        const QString pageSet = settings.value(QLatin1String("page-set")).toString();
+        const QString pageSet = settings.value(QStringLiteral("page-set")).toString();
         if (pageSet == QLatin1String("all")) {
             QCUPSSupport::setPageSet(printer, QCUPSSupport::AllPages);
         } else if (pageSet == QLatin1String("even")) {
@@ -466,16 +466,16 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
         }
     }
 
-    if (settings.contains(QLatin1String("finishings"))) {
+    if (settings.contains(QStringLiteral("finishings"))) {
         // TODO doesn't seem to be used by Qt
     }
 
     QCUPSSupport::PagesPerSheet pagesPerSheet = QCUPSSupport::OnePagePerSheet;
     QCUPSSupport::PagesPerSheetLayout pagesPerSheetLayout = QCUPSSupport::LeftToRightTopToBottom;
-    if (settings.contains(QLatin1String("number-up"))) {
+    if (settings.contains(QStringLiteral("number-up"))) {
         // WARNING Qt internal private API, anyway the print dialog doesn't seem to
         // read these properties, but I'll leave it here in case this changes in future
-        const QString numberUp = settings.value(QLatin1String("number-up")).toString();
+        const QString numberUp = settings.value(QStringLiteral("number-up")).toString();
         if (numberUp == QLatin1String("1")) {
             pagesPerSheet = QCUPSSupport::OnePagePerSheet;
         } else if (numberUp == QLatin1String("2")) {
@@ -490,10 +490,10 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
             pagesPerSheet = QCUPSSupport::SixteenPagesPerSheet;
         }
     }
-    if (settings.contains(QLatin1String("number-up-layout"))) {
+    if (settings.contains(QStringLiteral("number-up-layout"))) {
         // WARNING Qt internal private API, anyway the print dialog doesn't seem to
         // read these properties, but I'll leave it here in case this changes in future
-        const QString layout = settings.value(QLatin1String("number-up-layout")).toString();
+        const QString layout = settings.value(QStringLiteral("number-up-layout")).toString();
         if (layout == QLatin1String("lrtb")) {
             pagesPerSheetLayout = QCUPSSupport::LeftToRightTopToBottom;
         } else if (layout == QLatin1String("lrbt")) {
@@ -514,35 +514,35 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
     }
     QCUPSSupport::setPagesPerSheetLayout(printer, pagesPerSheet, pagesPerSheetLayout);
 
-    if (settings.contains(QLatin1String("output-bin"))) {
+    if (settings.contains(QStringLiteral("output-bin"))) {
         // TODO not sure what this setting represents
     }
-    if (settings.contains(QLatin1String("resolution-x"))) {
+    if (settings.contains(QStringLiteral("resolution-x"))) {
         // TODO possible to set only full resolution, but I can count the total
         // resolution I guess, anyway doesn't seem to be used by the print dialog
     }
-    if (settings.contains(QLatin1String("resolution-y"))) {
+    if (settings.contains(QStringLiteral("resolution-y"))) {
         // TODO possible to set only full resolution, but I can count the total
         // resolution I guess, anyway doesn't seem to be used by the print dialog
     }
-    if (settings.contains(QLatin1String("printer-lpi"))) {
+    if (settings.contains(QStringLiteral("printer-lpi"))) {
         // TODO not possible to set, maybe count it?
     }
-    if (settings.contains(QLatin1String("output-basename"))) {
+    if (settings.contains(QStringLiteral("output-basename"))) {
         // TODO processed in output-uri
         // printer->setOutputFileName(settings.value(QLatin1String("output-basename")).toString());
     }
-    if (settings.contains(QLatin1String("output-file-format"))) {
+    if (settings.contains(QStringLiteral("output-file-format"))) {
         // TODO only PDF supported by Qt so when printing to file we can use PDF only
         // btw. this should be already set automatically because we set output file name
         printer->setOutputFormat(QPrinter::PdfFormat);
     }
-    if (settings.contains(QLatin1String("output-uri"))) {
-        const QUrl uri = QUrl(settings.value(QLatin1String("output-uri")).toString());
+    if (settings.contains(QStringLiteral("output-uri"))) {
+        const QUrl uri = QUrl(settings.value(QStringLiteral("output-uri")).toString());
         // Check whether the uri is not just a directory name and whether we don't need to
         // append output-basename
-        if (settings.contains(QLatin1String("output-basename"))) {
-            const QString basename = settings.value(QLatin1String("output-basename")).toString();
+        if (settings.contains(QStringLiteral("output-basename"))) {
+            const QString basename = settings.value(QStringLiteral("output-basename")).toString();
             if (!uri.toDisplayString().endsWith(basename) && uri.toDisplayString().endsWith(QLatin1Char('/'))) {
                 printer->setOutputFileName(uri.toDisplayString() + basename);
             }
@@ -554,40 +554,40 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
     // Process page setup
     QMarginsF pageMargins = printer->pageLayout().margins(QPageLayout::Millimeter);
 
-    if (page_setup.contains(QLatin1String("PPDName"))) {
-        printer->setPageSize(QPageSize(qt_idForPpdKey(page_setup.value(QLatin1String("PPDName")).toString())));
+    if (page_setup.contains(QStringLiteral("PPDName"))) {
+        printer->setPageSize(QPageSize(qt_idForPpdKey(page_setup.value(QStringLiteral("PPDName")).toString())));
     }
-    if (page_setup.contains(QLatin1String("Name"))) {
+    if (page_setup.contains(QStringLiteral("Name"))) {
         // TODO: Try to use name instead of PPDName, at least I think it's how it's supposed to be used
-        if (!page_setup.contains(QLatin1String("PPDName"))) {
-            printer->setPageSize(QPageSize(qt_idForPpdKey(page_setup.value(QLatin1String("PPDName")).toString())));
+        if (!page_setup.contains(QStringLiteral("PPDName"))) {
+            printer->setPageSize(QPageSize(qt_idForPpdKey(page_setup.value(QStringLiteral("PPDName")).toString())));
         }
     }
-    if (page_setup.contains(QLatin1String("DisplayName"))) {
+    if (page_setup.contains(QStringLiteral("DisplayName"))) {
         // TODO: This should just set a different name for the standardized one I guess
         printer->setPageSize(QPageSize(printer->pageLayout().pageSize().size(QPageSize::Millimeter),
-                                       QPageSize::Millimeter, page_setup.value(QLatin1String("DisplayName")).toString()));
+                                       QPageSize::Millimeter, page_setup.value(QStringLiteral("DisplayName")).toString()));
     }
-    if (page_setup.contains(QLatin1String("Width")) && page_setup.contains(QLatin1String("Height"))) {
+    if (page_setup.contains(QStringLiteral("Width")) && page_setup.contains(QStringLiteral("Height"))) {
         QSizeF paperSize;
-        paperSize.setHeight(page_setup.value(QLatin1String("Height")).toReal());
-        paperSize.setWidth(page_setup.value(QLatin1String("Width")).toReal());
-        printer->setPageSize(QPageSize(paperSize, QPageSize::Millimeter, page_setup.value(QLatin1String("DisplayName")).toString()));
+        paperSize.setHeight(page_setup.value(QStringLiteral("Height")).toReal());
+        paperSize.setWidth(page_setup.value(QStringLiteral("Width")).toReal());
+        printer->setPageSize(QPageSize(paperSize, QPageSize::Millimeter, page_setup.value(QStringLiteral("DisplayName")).toString()));
     }
-    if (page_setup.contains(QLatin1String("MarginTop"))) {
-        pageMargins.setTop(page_setup.value(QLatin1String("MarginTop")).toReal());
+    if (page_setup.contains(QStringLiteral("MarginTop"))) {
+        pageMargins.setTop(page_setup.value(QStringLiteral("MarginTop")).toReal());
     }
-    if (page_setup.contains(QLatin1String("MarginBottom"))) {
-        pageMargins.setBottom(page_setup.value(QLatin1String("MarginBottom")).toReal());
+    if (page_setup.contains(QStringLiteral("MarginBottom"))) {
+        pageMargins.setBottom(page_setup.value(QStringLiteral("MarginBottom")).toReal());
     }
-    if (page_setup.contains(QLatin1String("MarginLeft"))) {
-        pageMargins.setLeft(page_setup.value(QLatin1String("MarginLeft")).toReal());
+    if (page_setup.contains(QStringLiteral("MarginLeft"))) {
+        pageMargins.setLeft(page_setup.value(QStringLiteral("MarginLeft")).toReal());
     }
-    if (page_setup.contains(QLatin1String("MarginRight"))) {
-        pageMargins.setRight(page_setup.value(QLatin1String("MarginLeft")).toReal());
+    if (page_setup.contains(QStringLiteral("MarginRight"))) {
+        pageMargins.setRight(page_setup.value(QStringLiteral("MarginLeft")).toReal());
     }
-    if (page_setup.contains(QLatin1String("Orientation"))) {
-        const QString orientation = page_setup.value(QLatin1String("Orientation")).toString();
+    if (page_setup.contains(QStringLiteral("Orientation"))) {
+        const QString orientation = page_setup.value(QStringLiteral("Orientation")).toString();
         if (orientation == QLatin1String("landscape") ||
                 orientation == QLatin1String("reverse_landscape")) {
             printer->setPageOrientation(QPageLayout::Landscape);
@@ -604,8 +604,8 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
 
     // Process options
 
-    if (options.contains(QLatin1String("modal"))) {
-        printDialog->setModal(options.value(QLatin1String("modal")).toBool());
+    if (options.contains(QStringLiteral("modal"))) {
+        printDialog->setModal(options.value(QStringLiteral("modal")).toBool());
     }
 
     // Pass back what we configured
@@ -615,62 +615,62 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
         QVariantMap resultingPageSetup;
 
         // Process back printer settings
-        resultingSettings.insert(QLatin1String("n-copies"), QString::number(printer->copyCount()));
-        resultingSettings.insert(QLatin1String("resolution"), QString::number(printer->resolution()));
-        resultingSettings.insert(QLatin1String("use-color"), printer->colorMode() == QPrinter::Color ? QLatin1String("yes") : QLatin1String("no"));
+        resultingSettings.insert(QStringLiteral("n-copies"), QString::number(printer->copyCount()));
+        resultingSettings.insert(QStringLiteral("resolution"), QString::number(printer->resolution()));
+        resultingSettings.insert(QStringLiteral("use-color"), printer->colorMode() == QPrinter::Color ? QLatin1String("yes") : QLatin1String("no"));
         if (printer->duplex() == QPrinter::DuplexNone) {
-            resultingSettings.insert(QLatin1String("duplex"), QLatin1String("simplex"));
+            resultingSettings.insert(QStringLiteral("duplex"), QLatin1String("simplex"));
         } else if (printer->duplex() == QPrinter::DuplexShortSide) {
-            resultingSettings.insert(QLatin1String("duplex"), QLatin1String("horizontal"));
+            resultingSettings.insert(QStringLiteral("duplex"), QLatin1String("horizontal"));
         } else if (printer->duplex() == QPrinter::DuplexLongSide) {
-            resultingSettings.insert(QLatin1String("duplex"), QLatin1String("vertical"));
+            resultingSettings.insert(QStringLiteral("duplex"), QLatin1String("vertical"));
         }
-        resultingSettings.insert(QLatin1String("collate"), printer->collateCopies() ? QLatin1String("yes") : QLatin1String("no"));
-        resultingSettings.insert(QLatin1String("reverse"), printer->pageOrder() == QPrinter::LastPageFirst ? QLatin1String("yes") : QLatin1String("no"));
+        resultingSettings.insert(QStringLiteral("collate"), printer->collateCopies() ? QLatin1String("yes") : QLatin1String("no"));
+        resultingSettings.insert(QStringLiteral("reverse"), printer->pageOrder() == QPrinter::LastPageFirst ? QLatin1String("yes") : QLatin1String("no"));
         if (printer->printRange() == QPrinter::AllPages) {
-            resultingSettings.insert(QLatin1String("print-pages"), QLatin1String("all"));
+            resultingSettings.insert(QStringLiteral("print-pages"), QLatin1String("all"));
         } else if (printer->printRange() == QPrinter::Selection) {
-            resultingSettings.insert(QLatin1String("print-pages"), QLatin1String("selection"));
+            resultingSettings.insert(QStringLiteral("print-pages"), QLatin1String("selection"));
         } else if (printer->printRange() == QPrinter::CurrentPage) {
-            resultingSettings.insert(QLatin1String("print-pages"), QLatin1String("current"));
+            resultingSettings.insert(QStringLiteral("print-pages"), QLatin1String("current"));
         } else if (printer->printRange() == QPrinter::PageRange) {
-            resultingSettings.insert(QLatin1String("print-pages"), QLatin1String("ranges"));
-            resultingSettings.insert(QLatin1String("page-ranges"), QStringLiteral("%1-%2").arg(printer->fromPage()).arg(printer->toPage()));
+            resultingSettings.insert(QStringLiteral("print-pages"), QLatin1String("ranges"));
+            resultingSettings.insert(QStringLiteral("page-ranges"), QStringLiteral("%1-%2").arg(printer->fromPage()).arg(printer->toPage()));
         }
         // Set cups specific properties
         const QStringList cupsOptions = printer->printEngine()->property(PPK_CupsOptions).toStringList();
         qCDebug(XdgDesktopPortalKdePrint) << cupsOptions;
         if (cupsOptions.contains(QLatin1String("page-set"))) {
-            resultingSettings.insert(QLatin1String("page-set"), cupsOptions.at(cupsOptions.indexOf(QLatin1String("page-set")) + 1));
+            resultingSettings.insert(QStringLiteral("page-set"), cupsOptions.at(cupsOptions.indexOf(QStringLiteral("page-set")) + 1));
         }
         if (cupsOptions.contains(QLatin1String("number-up"))) {
-            resultingSettings.insert(QLatin1String("number-up"), cupsOptions.at(cupsOptions.indexOf(QLatin1String("number-up")) + 1));
+            resultingSettings.insert(QStringLiteral("number-up"), cupsOptions.at(cupsOptions.indexOf(QStringLiteral("number-up")) + 1));
         }
         if (cupsOptions.contains(QLatin1String("number-up-layout"))) {
-            resultingSettings.insert(QLatin1String("number-up-layout"), cupsOptions.at(cupsOptions.indexOf(QLatin1String("number-up-layout")) + 1));
+            resultingSettings.insert(QStringLiteral("number-up-layout"), cupsOptions.at(cupsOptions.indexOf(QStringLiteral("number-up-layout")) + 1));
         }
 
         if (printer->outputFormat() == QPrinter::PdfFormat) {
-            resultingSettings.insert(QLatin1String("output-file-format"), QLatin1String("pdf"));
+            resultingSettings.insert(QStringLiteral("output-file-format"), QLatin1String("pdf"));
         }
 
         if (!printer->outputFileName().isEmpty()) {
-            resultingSettings.insert(QLatin1String("output-uri"), QUrl::fromLocalFile(printer->outputFileName()).toDisplayString());
+            resultingSettings.insert(QStringLiteral("output-uri"), QUrl::fromLocalFile(printer->outputFileName()).toDisplayString());
         }
 
         // Process back page setup
-        resultingPageSetup.insert(QLatin1String("PPDName"), qt_keyForPageSizeId(printer->pageLayout().pageSize().id()));
+        resultingPageSetup.insert(QStringLiteral("PPDName"), qt_keyForPageSizeId(printer->pageLayout().pageSize().id()));
         // TODO: verify if this make sense
-        resultingPageSetup.insert(QLatin1String("Name"), qt_keyForPageSizeId(printer->pageLayout().pageSize().id()));
+        resultingPageSetup.insert(QStringLiteral("Name"), qt_keyForPageSizeId(printer->pageLayout().pageSize().id()));
         // TODO: verify if this make sense
-        resultingPageSetup.insert(QLatin1String("DisplayName"), qt_keyForPageSizeId(printer->pageLayout().pageSize().id()));
-        resultingPageSetup.insert(QLatin1String("Width"), printer->pageLayout().pageSize().size(QPageSize::Millimeter).width());
-        resultingPageSetup.insert(QLatin1String("Height"), printer->pageLayout().pageSize().size(QPageSize::Millimeter).height());
-        resultingPageSetup.insert(QLatin1String("MarginTop"), printer->pageLayout().margins(QPageLayout::Millimeter).top());
-        resultingPageSetup.insert(QLatin1String("MarginBottom"), printer->pageLayout().margins(QPageLayout::Millimeter).bottom());
-        resultingPageSetup.insert(QLatin1String("MarginLeft"), printer->pageLayout().margins(QPageLayout::Millimeter).left());
-        resultingPageSetup.insert(QLatin1String("MarginRight"), printer->pageLayout().margins(QPageLayout::Millimeter).right());
-        resultingPageSetup.insert(QLatin1String("Orientation"), printer->pageLayout().orientation() == QPageLayout::Landscape ? QLatin1String("landscape") : QLatin1String("portrait"));
+        resultingPageSetup.insert(QStringLiteral("DisplayName"), qt_keyForPageSizeId(printer->pageLayout().pageSize().id()));
+        resultingPageSetup.insert(QStringLiteral("Width"), printer->pageLayout().pageSize().size(QPageSize::Millimeter).width());
+        resultingPageSetup.insert(QStringLiteral("Height"), printer->pageLayout().pageSize().size(QPageSize::Millimeter).height());
+        resultingPageSetup.insert(QStringLiteral("MarginTop"), printer->pageLayout().margins(QPageLayout::Millimeter).top());
+        resultingPageSetup.insert(QStringLiteral("MarginBottom"), printer->pageLayout().margins(QPageLayout::Millimeter).bottom());
+        resultingPageSetup.insert(QStringLiteral("MarginLeft"), printer->pageLayout().margins(QPageLayout::Millimeter).left());
+        resultingPageSetup.insert(QStringLiteral("MarginRight"), printer->pageLayout().margins(QPageLayout::Millimeter).right());
+        resultingPageSetup.insert(QStringLiteral("Orientation"), printer->pageLayout().orientation() == QPageLayout::Landscape ? QLatin1String("landscape") : QLatin1String("portrait"));
 
         qCDebug(XdgDesktopPortalKdePrint) << "Settings: ";
         qCDebug(XdgDesktopPortalKdePrint) << "---------------------------";
@@ -680,9 +680,9 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
         qCDebug(XdgDesktopPortalKdePrint) << resultingPageSetup;
 
         uint token = QDateTime::currentDateTime().toTime_t();
-        results.insert(QLatin1String("settings"), resultingSettings);
-        results.insert(QLatin1String("page-setup"), resultingPageSetup);
-        results.insert(QLatin1String("token"), token);
+        results.insert(QStringLiteral("settings"), resultingSettings);
+        results.insert(QStringLiteral("page-setup"), resultingPageSetup);
+        results.insert(QStringLiteral("token"), token);
 
         m_printers.insert(token, printer);
 

@@ -32,7 +32,7 @@ AppChooserDialogItem::AppChooserDialogItem(const QString &applicationName, const
 {
     setAutoRaise(true);
     setAutoExclusive(true);
-    setStyleSheet(QLatin1String("text-align: center"));
+    setStyleSheet(QStringLiteral("text-align: center"));
     setIcon(QIcon::fromTheme(icon));
     setIconSize(QSize(64, 64));
     setCheckable(true);

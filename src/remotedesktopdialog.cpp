@@ -58,11 +58,11 @@ RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName, RemoteDesktopPo
     const QStringList desktopFileLocations = QStandardPaths::locateAll(QStandardPaths::ApplicationsLocation, desktopFile, QStandardPaths::LocateFile);
     for (const QString &location : desktopFileLocations) {
         QSettings settings(location, QSettings::IniFormat);
-        settings.beginGroup(QLatin1String("Desktop Entry"));
-        if (settings.contains(QLatin1String("X-GNOME-FullName"))) {
-            applicationName = settings.value(QLatin1String("X-GNOME-FullName")).toString();
+        settings.beginGroup(QStringLiteral("Desktop Entry"));
+        if (settings.contains(QStringLiteral("X-GNOME-FullName"))) {
+            applicationName = settings.value(QStringLiteral("X-GNOME-FullName")).toString();
         } else {
-            applicationName = settings.value(QLatin1String("Name")).toString();
+            applicationName = settings.value(QStringLiteral("Name")).toString();
         }
 
         if (!applicationName.isEmpty()) {

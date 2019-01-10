@@ -60,20 +60,20 @@ uint AccessPortal::AccessDialog(const QDBusObjectPath &handle,
     accessDialog->setTitle(title);
     accessDialog->setSubtitle(subtitle);
 
-    if (options.contains(QLatin1String("modal"))) {
-        accessDialog->setModal(options.value(QLatin1String("modal")).toBool());
+    if (options.contains(QStringLiteral("modal"))) {
+        accessDialog->setModal(options.value(QStringLiteral("modal")).toBool());
     }
 
-    if (options.contains(QLatin1String("deny_label"))) {
-        accessDialog->setRejectLabel(options.value(QLatin1String("deny_label")).toString());
+    if (options.contains(QStringLiteral("deny_label"))) {
+        accessDialog->setRejectLabel(options.value(QStringLiteral("deny_label")).toString());
     }
 
-    if (options.contains(QLatin1String("grant_label"))) {
-        accessDialog->setAcceptLabel(options.value(QLatin1String("grant_label")).toString());
+    if (options.contains(QStringLiteral("grant_label"))) {
+        accessDialog->setAcceptLabel(options.value(QStringLiteral("grant_label")).toString());
     }
 
-    if (options.contains(QLatin1String("icon"))) {
-        accessDialog->setIcon(options.value(QLatin1String("icon")).toString());
+    if (options.contains(QStringLiteral("icon"))) {
+        accessDialog->setIcon(options.value(QStringLiteral("icon")).toString());
     }
 
     // TODO choices

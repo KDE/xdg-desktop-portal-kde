@@ -49,12 +49,12 @@ void InhibitPortal::Inhibit(const QDBusObjectPath &handle, const QString &app_id
     qCDebug(XdgDesktopPortalKdeInhibit) << "    flags: " << flags;
     qCDebug(XdgDesktopPortalKdeInhibit) << "    options: " << options;
 
-    QDBusMessage message = QDBusMessage::createMethodCall(QLatin1String("org.kde.Solid.PowerManagement"),
-                                                          QLatin1String("/org/kde/Solid/PowerManagement/PolicyAgent"),
-                                                          QLatin1String("org.kde.Solid.PowerManagement.PolicyAgent"),
-                                                          QLatin1String("AddInhibition"));
+    QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
+                                                          QStringLiteral("/org/kde/Solid/PowerManagement/PolicyAgent"),
+                                                          QStringLiteral("org.kde.Solid.PowerManagement.PolicyAgent"),
+                                                          QStringLiteral("AddInhibition"));
     //         interrupt session (1)
-    message << (uint)1 << app_id << options.value(QLatin1String("reason")).toString();
+    message << (uint)1 << app_id << options.value(QStringLiteral("reason")).toString();
 
     QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(message);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingCall);
@@ -64,7 +64,7 @@ void InhibitPortal::Inhibit(const QDBusObjectPath &handle, const QString &app_id
             qCDebug(XdgDesktopPortalKdeInhibit) << "Inhibition error: " << reply.error().message();
         } else {
             QDBusConnection sessionBus = QDBusConnection::sessionBus();
-            Request *request = new Request(this, QLatin1String("org.freedesktop.impl.portal.Inhibit"), QVariant(reply.value()));
+            Request *request = new Request(this, QStringLiteral("org.freedesktop.impl.portal.Inhibit"), QVariant(reply.value()));
             if (sessionBus.registerVirtualObject(handle.path(), request, QDBusConnection::VirtualObjectRegisterOption::SubPath)) {
                 connect(request, &Request::closeRequested, [request, handle] () {
                     QDBusConnection::sessionBus().unregisterObject(handle.path());

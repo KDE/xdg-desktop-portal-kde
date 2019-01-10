@@ -102,10 +102,10 @@ uint ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
     QPointer<ScreenshotDialog> screenshotDialog = new ScreenshotDialog;
     Utils::setParentWindow(screenshotDialog, parent_window);
 
-    const bool modal = options.value(QLatin1String("modal"), false).toBool();
+    const bool modal = options.value(QStringLiteral("modal"), false).toBool();
     screenshotDialog->setModal(modal);
 
-    const bool interactive = options.value(QLatin1String("interactive"), false).toBool();
+    const bool interactive = options.value(QStringLiteral("interactive"), false).toBool();
     if (!interactive) {
         screenshotDialog->takeScreenshot();
     }
@@ -121,14 +121,14 @@ uint ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
     }
 
     const QString filename = QStringLiteral("%1/Screenshot_%2.png").arg(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation))
-                                                             .arg(QDateTime::currentDateTime().toString(QLatin1String("yyyyMMdd_hhmmss")));
+                                                             .arg(QDateTime::currentDateTime().toString(QStringLiteral("yyyyMMdd_hhmmss")));
 
     if (!screenshot.save(filename, "PNG")) {
         return 1;
     }
 
     const QString resultFileName = QStringLiteral("file://") + filename;
-    results.insert(QLatin1String("uri"), resultFileName);
+    results.insert(QStringLiteral("uri"), resultFileName);
 
     return 0;
 }
@@ -157,7 +157,7 @@ uint ScreenshotPortal::PickColor(const QDBusObjectPath &handle,
         color.green = selectedColor.greenF();
         color.blue = selectedColor.blueF();
 
-        results.insert(QLatin1String("color"), QVariant::fromValue<ScreenshotPortal::ColorRGB>(color));
+        results.insert(QStringLiteral("color"), QVariant::fromValue<ScreenshotPortal::ColorRGB>(color));
         return 0;
     }
 

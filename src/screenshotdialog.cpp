@@ -107,11 +107,11 @@ void ScreenshotDialog::takeScreenshot()
         return;
     }
 
-    QDBusInterface interface(QLatin1String("org.kde.KWin"), QLatin1String("/Screenshot"), QLatin1String("org.kde.kwin.Screenshot"));
+    QDBusInterface interface(QStringLiteral("org.kde.KWin"), QStringLiteral("/Screenshot"), QStringLiteral("org.kde.kwin.Screenshot"));
     if (m_dialog->areaComboBox->currentIndex() < 2) {
-        interface.asyncCall(m_dialog->areaComboBox->currentIndex() ? QLatin1String("screenshotScreen") : QLatin1String("screenshotFullscreen"), QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])), m_dialog->includeCursorCheckbox->isChecked());
+        interface.asyncCall(m_dialog->areaComboBox->currentIndex() ? QStringLiteral("screenshotScreen") : QStringLiteral("screenshotFullscreen"), QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])), m_dialog->includeCursorCheckbox->isChecked());
     } else {
-        interface.asyncCall(QLatin1String("interactive"), QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])), mask());
+        interface.asyncCall(QStringLiteral("interactive"), QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])), mask());
     }
 
     QFutureWatcher<QImage> *watcher = new QFutureWatcher<QImage>(this);

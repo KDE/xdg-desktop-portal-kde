@@ -92,11 +92,11 @@ FileDialog::FileDialog(QDialog *parent, Qt::WindowFlags flags)
     m_buttons = new QDialogButtonBox(this);
     m_buttons->addButton(m_fileWidget->okButton(), QDialogButtonBox::AcceptRole);
     m_buttons->addButton(m_fileWidget->cancelButton(), QDialogButtonBox::RejectRole);
-    connect(m_buttons, SIGNAL(rejected()), m_fileWidget, SLOT(slotCancel()));
-    connect(m_fileWidget->okButton(), SIGNAL(clicked(bool)), m_fileWidget, SLOT(slotOk()));
-    connect(m_fileWidget, SIGNAL(accepted()), m_fileWidget, SLOT(accept()));
-    connect(m_fileWidget, SIGNAL(accepted()), SLOT(accept()));
-    connect(m_fileWidget->cancelButton(), SIGNAL(clicked(bool)), SLOT(reject()));
+    connect(m_buttons, &QDialogButtonBox::rejected, m_fileWidget, &KFileWidget::slotCancel);
+    connect(m_fileWidget->okButton(), &QAbstractButton::clicked, m_fileWidget, &KFileWidget::slotOk);
+    connect(m_fileWidget, &KFileWidget::accepted, m_fileWidget, &KFileWidget::accept);
+    connect(m_fileWidget, &KFileWidget::accepted, this, &QDialog::accept);
+    connect(m_fileWidget->cancelButton(), &QAbstractButton::clicked, this, &QDialog::reject);
     layout()->addWidget(m_buttons);
 }
 
@@ -150,20 +150,20 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
      * Example: [('encoding', 'Encoding', [('utf8', 'Unicode (UTF-8)'), ('latin15', 'Western')], 'latin15'), ('reencode', 'Reencode', [], 'false')]
      */
 
-    if (options.contains(QLatin1String("accept_label"))) {
-        acceptLabel = options.value(QLatin1String("accept_label")).toString();
+    if (options.contains(QStringLiteral("accept_label"))) {
+        acceptLabel = options.value(QStringLiteral("accept_label")).toString();
     }
 
-    if (options.contains(QLatin1String("modal"))) {
-        modalDialog = options.value(QLatin1String("modal")).toBool();
+    if (options.contains(QStringLiteral("modal"))) {
+        modalDialog = options.value(QStringLiteral("modal")).toBool();
     }
 
-    if (options.contains(QLatin1String("multiple"))) {
-        multipleFiles = options.value(QLatin1String("multiple")).toBool();
+    if (options.contains(QStringLiteral("multiple"))) {
+        multipleFiles = options.value(QStringLiteral("multiple")).toBool();
     }
 
-    if (options.contains(QLatin1String("filters"))) {
-        FilterListList filterListList = qdbus_cast<FilterListList>(options.value(QLatin1String("filters")));
+    if (options.contains(QStringLiteral("filters"))) {
+        FilterListList filterListList = qdbus_cast<FilterListList>(options.value(QStringLiteral("filters")));
         for (const FilterList &filterList : filterListList) {
             QStringList filterStrings;
             for (const Filter &filterStruct : filterList.filters) {
@@ -201,7 +201,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
            QUrl url = QUrl::fromLocalFile(filename);
            files << url.toDisplayString();
         }
-        results.insert(QLatin1String("uris"), files);
+        results.insert(QStringLiteral("uris"), files);
         return 0;
     }
 
@@ -233,28 +233,28 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
 
     // TODO parse options - choices
 
-    if (options.contains(QLatin1String("modal"))) {
-        modalDialog = options.value(QLatin1String("modal")).toBool();
+    if (options.contains(QStringLiteral("modal"))) {
+        modalDialog = options.value(QStringLiteral("modal")).toBool();
     }
 
-    if (options.contains(QLatin1String("accept_label"))) {
-        acceptLabel = options.value(QLatin1String("accept_label")).toString();
+    if (options.contains(QStringLiteral("accept_label"))) {
+        acceptLabel = options.value(QStringLiteral("accept_label")).toString();
     }
 
-    if (options.contains(QLatin1String("current_name"))) {
-        currentName = options.value(QLatin1String("current_name")).toString();
+    if (options.contains(QStringLiteral("current_name"))) {
+        currentName = options.value(QStringLiteral("current_name")).toString();
     }
 
-    if (options.contains(QLatin1String("current_folder"))) {
-        currentFolder = QString::fromUtf8(options.value(QLatin1String("current_folder")).toByteArray());
+    if (options.contains(QStringLiteral("current_folder"))) {
+        currentFolder = QString::fromUtf8(options.value(QStringLiteral("current_folder")).toByteArray());
     }
 
-    if (options.contains(QLatin1String("current_file"))) {
-        currentFile = QString::fromUtf8(options.value(QLatin1String("current_file")).toByteArray());
+    if (options.contains(QStringLiteral("current_file"))) {
+        currentFile = QString::fromUtf8(options.value(QStringLiteral("current_file")).toByteArray());
     }
 
-    if (options.contains(QLatin1String("filters"))) {
-        FilterListList filterListList = qdbus_cast<FilterListList>(options.value(QLatin1String("filters")));
+    if (options.contains(QStringLiteral("filters"))) {
+        FilterListList filterListList = qdbus_cast<FilterListList>(options.value(QStringLiteral("filters")));
         for (const FilterList &filterList : filterListList) {
             QStringList filterStrings;
             for (const Filter &filterStruct : filterList.filters) {
@@ -306,7 +306,7 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
         QStringList files;
         QUrl url = QUrl::fromLocalFile(fileDialog->m_fileWidget->selectedFile());
         files << url.toDisplayString();
-        results.insert(QLatin1String("uris"), files);
+        results.insert(QStringLiteral("uris"), files);
         return 0;
     }
 

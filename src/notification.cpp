@@ -65,15 +65,15 @@ void NotificationPortal::AddNotification(const QString &app_id,
     qCDebug(XdgDesktopPortalKdeNotification) << "    notification: " << notification;
 
     // We have to use "notification" as an ID because any other ID will not be configured
-    KNotification *notify = new KNotification(QLatin1String("notification"), KNotification::CloseOnTimeout | KNotification::DefaultEvent, this);
-    if (notification.contains(QLatin1String("title"))) {
-        notify->setTitle(notification.value(QLatin1String("title")).toString());
+    KNotification *notify = new KNotification(QStringLiteral("notification"), KNotification::CloseOnTimeout | KNotification::DefaultEvent, this);
+    if (notification.contains(QStringLiteral("title"))) {
+        notify->setTitle(notification.value(QStringLiteral("title")).toString());
     }
-    if (notification.contains(QLatin1String("body"))) {
-        notify->setText(notification.value(QLatin1String("body")).toString());
+    if (notification.contains(QStringLiteral("body"))) {
+        notify->setText(notification.value(QStringLiteral("body")).toString());
     }
-    if (notification.contains(QLatin1String("icon"))) {
-        QVariant iconVariant = notification.value(QLatin1String("icon"));
+    if (notification.contains(QStringLiteral("icon"))) {
+        QVariant iconVariant = notification.value(QStringLiteral("icon"));
         if (iconVariant.type() == QVariant::String) {
             notify->setIconName(iconVariant.toString());
         } else {
@@ -90,25 +90,25 @@ void NotificationPortal::AddNotification(const QString &app_id,
             }
         }
     }
-    if (notification.contains(QLatin1String("priority"))) {
+    if (notification.contains(QStringLiteral("priority"))) {
         // TODO KNotification has no option for priority
     }
-    if (notification.contains(QLatin1String("default-action"))) {
+    if (notification.contains(QStringLiteral("default-action"))) {
         // TODO KNotification has no option for default action
     }
-    if (notification.contains(QLatin1String("default-action-target"))) {
+    if (notification.contains(QStringLiteral("default-action-target"))) {
         // TODO KNotification has no option for default action
     }
-    if (notification.contains(QLatin1String("buttons"))) {
+    if (notification.contains(QStringLiteral("buttons"))) {
         QList<QVariantMap> buttons;
-        QDBusArgument dbusArgument = notification.value(QLatin1String("buttons")).value<QDBusArgument>();
+        QDBusArgument dbusArgument = notification.value(QStringLiteral("buttons")).value<QDBusArgument>();
         while (!dbusArgument.atEnd()) {
             dbusArgument >> buttons;
         }
 
         QStringList actions;
         for (const QVariantMap &button : buttons) {
-            actions << button.value(QLatin1String("label")).toString();
+            actions << button.value(QStringLiteral("label")).toString();
         }
 
         if (!actions.isEmpty()) {
@@ -141,9 +141,9 @@ void NotificationPortal::notificationActivated(uint action)
     qCDebug(XdgDesktopPortalKdeNotification) << "    id: " << id;
     qCDebug(XdgDesktopPortalKdeNotification) << "    action: " << action;
 
-    QDBusMessage message = QDBusMessage::createSignal(QLatin1String("/org/freedesktop/portal/desktop"),
-                                                      QLatin1String("org.freedesktop.impl.portal.Notification"),
-                                                      QLatin1String("ActionInvoked"));
+    QDBusMessage message = QDBusMessage::createSignal(QStringLiteral("/org/freedesktop/portal/desktop"),
+                                                      QStringLiteral("org.freedesktop.impl.portal.Notification"),
+                                                      QStringLiteral("ActionInvoked"));
     message << appId << id << QString::number(action) << QVariantList();
     QDBusConnection::sessionBus().send(message);
 }
