@@ -148,9 +148,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     Utils::setParentWindow(screenDialog.data(), parent_window);
 
     if (screenDialog->exec()) {
-        WaylandIntegration::WaylandOutput selectedOutput = WaylandIntegration::screens().value(screenDialog->selectedScreens().first());
-
-        if (!WaylandIntegration::startStreaming(selectedOutput)) {
+        if (!WaylandIntegration::startStreaming(screenDialog->selectedScreens().first())) {
             return 2;
         }
 

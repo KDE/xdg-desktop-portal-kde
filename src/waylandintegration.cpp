@@ -32,9 +32,12 @@
 
 #include <QImage>
 
+#include <KLocalizedString>
+
 // KWayland
 #include <KWayland/Client/connection_thread.h>
 #include <KWayland/Client/event_queue.h>
+#include <KWayland/Client/fakeinput.h>
 #include <KWayland/Client/registry.h>
 #include <KWayland/Client/output.h>
 #include <KWayland/Client/remote_access.h>
@@ -47,6 +50,11 @@ Q_LOGGING_CATEGORY(XdgDesktopPortalKdeWaylandIntegration, "xdp-kde-wayland-integ
 
 Q_GLOBAL_STATIC(WaylandIntegration::WaylandIntegrationPrivate, globalWaylandIntegration)
 
+void WaylandIntegration::authenticate()
+{
+    globalWaylandIntegration->authenticate();
+}
+
 void WaylandIntegration::init()
 {
     globalWaylandIntegration->initDrm();
@@ -58,14 +66,39 @@ bool WaylandIntegration::isEGLInitialized()
     return globalWaylandIntegration->isEGLInitialized();
 }
 
-bool WaylandIntegration::startStreaming(const WaylandOutput &output)
+bool WaylandIntegration::startStreaming(quint32 outputName)
 {
-    return globalWaylandIntegration->startStreaming(output);
+    return globalWaylandIntegration->startStreaming(outputName);
 }
 
 void WaylandIntegration::stopStreaming()
 {
     globalWaylandIntegration->stopStreaming();
+}
+
+void WaylandIntegration::requestPointerButtonPress(quint32 linuxButton)
+{
+    globalWaylandIntegration->requestPointerButtonPress(linuxButton);
+}
+
+void WaylandIntegration::requestPointerButtonRelease(quint32 linuxButton)
+{
+    globalWaylandIntegration->requestPointerButtonRelease(linuxButton);
+}
+
+void WaylandIntegration::requestPointerMotion(const QSizeF &delta)
+{
+    globalWaylandIntegration->requestPointerMotion(delta);
+}
+
+void WaylandIntegration::requestPointerMotionAbsolute(const QPointF &pos)
+{
+    globalWaylandIntegration->requestPointerMotionAbsolute(pos);
+}
+
+void WaylandIntegration::requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta)
+{
+    globalWaylandIntegration->requestPointerAxisDiscrete(axis, delta);
 }
 
 QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::screens()
@@ -167,8 +200,10 @@ WaylandIntegration::WaylandIntegrationPrivate::WaylandIntegrationPrivate()
     : WaylandIntegration()
     , m_eglInitialized(false)
     , m_registryInitialized(false)
+    , m_waylandAuthenticationRequested(false)
     , m_connection(nullptr)
     , m_queue(nullptr)
+    , m_fakeInput(nullptr)
     , m_registry(nullptr)
     , m_remoteAccessManager(nullptr)
 {
@@ -199,8 +234,11 @@ void WaylandIntegration::WaylandIntegrationPrivate::bindOutput(int outputName, i
     m_bindOutputs << output;
 }
 
-bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(const WaylandOutput &output)
+bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(quint32 outputName)
 {
+    WaylandOutput output = m_outputMap.value(outputName);
+    m_streamedScreenPosition = output.globalPosition();
+
     m_stream = new ScreenCastStream(output.resolution());
     m_stream->init();
 
@@ -280,6 +318,41 @@ void WaylandIntegration::WaylandIntegrationPrivate::stopStreaming()
     }
 }
 
+void WaylandIntegration::WaylandIntegrationPrivate::requestPointerButtonPress(quint32 linuxButton)
+{
+    if (m_streamingEnabled && m_fakeInput) {
+        m_fakeInput->requestPointerButtonPress(linuxButton);
+    }
+}
+
+void WaylandIntegration::WaylandIntegrationPrivate::requestPointerButtonRelease(quint32 linuxButton)
+{
+    if (m_streamingEnabled && m_fakeInput) {
+        m_fakeInput->requestPointerButtonRelease(linuxButton);
+    }
+}
+
+void WaylandIntegration::WaylandIntegrationPrivate::requestPointerMotion(const QSizeF &delta)
+{
+    if (m_streamingEnabled && m_fakeInput) {
+        m_fakeInput->requestPointerMove(delta);
+    }
+}
+
+void WaylandIntegration::WaylandIntegrationPrivate::requestPointerMotionAbsolute(const QPointF &pos)
+{
+    if (m_streamingEnabled && m_fakeInput) {
+        m_fakeInput->requestPointerMoveAbsolute(pos + m_streamedScreenPosition);
+    }
+}
+
+void WaylandIntegration::WaylandIntegrationPrivate::requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta)
+{
+    if (m_streamingEnabled && m_fakeInput) {
+        m_fakeInput->requestPointerAxis(axis, delta);
+    }
+}
+
 QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::WaylandIntegrationPrivate::screens()
 {
     return m_outputMap;
@@ -291,6 +364,14 @@ QVariant WaylandIntegration::WaylandIntegrationPrivate::streams()
     stream.nodeId = m_stream->nodeId();
     stream.map = QVariantMap({{QLatin1String("size"), m_outputMap.value(m_output).resolution()}});
     return QVariant::fromValue<WaylandIntegrationPrivate::Streams>({stream});
+}
+
+void WaylandIntegration::WaylandIntegrationPrivate::authenticate()
+{
+    if (!m_waylandAuthenticationRequested) {
+        m_fakeInput->authenticate(i18n("xdg-desktop-portals-kde"), i18n("Remote desktop"));
+        m_waylandAuthenticationRequested = true;
+    }
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::initDrm()
@@ -414,6 +495,7 @@ void WaylandIntegration::WaylandIntegrationPrivate::addOutput(quint32 name, quin
         portalOutput.setManufacturer(output->manufacturer());
         portalOutput.setModel(output->model());
         portalOutput.setOutputType(output->model());
+        portalOutput.setGlobalPosition(output->globalPosition());
         portalOutput.setResolution(output->pixelSize());
         portalOutput.setWaylandOutputName(name);
         portalOutput.setWaylandOutputVersion(version);
@@ -532,6 +614,9 @@ void WaylandIntegration::WaylandIntegrationPrivate::setupRegistry()
 
     m_registry = new KWayland::Client::Registry(this);
 
+    connect(m_registry, &KWayland::Client::Registry::fakeInputAnnounced, this, [this] (quint32 name, quint32 version) {
+        m_fakeInput = m_registry->createFakeInput(name, version, this);
+    });
     connect(m_registry, &KWayland::Client::Registry::outputAnnounced, this, &WaylandIntegrationPrivate::addOutput);
     connect(m_registry, &KWayland::Client::Registry::outputRemoved, this, &WaylandIntegrationPrivate::removeOutput);
 

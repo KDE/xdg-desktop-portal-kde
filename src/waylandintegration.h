@@ -22,6 +22,7 @@
 #define XDG_DESKTOP_PORTAL_KDE_WAYLAND_INTEGRATION_H
 
 #include <QObject>
+#include <QPoint>
 #include <QSize>
 #include <QVariant>
 
@@ -44,6 +45,9 @@ public:
     void setModel(const QString &model) { m_model = model; }
     QString model() const { return m_model; }
 
+    void setGlobalPosition(const QPoint &pos) { m_globalPosition = pos; }
+    QPoint globalPosition() const { return m_globalPosition; }
+
     void setResolution(const QSize &resolution) { m_resolution = resolution; }
     QSize resolution() const { return m_resolution; }
 
@@ -59,6 +63,7 @@ public:
 private:
     QString m_manufacturer;
     QString m_model;
+    QPoint m_globalPosition;
     QSize m_resolution;
     OutputType m_outputType;
 
@@ -74,12 +79,19 @@ Q_SIGNALS:
     void newBuffer(uint8_t *screenData);
 };
 
+    void authenticate();
     void init();
 
     bool isEGLInitialized();
 
-    bool startStreaming(const WaylandOutput &output);
+    bool startStreaming(quint32 outputName);
     void stopStreaming();
+
+    void requestPointerButtonPress(quint32 linuxButton);
+    void requestPointerButtonRelease(quint32 linuxButton);
+    void requestPointerMotion(const QSizeF &delta);
+    void requestPointerMotionAbsolute(const QPointF &pos);
+    void requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta);
 
     QMap<quint32, WaylandOutput> screens();
     QVariant streams();
