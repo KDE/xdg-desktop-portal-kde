@@ -25,6 +25,7 @@
 #include <QDBusMetaType>
 #include <QDBusArgument>
 #include <QLoggingCategory>
+#include <QFile>
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QUrl>
@@ -246,11 +247,11 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     }
 
     if (options.contains(QStringLiteral("current_folder"))) {
-        currentFolder = QString::fromUtf8(options.value(QStringLiteral("current_folder")).toByteArray());
+        currentFolder = QFile::decodeName(options.value(QStringLiteral("current_folder")).toByteArray());
     }
 
     if (options.contains(QStringLiteral("current_file"))) {
-        currentFile = QString::fromUtf8(options.value(QStringLiteral("current_file")).toByteArray());
+        currentFile = QFile::decodeName(options.value(QStringLiteral("current_file")).toByteArray());
     }
 
     if (options.contains(QStringLiteral("filters"))) {
