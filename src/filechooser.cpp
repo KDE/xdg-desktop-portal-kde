@@ -277,6 +277,7 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     fileDialog->setWindowTitle(title);
     fileDialog->setModal(modalDialog);
     fileDialog->m_fileWidget->setOperationMode(KFileWidget::Saving);
+    fileDialog->m_fileWidget->setConfirmOverwrite(true);
 
     if (!currentFolder.isEmpty()) {
         fileDialog->m_fileWidget->setUrl(QUrl::fromLocalFile(currentFolder));
