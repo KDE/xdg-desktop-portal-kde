@@ -185,7 +185,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     Utils::setParentWindow(fileDialog.data(), parent_window);
     fileDialog->setWindowTitle(title);
     fileDialog->setModal(modalDialog);
-    fileDialog->m_fileWidget->setMode(multipleFiles ? KFile::Mode::File | KFile::Mode::ExistingOnly : KFile::Mode::Files | KFile::Mode::ExistingOnly);
+    fileDialog->m_fileWidget->setMode(multipleFiles ? KFile::Mode::Files | KFile::Mode::ExistingOnly : KFile::Mode::File | KFile::Mode::ExistingOnly);
     fileDialog->m_fileWidget->okButton()->setText(!acceptLabel.isEmpty() ? acceptLabel : i18n("Open"));
 
     if (!nameFilters.isEmpty()) {
@@ -277,6 +277,7 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     fileDialog->setWindowTitle(title);
     fileDialog->setModal(modalDialog);
     fileDialog->m_fileWidget->setOperationMode(KFileWidget::Saving);
+    fileDialog->m_fileWidget->setConfirmOverwrite(true);
 
     if (!currentFolder.isEmpty()) {
         fileDialog->m_fileWidget->setUrl(QUrl::fromLocalFile(currentFolder));
