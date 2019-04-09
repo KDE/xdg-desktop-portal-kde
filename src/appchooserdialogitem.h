@@ -38,6 +38,7 @@ public:
     void mousePressEvent(QMouseEvent * event) override;
     void mouseReleaseEvent(QMouseEvent * event) override;
 Q_SIGNALS:
+    void clicked(const QString &applicationName);
     void doubleClicked(const QString &applicationName);
 
 private:

@@ -71,6 +71,8 @@ void AppChooserDialogItem::mousePressEvent(QMouseEvent *event)
     if (event->button() == Qt::LeftButton) {
         setDown(true);
         setChecked(true);
+
+        Q_EMIT clicked(m_applicationName);
     }
 }
 

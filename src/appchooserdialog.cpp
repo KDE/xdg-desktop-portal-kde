@@ -65,8 +65,9 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &de
 
     vboxLayout->addLayout(m_gridLayout);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel, this);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel | QDialogButtonBox::Open, this);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
 
     vboxLayout->addWidget(buttonBox, 0, Qt::AlignBottom | Qt::AlignRight);
 
@@ -123,6 +124,10 @@ void AppChooserDialog::updateChoices(const QStringList &choices)
 
 QString AppChooserDialog::selectedApplication() const
 {
+    if (m_selectedApplication.isEmpty()) {
+        return m_defaultApp;
+    }
+
     return m_selectedApplication;
 }
 
@@ -147,6 +152,9 @@ void AppChooserDialog::addDialogItems()
             AppChooserDialogItem *item = new AppChooserDialogItem(applicationName, applicationIcon, choice, this);
             m_gridLayout->addWidget(item, i, j++, Qt::AlignHCenter);
 
+            connect(item, &AppChooserDialogItem::clicked, this, [this] (const QString &selectedApplication) {
+                m_selectedApplication = selectedApplication;
+            });
             connect(item, &AppChooserDialogItem::doubleClicked, this, [this] (const QString &selectedApplication) {
                 m_selectedApplication = selectedApplication;
                 QDialog::accept();
