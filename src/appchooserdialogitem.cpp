@@ -59,24 +59,9 @@ QString AppChooserDialogItem::applicationName() const
     return m_applicationName;
 }
 
-void AppChooserDialogItem::mouseDoubleClickEvent(QMouseEvent *event)
-{
-    Q_EMIT doubleClicked(m_applicationName);
-
-    QToolButton::mouseDoubleClickEvent(event);
-}
-
 void AppChooserDialogItem::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton) {
-        setDown(true);
-        setChecked(true);
-
         Q_EMIT clicked(m_applicationName);
     }
-}
-
-void AppChooserDialogItem::mouseReleaseEvent(QMouseEvent *event)
-{
-    event->ignore();
 }

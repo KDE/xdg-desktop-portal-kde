@@ -65,12 +65,6 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &de
 
     vboxLayout->addLayout(m_gridLayout);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel | QDialogButtonBox::Open, this);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
-
-    vboxLayout->addWidget(buttonBox, 0, Qt::AlignBottom | Qt::AlignRight);
-
     setLayout(vboxLayout);
     setWindowTitle(i18n("Open with"));
 }
@@ -153,9 +147,6 @@ void AppChooserDialog::addDialogItems()
             m_gridLayout->addWidget(item, i, j++, Qt::AlignHCenter);
 
             connect(item, &AppChooserDialogItem::clicked, this, [this] (const QString &selectedApplication) {
-                m_selectedApplication = selectedApplication;
-            });
-            connect(item, &AppChooserDialogItem::doubleClicked, this, [this] (const QString &selectedApplication) {
                 m_selectedApplication = selectedApplication;
                 QDialog::accept();
             });
