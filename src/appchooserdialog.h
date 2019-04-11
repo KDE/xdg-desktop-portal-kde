@@ -38,8 +38,10 @@ public:
 
     QString selectedApplication() const;
 
-private:
+private Q_SLOTS:
     void addDialogItems();
+
+private:
 
     QStringList m_choices;
     QString m_defaultApp;

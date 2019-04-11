@@ -30,6 +30,7 @@
 #include <KLocalizedString>
 #include <QSettings>
 #include <QStandardPaths>
+#include <QTimer>
 
 #include <KProcess>
 
@@ -60,6 +61,8 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &de
     vboxLayout->addWidget(label);
 
     m_gridLayout = new QGridLayout();
+
+    QTimer::singleShot(0, this, &AppChooserDialog::addDialogItems);
 
     addDialogItems();
 
