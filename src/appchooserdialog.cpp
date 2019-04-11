@@ -64,8 +64,6 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &de
 
     QTimer::singleShot(0, this, &AppChooserDialog::addDialogItems);
 
-    addDialogItems();
-
     vboxLayout->addLayout(m_gridLayout);
 
     setLayout(vboxLayout);
