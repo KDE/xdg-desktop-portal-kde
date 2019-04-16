@@ -30,6 +30,7 @@
 #include <KLocalizedString>
 #include <QSettings>
 #include <QStandardPaths>
+#include <QTimer>
 
 #include <KProcess>
 
@@ -61,14 +62,9 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &de
 
     m_gridLayout = new QGridLayout();
 
-    addDialogItems();
+    QTimer::singleShot(0, this, &AppChooserDialog::addDialogItems);
 
     vboxLayout->addLayout(m_gridLayout);
-
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel, this);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
-
-    vboxLayout->addWidget(buttonBox, 0, Qt::AlignBottom | Qt::AlignRight);
 
     setLayout(vboxLayout);
     setWindowTitle(i18n("Open with"));
@@ -123,6 +119,10 @@ void AppChooserDialog::updateChoices(const QStringList &choices)
 
 QString AppChooserDialog::selectedApplication() const
 {
+    if (m_selectedApplication.isEmpty()) {
+        return m_defaultApp;
+    }
+
     return m_selectedApplication;
 }
 
@@ -147,7 +147,7 @@ void AppChooserDialog::addDialogItems()
             AppChooserDialogItem *item = new AppChooserDialogItem(applicationName, applicationIcon, choice, this);
             m_gridLayout->addWidget(item, i, j++, Qt::AlignHCenter);
 
-            connect(item, &AppChooserDialogItem::doubleClicked, this, [this] (const QString &selectedApplication) {
+            connect(item, &AppChooserDialogItem::clicked, this, [this] (const QString &selectedApplication) {
                 m_selectedApplication = selectedApplication;
                 QDialog::accept();
             });
