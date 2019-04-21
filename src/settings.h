@@ -1,5 +1,5 @@
 /*
- * Copyright © 2018 Red Hat, Inc
+ * Copyright © 2018-2019 Red Hat, Inc
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -60,7 +60,7 @@ public:
 
 public Q_SLOTS:
     void ReadAll(const QStringList &groups);
-    QDBusVariant Read(const QString &group, const QString &keys);
+    void Read(const QString &group, const QString &key);
 
 Q_SIGNALS:
     void SettingChanged(const QString &group, const QString &key, const QDBusVariant &value);
@@ -70,6 +70,8 @@ private Q_SLOTS:
     void globalSettingChanged(int type, int arg);
     void toolbarStyleChanged();
 private:
+    QDBusVariant readProperty(const QString &group, const QString &key);
+
     KSharedConfigPtr m_kdeglobals;
 };
 

@@ -1,5 +1,5 @@
 /*
- * Copyright © 2018 Red Hat, Inc
+ * Copyright © 2018-2019 Red Hat, Inc
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -150,18 +150,104 @@ void SettingsPortal::ReadAll(const QStringList &groups)
     QDBusConnection::sessionBus().send(reply);
 }
 
-QDBusVariant SettingsPortal::Read(const QString &group, const QString &key)
+void SettingsPortal::Read(const QString &group, const QString &key)
 {
     qCDebug(XdgDesktopPortalKdeSettings) << "Read called with parameters:";
     qCDebug(XdgDesktopPortalKdeSettings) << "    group: " << group;
     qCDebug(XdgDesktopPortalKdeSettings) << "    key: " << key;
 
+    //FIXME this is super ugly, but I was unable to make it properly return VariantMapMap
+    QObject *obj = QObject::parent();
+
+    if (!obj) {
+        qCWarning(XdgDesktopPortalKdeSettings) << "Failed to get dbus context";
+        return;
+    }
+
+    void *ptr = obj->qt_metacast("QDBusContext");
+    QDBusContext *q_ptr = reinterpret_cast<QDBusContext *>(ptr);
+
+    if (!q_ptr) {
+        qCWarning(XdgDesktopPortalKdeSettings) << "Failed to get dbus context";
+        return;
+    }
+
+    QDBusMessage reply;
+    QDBusMessage message = q_ptr->message();
+
     // All our namespaces start with this prefix
     if (!group.startsWith(QStringLiteral("org.kde.kdeglobals"))) {
         qCWarning(XdgDesktopPortalKdeSettings) << "Namespace " << group << " is not supported";
-        return QDBusVariant();
+        reply = message.createErrorReply(QDBusError::UnknownProperty, QStringLiteral("Namespace is not supported"));
+        QDBusConnection::sessionBus().send(reply);
+        return;
     }
 
+    QDBusVariant result = readProperty(group, key);
+    if (result.variant().isNull()) {
+        reply = message.createErrorReply(QDBusError::UnknownProperty, QStringLiteral("Property doesn't exist"));
+    } else {
+        reply = message.createReply(QVariant::fromValue(result));
+    }
+
+    QDBusConnection::sessionBus().send(reply);
+}
+
+void SettingsPortal::fontChanged()
+{
+    Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.General"), QStringLiteral("font"), readProperty(QStringLiteral("org.kde.kdeglobals.General"), QStringLiteral("font")));
+}
+
+void SettingsPortal::globalSettingChanged(int type, int arg)
+{
+    m_kdeglobals->reparseConfiguration();
+
+    // Mostly based on plasma-integration needs
+    switch (type) {
+    case PaletteChanged:
+        // Plasma-integration will be loading whole palette again, there is no reason to try to identify
+        // particular categories or colors
+        Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.General"), QStringLiteral("ColorScheme"), readProperty(QStringLiteral("org.kde.kdeglobals.General"), QStringLiteral("ColorScheme")));
+        break;
+    case FontChanged:
+        fontChanged();
+        break;
+    case StyleChanged:
+        Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.KDE"), QStringLiteral("widgetStyle"), readProperty(QStringLiteral("org.kde.kdeglobals.KDE"), QStringLiteral("widgetStyle")));
+        break;
+    case SettingsChanged: {
+        SettingsCategory category = static_cast<SettingsCategory>(arg);
+        if (category == SETTINGS_QT || category == SETTINGS_MOUSE) {
+            // TODO
+        } else if (category == SETTINGS_STYLE) {
+            // TODO
+        }
+        break;
+    }
+    case IconChanged:
+        // we will get notified about each category, but it probably makes sense to send this signal just once
+        if (arg == 0) { // KIconLoader::Desktop
+            Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.Icons"), QStringLiteral("Theme"), readProperty(QStringLiteral("org.kde.kdeglobals.Icons"), QStringLiteral("Theme")));
+        }
+        break;
+    case CursorChanged:
+        // TODO
+        break;
+    case ToolbarStyleChanged:
+        toolbarStyleChanged();
+        break;
+    default:
+        break;
+    }
+}
+
+void SettingsPortal::toolbarStyleChanged()
+{
+    Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.Toolbar style"), QStringLiteral("ToolButtonStyle"), readProperty(QStringLiteral("org.kde.kdeglobals.Toolbar style"), QStringLiteral("ToolButtonStyle")));
+}
+
+QDBusVariant SettingsPortal::readProperty(const QString &group, const QString &key)
+{
     QString groupName = group.right(group.length() - QStringLiteral("org.kde.kdeglobals.").length());
 
     if (!m_kdeglobals->hasGroup(groupName)) {
@@ -179,55 +265,3 @@ QDBusVariant SettingsPortal::Read(const QString &group, const QString &key)
     return QDBusVariant(configGroup.readEntry(key));
 }
 
-void SettingsPortal::fontChanged()
-{
-    Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.General"), QStringLiteral("font"), Read(QStringLiteral("org.kde.kdeglobals.General"), QStringLiteral("font")));
-}
-
-void SettingsPortal::globalSettingChanged(int type, int arg)
-{
-    m_kdeglobals->reparseConfiguration();
-
-    // Mostly based on plasma-integration needs
-    switch (type) {
-    case PaletteChanged:
-        // Plasma-integration will be loading whole palette again, there is no reason to try to identify
-        // particular categories or colors
-        Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.General"), QStringLiteral("ColorScheme"), Read(QStringLiteral("org.kde.kdeglobals.General"), QStringLiteral("ColorScheme")));
-        break;
-    case FontChanged:
-        fontChanged();
-        break;
-    case StyleChanged:
-        Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.KDE"), QStringLiteral("widgetStyle"), Read(QStringLiteral("org.kde.kdeglobals.KDE"), QStringLiteral("widgetStyle")));
-        break;
-    case SettingsChanged: {
-        SettingsCategory category = static_cast<SettingsCategory>(arg);
-        if (category == SETTINGS_QT || category == SETTINGS_MOUSE) {
-            // TODO
-        } else if (category == SETTINGS_STYLE) {
-            // TODO
-        }
-        break;
-    }
-    case IconChanged:
-        // we will get notified about each category, but it probably makes sense to send this signal just once
-        if (arg == 0) { // KIconLoader::Desktop
-            Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.Icons"), QStringLiteral("Theme"), Read(QStringLiteral("org.kde.kdeglobals.Icons"), QStringLiteral("Theme")));
-        }
-        break;
-    case CursorChanged:
-        // TODO
-        break;
-    case ToolbarStyleChanged:
-        toolbarStyleChanged();
-        break;
-    default:
-        break;
-    }
-}
-
-void SettingsPortal::toolbarStyleChanged()
-{
-    Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.Toolbar style"), QStringLiteral("ToolButtonStyle"), Read(QStringLiteral("org.kde.kdeglobals.Toolbar style"), QStringLiteral("ToolButtonStyle")));
-}
