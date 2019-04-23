@@ -90,15 +90,24 @@ void NotificationPortal::AddNotification(const QString &app_id,
             }
         }
     }
-    if (notification.contains(QStringLiteral("priority"))) {
-        // TODO KNotification has no option for priority
+
+    const QString priority = notification.value(QStringLiteral("priority")).toString();
+    if (priority == QLatin1String("low")) {
+        notify->setUrgency(KNotification::LowUrgency);
+    } else if (priority == QLatin1String("normal")) {
+        notify->setUrgency(KNotification::NormalUrgency);
+    } else if (priority == QLatin1String("high")) {
+        notify->setUrgency(KNotification::HighUrgency);
+    } else if (priority == QLatin1String("urgent")) {
+        notify->setUrgency(KNotification::CriticalUrgency);
     }
-    if (notification.contains(QStringLiteral("default-action"))) {
-        // TODO KNotification has no option for default action
+
+    if (notification.contains(QStringLiteral("default-action"))
+            && notification.contains(QStringLiteral("default-action-target"))) {
+        // default action is conveniently mapped to action number 0 so it uses the same action invocation method as the others
+        notify->setDefaultAction(notification.value(QStringLiteral("default-action")).toString());
     }
-    if (notification.contains(QStringLiteral("default-action-target"))) {
-        // TODO KNotification has no option for default action
-    }
+
     if (notification.contains(QStringLiteral("buttons"))) {
         QList<QVariantMap> buttons;
         QDBusArgument dbusArgument = notification.value(QStringLiteral("buttons")).value<QDBusArgument>();
@@ -115,6 +124,8 @@ void NotificationPortal::AddNotification(const QString &app_id,
             notify->setActions(actions);
         }
     }
+
+    notify->setHint(QStringLiteral("desktop-entry"), app_id);
 
     notify->setProperty("app_id", app_id);
     notify->setProperty("id", id);
