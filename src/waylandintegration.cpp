@@ -182,7 +182,7 @@ WaylandIntegration::WaylandIntegrationPrivate::~WaylandIntegrationPrivate()
         m_remoteAccessManager->destroy();
     }
 
-    if (m_drmFd) {
+    if (m_gbmDevice) {
         gbm_device_destroy(m_gbmDevice);
     }
 }
