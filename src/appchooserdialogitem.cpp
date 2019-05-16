@@ -36,6 +36,7 @@ AppChooserDialogItem::AppChooserDialogItem(const QString &applicationName, const
     setIcon(QIcon::fromTheme(icon));
     setIconSize(QSize(64, 64));
     setCheckable(true);
+    setFixedHeight(100);
     setFixedWidth(150);
     setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 
