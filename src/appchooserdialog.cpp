@@ -30,6 +30,7 @@
 #include <KLocalizedString>
 #include <QSettings>
 #include <QStandardPaths>
+#include <QScrollArea>
 #include <QTimer>
 
 #include <KProcess>
@@ -42,6 +43,7 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &de
     , m_defaultApp(defaultApp)
 {
     setMinimumWidth(640);
+    setMaximumHeight(480);
 
     QVBoxLayout *vboxLayout = new QVBoxLayout(this);
     vboxLayout->setSpacing(20);
@@ -60,11 +62,23 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &de
 
     vboxLayout->addWidget(label);
 
-    m_gridLayout = new QGridLayout();
+    QWidget *appsWidget = new QWidget(this);
+    QScrollArea *scrollArea = new QScrollArea(this);
+    scrollArea->setFrameShape(QFrame::NoFrame);
+    scrollArea->setWidget(appsWidget);
+    scrollArea->setWidgetResizable(true);
+
+    // FIXME: workaround scrollarea sizing, set minimum height to make sure at least two rows are visible
+    if (choices.count() > 3) {
+        scrollArea->setMinimumHeight(200);
+    }
+
+    m_gridLayout = new QGridLayout;
+    appsWidget->setLayout(m_gridLayout);
 
     QTimer::singleShot(0, this, &AppChooserDialog::addDialogItems);
 
-    vboxLayout->addLayout(m_gridLayout);
+    vboxLayout->addWidget(scrollArea);
 
     setLayout(vboxLayout);
     setWindowTitle(i18n("Open with"));
