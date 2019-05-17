@@ -24,8 +24,34 @@
 #include <QLoggingCategory>
 
 #include <KLocalizedString>
+#include <KMimeTypeTrader>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAppChooser, "xdp-kde-app-chooser")
+
+/**
+* Taken from KServiceUtilPrivate, it's used to workaround KService returning desktopEntryName()
+* as lowercase string
+*
+* Lightweight implementation of QFileInfo::completeBaseName.
+*
+* Returns the complete base name of the file without the path.
+* The complete base name consists of all characters in the file up to (but not including) the last '.' character.
+*
+* Example: "/tmp/archive.tar.gz" --> "archive.tar"
+*/
+static QString completeBaseName(const QString& filepath)
+{
+    QString name = filepath;
+    int pos = name.lastIndexOf(QLatin1Char('/'));
+    if (pos != -1) {
+        name = name.mid(pos + 1);
+    }
+    pos = name.lastIndexOf(QLatin1Char('.'));
+    if (pos != -1) {
+        name.truncate(pos);
+    }
+    return name;
+}
 
 AppChooserPortal::AppChooserPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
@@ -54,6 +80,20 @@ uint AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
 
     if (options.contains(QStringLiteral("last_choice"))) {
         latestChoice = options.value(QStringLiteral("last_choice")).toString();
+    }
+
+    if (options.contains(QStringLiteral("use_associated_app"))) {
+        const bool useAssociatedApp = options.value(QStringLiteral("use_associated_app")).toBool();
+
+        if (useAssociatedApp && options.contains(QStringLiteral("content_type"))) {
+            const QString contentType = options.value(QStringLiteral("content_type")).toString();
+
+            KService::Ptr service = KMimeTypeTrader::self()->preferredService(contentType);
+            if (service->isValid()) {
+                results.insert(QStringLiteral("choice"), completeBaseName(service->entryPath()));
+                return 0;
+            }
+        }
     }
 
     AppChooserDialog *appDialog = new AppChooserDialog(choices, latestChoice, options.value(QStringLiteral("filename")).toString());
