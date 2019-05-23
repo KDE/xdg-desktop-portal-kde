@@ -37,15 +37,16 @@ DesktopPortal::DesktopPortal(QObject *parent)
     , m_inhibit(new InhibitPortal(this))
     , m_notification(new NotificationPortal(this))
     , m_print(new PrintPortal(this))
-#if SCREENCAST_ENABLED
-    , m_screenCast(new ScreenCastPortal(this))
-    , m_remoteDesktop(new RemoteDesktopPortal(this))
-#endif
-    , m_screenshot(new ScreenshotPortal(this))
     , m_settings(new SettingsPortal(this))
 {
+    const QByteArray xdgCurrentDesktop = qgetenv("XDG_CURRENT_DESKTOP").toUpper();
+    if (xdgCurrentDesktop == "KDE") {
+        m_screenshot = new ScreenshotPortal(this);
 #if SCREENCAST_ENABLED
-    WaylandIntegration::init();
+        m_screenCast = new ScreenCastPortal(this);
+        m_remoteDesktop = new RemoteDesktopPortal(this);
+        WaylandIntegration::init();
+    }
 #endif
 }
 
