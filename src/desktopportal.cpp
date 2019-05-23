@@ -46,8 +46,8 @@ DesktopPortal::DesktopPortal(QObject *parent)
         m_screenCast = new ScreenCastPortal(this);
         m_remoteDesktop = new RemoteDesktopPortal(this);
         WaylandIntegration::init();
-    }
 #endif
+    }
 }
 
 DesktopPortal::~DesktopPortal()
