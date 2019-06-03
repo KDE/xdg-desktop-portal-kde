@@ -39,7 +39,6 @@ namespace KWayland {
         class ConnectionThread;
         class EventQueue;
         class FakeInput;
-        class OutputDevice;
         class Registry;
         class RemoteAccessManager;
         class RemoteBuffer;

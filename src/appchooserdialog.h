@@ -24,7 +24,6 @@
 #include <QAbstractListModel>
 #include <QDialog>
 
-class AppChooserDialogItem;
 class QGridLayout;
 
 class AppChooserDialog : public QDialog

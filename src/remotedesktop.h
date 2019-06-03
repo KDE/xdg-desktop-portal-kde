@@ -24,7 +24,6 @@
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
-class ScreenCastCommon;
 
 class RemoteDesktopPortal : public QDBusAbstractAdaptor
 {
