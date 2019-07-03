@@ -20,7 +20,6 @@
 
 #include "desktopportal.h"
 
-#include <QDBusArgument>
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCall>

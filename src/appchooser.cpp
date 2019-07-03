@@ -23,7 +23,6 @@
 
 #include <QLoggingCategory>
 
-#include <KLocalizedString>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAppChooser, "xdp-kde-app-chooser")
 

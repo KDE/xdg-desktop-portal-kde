@@ -24,7 +24,6 @@
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
-#include <KConfigCore/KConfig>
 #include <KConfigCore/KSharedConfig>
 
 class SettingsPortal : public QDBusAbstractAdaptor

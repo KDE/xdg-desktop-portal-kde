@@ -22,7 +22,6 @@
 #define XDG_DESKTOP_PORTAL_KDE_FILECHOOSER_H
 
 #include <QDBusObjectPath>
-#include <QMetaType>
 #include <QDBusAbstractAdaptor>
 #include <QDialog>
 

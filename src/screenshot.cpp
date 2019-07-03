@@ -22,13 +22,11 @@
 #include "screenshotdialog.h"
 #include "utils.h"
 
-#include <QColorDialog>
 #include <QDateTime>
 #include <QtDBus>
 #include <QDBusArgument>
 #include <QDBusReply>
 #include <QLoggingCategory>
-#include <QTemporaryFile>
 #include <QStandardPaths>
 #include <QPointer>
 

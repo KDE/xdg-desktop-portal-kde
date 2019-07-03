@@ -22,7 +22,6 @@
 #include "ui_accessdialog.h"
 
 #include <QLoggingCategory>
-#include <QSettings>
 #include <QStandardPaths>
 #include <QPushButton>
 

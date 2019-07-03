@@ -21,7 +21,6 @@
 
 #include <QString>
 #include <QWidget>
-#include <QWindow>
 
 void Utils::setParentWindow(QWidget *w, const QString &parent_window)
 {

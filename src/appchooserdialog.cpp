@@ -21,7 +21,6 @@
 #include "appchooserdialog.h"
 #include "appchooserdialogitem.h"
 
-#include <QDialogButtonBox>
 #include <QGridLayout>
 #include <QVBoxLayout>
 #include <QLabel>

@@ -21,7 +21,6 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_DIALOG_H
 #define XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_DIALOG_H
 
-#include <QAbstractListModel>
 #include <QDialog>
 
 #include "remotedesktop.h"

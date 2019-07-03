@@ -24,7 +24,6 @@
 #include "waylandintegration.h"
 
 #include <QDateTime>
-#include <QObject>
 #include <QMap>
 
 #include <gbm.h>

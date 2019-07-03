@@ -21,7 +21,6 @@
 #include "inhibit.h"
 #include "request.h"
 
-#include <QDBusArgument>
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCall>

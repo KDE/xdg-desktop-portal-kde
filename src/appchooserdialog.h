@@ -21,7 +21,6 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_APPCHOOSER_DIALOG_H
 #define XDG_DESKTOP_PORTAL_KDE_APPCHOOSER_DIALOG_H
 
-#include <QAbstractListModel>
 #include <QDialog>
 
 class QGridLayout;

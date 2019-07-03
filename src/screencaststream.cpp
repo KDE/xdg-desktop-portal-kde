@@ -26,7 +26,6 @@
 #include <stdio.h>
 
 #include <QLoggingCategory>
-#include <QTimer>
 #include <QSize>
 #include <QSocketNotifier>
 

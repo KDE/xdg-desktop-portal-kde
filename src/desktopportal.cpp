@@ -20,10 +20,6 @@
 
 #include "desktopportal.h"
 
-#include <QDialog>
-#include <QDBusArgument>
-#include <QDBusMessage>
-#include <QDBusConnection>
 #include <QLoggingCategory>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeDesktopPortal, "xdp-kde-desktop-portal")

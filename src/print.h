@@ -25,7 +25,6 @@
 #include <QDBusObjectPath>
 #include <QDBusUnixFileDescriptor>
 #include <QPrinter>
-#include <QPageSize>
 
 class PrintPortal : public QDBusAbstractAdaptor
 {

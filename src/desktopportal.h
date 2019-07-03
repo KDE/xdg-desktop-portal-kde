@@ -22,7 +22,6 @@
 #define XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
 
 #include <QObject>
-#include <QDBusVirtualObject>
 #include <QDBusContext>
 
 #include "access.h"

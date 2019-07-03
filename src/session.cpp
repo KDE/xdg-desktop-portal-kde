@@ -21,11 +21,9 @@
 #include "session.h"
 #include "desktopportal.h"
 
-#include <QDBusArgument>
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCall>
-#include <QDBusPendingReply>
 #include <QDBusPendingCallWatcher>
 #include <QLoggingCategory>
 

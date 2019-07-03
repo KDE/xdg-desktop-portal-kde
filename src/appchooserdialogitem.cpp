@@ -22,9 +22,7 @@
 
 #include <QMouseEvent>
 #include <QFontMetrics>
-#include <QVBoxLayout>
 
-#include <QDebug>
 
 AppChooserDialogItem::AppChooserDialogItem(const QString &applicationName, const QString &icon, const QString &applicationExec, QWidget *parent)
     : QToolButton(parent)
