@@ -19,12 +19,6 @@ include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 
 include(FeatureSummary)
 
-find_package(GLIB2)
-set_package_properties(GLIB2 PROPERTIES
-    TYPE OPTIONAL
-    PURPOSE "Required for screencast portal"
-)
-
 find_package(PipeWire)
 set_package_properties(PipeWire PROPERTIES
     TYPE OPTIONAL
@@ -44,7 +38,7 @@ set_package_properties(Epoxy PROPERTIES DESCRIPTION "libepoxy"
     PURPOSE "Required for screencast portal"
 )
 
-if (PipeWire_FOUND AND GLIB2_FOUND AND GBM_FOUND AND Epoxy_FOUND)
+if (PipeWire_FOUND AND GBM_FOUND AND Epoxy_FOUND)
     set (SCREENCAST_ENABLED true)
 else()
     set (SCREENCAST_ENABLED false)

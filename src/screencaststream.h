@@ -24,8 +24,6 @@
 #include <QObject>
 #include <QSize>
 
-#include <glib-object.h>
-
 #include <pipewire/version.h>
 
 #if !PW_CHECK_VERSION(0, 2, 9)
