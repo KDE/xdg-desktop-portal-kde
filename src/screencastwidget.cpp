@@ -43,7 +43,7 @@ ScreenCastWidget::ScreenCastWidget(QWidget *parent)
         }
     }
 
-    setItemSelected(itemAt(0, 0), true);
+    itemAt(0, 0)->setSelected(true);
 }
 
 ScreenCastWidget::~ScreenCastWidget()

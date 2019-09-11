@@ -46,7 +46,7 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &de
 
     QVBoxLayout *vboxLayout = new QVBoxLayout(this);
     vboxLayout->setSpacing(20);
-    vboxLayout->setMargin(20);
+    vboxLayout->setContentsMargins(20, 20, 20, 20);
 
     QLabel *label = new QLabel(this);
     label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);

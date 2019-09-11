@@ -679,7 +679,7 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
         qCDebug(XdgDesktopPortalKdePrint) << "---------------------------";
         qCDebug(XdgDesktopPortalKdePrint) << resultingPageSetup;
 
-        uint token = QDateTime::currentDateTime().toTime_t();
+        uint token = QDateTime::currentDateTime().toSecsSinceEpoch();
         results.insert(QStringLiteral("settings"), resultingSettings);
         results.insert(QStringLiteral("page-setup"), resultingPageSetup);
         results.insert(QStringLiteral("token"), token);
