@@ -28,7 +28,6 @@
 
 #include <QLoggingCategory>
 #include <QSize>
-#include <QSocketNotifier>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeScreenCastStream, "xdp-kde-screencast-stream")
 
@@ -142,7 +141,7 @@ static PwFraction pipewireFractionFromDouble(double src)
     return fraction;
 }
 
-static void onStateChanged(void *data, pw_remote_state old, pw_remote_state state, const char *error)
+void ScreenCastStream::onStateChanged(void *data, pw_remote_state old, pw_remote_state state, const char *error)
 {
     Q_UNUSED(old);
 
@@ -166,7 +165,7 @@ static void onStateChanged(void *data, pw_remote_state old, pw_remote_state stat
     }
 }
 
-static void onStreamStateChanged(void *data, pw_stream_state old, pw_stream_state state, const char *error_message)
+void ScreenCastStream::onStreamStateChanged(void *data, pw_stream_state old, pw_stream_state state, const char *error_message)
 {
     Q_UNUSED(old)
 
@@ -194,7 +193,7 @@ static void onStreamStateChanged(void *data, pw_stream_state old, pw_stream_stat
     }
 }
 
-static void onStreamFormatChanged(void *data, const struct spa_pod *format)
+void ScreenCastStream::onStreamFormatChanged(void *data, const struct spa_pod *format)
 {
     qCDebug(XdgDesktopPortalKdeScreenCastStream) << "Stream format changed";
 
@@ -242,32 +241,25 @@ static void onStreamFormatChanged(void *data, const struct spa_pod *format)
     pw_stream_finish_format (pw->pwStream, 0, params, 1);
 }
 
-static const struct pw_remote_events pwRemoteEvents = {
-    .version = PW_VERSION_REMOTE_EVENTS,
-    .destroy = nullptr,
-    .info_changed = nullptr,
-    .sync_reply = nullptr,
-    .state_changed = onStateChanged,
-};
-
-static const struct pw_stream_events pwStreamEvents = {
-    .version = PW_VERSION_STREAM_EVENTS,
-    .destroy = nullptr,
-    .state_changed = onStreamStateChanged,
-    .format_changed = onStreamFormatChanged,
-    .add_buffer = nullptr,
-    .remove_buffer = nullptr,
-    .process = nullptr,
-};
-
 ScreenCastStream::ScreenCastStream(const QSize &resolution, QObject *parent)
     : QObject(parent)
     , resolution(resolution)
 {
+    // initialize event handlers, remote end and stream-related
+    pwRemoteEvents.version = PW_VERSION_REMOTE_EVENTS;
+    pwRemoteEvents.state_changed = &onStateChanged;
+
+    pwStreamEvents.version = PW_VERSION_STREAM_EVENTS;
+    pwStreamEvents.state_changed = &onStreamStateChanged;
+    pwStreamEvents.format_changed = &onStreamFormatChanged;
 }
 
 ScreenCastStream::~ScreenCastStream()
 {
+    if (pwMainLoop) {
+        pw_thread_loop_stop(pwMainLoop);
+    }
+
 #if !PW_CHECK_VERSION(0, 2, 9)
     if (pwType) {
         delete pwType;
@@ -282,12 +274,14 @@ ScreenCastStream::~ScreenCastStream()
         pw_remote_destroy(pwRemote);
     }
 
-    if (pwCore) {
+    if (pwCore)
         pw_core_destroy(pwCore);
+
+    if (pwMainLoop) {
+        pw_thread_loop_destroy(pwMainLoop);
     }
 
     if (pwLoop) {
-        pw_loop_leave(pwLoop);
         pw_loop_destroy(pwLoop);
     }
 }
@@ -297,8 +291,7 @@ void ScreenCastStream::init()
     pw_init(nullptr, nullptr);
 
     pwLoop = pw_loop_new(nullptr);
-    socketNotifier.reset(new QSocketNotifier(pw_loop_get_fd(pwLoop), QSocketNotifier::Read));
-    connect(socketNotifier.data(), &QSocketNotifier::activated, this, &ScreenCastStream::processPipewireEvents);
+    pwMainLoop = pw_thread_loop_new(pwLoop, "pipewire-main-loop");
 
     pwCore = pw_core_new(pwLoop, nullptr);
 #if !PW_CHECK_VERSION(0, 2, 9)
@@ -313,6 +306,10 @@ void ScreenCastStream::init()
     pw_remote_add_listener(pwRemote, &remoteListener, &pwRemoteEvents, this);
 
     pw_remote_connect(pwRemote);
+
+    if (pw_thread_loop_start(pwMainLoop) < 0) {
+        qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to start main PipeWire loop";
+    }
 }
 
 uint ScreenCastStream::framerate()
@@ -443,11 +440,3 @@ void ScreenCastStream::initializePwTypes()
     spa_type_video_format_map (map, &pwType->video_format);
 }
 #endif
-
-void ScreenCastStream::processPipewireEvents()
-{
-    int result = pw_loop_iterate(pwLoop, 0);
-    if (result < 0) {
-        qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to iterate over pipewire loop: " << spa_strerror(result);
-    }
-}

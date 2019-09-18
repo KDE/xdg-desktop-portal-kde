@@ -58,6 +58,11 @@ public:
     explicit ScreenCastStream(const QSize &resolution, QObject *parent = nullptr);
     ~ScreenCastStream();
 
+    static void onStateChanged(void *data, pw_remote_state old, pw_remote_state state, const char *error);
+    static void onStreamStateChanged(void *data, pw_stream_state old, pw_stream_state state, const char *error_message);
+    static void onStreamFormatChanged(void *data, const struct spa_pod *format);
+    static void onStreamProcess(void *data);
+
     // Public
     void init();
     uint framerate();
@@ -80,18 +85,17 @@ private:
     void initializePwTypes();
 #endif
 
-private Q_SLOTS:
-    void processPipewireEvents();
-
 public:
 #if PW_CHECK_VERSION(0, 2, 9)
     struct pw_core *pwCore = nullptr;
     struct pw_loop *pwLoop = nullptr;
     struct pw_stream *pwStream = nullptr;
     struct pw_remote *pwRemote = nullptr;
+    struct pw_thread_loop *pwMainLoop = nullptr;
 #else
     pw_core *pwCore = nullptr;
     pw_loop *pwLoop = nullptr;
+    pw_thread_loop *pwMainLoop = nullptr;
     pw_stream *pwStream = nullptr;
     pw_remote *pwRemote = nullptr;
     pw_type *pwCoreType = nullptr;
@@ -101,13 +105,14 @@ public:
     spa_hook remoteListener;
     spa_hook streamListener;
 
+    // event handlers
+    pw_remote_events pwRemoteEvents = {};
+    pw_stream_events pwStreamEvents = {};
+
     QSize resolution;
-    QScopedPointer<QSocketNotifier> socketNotifier;
 
     spa_video_info_raw videoFormat;
 
 };
 
 #endif // SCREEN_CAST_STREAM_H
-
-
