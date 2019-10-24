@@ -52,6 +52,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Concurrent
     DBus
     PrintSupport
+    QuickWidgets
     Widgets
 )
 
@@ -59,8 +60,11 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     CoreAddons
     Config
     I18n
+    Declarative
     KIO
+    Kirigami2
     Notifications
+    Plasma
     Wayland
     WidgetsAddons
     WindowSystem

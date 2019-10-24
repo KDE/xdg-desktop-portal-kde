@@ -1,5 +1,5 @@
 /*
- * Copyright © 2016-2018 Red Hat, Inc
+ * Copyright © 2016-2019 Red Hat, Inc
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -23,30 +23,109 @@
 
 #include <QDialog>
 
-class QGridLayout;
+#include <QAbstractListModel>
+#include <QSortFilterProxyModel>
+
+namespace Ui
+{
+class AppChooserDialog;
+}
+
+class ApplicationItem
+{
+public:
+    enum ApplicationCategory {
+        PreferredApplication,
+        AllApplications
+    };
+
+    explicit ApplicationItem(const QString &name, const QString &icon, const QString &desktopFileName);
+
+    QString applicationName() const;
+    QString applicationIcon() const;
+    QString applicationDesktopFile() const;
+
+    void setApplicationCategory(ApplicationCategory category);
+    ApplicationCategory applicationCategory() const;
+
+    bool operator==(const ApplicationItem &item) const;
+private:
+    QString m_applicationName;
+    QString m_applicationIcon;
+    QString m_applicationDesktopFile;
+    ApplicationCategory m_applicationCategory;
+};
+
+class AppFilterModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+    Q_PROPERTY(bool showOnlyPreferredApps READ showOnlyPreferredApps WRITE setShowOnlyPrefferedApps)
+    Q_PROPERTY(QString filter READ filter WRITE setFilter)
+public:
+    explicit AppFilterModel(QObject *parent = nullptr);
+    ~AppFilterModel() override;
+
+    void setShowOnlyPrefferedApps(bool show);
+    bool showOnlyPreferredApps() const;
+
+    void setFilter(const QString &text);
+    QString filter() const;
+
+protected:
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+
+private:
+    bool m_showOnlyPreferredApps = true;
+    QString m_filter;
+};
+
+class AppModel : public QAbstractListModel
+{
+    Q_OBJECT
+public:
+    enum ItemRoles {
+        ApplicationNameRole = Qt::UserRole + 1,
+        ApplicationIconRole,
+        ApplicationDesktopFileRole,
+        ApplicationCategoryRole
+    };
+
+    explicit AppModel(QObject *parent = nullptr);
+    ~AppModel() override;
+
+    void setPreferredApps(const QStringList &list);
+
+    QVariant data(const QModelIndex &index, int role) const override;
+    int rowCount(const QModelIndex &parent) const override;
+    QHash<int, QByteArray> roleNames() const override;
+
+private:
+    void loadApplications();
+
+    QList<ApplicationItem> m_list;
+};
 
 class AppChooserDialog : public QDialog
 {
     Q_OBJECT
 public:
-    AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, QDialog *parent = nullptr, Qt::WindowFlags flags = {});
+    explicit AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, QDialog *parent = nullptr, Qt::WindowFlags flags = {});
     ~AppChooserDialog();
 
     void updateChoices(const QStringList &choices);
 
     QString selectedApplication() const;
-
 private Q_SLOTS:
-    void addDialogItems();
-
+    void onApplicationSelected(const QString &desktopFile);
+    void onOpenDiscover();
 private:
+    Ui::AppChooserDialog *m_dialog;
 
-    QStringList m_choices;
+    AppModel *m_model;
+    QStringList m_defaultChoices;
     QString m_defaultApp;
     QString m_selectedApplication;
-    QGridLayout *m_gridLayout;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_APPCHOOSER_DIALOG_H
-
-

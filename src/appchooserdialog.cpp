@@ -1,5 +1,5 @@
 /*
- * Copyright © 2017-2018 Red Hat, Inc
+ * Copyright © 2017-2019 Red Hat, Inc
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,136 +19,274 @@
  */
 
 #include "appchooserdialog.h"
-#include "appchooserdialogitem.h"
+#include "ui_appchooserdialog.h"
 
-#include <QGridLayout>
-#include <QVBoxLayout>
-#include <QLabel>
-#include <QLayoutItem>
-#include <QLoggingCategory>
-#include <KLocalizedString>
-#include <QSettings>
+#include <QQmlContext>
+#include <QQmlEngine>
+#include <QQuickWidget>
+#include <QQuickItem>
+
+#include <QDir>
 #include <QStandardPaths>
-#include <QScrollArea>
-#include <QTimer>
+#include <QSettings>
 
 #include <KProcess>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAppChooserDialog, "xdp-kde-app-chooser-dialog")
+#include <kdeclarative/kdeclarative.h>
 
 AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)
-    , m_choices(choices)
+    , m_dialog(new Ui::AppChooserDialog)
+    , m_defaultChoices(choices)
     , m_defaultApp(defaultApp)
 {
-    setMinimumWidth(640);
-    setMaximumHeight(480);
+    m_dialog->setupUi(this);
 
-    QVBoxLayout *vboxLayout = new QVBoxLayout(this);
-    vboxLayout->setSpacing(20);
-    vboxLayout->setContentsMargins(20, 20, 20, 20);
+    KDeclarative::KDeclarative kdeclarative;
+    kdeclarative.setDeclarativeEngine(m_dialog->quickWidget->engine());
+    kdeclarative.setTranslationDomain(QStringLiteral(TRANSLATION_DOMAIN));
+    kdeclarative.setupEngine(m_dialog->quickWidget->engine());
+    kdeclarative.setupContext();
 
-    QLabel *label = new QLabel(this);
-    label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
-    label->setScaledContents(true);
-    label->setWordWrap(true);
-    label->setText(i18n("Select application to open \"%1\". Other applications are available in <a href=#discover><span style=\"text-decoration: underline\">Discover</span></a>.", fileName));
-    label->setOpenExternalLinks(false);
+    m_model = new AppModel(this);
+    m_model->setPreferredApps(choices);
 
-    connect(label, &QLabel::linkActivated, this, [] () {
-        KProcess::startDetached(QStringLiteral("plasma-discover"));
-    });
+    AppFilterModel *filterModel = new AppFilterModel(this);
+    filterModel->setSourceModel(m_model);
 
-    vboxLayout->addWidget(label);
+    m_dialog->quickWidget->rootContext()->setContextProperty(QStringLiteral("myModel"), filterModel);
+    m_dialog->quickWidget->rootContext()->setContextProperty(QStringLiteral("fileName"), fileName);
+    m_dialog->quickWidget->rootContext()->setContextProperty(QStringLiteral("defaultApp"), defaultApp);
+    m_dialog->quickWidget->setClearColor(Qt::transparent);
+    m_dialog->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
+    m_dialog->quickWidget->setSource(QUrl::fromLocalFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("xdg-desktop-portal-kde/qml/AppChooserDialog.qml"))));
 
-    QWidget *appsWidget = new QWidget(this);
-    QScrollArea *scrollArea = new QScrollArea(this);
-    scrollArea->setFrameShape(QFrame::NoFrame);
-    scrollArea->setWidget(appsWidget);
-    scrollArea->setWidgetResizable(true);
+    QObject *rootItem = m_dialog->quickWidget->rootObject();
+    connect(rootItem, SIGNAL(openDiscover()), this, SLOT(onOpenDiscover()));
+    connect(rootItem, SIGNAL(applicationSelected(QString)), this, SLOT(onApplicationSelected(QString)));
 
-    // FIXME: workaround scrollarea sizing, set minimum height to make sure at least two rows are visible
-    if (choices.count() > 3) {
-        scrollArea->setMinimumHeight(200);
-    }
-
-    m_gridLayout = new QGridLayout;
-    appsWidget->setLayout(m_gridLayout);
-
-    QTimer::singleShot(0, this, &AppChooserDialog::addDialogItems);
-
-    vboxLayout->addWidget(scrollArea);
-
-    setLayout(vboxLayout);
-    setWindowTitle(i18n("Open with"));
+    setWindowTitle(i18n("Open with..."));
 }
 
 AppChooserDialog::~AppChooserDialog()
 {
-    delete m_gridLayout;
-}
-
-void AppChooserDialog::updateChoices(const QStringList &choices)
-{
-    bool changed = false;
-
-    // Check if we will be adding something
-    for (const QString &choice : choices) {
-        if (!m_choices.contains(choice)) {
-            changed = true;
-            m_choices << choice;
-        }
-    }
-
-    // Check if we will be removing something
-    for (const QString &choice : m_choices) {
-        if (!choices.contains(choice)) {
-            changed = true;
-            m_choices.removeAll(choice);
-        }
-    }
-
-    // If something changed, clear the layout and add the items again
-    if (changed) {
-        int rowCount = m_gridLayout->rowCount();
-        int columnCount = m_gridLayout->columnCount();
-
-        for (int i = 0; i < rowCount; ++i) {
-            for (int j  = 0; j < columnCount; ++j) {
-                QLayoutItem *item = m_gridLayout->itemAtPosition(i, j);
-                if (item) {
-                    QWidget *widget = item->widget();
-                    if (widget) {
-                        m_gridLayout->removeWidget(widget);
-                        widget->deleteLater();
-                    }
-                }
-            }
-        }
-
-        addDialogItems();
-    }
+    delete m_dialog;
 }
 
 QString AppChooserDialog::selectedApplication() const
 {
-    if (m_selectedApplication.isEmpty()) {
-        return m_defaultApp;
-    }
-
     return m_selectedApplication;
 }
 
-void AppChooserDialog::addDialogItems()
+void AppChooserDialog::onApplicationSelected(const QString& desktopFile)
 {
-    int i = 0, j = 0;
-    for (const QString &choice : m_choices) {
-        const QString desktopFile = choice + QStringLiteral(".desktop");
-        const QStringList desktopFilesLocations = QStandardPaths::locateAll(QStandardPaths::ApplicationsLocation, desktopFile, QStandardPaths::LocateFile);
-        for (const QString &desktopFile : desktopFilesLocations) {
+    m_selectedApplication = desktopFile;
+    QDialog::accept();
+}
+
+void AppChooserDialog::onOpenDiscover()
+{
+    KProcess::startDetached(QStringLiteral("plasma-discover"));
+}
+
+void AppChooserDialog::updateChoices(const QStringList &choices)
+{
+    m_model->setPreferredApps(choices);
+}
+
+ApplicationItem::ApplicationItem(const QString &name, const QString &icon, const QString &desktopFileName)
+    : m_applicationName(name)
+    , m_applicationIcon(icon)
+    , m_applicationDesktopFile(desktopFileName)
+    , m_applicationCategory(AllApplications)
+{
+}
+
+QString ApplicationItem::applicationName() const
+{
+    return m_applicationName;
+}
+
+QString ApplicationItem::applicationIcon() const
+{
+    return m_applicationIcon;
+}
+
+QString ApplicationItem::applicationDesktopFile() const
+{
+    return m_applicationDesktopFile;
+}
+
+void ApplicationItem::setApplicationCategory(ApplicationItem::ApplicationCategory category)
+{
+    m_applicationCategory = category;
+}
+
+ApplicationItem::ApplicationCategory ApplicationItem::applicationCategory() const
+{
+    return m_applicationCategory;
+}
+
+bool ApplicationItem::operator==(const ApplicationItem &item) const
+{
+    return item.applicationDesktopFile() == applicationDesktopFile();
+}
+
+AppFilterModel::AppFilterModel(QObject *parent)
+    : QSortFilterProxyModel(parent)
+{
+    setDynamicSortFilter(true);
+    setFilterCaseSensitivity(Qt::CaseInsensitive);
+    sort(0, Qt::DescendingOrder);
+}
+
+AppFilterModel::~AppFilterModel()
+{
+}
+
+void AppFilterModel::setShowOnlyPrefferedApps(bool show)
+{
+    m_showOnlyPreferredApps = show;
+
+    invalidate();
+}
+
+bool AppFilterModel::showOnlyPreferredApps() const
+{
+    return m_showOnlyPreferredApps;
+}
+
+void AppFilterModel::setFilter(const QString &text)
+{
+    m_filter = text;
+
+    invalidate();
+}
+
+QString AppFilterModel::filter() const
+{
+    return m_filter;
+}
+
+bool AppFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
+{
+    const QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
+
+    ApplicationItem::ApplicationCategory category = static_cast<ApplicationItem::ApplicationCategory>(sourceModel()->data(index, AppModel::ApplicationCategoryRole).toInt());
+    QString appName = sourceModel()->data(index, AppModel::ApplicationNameRole).toString();
+
+    if (m_showOnlyPreferredApps)
+        return category == ApplicationItem::PreferredApplication;
+
+    if (category == ApplicationItem::PreferredApplication)
+        return true;
+
+    if (m_filter.isEmpty())
+        return true;
+
+    return appName.toLower().contains(m_filter);
+}
+
+bool AppFilterModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
+{
+    ApplicationItem::ApplicationCategory leftCategory = static_cast<ApplicationItem::ApplicationCategory>(sourceModel()->data(left, AppModel::ApplicationCategoryRole).toInt());
+    ApplicationItem::ApplicationCategory rightCategory = static_cast<ApplicationItem::ApplicationCategory>(sourceModel()->data(right, AppModel::ApplicationCategoryRole).toInt());
+    QString leftName = sourceModel()->data(left, AppModel::ApplicationNameRole).toString();
+    QString rightName = sourceModel()->data(right, AppModel::ApplicationNameRole).toString();
+
+    if (leftCategory < rightCategory) {
+        return false;
+    } else if (leftCategory > rightCategory) {
+        return true;
+    }
+
+    return QString::localeAwareCompare(leftName, rightName) > 0;
+}
+
+AppModel::AppModel(QObject *parent)
+    : QAbstractListModel(parent)
+{
+    loadApplications();
+}
+
+AppModel::~AppModel()
+{
+}
+
+void AppModel::setPreferredApps(const QStringList &list)
+{
+    for (ApplicationItem &item : m_list) {
+        bool changed = false;
+
+        // First reset to initial type
+        if (item.applicationCategory() != ApplicationItem::AllApplications) {
+            item.setApplicationCategory(ApplicationItem::AllApplications);
+            changed = true;
+        }
+
+        if (list.contains(item.applicationDesktopFile())) {
+            item.setApplicationCategory(ApplicationItem::PreferredApplication);
+            changed = true;
+        }
+
+        if (changed) {
+            const int row = m_list.indexOf(item);
+            if (row >= 0) {
+                QModelIndex index = createIndex(row, 0, AppModel::ApplicationCategoryRole);
+                Q_EMIT dataChanged(index, index);
+            }
+        }
+    }
+}
+
+QVariant AppModel::data(const QModelIndex &index, int role) const
+{
+    const int row = index.row();
+
+    if (row >= 0 && row < m_list.count()) {
+        ApplicationItem item = m_list.at(row);
+
+        switch (role) {
+            case ApplicationNameRole:
+                return item.applicationName();
+            case ApplicationIconRole:
+                return item.applicationIcon();
+            case ApplicationDesktopFileRole:
+                return item.applicationDesktopFile();
+            case ApplicationCategoryRole:
+                return static_cast<int>(item.applicationCategory());
+            default:
+                break;
+        }
+    }
+
+    return QVariant();
+}
+
+int AppModel::rowCount(const QModelIndex &parent) const
+{
+    return parent.isValid() ? 0 : m_list.count();
+}
+
+QHash<int, QByteArray> AppModel::roleNames() const
+{
+    QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
+    roles[ApplicationNameRole] = "ApplicationName";
+    roles[ApplicationIconRole] = "ApplicationIcon";
+    roles[ApplicationDesktopFileRole] = "ApplicationDesktopFile";
+    roles[ApplicationCategoryRole] = "ApplicationCategory";
+
+    return roles;
+}
+
+void AppModel::loadApplications()
+{
+    for (const QString &location : QStandardPaths::standardLocations(QStandardPaths::ApplicationsLocation)) {
+        QDir dir(location);
+        for (QString &entry : dir.entryList(QStringList({QStringLiteral("*.desktop")}), QDir::Files, QDir::Name)) {
             QString applicationIcon;
             QString applicationName;
-            QSettings settings(desktopFile, QSettings::IniFormat);
+
+            QSettings settings(QStringLiteral("%1/%2").arg(dir.path()).arg(entry), QSettings::IniFormat);
             settings.beginGroup(QStringLiteral("Desktop Entry"));
             if (settings.contains(QStringLiteral("X-GNOME-FullName"))) {
                 applicationName = settings.value(QStringLiteral("X-GNOME-FullName")).toString();
@@ -157,23 +295,14 @@ void AppChooserDialog::addDialogItems()
             }
             applicationIcon = settings.value(QStringLiteral("Icon")).toString();
 
-            AppChooserDialogItem *item = new AppChooserDialogItem(applicationName, applicationIcon, choice, this);
-            m_gridLayout->addWidget(item, i, j++, Qt::AlignHCenter);
+            const QString desktopFileWithoutSuffix = entry.remove(QStringLiteral(".desktop"));
+            if (applicationName.isEmpty() || applicationIcon.isEmpty())
+                continue;
 
-            connect(item, &AppChooserDialogItem::clicked, this, [this] (const QString &selectedApplication) {
-                m_selectedApplication = selectedApplication;
-                QDialog::accept();
-            });
+            ApplicationItem appItem(applicationName, applicationIcon, desktopFileWithoutSuffix);
 
-            if (choice == m_defaultApp) {
-                item->setDown(true);
-                item->setChecked(true);
-            }
-
-            if (j == 3) {
-                i++;
-                j = 0;
-            }
+            if (!m_list.contains(appItem))
+                m_list.append(appItem);
         }
     }
 }

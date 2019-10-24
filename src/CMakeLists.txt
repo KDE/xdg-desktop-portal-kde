@@ -8,7 +8,6 @@ set(xdg_desktop_portal_kde_SRCS
     accessdialog.cpp
     appchooser.cpp
     appchooserdialog.cpp
-    appchooserdialogitem.cpp
     desktopportal.cpp
     email.cpp
     filechooser.cpp
@@ -41,6 +40,7 @@ endif()
 
 ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
     accessdialog.ui
+    appchooserdialog.ui
     screenshotdialog.ui
 )
 
@@ -51,9 +51,11 @@ target_link_libraries(xdg-desktop-portal-kde
     Qt5::DBus
     Qt5::Concurrent
     Qt5::PrintSupport
+    Qt5::QuickWidgets
     Qt5::Widgets
     KF5::CoreAddons
     KF5::ConfigCore
+    KF5::Declarative
     KF5::I18n
     KF5::KIOFileWidgets
     KF5::Notifications
@@ -70,3 +72,7 @@ if (SCREENCAST_ENABLED)
 endif()
 
 install(TARGETS xdg-desktop-portal-kde DESTINATION ${KDE_INSTALL_LIBEXECDIR})
+
+install(FILES
+    qml/AppChooserDialog.qml
+    DESTINATION ${KDE_INSTALL_DATADIR}/xdg-desktop-portal-kde/qml)
