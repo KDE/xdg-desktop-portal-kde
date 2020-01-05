@@ -62,7 +62,7 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
     if (applicationName.isEmpty()) {
         setWindowTitle(i18n("Select screen to share with the requesting application"));
     } else {
-        setWindowTitle(i18n("Select screen to share with %1").arg(applicationName));
+        setWindowTitle(i18n("Select screen to share with %1", applicationName));
     }
 }
 

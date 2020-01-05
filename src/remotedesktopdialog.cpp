@@ -73,7 +73,7 @@ RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName, RemoteDesktopPo
     if (applicationName.isEmpty()) {
         setWindowTitle(i18n("Select what to share with the requesting application"));
     } else {
-        setWindowTitle(i18n("Select what to share with %1").arg(applicationName));
+        setWindowTitle(i18n("Select what to share with %1", applicationName));
     }
 }
 

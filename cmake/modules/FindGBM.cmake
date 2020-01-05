@@ -102,6 +102,6 @@ mark_as_advanced(GBM_LIBRARIES GBM_INCLUDE_DIRS)
 
 include(FeatureSummary)
 set_package_properties(GBM PROPERTIES
-    URL "http://www.mesa3d.org"
+    URL "https://www.mesa3d.org"
     DESCRIPTION "Mesa gbm library."
 )

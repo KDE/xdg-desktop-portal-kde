@@ -70,7 +70,7 @@ struct StandardPageSize {
 };
 
 // Standard page sizes taken from the Postscript PPD Standard v4.3
-// See http://partners.adobe.com/public/developer/en/ps/5003.PPD_Spec_v4.3.pdf
+// See https://www-cdf.fnal.gov/offline/PostScript/5003.PPD_Spec_v4.3.pdf
 // Excludes all Transverse and Rotated sizes
 // NB!This table needs to be in sync with QPageSize::PageSizeId
 const static StandardPageSize qt_pageSizes[] = {

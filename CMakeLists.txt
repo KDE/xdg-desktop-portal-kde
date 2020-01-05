@@ -34,7 +34,7 @@ set_package_properties(GBM PROPERTIES
 
 find_package(Epoxy)
 set_package_properties(Epoxy PROPERTIES DESCRIPTION "libepoxy"
-    URL "http://github.com/anholt/libepoxy"
+    URL "https://github.com/anholt/libepoxy"
     TYPE OPTIONAL
     PURPOSE "Required for screencast portal"
 )
