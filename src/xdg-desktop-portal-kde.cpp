@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
         }
     } else {
         qCDebug(XdgDesktopPortalKde) << "Failed to register org.freedesktop.impl.portal.desktop.kde service";
+        return 1;
     }
 
     return a.exec();
