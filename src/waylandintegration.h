@@ -84,6 +84,7 @@ Q_SIGNALS:
     bool isEGLInitialized();
     bool isStreamingEnabled();
 
+    void startStreamingInput();
     bool startStreaming(quint32 outputName);
     void stopStreaming();
 

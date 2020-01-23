@@ -140,6 +140,10 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
             }
 
             results.insert(QStringLiteral("streams"), streams);
+        } else {
+            qCWarning(XdgDesktopPortalKdeRemoteDesktop()) << "Only stream input";
+            WaylandIntegration::startStreamingInput();
+            WaylandIntegration::authenticate();
         }
 
         results.insert(QStringLiteral("devices"), QVariant::fromValue<uint>(remoteDesktopDialog->deviceTypes()));
