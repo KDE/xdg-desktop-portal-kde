@@ -71,6 +71,11 @@ bool WaylandIntegration::isStreamingEnabled()
     return globalWaylandIntegration->isStreamingEnabled();
 }
 
+void WaylandIntegration::startStreamingInput()
+{
+    globalWaylandIntegration->startStreamingInput();
+}
+
 bool WaylandIntegration::startStreaming(quint32 outputName)
 {
     return globalWaylandIntegration->startStreaming(outputName);
@@ -244,6 +249,11 @@ void WaylandIntegration::WaylandIntegrationPrivate::bindOutput(int outputName, i
     m_bindOutputs << output;
 }
 
+void WaylandIntegration::WaylandIntegrationPrivate::startStreamingInput()
+{
+    m_streamInput = true;
+}
+
 bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(quint32 outputName)
 {
     WaylandOutput output = m_outputMap.value(outputName);
@@ -254,6 +264,7 @@ bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(quint32 outpu
 
     connect(m_stream, &ScreenCastStream::startStreaming, this, [this, output] {
         m_streamingEnabled = true;
+        startStreamingInput();
         bindOutput(output.waylandOutputName(), output.waylandOutputVersion());
     });
 
@@ -310,6 +321,7 @@ bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(quint32 outpu
 
 void WaylandIntegration::WaylandIntegrationPrivate::stopStreaming()
 {
+    m_streamInput = false;
     if (m_streamingEnabled) {
         m_streamingEnabled = false;
 
@@ -330,35 +342,35 @@ void WaylandIntegration::WaylandIntegrationPrivate::stopStreaming()
 
 void WaylandIntegration::WaylandIntegrationPrivate::requestPointerButtonPress(quint32 linuxButton)
 {
-    if (m_streamingEnabled && m_fakeInput) {
+    if (m_streamInput && m_fakeInput) {
         m_fakeInput->requestPointerButtonPress(linuxButton);
     }
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::requestPointerButtonRelease(quint32 linuxButton)
 {
-    if (m_streamingEnabled && m_fakeInput) {
+    if (m_streamInput && m_fakeInput) {
         m_fakeInput->requestPointerButtonRelease(linuxButton);
     }
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::requestPointerMotion(const QSizeF &delta)
 {
-    if (m_streamingEnabled && m_fakeInput) {
+    if (m_streamInput && m_fakeInput) {
         m_fakeInput->requestPointerMove(delta);
     }
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::requestPointerMotionAbsolute(const QPointF &pos)
 {
-    if (m_streamingEnabled && m_fakeInput) {
+    if (m_streamInput && m_fakeInput) {
         m_fakeInput->requestPointerMoveAbsolute(pos + m_streamedScreenPosition);
     }
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta)
 {
-    if (m_streamingEnabled && m_fakeInput) {
+    if (m_streamInput && m_fakeInput) {
         m_fakeInput->requestPointerAxis(axis, delta);
     }
 }

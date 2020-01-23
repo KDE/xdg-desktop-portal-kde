@@ -70,6 +70,7 @@ public:
     bool isStreamingEnabled() const;
 
     void bindOutput(int outputName, int outputVersion);
+    void startStreamingInput();
     bool startStreaming(quint32 outputName);
     void stopStreaming();
 
@@ -91,6 +92,7 @@ protected Q_SLOTS:
 private:
     bool m_eglInitialized;
     bool m_streamingEnabled;
+    bool m_streamInput = false;
     bool m_registryInitialized;
     bool m_waylandAuthenticationRequested;
 
