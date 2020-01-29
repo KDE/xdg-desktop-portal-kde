@@ -1,5 +1,5 @@
 /*
- * Copyright © 2018 Red Hat, Inc
+ * Copyright © 2018-2020 Red Hat, Inc
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -24,22 +24,16 @@
 #include <QObject>
 #include <QSize>
 
-#include <pipewire/version.h>
-
-#if !PW_CHECK_VERSION(0, 2, 9)
-#include <spa/support/type-map.h>
+#include <pipewire/pipewire.h>
 #include <spa/param/format-utils.h>
-#include <spa/param/video/raw-utils.h>
-#endif
 #include <spa/param/video/format-utils.h>
 #include <spa/param/props.h>
 
-#include <pipewire/factory.h>
-#include <pipewire/pipewire.h>
-#include <pipewire/remote.h>
-#include <pipewire/stream.h>
+#if PW_CHECK_VERSION(0, 2, 90)
+#include <spa/utils/result.h>
+#endif
 
-#if !PW_CHECK_VERSION(0, 2, 9)
+#if !PW_CHECK_VERSION(0, 2, 90)
 class PwType {
 public:
   spa_type_media_type media_type;
@@ -49,8 +43,6 @@ public:
 };
 #endif
 
-class QSocketNotifier;
-
 class ScreenCastStream : public QObject
 {
     Q_OBJECT
@@ -58,9 +50,14 @@ public:
     explicit ScreenCastStream(const QSize &resolution, QObject *parent = nullptr);
     ~ScreenCastStream();
 
+#if PW_CHECK_VERSION(0, 2, 90)
+    static void onCoreError(void *data, uint32_t id, int seq, int res, const char *message);
+    static void onStreamParamChanged(void *data, uint32_t id, const struct spa_pod *format);
+#else
     static void onStateChanged(void *data, pw_remote_state old, pw_remote_state state, const char *error);
-    static void onStreamStateChanged(void *data, pw_stream_state old, pw_stream_state state, const char *error_message);
     static void onStreamFormatChanged(void *data, const struct spa_pod *format);
+#endif
+    static void onStreamStateChanged(void *data, pw_stream_state old, pw_stream_state state, const char *error_message);
     static void onStreamProcess(void *data);
 
     // Public
@@ -69,7 +66,7 @@ public:
     uint nodeId();
 
     // Public because we need access from static functions
-    bool createStream();
+    pw_stream *createStream();
     void removeStream();
 
 public Q_SLOTS:
@@ -80,18 +77,26 @@ Q_SIGNALS:
     void startStreaming();
     void stopStreaming();
 
-#if !PW_CHECK_VERSION(0, 2, 9)
+#if !PW_CHECK_VERSION(0, 2, 90)
 private:
     void initializePwTypes();
 #endif
 
 public:
-#if PW_CHECK_VERSION(0, 2, 9)
+#if PW_CHECK_VERSION(0, 2, 90)
+    struct pw_context *pwContext = nullptr;
     struct pw_core *pwCore = nullptr;
-    struct pw_loop *pwLoop = nullptr;
     struct pw_stream *pwStream = nullptr;
-    struct pw_remote *pwRemote = nullptr;
     struct pw_thread_loop *pwMainLoop = nullptr;
+
+    spa_hook coreListener;
+    spa_hook streamListener;
+
+    // event handlers
+    pw_core_events pwCoreEvents = {};
+    pw_stream_events pwStreamEvents = {};
+
+    uint32_t pwNodeId = 0;
 #else
     pw_core *pwCore = nullptr;
     pw_loop *pwLoop = nullptr;
@@ -100,7 +105,6 @@ public:
     pw_remote *pwRemote = nullptr;
     pw_type *pwCoreType = nullptr;
     PwType *pwType = nullptr;
-#endif
 
     spa_hook remoteListener;
     spa_hook streamListener;
@@ -108,6 +112,7 @@ public:
     // event handlers
     pw_remote_events pwRemoteEvents = {};
     pw_stream_events pwStreamEvents = {};
+#endif
 
     QSize resolution;
 

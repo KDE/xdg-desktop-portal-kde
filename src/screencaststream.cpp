@@ -1,5 +1,5 @@
 /*
- * Copyright © 2018 Red Hat, Inc
+ * Copyright © 2018-2020 Red Hat, Inc
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -27,7 +27,6 @@
 #include <stdio.h>
 
 #include <QLoggingCategory>
-#include <QSize>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeScreenCastStream, "xdp-kde-screencast-stream")
 
@@ -141,6 +140,21 @@ static PwFraction pipewireFractionFromDouble(double src)
     return fraction;
 }
 
+#if PW_CHECK_VERSION(0, 2, 90)
+void ScreenCastStream::onCoreError(void *data, uint32_t id, int seq, int res, const char *message)
+{
+    Q_UNUSED(seq)
+    ScreenCastStream *pw = static_cast<ScreenCastStream*>(data);
+
+    qCWarning(XdgDesktopPortalKdeScreenCastStream) << "PipeWire remote error: " << message;
+
+    if (id == PW_ID_CORE) {
+        if (res == -EPIPE) {
+            Q_EMIT pw->stopStreaming();
+        }
+    }
+}
+#else
 void ScreenCastStream::onStateChanged(void *data, pw_remote_state old, pw_remote_state state, const char *error)
 {
     Q_UNUSED(old);
@@ -155,7 +169,8 @@ void ScreenCastStream::onStateChanged(void *data, pw_remote_state old, pw_remote
     case PW_REMOTE_STATE_CONNECTED:
         // TODO notify error
         qCDebug(XdgDesktopPortalKdeScreenCastStream) << "Remote state: " << pw_remote_state_as_string(state);
-        if (!pw->createStream()) {
+        pw->pwStream = pw->createStream();
+        if (!pw->pwStream) {
             Q_EMIT pw->stopStreaming();
         }
         break;
@@ -164,6 +179,7 @@ void ScreenCastStream::onStateChanged(void *data, pw_remote_state old, pw_remote
         break;
     }
 }
+#endif
 
 void ScreenCastStream::onStreamStateChanged(void *data, pw_stream_state old, pw_stream_state state, const char *error_message)
 {
@@ -171,6 +187,31 @@ void ScreenCastStream::onStreamStateChanged(void *data, pw_stream_state old, pw_
 
     ScreenCastStream *pw = static_cast<ScreenCastStream*>(data);
 
+#if PW_CHECK_VERSION(0, 2, 90)
+    switch (state) {
+    case PW_STREAM_STATE_ERROR:
+        qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Stream error: " << error_message;
+        break;
+    case PW_STREAM_STATE_PAUSED:
+        qCDebug(XdgDesktopPortalKdeScreenCastStream) << "Stream state: " << pw_stream_state_as_string(state);
+        if (pw->nodeId() == 0 && pw->pwStream) {
+            pw->pwNodeId = pw_stream_get_node_id(pw->pwStream);
+            Q_EMIT pw->streamReady(pw->nodeId());
+        }
+        if (WaylandIntegration::isStreamingEnabled()) {
+            Q_EMIT pw->stopStreaming();
+        }
+        break;
+    case PW_STREAM_STATE_STREAMING:
+        qCDebug(XdgDesktopPortalKdeScreenCastStream) << "Stream state: " << pw_stream_state_as_string(state);
+        Q_EMIT pw->startStreaming();
+        break;
+    case PW_STREAM_STATE_UNCONNECTED:
+    case PW_STREAM_STATE_CONNECTING:
+        qCDebug(XdgDesktopPortalKdeScreenCastStream) << "Stream state: " << pw_stream_state_as_string(state);
+        break;
+    }
+#else
     switch (state) {
     case PW_STREAM_STATE_ERROR:
         qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Stream error: " << error_message;
@@ -191,9 +232,14 @@ void ScreenCastStream::onStreamStateChanged(void *data, pw_stream_state old, pw_
         Q_EMIT pw->startStreaming();
         break;
     }
+#endif
 }
 
+#if PW_CHECK_VERSION(0, 2, 90)
+void ScreenCastStream::onStreamParamChanged(void *data, uint32_t id, const struct spa_pod *format)
+#else
 void ScreenCastStream::onStreamFormatChanged(void *data, const struct spa_pod *format)
+#endif
 {
     qCDebug(XdgDesktopPortalKdeScreenCastStream) << "Stream format changed";
 
@@ -205,12 +251,16 @@ void ScreenCastStream::onStreamFormatChanged(void *data, const struct spa_pod *f
     const struct spa_pod *params[1];
     const int bpp = 4;
 
+#if PW_CHECK_VERSION(0, 2, 90)
+    if (!format || id != SPA_PARAM_Format) {
+#else
     if (!format) {
         pw_stream_finish_format(pw->pwStream, 0, nullptr, 0);
+#endif
         return;
     }
 
-#if PW_CHECK_VERSION(0, 2, 9)
+#if PW_CHECK_VERSION(0, 2, 90)
     spa_format_video_raw_parse (format, &pw->videoFormat);
 #else
     spa_format_video_raw_parse (format, &pw->videoFormat, &pw->pwType->format_video);
@@ -223,13 +273,15 @@ void ScreenCastStream::onStreamFormatChanged(void *data, const struct spa_pod *f
 
     pod_builder = SPA_POD_BUILDER_INIT (paramsBuffer, sizeof (paramsBuffer));
 
-#if PW_CHECK_VERSION(0, 2, 9)
+#if PW_CHECK_VERSION(0, 2, 90)
     params[0] = (spa_pod*) spa_pod_builder_add_object(&pod_builder,
-                                                   SPA_TYPE_OBJECT_ParamBuffers, SPA_PARAM_Buffers,
-                                                   ":", SPA_PARAM_BUFFERS_buffers, "?ri", SPA_CHOICE_RANGE(16, 2, 16),
-                                                   ":", SPA_PARAM_BUFFERS_size, "i", size,
-                                                   ":", SPA_PARAM_BUFFERS_stride, "i", stride,
-                                                   ":", SPA_PARAM_BUFFERS_align, "i", 16);
+                                                      SPA_TYPE_OBJECT_ParamBuffers, SPA_PARAM_Buffers,
+                                                      SPA_PARAM_BUFFERS_buffers, SPA_POD_CHOICE_RANGE_Int(16, 2, 16),
+                                                      SPA_PARAM_BUFFERS_blocks, SPA_POD_Int (1),
+                                                      SPA_PARAM_BUFFERS_size, SPA_POD_Int(size),
+                                                      SPA_PARAM_BUFFERS_stride, SPA_POD_Int(stride),
+                                                      SPA_PARAM_BUFFERS_align, SPA_POD_Int(16));
+    pw_stream_update_params(pw->pwStream, params, 1);
 #else
     params[0] = (spa_pod*) spa_pod_builder_object(&pod_builder,
                                                    pw->pwCoreType->param.idBuffers, pw->pwCoreType->param_buffers.Buffers,
@@ -237,14 +289,22 @@ void ScreenCastStream::onStreamFormatChanged(void *data, const struct spa_pod *f
                                                    ":", pw->pwCoreType->param_buffers.stride, "i", stride,
                                                    ":", pw->pwCoreType->param_buffers.buffers, "iru", 16, PROP_RANGE (2, 16),
                                                    ":", pw->pwCoreType->param_buffers.align, "i", 16);
-#endif
     pw_stream_finish_format (pw->pwStream, 0, params, 1);
+#endif
 }
 
 ScreenCastStream::ScreenCastStream(const QSize &resolution, QObject *parent)
     : QObject(parent)
     , resolution(resolution)
 {
+#if PW_CHECK_VERSION(0, 2, 90)
+    pwCoreEvents.version = PW_VERSION_CORE_EVENTS;
+    pwCoreEvents.error = &onCoreError;
+
+    pwStreamEvents.version = PW_VERSION_STREAM_EVENTS;
+    pwStreamEvents.state_changed = &onStreamStateChanged;
+    pwStreamEvents.param_changed = &onStreamParamChanged;
+#else
     // initialize event handlers, remote end and stream-related
     pwRemoteEvents.version = PW_VERSION_REMOTE_EVENTS;
     pwRemoteEvents.state_changed = &onStateChanged;
@@ -252,6 +312,7 @@ ScreenCastStream::ScreenCastStream(const QSize &resolution, QObject *parent)
     pwStreamEvents.version = PW_VERSION_STREAM_EVENTS;
     pwStreamEvents.state_changed = &onStreamStateChanged;
     pwStreamEvents.format_changed = &onStreamFormatChanged;
+#endif
 }
 
 ScreenCastStream::~ScreenCastStream()
@@ -260,7 +321,7 @@ ScreenCastStream::~ScreenCastStream()
         pw_thread_loop_stop(pwMainLoop);
     }
 
-#if !PW_CHECK_VERSION(0, 2, 9)
+#if !PW_CHECK_VERSION(0, 2, 90)
     if (pwType) {
         delete pwType;
     }
@@ -270,45 +331,80 @@ ScreenCastStream::~ScreenCastStream()
         pw_stream_destroy(pwStream);
     }
 
+#if !PW_CHECK_VERSION(0, 2, 90)
     if (pwRemote) {
         pw_remote_destroy(pwRemote);
     }
+#endif
 
-    if (pwCore)
+#if PW_CHECK_VERSION(0, 2, 90)
+    if (pwCore) {
+        pw_core_disconnect(pwCore);
+    }
+
+    if (pwContext) {
+        pw_context_destroy(pwContext);
+    }
+#else
+    if (pwCore) {
         pw_core_destroy(pwCore);
+    }
+#endif
 
     if (pwMainLoop) {
         pw_thread_loop_destroy(pwMainLoop);
     }
 
+#if !PW_CHECK_VERSION(0, 2, 90)
     if (pwLoop) {
+        pw_loop_leave(pwLoop);
         pw_loop_destroy(pwLoop);
     }
+#endif
 }
 
 void ScreenCastStream::init()
 {
     pw_init(nullptr, nullptr);
 
+#if PW_CHECK_VERSION(0, 2, 90)
+    pwMainLoop = pw_thread_loop_new("pipewire-main-loop", nullptr);
+    pwContext = pw_context_new(pw_thread_loop_get_loop(pwMainLoop), nullptr, 0);
+    if (!pwContext) {
+        qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to create PipeWire context";
+        return;
+    }
+
+    pwCore = pw_context_connect(pwContext, nullptr, 0);
+    if (!pwCore) {
+        qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to connect PipeWire context";
+        return;
+    }
+
+    pw_core_add_listener(pwCore, &coreListener, &pwCoreEvents, this);
+
+    pwStream = createStream();
+    if (!pwStream) {
+        qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to create PipeWire stream";
+        return;
+    }
+#else
     pwLoop = pw_loop_new(nullptr);
     pwMainLoop = pw_thread_loop_new(pwLoop, "pipewire-main-loop");
-
     pwCore = pw_core_new(pwLoop, nullptr);
-#if !PW_CHECK_VERSION(0, 2, 9)
     pwCoreType = pw_core_get_type(pwCore);
-#endif
     pwRemote = pw_remote_new(pwCore, nullptr, 0);
 
-#if !PW_CHECK_VERSION(0, 2, 9)
     initializePwTypes();
-#endif
 
     pw_remote_add_listener(pwRemote, &remoteListener, &pwRemoteEvents, this);
-
     pw_remote_connect(pwRemote);
+#endif
+
 
     if (pw_thread_loop_start(pwMainLoop) < 0) {
         qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to start main PipeWire loop";
+        return;
     }
 }
 
@@ -323,19 +419,25 @@ uint ScreenCastStream::framerate()
 
 uint ScreenCastStream::nodeId()
 {
+#if PW_CHECK_VERSION(0, 2, 90)
+    return pwNodeId;
+#else
     if (pwStream) {
         return (uint)pw_stream_get_node_id(pwStream);
     }
 
     return 0;
+#endif
 }
 
-bool ScreenCastStream::createStream()
+pw_stream *ScreenCastStream::createStream()
 {
+#if !PW_CHECK_VERSION(0, 2, 90)
     if (pw_remote_get_state(pwRemote, nullptr) != PW_REMOTE_STATE_CONNECTED) {
         qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Cannot create pipewire stream";
-        return false;
+        return nullptr;
     }
+#endif
 
     uint8_t buffer[1024];
     spa_pod_builder podBuilder = SPA_POD_BUILDER_INIT(buffer, sizeof(buffer));
@@ -346,7 +448,11 @@ bool ScreenCastStream::createStream()
     spa_fraction minFramerate;
     const spa_pod *params[1];
 
-    pwStream = pw_stream_new(pwRemote, "kwin-screen-cast", nullptr);
+#if PW_CHECK_VERSION(0, 2, 90)
+    auto stream = pw_stream_new(pwCore, "kwin-screen-cast", nullptr);
+#else
+    auto stream = pw_stream_new(pwRemote, "kwin-screen-cast", nullptr);
+#endif
 
     PwFraction fraction = pipewireFractionFromDouble(frameRate);
 
@@ -358,15 +464,15 @@ bool ScreenCastStream::createStream()
 
     spa_fraction paramFraction = SPA_FRACTION(0, 1);
 
-#if PW_CHECK_VERSION(0, 2, 9)
+#if PW_CHECK_VERSION(0, 2, 90)
     params[0] = (spa_pod*)spa_pod_builder_add_object(&podBuilder,
                                         SPA_TYPE_OBJECT_Format, SPA_PARAM_EnumFormat,
-                                        ":", SPA_FORMAT_mediaType, "I", SPA_MEDIA_TYPE_video,
-                                        ":", SPA_FORMAT_mediaSubtype, "I", SPA_MEDIA_SUBTYPE_raw,
-                                        ":", SPA_FORMAT_VIDEO_format, "I", SPA_VIDEO_FORMAT_RGBx,
-                                        ":", SPA_FORMAT_VIDEO_size, "?rR", SPA_CHOICE_RANGE(&maxResolution, &minResolution, &maxResolution),
-                                        ":", SPA_FORMAT_VIDEO_framerate, "F", &paramFraction,
-                                        ":", SPA_FORMAT_VIDEO_maxFramerate, "?rF", SPA_CHOICE_RANGE(&maxFramerate, &minFramerate, &maxFramerate));
+                                        SPA_FORMAT_mediaType, SPA_POD_Id(SPA_MEDIA_TYPE_video),
+                                        SPA_FORMAT_mediaSubtype, SPA_POD_Id(SPA_MEDIA_SUBTYPE_raw),
+                                        SPA_FORMAT_VIDEO_format, SPA_POD_Id(SPA_VIDEO_FORMAT_RGBx),
+                                        SPA_FORMAT_VIDEO_size, SPA_POD_CHOICE_RANGE_Rectangle(&maxResolution, &minResolution, &maxResolution),
+                                        SPA_FORMAT_VIDEO_framerate, SPA_POD_Fraction(&paramFraction),
+                                        SPA_FORMAT_VIDEO_maxFramerate, SPA_POD_CHOICE_RANGE_Fraction(&maxFramerate, &minFramerate, &maxFramerate));
 #else
     params[0] = (spa_pod*)spa_pod_builder_object(&podBuilder,
                                         pwCoreType->param.idEnumFormat, pwCoreType->spa_format,
@@ -378,20 +484,20 @@ bool ScreenCastStream::createStream()
                                         ":", pwType->format_video.max_framerate, "Fru", &maxFramerate, PROP_RANGE (&minFramerate, &maxFramerate));
 #endif
 
-    pw_stream_add_listener(pwStream, &streamListener, &pwStreamEvents, this);
+    pw_stream_add_listener(stream, &streamListener, &pwStreamEvents, this);
 
     auto flags = static_cast<pw_stream_flags>(PW_STREAM_FLAG_DRIVER | PW_STREAM_FLAG_MAP_BUFFERS);
 
-#if PW_CHECK_VERSION(0, 2, 9)
-    if (pw_stream_connect(pwStream, PW_DIRECTION_OUTPUT, 0, flags, params, 1) != 0) {
+#if PW_CHECK_VERSION(0, 2, 90)
+    if (pw_stream_connect(stream, PW_DIRECTION_OUTPUT, SPA_ID_INVALID, flags, params, 1) != 0) {
 #else
-    if (pw_stream_connect(pwStream, PW_DIRECTION_OUTPUT, nullptr, flags, params, 1) != 0) {
+    if (pw_stream_connect(stream, PW_DIRECTION_OUTPUT, nullptr, flags, params, 1) != 0) {
 #endif
         qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Could not connect to stream";
-        return false;
+        return nullptr;
     }
 
-    return true;
+    return stream;
 }
 
 bool ScreenCastStream::recordFrame(uint8_t *screenData)
@@ -426,7 +532,7 @@ void ScreenCastStream::removeStream()
     pw_stream_disconnect(pwStream);
 }
 
-#if !PW_CHECK_VERSION(0, 2, 9)
+#if !PW_CHECK_VERSION(0, 2, 90)
 void ScreenCastStream::initializePwTypes()
 {
     // raw C-like ScreenCastStream type map

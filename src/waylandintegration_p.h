@@ -67,6 +67,7 @@ public:
     void initWayland();
 
     bool isEGLInitialized() const;
+    bool isStreamingEnabled() const;
 
     void bindOutput(int outputName, int outputVersion);
     bool startStreaming(quint32 outputName);

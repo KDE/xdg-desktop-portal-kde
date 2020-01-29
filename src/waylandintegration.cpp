@@ -66,6 +66,11 @@ bool WaylandIntegration::isEGLInitialized()
     return globalWaylandIntegration->isEGLInitialized();
 }
 
+bool WaylandIntegration::isStreamingEnabled()
+{
+    return globalWaylandIntegration->isStreamingEnabled();
+}
+
 bool WaylandIntegration::startStreaming(quint32 outputName)
 {
     return globalWaylandIntegration->startStreaming(outputName);
@@ -225,6 +230,11 @@ WaylandIntegration::WaylandIntegrationPrivate::~WaylandIntegrationPrivate()
 bool WaylandIntegration::WaylandIntegrationPrivate::isEGLInitialized() const
 {
     return m_eglInitialized;
+}
+
+bool WaylandIntegration::WaylandIntegrationPrivate::isStreamingEnabled() const
+{
+    return m_streamingEnabled;
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::bindOutput(int outputName, int outputVersion)
