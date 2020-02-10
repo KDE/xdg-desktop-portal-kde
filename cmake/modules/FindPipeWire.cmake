@@ -109,7 +109,7 @@ if(PipeWire_FOUND AND NOT TARGET PipeWire::PipeWire)
     set_target_properties(PipeWire::PipeWire PROPERTIES
         IMPORTED_LOCATION "${PipeWire_LIBRARIES}"
         INTERFACE_COMPILE_OPTIONS "${PipeWire_DEFINITIONS}"
-        INTERFACE_INCLUDE_DIRECTORIES "${PipeWire_INCLUDE_DIRS}" "${Spa_INCLUDE_DIRS}"
+        INTERFACE_INCLUDE_DIRECTORIES "${PipeWire_INCLUDE_DIRS};${Spa_INCLUDE_DIRS}"
     )
 endif()
 
