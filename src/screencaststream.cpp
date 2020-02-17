@@ -249,7 +249,6 @@ void ScreenCastStream::onStreamFormatChanged(void *data, const struct spa_pod *f
     int32_t width, height, stride, size;
     struct spa_pod_builder pod_builder;
     const struct spa_pod *params[1];
-    const int bpp = 4;
 
 #if PW_CHECK_VERSION(0, 2, 90)
     if (!format || id != SPA_PARAM_Format) {
@@ -268,7 +267,7 @@ void ScreenCastStream::onStreamFormatChanged(void *data, const struct spa_pod *f
 
     width = pw->videoFormat.size.width;
     height =pw->videoFormat.size.height;
-    stride = SPA_ROUND_UP_N (width * bpp, 4);
+    stride = SPA_ROUND_UP_N (width * BITS_PER_PIXEL, 4);
     size = height * stride;
 
     pod_builder = SPA_POD_BUILDER_INIT (paramsBuffer, sizeof (paramsBuffer));
@@ -518,7 +517,9 @@ bool ScreenCastStream::recordFrame(uint8_t *screenData)
 
     memcpy(data, screenData, BITS_PER_PIXEL * videoFormat.size.height * videoFormat.size.width * sizeof(uint8_t));
 
+    spa_buffer->datas[0].chunk->offset = 0;
     spa_buffer->datas[0].chunk->size = spa_buffer->datas[0].maxsize;
+    spa_buffer->datas[0].chunk->stride = SPA_ROUND_UP_N (videoFormat.size.width * BITS_PER_PIXEL, 4);
 
     pw_stream_queue_buffer(pwStream, buffer);
     return true;
