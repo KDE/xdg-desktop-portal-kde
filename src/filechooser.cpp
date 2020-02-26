@@ -202,6 +202,12 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
            QUrl url = QUrl::fromLocalFile(filename);
            files << url.toDisplayString();
         }
+
+        if (files.isEmpty()) {
+            qCDebug(XdgDesktopPortalKdeFileChooser) << "Failed to open file: no local file selected";
+            return 2;
+        }
+
         results.insert(QStringLiteral("uris"), files);
         return 0;
     }
