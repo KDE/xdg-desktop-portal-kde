@@ -25,6 +25,7 @@
 #include <QDBusContext>
 
 #include "access.h"
+#include "account.h"
 #include "appchooser.h"
 #include "email.h"
 #include "filechooser.h"
@@ -48,6 +49,7 @@ public:
 
 private:
     AccessPortal *m_access;
+    AccountPortal *m_account;
     AppChooserPortal *m_appChooser;
     EmailPortal *m_email;
     FileChooserPortal *m_fileChooser;

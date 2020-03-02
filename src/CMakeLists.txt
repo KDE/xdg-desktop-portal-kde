@@ -6,6 +6,7 @@ set(xdg_desktop_portal_kde_SRCS
     xdg-desktop-portal-kde.cpp
     access.cpp
     accessdialog.cpp
+    account.cpp
     appchooser.cpp
     appchooserdialog.cpp
     desktopportal.cpp
@@ -20,6 +21,7 @@ set(xdg_desktop_portal_kde_SRCS
     screenshotdialog.cpp
     settings.cpp
     utils.cpp
+    userinfodialog.cpp
 )
 
 if (SCREENCAST_ENABLED)
@@ -42,7 +44,12 @@ ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
     accessdialog.ui
     appchooserdialog.ui
     screenshotdialog.ui
+    userinfodialog.ui
 )
+
+set_source_files_properties(../data/org.freedesktop.Accounts.User.xml PROPERTIES NO_NAMESPACE TRUE)
+
+qt5_add_dbus_interface(xdg_desktop_portal_kde_SRCS ../data/org.freedesktop.Accounts.User.xml user_interface)
 
 add_executable(xdg-desktop-portal-kde ${xdg_desktop_portal_kde_SRCS})
 
@@ -75,4 +82,5 @@ install(TARGETS xdg-desktop-portal-kde DESTINATION ${KDE_INSTALL_LIBEXECDIR})
 
 install(FILES
     qml/AppChooserDialog.qml
+    qml/UserInfoDialog.qml
     DESTINATION ${KDE_INSTALL_DATADIR}/xdg-desktop-portal-kde/qml)
