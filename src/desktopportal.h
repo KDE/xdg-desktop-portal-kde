@@ -26,6 +26,7 @@
 
 #include "access.h"
 #include "appchooser.h"
+#include "background.h"
 #include "email.h"
 #include "filechooser.h"
 #include "inhibit.h"
@@ -49,6 +50,7 @@ public:
 private:
     AccessPortal *m_access;
     AppChooserPortal *m_appChooser;
+    BackgroundPortal *m_background;
     EmailPortal *m_email;
     FileChooserPortal *m_fileChooser;
     InhibitPortal *m_inhibit;
