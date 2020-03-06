@@ -55,7 +55,11 @@ uint AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
         latestChoice = options.value(QStringLiteral("last_choice")).toString();
     }
 
-    AppChooserDialog *appDialog = new AppChooserDialog(choices, latestChoice, options.value(QStringLiteral("filename")).toString());
+    QVariant itemName = options.value(QStringLiteral("filename"));
+    if (!itemName.isValid()) {
+        itemName = options.value(QStringLiteral("content_type"));
+    }
+    AppChooserDialog *appDialog = new AppChooserDialog(choices, latestChoice, itemName.toString());
     m_appChooserDialogs.insert(handle.path(), appDialog);
     Utils::setParentWindow(appDialog, parent_window);
 
