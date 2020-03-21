@@ -268,6 +268,20 @@ void RemoteDesktopPortal::NotifyKeyboardKeycode(const QDBusObjectPath &session_h
                                                 int keycode,
                                                 uint state)
 {
+    qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "NotifyKeyboardKeycode called with parameters:";
+    qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    session_handle: " << session_handle.path();
+    qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    options: " << options;
+    qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    keycode: " << keycode;
+    qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    state: " << state;
+
+    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession*>(Session::getSession(session_handle.path()));
+
+    if (!session) {
+        qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyKeyboardKeycode on non-existing session " << session_handle.path();
+        return;
+    }
+
+    WaylandIntegration::requestKeyboardKeycode(keycode, state != 0);
 }
 
 void RemoteDesktopPortal::NotifyTouchDown(const QDBusObjectPath &session_handle,

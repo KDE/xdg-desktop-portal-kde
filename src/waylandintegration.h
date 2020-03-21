@@ -94,6 +94,8 @@ Q_SIGNALS:
     void requestPointerMotionAbsolute(const QPointF &pos);
     void requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta);
 
+    void requestKeyboardKeycode(int keycode, bool state);
+
     QMap<quint32, WaylandOutput> screens();
     QVariant streams();
 
