@@ -19,7 +19,6 @@
  */
 
 #include "screencaststream.h"
-#include "waylandintegration.h"
 
 #include <limits.h>
 #include <math.h>
@@ -499,27 +498,79 @@ pw_stream *ScreenCastStream::createStream()
     return stream;
 }
 
-bool ScreenCastStream::recordFrame(uint8_t *screenData)
+bool ScreenCastStream::recordFrame(gbm_bo *bo, quint32 width, quint32 height, quint32 stride)
 {
     struct pw_buffer *buffer;
     struct spa_buffer *spa_buffer;
     uint8_t *data = nullptr;
 
     if (!(buffer = pw_stream_dequeue_buffer(pwStream))) {
+        qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to record frame: couldn't obtain PipeWire buffer";
         return false;
     }
 
     spa_buffer = buffer->buffer;
 
     if (!(data = (uint8_t *) spa_buffer->datas[0].data)) {
+        qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to record frame: invalid buffer data";
         return false;
     }
 
-    memcpy(data, screenData, BITS_PER_PIXEL * videoFormat.size.height * videoFormat.size.width * sizeof(uint8_t));
+    const quint32 destStride = SPA_ROUND_UP_N(videoFormat.size.width * BITS_PER_PIXEL, 4);
+    const quint32 destSize = BITS_PER_PIXEL * width * height * sizeof(uint8_t);
+    const quint32 srcSize = spa_buffer->datas[0].maxsize;
+
+    if (destSize != srcSize || stride != destStride) {
+        qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to record frame: different stride";
+        return false;
+    }
+
+    // bind context to render thread
+    eglMakeCurrent(WaylandIntegration::egl().display, EGL_NO_SURFACE, EGL_NO_SURFACE, WaylandIntegration::egl().context);
+
+    // create EGL image from imported BO
+    EGLImageKHR image = eglCreateImageKHR(WaylandIntegration::egl().display, nullptr, EGL_NATIVE_PIXMAP_KHR, bo, nullptr);
+
+    if (image == EGL_NO_IMAGE_KHR) {
+        qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to record frame: Error creating EGLImageKHR - " << WaylandIntegration::formatGLError(glGetError());
+        return false;
+    }
+
+    // create GL 2D texture for framebuffer
+    GLuint texture;
+    glGenTextures(1, &texture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glEGLImageTargetTexture2DOES(GL_TEXTURE_2D, image);
+
+    // bind framebuffer to copy pixels from
+    GLuint framebuffer;
+    glGenFramebuffers(1, &framebuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture, 0);
+    const GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    if (status != GL_FRAMEBUFFER_COMPLETE) {
+        qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to record frame: glCheckFramebufferStatus failed - " << WaylandIntegration::formatGLError(glGetError());
+        glDeleteTextures(1, &texture);
+        glDeleteFramebuffers(1, &framebuffer);
+        eglDestroyImageKHR(WaylandIntegration::egl().display, image);
+        return false;
+    }
+
+    glViewport(0, 0, width, height);
+
+    glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+
+    glDeleteTextures(1, &texture);
+    glDeleteFramebuffers(1, &framebuffer);
+    eglDestroyImageKHR(WaylandIntegration::egl().display, image);
 
     spa_buffer->datas[0].chunk->offset = 0;
     spa_buffer->datas[0].chunk->size = spa_buffer->datas[0].maxsize;
-    spa_buffer->datas[0].chunk->stride = SPA_ROUND_UP_N (videoFormat.size.width * BITS_PER_PIXEL, 4);
+    spa_buffer->datas[0].chunk->stride = destStride;
 
     pw_stream_queue_buffer(pwStream, buffer);
     return true;

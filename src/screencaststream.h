@@ -21,6 +21,8 @@
 #ifndef SCREEN_CAST_STREAM_H
 #define SCREEN_CAST_STREAM_H
 
+#include "waylandintegration.h"
+
 #include <QObject>
 #include <QSize>
 
@@ -70,7 +72,7 @@ public:
     void removeStream();
 
 public Q_SLOTS:
-    bool recordFrame(uint8_t *screenData);
+    bool recordFrame(gbm_bo *bo, quint32 width, quint32 height, quint32 stride);
 
 Q_SIGNALS:
     void streamReady(uint nodeId);

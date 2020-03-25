@@ -26,11 +26,6 @@
 #include <QDateTime>
 #include <QMap>
 
-#include <gbm.h>
-
-#include <epoxy/egl.h>
-#include <epoxy/gl.h>
-
 class ScreenCastStream;
 
 namespace KWayland {
@@ -81,6 +76,7 @@ public:
     void requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta);
     void requestKeyboardKeycode(int keycode, bool state);
 
+    EGLStruct egl();
     QMap<quint32, WaylandOutput> screens();
     QVariant streams();
 
@@ -116,11 +112,8 @@ private:
 
     qint32 m_drmFd = 0; // for GBM buffer mmap
     gbm_device *m_gbmDevice = nullptr; // for passed GBM buffer retrieval
-    struct {
-        QList<QByteArray> extensions;
-        EGLDisplay display = EGL_NO_DISPLAY;
-        EGLContext context = EGL_NO_CONTEXT;
-    } m_egl;
+
+    EGLStruct m_egl;
 };
 
 }
