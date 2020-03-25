@@ -26,9 +26,19 @@
 #include <QSize>
 #include <QVariant>
 
+#include <gbm.h>
+
+#include <epoxy/egl.h>
+#include <epoxy/gl.h>
 
 namespace WaylandIntegration
 {
+
+struct EGLStruct {
+    QList<QByteArray> extensions;
+    EGLDisplay display = EGL_NO_DISPLAY;
+    EGLContext context = EGL_NO_CONTEXT;
+};
 
 class WaylandOutput
 {
@@ -77,6 +87,7 @@ class WaylandIntegration : public QObject
 Q_SIGNALS:
     void newBuffer(uint8_t *screenData);
 };
+    const char * formatGLError(GLenum err);
 
     void authenticate();
     void init();
@@ -96,11 +107,12 @@ Q_SIGNALS:
 
     void requestKeyboardKeycode(int keycode, bool state);
 
+    EGLStruct egl();
+
     QMap<quint32, WaylandOutput> screens();
     QVariant streams();
 
     WaylandIntegration *waylandIntegration();
-
 }
 
 #endif // XDG_DESKTOP_PORTAL_KDE_WAYLAND_INTEGRATION_H

@@ -116,6 +116,11 @@ void WaylandIntegration::requestKeyboardKeycode(int keycode, bool state)
     globalWaylandIntegration->requestKeyboardKeycode(keycode, state);
 }
 
+WaylandIntegration::EGLStruct WaylandIntegration::egl()
+{
+    return globalWaylandIntegration->egl();
+}
+
 QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::screens()
 {
     return globalWaylandIntegration->screens();
@@ -131,7 +136,7 @@ WaylandIntegration::WaylandIntegration * WaylandIntegration::waylandIntegration(
     return globalWaylandIntegration;
 }
 
-static const char * formatGLError(GLenum err)
+const char * WaylandIntegration::formatGLError(GLenum err)
 {
     switch(err) {
     case GL_NO_ERROR:
@@ -391,6 +396,11 @@ void WaylandIntegration::WaylandIntegrationPrivate::requestKeyboardKeycode(int k
     }
 }
 
+WaylandIntegration::EGLStruct WaylandIntegration::WaylandIntegrationPrivate::egl()
+{
+    return m_egl;
+}
+
 QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::WaylandIntegrationPrivate::screens()
 {
     return m_outputMap;
@@ -591,58 +601,12 @@ void WaylandIntegration::WaylandIntegrationPrivate::processBuffer(const KWayland
         return;
     }
 
-    // bind context to render thread
-    eglMakeCurrent(m_egl.display, EGL_NO_SURFACE, EGL_NO_SURFACE, m_egl.context);
-
-    // create EGL image from imported BO
-    EGLImageKHR image = eglCreateImageKHR(m_egl.display, nullptr, EGL_NATIVE_PIXMAP_KHR, imported, nullptr);
-
-    // We can already close gbm handle
-    gbm_bo_destroy(imported);
-    close(gbmHandle);
-
-    if (image == EGL_NO_IMAGE_KHR) {
-        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Failed to process buffer: Error creating EGLImageKHR - " << formatGLError(glGetError());
-        return;
-    }
-
-    // create GL 2D texture for framebuffer
-    GLuint texture;
-    glGenTextures(1, &texture);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glBindTexture(GL_TEXTURE_2D, texture);
-    glEGLImageTargetTexture2DOES(GL_TEXTURE_2D, image);
-
-    // bind framebuffer to copy pixels from
-    GLuint framebuffer;
-    glGenFramebuffers(1, &framebuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture, 0);
-    const GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-    if (status != GL_FRAMEBUFFER_COMPLETE) {
-        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Failed to process buffer: glCheckFramebufferStatus failed - " << formatGLError(glGetError());
-        glDeleteTextures(1, &texture);
-        glDeleteFramebuffers(1, &framebuffer);
-        eglDestroyImageKHR(m_egl.display, image);
-        return;
-    }
-
-    auto capture = new QImage(QSize(width, height), QImage::Format_RGBA8888);
-    glViewport(0, 0, width, height);
-    glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, capture->bits());
-
-    if (m_stream->recordFrame(capture->bits())) {
+    if (m_stream->recordFrame(imported, width, height, stride)) {
         m_lastFrameTime = QDateTime::currentDateTime();
     }
 
-    glDeleteTextures(1, &texture);
-    glDeleteFramebuffers(1, &framebuffer);
-    eglDestroyImageKHR(m_egl.display, image);
-
-    delete capture;
+    gbm_bo_destroy(imported);
+    close(gbmHandle);
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::setupRegistry()
