@@ -546,26 +546,9 @@ bool ScreenCastStream::recordFrame(gbm_bo *bo, quint32 width, quint32 height, qu
     glBindTexture(GL_TEXTURE_2D, texture);
     glEGLImageTargetTexture2DOES(GL_TEXTURE_2D, image);
 
-    // bind framebuffer to copy pixels from
-    GLuint framebuffer;
-    glGenFramebuffers(1, &framebuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture, 0);
-    const GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-    if (status != GL_FRAMEBUFFER_COMPLETE) {
-        qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to record frame: glCheckFramebufferStatus failed - " << WaylandIntegration::formatGLError(glGetError());
-        glDeleteTextures(1, &texture);
-        glDeleteFramebuffers(1, &framebuffer);
-        eglDestroyImageKHR(WaylandIntegration::egl().display, image);
-        return false;
-    }
-
-    glViewport(0, 0, width, height);
-
     glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 
     glDeleteTextures(1, &texture);
-    glDeleteFramebuffers(1, &framebuffer);
     eglDestroyImageKHR(WaylandIntegration::egl().display, image);
 
     spa_buffer->datas[0].chunk->offset = 0;
