@@ -209,6 +209,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
         }
 
         results.insert(QStringLiteral("uris"), files);
+        results.insert(QStringLiteral("writable"), true);
         return 0;
     }
 
