@@ -27,6 +27,9 @@
 
 #include <QLoggingCategory>
 
+#include <KNotification>
+#include <KLocalizedString>
+
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeScreenCastStream, "xdp-kde-screencast-stream")
 
 class PwFraction {
@@ -365,17 +368,28 @@ void ScreenCastStream::init()
 {
     pw_init(nullptr, nullptr);
 
+    const auto emitFailureNotification = [](const QString &body) {
+        KNotification *notification = new KNotification(QStringLiteral("notification"), KNotification::CloseOnTimeout | KNotification::DefaultEvent);
+        notification->setTitle(i18n("Failed to start screencasting"));
+        notification->setText(i18nc("Introduces an error message", "Error: %1", body));
+        notification->setIconName(QStringLiteral("data-error"));
+        notification->setUrgency(KNotification::HighUrgency);
+        notification->sendEvent();
+    };
+
 #if PW_CHECK_VERSION(0, 2, 90)
     pwMainLoop = pw_thread_loop_new("pipewire-main-loop", nullptr);
     pwContext = pw_context_new(pw_thread_loop_get_loop(pwMainLoop), nullptr, 0);
     if (!pwContext) {
         qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to create PipeWire context";
+        emitFailureNotification(i18n("Failed to create PipeWire context"));
         return;
     }
 
     pwCore = pw_context_connect(pwContext, nullptr, 0);
     if (!pwCore) {
         qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to connect PipeWire context";
+        emitFailureNotification(i18n("Failed to connect PipeWire context"));
         return;
     }
 
@@ -384,6 +398,7 @@ void ScreenCastStream::init()
     pwStream = createStream();
     if (!pwStream) {
         qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to create PipeWire stream";
+        emitFailureNotification(i18n("Failed to create PipeWire stream"));
         return;
     }
 #else
@@ -402,6 +417,7 @@ void ScreenCastStream::init()
 
     if (pw_thread_loop_start(pwMainLoop) < 0) {
         qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to start main PipeWire loop";
+        emitFailureNotification(i18n("Failed to start main PipeWire loop"));
         return;
     }
 }
