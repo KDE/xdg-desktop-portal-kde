@@ -86,11 +86,7 @@ ScreenshotDialog::ScreenshotDialog(QDialog *parent, Qt::WindowFlags flags)
         QTimer::singleShot(1000 * m_dialog->delaySpinBox->value(), this, &ScreenshotDialog::takeScreenshot);
     });
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     connect(m_dialog->areaComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [this] (int index) {
-#else
-    connect(m_dialog->areaComboBox, static_cast<void (QComboBox::*)(int, const QString &)>(&QComboBox::currentIndexChanged) , this, [this] (int index) {
-#endif
         m_dialog->includeBordersCheckbox->setEnabled(index == 2);
     });
 
