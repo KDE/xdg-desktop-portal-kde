@@ -124,6 +124,8 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
     QScopedPointer<RemoteDesktopDialog, QScopedPointerDeleteLater> remoteDesktopDialog(new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled(), session->multipleSources()));
     Utils::setParentWindow(remoteDesktopDialog.data(), parent_window);
 
+    connect(session, &Session::closed, remoteDesktopDialog.data(), &RemoteDesktopDialog::reject);
+
     if (remoteDesktopDialog->exec()) {
         if (session->screenSharingEnabled()) {
             if (!WaylandIntegration::startStreaming(remoteDesktopDialog->selectedScreens().first())) {

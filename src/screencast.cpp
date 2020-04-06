@@ -147,6 +147,8 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     QScopedPointer<ScreenChooserDialog, QScopedPointerDeleteLater> screenDialog(new ScreenChooserDialog(app_id, session->multipleSources()));
     Utils::setParentWindow(screenDialog.data(), parent_window);
 
+    connect(session, &Session::closed, screenDialog.data(), &ScreenChooserDialog::reject);
+
     if (screenDialog->exec()) {
         if (!WaylandIntegration::startStreaming(screenDialog->selectedScreens().first())) {
             return 2;
