@@ -9,6 +9,7 @@ set(xdg_desktop_portal_kde_SRCS
     account.cpp
     appchooser.cpp
     appchooserdialog.cpp
+    background.cpp
     desktopportal.cpp
     email.cpp
     filechooser.cpp

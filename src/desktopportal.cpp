@@ -38,12 +38,13 @@ DesktopPortal::DesktopPortal(QObject *parent)
 {
     const QByteArray xdgCurrentDesktop = qgetenv("XDG_CURRENT_DESKTOP").toUpper();
     if (xdgCurrentDesktop == "KDE") {
+        m_background = new BackgroundPortal(this);
         m_screenshot = new ScreenshotPortal(this);
 #if SCREENCAST_ENABLED
         m_screenCast = new ScreenCastPortal(this);
         m_remoteDesktop = new RemoteDesktopPortal(this);
-        WaylandIntegration::init();
 #endif
+        WaylandIntegration::init();
     }
 }
 

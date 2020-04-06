@@ -31,6 +31,12 @@
 #include <epoxy/egl.h>
 #include <epoxy/gl.h>
 
+namespace KWayland {
+    namespace Client {
+        class PlasmaWindowManagement;
+    }
+}
+
 namespace WaylandIntegration
 {
 
@@ -86,6 +92,7 @@ class WaylandIntegration : public QObject
     Q_OBJECT
 Q_SIGNALS:
     void newBuffer(uint8_t *screenData);
+    void plasmaWindowManagementInitialized();
 };
     const char * formatGLError(GLenum err);
 
@@ -109,6 +116,7 @@ Q_SIGNALS:
 
     EGLStruct egl();
 
+    KWayland::Client::PlasmaWindowManagement *plasmaWindowManagement();
     QMap<quint32, WaylandOutput> screens();
     QVariant streams();
 

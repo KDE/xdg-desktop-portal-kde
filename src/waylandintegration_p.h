@@ -37,6 +37,8 @@ namespace KWayland {
         class RemoteAccessManager;
         class RemoteBuffer;
         class Output;
+        class PlasmaWindow;
+        class PlasmaWindowManagement;
     }
 }
 
@@ -77,6 +79,7 @@ public:
     void requestKeyboardKeycode(int keycode, bool state);
 
     EGLStruct egl();
+    KWayland::Client::PlasmaWindowManagement *plasmaWindowManagement();
     QMap<quint32, WaylandOutput> screens();
     QVariant streams();
 
@@ -87,28 +90,29 @@ protected Q_SLOTS:
     void setupRegistry();
 
 private:
-    bool m_eglInitialized;
-    bool m_streamingEnabled;
+    bool m_eglInitialized = false;
+    bool m_streamingEnabled = false;
     bool m_streamInput = false;
-    bool m_registryInitialized;
-    bool m_waylandAuthenticationRequested;
+    bool m_registryInitialized = false;
+    bool m_waylandAuthenticationRequested = false;
 
     quint32 m_output;
     QDateTime m_lastFrameTime;
-    ScreenCastStream *m_stream;
+    ScreenCastStream *m_stream = nullptr;
 
-    QThread *m_thread;
+    QThread *m_thread = nullptr;
 
     QPoint m_streamedScreenPosition;
 
     QMap<quint32, WaylandOutput> m_outputMap;
     QList<KWayland::Client::Output*> m_bindOutputs;
 
-    KWayland::Client::ConnectionThread *m_connection;
-    KWayland::Client::EventQueue *m_queue;
-    KWayland::Client::FakeInput *m_fakeInput;
-    KWayland::Client::Registry *m_registry;
-    KWayland::Client::RemoteAccessManager *m_remoteAccessManager;
+    KWayland::Client::ConnectionThread *m_connection = nullptr;
+    KWayland::Client::EventQueue *m_queue = nullptr;
+    KWayland::Client::FakeInput *m_fakeInput = nullptr;
+    KWayland::Client::Registry *m_registry = nullptr;
+    KWayland::Client::RemoteAccessManager *m_remoteAccessManager = nullptr;
+    KWayland::Client::PlasmaWindowManagement *m_windowManagement = nullptr;
 
     qint32 m_drmFd = 0; // for GBM buffer mmap
     gbm_device *m_gbmDevice = nullptr; // for passed GBM buffer retrieval

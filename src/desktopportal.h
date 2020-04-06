@@ -27,6 +27,7 @@
 #include "access.h"
 #include "account.h"
 #include "appchooser.h"
+#include "background.h"
 #include "email.h"
 #include "filechooser.h"
 #include "inhibit.h"
@@ -35,10 +36,10 @@
 #if SCREENCAST_ENABLED
 #include "screencast.h"
 #include "remotedesktop.h"
-#include "waylandintegration.h"
 #endif
 #include "screenshot.h"
 #include "settings.h"
+#include "waylandintegration.h"
 
 class DesktopPortal : public QObject, public QDBusContext
 {
@@ -51,6 +52,7 @@ private:
     AccessPortal *m_access;
     AccountPortal *m_account;
     AppChooserPortal *m_appChooser;
+    BackgroundPortal *m_background;
     EmailPortal *m_email;
     FileChooserPortal *m_fileChooser;
     InhibitPortal *m_inhibit;

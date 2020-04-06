@@ -41,6 +41,7 @@
 #include <KWayland/Client/registry.h>
 #include <KWayland/Client/output.h>
 #include <KWayland/Client/remote_access.h>
+#include <KWayland/Client/plasmawindowmanagement.h>
 
 // system
 #include <fcntl.h>
@@ -57,7 +58,9 @@ void WaylandIntegration::authenticate()
 
 void WaylandIntegration::init()
 {
+#if SCREENCAST_ENABLED
     globalWaylandIntegration->initDrm();
+#endif
     globalWaylandIntegration->initWayland();
 }
 
@@ -119,6 +122,11 @@ void WaylandIntegration::requestKeyboardKeycode(int keycode, bool state)
 WaylandIntegration::EGLStruct WaylandIntegration::egl()
 {
     return globalWaylandIntegration->egl();
+}
+
+KWayland::Client::PlasmaWindowManagement * WaylandIntegration::plasmaWindowManagement()
+{
+    return globalWaylandIntegration->plasmaWindowManagement();
 }
 
 QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::screens()
@@ -406,6 +414,11 @@ QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::WaylandInte
     return m_outputMap;
 }
 
+KWayland::Client::PlasmaWindowManagement * WaylandIntegration::WaylandIntegrationPrivate::plasmaWindowManagement()
+{
+    return m_windowManagement;
+}
+
 QVariant WaylandIntegration::WaylandIntegrationPrivate::streams()
 {
     Stream stream;
@@ -616,11 +629,17 @@ void WaylandIntegration::WaylandIntegrationPrivate::setupRegistry()
 
     m_registry = new KWayland::Client::Registry(this);
 
+#if SCREENCAST_ENABLED
     connect(m_registry, &KWayland::Client::Registry::fakeInputAnnounced, this, [this] (quint32 name, quint32 version) {
         m_fakeInput = m_registry->createFakeInput(name, version, this);
     });
     connect(m_registry, &KWayland::Client::Registry::outputAnnounced, this, &WaylandIntegrationPrivate::addOutput);
     connect(m_registry, &KWayland::Client::Registry::outputRemoved, this, &WaylandIntegrationPrivate::removeOutput);
+#endif
+    connect(m_registry, &KWayland::Client::Registry::plasmaWindowManagementAnnounced, this, [this] (quint32 name, quint32 version) {
+        m_windowManagement = m_registry->createPlasmaWindowManagement(name, version, this);
+        Q_EMIT waylandIntegration()->plasmaWindowManagementInitialized();
+    });
 
     connect(m_registry, &KWayland::Client::Registry::interfacesAnnounced, this, [this] {
         m_registryInitialized = true;
