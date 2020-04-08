@@ -369,11 +369,10 @@ void ScreenCastStream::init()
     pw_init(nullptr, nullptr);
 
     const auto emitFailureNotification = [](const QString &body) {
-        KNotification *notification = new KNotification(QStringLiteral("notification"), KNotification::CloseOnTimeout | KNotification::DefaultEvent);
+        KNotification *notification = new KNotification(QStringLiteral("screencastfailure"), KNotification::CloseOnTimeout);
         notification->setTitle(i18n("Failed to start screencasting"));
-        notification->setText(i18nc("Introduces an error message", "Error: %1", body));
-        notification->setIconName(QStringLiteral("data-error"));
-        notification->setUrgency(KNotification::HighUrgency);
+        notification->setText(body);
+        notification->setIconName(QStringLiteral("dialog-error"));
         notification->sendEvent();
     };
 

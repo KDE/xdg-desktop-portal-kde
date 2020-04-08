@@ -85,3 +85,7 @@ install(FILES
     qml/AppChooserDialog.qml
     qml/UserInfoDialog.qml
     DESTINATION ${KDE_INSTALL_DATADIR}/xdg-desktop-portal-kde/qml)
+
+install(FILES
+    xdg-desktop-portal-kde.notifyrc
+    DESTINATION ${KNOTIFYRC_INSTALL_DIR})

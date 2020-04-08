@@ -1,0 +1,14 @@
+[Global]
+IconName=start-here-kde-plasma
+Comment=Integrating applications into the KDE Plasma desktop
+Name=KDE Portal Integration
+
+[Context/screencast]
+Name=Screencasting
+
+[Event/screencastfailure]
+Name=Screencasting failed
+Comment=An error was encountered while screencasting
+Contexts=screencast
+Action=Popup
+Urgency=Normal

@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     QApplication a(argc, argv);
+    a.setApplicationName(QStringLiteral("xdg-desktop-portal-kde"));
     a.setQuitOnLastWindowClosed(false);
 
     QDBusConnection sessionBus = QDBusConnection::sessionBus();
