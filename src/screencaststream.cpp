@@ -528,6 +528,7 @@ bool ScreenCastStream::recordFrame(gbm_bo *bo, quint32 width, quint32 height, qu
 
     if (!(data = (uint8_t *) spa_buffer->datas[0].data)) {
         qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to record frame: invalid buffer data";
+        pw_stream_queue_buffer(pwStream, buffer);
         return false;
     }
 
@@ -537,6 +538,7 @@ bool ScreenCastStream::recordFrame(gbm_bo *bo, quint32 width, quint32 height, qu
 
     if (destSize != srcSize || stride != destStride) {
         qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to record frame: different stride";
+        pw_stream_queue_buffer(pwStream, buffer);
         return false;
     }
 
@@ -548,6 +550,7 @@ bool ScreenCastStream::recordFrame(gbm_bo *bo, quint32 width, quint32 height, qu
 
     if (image == EGL_NO_IMAGE_KHR) {
         qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to record frame: Error creating EGLImageKHR - " << WaylandIntegration::formatGLError(glGetError());
+        pw_stream_queue_buffer(pwStream, buffer);
         return false;
     }
 
