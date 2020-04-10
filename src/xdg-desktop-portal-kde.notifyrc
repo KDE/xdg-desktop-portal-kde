@@ -1,14 +1,49 @@
 [Global]
 IconName=start-here-kde-plasma
 Comment=Integrating applications into the KDE Plasma desktop
+Comment[ca]=Integració d'aplicacions a l'escriptori Plasma del KDE
+Comment[en_GB]=Integrating applications into the KDE Plasma desktop
+Comment[es]=Integración de aplicaciones en el escritorio KDE Plasma
+Comment[nl]=Toepassingen integreren in het KDE Plasma bureaublad
+Comment[pt]=Integração de aplicações no ambiente de trabalho Plasma do KDE
+Comment[uk]=Інтеграція програм до стільниці Плазми KDE
+Comment[x-test]=xxIntegrating applications into the KDE Plasma desktopxx
 Name=KDE Portal Integration
+Name[ca]=Integració del Portal del KDE
+Name[en_GB]=KDE Portal Integration
+Name[es]=Integración del portal de KDE
+Name[nl]=Integratie in KDE Portal
+Name[pt]=Integração do Portal no KDE
+Name[uk]=Інтеграція через Портал KDE
+Name[x-test]=xxKDE Portal Integrationxx
 
 [Context/screencast]
 Name=Screencasting
+Name[ca]=Vídeo de captura de pantalla
+Name[en_GB]=Screencasting
+Name[es]=Grabación de pantalla
+Name[nl]=Screencasting
+Name[pt]=Partilha do ecrã
+Name[uk]=Трансляція
+Name[x-test]=xxScreencastingxx
 
 [Event/screencastfailure]
 Name=Screencasting failed
+Name[ca]=Ha fallat el vídeo de captura de pantalla
+Name[en_GB]=Screencasting failed
+Name[es]=La grabación de pantalla ha fallado
+Name[nl]=Screencasting is mislukt
+Name[pt]=Não foi possível partilhar o ecrã
+Name[uk]=Помилка трансляції даних
+Name[x-test]=xxScreencasting failedxx
 Comment=An error was encountered while screencasting
+Comment[ca]=S'ha trobat un error en fer el vídeo de captura de pantalla
+Comment[en_GB]=An error was encountered while screencasting
+Comment[es]=Se ha producido un error durante la grabación de la pantalla
+Comment[nl]=Er deed zich een fout voor bij screencasting
+Comment[pt]=Ocorreu um erro ao partilhar o ecrã
+Comment[uk]=Сталася помилка під час трансляції даних з екрана
+Comment[x-test]=xxAn error was encountered while screencastingxx
 Contexts=screencast
 Action=Popup
 Urgency=Normal
