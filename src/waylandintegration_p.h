@@ -26,19 +26,23 @@
 #include <QDateTime>
 #include <QMap>
 
+#if HAVE_PIPEWIRE_SUPPORT
 class ScreenCastStream;
+#endif
 
 namespace KWayland {
     namespace Client {
         class ConnectionThread;
         class EventQueue;
-        class FakeInput;
         class Registry;
-        class RemoteAccessManager;
-        class RemoteBuffer;
-        class Output;
         class PlasmaWindow;
         class PlasmaWindowManagement;
+#if HAVE_PIPEWIRE_SUPPORT
+        class FakeInput;
+        class RemoteBuffer;
+        class Output;
+        class RemoteAccessManager;
+#endif
     }
 }
 
@@ -49,19 +53,37 @@ class WaylandIntegrationPrivate : public WaylandIntegration::WaylandIntegration
 {
     Q_OBJECT
 public:
+    WaylandIntegrationPrivate();
+    ~WaylandIntegrationPrivate();
+
+    void initWayland();
+
+    KWayland::Client::PlasmaWindowManagement *plasmaWindowManagement();
+
+protected Q_SLOTS:
+    void setupRegistry();
+
+private:
+    bool m_registryInitialized = false;
+
+    QThread *m_thread = nullptr;
+    KWayland::Client::ConnectionThread *m_connection = nullptr;
+    KWayland::Client::EventQueue *m_queue = nullptr;
+    KWayland::Client::Registry *m_registry = nullptr;
+    KWayland::Client::PlasmaWindowManagement *m_windowManagement = nullptr;
+
+#if HAVE_PIPEWIRE_SUPPORT
+public:
     typedef struct {
         uint nodeId;
         QVariantMap map;
     } Stream;
     typedef QList<Stream> Streams;
 
-    WaylandIntegrationPrivate();
-    ~WaylandIntegrationPrivate();
-
     void authenticate();
+
     void initDrm();
     void initEGL();
-    void initWayland();
 
     bool isEGLInitialized() const;
     bool isStreamingEnabled() const;
@@ -79,7 +101,6 @@ public:
     void requestKeyboardKeycode(int keycode, bool state);
 
     EGLStruct egl();
-    KWayland::Client::PlasmaWindowManagement *plasmaWindowManagement();
     QMap<quint32, WaylandOutput> screens();
     QVariant streams();
 
@@ -87,37 +108,30 @@ protected Q_SLOTS:
     void addOutput(quint32 name, quint32 version);
     void removeOutput(quint32 name);
     void processBuffer(const KWayland::Client::RemoteBuffer *rbuf);
-    void setupRegistry();
 
 private:
     bool m_eglInitialized = false;
     bool m_streamingEnabled = false;
     bool m_streamInput = false;
-    bool m_registryInitialized = false;
     bool m_waylandAuthenticationRequested = false;
 
     quint32 m_output;
     QDateTime m_lastFrameTime;
     ScreenCastStream *m_stream = nullptr;
 
-    QThread *m_thread = nullptr;
-
     QPoint m_streamedScreenPosition;
 
     QMap<quint32, WaylandOutput> m_outputMap;
     QList<KWayland::Client::Output*> m_bindOutputs;
 
-    KWayland::Client::ConnectionThread *m_connection = nullptr;
-    KWayland::Client::EventQueue *m_queue = nullptr;
     KWayland::Client::FakeInput *m_fakeInput = nullptr;
-    KWayland::Client::Registry *m_registry = nullptr;
     KWayland::Client::RemoteAccessManager *m_remoteAccessManager = nullptr;
-    KWayland::Client::PlasmaWindowManagement *m_windowManagement = nullptr;
 
     qint32 m_drmFd = 0; // for GBM buffer mmap
     gbm_device *m_gbmDevice = nullptr; // for passed GBM buffer retrieval
 
     EGLStruct m_egl;
+#endif
 };
 
 }

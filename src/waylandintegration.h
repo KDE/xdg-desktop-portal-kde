@@ -26,10 +26,11 @@
 #include <QSize>
 #include <QVariant>
 
+#if HAVE_PIPEWIRE_SUPPORT
 #include <gbm.h>
-
 #include <epoxy/egl.h>
 #include <epoxy/gl.h>
+#endif
 
 namespace KWayland {
     namespace Client {
@@ -39,7 +40,7 @@ namespace KWayland {
 
 namespace WaylandIntegration
 {
-
+#if HAVE_PIPEWIRE_SUPPORT
 struct EGLStruct {
     QList<QByteArray> extensions;
     EGLDisplay display = EGL_NO_DISPLAY;
@@ -86,18 +87,22 @@ private:
     int m_waylandOutputName;
     int m_waylandOutputVersion;
 };
+#endif
 
 class WaylandIntegration : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:
+#if HAVE_PIPEWIRE_SUPPORT
     void newBuffer(uint8_t *screenData);
+#endif
     void plasmaWindowManagementInitialized();
 };
+
+#if HAVE_PIPEWIRE_SUPPORT
     const char * formatGLError(GLenum err);
 
     void authenticate();
-    void init();
 
     bool isEGLInitialized();
     bool isStreamingEnabled();
@@ -115,10 +120,12 @@ Q_SIGNALS:
     void requestKeyboardKeycode(int keycode, bool state);
 
     EGLStruct egl();
-
-    KWayland::Client::PlasmaWindowManagement *plasmaWindowManagement();
     QMap<quint32, WaylandOutput> screens();
     QVariant streams();
+#endif
+    void init();
+
+    KWayland::Client::PlasmaWindowManagement *plasmaWindowManagement();
 
     WaylandIntegration *waylandIntegration();
 }

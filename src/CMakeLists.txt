@@ -23,9 +23,10 @@ set(xdg_desktop_portal_kde_SRCS
     settings.cpp
     utils.cpp
     userinfodialog.cpp
+    waylandintegration.cpp
 )
 
-if (SCREENCAST_ENABLED)
+if(HAVE_PIPEWIRE_SUPPORT)
     set (xdg_desktop_portal_kde_SRCS
          ${xdg_desktop_portal_kde_SRCS}
          screencast.cpp
@@ -33,8 +34,7 @@ if (SCREENCAST_ENABLED)
          screencastwidget.cpp
          screenchooserdialog.cpp
          remotedesktop.cpp
-         remotedesktopdialog.cpp
-         waylandintegration.cpp)
+         remotedesktopdialog.cpp)
 
     ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
                   screenchooserdialog.ui
@@ -72,7 +72,7 @@ target_link_libraries(xdg-desktop-portal-kde
     KF5::WindowSystem
 )
 
-if (SCREENCAST_ENABLED)
+if (HAVE_PIPEWIRE_SUPPORT)
     target_link_libraries(xdg-desktop-portal-kde
                           PipeWire::PipeWire
                           ${Epoxy_LIBRARIES}

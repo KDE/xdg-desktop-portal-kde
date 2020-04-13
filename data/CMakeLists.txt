@@ -2,5 +2,9 @@ configure_file(org.freedesktop.impl.portal.desktop.kde.desktop.in org.freedeskto
 configure_file(org.freedesktop.impl.portal.desktop.kde.cmake.in org.freedesktop.impl.portal.desktop.kde.service @ONLY)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.freedesktop.impl.portal.desktop.kde.service DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
-install(FILES kde.portal DESTINATION ${DATA_INSTALL_DIR}/xdg-desktop-portal/portals)
+if(HAVE_PIPEWIRE_SUPPORT)
+    install(FILES kde.portal DESTINATION ${DATA_INSTALL_DIR}/xdg-desktop-portal/portals)
+else()
+    install(FILES kde-no-pipewire.portal DESTINATION ${DATA_INSTALL_DIR}/xdg-desktop-portal/portals RENAME kde.portal)
+endif()
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.freedesktop.impl.portal.desktop.kde.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})

@@ -20,7 +20,7 @@
 
 #include "waylandintegration.h"
 #include "waylandintegration_p.h"
-#include "screencaststream.h"
+
 
 #include <QDBusArgument>
 #include <QDBusMetaType>
@@ -37,31 +37,37 @@
 // KWayland
 #include <KWayland/Client/connection_thread.h>
 #include <KWayland/Client/event_queue.h>
-#include <KWayland/Client/fakeinput.h>
 #include <KWayland/Client/registry.h>
-#include <KWayland/Client/output.h>
-#include <KWayland/Client/remote_access.h>
 #include <KWayland/Client/plasmawindowmanagement.h>
 
 // system
 #include <fcntl.h>
 #include <unistd.h>
 
+#if HAVE_PIPEWIRE_SUPPORT
+#include "screencaststream.h"
+
+#include <KWayland/Client/fakeinput.h>
+#include <KWayland/Client/output.h>
+#include <KWayland/Client/remote_access.h>
+#endif
+
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeWaylandIntegration, "xdp-kde-wayland-integration")
 
 Q_GLOBAL_STATIC(WaylandIntegration::WaylandIntegrationPrivate, globalWaylandIntegration)
 
-void WaylandIntegration::authenticate()
-{
-    globalWaylandIntegration->authenticate();
-}
-
 void WaylandIntegration::init()
 {
-#if SCREENCAST_ENABLED
+#if HAVE_PIPEWIRE_SUPPORT
     globalWaylandIntegration->initDrm();
 #endif
     globalWaylandIntegration->initWayland();
+}
+
+#if HAVE_PIPEWIRE_SUPPORT
+void WaylandIntegration::authenticate()
+{
+    globalWaylandIntegration->authenticate();
 }
 
 bool WaylandIntegration::isEGLInitialized()
@@ -124,11 +130,6 @@ WaylandIntegration::EGLStruct WaylandIntegration::egl()
     return globalWaylandIntegration->egl();
 }
 
-KWayland::Client::PlasmaWindowManagement * WaylandIntegration::plasmaWindowManagement()
-{
-    return globalWaylandIntegration->plasmaWindowManagement();
-}
-
 QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::screens()
 {
     return globalWaylandIntegration->screens();
@@ -137,11 +138,6 @@ QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::screens()
 QVariant WaylandIntegration::streams()
 {
     return globalWaylandIntegration->streams();
-}
-
-WaylandIntegration::WaylandIntegration * WaylandIntegration::waylandIntegration()
-{
-    return globalWaylandIntegration;
 }
 
 const char * WaylandIntegration::formatGLError(GLenum err)
@@ -223,24 +219,38 @@ const QDBusArgument &operator << (QDBusArgument &arg, const WaylandIntegration::
 
 Q_DECLARE_METATYPE(WaylandIntegration::WaylandIntegrationPrivate::Stream)
 Q_DECLARE_METATYPE(WaylandIntegration::WaylandIntegrationPrivate::Streams)
+#endif
+
+KWayland::Client::PlasmaWindowManagement * WaylandIntegration::plasmaWindowManagement()
+{
+    return globalWaylandIntegration->plasmaWindowManagement();
+}
+
+WaylandIntegration::WaylandIntegration * WaylandIntegration::waylandIntegration()
+{
+    return globalWaylandIntegration;
+}
 
 WaylandIntegration::WaylandIntegrationPrivate::WaylandIntegrationPrivate()
     : WaylandIntegration()
-    , m_eglInitialized(false)
     , m_registryInitialized(false)
-    , m_waylandAuthenticationRequested(false)
     , m_connection(nullptr)
     , m_queue(nullptr)
-    , m_fakeInput(nullptr)
     , m_registry(nullptr)
+#if HAVE_PIPEWIRE_SUPPORT
+    , m_fakeInput(nullptr)
     , m_remoteAccessManager(nullptr)
+#endif
 {
+#if HAVE_PIPEWIRE_SUPPORT
     qDBusRegisterMetaType<WaylandIntegrationPrivate::Stream>();
     qDBusRegisterMetaType<WaylandIntegrationPrivate::Streams>();
+#endif
 }
 
 WaylandIntegration::WaylandIntegrationPrivate::~WaylandIntegrationPrivate()
 {
+#if HAVE_PIPEWIRE_SUPPORT
     if (m_remoteAccessManager) {
         m_remoteAccessManager->destroy();
     }
@@ -248,8 +258,10 @@ WaylandIntegration::WaylandIntegrationPrivate::~WaylandIntegrationPrivate()
     if (m_gbmDevice) {
         gbm_device_destroy(m_gbmDevice);
     }
+#endif
 }
 
+#if HAVE_PIPEWIRE_SUPPORT
 bool WaylandIntegration::WaylandIntegrationPrivate::isEGLInitialized() const
 {
     return m_eglInitialized;
@@ -414,25 +426,12 @@ QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::WaylandInte
     return m_outputMap;
 }
 
-KWayland::Client::PlasmaWindowManagement * WaylandIntegration::WaylandIntegrationPrivate::plasmaWindowManagement()
-{
-    return m_windowManagement;
-}
-
 QVariant WaylandIntegration::WaylandIntegrationPrivate::streams()
 {
     Stream stream;
     stream.nodeId = m_stream->nodeId();
     stream.map = QVariantMap({{QLatin1String("size"), m_outputMap.value(m_output).resolution()}});
     return QVariant::fromValue<WaylandIntegrationPrivate::Streams>({stream});
-}
-
-void WaylandIntegration::WaylandIntegrationPrivate::authenticate()
-{
-    if (!m_waylandAuthenticationRequested) {
-        m_fakeInput->authenticate(i18n("xdg-desktop-portals-kde"), i18n("Remote desktop"));
-        m_waylandAuthenticationRequested = true;
-    }
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::initDrm()
@@ -506,6 +505,21 @@ void WaylandIntegration::WaylandIntegrationPrivate::initEGL()
     m_eglInitialized = true;
 }
 
+void WaylandIntegration::WaylandIntegrationPrivate::authenticate()
+{
+    if (!m_waylandAuthenticationRequested) {
+        m_fakeInput->authenticate(i18n("xdg-desktop-portals-kde"), i18n("Remote desktop"));
+        m_waylandAuthenticationRequested = true;
+    }
+}
+
+#endif
+
+KWayland::Client::PlasmaWindowManagement * WaylandIntegration::WaylandIntegrationPrivate::plasmaWindowManagement()
+{
+    return m_windowManagement;
+}
+
 void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
 {
     m_thread = new QThread(this);
@@ -541,6 +555,7 @@ void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
     m_connection->initConnection();
 }
 
+#if HAVE_PIPEWIRE_SUPPORT
 void WaylandIntegration::WaylandIntegrationPrivate::addOutput(quint32 name, quint32 version)
 {
     KWayland::Client::Output *output = new KWayland::Client::Output(this);
@@ -621,6 +636,7 @@ void WaylandIntegration::WaylandIntegrationPrivate::processBuffer(const KWayland
     gbm_bo_destroy(imported);
     close(gbmHandle);
 }
+#endif
 
 void WaylandIntegration::WaylandIntegrationPrivate::setupRegistry()
 {
@@ -629,13 +645,14 @@ void WaylandIntegration::WaylandIntegrationPrivate::setupRegistry()
 
     m_registry = new KWayland::Client::Registry(this);
 
-#if SCREENCAST_ENABLED
+#if HAVE_PIPEWIRE_SUPPORT
     connect(m_registry, &KWayland::Client::Registry::fakeInputAnnounced, this, [this] (quint32 name, quint32 version) {
         m_fakeInput = m_registry->createFakeInput(name, version, this);
     });
     connect(m_registry, &KWayland::Client::Registry::outputAnnounced, this, &WaylandIntegrationPrivate::addOutput);
     connect(m_registry, &KWayland::Client::Registry::outputRemoved, this, &WaylandIntegrationPrivate::removeOutput);
 #endif
+
     connect(m_registry, &KWayland::Client::Registry::plasmaWindowManagementAnnounced, this, [this] (quint32 name, quint32 version) {
         m_windowManagement = m_registry->createPlasmaWindowManagement(name, version, this);
         Q_EMIT waylandIntegration()->plasmaWindowManagementInitialized();

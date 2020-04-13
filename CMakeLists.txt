@@ -20,33 +20,35 @@ include(KDEClangFormat)
 
 include(FeatureSummary)
 
-find_package(PipeWire)
-set_package_properties(PipeWire PROPERTIES
-    TYPE OPTIONAL
-    PURPOSE "Required for screencast portal"
-)
-
-find_package(GBM)
-set_package_properties(GBM PROPERTIES
-    TYPE OPTIONAL
-    PURPOSE "Required for screencast portal"
-)
-
-find_package(Epoxy)
-set_package_properties(Epoxy PROPERTIES DESCRIPTION "libepoxy"
-    URL "https://github.com/anholt/libepoxy"
-    TYPE OPTIONAL
-    PURPOSE "Required for screencast portal"
-)
-
-if (PipeWire_FOUND AND GBM_FOUND AND Epoxy_FOUND)
-    set (SCREENCAST_ENABLED true)
+option(ENABLE_PIPEWIRE "Disable PipeWire support. PipeWire is needed for screen sharing and remote desktop" ON)
+if(ENABLE_PIPEWIRE)
+    set(HAVE_PIPEWIRE_SUPPORT 1)
 else()
-    set (SCREENCAST_ENABLED false)
+    message(STATUS "Disabling PipeWire support")
+    set(HAVE_PIPEWIRE_SUPPORT 0)
 endif()
-add_definitions(-DSCREENCAST_ENABLED=${SCREENCAST_ENABLED})
+add_definitions(-DHAVE_PIPEWIRE_SUPPORT=${HAVE_PIPEWIRE_SUPPORT})
 
-add_feature_info ("Screencast portal" ${SCREENCAST_ENABLED} "Support for screen sharing")
+if(HAVE_PIPEWIRE_SUPPORT)
+    find_package(PipeWire)
+    set_package_properties(PipeWire PROPERTIES
+        TYPE REQUIRED
+        PURPOSE "Required for screencast portal"
+    )
+
+    find_package(GBM)
+    set_package_properties(GBM PROPERTIES
+        TYPE REQUIRED
+        PURPOSE "Required for screencast portal"
+    )
+
+    find_package(Epoxy)
+    set_package_properties(Epoxy PROPERTIES DESCRIPTION "libepoxy"
+        URL "https://github.com/anholt/libepoxy"
+        TYPE REQUIRED
+        PURPOSE "Required for screencast portal"
+    )
+endif()
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
