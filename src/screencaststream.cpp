@@ -280,7 +280,7 @@ void ScreenCastStream::onStreamFormatChanged(void *data, const struct spa_pod *f
                                                       SPA_PARAM_BUFFERS_buffers, SPA_POD_CHOICE_RANGE_Int(16, 2, 16),
                                                       SPA_PARAM_BUFFERS_blocks, SPA_POD_Int (1),
                                                       SPA_PARAM_BUFFERS_size, SPA_POD_Int(size),
-                                                      SPA_PARAM_BUFFERS_stride, SPA_POD_Int(stride),
+                                                      SPA_PARAM_BUFFERS_stride, SPA_POD_CHOICE_RANGE_Int(stride, stride, INT32_MAX),
                                                       SPA_PARAM_BUFFERS_align, SPA_POD_Int(16));
     pw_stream_update_params(pw->pwStream, params, 1);
 #else
@@ -532,12 +532,22 @@ bool ScreenCastStream::recordFrame(gbm_bo *bo, quint32 width, quint32 height, qu
         return false;
     }
 
-    const quint32 destStride = SPA_ROUND_UP_N(videoFormat.size.width * BITS_PER_PIXEL, 4);
-    const quint32 destSize = BITS_PER_PIXEL * width * height * sizeof(uint8_t);
-    const quint32 srcSize = spa_buffer->datas[0].maxsize;
+    quint32 streamStride;
+    const quint32 minStride = SPA_ROUND_UP_N(videoFormat.size.width * BITS_PER_PIXEL, 4);
+    const quint32 minSrcSize = height * minStride;
 
-    if (destSize != srcSize || stride != destStride) {
-        qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to record frame: different stride";
+    const quint32 srcSize = height * stride;
+    const quint32 destSize = spa_buffer->datas[0].maxsize;
+
+    // If we can fit source into the pipewire buffer, we can use stride we got from gbm_bo as the client
+    // should be able to handle it
+    if (srcSize <= destSize) {
+        streamStride = stride;
+    // Fallback to fixed minimum stride, which should be (width * bpp)
+    } else if (minSrcSize == destSize) {
+        streamStride = minStride;
+    } else {
+        qCWarning(XdgDesktopPortalKdeScreenCastStream) << "Failed to record frame: got buffer with higher stride than we can handle";
         pw_stream_queue_buffer(pwStream, buffer);
         return false;
     }
@@ -571,7 +581,7 @@ bool ScreenCastStream::recordFrame(gbm_bo *bo, quint32 width, quint32 height, qu
 
     spa_buffer->datas[0].chunk->offset = 0;
     spa_buffer->datas[0].chunk->size = spa_buffer->datas[0].maxsize;
-    spa_buffer->datas[0].chunk->stride = destStride;
+    spa_buffer->datas[0].chunk->stride = streamStride;
 
     pw_stream_queue_buffer(pwStream, buffer);
     return true;
