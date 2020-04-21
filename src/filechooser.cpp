@@ -133,6 +133,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeFileChooser) << "    title: " << title;
     qCDebug(XdgDesktopPortalKdeFileChooser) << "    options: " << options;
 
+    bool directory = false;
     bool modalDialog = true;
     bool multipleFiles = false;
     QString acceptLabel;
@@ -163,6 +164,10 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
         multipleFiles = options.value(QStringLiteral("multiple")).toBool();
     }
 
+    if (options.contains(QStringLiteral("directory"))) {
+        directory = options.value(QStringLiteral("directory")).toBool();
+    }
+
     if (options.contains(QStringLiteral("filters"))) {
         FilterListList filterListList = qdbus_cast<FilterListList>(options.value(QStringLiteral("filters")));
         for (const FilterList &filterList : filterListList) {
@@ -185,7 +190,8 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     Utils::setParentWindow(fileDialog.data(), parent_window);
     fileDialog->setWindowTitle(title);
     fileDialog->setModal(modalDialog);
-    fileDialog->m_fileWidget->setMode(multipleFiles ? KFile::Mode::Files | KFile::Mode::ExistingOnly : KFile::Mode::File | KFile::Mode::ExistingOnly);
+    KFile::Mode mode = directory ? KFile::Mode::Directory : multipleFiles ? KFile::Mode::Files : KFile::Mode::File;
+    fileDialog->m_fileWidget->setMode(mode | KFile::Mode::ExistingOnly);
     fileDialog->m_fileWidget->okButton()->setText(!acceptLabel.isEmpty() ? acceptLabel : i18n("Open"));
 
     if (!nameFilters.isEmpty()) {
