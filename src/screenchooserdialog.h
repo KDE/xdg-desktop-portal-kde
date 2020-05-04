@@ -22,6 +22,7 @@
 #define XDG_DESKTOP_PORTAL_KDE_SCREENCHOOSER_DIALOG_H
 
 #include <QDialog>
+#include "screencast.h"
 
 namespace Ui
 {
@@ -35,7 +36,10 @@ public:
     ScreenChooserDialog(const QString &appName, bool multiple, QDialog *parent = nullptr, Qt::WindowFlags flags = {});
     ~ScreenChooserDialog();
 
+    void setSourceTypes(ScreenCastPortal::SourceTypes types);
+
     QList<quint32> selectedScreens() const;
+    QList<quint32> selectedWindows() const;
 
 private:
     Ui::ScreenChooserDialog *m_dialog;

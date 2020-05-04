@@ -25,10 +25,7 @@
 
 #include <QDateTime>
 #include <QMap>
-
-#if HAVE_PIPEWIRE_SUPPORT
-class ScreenCastStream;
-#endif
+#include <QVector>
 
 namespace KWayland {
     namespace Client {
@@ -37,12 +34,11 @@ namespace KWayland {
         class Registry;
         class PlasmaWindow;
         class PlasmaWindowManagement;
-#if HAVE_PIPEWIRE_SUPPORT
         class FakeInput;
         class RemoteBuffer;
         class Output;
-        class RemoteAccessManager;
-#endif
+        class Screencasting;
+        class ScreencastingStream;
     }
 }
 
@@ -72,26 +68,27 @@ private:
     KWayland::Client::Registry *m_registry = nullptr;
     KWayland::Client::PlasmaWindowManagement *m_windowManagement = nullptr;
 
-#if HAVE_PIPEWIRE_SUPPORT
 public:
-    typedef struct {
+    struct Stream {
+        KWayland::Client::ScreencastingStream *stream = nullptr;
         uint nodeId;
         QVariantMap map;
-    } Stream;
-    typedef QList<Stream> Streams;
+
+        void close();
+    };
+    typedef QVector<Stream> Streams;
 
     void authenticate();
 
-    void initDrm();
-    void initEGL();
-
-    bool isEGLInitialized() const;
     bool isStreamingEnabled() const;
 
-    void bindOutput(int outputName, int outputVersion);
     void startStreamingInput();
-    bool startStreaming(quint32 outputName);
-    void stopStreaming();
+
+    bool startStreaming(KWayland::Client::ScreencastingStream *stream, const QPoint &globalPosition);
+    bool startStreamingOutput(quint32 outputid);
+    bool startStreamingWindow(quint32 winid);
+    void stopStreaming(uint32_t nodeid);
+    void stopAllStreaming();
 
     void requestPointerButtonPress(quint32 linuxButton);
     void requestPointerButtonRelease(quint32 linuxButton);
@@ -99,25 +96,22 @@ public:
     void requestPointerMotionAbsolute(const QPointF &pos);
     void requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta);
     void requestKeyboardKeycode(int keycode, bool state);
+    void bindOutput(int outputName, int outputVersion);
 
-    EGLStruct egl();
     QMap<quint32, WaylandOutput> screens();
     QVariant streams();
 
 protected Q_SLOTS:
     void addOutput(quint32 name, quint32 version);
     void removeOutput(quint32 name);
-    void processBuffer(const KWayland::Client::RemoteBuffer *rbuf);
 
 private:
-    bool m_eglInitialized = false;
-    bool m_streamingEnabled = false;
     bool m_streamInput = false;
     bool m_waylandAuthenticationRequested = false;
 
     quint32 m_output;
     QDateTime m_lastFrameTime;
-    ScreenCastStream *m_stream = nullptr;
+    QVector<Stream> m_streams;
 
     QPoint m_streamedScreenPosition;
 
@@ -125,13 +119,7 @@ private:
     QList<KWayland::Client::Output*> m_bindOutputs;
 
     KWayland::Client::FakeInput *m_fakeInput = nullptr;
-    KWayland::Client::RemoteAccessManager *m_remoteAccessManager = nullptr;
-
-    qint32 m_drmFd = 0; // for GBM buffer mmap
-    gbm_device *m_gbmDevice = nullptr; // for passed GBM buffer retrieval
-
-    EGLStruct m_egl;
-#endif
+    KWayland::Client::Screencasting *m_screencasting = nullptr;
 };
 
 }

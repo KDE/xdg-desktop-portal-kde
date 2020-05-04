@@ -20,11 +20,14 @@
 
 #include "screenchooserdialog.h"
 #include "ui_screenchooserdialog.h"
+#include "waylandintegration.h"
 
 #include <KLocalizedString>
 #include <QPushButton>
 #include <QStandardPaths>
 #include <QSettings>
+#include <KWayland/Client/plasmawindowmodel.h>
+#include <KWayland/Client/plasmawindowmanagement.h>
 
 ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)
@@ -39,6 +42,9 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
     connect(m_dialog->buttonBox, &QDialogButtonBox::accepted, this, &ScreenChooserDialog::accept);
     connect(m_dialog->buttonBox, &QDialogButtonBox::rejected, this, &ScreenChooserDialog::reject);
     connect(m_dialog->screenView, &QListWidget::itemDoubleClicked, this, &ScreenChooserDialog::accept);
+
+    auto model = new KWayland::Client::PlasmaWindowModel(WaylandIntegration::plasmaWindowManagement());
+    m_dialog->windowsView->setModel(model);
 
     m_dialog->buttonBox->button(QDialogButtonBox::Ok)->setText(i18n("Share"));
 
@@ -71,7 +77,25 @@ ScreenChooserDialog::~ScreenChooserDialog()
     delete m_dialog;
 }
 
+void ScreenChooserDialog::setSourceTypes(ScreenCastPortal::SourceTypes types)
+{
+    m_dialog->screensTab->setEnabled(types & ScreenCastPortal::Monitor);
+    m_dialog->windowsTab->setEnabled(types & ScreenCastPortal::Window);
+}
+
 QList<quint32> ScreenChooserDialog::selectedScreens() const
 {
     return m_dialog->screenView->selectedScreens();
+}
+
+QList<quint32> ScreenChooserDialog::selectedWindows() const
+{
+    const auto idxs = m_dialog->windowsView->selectionModel()->selectedIndexes();
+
+    QList<quint32> ret;
+    ret.reserve(idxs.count());
+    for (const auto &idx : idxs) {
+        ret += idx.data(KWayland::Client::PlasmaWindowModel::InternalId).toUInt();
+    }
+    return ret;
 }

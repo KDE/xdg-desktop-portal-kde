@@ -31,18 +31,29 @@ class ScreenCastPortal : public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.ScreenCast")
     Q_PROPERTY(uint version READ version)
     Q_PROPERTY(uint AvailableSourceTypes READ AvailableSourceTypes)
+    Q_PROPERTY(uint AvailableCursorModes READ AvailableCursorModes)
 public:
     enum SourceType {
         Any = 0,
         Monitor,
         Window
     };
+    Q_ENUM(SourceType);
+    Q_DECLARE_FLAGS(SourceTypes, SourceType)
+
+    enum CursorModes {
+        Hidden = 1,
+        Embedded = 2,
+        Metadata = 4,
+    };
+    Q_ENUM(CursorModes);
 
     explicit ScreenCastPortal(QObject *parent);
     ~ScreenCastPortal();
 
     uint version() const { return 1; }
     uint AvailableSourceTypes() const { return Monitor; };
+    uint AvailableCursorModes() const { return Hidden | Embedded; };
 
 public Q_SLOTS:
     uint CreateSession(const QDBusObjectPath &handle,

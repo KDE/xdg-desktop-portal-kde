@@ -24,28 +24,26 @@ set(xdg_desktop_portal_kde_SRCS
     utils.cpp
     userinfodialog.cpp
     waylandintegration.cpp
+    screencast.cpp
+    screencasting.cpp
+    screencastwidget.cpp
+    screenchooserdialog.cpp
+    remotedesktop.cpp
+    remotedesktopdialog.cpp
 )
-
-if(HAVE_PIPEWIRE_SUPPORT)
-    set (xdg_desktop_portal_kde_SRCS
-         ${xdg_desktop_portal_kde_SRCS}
-         screencast.cpp
-         screencaststream.cpp
-         screencastwidget.cpp
-         screenchooserdialog.cpp
-         remotedesktop.cpp
-         remotedesktopdialog.cpp)
-
-    ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
-                  screenchooserdialog.ui
-                  remotedesktopdialog.ui)
-endif()
 
 ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
     accessdialog.ui
     appchooserdialog.ui
     screenshotdialog.ui
     userinfodialog.ui
+    screenchooserdialog.ui
+    remotedesktopdialog.ui
+)
+
+ecm_add_qtwayland_client_protocol(xdg_desktop_portal_kde_SRCS
+    PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/screencast.xml
+    BASENAME zkde-screencast-unstable-v1
 )
 
 set_source_files_properties(../data/org.freedesktop.Accounts.User.xml PROPERTIES NO_NAMESPACE TRUE)
@@ -70,14 +68,9 @@ target_link_libraries(xdg-desktop-portal-kde
     KF5::WaylandClient
     KF5::WidgetsAddons
     KF5::WindowSystem
-)
 
-if (HAVE_PIPEWIRE_SUPPORT)
-    target_link_libraries(xdg-desktop-portal-kde
-                          PipeWire::PipeWire
-                          ${Epoxy_LIBRARIES}
-                          GBM::GBM)
-endif()
+    Wayland::Client
+)
 
 install(TARGETS xdg-desktop-portal-kde DESTINATION ${KDE_INSTALL_LIBEXECDIR})
 

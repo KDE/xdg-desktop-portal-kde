@@ -57,8 +57,8 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
         return 2;
     }
 
-    connect(session, &Session::closed, [this] () {
-        WaylandIntegration::stopStreaming();
+    connect(session, &Session::closed, [] () {
+        WaylandIntegration::stopAllStreaming();
     });
 
     return 0;
@@ -78,8 +78,6 @@ uint ScreenCastPortal::SelectSources(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    options: " << options;
 
-    uint types = Monitor;
-
     ScreenCastSession *session = qobject_cast<ScreenCastSession*>(Session::getSession(session_handle.path()));
 
     if (!session) {
@@ -87,18 +85,7 @@ uint ScreenCastPortal::SelectSources(const QDBusObjectPath &handle,
         return 2;
     }
 
-    if (options.contains(QStringLiteral("multiple"))) {
-        session->setMultipleSources(options.value(QStringLiteral("multiple")).toBool());
-    }
-
-    if (options.contains(QStringLiteral("types"))) {
-        types = (SourceType)(options.value(QStringLiteral("types")).toUInt());
-    }
-
-    if (types == Window) {
-        qCWarning(XdgDesktopPortalKdeScreenCast) << "Screen cast of a window is not implemented";
-        return 2;
-    }
+    session->setMultipleSources(options.value(QStringLiteral("multiple")).toBool());
 
     // Might be also a RemoteDesktopSession
     if (session->type() == Session::RemoteDesktop) {
@@ -139,19 +126,25 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         return 2;
     }
 
-    if (!WaylandIntegration::isEGLInitialized()) {
-        qCWarning(XdgDesktopPortalKdeScreenCast) << "EGL is not properly initialized";
-        return 2;
-    }
-
     QScopedPointer<ScreenChooserDialog, QScopedPointerDeleteLater> screenDialog(new ScreenChooserDialog(app_id, session->multipleSources()));
     Utils::setParentWindow(screenDialog.data(), parent_window);
+
+    if (options.contains(QStringLiteral("types"))) {
+        screenDialog->setSourceTypes(SourceTypes(options.value(QStringLiteral("types")).toUInt()));
+    }
 
     connect(session, &Session::closed, screenDialog.data(), &ScreenChooserDialog::reject);
 
     if (screenDialog->exec()) {
-        if (!WaylandIntegration::startStreaming(screenDialog->selectedScreens().first())) {
-            return 2;
+        for (quint32 outputid : screenDialog->selectedScreens()) {
+            if (!WaylandIntegration::startStreamingOutput(outputid)) {
+                return 2;
+            }
+        }
+        for (quint32 winid : screenDialog->selectedWindows()) {
+            if (!WaylandIntegration::startStreamingWindow(winid)) {
+                return 3;
+            }
         }
 
         QVariant streams = WaylandIntegration::streams();

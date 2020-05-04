@@ -37,10 +37,8 @@
 #include "settings.h"
 #include "waylandintegration.h"
 
-#if HAVE_PIPEWIRE_SUPPORT
 #include "screencast.h"
 #include "remotedesktop.h"
-#endif
 
 class DesktopPortal : public QObject, public QDBusContext
 {
@@ -61,11 +59,8 @@ private:
     PrintPortal *m_print;
     ScreenshotPortal *m_screenshot;
     SettingsPortal *m_settings;
-#if HAVE_PIPEWIRE_SUPPORT
     ScreenCastPortal *m_screenCast;
     RemoteDesktopPortal *m_remoteDesktop;
-#endif
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
-
