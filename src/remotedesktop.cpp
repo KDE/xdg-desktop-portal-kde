@@ -55,8 +55,8 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
         return 2;
     }
 
-    connect(session, &Session::closed, [this] () {
-        WaylandIntegration::stopStreaming();
+    connect(session, &Session::closed, [] () {
+        WaylandIntegration::stopAllStreaming();
     });
 
     return 0;
@@ -128,7 +128,7 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
 
     if (remoteDesktopDialog->exec()) {
         if (session->screenSharingEnabled()) {
-            if (!WaylandIntegration::startStreaming(remoteDesktopDialog->selectedScreens().first())) {
+            if (!WaylandIntegration::startStreamingOutput(remoteDesktopDialog->selectedScreens().first(), Screencasting::Hidden)) {
                 return 2;
             }
 

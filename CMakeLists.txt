@@ -20,36 +20,6 @@ include(KDEClangFormat)
 
 include(FeatureSummary)
 
-option(ENABLE_PIPEWIRE "Disable PipeWire support. PipeWire is needed for screen sharing and remote desktop" ON)
-if(ENABLE_PIPEWIRE)
-    set(HAVE_PIPEWIRE_SUPPORT 1)
-else()
-    message(STATUS "Disabling PipeWire support")
-    set(HAVE_PIPEWIRE_SUPPORT 0)
-endif()
-add_definitions(-DHAVE_PIPEWIRE_SUPPORT=${HAVE_PIPEWIRE_SUPPORT})
-
-if(HAVE_PIPEWIRE_SUPPORT)
-    find_package(PipeWire)
-    set_package_properties(PipeWire PROPERTIES
-        TYPE REQUIRED
-        PURPOSE "Required for screencast portal"
-    )
-
-    find_package(GBM)
-    set_package_properties(GBM PROPERTIES
-        TYPE REQUIRED
-        PURPOSE "Required for screencast portal"
-    )
-
-    find_package(Epoxy)
-    set_package_properties(Epoxy PROPERTIES DESCRIPTION "libepoxy"
-        URL "https://github.com/anholt/libepoxy"
-        TYPE REQUIRED
-        PURPOSE "Required for screencast portal"
-    )
-endif()
-
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
     Concurrent
@@ -72,6 +42,9 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     WidgetsAddons
     WindowSystem
 )
+find_package(Wayland 1.15 REQUIRED COMPONENTS Client)
+find_package(PlasmaWaylandProtocols REQUIRED)
+find_package(QtWaylandScanner REQUIRED)
 
 if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
    add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)

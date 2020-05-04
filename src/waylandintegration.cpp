@@ -20,7 +20,8 @@
 
 #include "waylandintegration.h"
 #include "waylandintegration_p.h"
-
+#include "screencasting.h"
+#include "screencast.h"
 
 #include <QDBusArgument>
 #include <QDBusMetaType>
@@ -29,6 +30,7 @@
 #include <QLoggingCategory>
 #include <QThread>
 #include <QTimer>
+#include <KNotification>
 
 #include <QImage>
 
@@ -44,36 +46,28 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#if HAVE_PIPEWIRE_SUPPORT
-#include "screencast.h"
-#include "screencaststream.h"
-
 #include <KWayland/Client/fakeinput.h>
 #include <KWayland/Client/output.h>
-#include <KWayland/Client/remote_access.h>
-#endif
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeWaylandIntegration, "xdp-kde-wayland-integration")
 
 Q_GLOBAL_STATIC(WaylandIntegration::WaylandIntegrationPrivate, globalWaylandIntegration)
 
+static QDebug operator<<(QDebug dbg, const WaylandIntegration::WaylandIntegrationPrivate::Stream &c)
+{
+    dbg.nospace() << "Stream("<< c.map << ", " << c.nodeId << ")";
+    return dbg.space();
+
+}
+
 void WaylandIntegration::init()
 {
-#if HAVE_PIPEWIRE_SUPPORT
-    globalWaylandIntegration->initDrm();
-#endif
     globalWaylandIntegration->initWayland();
 }
 
-#if HAVE_PIPEWIRE_SUPPORT
 void WaylandIntegration::authenticate()
 {
     globalWaylandIntegration->authenticate();
-}
-
-bool WaylandIntegration::isEGLInitialized()
-{
-    return globalWaylandIntegration->isEGLInitialized();
 }
 
 bool WaylandIntegration::isStreamingEnabled()
@@ -86,14 +80,19 @@ void WaylandIntegration::startStreamingInput()
     globalWaylandIntegration->startStreamingInput();
 }
 
-bool WaylandIntegration::startStreaming(quint32 outputName)
+bool WaylandIntegration::startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode)
 {
-    return globalWaylandIntegration->startStreaming(outputName);
+    return globalWaylandIntegration->startStreamingOutput(outputName, mode);
 }
 
-void WaylandIntegration::stopStreaming()
+bool WaylandIntegration::startStreamingWindow(const QByteArray &winid)
 {
-    globalWaylandIntegration->stopStreaming();
+    return globalWaylandIntegration->startStreamingWindow(winid);
+}
+
+void WaylandIntegration::stopAllStreaming()
+{
+    globalWaylandIntegration->stopAllStreaming();
 }
 
 void WaylandIntegration::requestPointerButtonPress(quint32 linuxButton)
@@ -126,11 +125,6 @@ void WaylandIntegration::requestKeyboardKeycode(int keycode, bool state)
     globalWaylandIntegration->requestKeyboardKeycode(keycode, state);
 }
 
-WaylandIntegration::EGLStruct WaylandIntegration::egl()
-{
-    return globalWaylandIntegration->egl();
-}
-
 QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::screens()
 {
     return globalWaylandIntegration->screens();
@@ -139,28 +133,6 @@ QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::screens()
 QVariant WaylandIntegration::streams()
 {
     return globalWaylandIntegration->streams();
-}
-
-const char * WaylandIntegration::formatGLError(GLenum err)
-{
-    switch(err) {
-    case GL_NO_ERROR:
-        return "GL_NO_ERROR";
-    case GL_INVALID_ENUM:
-        return "GL_INVALID_ENUM";
-    case GL_INVALID_VALUE:
-        return "GL_INVALID_VALUE";
-    case GL_INVALID_OPERATION:
-        return "GL_INVALID_OPERATION";
-    case GL_STACK_OVERFLOW:
-        return "GL_STACK_OVERFLOW";
-    case GL_STACK_UNDERFLOW:
-        return "GL_STACK_UNDERFLOW";
-    case GL_OUT_OF_MEMORY:
-        return "GL_OUT_OF_MEMORY";
-    default:
-        return (QLatin1String("0x") + QString::number(err, 16)).toLocal8Bit().constData();
-    }
 }
 
 // Thank you kscreen
@@ -172,7 +144,7 @@ void WaylandIntegration::WaylandOutput::setOutputType(const QString &type)
                                    QLatin1String("LCD") };
 
     for (const QLatin1String &pre : embedded) {
-        if (type.toUpper().startsWith(pre)) {
+        if (type.startsWith(pre, Qt::CaseInsensitive)) {
             m_outputType = OutputType::Laptop;
             return;
         }
@@ -220,7 +192,6 @@ const QDBusArgument &operator << (QDBusArgument &arg, const WaylandIntegration::
 
 Q_DECLARE_METATYPE(WaylandIntegration::WaylandIntegrationPrivate::Stream)
 Q_DECLARE_METATYPE(WaylandIntegration::WaylandIntegrationPrivate::Streams)
-#endif
 
 KWayland::Client::PlasmaWindowManagement * WaylandIntegration::plasmaWindowManagement()
 {
@@ -238,39 +209,18 @@ WaylandIntegration::WaylandIntegrationPrivate::WaylandIntegrationPrivate()
     , m_connection(nullptr)
     , m_queue(nullptr)
     , m_registry(nullptr)
-#if HAVE_PIPEWIRE_SUPPORT
     , m_fakeInput(nullptr)
-    , m_remoteAccessManager(nullptr)
-#endif
+    , m_screencasting(nullptr)
 {
-#if HAVE_PIPEWIRE_SUPPORT
     qDBusRegisterMetaType<WaylandIntegrationPrivate::Stream>();
     qDBusRegisterMetaType<WaylandIntegrationPrivate::Streams>();
-#endif
 }
 
-WaylandIntegration::WaylandIntegrationPrivate::~WaylandIntegrationPrivate()
-{
-#if HAVE_PIPEWIRE_SUPPORT
-    if (m_remoteAccessManager) {
-        m_remoteAccessManager->destroy();
-    }
-
-    if (m_gbmDevice) {
-        gbm_device_destroy(m_gbmDevice);
-    }
-#endif
-}
-
-#if HAVE_PIPEWIRE_SUPPORT
-bool WaylandIntegration::WaylandIntegrationPrivate::isEGLInitialized() const
-{
-    return m_eglInitialized;
-}
+WaylandIntegration::WaylandIntegrationPrivate::~WaylandIntegrationPrivate() = default;
 
 bool WaylandIntegration::WaylandIntegrationPrivate::isStreamingEnabled() const
 {
-    return m_streamingEnabled;
+    return !m_streams.isEmpty();
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::bindOutput(int outputName, int outputVersion)
@@ -285,89 +235,89 @@ void WaylandIntegration::WaylandIntegrationPrivate::startStreamingInput()
     m_streamInput = true;
 }
 
-bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(quint32 outputName)
+bool WaylandIntegration::WaylandIntegrationPrivate::startStreamingWindow(const QByteArray &winid)
 {
-    WaylandOutput output = m_outputMap.value(outputName);
-    m_streamedScreenPosition = output.globalPosition();
+    return startStreaming(m_screencasting->createWindowStream(QString::fromUtf8(winid), Screencasting::Hidden), {});
+}
 
-    m_stream = new ScreenCastStream(output.resolution());
-    m_stream->init();
+bool WaylandIntegration::WaylandIntegrationPrivate::startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode)
+{
+    auto output = m_outputMap.value(outputName).output();
 
-    connect(m_stream, &ScreenCastStream::startStreaming, this, [this, output] {
-        m_streamingEnabled = true;
-        startStreamingInput();
-        bindOutput(output.waylandOutputName(), output.waylandOutputVersion());
-    });
+    return startStreaming(m_screencasting->createOutputStream(output.data(), mode), output);
+}
 
-    connect(m_stream, &ScreenCastStream::stopStreaming, this, &WaylandIntegrationPrivate::stopStreaming);
-
-    bool streamReady = false;
+bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(ScreencastingStream *stream, QSharedPointer<KWayland::Client::Output> output)
+{
     QEventLoop loop;
-    connect(m_stream, &ScreenCastStream::streamReady, this, [&loop, &streamReady] {
-        loop.quit();
-        streamReady = true;
-    });
+    bool streamReady = false;
+    connect(stream, &ScreencastingStream::failed, this, [&] (const QString &error) {
+        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "failed to start streaming" << stream << error;
 
-    // HACK wait for stream to be ready
+        KNotification *notification = new KNotification(QStringLiteral("screencastfailure"), KNotification::CloseOnTimeout);
+        notification->setTitle(i18n("Failed to start screencasting"));
+        notification->setText(error);
+        notification->setIconName(QStringLiteral("dialog-error"));
+        notification->sendEvent();
+
+        streamReady = false;
+        loop.quit();
+    });
+    connect(stream, &ScreencastingStream::created, this, [&] (uint32_t nodeid) {
+        Stream s;
+        s.stream = stream;
+        s.nodeId = nodeid;
+        if (output) {
+            m_streamedScreenPosition = output->globalPosition();
+            s.map = {
+                {QLatin1String("size"), output->pixelSize()},
+                {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)}
+            };
+        } else {
+            s.map = {
+                {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Window)}
+            };
+        }
+        m_streams.append(s);
+        startStreamingInput();
+
+        connect(stream, &ScreencastingStream::closed, this, [this, nodeid] { stopStreaming(nodeid); });
+        streamReady = true;
+        loop.quit();
+    });
     QTimer::singleShot(3000, &loop, &QEventLoop::quit);
     loop.exec();
 
-    disconnect(m_stream, &ScreenCastStream::streamReady, this, nullptr);
-
-    if (!streamReady) {
-        if (m_stream) {
-            delete m_stream;
-            m_stream = nullptr;
-        }
-        return false;
-    }
-
-    // TODO support multiple outputs
-
-    if (m_registry->hasInterface(KWayland::Client::Registry::Interface::RemoteAccessManager)) {
-        KWayland::Client::Registry::AnnouncedInterface interface = m_registry->interface(KWayland::Client::Registry::Interface::RemoteAccessManager);
-        if (!interface.name && !interface.version) {
-            qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Failed to start streaming: remote access manager interface is not initialized yet";
-            return false;
-        }
-        m_remoteAccessManager = m_registry->createRemoteAccessManager(interface.name, interface.version);
-        connect(m_remoteAccessManager, &KWayland::Client::RemoteAccessManager::bufferReady, this, [this] (const void *output, const KWayland::Client::RemoteBuffer * rbuf) {
-            Q_UNUSED(output);
-            connect(rbuf, &KWayland::Client::RemoteBuffer::parametersObtained, this, [this, rbuf] {
-                processBuffer(rbuf);
-            });
-        });
-        m_output = output.waylandOutputName();
-        return true;
-    }
-
-    if (m_stream) {
-        delete m_stream;
-        m_stream = nullptr;
-    }
-
-    qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Failed to start streaming: no remote access manager interface";
-    return false;
+    return streamReady;
 }
 
-void WaylandIntegration::WaylandIntegrationPrivate::stopStreaming()
+void WaylandIntegration::WaylandIntegrationPrivate::Stream::close()
 {
+    stream->deleteLater();
+}
+
+void WaylandIntegration::WaylandIntegrationPrivate::stopAllStreaming()
+{
+    for (auto & stream : m_streams) {
+        stream.close();
+    }
+    m_streams.clear();
+
     m_streamInput = false;
-    if (m_streamingEnabled) {
-        m_streamingEnabled = false;
+    // First unbound outputs and destroy remote access manager so we no longer receive buffers
+}
 
-        // First unbound outputs and destroy remote access manager so we no longer receive buffers
-        if (m_remoteAccessManager) {
-            m_remoteAccessManager->release();
-            m_remoteAccessManager->destroy();
+void WaylandIntegration::WaylandIntegrationPrivate::stopStreaming(uint32_t nodeid)
+{
+    for(auto it = m_streams.begin(), itEnd = m_streams.end(); it != itEnd; ++it) {
+        if (it->nodeId == nodeid) {
+            m_streams.erase(it);
+            break;
         }
-        qDeleteAll(m_bindOutputs);
-        m_bindOutputs.clear();
+    }
 
-        if (m_stream) {
-            delete m_stream;
-            m_stream = nullptr;
-        }
+    if (m_streams.isEmpty()) {
+        stopAllStreaming();
     }
 }
 
@@ -417,11 +367,6 @@ void WaylandIntegration::WaylandIntegrationPrivate::requestKeyboardKeycode(int k
     }
 }
 
-WaylandIntegration::EGLStruct WaylandIntegration::WaylandIntegrationPrivate::egl()
-{
-    return m_egl;
-}
-
 QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::WaylandIntegrationPrivate::screens()
 {
     return m_outputMap;
@@ -429,84 +374,7 @@ QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::WaylandInte
 
 QVariant WaylandIntegration::WaylandIntegrationPrivate::streams()
 {
-    Stream stream;
-    stream.nodeId = m_stream->nodeId();
-    stream.map = QVariantMap({{QLatin1String("size"), m_outputMap.value(m_output).resolution()},
-                              // FIXME: We currently support only screen sharing. This will need to be
-                              // changed based on the source type once window sharing is supported
-                              {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)}});
-    return QVariant::fromValue<WaylandIntegrationPrivate::Streams>({stream});
-}
-
-void WaylandIntegration::WaylandIntegrationPrivate::initDrm()
-{
-    m_drmFd = open("/dev/dri/renderD128", O_RDWR);
-
-    if (m_drmFd == -1) {
-        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Cannot open render node: " << strerror(errno);
-        return;
-    }
-
-    m_gbmDevice = gbm_create_device(m_drmFd);
-
-    if (!m_gbmDevice) {
-        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Cannot create GBM device: " << strerror(errno);
-    }
-
-    initEGL();
-}
-
-void WaylandIntegration::WaylandIntegrationPrivate::initEGL()
-{
-   // Get the list of client extensions
-    const char* clientExtensionsCString = eglQueryString(EGL_NO_DISPLAY, EGL_EXTENSIONS);
-    const QByteArray clientExtensionsString = QByteArray::fromRawData(clientExtensionsCString, qstrlen(clientExtensionsCString));
-    if (clientExtensionsString.isEmpty()) {
-        // If eglQueryString() returned NULL, the implementation doesn't support
-        // EGL_EXT_client_extensions. Expect an EGL_BAD_DISPLAY error.
-        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "No client extensions defined! " << formatGLError(eglGetError());
-        return;
-    }
-
-    m_egl.extensions = clientExtensionsString.split(' ');
-
-    // Use eglGetPlatformDisplayEXT() to get the display pointer
-    // if the implementation supports it.
-    if (!m_egl.extensions.contains(QByteArrayLiteral("EGL_EXT_platform_base")) ||
-            !m_egl.extensions.contains(QByteArrayLiteral("EGL_MESA_platform_gbm"))) {
-        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "One of required EGL extensions is missing";
-        return;
-    }
-
-    m_egl.display = eglGetPlatformDisplayEXT(EGL_PLATFORM_GBM_MESA, m_gbmDevice, nullptr);
-
-    if (m_egl.display == EGL_NO_DISPLAY) {
-        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Error during obtaining EGL display: " << formatGLError(eglGetError());
-        return;
-    }
-
-    EGLint major, minor;
-    if (eglInitialize(m_egl.display, &major, &minor) == EGL_FALSE) {
-        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Error during eglInitialize: " << formatGLError(eglGetError());
-        return;
-    }
-
-    if (eglBindAPI(EGL_OPENGL_API) == EGL_FALSE) {
-        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "bind OpenGL API failed";
-        return;
-    }
-
-    m_egl.context = eglCreateContext(m_egl.display, nullptr, EGL_NO_CONTEXT, nullptr);
-
-    if (m_egl.context == EGL_NO_CONTEXT) {
-        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Couldn't create EGL context: " << formatGLError(eglGetError());
-        return;
-    }
-
-    qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "Egl initialization succeeded";
-    qCDebug(XdgDesktopPortalKdeWaylandIntegration) << QStringLiteral("EGL version: %1.%2").arg(major).arg(minor);
-
-    m_eglInitialized = true;
+    return QVariant::fromValue<WaylandIntegrationPrivate::Streams>(m_streams);
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::authenticate()
@@ -516,8 +384,6 @@ void WaylandIntegration::WaylandIntegrationPrivate::authenticate()
         m_waylandAuthenticationRequested = true;
     }
 }
-
-#endif
 
 KWayland::Client::PlasmaWindowManagement * WaylandIntegration::WaylandIntegrationPrivate::plasmaWindowManagement()
 {
@@ -559,30 +425,23 @@ void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
     m_connection->initConnection();
 }
 
-#if HAVE_PIPEWIRE_SUPPORT
 void WaylandIntegration::WaylandIntegrationPrivate::addOutput(quint32 name, quint32 version)
 {
-    KWayland::Client::Output *output = new KWayland::Client::Output(this);
+    QSharedPointer<KWayland::Client::Output> output(new KWayland::Client::Output(this));
     output->setup(m_registry->bindOutput(name, version));
 
-    connect(output, &KWayland::Client::Output::changed, this, [this, name, version, output] () {
+    connect(output.data(), &KWayland::Client::Output::changed, this, [this, name, version, output] () {
         qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "Adding output:";
         qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "    manufacturer: " << output->manufacturer();
         qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "    model: " << output->model();
         qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "    resolution: " << output->pixelSize();
 
         WaylandOutput portalOutput;
-        portalOutput.setManufacturer(output->manufacturer());
-        portalOutput.setModel(output->model());
-        portalOutput.setOutputType(output->model());
-        portalOutput.setGlobalPosition(output->globalPosition());
-        portalOutput.setResolution(output->pixelSize());
+        portalOutput.setOutput(output);
         portalOutput.setWaylandOutputName(name);
         portalOutput.setWaylandOutputVersion(version);
 
         m_outputMap.insert(name, portalOutput);
-
-        delete output;
     });
 }
 
@@ -594,54 +453,6 @@ void WaylandIntegration::WaylandIntegrationPrivate::removeOutput(quint32 name)
     qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "    model: " << output.model();
 }
 
-void WaylandIntegration::WaylandIntegrationPrivate::processBuffer(const KWayland::Client::RemoteBuffer* rbuf)
-{
-    QScopedPointer<const KWayland::Client::RemoteBuffer> guard(rbuf);
-
-    auto gbmHandle = rbuf->fd();
-    auto width = rbuf->width();
-    auto height = rbuf->height();
-    auto stride = rbuf->stride();
-    auto format = rbuf->format();
-
-    qCDebug(XdgDesktopPortalKdeWaylandIntegration) << QStringLiteral("Incoming GBM fd %1, %2x%3, stride %4, fourcc 0x%5").arg(gbmHandle).arg(width).arg(height).arg(stride).arg(QString::number(format, 16));
-
-    if (!m_streamingEnabled) {
-        qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "Streaming is disabled";
-        close(gbmHandle);
-        return;
-    }
-
-    if (m_lastFrameTime.isValid() &&
-        m_lastFrameTime.msecsTo(QDateTime::currentDateTime()) < (1000 / m_stream->framerate())) {
-        close(gbmHandle);
-        return;
-    }
-
-    if (!gbm_device_is_format_supported(m_gbmDevice, format, GBM_BO_USE_SCANOUT)) {
-        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Failed to process buffer: GBM format is not supported by device!";
-        close(gbmHandle);
-        return;
-    }
-
-    // import GBM buffer that was passed from KWin
-    gbm_import_fd_data importInfo = {gbmHandle, width, height, stride, format};
-    gbm_bo *imported = gbm_bo_import(m_gbmDevice, GBM_BO_IMPORT_FD, &importInfo, GBM_BO_USE_SCANOUT);
-    if (!imported) {
-        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Failed to process buffer: Cannot import passed GBM fd - " << strerror(errno);
-        close(gbmHandle);
-        return;
-    }
-
-    if (m_stream->recordFrame(imported, width, height, stride)) {
-        m_lastFrameTime = QDateTime::currentDateTime();
-    }
-
-    gbm_bo_destroy(imported);
-    close(gbmHandle);
-}
-#endif
-
 void WaylandIntegration::WaylandIntegrationPrivate::setupRegistry()
 {
     m_queue = new KWayland::Client::EventQueue(this);
@@ -649,14 +460,17 @@ void WaylandIntegration::WaylandIntegrationPrivate::setupRegistry()
 
     m_registry = new KWayland::Client::Registry(this);
 
-#if HAVE_PIPEWIRE_SUPPORT
     connect(m_registry, &KWayland::Client::Registry::fakeInputAnnounced, this, [this] (quint32 name, quint32 version) {
         m_fakeInput = m_registry->createFakeInput(name, version, this);
     });
     connect(m_registry, &KWayland::Client::Registry::outputAnnounced, this, &WaylandIntegrationPrivate::addOutput);
     connect(m_registry, &KWayland::Client::Registry::outputRemoved, this, &WaylandIntegrationPrivate::removeOutput);
-#endif
 
+    connect(m_registry, &KWayland::Client::Registry::interfaceAnnounced, this, [this] (const QByteArray &interfaceName, quint32 name, quint32 version) {
+        if (interfaceName != "zkde_screencast_unstable_v1")
+            return;
+        m_screencasting = new Screencasting(m_registry, name, version, this);
+    });
     connect(m_registry, &KWayland::Client::Registry::plasmaWindowManagementAnnounced, this, [this] (quint32 name, quint32 version) {
         m_windowManagement = m_registry->createPlasmaWindowManagement(name, version, this);
         Q_EMIT waylandIntegration()->plasmaWindowManagementInitialized();

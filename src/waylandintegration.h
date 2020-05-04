@@ -26,26 +26,18 @@
 #include <QSize>
 #include <QVariant>
 
-#if HAVE_PIPEWIRE_SUPPORT
-#include <gbm.h>
-#include <epoxy/egl.h>
-#include <epoxy/gl.h>
-#endif
+#include <KWayland/Client/output.h>
+#include <screencasting.h>
 
 namespace KWayland {
     namespace Client {
         class PlasmaWindowManagement;
+        class ScreencastingSource;
     }
 }
 
 namespace WaylandIntegration
 {
-#if HAVE_PIPEWIRE_SUPPORT
-struct EGLStruct {
-    QList<QByteArray> extensions;
-    EGLDisplay display = EGL_NO_DISPLAY;
-    EGLContext context = EGL_NO_CONTEXT;
-};
 
 class WaylandOutput
 {
@@ -55,20 +47,17 @@ public:
         Monitor,
         Television
     };
-    void setManufacturer(const QString &manufacturer) { m_manufacturer = manufacturer; }
-    QString manufacturer() const { return m_manufacturer; }
-
-    void setModel(const QString &model) { m_model = model; }
-    QString model() const { return m_model; }
-
-    void setGlobalPosition(const QPoint &pos) { m_globalPosition = pos; }
-    QPoint globalPosition() const { return m_globalPosition; }
-
-    void setResolution(const QSize &resolution) { m_resolution = resolution; }
-    QSize resolution() const { return m_resolution; }
-
-    void setOutputType(const QString &type);
+    QString manufacturer() const { return m_output->manufacturer(); }
+    QString model() const { return m_output->model(); }
+    QPoint globalPosition() const { return m_output->globalPosition(); }
+    QSize resolution() const { return m_output->pixelSize(); }
     OutputType outputType() const { return m_outputType; }
+
+    QSharedPointer<KWayland::Client::Output> output() const { return m_output; }
+    void setOutput(const QSharedPointer<KWayland::Client::Output> &output) {
+        m_output = output;
+        setOutputType(output->model());
+    }
 
     void setWaylandOutputName(int outputName) { m_waylandOutputName = outputName; }
     int waylandOutputName() const { return m_waylandOutputName; }
@@ -77,39 +66,31 @@ public:
     int waylandOutputVersion() const { return m_waylandOutputVersion; }
 
 private:
-    QString m_manufacturer;
-    QString m_model;
-    QPoint m_globalPosition;
-    QSize m_resolution;
-    OutputType m_outputType;
+    void setOutputType(const QString &model);
+    OutputType m_outputType = Monitor;
+    QSharedPointer<KWayland::Client::Output> m_output;
 
     // Needed for later output binding
     int m_waylandOutputName;
     int m_waylandOutputVersion;
 };
-#endif
 
 class WaylandIntegration : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:
-#if HAVE_PIPEWIRE_SUPPORT
     void newBuffer(uint8_t *screenData);
-#endif
     void plasmaWindowManagementInitialized();
 };
 
-#if HAVE_PIPEWIRE_SUPPORT
-    const char * formatGLError(GLenum err);
-
     void authenticate();
 
-    bool isEGLInitialized();
     bool isStreamingEnabled();
 
     void startStreamingInput();
-    bool startStreaming(quint32 outputName);
-    void stopStreaming();
+    bool startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
+    bool startStreamingWindow(const QByteArray &winid);
+    void stopAllStreaming();
 
     void requestPointerButtonPress(quint32 linuxButton);
     void requestPointerButtonRelease(quint32 linuxButton);
@@ -119,10 +100,9 @@ Q_SIGNALS:
 
     void requestKeyboardKeycode(int keycode, bool state);
 
-    EGLStruct egl();
     QMap<quint32, WaylandOutput> screens();
     QVariant streams();
-#endif
+
     void init();
 
     KWayland::Client::PlasmaWindowManagement *plasmaWindowManagement();
