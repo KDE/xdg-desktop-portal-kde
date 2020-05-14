@@ -81,6 +81,13 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeBackground) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeBackground) << "    name: " << name;
 
+    // If KWayland::Client::PlasmaWindowManagement hasn't been created, we would be notified about every
+    // application, which is not what we want. This will be mostly happening on X11 session.
+    if (!WaylandIntegration::plasmaWindowManagement()) {
+        results.insert(QStringLiteral("result"), static_cast<uint>(BackgroundPortal::Ignore));
+        return 0;
+    }
+
     KNotification *notify = new KNotification(QStringLiteral("notification"), KNotification::Persistent | KNotification::DefaultEvent, this);
     notify->setTitle(i18n("Background activity"));
     notify->setText(i18n("%1 is running in the background.", app_id));
