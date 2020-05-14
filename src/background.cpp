@@ -106,8 +106,6 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle,
     QDBusMessage message = q_ptr->message();
 
     message.setDelayedReply(true);
-    reply = message.createReply();
-    QDBusConnection::sessionBus().send(reply);
 
     connect(notify, QOverload<uint>::of(&KNotification::activated), this, [=] (uint action) {
         if (action != 1) {
@@ -131,7 +129,7 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle,
         }
 
         const QVariantMap map = { {QStringLiteral("result"), static_cast<uint>(result)} };
-        QDBusMessage reply = message.createReply({0, map});
+        QDBusMessage reply = message.createReply({static_cast<uint>(0), map});
         if (!QDBusConnection::sessionBus().send(reply)) {
             qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
         }
@@ -143,7 +141,7 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle,
 
         QVariantMap map;
         map.insert(QStringLiteral("result"), static_cast<uint>(BackgroundPortal::Ignore));
-        QDBusMessage reply = message.createReply({0, map});
+        QDBusMessage reply = message.createReply({static_cast<uint>(0), map});
         if (!QDBusConnection::sessionBus().send(reply)) {
             qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
         }
