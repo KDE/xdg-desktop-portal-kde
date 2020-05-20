@@ -51,7 +51,7 @@ public:
     ~Screencasting() override;
 
     ScreencastingStream* createOutputStream(KWayland::Client::Output* output);
-    ScreencastingStream* createWindowStream(quint32 window);
+    ScreencastingStream* createWindowStream(const QByteArray &window);
 
     void setup(zkde_screencast_unstable_v1* screencasting);
     void destroy();

@@ -17,15 +17,18 @@ class KWayland::Client::ScreencastingStreamPrivate : public QtWayland::zkde_scre
 public:
     ScreencastingStreamPrivate(ScreencastingStream* q) : q(q) {}
 
-    void zkde_screencast_stream_unstable_v1_closed() override {
-        Q_EMIT q->closed();
-    }
-
     void zkde_screencast_stream_unstable_v1_created(uint32_t node, quint32 width, quint32 height) override {
         Q_EMIT q->created(node, QSize(width, height));
     }
+
+    void zkde_screencast_stream_unstable_v1_closed() override {
+        Q_EMIT q->closed();
+        q->deleteLater();
+    }
+
     void zkde_screencast_stream_unstable_v1_failed(const QString &error) override {
         Q_EMIT q->failed(error);
+        q->deleteLater();
     }
 
 private:
@@ -86,10 +89,10 @@ ScreencastingStream* Screencasting::createOutputStream(KWayland::Client::Output*
     return stream;
 }
 
-ScreencastingStream* Screencasting::createWindowStream(quint32 window)
+ScreencastingStream* Screencasting::createWindowStream(const QByteArray &window)
 {
     auto stream = new ScreencastingStream(this);
-    stream->d->init(d->stream_window(window));
+    stream->d->init(d->stream_window(QString::fromUtf8(window)));
     return stream;
 }
 

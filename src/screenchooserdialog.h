@@ -28,6 +28,7 @@ namespace Ui
 {
 class ScreenChooserDialog;
 }
+class QItemSelection;
 
 class ScreenChooserDialog : public QDialog
 {
@@ -39,9 +40,12 @@ public:
     void setSourceTypes(ScreenCastPortal::SourceTypes types);
 
     QList<quint32> selectedScreens() const;
-    QList<quint32> selectedWindows() const;
+    QList<QByteArray> selectedWindows() const;
 
 private:
+    void selectionChanged(const QItemSelection &selected);
+
+    const bool m_multiple;
     Ui::ScreenChooserDialog *m_dialog;
 };
 

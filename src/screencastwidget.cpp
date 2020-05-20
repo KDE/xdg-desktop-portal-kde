@@ -42,8 +42,6 @@ ScreenCastWidget::ScreenCastWidget(QWidget *parent)
             widgetItem->setText(i18n("Manufacturer: %1\nModel: %2", it.value().manufacturer(), it.value().model()));
         }
     }
-
-    itemAt(0, 0)->setSelected(true);
 }
 
 ScreenCastWidget::~ScreenCastWidget()

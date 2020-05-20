@@ -86,7 +86,7 @@ public:
 
     bool startStreaming(KWayland::Client::ScreencastingStream *stream, const QPoint &globalPosition);
     bool startStreamingOutput(quint32 outputid);
-    bool startStreamingWindow(quint32 winid);
+    bool startStreamingWindow(const QByteArray &winid);
     void stopStreaming(uint32_t nodeid);
     void stopAllStreaming();
 

@@ -23,30 +23,58 @@
 #include "waylandintegration.h"
 
 #include <KLocalizedString>
+#include <QDebug>
 #include <QPushButton>
 #include <QStandardPaths>
 #include <QSettings>
+#include <QSortFilterProxyModel>
 #include <KWayland/Client/plasmawindowmodel.h>
 #include <KWayland/Client/plasmawindowmanagement.h>
 
+class FilteredWindowModel : public QSortFilterProxyModel
+{
+public:
+    FilteredWindowModel(QObject* parent) : QSortFilterProxyModel(parent)
+    {}
+
+    bool filterAcceptsRow(int source_row, const QModelIndex & source_parent) const override {
+        if (source_parent.isValid())
+            return false;
+
+        const auto idx = sourceModel()->index(source_row, 0);
+        using KWayland::Client::PlasmaWindowModel;
+
+        return !idx.data(PlasmaWindowModel::SkipTaskbar).toBool()
+            && !idx.data(PlasmaWindowModel::SkipSwitcher).toBool();
+    }
+};
+
 ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)
+    , m_multiple(multiple)
     , m_dialog(new Ui::ScreenChooserDialog)
 {
     m_dialog->setupUi(this);
 
-    if (multiple) {
-        m_dialog->screenView->setSelectionMode(QAbstractItemView::ExtendedSelection);
-    }
+    const auto selection = multiple ? QAbstractItemView::ExtendedSelection : QAbstractItemView::SingleSelection;
+    m_dialog->screenView->setSelectionMode(selection);
+    m_dialog->windowsView->setSelectionMode(selection);
+
+    auto model = new KWayland::Client::PlasmaWindowModel(WaylandIntegration::plasmaWindowManagement());
+    auto proxy = new FilteredWindowModel(this);
+    proxy->setSourceModel(model);
+    m_dialog->windowsView->setModel(proxy);
 
     connect(m_dialog->buttonBox, &QDialogButtonBox::accepted, this, &ScreenChooserDialog::accept);
     connect(m_dialog->buttonBox, &QDialogButtonBox::rejected, this, &ScreenChooserDialog::reject);
-    connect(m_dialog->screenView, &QListWidget::itemDoubleClicked, this, &ScreenChooserDialog::accept);
+    connect(m_dialog->screenView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &ScreenChooserDialog::selectionChanged);
+    connect(m_dialog->windowsView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &ScreenChooserDialog::selectionChanged);
+    connect(m_dialog->screenView, &QListWidget::doubleClicked, this, &ScreenChooserDialog::accept);
+    connect(m_dialog->windowsView, &QListView::doubleClicked, this, &ScreenChooserDialog::accept);
 
-    auto model = new KWayland::Client::PlasmaWindowModel(WaylandIntegration::plasmaWindowManagement());
-    m_dialog->windowsView->setModel(model);
-
-    m_dialog->buttonBox->button(QDialogButtonBox::Ok)->setText(i18n("Share"));
+    auto okButton = m_dialog->buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setText(i18n("Share"));
+    okButton->setEnabled(false);
 
     QString applicationName;
     const QString desktopFile = appName + QLatin1String(".desktop");
@@ -77,10 +105,26 @@ ScreenChooserDialog::~ScreenChooserDialog()
     delete m_dialog;
 }
 
+void ScreenChooserDialog::selectionChanged(const QItemSelection &selected)
+{
+    if (!m_multiple && !selected.isEmpty()) {
+        if (selected.constFirst().model() == m_dialog->windowsView->model())
+            m_dialog->screenView->clearSelection();
+        else
+            m_dialog->windowsView->clearSelection();
+    }
+
+    auto okButton = m_dialog->buttonBox->button(QDialogButtonBox::Ok);
+    const auto count = m_dialog->screenView->selectionModel()->hasSelection()
+                     + m_dialog->windowsView->selectionModel()->hasSelection();
+    okButton->setEnabled(m_multiple ? count > 0 : count == 1);
+}
+
 void ScreenChooserDialog::setSourceTypes(ScreenCastPortal::SourceTypes types)
 {
-    m_dialog->screensTab->setEnabled(types & ScreenCastPortal::Monitor);
+    qDebug() << "xxxxxxxxxxx" << types << this;
     m_dialog->windowsTab->setEnabled(types & ScreenCastPortal::Window);
+    m_dialog->screensTab->setEnabled(types & ScreenCastPortal::Monitor);
 }
 
 QList<quint32> ScreenChooserDialog::selectedScreens() const
@@ -88,14 +132,14 @@ QList<quint32> ScreenChooserDialog::selectedScreens() const
     return m_dialog->screenView->selectedScreens();
 }
 
-QList<quint32> ScreenChooserDialog::selectedWindows() const
+QList<QByteArray> ScreenChooserDialog::selectedWindows() const
 {
     const auto idxs = m_dialog->windowsView->selectionModel()->selectedIndexes();
 
-    QList<quint32> ret;
+    QList<QByteArray> ret;
     ret.reserve(idxs.count());
     for (const auto &idx : idxs) {
-        ret += idx.data(KWayland::Client::PlasmaWindowModel::InternalId).toUInt();
+        ret += idx.data(KWayland::Client::PlasmaWindowModel::Uuid).toByteArray();
     }
     return ret;
 }

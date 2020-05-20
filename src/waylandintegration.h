@@ -88,7 +88,7 @@ Q_SIGNALS:
 
     void startStreamingInput();
     bool startStreamingOutput(quint32 outputName);
-    bool startStreamingWindow(quint32 winid);
+    bool startStreamingWindow(const QByteArray &winid);
     void stopAllStreaming();
 
     void requestPointerButtonPress(quint32 linuxButton);
