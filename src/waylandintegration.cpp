@@ -45,6 +45,7 @@
 #include <unistd.h>
 
 #if HAVE_PIPEWIRE_SUPPORT
+#include "screencast.h"
 #include "screencaststream.h"
 
 #include <KWayland/Client/fakeinput.h>
@@ -430,7 +431,10 @@ QVariant WaylandIntegration::WaylandIntegrationPrivate::streams()
 {
     Stream stream;
     stream.nodeId = m_stream->nodeId();
-    stream.map = QVariantMap({{QLatin1String("size"), m_outputMap.value(m_output).resolution()}});
+    stream.map = QVariantMap({{QLatin1String("size"), m_outputMap.value(m_output).resolution()},
+                              // FIXME: We currently support only screen sharing. This will need to be
+                              // changed based on the source type once window sharing is supported
+                              {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)}});
     return QVariant::fromValue<WaylandIntegrationPrivate::Streams>({stream});
 }
 
