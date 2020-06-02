@@ -2,6 +2,7 @@
 IconName=start-here-kde-plasma
 Comment=Integrating applications into the KDE Plasma desktop
 Comment[ca]=Integració d'aplicacions a l'escriptori Plasma del KDE
+Comment[cs]=Integrace aplikací do pracovního prostředí KDE Plasma
 Comment[en_GB]=Integrating applications into the KDE Plasma desktop
 Comment[es]=Integración de aplicaciones en el escritorio KDE Plasma
 Comment[et]=Rakenduste lõimimine KDE Plasma töölauda
@@ -23,6 +24,7 @@ Comment[x-test]=xxIntegrating applications into the KDE Plasma desktopxx
 Comment[zh_CN]=将应用程序整合到 KDE Plasma 桌面
 Name=KDE Portal Integration
 Name[ca]=Integració del Portal del KDE
+Name[cs]=Integrace Portálu KDE
 Name[en_GB]=KDE Portal Integration
 Name[es]=Integración del portal de KDE
 Name[et]=KDE portaali lõimimine
