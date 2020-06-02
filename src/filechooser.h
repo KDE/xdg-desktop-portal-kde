@@ -29,6 +29,7 @@
 
 class KFileWidget;
 class QDialogButtonBox;
+class MobileFileDialog;
 
 class FileDialog : public QDialog
 {
@@ -105,6 +106,10 @@ private:
 
     static void ExtractFilters(const QVariantMap &options, QStringList &nameFilters,
                                QStringList &mimeTypeFilters, QMap<QString, FilterList> &allFilters);
+
+    bool isMobile() const;
+
+    MobileFileDialog *m_mobileFileDialog;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_FILECHOOSER_H

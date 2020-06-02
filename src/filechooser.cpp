@@ -31,10 +31,14 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QUrl>
+#include <QQmlApplicationEngine>
+
 
 #include <KLocalizedString>
 #include <KFileFilterCombo>
 #include <KFileWidget>
+
+#include <mobilefiledialog.h>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeFileChooser, "xdp-kde-file-chooser")
 
@@ -159,6 +163,7 @@ FileDialog::~FileDialog()
 
 FileChooserPortal::FileChooserPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
+    , m_mobileFileDialog(nullptr)
 {
     qDBusRegisterMetaType<Filter>();
     qDBusRegisterMetaType<Filters>();
@@ -198,12 +203,6 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     // mapping between filter strings and actual filters
     QMap<QString, FilterList> allFilters;
 
-    // for handling of options - choices
-    QScopedPointer<QWidget> optionsWidget;
-    // to store IDs for choices along with corresponding comboboxes/checkboxes
-    QMap<QString, QCheckBox*> checkboxes;
-    QMap<QString, QComboBox*> comboboxes;
-
     if (options.contains(QStringLiteral("accept_label"))) {
         acceptLabel = options.value(QStringLiteral("accept_label")).toString();
     }
@@ -241,6 +240,46 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
         }
     }
 
+    if (isMobile()) {
+        if (!m_mobileFileDialog) {
+            qCDebug(XdgDesktopPortalKdeFileChooser) << "Creating file dialog";
+            m_mobileFileDialog = new MobileFileDialog(this);
+        }
+
+        m_mobileFileDialog->setTitle(title);
+
+        // Always true when we are opening a file
+        m_mobileFileDialog->setSelectExisting(true);
+
+        m_mobileFileDialog->setSelectFolder(directory);
+
+        // currentName: not implemented
+
+        if (!acceptLabel.isEmpty()) {
+            m_mobileFileDialog->setAcceptLabel(acceptLabel);
+        }
+
+        if (!nameFilters.isEmpty()) {
+            m_mobileFileDialog->setNameFilters(nameFilters);
+        }
+
+        if (!mimeTypeFilters.isEmpty()) {
+            m_mobileFileDialog->setMimeTypeFilters(mimeTypeFilters);
+        }
+
+        uint retCode = m_mobileFileDialog->exec();
+
+        results.insert(QStringLiteral("uris"), m_mobileFileDialog->results());
+
+        return retCode;
+    }
+
+    // for handling of options - choices
+    QScopedPointer<QWidget> optionsWidget;
+    // to store IDs for choices along with corresponding comboboxes/checkboxes
+    QMap<QString, QCheckBox*> checkboxes;
+    QMap<QString, QComboBox*> comboboxes;
+
     if (options.contains(QStringLiteral("choices"))) {
         OptionList optionList = qdbus_cast<OptionList>(options.value(QStringLiteral("choices")));
         optionsWidget.reset(CreateChoiceControls(optionList, checkboxes, comboboxes));
@@ -270,8 +309,8 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     if (fileDialog->exec() == QDialog::Accepted) {
         QStringList files;
         for (const QString &filename : fileDialog->m_fileWidget->selectedFiles()) {
-           QUrl url = QUrl::fromLocalFile(filename);
-           files << url.toDisplayString();
+            QUrl url = QUrl::fromLocalFile(filename);
+            files << url.toDisplayString();
         }
 
         if (files.isEmpty()) {
@@ -329,12 +368,6 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     // mapping between filter strings and actual filters
     QMap<QString, FilterList> allFilters;
 
-    // for handling of options - choices
-    QScopedPointer<QWidget> optionsWidget;
-    // to store IDs for choices along with corresponding comboboxes/checkboxes
-    QMap<QString, QCheckBox*> checkboxes;
-    QMap<QString, QComboBox*> comboboxes;
-
     if (options.contains(QStringLiteral("modal"))) {
         modalDialog = options.value(QStringLiteral("modal")).toBool();
     }
@@ -375,6 +408,52 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
             qCDebug(XdgDesktopPortalKdeFileChooser) << "Ignoring 'current_filter' parameter with 0 or multiple filters specified.";
         }
     }
+
+    if (isMobile()) {
+        if (!m_mobileFileDialog) {
+            qCDebug(XdgDesktopPortalKdeFileChooser) << "Creating file dialog";
+            m_mobileFileDialog = new MobileFileDialog(this);
+        }
+
+        m_mobileFileDialog->setTitle(title);
+
+        // Always false when we are saving a file
+        m_mobileFileDialog->setSelectExisting(false);
+
+        if (!currentFolder.isEmpty()) {
+            m_mobileFileDialog->setFolder(currentFolder);
+        }
+
+        if (!currentFile.isEmpty()) {
+            m_mobileFileDialog->setCurrentFile(currentFile);
+        }
+
+        // currentName: not implemented
+
+        if (!acceptLabel.isEmpty()) {
+            m_mobileFileDialog->setAcceptLabel(acceptLabel);
+        }
+
+        if (!nameFilters.isEmpty()) {
+            m_mobileFileDialog->setNameFilters(nameFilters);
+        }
+
+        if (!mimeTypeFilters.isEmpty()) {
+            m_mobileFileDialog->setMimeTypeFilters(mimeTypeFilters);
+        }
+
+        uint retCode = m_mobileFileDialog->exec();
+
+        results.insert(QStringLiteral("uris"), m_mobileFileDialog->results());
+
+        return retCode;
+    }
+
+    // for handling of options - choices
+    QScopedPointer<QWidget> optionsWidget;
+    // to store IDs for choices along with corresponding comboboxes/checkboxes
+    QMap<QString, QCheckBox*> checkboxes;
+    QMap<QString, QComboBox*> comboboxes;
 
     if (options.contains(QStringLiteral("choices"))) {
         OptionList optionList = qdbus_cast<OptionList>(options.value(QStringLiteral("choices")));
@@ -535,4 +614,10 @@ void FileChooserPortal::ExtractFilters(const QVariantMap &options, QStringList &
             }
         }
     }
+}
+
+bool FileChooserPortal::isMobile() const
+{
+    QByteArray mobile = qgetenv("QT_QUICK_CONTROLS_MOBILE");
+    return mobile == "true" || mobile == "1";
 }

@@ -1,3 +1,5 @@
+add_subdirectory(kirigami-filepicker)
+
 add_definitions(-DTRANSLATION_DOMAIN="xdg-desktop-portal-kde")
 
 include_directories(${Qt5PrintSupport_PRIVATE_INCLUDE_DIRS})
@@ -68,7 +70,7 @@ target_link_libraries(xdg-desktop-portal-kde
     KF5::WaylandClient
     KF5::WidgetsAddons
     KF5::WindowSystem
-
+    KirigamiFilepicker
     Wayland::Client
 )
 
