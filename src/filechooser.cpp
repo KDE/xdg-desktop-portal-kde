@@ -186,6 +186,25 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
         }
     }
 
+    if (options.contains(QStringLiteral("current_filter"))) {
+        FilterList filterList = qdbus_cast<FilterList>(options.value(QStringLiteral("current_filter")));
+        if (filterList.filters.size() == 1) {
+            // make the relevant entry the first one in the list of filters,
+            // since that is the one that gets preselected by KFileWidget
+            Filter filterStruct = filterList.filters.at(0);
+            if (filterStruct.type == 0) {
+                QString nameFilter = QStringLiteral("%1|%2").arg(filterStruct.filterString).arg(filterList.userVisibleName);
+                nameFilters.removeAll(nameFilter);
+                nameFilters.push_front(nameFilter);
+            } else {
+                mimeTypeFilters.removeAll(filterStruct.filterString);
+                mimeTypeFilters.push_front(filterStruct.filterString);
+            }
+        } else {
+            qCDebug(XdgDesktopPortalKdeFileChooser) << "Ignoring 'current_filter' parameter with 0 or multiple filters specified.";
+        }
+    }
+
     QScopedPointer<FileDialog, QScopedPointerDeleteLater> fileDialog(new FileDialog());
     Utils::setParentWindow(fileDialog.data(), parent_window);
     fileDialog->setWindowTitle(title);
@@ -282,6 +301,25 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
             if (!filterStrings.isEmpty()) {
                 nameFilters << QStringLiteral("%1|%2").arg(filterStrings.join(QLatin1Char(' '))).arg(filterList.userVisibleName);
             }
+        }
+    }
+
+    if (options.contains(QStringLiteral("current_filter"))) {
+        FilterList filterList = qdbus_cast<FilterList>(options.value(QStringLiteral("current_filter")));
+        if (filterList.filters.size() == 1) {
+            // make the relevant entry the first one in the list of filters,
+            // since that is the one that gets preselected by KFileWidget
+            Filter filterStruct = filterList.filters.at(0);
+            if (filterStruct.type == 0) {
+                QString nameFilter = QStringLiteral("%1|%2").arg(filterStruct.filterString).arg(filterList.userVisibleName);
+                nameFilters.removeAll(nameFilter);
+                nameFilters.push_front(nameFilter);
+            } else {
+                mimeTypeFilters.removeAll(filterStruct.filterString);
+                mimeTypeFilters.push_front(filterStruct.filterString);
+            }
+        } else {
+            qCDebug(XdgDesktopPortalKdeFileChooser) << "Ignoring 'current_filter' parameter with 0 or multiple filters specified.";
         }
     }
 
