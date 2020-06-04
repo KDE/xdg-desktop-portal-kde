@@ -21,6 +21,8 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_FILECHOOSER_H
 #define XDG_DESKTOP_PORTAL_KDE_FILECHOOSER_H
 
+#include <QCheckBox>
+#include <QComboBox>
 #include <QDBusObjectPath>
 #include <QDBusAbstractAdaptor>
 #include <QDialog>
@@ -61,6 +63,20 @@ public:
     } FilterList;
     typedef QList<FilterList> FilterListList;
 
+    typedef struct {
+        QString id;
+        QString value;
+    } Choice;
+    typedef QList<Choice> Choices;
+
+    typedef struct {
+        QString id;
+        QString label;
+        Choices choices;
+        QString initialChoiceId;
+    } Option;
+    typedef QList<Option> OptionList;
+
     explicit FileChooserPortal(QObject *parent);
     ~FileChooserPortal();
 
@@ -78,6 +94,14 @@ public Q_SLOTS:
                   const QString &title,
                   const QVariantMap &options,
                   QVariantMap &results);
+
+private:
+    static QWidget* CreateChoiceControls(const OptionList& optionList,
+                                         QMap<QString, QCheckBox*>& checkboxes,
+                                         QMap<QString, QComboBox*>& comboboxes);
+
+    static QVariant EvaluateSelectedChoices(const QMap<QString, QCheckBox*>& checkboxes,
+                                            const QMap<QString, QComboBox*>& comboboxes);
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_FILECHOOSER_H

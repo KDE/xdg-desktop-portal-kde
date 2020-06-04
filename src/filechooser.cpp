@@ -24,8 +24,10 @@
 #include <QDialogButtonBox>
 #include <QDBusMetaType>
 #include <QDBusArgument>
+#include <QLabel>
 #include <QLoggingCategory>
 #include <QFile>
+#include <QGridLayout>
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QUrl>
@@ -40,6 +42,11 @@ Q_DECLARE_METATYPE(FileChooserPortal::Filter)
 Q_DECLARE_METATYPE(FileChooserPortal::Filters)
 Q_DECLARE_METATYPE(FileChooserPortal::FilterList)
 Q_DECLARE_METATYPE(FileChooserPortal::FilterListList)
+// used for options - choices
+Q_DECLARE_METATYPE(FileChooserPortal::Choice)
+Q_DECLARE_METATYPE(FileChooserPortal::Choices)
+Q_DECLARE_METATYPE(FileChooserPortal::Option)
+Q_DECLARE_METATYPE(FileChooserPortal::OptionList)
 
 QDBusArgument &operator << (QDBusArgument &arg, const FileChooserPortal::Filter &filter)
 {
@@ -83,6 +90,50 @@ const QDBusArgument &operator >> (const QDBusArgument &arg, FileChooserPortal::F
     return arg;
 }
 
+QDBusArgument &operator << (QDBusArgument &arg, const FileChooserPortal::Choice &choice)
+{
+    arg.beginStructure();
+    arg << choice.id << choice.value;
+    arg.endStructure();
+    return arg;
+}
+
+const QDBusArgument &operator >> (const QDBusArgument &arg, FileChooserPortal::Choice &choice)
+{
+    QString id;
+    QString value;
+    arg.beginStructure();
+    arg >> id >> value;
+    choice.id = id;
+    choice.value = value;
+    arg.endStructure();
+    return arg;
+}
+
+QDBusArgument &operator << (QDBusArgument &arg, const FileChooserPortal::Option &option)
+{
+    arg.beginStructure();
+    arg << option.id << option.label << option.choices << option.initialChoiceId;
+    arg.endStructure();
+    return arg;
+}
+
+const QDBusArgument &operator >> (const QDBusArgument &arg, FileChooserPortal::Option &option)
+{
+    QString id;
+    QString label;
+    FileChooserPortal::Choices choices;
+    QString initialChoiceId;
+    arg.beginStructure();
+    arg >> id >> label >> choices >> initialChoiceId;
+    option.id = id;
+    option.label = label;
+    option.choices = choices;
+    option.initialChoiceId = initialChoiceId;
+    arg.endStructure();
+    return arg;
+}
+
 FileDialog::FileDialog(QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)
     , m_fileWidget(new KFileWidget(QUrl(), this))
@@ -112,6 +163,10 @@ FileChooserPortal::FileChooserPortal(QObject *parent)
     qDBusRegisterMetaType<Filters>();
     qDBusRegisterMetaType<FilterList>();
     qDBusRegisterMetaType<FilterListList>();
+    qDBusRegisterMetaType<Choice>();
+    qDBusRegisterMetaType<Choices>();
+    qDBusRegisterMetaType<Option>();
+    qDBusRegisterMetaType<OptionList>();
 }
 
 FileChooserPortal::~FileChooserPortal()
@@ -140,17 +195,11 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     QStringList nameFilters;
     QStringList mimeTypeFilters;
 
-    /* TODO
-     * choices a(ssa(ss)s)
-     * List of serialized combo boxes to add to the file chooser.
-     *
-     * For each element, the first string is an ID that will be returned with the response, te second string is a user-visible label.
-     * The a(ss) is the list of choices, each being a is an ID and a user-visible label. The final string is the initial selection,
-     * or "", to let the portal decide which choice will be initially selected. None of the strings, except for the initial selection, should be empty.
-     *
-     * As a special case, passing an empty array for the list of choices indicates a boolean choice that is typically displayed as a check button, using "true" and "false" as the choices.
-     * Example: [('encoding', 'Encoding', [('utf8', 'Unicode (UTF-8)'), ('latin15', 'Western')], 'latin15'), ('reencode', 'Reencode', [], 'false')]
-     */
+    // for handling of options - choices
+    QScopedPointer<QWidget> optionsWidget;
+    // to store IDs for choices along with corresponding comboboxes/checkboxes
+    QMap<QString, QCheckBox*> checkboxes;
+    QMap<QString, QComboBox*> comboboxes;
 
     if (options.contains(QStringLiteral("accept_label"))) {
         acceptLabel = options.value(QStringLiteral("accept_label")).toString();
@@ -205,6 +254,11 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
         }
     }
 
+    if (options.contains(QStringLiteral("choices"))) {
+        OptionList optionList = qdbus_cast<OptionList>(options.value(QStringLiteral("choices")));
+        optionsWidget.reset(CreateChoiceControls(optionList, checkboxes, comboboxes));
+    }
+
     QScopedPointer<FileDialog, QScopedPointerDeleteLater> fileDialog(new FileDialog());
     Utils::setParentWindow(fileDialog.data(), parent_window);
     fileDialog->setWindowTitle(title);
@@ -221,6 +275,10 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
         fileDialog->m_fileWidget->setMimeFilter(mimeTypeFilters);
     }
 
+    if (optionsWidget) {
+        fileDialog->m_fileWidget->setCustomWidget(QStringLiteral(""), optionsWidget.get());
+    }
+
     if (fileDialog->exec() == QDialog::Accepted) {
         QStringList files;
         for (const QString &filename : fileDialog->m_fileWidget->selectedFiles()) {
@@ -235,6 +293,12 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
 
         results.insert(QStringLiteral("uris"), files);
         results.insert(QStringLiteral("writable"), true);
+
+        if (optionsWidget) {
+            QVariant choices = EvaluateSelectedChoices(checkboxes, comboboxes);
+            results.insert(QStringLiteral("choices"), choices);
+        }
+
         return 0;
     }
 
@@ -264,7 +328,11 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     QStringList nameFilters;
     QStringList mimeTypeFilters;
 
-    // TODO parse options - choices
+    // for handling of options - choices
+    QScopedPointer<QWidget> optionsWidget;
+    // to store IDs for choices along with corresponding comboboxes/checkboxes
+    QMap<QString, QCheckBox*> checkboxes;
+    QMap<QString, QComboBox*> comboboxes;
 
     if (options.contains(QStringLiteral("modal"))) {
         modalDialog = options.value(QStringLiteral("modal")).toBool();
@@ -323,6 +391,11 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
         }
     }
 
+    if (options.contains(QStringLiteral("choices"))) {
+        OptionList optionList = qdbus_cast<OptionList>(options.value(QStringLiteral("choices")));
+        optionsWidget.reset(CreateChoiceControls(optionList, checkboxes, comboboxes));
+    }
+
     QScopedPointer<FileDialog, QScopedPointerDeleteLater> fileDialog(new FileDialog());
     Utils::setParentWindow(fileDialog.data(), parent_window);
     fileDialog->setWindowTitle(title);
@@ -355,14 +428,89 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
         fileDialog->m_fileWidget->setMimeFilter(mimeTypeFilters);
     }
 
+    if (optionsWidget) {
+        fileDialog->m_fileWidget->setCustomWidget(optionsWidget.get());
+    }
+
     if (fileDialog->exec() == QDialog::Accepted) {
         QStringList files;
         QUrl url = QUrl::fromLocalFile(fileDialog->m_fileWidget->selectedFile());
         files << url.toDisplayString();
         results.insert(QStringLiteral("uris"), files);
+
+        if (optionsWidget) {
+            QVariant choices = EvaluateSelectedChoices(checkboxes, comboboxes);
+            results.insert(QStringLiteral("choices"), choices);
+        }
+
         return 0;
     }
 
     return 1;
 }
 
+QWidget* FileChooserPortal::CreateChoiceControls(const FileChooserPortal::OptionList &optionList,
+                                                 QMap<QString, QCheckBox *> &checkboxes,
+                                                 QMap<QString, QComboBox *> &comboboxes)
+{
+    if (optionList.empty()) {
+        return nullptr;
+    }
+
+    QWidget* optionsWidget = new QWidget;
+    QGridLayout* layout = new QGridLayout(optionsWidget);
+    // set stretch for (unused) column 2 so controls only take the space they actually need
+    layout->setColumnStretch(2, 1);
+    optionsWidget->setLayout(layout);
+
+    for (const Option& option : optionList) {
+        const int nextRow = layout->rowCount();
+        // empty list of choices -> boolean choice according to the spec
+        if (option.choices.empty()) {
+            QCheckBox* checkbox = new QCheckBox(option.label, optionsWidget);
+            checkbox->setChecked(option.initialChoiceId == QStringLiteral("true"));
+            layout->addWidget(checkbox, nextRow, 1);
+            checkboxes.insert(option.id, checkbox);
+        } else {
+            QComboBox* combobox = new QComboBox(optionsWidget);
+            for (const Choice& choice : option.choices) {
+                combobox->addItem(choice.value, choice.id);
+                // select this entry if initialChoiceId matches
+                if (choice.id == option.initialChoiceId) {
+                    combobox->setCurrentIndex(combobox->count() - 1);
+                }
+            }
+            QString labelText = option.label;
+            if (!labelText.endsWith(QChar::fromLatin1(':'))) {
+                labelText += QChar::fromLatin1(':');
+            }
+            QLabel* label = new QLabel(labelText, optionsWidget);
+            label->setBuddy(combobox);
+            layout->addWidget(label, nextRow, 0, Qt::AlignRight);
+            layout->addWidget(combobox, nextRow, 1);
+            comboboxes.insert(option.id, combobox);
+        }
+    }
+
+    return optionsWidget;
+}
+
+QVariant FileChooserPortal::EvaluateSelectedChoices(const QMap<QString, QCheckBox*>& checkboxes,
+                                                    const QMap<QString, QComboBox*>& comboboxes)
+{
+    Choices selectedChoices;
+    for (const QString& id : checkboxes.keys()) {
+        Choice choice;
+        choice.id = id;
+        choice.value = checkboxes.value(id)->isChecked() ? QStringLiteral("true") : QStringLiteral("false");
+        selectedChoices << choice;
+    }
+    for (const QString& id : comboboxes.keys()) {
+        Choice choice;
+        choice.id = id;
+        choice.value = comboboxes.value(id)->currentData().toString();
+        selectedChoices << choice;
+    }
+
+    return QVariant::fromValue<Choices>(selectedChoices);
+}
