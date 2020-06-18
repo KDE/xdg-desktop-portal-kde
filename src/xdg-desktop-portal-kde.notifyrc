@@ -21,6 +21,7 @@ Comment[ru]=Встраивание приложений в рабочий сто
 Comment[sk]=Integrácia aplikácií do pracovnej plochy KDE Plasma
 Comment[sv]=Integrera program i KDE:s Plasma-skrivbord
 Comment[uk]=Інтеграція програм до стільниці Плазми KDE
+Comment[x-test]=xxIntegrating applications into the KDE Plasma desktopxx
 Comment[zh_CN]=将应用程序整合到 KDE Plasma 桌面
 Name=KDE Portal Integration
 Name[ca]=Integració del Portal del KDE
@@ -42,6 +43,7 @@ Name[ru]=Портал встраивания KDE
 Name[sk]=Integrácia KDE portálu
 Name[sv]=Integrering av KDE:s portal
 Name[uk]=Інтеграція через Портал KDE
+Name[x-test]=xxKDE Portal Integrationxx
 Name[zh_CN]=KDE 门户集成
 
 [Context/screencast]
@@ -64,6 +66,7 @@ Name[ru]=Трансляция экрана
 Name[sk]=Prenos obrazovky
 Name[sv]=Skärmutsändning
 Name[uk]=Трансляція
+Name[x-test]=xxScreencastingxx
 Name[zh_CN]=屏幕录像
 
 [Event/screencastfailure]
@@ -86,6 +89,7 @@ Name[ru]=Не удалось запустить трансляцию экран�
 Name[sk]=Prenos obrazovky zlyhal
 Name[sv]=Skärmutsändning misslyckades
 Name[uk]=Помилка трансляції даних
+Name[x-test]=xxScreencasting failedxx
 Name[zh_CN]=屏幕录像失败
 Comment=An error was encountered while screencasting
 Comment[ca]=S'ha trobat un error en fer el vídeo de captura de pantalla
@@ -106,6 +110,7 @@ Comment[ru]=Произошла ошибка во время трансляции
 Comment[sk]=Nastala chyba počas prenosu obrazovkyk
 Comment[sv]=Ett fel påträffades vid skärmutsändning
 Comment[uk]=Сталася помилка під час трансляції даних з екрана
+Comment[x-test]=xxAn error was encountered while screencastingxx
 Comment[zh_CN]=进行投屏时发生错误
 Contexts=screencast
 Action=Popup
