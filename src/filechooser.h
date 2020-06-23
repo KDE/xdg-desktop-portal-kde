@@ -102,6 +102,9 @@ private:
 
     static QVariant EvaluateSelectedChoices(const QMap<QString, QCheckBox*>& checkboxes,
                                             const QMap<QString, QComboBox*>& comboboxes);
+
+    static void ExtractFilters(const QVariantMap &options, QStringList &nameFilters,
+                               QStringList &mimeTypeFilters, QMap<QString, FilterList> &allFilters);
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_FILECHOOSER_H
