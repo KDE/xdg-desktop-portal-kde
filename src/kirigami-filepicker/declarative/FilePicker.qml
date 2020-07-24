@@ -5,7 +5,7 @@
 import QtQuick 2.7
 import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.2 as Controls
-import org.kde.kirigami 2.5 as Kirigami
+import org.kde.kirigami 2.4 as Kirigami
 
 import org.kde.kirigamifilepicker 0.1
 
@@ -84,24 +84,35 @@ Kirigami.ScrollablePage {
         root.fileUrlsChanged()
     }
 
-    header: Controls.ToolBar {
-        Row {
-            Controls.ToolButton {
-                icon.name: "folder-root-symbolic"
-                height: parent.height
-                width: height
-                onClicked: dirModel.folder = "file:///"
-            }
-            Repeater {
-                model: DirModelUtils.getUrlParts(dirModel.folder)
-
+    header: ColumnLayout {
+        spacing: 0
+        Controls.ToolBar {
+            Layout.fillWidth: true
+            Row {
                 Controls.ToolButton {
-                    icon.name: "arrow-right"
-                    text: modelData
-                    onClicked: dirModel.folder = DirModelUtils.partialUrlForIndex(
-                                    dirModel.folder, index)
+                    icon.name: "folder-root-symbolic"
+                    height: parent.height
+                    width: height
+                    onClicked: dirModel.folder = "file:///"
+                }
+                Repeater {
+                    model: DirModelUtils.getUrlParts(dirModel.folder)
+
+                    Controls.ToolButton {
+                        icon.name: "arrow-right"
+                        text: modelData
+                        onClicked: dirModel.folder = DirModelUtils.partialUrlForIndex(
+                                        dirModel.folder, index)
+                    }
                 }
             }
+        }
+        Kirigami.InlineMessage {
+            id: errorMessage
+            Layout.fillWidth: true
+            type: Kirigami.MessageType.Error
+            text: dirModel.lastError
+            showCloseButton: true
         }
     }
     footer: Controls.ToolBar {
@@ -140,6 +151,8 @@ Kirigami.ScrollablePage {
         folder: root.folder
         showDotFiles: false
         mimeFilters: root.mimeTypeFilters
+        onLastErrorChanged: errorMessage.visible = true
+        onFolderChanged: errorMessage.visible = false
     }
 
     Controls.BusyIndicator {

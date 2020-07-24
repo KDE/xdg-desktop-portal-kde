@@ -5,6 +5,7 @@ set(filepicker_lib_SRCS
     declarative/dirmodelutils.cpp
     declarative/fileplacesmodel.cpp
     declarative/filechooserqmlcallback.cpp
+    declarative/dirlister.cpp
     declarative/filepicker.qrc
 )
 

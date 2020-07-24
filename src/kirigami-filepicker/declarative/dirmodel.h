@@ -11,7 +11,7 @@
 
 #include <KIOFileWidgets/KDirSortFilterProxyModel>
 #include <KIOWidgets/KDirModel>
-class KDirLister;
+class DirLister;
 
 class DirModel : public KDirSortFilterProxyModel
 {
@@ -21,6 +21,8 @@ class DirModel : public KDirSortFilterProxyModel
     Q_PROPERTY(bool isLoading READ isLoading NOTIFY isLoadingChanged)
     Q_PROPERTY(QString nameFilter READ nameFilter WRITE setNameFilter NOTIFY nameFilterChanged)
     Q_PROPERTY(QStringList mimeFilters READ mimeFilters WRITE setMimeFilters NOTIFY mimeFiltersChanged)
+
+    Q_PROPERTY(QString lastError READ lastError NOTIFY lastErrorChanged);
 
 public:
     enum Roles {
@@ -58,6 +60,8 @@ public:
     QStringList mimeFilters() const;
     void setMimeFilters(const QStringList &mimeFilters);
 
+    QString lastError() const;
+
 Q_SIGNALS:
     void folderChanged();
     void showDotFilesChanged();
@@ -65,7 +69,11 @@ Q_SIGNALS:
     void nameFilterChanged();
     void mimeFiltersChanged();
 
+    void lastErrorChanged();
+
 private:
     KDirModel m_dirModel;
-    KDirLister *m_lister;
+    DirLister *m_lister;
+
+    QString m_lastError;
 };

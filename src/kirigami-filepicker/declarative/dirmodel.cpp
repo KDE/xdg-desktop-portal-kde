@@ -8,12 +8,19 @@
 #include <KIOWidgets/KDirModel>
 #include <KIOWidgets/KDirLister>
 
+#include "dirlister.h"
+
 DirModel::DirModel(QObject *parent)
     : KDirSortFilterProxyModel(parent)
-    , m_lister(m_dirModel.dirLister())
+    , m_lister(new DirLister(this))
 {
     setSourceModel(&m_dirModel);
+    m_dirModel.setDirLister(m_lister);
     connect(m_lister, QOverload<>::of(&KCoreDirLister::completed), this, &DirModel::isLoadingChanged);
+    connect(m_lister, &DirLister::errorOccured, this, [this](const QString &message) {
+        m_lastError = message;
+        Q_EMIT lastErrorChanged();
+    });
 }
 
 QVariant DirModel::data(const QModelIndex &index, int role) const
@@ -127,4 +134,9 @@ void DirModel::setMimeFilters(const QStringList &mimeFilters)
 
         emit mimeFiltersChanged();
     }
+}
+
+QString DirModel::lastError() const
+{
+    return m_lastError;
 }
