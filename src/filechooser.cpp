@@ -197,15 +197,12 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     bool directory = false;
     bool modalDialog = true;
     bool multipleFiles = false;
-    QString acceptLabel;
     QStringList nameFilters;
     QStringList mimeTypeFilters;
     // mapping between filter strings and actual filters
     QMap<QString, FilterList> allFilters;
 
-    if (options.contains(QStringLiteral("accept_label"))) {
-        acceptLabel = options.value(QStringLiteral("accept_label")).toString();
-    }
+    const QString acceptLabel = ExtractAcceptLabel(options);
 
     if (options.contains(QStringLiteral("modal"))) {
         modalDialog = options.value(QStringLiteral("modal")).toBool();
@@ -359,7 +356,6 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeFileChooser) << "    options: " << options;
 
     bool modalDialog = true;
-    QString acceptLabel;
     QString currentName;
     QString currentFolder;
     QString currentFile;
@@ -372,9 +368,7 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
         modalDialog = options.value(QStringLiteral("modal")).toBool();
     }
 
-    if (options.contains(QStringLiteral("accept_label"))) {
-        acceptLabel = options.value(QStringLiteral("accept_label")).toString();
-    }
+    const QString acceptLabel = ExtractAcceptLabel(options);
 
     if (options.contains(QStringLiteral("current_name"))) {
         currentName = options.value(QStringLiteral("current_name")).toString();
@@ -588,6 +582,22 @@ QVariant FileChooserPortal::EvaluateSelectedChoices(const QMap<QString, QCheckBo
     }
 
     return QVariant::fromValue<Choices>(selectedChoices);
+}
+
+QString FileChooserPortal::ExtractAcceptLabel(const QVariantMap &options)
+{
+    QString acceptLabel;
+    if (options.contains(QStringLiteral("accept_label"))) {
+        acceptLabel = options.value(QStringLiteral("accept_label")).toString();
+        // 'accept_label' allows mnemonic underlines, but Qt uses '&' character, so replace/escape accordingly
+        // to keep literal '&'s and transform mnemonic underlines to the Qt equivalent using '&' for mnemonic
+        acceptLabel.replace(QChar::fromLatin1('&'), QStringLiteral("&&"));
+        const int mnemonic_pos = acceptLabel.indexOf(QChar::fromLatin1('_'));
+        if (mnemonic_pos != -1) {
+            acceptLabel.replace(mnemonic_pos, 1, QChar::fromLatin1('&'));
+        }
+    }
+    return acceptLabel;
 }
 
 void FileChooserPortal::ExtractFilters(const QVariantMap &options, QStringList &nameFilters,

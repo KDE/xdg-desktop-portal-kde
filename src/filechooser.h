@@ -104,6 +104,8 @@ private:
     static QVariant EvaluateSelectedChoices(const QMap<QString, QCheckBox*>& checkboxes,
                                             const QMap<QString, QComboBox*>& comboboxes);
 
+    static QString ExtractAcceptLabel(const QVariantMap &options);
+
     static void ExtractFilters(const QVariantMap &options, QStringList &nameFilters,
                                QStringList &mimeTypeFilters, QMap<QString, FilterList> &allFilters);
 
