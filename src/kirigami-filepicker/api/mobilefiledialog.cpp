@@ -154,7 +154,7 @@ uint MobileFileDialog::exec()
     m_window->setVisible(true);
     m_window->raise();
     m_window->requestActivate();
-    m_window->setIcon(QIcon::fromTheme(QStringLiteral("folder")));
+    m_window->setIcon(QIcon::fromTheme(QStringLiteral("system-file-manager")));
 
     // Reset old data
     m_results.clear();
