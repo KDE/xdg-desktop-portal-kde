@@ -75,6 +75,11 @@ bool WaylandIntegration::isStreamingEnabled()
     return globalWaylandIntegration->isStreamingEnabled();
 }
 
+bool WaylandIntegration::isStreamingAvailable()
+{
+    return globalWaylandIntegration->isStreamingAvailable();
+}
+
 void WaylandIntegration::startStreamingInput()
 {
     globalWaylandIntegration->startStreamingInput();
@@ -221,6 +226,11 @@ WaylandIntegration::WaylandIntegrationPrivate::~WaylandIntegrationPrivate() = de
 bool WaylandIntegration::WaylandIntegrationPrivate::isStreamingEnabled() const
 {
     return !m_streams.isEmpty();
+}
+
+bool WaylandIntegration::WaylandIntegrationPrivate::isStreamingAvailable() const
+{
+    return m_screencasting;
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::bindOutput(int outputName, int outputVersion)

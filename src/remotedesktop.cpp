@@ -59,6 +59,11 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
         WaylandIntegration::stopAllStreaming();
     });
 
+    if (!WaylandIntegration::isStreamingAvailable()) {
+        qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "zkde_screencast_unstable_v1 does not seem to be available";
+        return 2;
+    }
+
     return 0;
 }
 

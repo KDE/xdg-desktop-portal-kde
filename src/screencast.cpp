@@ -57,6 +57,11 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
         return 2;
     }
 
+    if (!WaylandIntegration::isStreamingAvailable()) {
+        qCWarning(XdgDesktopPortalKdeScreenCast) << "zkde_screencast_unstable_v1 does not seem to be available";
+        return 2;
+    }
+
     connect(session, &Session::closed, [] () {
         WaylandIntegration::stopAllStreaming();
     });

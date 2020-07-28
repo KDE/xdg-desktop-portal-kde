@@ -86,6 +86,7 @@ Q_SIGNALS:
     void authenticate();
 
     bool isStreamingEnabled();
+    bool isStreamingAvailable();
 
     void startStreamingInput();
     bool startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
