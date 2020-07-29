@@ -35,14 +35,6 @@ QUrl DirModelUtils::partialUrlForIndex(QUrl url, int index) const
     return url;
 }
 
-QString DirModelUtils::homePath() const
-{
-    QUrl url(QStandardPaths::writableLocation(QStandardPaths::HomeLocation));
-    url.setScheme(QStringLiteral("file"));
-
-    return url.toString();
-}
-
 void DirModelUtils::mkdir(const QUrl path) const
 {
     KIO::mkdir(path);

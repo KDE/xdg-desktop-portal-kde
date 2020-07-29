@@ -49,25 +49,6 @@ Kirigami.ScrollablePage {
         }
     }
 
-    Component.onCompleted: {
-        // Reset to home path if the url is empty
-        if (!dirModel.folder.toString()) {
-            dirModel.folder = DirModelUtils.homePath
-        }
-    }
-
-    title: {
-        if (root.selectFolder) {
-            return i18n("Open Folder")
-        } else {
-            if (root.selectExisting) {
-                return i18n("Open File")
-            } else {
-                return i18n("Save File")
-            }
-        }
-    }
-
     // result
     property var fileUrls: []
 
@@ -148,7 +129,6 @@ Kirigami.ScrollablePage {
 
     DirModel {
         id: dirModel
-        folder: root.folder
         showDotFiles: false
         mimeFilters: root.mimeTypeFilters
         onLastErrorChanged: errorMessage.visible = true

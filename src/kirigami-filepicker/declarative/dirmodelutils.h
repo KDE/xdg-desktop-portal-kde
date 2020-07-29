@@ -10,14 +10,11 @@ class DirModelUtils : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString homePath READ homePath NOTIFY homePathChanged)
-
 public:
     explicit DirModelUtils(QObject *parent = nullptr);
 
     Q_INVOKABLE QStringList getUrlParts(const QUrl &url) const;
     Q_INVOKABLE QUrl partialUrlForIndex(QUrl url, int index) const;
-    Q_INVOKABLE QString homePath() const;
 
     Q_INVOKABLE void mkdir(const QUrl path) const;
 

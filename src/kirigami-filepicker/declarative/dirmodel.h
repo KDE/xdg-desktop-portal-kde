@@ -22,7 +22,7 @@ class DirModel : public KDirSortFilterProxyModel
     Q_PROPERTY(QString nameFilter READ nameFilter WRITE setNameFilter NOTIFY nameFilterChanged)
     Q_PROPERTY(QStringList mimeFilters READ mimeFilters WRITE setMimeFilters NOTIFY mimeFiltersChanged)
 
-    Q_PROPERTY(QString lastError READ lastError NOTIFY lastErrorChanged);
+    Q_PROPERTY(QString lastError READ lastError NOTIFY lastErrorChanged)
 
 public:
     enum Roles {

@@ -5,6 +5,7 @@
 #pragma once
 
 #include <QObject>
+#include <QUrl>
 
 class FileChooserQmlCallback : public QObject
 {
@@ -15,7 +16,7 @@ class FileChooserQmlCallback : public QObject
     Q_PROPERTY(bool selectExisting READ selectExisting WRITE setSelectExisting NOTIFY selectExistingChanged)
     Q_PROPERTY(QStringList nameFilters READ nameFilters WRITE setNameFilters NOTIFY nameFiltersChanged)
     Q_PROPERTY(QStringList mimeTypeFilters READ mimeTypeFilters WRITE setMimeTypeFilters NOTIFY mimeTypeFiltersChanged)
-    Q_PROPERTY(QString folder READ folder WRITE setFolder NOTIFY folderChanged)
+    Q_PROPERTY(QUrl folder READ folder WRITE setFolder NOTIFY folderChanged)
     Q_PROPERTY(QString currentFile READ currentFile WRITE setCurrentFile NOTIFY currentFileChanged)
     Q_PROPERTY(QString acceptLabel READ acceptLabel WRITE setAcceptLabel NOTIFY acceptLabelChanged)
     Q_PROPERTY(bool selectFolder READ selectFolder WRITE setSelectFolder NOTIFY selectFolderChanged)
@@ -38,8 +39,8 @@ public:
     QStringList mimeTypeFilters() const;
     void setMimeTypeFilters(const QStringList &mimeTypeFilters);
 
-    QString folder() const;
-    void setFolder(const QString &folder);
+    QUrl folder() const;
+    void setFolder(const QUrl &folder);
 
     QString currentFile() const;
     void setCurrentFile(const QString &currentFile);
@@ -70,7 +71,7 @@ private:
     bool m_selectExisting;
     QStringList m_nameFilters;
     QStringList m_mimeTypeFilters;
-    QString m_folder;
+    QUrl m_folder;
     QString m_currentFile;
     QString m_acceptLabel;
     bool m_selectFolder;

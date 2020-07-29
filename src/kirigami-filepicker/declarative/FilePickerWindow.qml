@@ -68,22 +68,7 @@ Kirigami.ApplicationWindow {
         currentFile: callback.currentFile
         acceptLabel: callback.acceptLabel
         selectFolder: callback.selectFolder
-
-        Component.onCompleted: {
-            // set conditional properties
-            if (callback.folder) {
-                console.log("Initial folder set")
-                filePicker.folder = callback.folder
-            } else {
-                console.log("Initial folder not set")
-            }
-
-            if (callback.title) {
-                console.log("Custom title set")
-                filePicker.title = callback.title
-            } else {
-                console.log("Custom title not set")
-            }
-        }
+        folder: callback.folder
+        title: callback.title
     }
 }

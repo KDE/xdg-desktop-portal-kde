@@ -32,7 +32,7 @@
 #include <QVBoxLayout>
 #include <QUrl>
 #include <QQmlApplicationEngine>
-
+#include <QStandardPaths>
 
 #include <KLocalizedString>
 #include <KFileFilterCombo>
@@ -415,7 +415,8 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
         m_mobileFileDialog->setSelectExisting(false);
 
         if (!currentFolder.isEmpty()) {
-            m_mobileFileDialog->setFolder(currentFolder);
+            // Set correct protocol
+            m_mobileFileDialog->setFolder(QUrl::fromLocalFile(currentFolder));
         }
 
         if (!currentFile.isEmpty()) {

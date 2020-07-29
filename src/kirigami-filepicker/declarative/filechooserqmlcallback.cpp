@@ -69,12 +69,12 @@ void FileChooserQmlCallback::setMimeTypeFilters(const QStringList &mimeTypeFilte
     emit mimeTypeFiltersChanged();
 }
 
-QString FileChooserQmlCallback::folder() const
+QUrl FileChooserQmlCallback::folder() const
 {
     return m_folder;
 }
 
-void FileChooserQmlCallback::setFolder(const QString &folder)
+void FileChooserQmlCallback::setFolder(const QUrl &folder)
 {
     m_folder = folder;
     emit folderChanged();

@@ -12,6 +12,7 @@
 #include <QLoggingCategory>
 
 #include <KLocalizedContext>
+#include <KLocalizedString>
 
 #include "dirmodel.h"
 #include "dirmodelutils.h"
@@ -27,6 +28,7 @@ MobileFileDialog::MobileFileDialog(QObject *parent)
     : QObject(parent)
     , m_engine(new QQmlApplicationEngine(this))
     , m_window(nullptr)
+    , m_customTitleSet(false)
 {
     qmlRegisterType<DirModel>(URI, 0, 1, "DirModel");
     qmlRegisterSingletonType<DirModelUtils>(URI, 0, 1, "DirModelUtils", [=](QQmlEngine *, QJSEngine *) {
@@ -55,6 +57,9 @@ MobileFileDialog::MobileFileDialog(QObject *parent)
     connect(m_callback, &FileChooserQmlCallback::currentFileChanged, this, &MobileFileDialog::currentFileChanged);
     connect(m_callback, &FileChooserQmlCallback::acceptLabelChanged, this, &MobileFileDialog::acceptLabelChanged);
     connect(m_callback, &FileChooserQmlCallback::selectFolderChanged, this, &MobileFileDialog::selectFolderChanged);
+
+    // Set default path for file dialog
+    setFolder(QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)));
 }
 
 // FileDialog methods pass through to the callback to provide a nice c++ api
@@ -65,6 +70,7 @@ QString MobileFileDialog::title() const
 
 void MobileFileDialog::setTitle(const QString &title)
 {
+    m_customTitleSet = true;
     m_callback->setTitle(title);
 }
 
@@ -86,6 +92,19 @@ bool MobileFileDialog::selectExisting() const
 void MobileFileDialog::setSelectExisting(bool selectExisting)
 {
     m_callback->setSelectExisting(selectExisting);
+
+    // Detect that no custom title is set
+    if (!m_customTitleSet) {
+        if (selectFolder()) {
+            setTitle(i18n("Select Folder"));
+        } else {
+            if (selectExisting) {
+                setTitle(i18n("Open File"));
+            } else {
+                setTitle(i18n("Save File"));
+            }
+        }
+    }
 }
 
 QStringList MobileFileDialog::nameFilters() const
@@ -108,12 +127,12 @@ void MobileFileDialog::setMimeTypeFilters(const QStringList &mimeTypeFilters)
     m_callback->setMimeTypeFilters(mimeTypeFilters);
 }
 
-QString MobileFileDialog::folder() const
+QUrl MobileFileDialog::folder() const
 {
     return m_callback->folder();
 }
 
-void MobileFileDialog::setFolder(const QString &folder)
+void MobileFileDialog::setFolder(const QUrl &folder)
 {
     m_callback->setFolder(folder);
 }

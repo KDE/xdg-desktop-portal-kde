@@ -34,8 +34,8 @@ public:
     QStringList mimeTypeFilters() const;
     void setMimeTypeFilters(const QStringList &mimeTypeFilters);
 
-    QString folder() const;
-    void setFolder(const QString &folder);
+    QUrl folder() const;
+    void setFolder(const QUrl &folder);
 
     QString currentFile() const;
     void setCurrentFile(const QString &currentFile);
@@ -67,4 +67,6 @@ private:
     FileChooserQmlCallback *m_callback;
     QStringList m_results;
     QQuickWindow *m_window;
+
+    bool m_customTitleSet;
 };
