@@ -33,11 +33,12 @@
 #include <KProcess>
 #include <kdeclarative/kdeclarative.h>
 
-AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, QDialog *parent, Qt::WindowFlags flags)
+AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, const QString &mimeName, QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)
     , m_dialog(new Ui::AppChooserDialog)
     , m_defaultChoices(choices)
     , m_defaultApp(defaultApp)
+    , m_mimeName(mimeName)
 {
     m_dialog->setupUi(this);
 
@@ -85,7 +86,11 @@ void AppChooserDialog::onApplicationSelected(const QString& desktopFile)
 
 void AppChooserDialog::onOpenDiscover()
 {
-    KProcess::startDetached(QStringLiteral("plasma-discover"));
+    QStringList args;
+    if (!m_mimeName.isEmpty()) {
+        args << QStringLiteral("--mime") << m_mimeName;
+    }
+    KProcess::startDetached(QStringLiteral("plasma-discover"), args);
 }
 
 void AppChooserDialog::updateChoices(const QStringList &choices)

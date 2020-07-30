@@ -110,7 +110,8 @@ class AppChooserDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, QDialog *parent = nullptr, Qt::WindowFlags flags = {});
+    explicit AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName,
+                              const QString &mimeName = QString(), QDialog *parent = nullptr, Qt::WindowFlags flags = {});
     ~AppChooserDialog();
 
     void updateChoices(const QStringList &choices);
@@ -126,6 +127,7 @@ private:
     QStringList m_defaultChoices;
     QString m_defaultApp;
     QString m_selectedApplication;
+    QString m_mimeName;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_APPCHOOSER_DIALOG_H

@@ -59,7 +59,7 @@ uint AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
     if (!itemName.isValid()) {
         itemName = options.value(QStringLiteral("content_type"));
     }
-    AppChooserDialog *appDialog = new AppChooserDialog(choices, latestChoice, itemName.toString());
+    AppChooserDialog *appDialog = new AppChooserDialog(choices, latestChoice, itemName.toString(), options.value(QStringLiteral("content_type")).toString());
     m_appChooserDialogs.insert(handle.path(), appDialog);
     Utils::setParentWindow(appDialog, parent_window);
 
