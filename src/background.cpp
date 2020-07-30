@@ -215,7 +215,7 @@ void BackgroundPortal::addWindow(KWayland::Client::PlasmaWindow *window)
         uint windows = 0;
         const QString appId = window->appId();
         for (KWayland::Client::PlasmaWindow *otherWindow : WaylandIntegration::plasmaWindowManagement()->windows()) {
-            if (otherWindow->appId() == appId && otherWindow->internalId() != window->internalId()) {
+            if (otherWindow->appId() == appId && otherWindow->uuid() != window->uuid()) {
                 windows++;
             }
         }
