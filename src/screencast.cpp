@@ -141,12 +141,14 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     connect(session, &Session::closed, screenDialog.data(), &ScreenChooserDialog::reject);
 
     if (screenDialog->exec()) {
-        for (quint32 outputid : screenDialog->selectedScreens()) {
+        const auto selectedScreens = screenDialog->selectedScreens();
+        for (quint32 outputid : selectedScreens) {
             if (!WaylandIntegration::startStreamingOutput(outputid, Screencasting::Hidden)) {
                 return 2;
             }
         }
-        for (const QByteArray &winid : screenDialog->selectedWindows()) {
+        const auto selectedWindows = screenDialog->selectedWindows();
+        for (const QByteArray &winid : selectedWindows) {
             if (!WaylandIntegration::startStreamingWindow(winid)) {
                 return 2;
             }

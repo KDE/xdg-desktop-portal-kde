@@ -118,8 +118,8 @@ uint ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
         return 1;
     }
 
-    const QString filename = QStringLiteral("%1/Screenshot_%2.png").arg(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation))
-                                                             .arg(QDateTime::currentDateTime().toString(QStringLiteral("yyyyMMdd_hhmmss")));
+    const QString filename = QStringLiteral("%1/Screenshot_%2.png").arg(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation),
+                                                                        QDateTime::currentDateTime().toString(QStringLiteral("yyyyMMdd_hhmmss")));
 
     if (!screenshot.save(filename, "PNG")) {
         return 1;

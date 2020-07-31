@@ -53,7 +53,7 @@ BackgroundPortal::BackgroundPortal(QObject *parent)
         });
 
         m_windows = WaylandIntegration::plasmaWindowManagement()->windows();
-        for (KWayland::Client::PlasmaWindow *window : m_windows) {
+        for (KWayland::Client::PlasmaWindow *window : qAsConst(m_windows)) {
             addWindow(window);
         }
     });
@@ -214,7 +214,8 @@ void BackgroundPortal::addWindow(KWayland::Client::PlasmaWindow *window)
     connect(window, &KWayland::Client::PlasmaWindow::unmapped, this, [this, window] () {
         uint windows = 0;
         const QString appId = window->appId();
-        for (KWayland::Client::PlasmaWindow *otherWindow : WaylandIntegration::plasmaWindowManagement()->windows()) {
+        const auto plasmaWindows = WaylandIntegration::plasmaWindowManagement()->windows();
+        for (KWayland::Client::PlasmaWindow *otherWindow : plasmaWindows) {
             if (otherWindow->appId() == appId && otherWindow->uuid() != window->uuid()) {
                 windows++;
             }

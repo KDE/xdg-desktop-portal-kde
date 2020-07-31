@@ -52,7 +52,8 @@ QList<quint32> ScreenCastWidget::selectedScreens() const
 {
     QList<quint32> selectedScreens;
 
-    for (QListWidgetItem *item : selectedItems()) {
+    const auto selectedItems = this->selectedItems();
+    for (QListWidgetItem *item : selectedItems) {
         selectedScreens << item->data(Qt::UserRole).toUInt();
     }
 

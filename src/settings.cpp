@@ -126,7 +126,8 @@ void SettingsPortal::ReadAll(const QStringList &groups)
     }
 
     VariantMapMap result;
-    for (const QString &settingGroupName : m_kdeglobals->groupList()) {
+    const auto groupList = m_kdeglobals->groupList();
+    for (const QString &settingGroupName : groupList) {
         //NOTE: use org.kde.kdeglobals prefix
 
         QString uniqueGroupName = QStringLiteral("org.kde.kdeglobals.") + settingGroupName;
@@ -138,7 +139,8 @@ void SettingsPortal::ReadAll(const QStringList &groups)
         QVariantMap map;
         KConfigGroup configGroup(m_kdeglobals, settingGroupName);
 
-        for (const QString &key : configGroup.keyList()) {
+        const auto keyList = configGroup.keyList();
+        for (const QString &key : keyList) {
             map.insert(key, configGroup.readEntry(key));
         }
 

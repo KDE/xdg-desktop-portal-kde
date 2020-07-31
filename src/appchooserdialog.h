@@ -59,8 +59,9 @@ private:
 class AppFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(bool showOnlyPreferredApps READ showOnlyPreferredApps WRITE setShowOnlyPrefferedApps)
-    Q_PROPERTY(QString filter READ filter WRITE setFilter)
+    Q_PROPERTY(bool showOnlyPreferredApps READ showOnlyPreferredApps WRITE setShowOnlyPrefferedApps NOTIFY showOnlyPreferredAppsChanged)
+    Q_PROPERTY(QString filter READ filter WRITE setFilter NOTIFY filterChanged)
+
 public:
     explicit AppFilterModel(QObject *parent = nullptr);
     ~AppFilterModel() override;
@@ -70,6 +71,10 @@ public:
 
     void setFilter(const QString &text);
     QString filter() const;
+
+Q_SIGNALS:
+    void showOnlyPreferredAppsChanged();
+    void filterChanged();
 
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
@@ -120,6 +125,7 @@ public:
 private Q_SLOTS:
     void onApplicationSelected(const QString &desktopFile);
     void onOpenDiscover();
+
 private:
     Ui::AppChooserDialog *m_dialog;
 

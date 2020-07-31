@@ -53,7 +53,6 @@ bool Request::handleMessage(const QDBusMessage &message, const QDBusConnection &
     qCDebug(XdgRequestKdeRequest) << message.member();
     qCDebug(XdgRequestKdeRequest) << message.path();
 
-    QList<QVariant> arguments;
     if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Request")) {
         if (message.member() == QLatin1String("Close")) {
             if (m_portalName == QLatin1String("org.freedesktop.impl.portal.Inhibit")) {
@@ -66,7 +65,7 @@ bool Request::handleMessage(const QDBusMessage &message, const QDBusConnection &
 
                 QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(message);
                 QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingCall);
-                connect(watcher, &QDBusPendingCallWatcher::finished, [this] (QDBusPendingCallWatcher *watcher) {
+                connect(watcher, &QDBusPendingCallWatcher::finished, this, [this] (QDBusPendingCallWatcher *watcher) {
                     QDBusPendingReply<> reply = *watcher;
                     if (reply.isError()) {
                         qCDebug(XdgRequestKdeRequest) << "Uninhibit error: " << reply.error().message();

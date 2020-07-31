@@ -225,7 +225,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
             // since that is the one that gets preselected by KFileWidget
             Filter filterStruct = filterList.filters.at(0);
             if (filterStruct.type == 0) {
-                QString nameFilter = QStringLiteral("%1|%2").arg(filterStruct.filterString).arg(filterList.userVisibleName);
+                QString nameFilter = QStringLiteral("%1|%2").arg(filterStruct.filterString, filterList.userVisibleName);
                 nameFilters.removeAll(nameFilter);
                 nameFilters.push_front(nameFilter);
             } else {
@@ -300,12 +300,13 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     }
 
     if (optionsWidget) {
-        fileDialog->m_fileWidget->setCustomWidget(QStringLiteral(""), optionsWidget.get());
+        fileDialog->m_fileWidget->setCustomWidget({}, optionsWidget.get());
     }
 
     if (fileDialog->exec() == QDialog::Accepted) {
         QStringList files;
-        for (const QString &filename : fileDialog->m_fileWidget->selectedFiles()) {
+        const auto selectedFiles = fileDialog->m_fileWidget->selectedFiles();
+        for (const QString &filename : selectedFiles) {
             QUrl url = QUrl::fromLocalFile(filename);
             files << url.toDisplayString();
         }
@@ -391,7 +392,7 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
             // since that is the one that gets preselected by KFileWidget
             Filter filterStruct = filterList.filters.at(0);
             if (filterStruct.type == 0) {
-                QString nameFilter = QStringLiteral("%1|%2").arg(filterStruct.filterString).arg(filterList.userVisibleName);
+                QString nameFilter = QStringLiteral("%1|%2").arg(filterStruct.filterString, filterList.userVisibleName);
                 nameFilters.removeAll(nameFilter);
                 nameFilters.push_front(nameFilter);
             } else {
@@ -569,13 +570,15 @@ QVariant FileChooserPortal::EvaluateSelectedChoices(const QMap<QString, QCheckBo
                                                     const QMap<QString, QComboBox*>& comboboxes)
 {
     Choices selectedChoices;
-    for (const QString& id : checkboxes.keys()) {
+    const auto checkboxKeys = checkboxes.keys();
+    for (const QString& id : checkboxKeys) {
         Choice choice;
         choice.id = id;
         choice.value = checkboxes.value(id)->isChecked() ? QStringLiteral("true") : QStringLiteral("false");
         selectedChoices << choice;
     }
-    for (const QString& id : comboboxes.keys()) {
+    const auto comboboxKeys = comboboxes.keys();
+    for (const QString& id : comboboxKeys) {
         Choice choice;
         choice.id = id;
         choice.value = comboboxes.value(id)->currentData().toString();
@@ -605,7 +608,7 @@ void FileChooserPortal::ExtractFilters(const QVariantMap &options, QStringList &
                                        QStringList &mimeTypeFilters, QMap<QString, FilterList> &allFilters)
 {
     if (options.contains(QStringLiteral("filters"))) {
-        FilterListList filterListList = qdbus_cast<FilterListList>(options.value(QStringLiteral("filters")));
+        const FilterListList filterListList = qdbus_cast<FilterListList>(options.value(QStringLiteral("filters")));
         for (const FilterList &filterList : filterListList) {
             QStringList filterStrings;
             for (const Filter &filterStruct : filterList.filters) {
