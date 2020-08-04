@@ -615,7 +615,7 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
         QVariantMap resultingPageSetup;
 
         // Process back printer settings
-        resultingSettings.insert(QStringLiteral("n-copies"), QString::number(printer->copyCount()));
+        resultingSettings.insert(QStringLiteral("n-copies"), QString::number(printer->actualNumCopies()));
         resultingSettings.insert(QStringLiteral("resolution"), QString::number(printer->resolution()));
         resultingSettings.insert(QStringLiteral("use-color"), printer->colorMode() == QPrinter::Color ? QLatin1String("yes") : QLatin1String("no"));
         if (printer->duplex() == QPrinter::DuplexNone) {
@@ -945,9 +945,9 @@ QStringList PrintPortal::printArguments(const QPrinter *printer, bool useCupsOpt
         argList << destination(printer, version);
     }
 
-    // if (!copies(printer, version).isEmpty()) {
-    //     argList << copies(printer, version);
-    // }
+    if (!copies(printer, version).isEmpty()) {
+        argList << copies(printer, version);
+    }
 
     if (!jobname(printer, version).isEmpty()) {
         argList << jobname(printer, version);
