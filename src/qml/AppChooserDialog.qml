@@ -126,11 +126,12 @@ Item {
                 anchors.margins: units.gridUnit / 2
                 spacing: units.gridUnit / 3
 
-                IconItem {
+                Kirigami.Icon {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    implicitHeight: units.iconSizes.huge
-                    implicitWidth: units.iconSizes.huge
+                    height: units.iconSizes.huge
+                    width: units.iconSizes.huge
                     source: ApplicationIcon
+                    smooth: true
                 }
 
                 Label {
