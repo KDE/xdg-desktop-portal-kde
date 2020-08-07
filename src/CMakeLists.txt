@@ -67,6 +67,7 @@ target_link_libraries(xdg-desktop-portal-kde
     KF5::I18n
     KF5::KIOFileWidgets
     KF5::Notifications
+    KF5::Service
     KF5::WaylandClient
     KF5::WidgetsAddons
     KF5::WindowSystem

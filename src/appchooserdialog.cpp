@@ -1,5 +1,6 @@
 /*
  * Copyright © 2017-2019 Red Hat, Inc
+ * Copyright © 2020 Harald Sitter <sitter@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -30,7 +31,9 @@
 #include <QStandardPaths>
 #include <QSettings>
 
+#include <KApplicationTrader>
 #include <KProcess>
+#include <KService>
 #include <kdeclarative/kdeclarative.h>
 
 AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, const QString &mimeName, QDialog *parent, Qt::WindowFlags flags)
@@ -285,29 +288,15 @@ QHash<int, QByteArray> AppModel::roleNames() const
 
 void AppModel::loadApplications()
 {
-    for (const QString &location : QStandardPaths::standardLocations(QStandardPaths::ApplicationsLocation)) {
-        QDir dir(location);
-        for (QString &entry : dir.entryList(QStringList({QStringLiteral("*.desktop")}), QDir::Files, QDir::Name)) {
-            QString applicationIcon;
-            QString applicationName;
-
-            QSettings settings(QStringLiteral("%1/%2").arg(dir.path()).arg(entry), QSettings::IniFormat);
-            settings.beginGroup(QStringLiteral("Desktop Entry"));
-            if (settings.contains(QStringLiteral("X-GNOME-FullName"))) {
-                applicationName = settings.value(QStringLiteral("X-GNOME-FullName")).toString();
-            } else {
-                applicationName = settings.value(QStringLiteral("Name")).toString();
-            }
-            applicationIcon = settings.value(QStringLiteral("Icon")).toString();
-
-            const QString desktopFileWithoutSuffix = entry.remove(QStringLiteral(".desktop"));
-            if (applicationName.isEmpty() || applicationIcon.isEmpty())
-                continue;
-
-            ApplicationItem appItem(applicationName, applicationIcon, desktopFileWithoutSuffix);
-
-            if (!m_list.contains(appItem))
-                m_list.append(appItem);
+    const KService::List appServices = KApplicationTrader::query([](const KService::Ptr &service) -> bool {
+         return service->isValid() && !service->noDisplay() /* includes platform and desktop considerations */;
+    });
+    for (const KService::Ptr &service : appServices) {
+        const QString fullName = service->property(QStringLiteral("X-GNOME-FullName"), QVariant::String).toString();
+        const QString name = fullName.isEmpty() ? service->name() : fullName;
+        ApplicationItem appItem(name, service->icon(), service->desktopEntryName());
+        if (!m_list.contains(appItem)) {
+            m_list.append(appItem);
         }
     }
 }
