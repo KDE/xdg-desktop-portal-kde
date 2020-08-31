@@ -107,7 +107,8 @@ private:
     static QString ExtractAcceptLabel(const QVariantMap &options);
 
     static void ExtractFilters(const QVariantMap &options, QStringList &nameFilters,
-                               QStringList &mimeTypeFilters, QMap<QString, FilterList> &allFilters);
+                               QStringList &mimeTypeFilters, QMap<QString, FilterList> &allFilters,
+                               QString &selectedMimeTypeFilter);
 
     bool isMobile() const;
 

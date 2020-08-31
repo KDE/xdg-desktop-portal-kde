@@ -199,6 +199,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     bool multipleFiles = false;
     QStringList nameFilters;
     QStringList mimeTypeFilters;
+    QString selectedMimeTypeFilter;
     // mapping between filter strings and actual filters
     QMap<QString, FilterList> allFilters;
 
@@ -216,26 +217,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
         directory = options.value(QStringLiteral("directory")).toBool();
     }
 
-    ExtractFilters(options, nameFilters, mimeTypeFilters, allFilters);
-
-    if (options.contains(QStringLiteral("current_filter"))) {
-        FilterList filterList = qdbus_cast<FilterList>(options.value(QStringLiteral("current_filter")));
-        if (filterList.filters.size() == 1) {
-            // make the relevant entry the first one in the list of filters,
-            // since that is the one that gets preselected by KFileWidget
-            Filter filterStruct = filterList.filters.at(0);
-            if (filterStruct.type == 0) {
-                QString nameFilter = QStringLiteral("%1|%2").arg(filterStruct.filterString, filterList.userVisibleName);
-                nameFilters.removeAll(nameFilter);
-                nameFilters.push_front(nameFilter);
-            } else {
-                mimeTypeFilters.removeAll(filterStruct.filterString);
-                mimeTypeFilters.push_front(filterStruct.filterString);
-            }
-        } else {
-            qCDebug(XdgDesktopPortalKdeFileChooser) << "Ignoring 'current_filter' parameter with 0 or multiple filters specified.";
-        }
-    }
+    ExtractFilters(options, nameFilters, mimeTypeFilters, allFilters, selectedMimeTypeFilter);
 
     if (isMobile()) {
         if (!m_mobileFileDialog) {
@@ -293,7 +275,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
 
     bool bMimeFilters = false;
     if (!mimeTypeFilters.isEmpty()) {
-        fileDialog->m_fileWidget->setMimeFilter(mimeTypeFilters);
+        fileDialog->m_fileWidget->setMimeFilter(mimeTypeFilters, selectedMimeTypeFilter);
         bMimeFilters = true;
     } else if (!nameFilters.isEmpty()) {
         fileDialog->m_fileWidget->setFilter(nameFilters.join(QLatin1Char('\n')));
@@ -362,6 +344,7 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     QString currentFile;
     QStringList nameFilters;
     QStringList mimeTypeFilters;
+    QString selectedMimeTypeFilter;
     // mapping between filter strings and actual filters
     QMap<QString, FilterList> allFilters;
 
@@ -383,26 +366,7 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
         currentFile = QFile::decodeName(options.value(QStringLiteral("current_file")).toByteArray());
     }
 
-    ExtractFilters(options, nameFilters, mimeTypeFilters, allFilters);
-
-    if (options.contains(QStringLiteral("current_filter"))) {
-        FilterList filterList = qdbus_cast<FilterList>(options.value(QStringLiteral("current_filter")));
-        if (filterList.filters.size() == 1) {
-            // make the relevant entry the first one in the list of filters,
-            // since that is the one that gets preselected by KFileWidget
-            Filter filterStruct = filterList.filters.at(0);
-            if (filterStruct.type == 0) {
-                QString nameFilter = QStringLiteral("%1|%2").arg(filterStruct.filterString, filterList.userVisibleName);
-                nameFilters.removeAll(nameFilter);
-                nameFilters.push_front(nameFilter);
-            } else {
-                mimeTypeFilters.removeAll(filterStruct.filterString);
-                mimeTypeFilters.push_front(filterStruct.filterString);
-            }
-        } else {
-            qCDebug(XdgDesktopPortalKdeFileChooser) << "Ignoring 'current_filter' parameter with 0 or multiple filters specified.";
-        }
-    }
+    ExtractFilters(options, nameFilters, mimeTypeFilters, allFilters, selectedMimeTypeFilter);
 
     if (isMobile()) {
         if (!m_mobileFileDialog) {
@@ -482,7 +446,7 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
 
     bool bMimeFilters = false;
     if (!mimeTypeFilters.isEmpty()) {
-        fileDialog->m_fileWidget->setMimeFilter(mimeTypeFilters);
+        fileDialog->m_fileWidget->setMimeFilter(mimeTypeFilters, selectedMimeTypeFilter);
         bMimeFilters = true;
     } else if (!nameFilters.isEmpty()) {
         fileDialog->m_fileWidget->setFilter(nameFilters.join(QLatin1Char('\n')));
@@ -605,7 +569,8 @@ QString FileChooserPortal::ExtractAcceptLabel(const QVariantMap &options)
 }
 
 void FileChooserPortal::ExtractFilters(const QVariantMap &options, QStringList &nameFilters,
-                                       QStringList &mimeTypeFilters, QMap<QString, FilterList> &allFilters)
+                                       QStringList &mimeTypeFilters, QMap<QString, FilterList> &allFilters,
+                                       QString &selectedMimeTypeFilter)
 {
     if (options.contains(QStringLiteral("filters"))) {
         const FilterListList filterListList = qdbus_cast<FilterListList>(options.value(QStringLiteral("filters")));
@@ -626,6 +591,24 @@ void FileChooserPortal::ExtractFilters(const QVariantMap &options, QStringList &
                 nameFilters << nameFilter;
                 allFilters[filterList.userVisibleName] = filterList;
             }
+        }
+    }
+
+    if (options.contains(QStringLiteral("current_filter"))) {
+        FilterList filterList = qdbus_cast<FilterList>(options.value(QStringLiteral("current_filter")));
+        if (filterList.filters.size() == 1) {
+            Filter filterStruct = filterList.filters.at(0);
+            if (filterStruct.type == 0) {
+                // make the relevant entry the first one in the list of filters,
+                // since that is the one that gets preselected by KFileWidget::setFilter
+                QString nameFilter = QStringLiteral("%1|%2").arg(filterStruct.filterString, filterList.userVisibleName);
+                nameFilters.removeAll(nameFilter);
+                nameFilters.push_front(nameFilter);
+            } else {
+                selectedMimeTypeFilter = filterStruct.filterString;
+            }
+        } else {
+            qCDebug(XdgDesktopPortalKdeFileChooser) << "Ignoring 'current_filter' parameter with 0 or multiple filters specified.";
         }
     }
 }
