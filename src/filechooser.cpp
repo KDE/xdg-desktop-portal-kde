@@ -232,6 +232,8 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
 
         m_mobileFileDialog->setSelectFolder(directory);
 
+        m_mobileFileDialog->setSelectMultiple(multipleFiles);
+
         // currentName: not implemented
 
         if (!acceptLabel.isEmpty()) {
