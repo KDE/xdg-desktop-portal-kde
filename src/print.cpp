@@ -255,6 +255,7 @@ uint PrintPortal::Print(const QDBusObjectPath &handle,
                   const QVariantMap &options,
                   QVariantMap &results)
 {
+    Q_UNUSED(results)
     qCDebug(XdgDesktopPortalKdePrint) << "Print called with parameters:";
     qCDebug(XdgDesktopPortalKdePrint) << "    handle: " << handle.path();
     qCDebug(XdgDesktopPortalKdePrint) << "    app_id: " << app_id;
@@ -334,7 +335,7 @@ uint PrintPortal::Print(const QDBusObjectPath &handle,
                 return 1;
             }
 
-            argList = printArguments(printer, useCupsOptions, exe, printer->orientation()) << tempFile.fileName();
+            argList = printArguments(printer, useCupsOptions, exe, QPrinter::Orientation(printer->pageLayout().orientation())) << tempFile.fileName();
             // qCDebug(XdgDesktopPortalKdePrint) << "Executing" << exe << "with arguments" << argList << tempFile.fileName();
             int retValue = KProcess::execute(exe, argList);
 
@@ -615,7 +616,7 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
         QVariantMap resultingPageSetup;
 
         // Process back printer settings
-        resultingSettings.insert(QStringLiteral("n-copies"), QString::number(printer->actualNumCopies()));
+        resultingSettings.insert(QStringLiteral("n-copies"), QString::number(printer->copyCount()));
         resultingSettings.insert(QStringLiteral("resolution"), QString::number(printer->resolution()));
         resultingSettings.insert(QStringLiteral("use-color"), printer->colorMode() == QPrinter::Color ? QLatin1String("yes") : QLatin1String("no"));
         if (printer->duplex() == QPrinter::DuplexNone) {
@@ -713,7 +714,7 @@ QStringList PrintPortal::destination(const QPrinter *printer, const QString &ver
 
 QStringList PrintPortal::copies(const QPrinter *printer, const QString &version)
 {
-    int cp = printer->actualNumCopies();
+    int cp = printer->copyCount();
 
     if (version == QLatin1String("lp")) {
         return QStringList(QStringLiteral("-n")) << QStringLiteral("%1").arg(cp);
@@ -785,7 +786,7 @@ QStringList PrintPortal::optionOrientation(const QPrinter *printer, QPrinter::Or
     // portrait and landscape options rotate the document according to the document orientation
     // If we want to print a landscape document as one would expect it, we have to pass the
     // portrait option so that the document is not rotated additionally
-    if (printer->orientation() == documentOrientation) {
+    if (QPrinter::Orientation(printer->pageLayout().orientation()) == documentOrientation) {
         // the user wants the document printed as is
         return QStringList(QStringLiteral("-o")) << QStringLiteral("portrait");
     } else {
@@ -800,7 +801,7 @@ QStringList PrintPortal::optionDoubleSidedPrinting(const QPrinter *printer)
     case QPrinter::DuplexNone:
         return QStringList(QStringLiteral("-o")) << QStringLiteral("sides=one-sided");
     case QPrinter::DuplexAuto:
-        if (printer->orientation() == QPrinter::Landscape) {
+        if (QPrinter::Orientation(printer->pageLayout().orientation()) == QPrinter::Landscape) {
             return QStringList(QStringLiteral("-o")) << QStringLiteral("sides=two-sided-short-edge");
         } else {
             return QStringList(QStringLiteral("-o")) << QStringLiteral("sides=two-sided-long-edge");
@@ -836,7 +837,11 @@ QStringList PrintPortal::optionPageMargins(const QPrinter *printer)
         return QStringList();
     } else {
         qreal l, t, r, b;
-        printer->getPageMargins(&l, &t, &r, &b, QPrinter::Point);
+        QMarginsF m = printer->pageLayout().margins();
+        l=m.left();
+        t=m.top();
+        r=m.right();
+        b=m.bottom();
         return QStringList(QStringLiteral("-o")) << QStringLiteral("page-left=%1").arg(l)
                <<  QStringLiteral("-o")  << QStringLiteral("page-top=%1").arg(t)
                <<  QStringLiteral("-o")  << QStringLiteral("page-right=%1").arg(r)
@@ -905,6 +910,7 @@ QStringList PrintPortal::pages(const QPrinter *printer, bool useCupsOptions, con
 
 QStringList PrintPortal::cupsOptions(const QPrinter *printer, QPrinter::Orientation documentOrientation)
 {
+    Q_UNUSED(documentOrientation)
     QStringList optionList;
 
     // if (!optionMedia(printer).isEmpty()) {
@@ -976,6 +982,5 @@ bool PrintPortal::cupsAvailable()
     // whereas if CUPS is not available it will return the real number of copies.
     // This behaviour is guaranteed never to change, so we can use it as a reliable substitute.
     QPrinter testPrinter;
-    testPrinter.setNumCopies(2);
-    return (testPrinter.numCopies() == 1);
+    return testPrinter.supportsMultipleCopies();
 }
