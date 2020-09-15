@@ -35,6 +35,18 @@ QUrl DirModelUtils::partialUrlForIndex(QUrl url, int index) const
     return url;
 }
 
+QUrl DirModelUtils::directoryOfUrl(const QString &path) const
+{
+    const int index = path.lastIndexOf(QLatin1Char('/'));
+    return QUrl::fromLocalFile(path.mid(0, index));
+}
+
+QString DirModelUtils::fileNameOfUrl(const QString &path) const
+{
+    const int index = path.lastIndexOf(QLatin1Char('/'));
+    return path.mid(index + 1);
+}
+
 void DirModelUtils::mkdir(const QUrl path) const
 {
     KIO::mkdir(path);

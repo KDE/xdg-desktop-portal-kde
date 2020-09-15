@@ -43,9 +43,8 @@ Kirigami.ScrollablePage {
     onCurrentFileChanged: {
         if (root.currentFile) {
             // Switch into directory of preselected file
-            var elements = root.currentFile.split("/")
-            fileNameField.text = elements.pop()
-            dirModel.folder = "file://" + elements.join("/")
+            fileNameField.text = DirModelUtils.fileNameOfUrl(root.currentFile)
+            dirModel.folder = DirModelUtils.directoryOfUrl(root.currentFile)
         }
     }
 
