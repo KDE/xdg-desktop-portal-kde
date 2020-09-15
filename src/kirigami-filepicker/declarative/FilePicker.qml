@@ -25,20 +25,12 @@ Kirigami.ScrollablePage {
     property string acceptLabel
     property bool selectFolder
 
+    property alias createDirectorySheet: createDirectorySheet
+
     CreateDirectorySheet {
         id: createDirectorySheet
         parentPath: dirModel.folder
     }
-
-    contextualActions: [
-        Kirigami.Action {
-            icon.name: "folder"
-            text: i18n("Create folder")
-            visible: !root.selectExisting
-
-            onTriggered: createDirectorySheet.open()
-        }
-    ]
 
     onCurrentFileChanged: {
         if (root.currentFile) {

@@ -50,21 +50,33 @@ Kirigami.ApplicationWindow {
         Component.onCompleted: console.log(JSON.stringify(callback))
     }
 
-    Connections {
-        target: filePicker
+    pageStack.initialPage: FilePicker {
+        contextualActions: [
+            Kirigami.Action {
+                icon.name: "folder"
+                text: i18n("Create folder")
+                visible: !root.selectExisting
+
+                onTriggered: filePicker.createDirectorySheet.open()
+            },
+            Kirigami.Action {
+                id: filterAction
+                icon.name: "view-filter"
+                checkable: true
+                text: i18n("Filter filetype")
+                checked: true
+            }
+        ]
 
         onAccepted: (urls) => {
             callback.accepted(urls)
         }
-    }
 
-
-    pageStack.initialPage: FilePicker {
         id: filePicker
         selectMultiple: callback.selectMultiple
         selectExisting: callback.selectExisting
         nameFilters: callback.nameFilters
-        mimeTypeFilters: callback.mimeTypeFilters
+        mimeTypeFilters: filterAction.checked ? callback.mimeTypeFilters : undefined
         currentFile: callback.currentFile
         acceptLabel: callback.acceptLabel
         selectFolder: callback.selectFolder

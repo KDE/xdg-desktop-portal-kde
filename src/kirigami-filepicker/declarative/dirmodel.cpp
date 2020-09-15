@@ -136,6 +136,13 @@ void DirModel::setMimeFilters(const QStringList &mimeFilters)
     }
 }
 
+void DirModel::resetMimeFilters()
+{
+    m_lister->clearMimeFilter();
+    m_lister->emitChanges();
+    Q_EMIT mimeFiltersChanged();
+}
+
 QString DirModel::lastError() const
 {
     return m_lastError;

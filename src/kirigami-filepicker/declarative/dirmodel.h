@@ -20,7 +20,7 @@ class DirModel : public KDirSortFilterProxyModel
     Q_PROPERTY(bool showDotFiles READ showDotFiles WRITE setShowDotFiles NOTIFY showDotFilesChanged)
     Q_PROPERTY(bool isLoading READ isLoading NOTIFY isLoadingChanged)
     Q_PROPERTY(QString nameFilter READ nameFilter WRITE setNameFilter NOTIFY nameFilterChanged)
-    Q_PROPERTY(QStringList mimeFilters READ mimeFilters WRITE setMimeFilters NOTIFY mimeFiltersChanged)
+    Q_PROPERTY(QStringList mimeFilters READ mimeFilters WRITE setMimeFilters RESET resetMimeFilters NOTIFY mimeFiltersChanged)
 
     Q_PROPERTY(QString lastError READ lastError NOTIFY lastErrorChanged)
 
@@ -59,6 +59,7 @@ public:
 
     QStringList mimeFilters() const;
     void setMimeFilters(const QStringList &mimeFilters);
+    void resetMimeFilters();
 
     QString lastError() const;
 
