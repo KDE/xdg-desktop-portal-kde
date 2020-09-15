@@ -85,6 +85,30 @@ private:
     QString m_filter;
 };
 
+class AppChooserData : public QObject {
+    Q_OBJECT
+    Q_PROPERTY(QString fileName READ fileName WRITE setFileName NOTIFY fileNameChanged)
+    Q_PROPERTY(QString defaultApp READ defaultApp WRITE setDefaultApp NOTIFY defaultAppChanged)
+
+public:
+    AppChooserData(QObject *parent = nullptr);
+
+    QString fileName() const;
+    void setFileName(const QString &fileName);
+    Q_SIGNAL void fileNameChanged();
+
+    QString defaultApp() const;
+    void setDefaultApp(const QString &defaultApp);
+    Q_SIGNAL void defaultAppChanged();
+
+    Q_SIGNAL void applicationSelected(const QString &desktopFile);
+    Q_SIGNAL void openDiscover();
+
+private:
+    QString m_defaultApp;
+    QString m_fileName;
+};
+
 class AppModel : public QAbstractListModel
 {
     Q_OBJECT

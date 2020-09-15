@@ -57,16 +57,18 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &de
     AppFilterModel *filterModel = new AppFilterModel(this);
     filterModel->setSourceModel(m_model);
 
-    m_dialog->quickWidget->rootContext()->setContextProperty(QStringLiteral("myModel"), filterModel);
-    m_dialog->quickWidget->rootContext()->setContextProperty(QStringLiteral("fileName"), fileName);
-    m_dialog->quickWidget->rootContext()->setContextProperty(QStringLiteral("defaultApp"), defaultApp);
+    auto *data = new AppChooserData(this);
+    data->setFileName(fileName);
+    data->setDefaultApp(defaultApp);
+
+    qmlRegisterSingletonInstance<AppFilterModel>("org.kde.xdgdesktopportal", 1, 0, "AppModel", filterModel);
+    qmlRegisterSingletonInstance<AppChooserData>("org.kde.xdgdesktopportal", 1, 0, "AppChooserData", data);
     m_dialog->quickWidget->setClearColor(Qt::transparent);
     m_dialog->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     m_dialog->quickWidget->setSource(QUrl::fromLocalFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("xdg-desktop-portal-kde/qml/AppChooserDialog.qml"))));
 
-    QObject *rootItem = m_dialog->quickWidget->rootObject();
-    connect(rootItem, SIGNAL(openDiscover()), this, SLOT(onOpenDiscover()));
-    connect(rootItem, SIGNAL(applicationSelected(QString)), this, SLOT(onApplicationSelected(QString)));
+    connect(data, &AppChooserData::openDiscover, this, &AppChooserDialog::onOpenDiscover);
+    connect(data, &AppChooserData::applicationSelected, this, &AppChooserDialog::onApplicationSelected);
 
     setWindowTitle(i18n("Open with..."));
 }
@@ -208,6 +210,33 @@ bool AppFilterModel::lessThan(const QModelIndex &left, const QModelIndex &right)
     }
 
     return QString::localeAwareCompare(leftName, rightName) > 0;
+}
+
+QString AppChooserData::defaultApp() const
+{
+    return m_defaultApp;
+}
+
+void AppChooserData::setDefaultApp(const QString &defaultApp)
+{
+    m_defaultApp = defaultApp;
+    Q_EMIT defaultAppChanged();
+}
+
+AppChooserData::AppChooserData(QObject *parent)
+    : QObject(parent)
+{
+}
+
+QString AppChooserData::fileName() const
+{
+    return m_fileName;
+}
+
+void AppChooserData::setFileName(const QString &fileName)
+{
+    m_fileName = fileName;
+    Q_EMIT fileNameChanged();
 }
 
 AppModel::AppModel(QObject *parent)

@@ -24,11 +24,10 @@ import QtQuick.Layouts 1.12
 import org.kde.plasma.core 2.0
 import org.kde.kirigami 2.9 as Kirigami
 
+import org.kde.xdgdesktopportal 1.0
+
 Item {
     id: root
-
-    signal applicationSelected(string name)
-    signal openDiscover()
 
     Rectangle {
         id: background
@@ -42,12 +41,12 @@ Item {
         Label {
             Layout.fillWidth: true
             horizontalAlignment: Text.AlignHCenter
-            text: i18n("Select an application to open <b>%1</b>. More applications are available in <a href=#discover>Discover</a>.", fileName)
+            text: i18n("Select an application to open <b>%1</b>. More applications are available in <a href=#discover>Discover</a>.", AppChooserData.fileName)
             textFormat: Text.RichText
             wrapMode: Text.WordWrap
 
             onLinkActivated: {
-                openDiscover()
+                AppChooserData.openDiscover()
             }
         }
 
@@ -69,7 +68,7 @@ Item {
                     anchors.fill: parent
                     cellHeight: 110
                     cellWidth: 150
-                    model: myModel
+                    model: AppModel
                     delegate: appDelegate
 
                 }
@@ -84,7 +83,7 @@ Item {
 
             onClicked: {
                 visible = false
-                myModel.showOnlyPreferredApps = false
+                AppModel.showOnlyPreferredApps = false
             }
         }
 
@@ -94,7 +93,7 @@ Item {
             visible: !showAllAppsButton.visible
             opacity: visible
             placeholderText: i18n("Search...");
-            onTextChanged: myModel.filter = text
+            onTextChanged: AppModel.filter = text
         }
     }
 
@@ -108,7 +107,7 @@ Item {
             Rectangle {
                 anchors.fill: parent
                 color: Kirigami.Theme.highlightColor
-                visible: ApplicationDesktopFile == defaultApp
+                visible: ApplicationDesktopFile == AppChooserData.defaultApp
                 radius: 2
             }
 
@@ -118,7 +117,7 @@ Item {
                 hoverEnabled: true
 
                 onContainsMouseChanged: cursorShape = containsMouse ? Qt.PointingHandCursor : Qt.ArrowCursor
-                onClicked: applicationSelected(ApplicationDesktopFile)
+                onClicked: AppChooserData.applicationSelected(ApplicationDesktopFile)
             }
 
             Column {
