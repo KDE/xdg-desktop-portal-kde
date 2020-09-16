@@ -306,13 +306,12 @@ int AppModel::rowCount(const QModelIndex &parent) const
 
 QHash<int, QByteArray> AppModel::roleNames() const
 {
-    QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
-    roles[ApplicationNameRole] = "ApplicationName";
-    roles[ApplicationIconRole] = "ApplicationIcon";
-    roles[ApplicationDesktopFileRole] = "ApplicationDesktopFile";
-    roles[ApplicationCategoryRole] = "ApplicationCategory";
-
-    return roles;
+    return {
+        {ApplicationNameRole, QByteArrayLiteral("applicationName")},
+        {ApplicationIconRole, QByteArrayLiteral("applicationIcon")},
+        {ApplicationDesktopFileRole, QByteArrayLiteral("applicationDesktopFile")},
+        {ApplicationCategoryRole, QByteArrayLiteral("applicationCategory")}
+    };
 }
 
 void AppModel::loadApplications()

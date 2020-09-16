@@ -104,7 +104,7 @@ Item {
             Rectangle {
                 anchors.fill: parent
                 color: Kirigami.Theme.highlightColor
-                visible: ApplicationDesktopFile == AppChooserData.defaultApp
+                visible: model.applicationDesktopFile === AppChooserData.defaultApp
                 radius: 2
             }
 
@@ -114,7 +114,7 @@ Item {
                 hoverEnabled: true
 
                 onContainsMouseChanged: cursorShape = containsMouse ? Qt.PointingHandCursor : Qt.ArrowCursor
-                onClicked: AppChooserData.applicationSelected(ApplicationDesktopFile)
+                onClicked: AppChooserData.applicationSelected(model.applicationDesktopFile)
             }
 
             Column {
@@ -126,7 +126,7 @@ Item {
                     anchors.horizontalCenter: parent.horizontalCenter
                     height: Kirigami.Units.iconSizes.huge
                     width: Kirigami.Units.iconSizes.huge
-                    source: ApplicationIcon
+                    source: model.applicationIcon
                     smooth: true
                 }
 
@@ -138,7 +138,7 @@ Item {
                     horizontalAlignment: Text.AlignHCenter
                     elide: Text.ElideRight
                     maximumLineCount: 2
-                    text: ApplicationName
+                    text: model.applicationName
                     wrapMode: Text.WordWrap
                 }
             }
