@@ -21,7 +21,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import org.kde.plasma.core 2.0
 import org.kde.kirigami 2.9 as Kirigami
 
 import org.kde.xdgdesktopportal 1.0
@@ -66,11 +65,10 @@ Item {
                 GridView {
                     id: grid
                     anchors.fill: parent
-                    cellHeight: 110
-                    cellWidth: 150
+                    cellHeight: Kirigami.Units.iconSizes.huge + 50
+                    cellWidth: Kirigami.Units.iconSizes.huge + 80
                     model: AppModel
                     delegate: appDelegate
-
                 }
             }
         }
@@ -87,12 +85,11 @@ Item {
             }
         }
 
-        TextField {
+        Kirigami.SearchField {
             id: searchField
             Layout.fillWidth: true
             visible: !showAllAppsButton.visible
             opacity: visible
-            placeholderText: i18n("Search...");
             onTextChanged: AppModel.filter = text
         }
     }
@@ -122,13 +119,13 @@ Item {
 
             Column {
                 anchors.fill: parent
-                anchors.margins: units.gridUnit / 2
-                spacing: units.gridUnit / 3
+                anchors.margins: Kirigami.Units.gridUnit / 2
+                spacing: Kirigami.Units.gridUnit / 3
 
                 Kirigami.Icon {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    height: units.iconSizes.huge
-                    width: units.iconSizes.huge
+                    height: Kirigami.Units.iconSizes.huge
+                    width: Kirigami.Units.iconSizes.huge
                     source: ApplicationIcon
                     smooth: true
                 }
