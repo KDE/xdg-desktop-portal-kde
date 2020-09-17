@@ -37,13 +37,18 @@ Kirigami.OverlayDrawer {
         }
 
         delegate: Kirigami.BasicListItem {
-            visible: !model.hidden
+            required property string display
+            required property string iconName
+            required property bool hidden
+            required property url url
+
+            visible: !hidden
             width: parent.width
-            text: model.display
-            icon: model.iconName
+            text: display
+            icon: iconName
             separatorVisible: false
             onClicked: {
-                root.placeOpenRequested(model.url)
+                root.placeOpenRequested(url)
             }
         }
     }

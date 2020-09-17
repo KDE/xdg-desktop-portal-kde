@@ -140,48 +140,53 @@ Kirigami.ScrollablePage {
         clip: true
 
         delegate: Kirigami.BasicListItem {
-            text: model.name
-            icon: checked ? "emblem-checked" : model.iconName
+            required property string name
+            required property string iconName
+            required property url url
+            required property bool isDir
+
+            text: name
+            icon: checked ? "emblem-checked" : iconName
             checkable: root.selectExisting && root.selectMultiple
-            checked: root.fileUrls.includes(model.url)
+            checked: root.fileUrls.includes(url)
             highlighted: false
 
             onClicked: {
                 // open
                 if (root.selectExisting) {
                     // The delegate being clicked on represents a directory
-                    if (model.isDir) {
+                    if (isDir) {
                         // If we want to select a folder,
                         // store the folder being clicked on in the output variable,
                         // so it is ready once accepted() is emitted by pressing
                         // the corrosponding button
                         if (root.selectFolder) {
-                            root.fileUrls = [model.url]
+                            root.fileUrls = [url]
                         }
 
                         // Change into folder
-                        dirModel.folder = model.url
+                        dirModel.folder = url
                     }
                     // The delegate represents a file
                     else {
                         if (root.selectMultiple) {
                             // add the file to the list of accepted files
                             // (or remove it if it is already there)
-                            root.addOrRemoveUrl(model.url)
+                            root.addOrRemoveUrl(url)
                         } else {
                             // If we only want to select one file,
                             // Write it into the output variable and close the dialog
-                            root.fileUrls = [model.url]
+                            root.fileUrls = [url]
                             root.accepted(root.fileUrls)
                         }
                     }
                 }
                 // save
                 else {
-                    if (model.isDir) {
-                        dirModel.folder = model.url
+                    if (isDir) {
+                        dirModel.folder = url
                     } else {
-                        fileNameField.text = model.name
+                        fileNameField.text = name
                     }
                 }
             }
