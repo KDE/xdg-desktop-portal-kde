@@ -70,8 +70,11 @@ QString MobileFileDialog::title() const
 
 void MobileFileDialog::setTitle(const QString &title)
 {
-    m_customTitleSet = true;
-    m_callback->setTitle(title);
+    // Don't accept an empty titles
+    if (!title.isEmpty()) {
+        m_customTitleSet = true;
+        m_callback->setTitle(title);
+    }
 }
 
 bool MobileFileDialog::selectMultiple() const
