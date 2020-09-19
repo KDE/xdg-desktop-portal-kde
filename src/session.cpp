@@ -159,9 +159,22 @@ bool ScreenCastSession::multipleSources() const
     return m_multipleSources;
 }
 
-void ScreenCastSession::setMultipleSources(bool multipleSources)
+
+ScreenCastPortal::SourceType ScreenCastSession::types() const
 {
-    m_multipleSources = multipleSources;
+    return m_types;
+}
+
+ScreenCastPortal::CursorModes ScreenCastSession::cursorMode() const
+{
+    return m_cursorMode;
+}
+
+void ScreenCastSession::setOptions(const QVariantMap &options)
+{
+    m_multipleSources = options.value(QStringLiteral("multiple")).toBool();
+    m_cursorMode = ScreenCastPortal::CursorModes(options.value(QStringLiteral("cursor_mode")).toUInt());
+    m_types = ScreenCastPortal::SourceType(options.value(QStringLiteral("types")).toUInt());
 }
 
 RemoteDesktopSession::RemoteDesktopSession(QObject *parent, const QString &appId, const QString &path)

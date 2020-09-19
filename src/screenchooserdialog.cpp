@@ -124,6 +124,9 @@ void ScreenChooserDialog::setSourceTypes(ScreenCastPortal::SourceTypes types)
 {
     m_dialog->windowsTab->setEnabled(types & ScreenCastPortal::Window);
     m_dialog->screensTab->setEnabled(types & ScreenCastPortal::Monitor);
+    if (!m_dialog->screensTab->isEnabled()) {
+        m_dialog->tabWidget->setCurrentWidget(m_dialog->windowsTab);
+    }
 }
 
 QList<quint32> ScreenChooserDialog::selectedScreens() const

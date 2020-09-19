@@ -90,7 +90,7 @@ uint ScreenCastPortal::SelectSources(const QDBusObjectPath &handle,
         return 2;
     }
 
-    session->setMultipleSources(options.value(QStringLiteral("multiple")).toBool());
+    session->setOptions(options);
 
     // Might be also a RemoteDesktopSession
     if (session->type() == Session::RemoteDesktop) {
@@ -134,16 +134,14 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     QScopedPointer<ScreenChooserDialog, QScopedPointerDeleteLater> screenDialog(new ScreenChooserDialog(app_id, session->multipleSources()));
     Utils::setParentWindow(screenDialog.data(), parent_window);
 
-    if (options.contains(QStringLiteral("types"))) {
-        screenDialog->setSourceTypes(SourceTypes(options.value(QStringLiteral("types")).toUInt()));
-    }
+    screenDialog->setSourceTypes(SourceTypes(session->types()));
 
     connect(session, &Session::closed, screenDialog.data(), &ScreenChooserDialog::reject);
 
     if (screenDialog->exec()) {
         const auto selectedScreens = screenDialog->selectedScreens();
         for (quint32 outputid : selectedScreens) {
-            if (!WaylandIntegration::startStreamingOutput(outputid, Screencasting::Hidden)) {
+            if (!WaylandIntegration::startStreamingOutput(outputid, Screencasting::CursorMode(session->cursorMode()))) {
                 return 2;
             }
         }

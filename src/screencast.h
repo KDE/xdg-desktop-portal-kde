@@ -53,7 +53,7 @@ public:
 
     uint version() const { return 1; }
     uint AvailableSourceTypes() const { return Monitor; };
-    uint AvailableCursorModes() const { return Hidden | Embedded; };
+    uint AvailableCursorModes() const { return Hidden | Embedded | Metadata; };
 
 public Q_SLOTS:
     uint CreateSession(const QDBusObjectPath &handle,

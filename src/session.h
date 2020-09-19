@@ -25,6 +25,7 @@
 #include <QDBusVirtualObject>
 
 #include "remotedesktop.h"
+#include "screencast.h"
 
 class Session : public QDBusVirtualObject
 {
@@ -62,14 +63,18 @@ public:
     explicit ScreenCastSession(QObject *parent = nullptr, const QString &appId = QString(), const QString &path = QString());
     ~ScreenCastSession();
 
+    void setOptions(const QVariantMap &options);
+
+    ScreenCastPortal::CursorModes cursorMode() const;
     bool multipleSources() const;
-    void setMultipleSources(bool multipleSources);
+    ScreenCastPortal::SourceType types() const;
 
     SessionType type() const override { return SessionType::ScreenCast; }
 
 private:
     bool m_multipleSources;
-    // TODO type
+    ScreenCastPortal::CursorModes m_cursorMode;
+    ScreenCastPortal::SourceType m_types;
 };
 
 class RemoteDesktopSession : public ScreenCastSession
