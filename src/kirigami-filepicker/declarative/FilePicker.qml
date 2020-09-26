@@ -115,7 +115,13 @@ Kirigami.ScrollablePage {
         text: root.acceptLabel ? root.acceptLabel : i18n("Select")
         icon.name: "dialog-ok"
 
-        onTriggered: root.accepted(root.fileUrls)
+        onTriggered: {
+            if (root.selectFolder) {
+                root.accepted([dirModel.folder])
+            } else {
+                root.accepted(root.fileUrls)
+            }
+        }
     }
 
     DirModel {
@@ -156,14 +162,6 @@ Kirigami.ScrollablePage {
                 if (root.selectExisting) {
                     // The delegate being clicked on represents a directory
                     if (isDir) {
-                        // If we want to select a folder,
-                        // store the folder being clicked on in the output variable,
-                        // so it is ready once accepted() is emitted by pressing
-                        // the corrosponding button
-                        if (root.selectFolder) {
-                            root.fileUrls = [url]
-                        }
-
                         // Change into folder
                         dirModel.folder = url
                     }
