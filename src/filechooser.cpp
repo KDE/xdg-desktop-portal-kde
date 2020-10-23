@@ -588,8 +588,12 @@ void FileChooserPortal::ExtractFilters(const QVariantMap &options, QStringList &
             }
 
             if (!filterStrings.isEmpty()) {
+                QString userVisibleName = filterList.userVisibleName;
+                if (!isMobile()) {
+                    userVisibleName.replace(QLatin1Char('/'), QStringLiteral("\\/"));
+                }
                 const QString filterString = filterStrings.join(QLatin1Char(' '));
-                const QString nameFilter = QStringLiteral("%1|%2").arg(filterString, filterList.userVisibleName);
+                const QString nameFilter = QStringLiteral("%1|%2").arg(filterString, userVisibleName);
                 nameFilters << nameFilter;
                 allFilters[filterList.userVisibleName] = filterList;
             }
@@ -603,7 +607,11 @@ void FileChooserPortal::ExtractFilters(const QVariantMap &options, QStringList &
             if (filterStruct.type == 0) {
                 // make the relevant entry the first one in the list of filters,
                 // since that is the one that gets preselected by KFileWidget::setFilter
-                QString nameFilter = QStringLiteral("%1|%2").arg(filterStruct.filterString, filterList.userVisibleName);
+                QString userVisibleName = filterList.userVisibleName;
+                if (!isMobile()) {
+                    userVisibleName.replace(QLatin1Char('/'), QStringLiteral("\\/"));
+                }
+                QString nameFilter = QStringLiteral("%1|%2").arg(filterStruct.filterString, userVisibleName);
                 nameFilters.removeAll(nameFilter);
                 nameFilters.push_front(nameFilter);
             } else {
@@ -615,7 +623,7 @@ void FileChooserPortal::ExtractFilters(const QVariantMap &options, QStringList &
     }
 }
 
-bool FileChooserPortal::isMobile() const
+bool FileChooserPortal::isMobile()
 {
     QByteArray mobile = qgetenv("QT_QUICK_CONTROLS_MOBILE");
     return mobile == "true" || mobile == "1";
