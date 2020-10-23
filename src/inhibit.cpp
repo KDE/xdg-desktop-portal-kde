@@ -19,7 +19,6 @@
  */
 
 #include "inhibit.h"
-#include "request.h"
 
 #include <QDBusConnection>
 #include <QDBusMessage>

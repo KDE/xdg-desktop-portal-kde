@@ -4,7 +4,6 @@
 
 #include "fileplacesmodel.h"
 
-#include <KFilePlacesModel>
 
 FilePlacesModel::FilePlacesModel(QObject *parent)
     : KFilePlacesModel(parent)

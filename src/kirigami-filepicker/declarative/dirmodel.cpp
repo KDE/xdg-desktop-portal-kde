@@ -5,7 +5,6 @@
 
 #include "dirmodel.h"
 
-#include <KIOWidgets/KDirModel>
 #include <KIOWidgets/KDirLister>
 
 #include "dirlister.h"

@@ -47,7 +47,6 @@
 #include <unistd.h>
 
 #include <KWayland/Client/fakeinput.h>
-#include <KWayland/Client/output.h>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeWaylandIntegration, "xdp-kde-wayland-integration")
 

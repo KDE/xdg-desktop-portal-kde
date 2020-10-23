@@ -25,7 +25,6 @@
 
 #include <QFile>
 #include <QLoggingCategory>
-#include <QPrinter>
 #include <QPrintEngine>
 #include <QPrintDialog>
 #include <QStandardPaths>
