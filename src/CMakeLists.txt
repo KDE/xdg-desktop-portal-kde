@@ -17,6 +17,7 @@ set(xdg_desktop_portal_kde_SRCS
     filechooser.cpp
     inhibit.cpp
     notification.cpp
+    notificationinhibition.cpp
     print.cpp
     request.cpp
     session.cpp

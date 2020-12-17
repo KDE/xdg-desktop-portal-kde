@@ -82,6 +82,9 @@ public Q_SLOTS:
                const QString &parent_window,
                const QVariantMap &options,
                QVariantMap &results);
+
+private:
+    bool inhibitionsEnabled() const;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SCREENCAST_H

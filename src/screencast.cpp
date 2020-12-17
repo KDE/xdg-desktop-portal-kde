@@ -18,11 +18,16 @@
  *       Jan Grulich <jgrulich@redhat.com>
  */
 
+#include "notificationinhibition.h"
 #include "screencast.h"
 #include "screenchooserdialog.h"
 #include "session.h"
 #include "utils.h"
 #include "waylandintegration.h"
+
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KSharedConfig>
 
 #include <QLoggingCategory>
 
@@ -35,6 +40,19 @@ ScreenCastPortal::ScreenCastPortal(QObject *parent)
 
 ScreenCastPortal::~ScreenCastPortal()
 {
+}
+
+bool ScreenCastPortal::inhibitionsEnabled() const
+{
+    if (!WaylandIntegration::isStreamingAvailable()) {
+        return false;
+    }
+
+    auto cfg = KSharedConfig::openConfig(QStringLiteral("plasmanotifyrc"));
+
+    KConfigGroup grp(cfg, "DoNotDisturb");
+
+    return grp.readEntry("WhenScreenSharing", true);
 }
 
 uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
@@ -160,6 +178,10 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         }
 
         results.insert(QStringLiteral("streams"), streams);
+
+        if (inhibitionsEnabled()) {
+            new NotificationInhibition(app_id, i18nc("Do not disturb mode is enabled because...", "Screen sharing in progress"), session);
+        }
 
         return 0;
     }
