@@ -2,7 +2,9 @@
 Type=Application
 Name=Portal
 Name[az]=Portal
+Name[ca]=Portal
 Name[es]=Portal
+Name[hu]=Portál
 Name[nl]=Portaal
 Name[nn]=Portal
 Name[pt]=Portal
