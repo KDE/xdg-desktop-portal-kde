@@ -2,6 +2,7 @@
 Type=Application
 Name=Portal
 Name[ca]=Portal
+Name[en_GB]=Portal
 Name[es]=Portal
 Name[eu]=Ataria
 Name[fr]=Portail
