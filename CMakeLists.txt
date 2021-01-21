@@ -6,7 +6,7 @@ set(PROJECT_VERSION "5.20.90")
 set(PROJECT_VERSION_MAJOR 5)
 
 set(QT_MIN_VERSION "5.15.0")
-set(KF5_MIN_VERSION "5.74")
+set(KF5_MIN_VERSION "5.78")
 
 ################# set KDE specific information #################
 
