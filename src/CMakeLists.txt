@@ -55,12 +55,12 @@ qt5_add_dbus_interface(xdg_desktop_portal_kde_SRCS ../data/org.freedesktop.Accou
 add_executable(xdg-desktop-portal-kde ${xdg_desktop_portal_kde_SRCS})
 
 target_link_libraries(xdg-desktop-portal-kde
-    Qt5::Core
-    Qt5::DBus
-    Qt5::Concurrent
-    Qt5::PrintSupport
-    Qt5::QuickWidgets
-    Qt5::Widgets
+    Qt::Core
+    Qt::DBus
+    Qt::Concurrent
+    Qt::PrintSupport
+    Qt::QuickWidgets
+    Qt::Widgets
     KF5::CoreAddons
     KF5::ConfigCore
     KF5::Declarative
