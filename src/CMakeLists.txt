@@ -84,4 +84,4 @@ install(FILES
 
 install(FILES
     xdg-desktop-portal-kde.notifyrc
-    DESTINATION ${KNOTIFYRC_INSTALL_DIR})
+    DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR})
