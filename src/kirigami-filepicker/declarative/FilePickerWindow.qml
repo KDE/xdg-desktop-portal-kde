@@ -65,6 +65,14 @@ Kirigami.ApplicationWindow {
                 checkable: true
                 text: i18n("Filter filetype")
                 checked: true
+            },
+            Kirigami.Action {
+                icon.name: "view-hidden"
+                text: i18n("Show hidden files")
+                checkable: true
+                checked: filePicker.showHiddenFiles
+
+                onToggled: filePicker.showHiddenFiles = checked
             }
         ]
 

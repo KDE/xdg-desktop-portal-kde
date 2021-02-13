@@ -99,6 +99,7 @@ bool DirModel::showDotFiles() const
 void DirModel::setShowDotFiles(bool showDotFiles)
 {
     m_lister->setShowingDotFiles(showDotFiles);
+    m_lister->emitChanges();
     emit showDotFilesChanged();
 }
 

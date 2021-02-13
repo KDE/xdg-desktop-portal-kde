@@ -21,6 +21,7 @@ Kirigami.ScrollablePage {
     property var nameFilters: []
     property var mimeTypeFilters: []
     property alias folder: dirModel.folder
+    property bool showHiddenFiles: false
     property string currentFile
     property string acceptLabel
     property bool selectFolder
@@ -126,7 +127,7 @@ Kirigami.ScrollablePage {
 
     DirModel {
         id: dirModel
-        showDotFiles: false
+        showDotFiles: root.showHiddenFiles
         mimeFilters: root.mimeTypeFilters
         onLastErrorChanged: errorMessage.visible = true
         onFolderChanged: errorMessage.visible = false
