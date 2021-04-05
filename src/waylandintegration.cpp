@@ -19,18 +19,18 @@
  */
 
 #include "waylandintegration.h"
-#include "waylandintegration_p.h"
-#include "screencasting.h"
 #include "screencast.h"
+#include "screencasting.h"
+#include "waylandintegration_p.h"
 
 #include <QDBusArgument>
 #include <QDBusMetaType>
 
+#include <KNotification>
 #include <QEventLoop>
 #include <QLoggingCategory>
 #include <QThread>
 #include <QTimer>
-#include <KNotification>
 
 #include <QImage>
 
@@ -39,8 +39,8 @@
 // KWayland
 #include <KWayland/Client/connection_thread.h>
 #include <KWayland/Client/event_queue.h>
-#include <KWayland/Client/registry.h>
 #include <KWayland/Client/plasmawindowmanagement.h>
+#include <KWayland/Client/registry.h>
 
 // system
 #include <fcntl.h>
@@ -54,9 +54,8 @@ Q_GLOBAL_STATIC(WaylandIntegration::WaylandIntegrationPrivate, globalWaylandInte
 
 static QDebug operator<<(QDebug dbg, const WaylandIntegration::WaylandIntegrationPrivate::Stream &c)
 {
-    dbg.nospace() << "Stream("<< c.map << ", " << c.nodeId << ")";
+    dbg.nospace() << "Stream(" << c.map << ", " << c.nodeId << ")";
     return dbg.space();
-
 }
 
 void WaylandIntegration::init()
@@ -142,10 +141,12 @@ QVariant WaylandIntegration::streams()
 // Thank you kscreen
 void WaylandIntegration::WaylandOutput::setOutputType(const QString &type)
 {
-    const auto embedded = { QLatin1String("LVDS"),
-                                   QLatin1String("IDP"),
-                                   QLatin1String("EDP"),
-                                   QLatin1String("LCD") };
+    const auto embedded = {
+        QLatin1String("LVDS"),
+        QLatin1String("IDP"),
+        QLatin1String("EDP"),
+        QLatin1String("LCD"),
+    };
 
     for (const QLatin1String &pre : embedded) {
         if (type.startsWith(pre, Qt::CaseInsensitive)) {
@@ -154,8 +155,9 @@ void WaylandIntegration::WaylandOutput::setOutputType(const QString &type)
         }
     }
 
-    if (type.contains(QLatin1String("VGA")) || type.contains(QLatin1String("DVI")) || type.contains(QLatin1String("HDMI")) || type.contains(QLatin1String("Panel")) ||
-        type.contains(QLatin1String("DisplayPort")) || type.startsWith(QLatin1String("DP")) || type.contains(QLatin1String("unknown"))) {
+    if (type.contains(QLatin1String("VGA")) || type.contains(QLatin1String("DVI")) || type.contains(QLatin1String("HDMI"))
+        || type.contains(QLatin1String("Panel")) || type.contains(QLatin1String("DisplayPort")) || type.startsWith(QLatin1String("DP"))
+        || type.contains(QLatin1String("unknown"))) {
         m_outputType = OutputType::Monitor;
     } else if (type.contains(QLatin1String("TV"))) {
         m_outputType = OutputType::Television;
@@ -164,7 +166,7 @@ void WaylandIntegration::WaylandOutput::setOutputType(const QString &type)
     }
 }
 
-const QDBusArgument &operator >> (const QDBusArgument &arg, WaylandIntegration::WaylandIntegrationPrivate::Stream &stream)
+const QDBusArgument &operator>>(const QDBusArgument &arg, WaylandIntegration::WaylandIntegrationPrivate::Stream &stream)
 {
     arg.beginStructure();
     arg >> stream.nodeId;
@@ -184,7 +186,7 @@ const QDBusArgument &operator >> (const QDBusArgument &arg, WaylandIntegration::
     return arg;
 }
 
-const QDBusArgument &operator << (QDBusArgument &arg, const WaylandIntegration::WaylandIntegrationPrivate::Stream &stream)
+const QDBusArgument &operator<<(QDBusArgument &arg, const WaylandIntegration::WaylandIntegrationPrivate::Stream &stream)
 {
     arg.beginStructure();
     arg << stream.nodeId;
@@ -197,12 +199,12 @@ const QDBusArgument &operator << (QDBusArgument &arg, const WaylandIntegration::
 Q_DECLARE_METATYPE(WaylandIntegration::WaylandIntegrationPrivate::Stream)
 Q_DECLARE_METATYPE(WaylandIntegration::WaylandIntegrationPrivate::Streams)
 
-KWayland::Client::PlasmaWindowManagement * WaylandIntegration::plasmaWindowManagement()
+KWayland::Client::PlasmaWindowManagement *WaylandIntegration::plasmaWindowManagement()
 {
     return globalWaylandIntegration->plasmaWindowManagement();
 }
 
-WaylandIntegration::WaylandIntegration * WaylandIntegration::waylandIntegration()
+WaylandIntegration::WaylandIntegration *WaylandIntegration::waylandIntegration()
 {
     return globalWaylandIntegration;
 }
@@ -260,7 +262,7 @@ bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(Screencasting
 {
     QEventLoop loop;
     bool streamReady = false;
-    connect(stream, &ScreencastingStream::failed, this, [&] (const QString &error) {
+    connect(stream, &ScreencastingStream::failed, this, [&](const QString &error) {
         qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "failed to start streaming" << stream << error;
 
         KNotification *notification = new KNotification(QStringLiteral("screencastfailure"), KNotification::CloseOnTimeout);
@@ -272,7 +274,7 @@ bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(Screencasting
         streamReady = false;
         loop.quit();
     });
-    connect(stream, &ScreencastingStream::created, this, [&] (uint32_t nodeid) {
+    connect(stream, &ScreencastingStream::created, this, [&](uint32_t nodeid) {
         Stream s;
         s.stream = stream;
         s.nodeId = nodeid;
@@ -280,17 +282,17 @@ bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(Screencasting
             m_streamedScreenPosition = output->globalPosition();
             s.map = {
                 {QLatin1String("size"), output->pixelSize()},
-                {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)}
+                {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
             };
         } else {
-            s.map = {
-                {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Window)}
-            };
+            s.map = {{QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Window)}};
         }
         m_streams.append(s);
         startStreamingInput();
 
-        connect(stream, &ScreencastingStream::closed, this, [this, nodeid] { stopStreaming(nodeid); });
+        connect(stream, &ScreencastingStream::closed, this, [this, nodeid] {
+            stopStreaming(nodeid);
+        });
         streamReady = true;
         loop.quit();
     });
@@ -307,7 +309,7 @@ void WaylandIntegration::WaylandIntegrationPrivate::Stream::close()
 
 void WaylandIntegration::WaylandIntegrationPrivate::stopAllStreaming()
 {
-    for (auto & stream : m_streams) {
+    for (auto &stream : m_streams) {
         stream.close();
     }
     m_streams.clear();
@@ -318,7 +320,7 @@ void WaylandIntegration::WaylandIntegrationPrivate::stopAllStreaming()
 
 void WaylandIntegration::WaylandIntegrationPrivate::stopStreaming(uint32_t nodeid)
 {
-    for(auto it = m_streams.begin(), itEnd = m_streams.end(); it != itEnd; ++it) {
+    for (auto it = m_streams.begin(), itEnd = m_streams.end(); it != itEnd; ++it) {
         if (it->nodeId == nodeid) {
             m_streams.erase(it);
             break;
@@ -394,7 +396,7 @@ void WaylandIntegration::WaylandIntegrationPrivate::authenticate()
     }
 }
 
-KWayland::Client::PlasmaWindowManagement * WaylandIntegration::WaylandIntegrationPrivate::plasmaWindowManagement()
+KWayland::Client::PlasmaWindowManagement *WaylandIntegration::WaylandIntegrationPrivate::plasmaWindowManagement()
 {
     return m_windowManagement;
 }
@@ -439,7 +441,7 @@ void WaylandIntegration::WaylandIntegrationPrivate::addOutput(quint32 name, quin
     QSharedPointer<KWayland::Client::Output> output(new KWayland::Client::Output(this));
     output->setup(m_registry->bindOutput(name, version));
 
-    connect(output.data(), &KWayland::Client::Output::changed, this, [this, name, version, output] () {
+    connect(output.data(), &KWayland::Client::Output::changed, this, [this, name, version, output]() {
         qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "Adding output:";
         qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "    manufacturer: " << output->manufacturer();
         qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "    model: " << output->model();
@@ -469,18 +471,18 @@ void WaylandIntegration::WaylandIntegrationPrivate::setupRegistry()
 
     m_registry = new KWayland::Client::Registry(this);
 
-    connect(m_registry, &KWayland::Client::Registry::fakeInputAnnounced, this, [this] (quint32 name, quint32 version) {
+    connect(m_registry, &KWayland::Client::Registry::fakeInputAnnounced, this, [this](quint32 name, quint32 version) {
         m_fakeInput = m_registry->createFakeInput(name, version, this);
     });
     connect(m_registry, &KWayland::Client::Registry::outputAnnounced, this, &WaylandIntegrationPrivate::addOutput);
     connect(m_registry, &KWayland::Client::Registry::outputRemoved, this, &WaylandIntegrationPrivate::removeOutput);
 
-    connect(m_registry, &KWayland::Client::Registry::interfaceAnnounced, this, [this] (const QByteArray &interfaceName, quint32 name, quint32 version) {
+    connect(m_registry, &KWayland::Client::Registry::interfaceAnnounced, this, [this](const QByteArray &interfaceName, quint32 name, quint32 version) {
         if (interfaceName != "zkde_screencast_unstable_v1")
             return;
         m_screencasting = new Screencasting(m_registry, name, version, this);
     });
-    connect(m_registry, &KWayland::Client::Registry::plasmaWindowManagementAnnounced, this, [this] (quint32 name, quint32 version) {
+    connect(m_registry, &KWayland::Client::Registry::plasmaWindowManagementAnnounced, this, [this](quint32 name, quint32 version) {
         m_windowManagement = m_registry->createPlasmaWindowManagement(name, version, this);
         Q_EMIT waylandIntegration()->plasmaWindowManagementInitialized();
     });

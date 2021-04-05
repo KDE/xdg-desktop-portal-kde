@@ -41,12 +41,10 @@ public Q_SLOTS:
                            const QStringList &choices,
                            const QVariantMap &options,
                            QVariantMap &results);
-    void UpdateChoices(const QDBusObjectPath &handle,
-                       const QStringList &choices);
+    void UpdateChoices(const QDBusObjectPath &handle, const QStringList &choices);
 
 private:
-    QMap<QString, AppChooserDialog*> m_appChooserDialogs;
+    QMap<QString, AppChooserDialog *> m_appChooserDialogs;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_APPCHOOSER_H
-

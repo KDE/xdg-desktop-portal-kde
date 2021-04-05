@@ -21,8 +21,8 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_REQUEST_H
 #define XDG_DESKTOP_PORTAL_KDE_REQUEST_H
 
-#include <QObject>
 #include <QDBusVirtualObject>
+#include <QObject>
 
 class Request : public QDBusVirtualObject
 {
@@ -43,4 +43,3 @@ private:
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_REQUEST_H
-

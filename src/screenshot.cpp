@@ -22,20 +22,20 @@
 #include "screenshotdialog.h"
 #include "utils.h"
 
-#include <QDateTime>
-#include <QtDBus>
 #include <QDBusArgument>
 #include <QDBusReply>
+#include <QDateTime>
 #include <QLoggingCategory>
-#include <QStandardPaths>
 #include <QPointer>
+#include <QStandardPaths>
+#include <QtDBus>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeScreenshot, "xdp-kde-screenshot")
 
 // Keep in sync with qflatpakcolordialog from Qt flatpak platform theme
 Q_DECLARE_METATYPE(ScreenshotPortal::ColorRGB)
 
-QDBusArgument &operator <<(QDBusArgument &arg, const ScreenshotPortal::ColorRGB &color)
+QDBusArgument &operator<<(QDBusArgument &arg, const ScreenshotPortal::ColorRGB &color)
 {
     arg.beginStructure();
     arg << color.red << color.green << color.blue;
@@ -43,7 +43,7 @@ QDBusArgument &operator <<(QDBusArgument &arg, const ScreenshotPortal::ColorRGB 
     return arg;
 }
 
-const QDBusArgument &operator >>(const QDBusArgument &arg, ScreenshotPortal::ColorRGB &color)
+const QDBusArgument &operator>>(const QDBusArgument &arg, ScreenshotPortal::ColorRGB &color)
 {
     double red, green, blue;
     arg.beginStructure();
@@ -56,7 +56,7 @@ const QDBusArgument &operator >>(const QDBusArgument &arg, ScreenshotPortal::Col
     return arg;
 }
 
-QDBusArgument &operator<< (QDBusArgument &argument, const QColor &color)
+QDBusArgument &operator<<(QDBusArgument &argument, const QColor &color)
 {
     argument.beginStructure();
     argument << color.rgba();
@@ -118,8 +118,9 @@ uint ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
         return 1;
     }
 
-    const QString filename = QStringLiteral("%1/Screenshot_%2.png").arg(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation),
-                                                                        QDateTime::currentDateTime().toString(QStringLiteral("yyyyMMdd_hhmmss")));
+    const QString filename =
+        QStringLiteral("%1/Screenshot_%2.png") //
+            .arg(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation), QDateTime::currentDateTime().toString(QStringLiteral("yyyyMMdd_hhmmss")));
 
     if (!screenshot.save(filename, "PNG")) {
         return 1;

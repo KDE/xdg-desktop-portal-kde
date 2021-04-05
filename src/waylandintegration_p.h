@@ -30,22 +30,23 @@
 class Screencasting;
 class ScreencastingStream;
 
-namespace KWayland {
-    namespace Client {
-        class ConnectionThread;
-        class EventQueue;
-        class Registry;
-        class PlasmaWindow;
-        class PlasmaWindowManagement;
-        class FakeInput;
-        class RemoteBuffer;
-        class Output;
-    }
+namespace KWayland
+{
+namespace Client
+{
+class ConnectionThread;
+class EventQueue;
+class Registry;
+class PlasmaWindow;
+class PlasmaWindowManagement;
+class FakeInput;
+class RemoteBuffer;
+class Output;
+}
 }
 
 namespace WaylandIntegration
 {
-
 class WaylandIntegrationPrivate : public WaylandIntegration::WaylandIntegration
 {
     Q_OBJECT
@@ -118,7 +119,7 @@ private:
     QPoint m_streamedScreenPosition;
 
     QMap<quint32, WaylandOutput> m_outputMap;
-    QList<KWayland::Client::Output*> m_bindOutputs;
+    QList<KWayland::Client::Output *> m_bindOutputs;
 
     KWayland::Client::FakeInput *m_fakeInput = nullptr;
     Screencasting *m_screencasting = nullptr;
@@ -127,5 +128,3 @@ private:
 }
 
 #endif // XDG_DESKTOP_PORTAL_KDE_WAYLAND_INTEGRATION_P_H
-
-

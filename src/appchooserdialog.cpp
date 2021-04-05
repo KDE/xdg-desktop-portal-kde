@@ -24,19 +24,24 @@
 
 #include <QQmlContext>
 #include <QQmlEngine>
-#include <QQuickWidget>
 #include <QQuickItem>
+#include <QQuickWidget>
 
 #include <QDir>
-#include <QStandardPaths>
 #include <QSettings>
+#include <QStandardPaths>
 
 #include <KApplicationTrader>
 #include <KProcess>
 #include <KService>
 #include <kdeclarative/kdeclarative.h>
 
-AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, const QString &mimeName, QDialog *parent, Qt::WindowFlags flags)
+AppChooserDialog::AppChooserDialog(const QStringList &choices,
+                                   const QString &defaultApp,
+                                   const QString &fileName,
+                                   const QString &mimeName,
+                                   QDialog *parent,
+                                   Qt::WindowFlags flags)
     : QDialog(parent, flags)
     , m_dialog(new Ui::AppChooserDialog)
     , m_defaultChoices(choices)
@@ -65,7 +70,8 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &de
     qmlRegisterSingletonInstance<AppChooserData>("org.kde.xdgdesktopportal", 1, 0, "AppChooserData", data);
     m_dialog->quickWidget->setClearColor(Qt::transparent);
     m_dialog->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
-    m_dialog->quickWidget->setSource(QUrl::fromLocalFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("xdg-desktop-portal-kde/qml/AppChooserDialog.qml"))));
+    m_dialog->quickWidget->setSource(
+        QUrl::fromLocalFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("xdg-desktop-portal-kde/qml/AppChooserDialog.qml"))));
 
     connect(data, &AppChooserData::openDiscover, this, &AppChooserDialog::onOpenDiscover);
     connect(data, &AppChooserData::applicationSelected, this, &AppChooserDialog::onApplicationSelected);
@@ -83,7 +89,7 @@ QString AppChooserDialog::selectedApplication() const
     return m_selectedApplication;
 }
 
-void AppChooserDialog::onApplicationSelected(const QString& desktopFile)
+void AppChooserDialog::onApplicationSelected(const QString &desktopFile)
 {
     m_selectedApplication = desktopFile;
     QDialog::accept();
@@ -181,7 +187,8 @@ bool AppFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_
 {
     const QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
 
-    ApplicationItem::ApplicationCategory category = static_cast<ApplicationItem::ApplicationCategory>(sourceModel()->data(index, AppModel::ApplicationCategoryRole).toInt());
+    ApplicationItem::ApplicationCategory category =
+        static_cast<ApplicationItem::ApplicationCategory>(sourceModel()->data(index, AppModel::ApplicationCategoryRole).toInt());
     QString appName = sourceModel()->data(index, AppModel::ApplicationNameRole).toString();
 
     if (m_showOnlyPreferredApps)
@@ -198,8 +205,10 @@ bool AppFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_
 
 bool AppFilterModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
-    ApplicationItem::ApplicationCategory leftCategory = static_cast<ApplicationItem::ApplicationCategory>(sourceModel()->data(left, AppModel::ApplicationCategoryRole).toInt());
-    ApplicationItem::ApplicationCategory rightCategory = static_cast<ApplicationItem::ApplicationCategory>(sourceModel()->data(right, AppModel::ApplicationCategoryRole).toInt());
+    ApplicationItem::ApplicationCategory leftCategory =
+        static_cast<ApplicationItem::ApplicationCategory>(sourceModel()->data(left, AppModel::ApplicationCategoryRole).toInt());
+    ApplicationItem::ApplicationCategory rightCategory =
+        static_cast<ApplicationItem::ApplicationCategory>(sourceModel()->data(right, AppModel::ApplicationCategoryRole).toInt());
     QString leftName = sourceModel()->data(left, AppModel::ApplicationNameRole).toString();
     QString rightName = sourceModel()->data(right, AppModel::ApplicationNameRole).toString();
 
@@ -283,16 +292,16 @@ QVariant AppModel::data(const QModelIndex &index, int role) const
         ApplicationItem item = m_list.at(row);
 
         switch (role) {
-            case ApplicationNameRole:
-                return item.applicationName();
-            case ApplicationIconRole:
-                return item.applicationIcon();
-            case ApplicationDesktopFileRole:
-                return item.applicationDesktopFile();
-            case ApplicationCategoryRole:
-                return static_cast<int>(item.applicationCategory());
-            default:
-                break;
+        case ApplicationNameRole:
+            return item.applicationName();
+        case ApplicationIconRole:
+            return item.applicationIcon();
+        case ApplicationDesktopFileRole:
+            return item.applicationDesktopFile();
+        case ApplicationCategoryRole:
+            return static_cast<int>(item.applicationCategory());
+        default:
+            break;
         }
     }
 
@@ -310,14 +319,14 @@ QHash<int, QByteArray> AppModel::roleNames() const
         {ApplicationNameRole, QByteArrayLiteral("applicationName")},
         {ApplicationIconRole, QByteArrayLiteral("applicationIcon")},
         {ApplicationDesktopFileRole, QByteArrayLiteral("applicationDesktopFile")},
-        {ApplicationCategoryRole, QByteArrayLiteral("applicationCategory")}
+        {ApplicationCategoryRole, QByteArrayLiteral("applicationCategory")},
     };
 }
 
 void AppModel::loadApplications()
 {
     const KService::List appServices = KApplicationTrader::query([](const KService::Ptr &service) -> bool {
-         return service->isValid() && !service->noDisplay() /* includes platform and desktop considerations */;
+        return service->isValid() && !service->noDisplay() /* includes platform and desktop considerations */;
     });
     for (const KService::Ptr &service : appServices) {
         const QString fullName = service->property(QStringLiteral("X-GNOME-FullName"), QVariant::String).toString();

@@ -4,12 +4,13 @@
 
 #include "dirmodelutils.h"
 
-#include <QUrl>
 #include <QStandardPaths>
+#include <QUrl>
 
 #include <KIO/MkdirJob>
 
-DirModelUtils::DirModelUtils(QObject *parent) : QObject(parent)
+DirModelUtils::DirModelUtils(QObject *parent)
+    : QObject(parent)
 {
 }
 

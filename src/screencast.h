@@ -24,7 +24,6 @@
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
-
 class ScreenCastPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
@@ -51,9 +50,18 @@ public:
     explicit ScreenCastPortal(QObject *parent);
     ~ScreenCastPortal();
 
-    uint version() const { return 1; }
-    uint AvailableSourceTypes() const { return Monitor; };
-    uint AvailableCursorModes() const { return Hidden | Embedded | Metadata; };
+    uint version() const
+    {
+        return 1;
+    }
+    uint AvailableSourceTypes() const
+    {
+        return Monitor;
+    };
+    uint AvailableCursorModes() const
+    {
+        return Hidden | Embedded | Metadata;
+    };
 
 public Q_SLOTS:
     uint CreateSession(const QDBusObjectPath &handle,
@@ -77,4 +85,3 @@ public Q_SLOTS:
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SCREENCAST_H
-

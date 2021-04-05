@@ -29,7 +29,7 @@
 
 Q_LOGGING_CATEGORY(XdgSessionKdeSession, "xdp-kde-session")
 
-static QMap<QString, Session*> sessionList;
+static QMap<QString, Session *> sessionList;
 
 Session::Session(QObject *parent, const QString &appId, const QString &path)
     : QDBusVirtualObject(parent)
@@ -71,8 +71,7 @@ bool Session::handleMessage(const QDBusMessage &message, const QDBusConnection &
                 const QString interface = message.arguments().at(0).toString();
                 const QString property = message.arguments().at(1).toString();
 
-                if (interface == QLatin1String("org.freedesktop.impl.portal.Session") &&
-                    property == QLatin1String("version")) {
+                if (interface == QLatin1String("org.freedesktop.impl.portal.Session") && property == QLatin1String("version")) {
                     QList<QVariant> arguments;
                     arguments << 1;
 
@@ -113,7 +112,7 @@ bool Session::close()
     return QDBusConnection::sessionBus().send(reply);
 }
 
-Session * Session::createSession(QObject *parent, SessionType type, const QString &appId, const QString &path)
+Session *Session::createSession(QObject *parent, SessionType type, const QString &appId, const QString &path)
 {
     QDBusConnection sessionBus = QDBusConnection::sessionBus();
 
@@ -125,7 +124,7 @@ Session * Session::createSession(QObject *parent, SessionType type, const QStrin
     }
 
     if (sessionBus.registerVirtualObject(path, session, QDBusConnection::VirtualObjectRegisterOption::SubPath)) {
-        connect(session, &Session::closed, [session, path] () {
+        connect(session, &Session::closed, [session, path]() {
             sessionList.remove(path);
             QDBusConnection::sessionBus().unregisterObject(path);
             session->deleteLater();
@@ -140,7 +139,7 @@ Session * Session::createSession(QObject *parent, SessionType type, const QStrin
     }
 }
 
-Session * Session::getSession(const QString &sessionHandle)
+Session *Session::getSession(const QString &sessionHandle)
 {
     return sessionList.value(sessionHandle);
 }
@@ -158,7 +157,6 @@ bool ScreenCastSession::multipleSources() const
 {
     return m_multipleSources;
 }
-
 
 ScreenCastPortal::SourceType ScreenCastSession::types() const
 {

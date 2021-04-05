@@ -6,8 +6,8 @@
 #pragma once
 
 #include <QAbstractListModel>
-#include <QVariant>
 #include <QUrl>
+#include <QVariant>
 
 #include <KIOFileWidgets/KDirSortFilterProxyModel>
 #include <KIOWidgets/KDirModel>
@@ -16,7 +16,7 @@ class DirLister;
 class DirModel : public KDirSortFilterProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(const QUrl& folder READ folder WRITE setFolder NOTIFY folderChanged)
+    Q_PROPERTY(const QUrl &folder READ folder WRITE setFolder NOTIFY folderChanged)
     Q_PROPERTY(bool showDotFiles READ showDotFiles WRITE setShowDotFiles NOTIFY showDotFilesChanged)
     Q_PROPERTY(bool isLoading READ isLoading NOTIFY isLoadingChanged)
     Q_PROPERTY(QString nameFilter READ nameFilter WRITE setNameFilter NOTIFY nameFilterChanged)

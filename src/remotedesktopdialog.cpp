@@ -22,14 +22,18 @@
 #include "ui_remotedesktopdialog.h"
 
 #include <QLoggingCategory>
-#include <QStandardPaths>
-#include <QSettings>
 #include <QPushButton>
+#include <QSettings>
+#include <QStandardPaths>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeRemoteDesktopDialog, "xdp-kde-remote-desktop-dialog")
 
-RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled,
-                                         bool multiple, QDialog *parent, Qt::WindowFlags flags)
+RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName,
+                                         RemoteDesktopPortal::DeviceTypes deviceTypes,
+                                         bool screenSharingEnabled,
+                                         bool multiple,
+                                         QDialog *parent,
+                                         Qt::WindowFlags flags)
     : QDialog(parent, flags)
     , m_dialog(new Ui::RemoteDesktopDialog)
 {
@@ -43,7 +47,6 @@ RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName, RemoteDesktopPo
             m_dialog->screenCastWidget->setSelectionMode(QAbstractItemView::ExtendedSelection);
         }
     }
-
 
     m_dialog->screenCastWidget->itemAt(0, 0)->setSelected(true);
 

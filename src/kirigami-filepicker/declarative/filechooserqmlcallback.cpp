@@ -5,12 +5,12 @@
 #include "filechooserqmlcallback.h"
 
 FileChooserQmlCallback::FileChooserQmlCallback(QObject *parent)
-    : QObject(parent),
-      m_selectMultiple(true),
-      m_selectExisting(true),
-      m_nameFilters(QStringList() << QStringLiteral("*")),
-      m_mimeTypeFilters(),
-      m_selectFolder(false)
+    : QObject(parent)
+    , m_selectMultiple(true)
+    , m_selectExisting(true)
+    , m_nameFilters(QStringList() << QStringLiteral("*"))
+    , m_mimeTypeFilters()
+    , m_selectFolder(false)
 {
 }
 

@@ -32,30 +32,46 @@ class SettingsPortal : public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Settings")
 public:
     /**
-    * An identifier for change signals.
-    * @note Copied from KGlobalSettings
-    */
-    enum ChangeType { PaletteChanged = 0, FontChanged, StyleChanged,
-                      SettingsChanged, IconChanged, CursorChanged,
-                      ToolbarStyleChanged, ClipboardConfigChanged,
-                      BlockShortcuts, NaturalSortingChanged,
-                    };
+     * An identifier for change signals.
+     * @note Copied from KGlobalSettings
+     */
+    enum ChangeType {
+        PaletteChanged = 0,
+        FontChanged,
+        StyleChanged,
+        SettingsChanged,
+        IconChanged,
+        CursorChanged,
+        ToolbarStyleChanged,
+        ClipboardConfigChanged,
+        BlockShortcuts,
+        NaturalSortingChanged,
+    };
 
     /**
-    * Valid values for the settingsChanged signal
-    * @note Copied from KGlobalSettings
-    */
-    enum SettingsCategory { SETTINGS_MOUSE, SETTINGS_COMPLETION, SETTINGS_PATHS,
-                            SETTINGS_POPUPMENU, SETTINGS_QT, SETTINGS_SHORTCUTS,
-                            SETTINGS_LOCALE, SETTINGS_STYLE,
-                          };
+     * Valid values for the settingsChanged signal
+     * @note Copied from KGlobalSettings
+     */
+    enum SettingsCategory {
+        SETTINGS_MOUSE,
+        SETTINGS_COMPLETION,
+        SETTINGS_PATHS,
+        SETTINGS_POPUPMENU,
+        SETTINGS_QT,
+        SETTINGS_SHORTCUTS,
+        SETTINGS_LOCALE,
+        SETTINGS_STYLE,
+    };
 
     explicit SettingsPortal(QObject *parent);
     ~SettingsPortal();
 
-    typedef QMap<QString, QMap<QString, QVariant> > VariantMapMap;
+    typedef QMap<QString, QMap<QString, QVariant>> VariantMapMap;
 
-    uint version() const { return 1; }
+    uint version() const
+    {
+        return 1;
+    }
 
 public Q_SLOTS:
     void ReadAll(const QStringList &groups);
@@ -68,6 +84,7 @@ private Q_SLOTS:
     void fontChanged();
     void globalSettingChanged(int type, int arg);
     void toolbarStyleChanged();
+
 private:
     QDBusVariant readProperty(const QString &group, const QString &key);
 
@@ -75,5 +92,3 @@ private:
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SETTINGS_H
-
-

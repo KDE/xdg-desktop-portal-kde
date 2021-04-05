@@ -23,7 +23,6 @@
 
 #include <QLoggingCategory>
 
-
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAppChooser, "xdp-kde-app-chooser")
 
 AppChooserPortal::AppChooserPortal(QObject *parent)

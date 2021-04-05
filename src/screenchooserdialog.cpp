@@ -23,28 +23,31 @@
 #include "waylandintegration.h"
 
 #include <KLocalizedString>
+#include <KWayland/Client/plasmawindowmanagement.h>
+#include <KWayland/Client/plasmawindowmodel.h>
 #include <QPushButton>
-#include <QStandardPaths>
 #include <QSettings>
 #include <QSortFilterProxyModel>
-#include <KWayland/Client/plasmawindowmodel.h>
-#include <KWayland/Client/plasmawindowmanagement.h>
+#include <QStandardPaths>
 
 class FilteredWindowModel : public QSortFilterProxyModel
 {
 public:
-    FilteredWindowModel(QObject* parent) : QSortFilterProxyModel(parent)
-    {}
+    FilteredWindowModel(QObject *parent)
+        : QSortFilterProxyModel(parent)
+    {
+    }
 
-    bool filterAcceptsRow(int source_row, const QModelIndex & source_parent) const override {
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override
+    {
         if (source_parent.isValid())
             return false;
 
         const auto idx = sourceModel()->index(source_row, 0);
         using KWayland::Client::PlasmaWindowModel;
 
-        return !idx.data(PlasmaWindowModel::SkipTaskbar).toBool()
-            && !idx.data(PlasmaWindowModel::SkipSwitcher).toBool()
+        return !idx.data(PlasmaWindowModel::SkipTaskbar).toBool() //
+            && !idx.data(PlasmaWindowModel::SkipSwitcher).toBool() //
             && idx.data(PlasmaWindowModel::Pid) != QCoreApplication::applicationPid();
     }
 };
@@ -115,8 +118,7 @@ void ScreenChooserDialog::selectionChanged(const QItemSelection &selected)
     }
 
     auto okButton = m_dialog->buttonBox->button(QDialogButtonBox::Ok);
-    const auto count = m_dialog->screenView->selectionModel()->hasSelection()
-                     + m_dialog->windowsView->selectionModel()->hasSelection();
+    const auto count = m_dialog->screenView->selectionModel()->hasSelection() + m_dialog->windowsView->selectionModel()->hasSelection();
     okButton->setEnabled(m_multiple ? count > 0 : count == 1);
 }
 

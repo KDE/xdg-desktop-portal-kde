@@ -47,4 +47,3 @@ private:
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_USERINFO_DIALOG_H
-

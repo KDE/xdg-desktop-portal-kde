@@ -22,8 +22,8 @@
 #include "ui_accessdialog.h"
 
 #include <QLoggingCategory>
-#include <QStandardPaths>
 #include <QPushButton>
+#include <QStandardPaths>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAccessDialog, "xdp-kde-access-dialog")
 
@@ -75,5 +75,3 @@ void AccessDialog::setTitle(const QString &title)
 {
     m_dialog->titleLabel->setText(title);
 }
-
-

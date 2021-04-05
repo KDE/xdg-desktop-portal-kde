@@ -6,7 +6,6 @@
 
 #include <KFilePlacesModel>
 
-
 class FilePlacesModel : public KFilePlacesModel
 {
     Q_OBJECT

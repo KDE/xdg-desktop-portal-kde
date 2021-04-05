@@ -21,8 +21,8 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
 #define XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
 
-#include <QObject>
 #include <QDBusContext>
+#include <QObject>
 
 #include "access.h"
 #include "account.h"
@@ -37,8 +37,8 @@
 #include "settings.h"
 #include "waylandintegration.h"
 
-#include "screencast.h"
 #include "remotedesktop.h"
+#include "screencast.h"
 
 class DesktopPortal : public QObject, public QDBusContext
 {

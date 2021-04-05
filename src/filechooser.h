@@ -23,8 +23,8 @@
 
 #include <QCheckBox>
 #include <QComboBox>
-#include <QDBusObjectPath>
 #include <QDBusAbstractAdaptor>
+#include <QDBusObjectPath>
 #include <QDialog>
 
 class KFileWidget;
@@ -42,6 +42,7 @@ public:
 
 private:
     QDialogButtonBox *m_buttons;
+
 protected:
     KFileWidget *m_fileWidget;
 };
@@ -97,17 +98,16 @@ public Q_SLOTS:
                   QVariantMap &results);
 
 private:
-    static QWidget* CreateChoiceControls(const OptionList& optionList,
-                                         QMap<QString, QCheckBox*>& checkboxes,
-                                         QMap<QString, QComboBox*>& comboboxes);
+    static QWidget *CreateChoiceControls(const OptionList &optionList, QMap<QString, QCheckBox *> &checkboxes, QMap<QString, QComboBox *> &comboboxes);
 
-    static QVariant EvaluateSelectedChoices(const QMap<QString, QCheckBox*>& checkboxes,
-                                            const QMap<QString, QComboBox*>& comboboxes);
+    static QVariant EvaluateSelectedChoices(const QMap<QString, QCheckBox *> &checkboxes, const QMap<QString, QComboBox *> &comboboxes);
 
     static QString ExtractAcceptLabel(const QVariantMap &options);
 
-    static void ExtractFilters(const QVariantMap &options, QStringList &nameFilters,
-                               QStringList &mimeTypeFilters, QMap<QString, FilterList> &allFilters,
+    static void ExtractFilters(const QVariantMap &options,
+                               QStringList &nameFilters,
+                               QStringList &mimeTypeFilters,
+                               QMap<QString, FilterList> &allFilters,
                                QString &selectedMimeTypeFilter);
 
     static bool isMobile();

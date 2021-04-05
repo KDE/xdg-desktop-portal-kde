@@ -44,12 +44,10 @@ Q_SIGNALS:
     void failed();
 
 private:
-    Ui::ScreenshotDialog * m_dialog;
+    Ui::ScreenshotDialog *m_dialog;
     QImage m_image;
 
     int mask();
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SCREENSHOT_DIALOG_H
-
-

@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include <QStringList>
 #include <QObject>
+#include <QStringList>
 
 class QQmlApplicationEngine;
 class FileChooserQmlCallback;

@@ -21,8 +21,8 @@
 #include "screencast.h"
 #include "screenchooserdialog.h"
 #include "session.h"
-#include "waylandintegration.h"
 #include "utils.h"
+#include "waylandintegration.h"
 
 #include <QLoggingCategory>
 
@@ -62,7 +62,7 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
         return 2;
     }
 
-    connect(session, &Session::closed, [] () {
+    connect(session, &Session::closed, []() {
         WaylandIntegration::stopAllStreaming();
     });
 
@@ -83,7 +83,7 @@ uint ScreenCastPortal::SelectSources(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    options: " << options;
 
-    ScreenCastSession *session = qobject_cast<ScreenCastSession*>(Session::getSession(session_handle.path()));
+    ScreenCastSession *session = qobject_cast<ScreenCastSession *>(Session::getSession(session_handle.path()));
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeScreenCast) << "Tried to select sources on non-existing session " << session_handle.path();
@@ -94,7 +94,7 @@ uint ScreenCastPortal::SelectSources(const QDBusObjectPath &handle,
 
     // Might be also a RemoteDesktopSession
     if (session->type() == Session::RemoteDesktop) {
-        RemoteDesktopSession *remoteDesktopSession = qobject_cast<RemoteDesktopSession*>(session);
+        RemoteDesktopSession *remoteDesktopSession = qobject_cast<RemoteDesktopSession *>(session);
         if (remoteDesktopSession) {
             remoteDesktopSession->setScreenSharingEnabled(true);
         }
@@ -119,7 +119,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    parent_window: " << parent_window;
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    options: " << options;
 
-    ScreenCastSession *session = qobject_cast<ScreenCastSession*>(Session::getSession(session_handle.path()));
+    ScreenCastSession *session = qobject_cast<ScreenCastSession *>(Session::getSession(session_handle.path()));
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeScreenCast) << "Tried to call start on non-existing session " << session_handle.path();

@@ -39,17 +39,9 @@ public:
     ~ScreenshotPortal();
 
 public Q_SLOTS:
-    uint Screenshot(const QDBusObjectPath &handle,
-                    const QString &app_id,
-                    const QString &parent_window,
-                    const QVariantMap &options,
-                    QVariantMap &results);
+    uint Screenshot(const QDBusObjectPath &handle, const QString &app_id, const QString &parent_window, const QVariantMap &options, QVariantMap &results);
 
-    uint PickColor(const QDBusObjectPath &handle,
-                   const QString &app_id,
-                   const QString &parent_window,
-                   const QVariantMap &options,
-                   QVariantMap &results);
+    uint PickColor(const QDBusObjectPath &handle, const QString &app_id, const QString &parent_window, const QVariantMap &options, QVariantMap &results);
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SCREENSHOT_H

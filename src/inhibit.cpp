@@ -23,8 +23,8 @@
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCall>
-#include <QDBusPendingReply>
 #include <QDBusPendingCallWatcher>
+#include <QDBusPendingReply>
 #include <QLoggingCategory>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeInhibit, "xdp-kde-inhibit")
@@ -56,7 +56,7 @@ void InhibitPortal::Inhibit(const QDBusObjectPath &handle, const QString &app_id
 
     QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(message);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingCall);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [handle, this] (QDBusPendingCallWatcher *watcher) {
+    connect(watcher, &QDBusPendingCallWatcher::finished, [handle, this](QDBusPendingCallWatcher *watcher) {
         QDBusPendingReply<uint> reply = *watcher;
         if (reply.isError()) {
             qCDebug(XdgDesktopPortalKdeInhibit) << "Inhibition error: " << reply.error().message();
@@ -64,7 +64,7 @@ void InhibitPortal::Inhibit(const QDBusObjectPath &handle, const QString &app_id
             QDBusConnection sessionBus = QDBusConnection::sessionBus();
             Request *request = new Request(this, QStringLiteral("org.freedesktop.impl.portal.Inhibit"), QVariant(reply.value()));
             if (sessionBus.registerVirtualObject(handle.path(), request, QDBusConnection::VirtualObjectRegisterOption::SubPath)) {
-                connect(request, &Request::closeRequested, [request, handle] () {
+                connect(request, &Request::closeRequested, [request, handle]() {
                     QDBusConnection::sessionBus().unregisterObject(handle.path());
                     request->deleteLater();
                 });

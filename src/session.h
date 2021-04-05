@@ -21,8 +21,8 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_SESSION_H
 #define XDG_DESKTOP_PORTAL_KDE_SESSION_H
 
-#include <QObject>
 #include <QDBusVirtualObject>
+#include <QObject>
 
 #include "remotedesktop.h"
 #include "screencast.h"
@@ -69,7 +69,10 @@ public:
     bool multipleSources() const;
     ScreenCastPortal::SourceType types() const;
 
-    SessionType type() const override { return SessionType::ScreenCast; }
+    SessionType type() const override
+    {
+        return SessionType::ScreenCast;
+    }
 
 private:
     bool m_multipleSources;
@@ -90,7 +93,10 @@ public:
     bool screenSharingEnabled() const;
     void setScreenSharingEnabled(bool enabled);
 
-    SessionType type() const override { return SessionType::RemoteDesktop; }
+    SessionType type() const override
+    {
+        return SessionType::RemoteDesktop;
+    }
 
 private:
     bool m_screenSharingEnabled;
@@ -98,4 +104,3 @@ private:
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SESSION_H
-

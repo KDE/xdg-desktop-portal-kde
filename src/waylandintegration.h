@@ -29,16 +29,17 @@
 #include <KWayland/Client/output.h>
 #include <screencasting.h>
 
-namespace KWayland {
-    namespace Client {
-        class PlasmaWindowManagement;
-        class ScreencastingSource;
-    }
+namespace KWayland
+{
+namespace Client
+{
+class PlasmaWindowManagement;
+class ScreencastingSource;
+}
 }
 
 namespace WaylandIntegration
 {
-
 class WaylandOutput
 {
 public:
@@ -47,23 +48,54 @@ public:
         Monitor,
         Television,
     };
-    QString manufacturer() const { return m_output->manufacturer(); }
-    QString model() const { return m_output->model(); }
-    QPoint globalPosition() const { return m_output->globalPosition(); }
-    QSize resolution() const { return m_output->pixelSize(); }
-    OutputType outputType() const { return m_outputType; }
+    QString manufacturer() const
+    {
+        return m_output->manufacturer();
+    }
+    QString model() const
+    {
+        return m_output->model();
+    }
+    QPoint globalPosition() const
+    {
+        return m_output->globalPosition();
+    }
+    QSize resolution() const
+    {
+        return m_output->pixelSize();
+    }
+    OutputType outputType() const
+    {
+        return m_outputType;
+    }
 
-    QSharedPointer<KWayland::Client::Output> output() const { return m_output; }
-    void setOutput(const QSharedPointer<KWayland::Client::Output> &output) {
+    QSharedPointer<KWayland::Client::Output> output() const
+    {
+        return m_output;
+    }
+    void setOutput(const QSharedPointer<KWayland::Client::Output> &output)
+    {
         m_output = output;
         setOutputType(output->model());
     }
 
-    void setWaylandOutputName(int outputName) { m_waylandOutputName = outputName; }
-    int waylandOutputName() const { return m_waylandOutputName; }
+    void setWaylandOutputName(int outputName)
+    {
+        m_waylandOutputName = outputName;
+    }
+    int waylandOutputName() const
+    {
+        return m_waylandOutputName;
+    }
 
-    void setWaylandOutputVersion(int outputVersion) { m_waylandOutputVersion = outputVersion; }
-    int waylandOutputVersion() const { return m_waylandOutputVersion; }
+    void setWaylandOutputVersion(int outputVersion)
+    {
+        m_waylandOutputVersion = outputVersion;
+    }
+    int waylandOutputVersion() const
+    {
+        return m_waylandOutputVersion;
+    }
 
 private:
     void setOutputType(const QString &model);
@@ -83,34 +115,32 @@ Q_SIGNALS:
     void plasmaWindowManagementInitialized();
 };
 
-    void authenticate();
+void authenticate();
 
-    bool isStreamingEnabled();
-    bool isStreamingAvailable();
+bool isStreamingEnabled();
+bool isStreamingAvailable();
 
-    void startStreamingInput();
-    bool startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
-    bool startStreamingWindow(const QByteArray &winid);
-    void stopAllStreaming();
+void startStreamingInput();
+bool startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
+bool startStreamingWindow(const QByteArray &winid);
+void stopAllStreaming();
 
-    void requestPointerButtonPress(quint32 linuxButton);
-    void requestPointerButtonRelease(quint32 linuxButton);
-    void requestPointerMotion(const QSizeF &delta);
-    void requestPointerMotionAbsolute(const QPointF &pos);
-    void requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta);
+void requestPointerButtonPress(quint32 linuxButton);
+void requestPointerButtonRelease(quint32 linuxButton);
+void requestPointerMotion(const QSizeF &delta);
+void requestPointerMotionAbsolute(const QPointF &pos);
+void requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta);
 
-    void requestKeyboardKeycode(int keycode, bool state);
+void requestKeyboardKeycode(int keycode, bool state);
 
-    QMap<quint32, WaylandOutput> screens();
-    QVariant streams();
+QMap<quint32, WaylandOutput> screens();
+QVariant streams();
 
-    void init();
+void init();
 
-    KWayland::Client::PlasmaWindowManagement *plasmaWindowManagement();
+KWayland::Client::PlasmaWindowManagement *plasmaWindowManagement();
 
-    WaylandIntegration *waylandIntegration();
+WaylandIntegration *waylandIntegration();
 }
 
 #endif // XDG_DESKTOP_PORTAL_KDE_WAYLAND_INTEGRATION_H
-
-

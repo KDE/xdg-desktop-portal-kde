@@ -21,18 +21,18 @@
 #include "utils.h"
 #include "waylandintegration.h"
 
-#include <QDBusMetaType>
+#include <QDBusConnection>
 #include <QDBusContext>
 #include <QDBusMessage>
-#include <QDBusConnection>
+#include <QDBusMetaType>
 
 #include <QDir>
 #include <QFile>
 #include <QLoggingCategory>
 #include <QMessageBox>
 #include <QPushButton>
-#include <QStandardPaths>
 #include <QSettings>
+#include <QStandardPaths>
 
 #include <KConfigGroup>
 #include <KDesktopFile>
@@ -47,10 +47,13 @@ Q_LOGGING_CATEGORY(XdgDesktopPortalKdeBackground, "xdp-kde-background")
 BackgroundPortal::BackgroundPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
 {
-    connect(WaylandIntegration::waylandIntegration(), &WaylandIntegration::WaylandIntegration::plasmaWindowManagementInitialized, this, [=] () {
-        connect(WaylandIntegration::plasmaWindowManagement(), &KWayland::Client::PlasmaWindowManagement::windowCreated, this, [this] (KWayland::Client::PlasmaWindow *window) {
-            addWindow(window);
-        });
+    connect(WaylandIntegration::waylandIntegration(), &WaylandIntegration::WaylandIntegration::plasmaWindowManagementInitialized, this, [=]() {
+        connect(WaylandIntegration::plasmaWindowManagement(),
+                &KWayland::Client::PlasmaWindowManagement::windowCreated,
+                this,
+                [this](KWayland::Client::PlasmaWindow *window) {
+                    addWindow(window);
+                });
 
         m_windows = WaylandIntegration::plasmaWindowManagement()->windows();
         for (KWayland::Client::PlasmaWindow *window : qAsConst(m_windows)) {
@@ -69,10 +72,7 @@ QVariantMap BackgroundPortal::GetAppState()
     return m_appStates;
 }
 
-uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle,
-                                        const QString &app_id,
-                                        const QString &name,
-                                        QVariantMap &results)
+uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QString &app_id, const QString &name, QVariantMap &results)
 {
     Q_UNUSED(results);
 
@@ -114,15 +114,16 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle,
 
     message.setDelayedReply(true);
 
-    connect(notify, QOverload<uint>::of(&KNotification::activated), this, [=] (uint action) {
+    connect(notify, QOverload<uint>::of(&KNotification::activated), this, [=](uint action) {
         if (action != 1) {
             return;
         }
         notify->setProperty("activated", true);
 
         const QString title = i18n("%1 is running in the background", app_id);
-        const QString text = i18n("This might be for a legitimate reason, but the application has not provided one."
-                                  "\n\nNote that forcing an application to quit might cause data loss.");
+        const QString text = i18n(
+            "This might be for a legitimate reason, but the application has not provided one."
+            "\n\nNote that forcing an application to quit might cause data loss.");
         QMessageBox messageBox(QMessageBox::Question, title, text);
         QPushButton *quitButton = messageBox.addButton(i18n("Force quit"), QMessageBox::RejectRole);
         QPushButton *allowButton = messageBox.addButton(i18n("Allow"), QMessageBox::AcceptRole);
@@ -135,13 +136,13 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle,
             result = BackgroundPortal::Allow;
         }
 
-        const QVariantMap map = { {QStringLiteral("result"), static_cast<uint>(result)} };
+        const QVariantMap map = {{QStringLiteral("result"), static_cast<uint>(result)}};
         QDBusMessage reply = message.createReply({static_cast<uint>(0), map});
         if (!QDBusConnection::sessionBus().send(reply)) {
             qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
         }
     });
-    connect(notify, &KNotification::closed, this, [=] () {
+    connect(notify, &KNotification::closed, this, [=]() {
         if (notify->property("activated").toBool()) {
             return;
         }
@@ -159,10 +160,7 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle,
     return 0;
 }
 
-bool BackgroundPortal::EnableAutostart(const QString &app_id,
-                                       bool enable,
-                                       const QStringList &commandline,
-                                       uint flags)
+bool BackgroundPortal::EnableAutostart(const QString &app_id, bool enable, const QStringList &commandline, uint flags)
 {
     qCDebug(XdgDesktopPortalKdeBackground) << "EnableAutostart called with parameters:";
     qCDebug(XdgDesktopPortalKdeBackground) << "    app_id: " << app_id;
@@ -195,7 +193,7 @@ bool BackgroundPortal::EnableAutostart(const QString &app_id,
     desktopEntryConfigGroup.writeEntry(QStringLiteral("Name"), app_id);
     desktopEntryConfigGroup.writeEntry(QStringLiteral("Exec"), KShell::joinArgs(commandline));
     if (autostartFlags.testFlag(AutostartFlag::Activatable)) {
-       desktopEntryConfigGroup.writeEntry(QStringLiteral("DBusActivatable"), true);
+        desktopEntryConfigGroup.writeEntry(QStringLiteral("DBusActivatable"), true);
     }
     desktopEntryConfigGroup.writeEntry(QStringLiteral("X-Flatpak"), app_id);
 
@@ -208,10 +206,10 @@ void BackgroundPortal::addWindow(KWayland::Client::PlasmaWindow *window)
     const bool isActive = window->isActive();
     m_appStates[appId] = QVariant::fromValue<uint>(isActive ? Active : Running);
 
-    connect(window, &KWayland::Client::PlasmaWindow::activeChanged, this, [this, window] () {
+    connect(window, &KWayland::Client::PlasmaWindow::activeChanged, this, [this, window]() {
         setActiveWindow(window->appId(), window->isActive());
     });
-    connect(window, &KWayland::Client::PlasmaWindow::unmapped, this, [this, window] () {
+    connect(window, &KWayland::Client::PlasmaWindow::unmapped, this, [this, window]() {
         uint windows = 0;
         const QString appId = window->appId();
         const auto plasmaWindows = WaylandIntegration::plasmaWindowManagement()->windows();

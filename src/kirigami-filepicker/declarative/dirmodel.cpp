@@ -68,7 +68,7 @@ QHash<int, QByteArray> DirModel::roleNames() const
         {IsHidden, QByteArrayLiteral("isHidden")},
         {IsReadable, QByteArrayLiteral("isReadable")},
         {IsWritable, QByteArrayLiteral("isWritable")},
-        {ModificationTime, QByteArrayLiteral("modificationTime")}
+        {ModificationTime, QByteArrayLiteral("modificationTime")},
     };
 }
 

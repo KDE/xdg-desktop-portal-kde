@@ -44,4 +44,3 @@ public Q_SLOTS:
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_ACCESS_H
-

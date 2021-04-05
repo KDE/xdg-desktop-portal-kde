@@ -6,7 +6,8 @@
 
 #include <KIO/Job>
 
-DirLister::DirLister(QObject *parent) : KDirLister(parent)
+DirLister::DirLister(QObject *parent)
+    : KDirLister(parent)
 {
 }
 

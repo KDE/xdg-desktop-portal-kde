@@ -23,15 +23,15 @@
 
 #include "user_interface.h"
 
-#include <unistd.h>
 #include <sys/types.h>
+#include <unistd.h>
 
 #include <QFileInfo>
-#include <QStandardPaths>
 #include <QQmlContext>
 #include <QQmlEngine>
-#include <QQuickWidget>
 #include <QQuickItem>
+#include <QQuickWidget>
+#include <QStandardPaths>
 
 #include <kdeclarative/kdeclarative.h>
 
@@ -62,7 +62,8 @@ UserInfoDialog::UserInfoDialog(const QString &reason, QDialog *parent, Qt::Windo
     }
     m_dialog->quickWidget->setClearColor(Qt::transparent);
     m_dialog->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
-    m_dialog->quickWidget->setSource(QUrl::fromLocalFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("xdg-desktop-portal-kde/qml/UserInfoDialog.qml"))));
+    m_dialog->quickWidget->setSource(
+        QUrl::fromLocalFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("xdg-desktop-portal-kde/qml/UserInfoDialog.qml"))));
 
     QObject *rootItem = m_dialog->quickWidget->rootObject();
     connect(rootItem, SIGNAL(accepted()), this, SLOT(accept()));
@@ -83,7 +84,7 @@ QString UserInfoDialog::id() const
 
 QString UserInfoDialog::image() const
 {
-    return  m_userInterface->realName();
+    return m_userInterface->realName();
 }
 
 QString UserInfoDialog::name() const

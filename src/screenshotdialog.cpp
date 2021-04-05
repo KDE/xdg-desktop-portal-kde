@@ -28,8 +28,8 @@
 #include <QDBusPendingCall>
 #include <QDBusPendingReply>
 #include <QDBusUnixFileDescriptor>
-#include <QTimer>
 #include <QFutureWatcher>
+#include <QTimer>
 #include <QtConcurrentRun>
 #include <qplatformdefs.h>
 
@@ -82,11 +82,11 @@ ScreenshotDialog::ScreenshotDialog(QDialog *parent, Qt::WindowFlags flags)
 
     connect(m_dialog->buttonBox, &QDialogButtonBox::accepted, this, &ScreenshotDialog::accept);
     connect(m_dialog->buttonBox, &QDialogButtonBox::rejected, this, &ScreenshotDialog::reject);
-    connect(m_dialog->takeScreenshotButton, &QPushButton::clicked, this,  [this] () {
+    connect(m_dialog->takeScreenshotButton, &QPushButton::clicked, this, [this]() {
         QTimer::singleShot(1000 * m_dialog->delaySpinBox->value(), this, &ScreenshotDialog::takeScreenshot);
     });
 
-    connect(m_dialog->areaComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [this] (int index) {
+    connect(m_dialog->areaComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [this](int index) {
         m_dialog->includeBordersCheckbox->setEnabled(index == 2);
     });
 
@@ -102,27 +102,27 @@ ScreenshotDialog::~ScreenshotDialog()
 void ScreenshotDialog::takeScreenshot()
 {
     int pipeFds[2];
-    if (pipe2(pipeFds, O_CLOEXEC|O_NONBLOCK) != 0) {
+    if (pipe2(pipeFds, O_CLOEXEC | O_NONBLOCK) != 0) {
         Q_EMIT failed();
         return;
     }
 
     QDBusInterface interface(QStringLiteral("org.kde.KWin"), QStringLiteral("/Screenshot"), QStringLiteral("org.kde.kwin.Screenshot"));
     if (m_dialog->areaComboBox->currentIndex() < 2) {
-        interface.asyncCall(m_dialog->areaComboBox->currentIndex() ? QStringLiteral("screenshotScreen") : QStringLiteral("screenshotFullscreen"), QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])), m_dialog->includeCursorCheckbox->isChecked());
+        interface.asyncCall(m_dialog->areaComboBox->currentIndex() ? QStringLiteral("screenshotScreen") : QStringLiteral("screenshotFullscreen"),
+                            QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])),
+                            m_dialog->includeCursorCheckbox->isChecked());
     } else {
         interface.asyncCall(QStringLiteral("interactive"), QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])), mask());
     }
 
     QFutureWatcher<QImage> *watcher = new QFutureWatcher<QImage>(this);
-    QObject::connect(watcher, &QFutureWatcher<QImage>::finished, this,
-        [watcher, this] {
-            watcher->deleteLater();
-            m_image = watcher->result();
-            m_dialog->image->setPixmap(QPixmap::fromImage(m_image).scaled(400, 320, Qt::KeepAspectRatio));
-            m_dialog->buttonBox->button(QDialogButtonBox::Save)->setEnabled(true);
-        }
-    );
+    QObject::connect(watcher, &QFutureWatcher<QImage>::finished, this, [watcher, this] {
+        watcher->deleteLater();
+        m_image = watcher->result();
+        m_dialog->image->setPixmap(QPixmap::fromImage(m_image).scaled(400, 320, Qt::KeepAspectRatio));
+        m_dialog->buttonBox->button(QDialogButtonBox::Save)->setEnabled(true);
+    });
 
     watcher->setFuture(QtConcurrent::run(readImage, pipeFds[0]));
 

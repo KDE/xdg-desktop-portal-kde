@@ -24,7 +24,6 @@
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
-
 class RemoteDesktopPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
@@ -42,8 +41,14 @@ public:
     };
     Q_DECLARE_FLAGS(DeviceTypes, DeviceType)
 
-    uint version() const { return 1; }
-    uint AvailableDeviceTypes() const { return All; };
+    uint version() const
+    {
+        return 1;
+    }
+    uint AvailableDeviceTypes() const
+    {
+        return All;
+    };
 
 public Q_SLOTS:
     uint CreateSession(const QDBusObjectPath &handle,
@@ -65,61 +70,26 @@ public Q_SLOTS:
                const QVariantMap &options,
                QVariantMap &results);
 
-    void NotifyPointerMotion(const QDBusObjectPath &session_handle,
-                             const QVariantMap &options,
-                             double dx,
-                             double dy);
+    void NotifyPointerMotion(const QDBusObjectPath &session_handle, const QVariantMap &options, double dx, double dy);
 
-    void NotifyPointerMotionAbsolute(const QDBusObjectPath &session_handle,
-                             const QVariantMap &options,
-                             uint stream,
-                             double x,
-                             double y);
+    void NotifyPointerMotionAbsolute(const QDBusObjectPath &session_handle, const QVariantMap &options, uint stream, double x, double y);
 
-    void NotifyPointerButton(const QDBusObjectPath &session_handle,
-                             const QVariantMap &options,
-                             int button,
-                             uint state);
+    void NotifyPointerButton(const QDBusObjectPath &session_handle, const QVariantMap &options, int button, uint state);
 
-    void NotifyPointerAxis(const QDBusObjectPath &session_handle,
-                           const QVariantMap &options,
-                           double dx,
-                           double dy);
+    void NotifyPointerAxis(const QDBusObjectPath &session_handle, const QVariantMap &options, double dx, double dy);
 
-    void NotifyPointerAxisDiscrete(const QDBusObjectPath &session_handle,
-                                   const QVariantMap &options,
-                                   uint axis,
-                                   int steps);
+    void NotifyPointerAxisDiscrete(const QDBusObjectPath &session_handle, const QVariantMap &options, uint axis, int steps);
 
-    void NotifyKeyboardKeycode(const QDBusObjectPath &session_handle,
-                               const QVariantMap &options,
-                               int keycode,
-                               uint state);
+    void NotifyKeyboardKeycode(const QDBusObjectPath &session_handle, const QVariantMap &options, int keycode, uint state);
 
-    void NotifyKeyboardKeysym(const QDBusObjectPath &session_handle,
-                              const QVariantMap &options,
-                              int keysym,
-                              uint state);
+    void NotifyKeyboardKeysym(const QDBusObjectPath &session_handle, const QVariantMap &options, int keysym, uint state);
 
-    void NotifyTouchDown(const QDBusObjectPath &session_handle,
-                         const QVariantMap &options,
-                         uint stream,
-                         uint slot,
-                         int x,
-                         int y);
+    void NotifyTouchDown(const QDBusObjectPath &session_handle, const QVariantMap &options, uint stream, uint slot, int x, int y);
 
-    void NotifyTouchMotion(const QDBusObjectPath &session_handle,
-                           const QVariantMap &options,
-                           uint stream,
-                           uint slot,
-                           int x,
-                           int y);
+    void NotifyTouchMotion(const QDBusObjectPath &session_handle, const QVariantMap &options, uint stream, uint slot, int x, int y);
 
-    void NotifyTouchUp(const QDBusObjectPath &session_handle,
-                       const QVariantMap &options,
-                       uint slot);
+    void NotifyTouchUp(const QDBusObjectPath &session_handle, const QVariantMap &options, uint slot);
 };
 Q_DECLARE_OPERATORS_FOR_FLAGS(RemoteDesktopPortal::DeviceTypes)
 
 #endif // XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_H
-

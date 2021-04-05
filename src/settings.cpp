@@ -20,10 +20,10 @@
 
 #include "settings.h"
 
-#include <QDBusMetaType>
+#include <QDBusConnection>
 #include <QDBusContext>
 #include <QDBusMessage>
-#include <QDBusConnection>
+#include <QDBusMetaType>
 
 #include <QLoggingCategory>
 
@@ -92,12 +92,20 @@ SettingsPortal::SettingsPortal(QObject *parent)
 
     m_kdeglobals = KSharedConfig::openConfig();
 
-    QDBusConnection::sessionBus().connect(QString(), QStringLiteral("/KDEPlatformTheme"), QStringLiteral("org.kde.KDEPlatformTheme"),
-                                          QStringLiteral("refreshFonts"), this, SLOT(fontChanged()));
-    QDBusConnection::sessionBus().connect(QString(), QStringLiteral("/KGlobalSettings"), QStringLiteral("org.kde.KGlobalSettings"),
-                                          QStringLiteral("notifyChange"), this, SLOT(globalSettingChanged(int,int)));
-    QDBusConnection::sessionBus().connect(QString(), QStringLiteral("/KToolBar"), QStringLiteral("org.kde.KToolBar"),
-                                          QStringLiteral("styleChanged"), this, SLOT(toolbarStyleChanged()));
+    QDBusConnection::sessionBus().connect(QString(),
+                                          QStringLiteral("/KDEPlatformTheme"),
+                                          QStringLiteral("org.kde.KDEPlatformTheme"),
+                                          QStringLiteral("refreshFonts"),
+                                          this,
+                                          SLOT(fontChanged()));
+    QDBusConnection::sessionBus().connect(QString(),
+                                          QStringLiteral("/KGlobalSettings"),
+                                          QStringLiteral("org.kde.KGlobalSettings"),
+                                          QStringLiteral("notifyChange"),
+                                          this,
+                                          SLOT(globalSettingChanged(int, int)));
+    QDBusConnection::sessionBus()
+        .connect(QString(), QStringLiteral("/KToolBar"), QStringLiteral("org.kde.KToolBar"), QStringLiteral("styleChanged"), this, SLOT(toolbarStyleChanged()));
 }
 
 SettingsPortal::~SettingsPortal()
@@ -109,7 +117,7 @@ void SettingsPortal::ReadAll(const QStringList &groups)
     qCDebug(XdgDesktopPortalKdeSettings) << "ReadAll called with parameters:";
     qCDebug(XdgDesktopPortalKdeSettings) << "    groups: " << groups;
 
-    //FIXME this is super ugly, but I was unable to make it properly return VariantMapMap
+    // FIXME this is super ugly, but I was unable to make it properly return VariantMapMap
     QObject *obj = QObject::parent();
 
     if (!obj) {
@@ -128,7 +136,7 @@ void SettingsPortal::ReadAll(const QStringList &groups)
     VariantMapMap result;
     const auto groupList = m_kdeglobals->groupList();
     for (const QString &settingGroupName : groupList) {
-        //NOTE: use org.kde.kdeglobals prefix
+        // NOTE: use org.kde.kdeglobals prefix
 
         QString uniqueGroupName = QStringLiteral("org.kde.kdeglobals.") + settingGroupName;
 
@@ -158,7 +166,7 @@ void SettingsPortal::Read(const QString &group, const QString &key)
     qCDebug(XdgDesktopPortalKdeSettings) << "    group: " << group;
     qCDebug(XdgDesktopPortalKdeSettings) << "    key: " << key;
 
-    //FIXME this is super ugly, but I was unable to make it properly return VariantMapMap
+    // FIXME this is super ugly, but I was unable to make it properly return VariantMapMap
     QObject *obj = QObject::parent();
 
     if (!obj) {
@@ -197,7 +205,9 @@ void SettingsPortal::Read(const QString &group, const QString &key)
 
 void SettingsPortal::fontChanged()
 {
-    Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.General"), QStringLiteral("font"), readProperty(QStringLiteral("org.kde.kdeglobals.General"), QStringLiteral("font")));
+    Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.General"),
+                          QStringLiteral("font"),
+                          readProperty(QStringLiteral("org.kde.kdeglobals.General"), QStringLiteral("font")));
 }
 
 void SettingsPortal::globalSettingChanged(int type, int arg)
@@ -209,13 +219,17 @@ void SettingsPortal::globalSettingChanged(int type, int arg)
     case PaletteChanged:
         // Plasma-integration will be loading whole palette again, there is no reason to try to identify
         // particular categories or colors
-        Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.General"), QStringLiteral("ColorScheme"), readProperty(QStringLiteral("org.kde.kdeglobals.General"), QStringLiteral("ColorScheme")));
+        Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.General"),
+                              QStringLiteral("ColorScheme"),
+                              readProperty(QStringLiteral("org.kde.kdeglobals.General"), QStringLiteral("ColorScheme")));
         break;
     case FontChanged:
         fontChanged();
         break;
     case StyleChanged:
-        Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.KDE"), QStringLiteral("widgetStyle"), readProperty(QStringLiteral("org.kde.kdeglobals.KDE"), QStringLiteral("widgetStyle")));
+        Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.KDE"),
+                              QStringLiteral("widgetStyle"),
+                              readProperty(QStringLiteral("org.kde.kdeglobals.KDE"), QStringLiteral("widgetStyle")));
         break;
     case SettingsChanged: {
         SettingsCategory category = static_cast<SettingsCategory>(arg);
@@ -229,7 +243,9 @@ void SettingsPortal::globalSettingChanged(int type, int arg)
     case IconChanged:
         // we will get notified about each category, but it probably makes sense to send this signal just once
         if (arg == 0) { // KIconLoader::Desktop
-            Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.Icons"), QStringLiteral("Theme"), readProperty(QStringLiteral("org.kde.kdeglobals.Icons"), QStringLiteral("Theme")));
+            Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.Icons"),
+                                  QStringLiteral("Theme"),
+                                  readProperty(QStringLiteral("org.kde.kdeglobals.Icons"), QStringLiteral("Theme")));
         }
         break;
     case CursorChanged:
@@ -245,7 +261,9 @@ void SettingsPortal::globalSettingChanged(int type, int arg)
 
 void SettingsPortal::toolbarStyleChanged()
 {
-    Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.Toolbar style"), QStringLiteral("ToolButtonStyle"), readProperty(QStringLiteral("org.kde.kdeglobals.Toolbar style"), QStringLiteral("ToolButtonStyle")));
+    Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.Toolbar style"),
+                          QStringLiteral("ToolButtonStyle"),
+                          readProperty(QStringLiteral("org.kde.kdeglobals.Toolbar style"), QStringLiteral("ToolButtonStyle")));
 }
 
 QDBusVariant SettingsPortal::readProperty(const QString &group, const QString &key)
@@ -266,4 +284,3 @@ QDBusVariant SettingsPortal::readProperty(const QString &group, const QString &k
 
     return QDBusVariant(configGroup.readEntry(key));
 }
-

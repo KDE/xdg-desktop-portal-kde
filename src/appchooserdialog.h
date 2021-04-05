@@ -49,6 +49,7 @@ public:
     ApplicationCategory applicationCategory() const;
 
     bool operator==(const ApplicationItem &item) const;
+
 private:
     QString m_applicationName;
     QString m_applicationIcon;
@@ -85,7 +86,8 @@ private:
     QString m_filter;
 };
 
-class AppChooserData : public QObject {
+class AppChooserData : public QObject
+{
     Q_OBJECT
     Q_PROPERTY(QString fileName READ fileName WRITE setFileName NOTIFY fileNameChanged)
     Q_PROPERTY(QString defaultApp READ defaultApp WRITE setDefaultApp NOTIFY defaultAppChanged)
@@ -139,8 +141,12 @@ class AppChooserDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName,
-                              const QString &mimeName = QString(), QDialog *parent = nullptr, Qt::WindowFlags flags = {});
+    explicit AppChooserDialog(const QStringList &choices,
+                              const QString &defaultApp,
+                              const QString &fileName,
+                              const QString &mimeName = QString(),
+                              QDialog *parent = nullptr,
+                              Qt::WindowFlags flags = {});
     ~AppChooserDialog();
 
     void updateChoices(const QStringList &choices);

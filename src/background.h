@@ -24,10 +24,12 @@
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
-namespace KWayland {
-    namespace Client {
-        class PlasmaWindow;
-    }
+namespace KWayland
+{
+namespace Client
+{
+class PlasmaWindow;
+}
 }
 
 class BackgroundPortal : public QDBusAbstractAdaptor
@@ -59,15 +61,9 @@ public:
 public Q_SLOTS:
     QVariantMap GetAppState();
 
-    uint NotifyBackground(const QDBusObjectPath &handle,
-                          const QString &app_id,
-                          const QString &name,
-                          QVariantMap &results);
+    uint NotifyBackground(const QDBusObjectPath &handle, const QString &app_id, const QString &name, QVariantMap &results);
 
-    bool EnableAutostart(const QString &app_id,
-                         bool enable,
-                         const QStringList &commandline,
-                         uint flags);
+    bool EnableAutostart(const QString &app_id, bool enable, const QStringList &commandline, uint flags);
 Q_SIGNALS:
     void RunningApplicationsChanged();
 
@@ -76,11 +72,9 @@ private:
     void setActiveWindow(const QString &appId, bool active);
 
     uint m_notificationCounter = 0;
-    QList<KWayland::Client::PlasmaWindow*> m_windows;
+    QList<KWayland::Client::PlasmaWindow *> m_windows;
     QVariantMap m_appStates;
 };
 Q_DECLARE_OPERATORS_FOR_FLAGS(BackgroundPortal::AutostartFlags)
 
 #endif // XDG_DESKTOP_PORTAL_KDE_BACKGROUND_H
-
-

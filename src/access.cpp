@@ -23,7 +23,6 @@
 
 #include <QLoggingCategory>
 
-
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAccess, "xdp-kde-access")
 
 AccessPortal::AccessPortal(QObject *parent)
@@ -36,13 +35,13 @@ AccessPortal::~AccessPortal()
 }
 
 uint AccessPortal::AccessDialog(const QDBusObjectPath &handle,
-                          const QString &app_id,
-                          const QString &parent_window,
-                          const QString &title,
-                          const QString &subtitle,
-                          const QString &body,
-                          const QVariantMap &options,
-                          QVariantMap &results)
+                                const QString &app_id,
+                                const QString &parent_window,
+                                const QString &title,
+                                const QString &subtitle,
+                                const QString &body,
+                                const QVariantMap &options,
+                                QVariantMap &results)
 {
     qCDebug(XdgDesktopPortalKdeAccess) << "AccessDialog called with parameters:";
     qCDebug(XdgDesktopPortalKdeAccess) << "    handle: " << handle.path();

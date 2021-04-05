@@ -33,7 +33,7 @@ public:
     ~AccountPortal();
 
 public Q_SLOTS:
-    uint GetUserInformation(const QDBusObjectPath &handle,
+    uint GetUserInformation(const QDBusObjectPath &handle, //
                             const QString &app_id,
                             const QString &parent_window,
                             const QVariantMap &options,
@@ -41,5 +41,3 @@ public Q_SLOTS:
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_ACCOUNT_H
-
-

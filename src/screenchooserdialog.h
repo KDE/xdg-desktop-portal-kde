@@ -21,8 +21,8 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_SCREENCHOOSER_DIALOG_H
 #define XDG_DESKTOP_PORTAL_KDE_SCREENCHOOSER_DIALOG_H
 
-#include <QDialog>
 #include "screencast.h"
+#include <QDialog>
 
 namespace Ui
 {

@@ -55,9 +55,7 @@ NotificationPortal::~NotificationPortal()
 {
 }
 
-void NotificationPortal::AddNotification(const QString &app_id,
-                                   const QString &id,
-                                   const QVariantMap &notification)
+void NotificationPortal::AddNotification(const QString &app_id, const QString &id, const QVariantMap &notification)
 {
     qCDebug(XdgDesktopPortalKdeNotification) << "AddNotification called with parameters:";
     qCDebug(XdgDesktopPortalKdeNotification) << "    app_id: " << app_id;
@@ -102,8 +100,7 @@ void NotificationPortal::AddNotification(const QString &app_id,
         notify->setUrgency(KNotification::CriticalUrgency);
     }
 
-    if (notification.contains(QStringLiteral("default-action"))
-            && notification.contains(QStringLiteral("default-action-target"))) {
+    if (notification.contains(QStringLiteral("default-action")) && notification.contains(QStringLiteral("default-action-target"))) {
         // default action is conveniently mapped to action number 0 so it uses the same action invocation method as the others
         notify->setDefaultAction(notification.value(QStringLiteral("default-action")).toString());
     }
@@ -138,7 +135,7 @@ void NotificationPortal::AddNotification(const QString &app_id,
 
 void NotificationPortal::notificationActivated(uint action)
 {
-    KNotification *notify = qobject_cast<KNotification*>(sender());
+    KNotification *notify = qobject_cast<KNotification *>(sender());
 
     if (!notify) {
         return;
@@ -159,8 +156,7 @@ void NotificationPortal::notificationActivated(uint action)
     QDBusConnection::sessionBus().send(message);
 }
 
-void NotificationPortal::RemoveNotification(const QString &app_id,
-                                      const QString &id)
+void NotificationPortal::RemoveNotification(const QString &app_id, const QString &id)
 {
     qCDebug(XdgDesktopPortalKdeNotification) << "RemoveNotification called with parameters:";
     qCDebug(XdgDesktopPortalKdeNotification) << "    app_id: " << app_id;
@@ -175,7 +171,7 @@ void NotificationPortal::RemoveNotification(const QString &app_id,
 
 void NotificationPortal::notificationClosed()
 {
-    KNotification *notify = qobject_cast<KNotification*>(sender());
+    KNotification *notify = qobject_cast<KNotification *>(sender());
 
     if (!notify) {
         return;

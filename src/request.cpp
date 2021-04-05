@@ -23,8 +23,8 @@
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCall>
-#include <QDBusPendingReply>
 #include <QDBusPendingCallWatcher>
+#include <QDBusPendingReply>
 #include <QLoggingCategory>
 
 Q_LOGGING_CATEGORY(XdgRequestKdeRequest, "xdp-kde-request")
@@ -65,7 +65,7 @@ bool Request::handleMessage(const QDBusMessage &message, const QDBusConnection &
 
                 QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(message);
                 QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingCall);
-                connect(watcher, &QDBusPendingCallWatcher::finished, this, [this] (QDBusPendingCallWatcher *watcher) {
+                connect(watcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
                     QDBusPendingReply<> reply = *watcher;
                     if (reply.isError()) {
                         qCDebug(XdgRequestKdeRequest) << "Uninhibit error: " << reply.error().message();
@@ -96,4 +96,3 @@ QString Request::introspect(const QString &path) const
 
     return nodes;
 }
-

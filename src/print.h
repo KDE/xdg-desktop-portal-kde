@@ -51,12 +51,12 @@ public Q_SLOTS:
                       const QVariantMap &page_setup,
                       const QVariantMap &options,
                       QVariantMap &results);
+
 private:
-    QMap<uint, QPrinter*> m_printers;
+    QMap<uint, QPrinter *> m_printers;
 
     bool cupsAvailable();
-    QStringList printArguments(const QPrinter *printer, bool useCupsOptions, const QString &version,
-                               QPrinter::Orientation documentOrientation);
+    QStringList printArguments(const QPrinter *printer, bool useCupsOptions, const QString &version, QPrinter::Orientation documentOrientation);
     QStringList destination(const QPrinter *printer, const QString &version);
     QStringList copies(const QPrinter *printer, const QString &version);
     QStringList jobname(const QPrinter *printer, const QString &version);
@@ -73,4 +73,3 @@ private:
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_PRINT_H
-

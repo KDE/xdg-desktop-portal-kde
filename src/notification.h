@@ -40,17 +40,14 @@ public:
     ~NotificationPortal();
 
 public Q_SLOTS:
-    void AddNotification(const QString &app_id,
-                         const QString &id,
-                         const QVariantMap &notification);
-    void RemoveNotification(const QString &app_id,
-                            const QString &id);
+    void AddNotification(const QString &app_id, const QString &id, const QVariantMap &notification);
+    void RemoveNotification(const QString &app_id, const QString &id);
 private Q_SLOTS:
     void notificationActivated(uint action);
     void notificationClosed();
 
 private:
-    QHash<QString, KNotification*> m_notifications;
+    QHash<QString, KNotification *> m_notifications;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_NOTIFICATION_H

@@ -43,10 +43,7 @@ public:
     void setSubtitle(const QString &subtitle);
 
 private:
-    Ui::AccessDialog * m_dialog;
-
+    Ui::AccessDialog *m_dialog;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_ACCESS_DIALOG_H
-
-

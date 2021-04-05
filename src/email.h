@@ -33,12 +33,7 @@ public:
     ~EmailPortal();
 
 public Q_SLOTS:
-    uint ComposeEmail(const QDBusObjectPath &handle,
-                      const QString &app_id,
-                      const QString &window,
-                      const QVariantMap &options,
-                      QVariantMap &results);
+    uint ComposeEmail(const QDBusObjectPath &handle, const QString &app_id, const QString &window, const QVariantMap &options, QVariantMap &results);
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_EMAIL_H
-

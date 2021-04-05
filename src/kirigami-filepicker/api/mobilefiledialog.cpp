@@ -4,12 +4,12 @@
 
 #include "mobilefiledialog.h"
 
-#include <QQmlApplicationEngine>
 #include <QGuiApplication>
-#include <QStandardPaths>
-#include <QQuickWindow>
-#include <QQmlContext>
 #include <QLoggingCategory>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
+#include <QQuickWindow>
+#include <QStandardPaths>
 
 #include <KLocalizedContext>
 #include <KLocalizedString>
@@ -185,7 +185,7 @@ uint MobileFileDialog::exec()
     bool handled = false;
     uint exitCode = 0;
 
-    const auto acceptedConn = connect(m_callback, &FileChooserQmlCallback::accepted, this, [this, &exitCode, &handled] (const QStringList &urls) {
+    const auto acceptedConn = connect(m_callback, &FileChooserQmlCallback::accepted, this, [this, &exitCode, &handled](const QStringList &urls) {
         for (const auto &filename : urls) {
             m_results << QUrl(filename).toDisplayString();
         }
@@ -220,4 +220,3 @@ QStringList MobileFileDialog::results() const
 {
     return m_results;
 }
-

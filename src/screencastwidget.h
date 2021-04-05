@@ -34,4 +34,3 @@ public:
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SCREENCAST_WIDGET_H
-

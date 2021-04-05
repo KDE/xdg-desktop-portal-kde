@@ -35,12 +35,7 @@ public:
     ~InhibitPortal();
 
 public Q_SLOTS:
-    void Inhibit(const QDBusObjectPath &handle,
-                 const QString &app_id,
-                 const QString &window,
-                 uint flags,
-                 const QVariantMap &options);
+    void Inhibit(const QDBusObjectPath &handle, const QString &app_id, const QString &window, uint flags, const QVariantMap &options);
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_INHIBIT_H
-

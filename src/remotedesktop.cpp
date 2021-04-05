@@ -19,8 +19,8 @@
  */
 
 #include "remotedesktop.h"
-#include "session.h"
 #include "remotedesktopdialog.h"
+#include "session.h"
 #include "utils.h"
 #include "waylandintegration.h"
 
@@ -55,7 +55,7 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
         return 2;
     }
 
-    connect(session, &Session::closed, [] () {
+    connect(session, &Session::closed, []() {
         WaylandIntegration::stopAllStreaming();
     });
 
@@ -84,7 +84,7 @@ uint RemoteDesktopPortal::SelectDevices(const QDBusObjectPath &handle,
         types = static_cast<RemoteDesktopPortal::DeviceTypes>(options.value(QStringLiteral("types")).toUInt());
     }
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession*>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to select sources on non-existing session " << session_handle.path();
@@ -113,7 +113,7 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    parent_window: " << parent_window;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    options: " << options;
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession*>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call start on non-existing session " << session_handle.path();
@@ -126,7 +126,8 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
         return 2;
     }
 
-    QScopedPointer<RemoteDesktopDialog, QScopedPointerDeleteLater> remoteDesktopDialog(new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled(), session->multipleSources()));
+    QScopedPointer<RemoteDesktopDialog, QScopedPointerDeleteLater> remoteDesktopDialog(
+        new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled(), session->multipleSources()));
     Utils::setParentWindow(remoteDesktopDialog.data(), parent_window);
 
     connect(session, &Session::closed, remoteDesktopDialog.data(), &RemoteDesktopDialog::reject);
@@ -161,10 +162,7 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
     return 1;
 }
 
-void RemoteDesktopPortal::NotifyPointerMotion(const QDBusObjectPath &session_handle,
-                                              const QVariantMap &options,
-                                              double dx,
-                                              double dy)
+void RemoteDesktopPortal::NotifyPointerMotion(const QDBusObjectPath &session_handle, const QVariantMap &options, double dx, double dy)
 {
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "NotifyPointerMotion called with parameters:";
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    session_handle: " << session_handle.path();
@@ -172,7 +170,7 @@ void RemoteDesktopPortal::NotifyPointerMotion(const QDBusObjectPath &session_han
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    dx: " << dx;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    dy: " << dy;
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession*>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerMotion on non-existing session " << session_handle.path();
@@ -182,11 +180,7 @@ void RemoteDesktopPortal::NotifyPointerMotion(const QDBusObjectPath &session_han
     WaylandIntegration::requestPointerMotion(QSizeF(dx, dy));
 }
 
-void RemoteDesktopPortal::NotifyPointerMotionAbsolute(const QDBusObjectPath &session_handle,
-                                                      const QVariantMap &options,
-                                                      uint stream,
-                                                      double x,
-                                                      double y)
+void RemoteDesktopPortal::NotifyPointerMotionAbsolute(const QDBusObjectPath &session_handle, const QVariantMap &options, uint stream, double x, double y)
 {
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "NotifyPointerMotionAbsolute called with parameters:";
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    session_handle: " << session_handle.path();
@@ -195,7 +189,7 @@ void RemoteDesktopPortal::NotifyPointerMotionAbsolute(const QDBusObjectPath &ses
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    x: " << x;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    y: " << y;
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession*>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerMotionAbsolute on non-existing session " << session_handle.path();
@@ -205,10 +199,7 @@ void RemoteDesktopPortal::NotifyPointerMotionAbsolute(const QDBusObjectPath &ses
     WaylandIntegration::requestPointerMotionAbsolute(QPointF(x, y));
 }
 
-void RemoteDesktopPortal::NotifyPointerButton(const QDBusObjectPath &session_handle,
-                                              const QVariantMap &options,
-                                              int button,
-                                              uint state)
+void RemoteDesktopPortal::NotifyPointerButton(const QDBusObjectPath &session_handle, const QVariantMap &options, int button, uint state)
 {
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "NotifyPointerButton called with parameters:";
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    session_handle: " << session_handle.path();
@@ -216,7 +207,7 @@ void RemoteDesktopPortal::NotifyPointerButton(const QDBusObjectPath &session_han
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    button: " << button;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    state: " << state;
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession*>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerButton on non-existing session " << session_handle.path();
@@ -230,10 +221,7 @@ void RemoteDesktopPortal::NotifyPointerButton(const QDBusObjectPath &session_han
     }
 }
 
-void RemoteDesktopPortal::NotifyPointerAxis(const QDBusObjectPath &session_handle,
-                                            const QVariantMap &options,
-                                            double dx,
-                                            double dy)
+void RemoteDesktopPortal::NotifyPointerAxis(const QDBusObjectPath &session_handle, const QVariantMap &options, double dx, double dy)
 {
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "NotifyPointerAxis called with parameters:";
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    session_handle: " << session_handle.path();
@@ -242,10 +230,7 @@ void RemoteDesktopPortal::NotifyPointerAxis(const QDBusObjectPath &session_handl
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    dy: " << dy;
 }
 
-void RemoteDesktopPortal::NotifyPointerAxisDiscrete(const QDBusObjectPath &session_handle,
-                                                    const QVariantMap &options,
-                                                    uint axis,
-                                                    int steps)
+void RemoteDesktopPortal::NotifyPointerAxisDiscrete(const QDBusObjectPath &session_handle, const QVariantMap &options, uint axis, int steps)
 {
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "NotifyPointerAxisDiscrete called with parameters:";
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    session_handle: " << session_handle.path();
@@ -253,7 +238,7 @@ void RemoteDesktopPortal::NotifyPointerAxisDiscrete(const QDBusObjectPath &sessi
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    axis: " << axis;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    steps: " << steps;
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession*>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerAxisDiscrete on non-existing session " << session_handle.path();
@@ -263,17 +248,11 @@ void RemoteDesktopPortal::NotifyPointerAxisDiscrete(const QDBusObjectPath &sessi
     WaylandIntegration::requestPointerAxisDiscrete(!axis ? Qt::Vertical : Qt::Horizontal, steps);
 }
 
-void RemoteDesktopPortal::NotifyKeyboardKeysym(const QDBusObjectPath &session_handle,
-                                               const QVariantMap &options,
-                                               int keysym,
-                                               uint state)
+void RemoteDesktopPortal::NotifyKeyboardKeysym(const QDBusObjectPath &session_handle, const QVariantMap &options, int keysym, uint state)
 {
 }
 
-void RemoteDesktopPortal::NotifyKeyboardKeycode(const QDBusObjectPath &session_handle,
-                                                const QVariantMap &options,
-                                                int keycode,
-                                                uint state)
+void RemoteDesktopPortal::NotifyKeyboardKeycode(const QDBusObjectPath &session_handle, const QVariantMap &options, int keycode, uint state)
 {
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "NotifyKeyboardKeycode called with parameters:";
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    session_handle: " << session_handle.path();
@@ -281,7 +260,7 @@ void RemoteDesktopPortal::NotifyKeyboardKeycode(const QDBusObjectPath &session_h
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    keycode: " << keycode;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    state: " << state;
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession*>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyKeyboardKeycode on non-existing session " << session_handle.path();
@@ -291,26 +270,14 @@ void RemoteDesktopPortal::NotifyKeyboardKeycode(const QDBusObjectPath &session_h
     WaylandIntegration::requestKeyboardKeycode(keycode, state != 0);
 }
 
-void RemoteDesktopPortal::NotifyTouchDown(const QDBusObjectPath &session_handle,
-                                          const QVariantMap &options,
-                                          uint stream,
-                                          uint slot,
-                                          int x,
-                                          int y)
+void RemoteDesktopPortal::NotifyTouchDown(const QDBusObjectPath &session_handle, const QVariantMap &options, uint stream, uint slot, int x, int y)
 {
 }
 
-void RemoteDesktopPortal::NotifyTouchMotion(const QDBusObjectPath &session_handle,
-                                            const QVariantMap &options,
-                                            uint stream,
-                                            uint slot,
-                                            int x,
-                                            int y)
+void RemoteDesktopPortal::NotifyTouchMotion(const QDBusObjectPath &session_handle, const QVariantMap &options, uint stream, uint slot, int x, int y)
 {
 }
 
-void RemoteDesktopPortal::NotifyTouchUp(const QDBusObjectPath &session_handle,
-                                        const QVariantMap &options,
-                                        uint slot)
+void RemoteDesktopPortal::NotifyTouchUp(const QDBusObjectPath &session_handle, const QVariantMap &options, uint slot)
 {
 }

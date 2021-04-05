@@ -51,10 +51,10 @@ uint EmailPortal::ComposeEmail(const QDBusObjectPath &handle, const QString &app
         attachmentString += QStringLiteral("&attachment=%1").arg(attachment);
     }
 
-    const QString mailtoUrl = QStringLiteral("mailto:%1?subject=%2&body=%3%4").arg(options.value(QStringLiteral("address")).toString(),
-                                                                                   options.value(QStringLiteral("subject")).toString(),
-                                                                                   options.value(QStringLiteral("body")).toString(),
-                                                                                   attachmentString);
+    const QString mailtoUrl = QStringLiteral("mailto:%1?subject=%2&body=%3%4")
+                                  .arg(options.value(QStringLiteral("address")).toString(),
+                                       options.value(QStringLiteral("subject")).toString(),
+                                       options.value(QStringLiteral("body")).toString(),
+                                       attachmentString);
     return QDesktopServices::openUrl(QUrl(mailtoUrl));
 }
-
