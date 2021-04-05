@@ -36,7 +36,7 @@ class ApplicationItem
 public:
     enum ApplicationCategory {
         PreferredApplication,
-        AllApplications
+        AllApplications,
     };
 
     explicit ApplicationItem(const QString &name, const QString &icon, const QString &desktopFileName);
@@ -117,7 +117,7 @@ public:
         ApplicationNameRole = Qt::UserRole + 1,
         ApplicationIconRole,
         ApplicationDesktopFileRole,
-        ApplicationCategoryRole
+        ApplicationCategoryRole,
     };
 
     explicit AppModel(QObject *parent = nullptr);

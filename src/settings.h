@@ -38,7 +38,7 @@ public:
     enum ChangeType { PaletteChanged = 0, FontChanged, StyleChanged,
                       SettingsChanged, IconChanged, CursorChanged,
                       ToolbarStyleChanged, ClipboardConfigChanged,
-                      BlockShortcuts, NaturalSortingChanged
+                      BlockShortcuts, NaturalSortingChanged,
                     };
 
     /**
@@ -47,7 +47,7 @@ public:
     */
     enum SettingsCategory { SETTINGS_MOUSE, SETTINGS_COMPLETION, SETTINGS_PATHS,
                             SETTINGS_POPUPMENU, SETTINGS_QT, SETTINGS_SHORTCUTS,
-                            SETTINGS_LOCALE, SETTINGS_STYLE
+                            SETTINGS_LOCALE, SETTINGS_STYLE,
                           };
 
     explicit SettingsPortal(QObject *parent);

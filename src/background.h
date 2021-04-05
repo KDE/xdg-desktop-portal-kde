@@ -41,19 +41,19 @@ public:
     enum ApplicationState {
         Background = 0,
         Running = 1,
-        Active = 2
+        Active = 2,
     };
 
     enum AutostartFlag {
         None = 0x0,
-        Activatable = 0x1
+        Activatable = 0x1,
     };
     Q_DECLARE_FLAGS(AutostartFlags, AutostartFlag)
 
     enum NotifyResult {
         Forbid = 0,
         Allow = 1,
-        Ignore = 2
+        Ignore = 2,
     };
 
 public Q_SLOTS:

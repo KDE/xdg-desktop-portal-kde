@@ -36,7 +36,7 @@ public:
     enum SourceType {
         Any = 0,
         Monitor,
-        Window
+        Window,
     };
     Q_ENUM(SourceType);
     Q_DECLARE_FLAGS(SourceTypes, SourceType)

@@ -36,7 +36,7 @@ public:
 
     enum SessionType {
         ScreenCast = 0,
-        RemoteDesktop = 1
+        RemoteDesktop = 1,
     };
 
     bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) override;

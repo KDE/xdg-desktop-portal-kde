@@ -45,7 +45,7 @@ public:
     enum OutputType {
         Laptop,
         Monitor,
-        Television
+        Television,
     };
     QString manufacturer() const { return m_output->manufacturer(); }
     QString model() const { return m_output->model(); }

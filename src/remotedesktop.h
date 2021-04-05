@@ -38,7 +38,7 @@ public:
         Keyboard = 0x1,
         Pointer = 0x2,
         TouchScreen = 0x4,
-        All = (Keyboard | Pointer | TouchScreen)
+        All = (Keyboard | Pointer | TouchScreen),
     };
     Q_DECLARE_FLAGS(DeviceTypes, DeviceType)
 

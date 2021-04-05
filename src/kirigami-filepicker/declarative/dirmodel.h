@@ -36,7 +36,7 @@ public:
         IsHidden,
         IsReadable,
         IsWritable,
-        ModificationTime
+        ModificationTime,
     };
 
     Q_ENUM(Roles)
