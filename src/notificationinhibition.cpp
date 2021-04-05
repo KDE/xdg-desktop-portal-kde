@@ -35,7 +35,11 @@ NotificationInhibition::NotificationInhibition(const QString &appId, const QStri
     : QObject(parent)
 {
     QDBusMessage msg = QDBusMessage::createMethodCall(s_notificationService, s_notificationPath, s_notificationInterface, QStringLiteral("Inhibit"));
-    msg.setArguments({appId, reason, QVariantMap()});
+    msg.setArguments({
+        appId,
+        reason,
+        QVariantMap(),
+    });
 
     QPointer<NotificationInhibition> guardedThis(this);
 

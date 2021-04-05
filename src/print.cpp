@@ -213,7 +213,8 @@ const static StandardPageSize qt_pageSizes[] = {
     {QPageSize::EnvelopePrc8, "EnvPRC8"},
     {QPageSize::EnvelopePrc9, "EnvPRC9"},
     {QPageSize::EnvelopePrc10, "EnvPRC10"},
-    {QPageSize::EnvelopeYou4, "EnvYou4"}};
+    {QPageSize::EnvelopeYou4, "EnvYou4"},
+};
 
 // Return key name for PageSize
 static QString qt_keyForPageSizeId(QPageSize::PageSizeId id)
