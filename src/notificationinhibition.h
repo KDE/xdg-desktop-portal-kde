@@ -24,9 +24,7 @@ class NotificationInhibition : public QObject
 {
     Q_OBJECT
 public:
-    explicit NotificationInhibition(const QString &appId,
-                                    const QString &reason,
-                                    QObject *parent = nullptr);
+    explicit NotificationInhibition(const QString &appId, const QString &reason, QObject *parent = nullptr);
     ~NotificationInhibition() override;
 
 private:

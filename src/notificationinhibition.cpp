@@ -34,15 +34,8 @@ static const auto s_notificationInterface = QStringLiteral("org.freedesktop.Noti
 NotificationInhibition::NotificationInhibition(const QString &appId, const QString &reason, QObject *parent)
     : QObject(parent)
 {
-    QDBusMessage msg = QDBusMessage::createMethodCall(s_notificationService,
-                                                      s_notificationPath,
-                                                      s_notificationInterface,
-                                                      QStringLiteral("Inhibit"));
-    msg.setArguments({
-        appId,
-        reason,
-        QVariantMap()
-    });
+    QDBusMessage msg = QDBusMessage::createMethodCall(s_notificationService, s_notificationPath, s_notificationInterface, QStringLiteral("Inhibit"));
+    msg.setArguments({appId, reason, QVariantMap()});
 
     QPointer<NotificationInhibition> guardedThis(this);
 
@@ -61,9 +54,7 @@ NotificationInhibition::NotificationInhibition(const QString &appId, const QStri
 
         // In case the inhibition was revoked again before the async DBus reply arrived
         if (guardedThis) {
-            qCDebug(XdgDesktopPortalKdeNotificationInhibition) << "Inhibiting notifications for" << appId
-                                                               << "with reason" << reason
-                                                               << "and cookie" << cookie;
+            qCDebug(XdgDesktopPortalKdeNotificationInhibition) << "Inhibiting notifications for" << appId << "with reason" << reason << "and cookie" << cookie;
             guardedThis->m_cookie = cookie;
         } else {
             uninhibit(cookie);
@@ -81,10 +72,7 @@ NotificationInhibition::~NotificationInhibition()
 void NotificationInhibition::uninhibit(uint cookie)
 {
     qCDebug(XdgDesktopPortalKdeNotificationInhibition) << "Removing inhibition with cookie" << cookie;
-    QDBusMessage msg = QDBusMessage::createMethodCall(s_notificationService,
-                                                      s_notificationPath,
-                                                      s_notificationInterface,
-                                                      QStringLiteral("UnInhibit"));
+    QDBusMessage msg = QDBusMessage::createMethodCall(s_notificationService, s_notificationPath, s_notificationInterface, QStringLiteral("UnInhibit"));
     msg.setArguments({cookie});
     QDBusConnection::sessionBus().call(msg, QDBus::NoBlock);
 }

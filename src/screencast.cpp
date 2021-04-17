@@ -18,8 +18,8 @@
  *       Jan Grulich <jgrulich@redhat.com>
  */
 
-#include "notificationinhibition.h"
 #include "screencast.h"
+#include "notificationinhibition.h"
 #include "screenchooserdialog.h"
 #include "session.h"
 #include "utils.h"
