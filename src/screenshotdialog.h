@@ -22,6 +22,7 @@
 #define XDG_DESKTOP_PORTAL_KDE_SCREENSHOT_DIALOG_H
 
 #include <QDialog>
+#include <QFuture>
 
 namespace Ui
 {
@@ -37,8 +38,10 @@ public:
 
     QImage image() const;
 
-public Q_SLOTS:
-    void takeScreenshot();
+    void takeScreenshotNonInteractive();
+
+private Q_SLOTS:
+    void takeScreenshotInteractive();
 
 Q_SIGNALS:
     void failed();
@@ -48,6 +51,7 @@ private:
     QImage m_image;
 
     int mask();
+    QFuture<QImage> takeScreenshot();
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SCREENSHOT_DIALOG_H

@@ -105,10 +105,12 @@ uint ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
 
     const bool interactive = options.value(QStringLiteral("interactive"), false).toBool();
     if (!interactive) {
-        screenshotDialog->takeScreenshot();
+        screenshotDialog->takeScreenshotNonInteractive();
+    } else {
+        screenshotDialog->exec();
     }
 
-    QImage screenshot = screenshotDialog->exec() ? screenshotDialog->image() : QImage();
+    const QImage screenshot = screenshotDialog->image();
 
     if (screenshotDialog) {
         screenshotDialog->deleteLater();
