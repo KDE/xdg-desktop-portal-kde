@@ -3,8 +3,7 @@
  *
  * SPDX-License-Identifier: LGPL-2.0-or-later
  *
- * Authors:
- *       Jan Grulich <jgrulich@redhat.com>
+ * SPDX-FileCopyrightText: 2017 Jan Grulich <jgrulich@redhat.com>
  */
 
 #ifndef XDG_DESKTOP_PORTAL_KDE_ACCESS_DIALOG_H

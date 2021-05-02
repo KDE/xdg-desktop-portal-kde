@@ -2,8 +2,7 @@
  * SPDX-FileCopyrightText: 2019 Red Hat Inc
  * SPDX-License-Identifier: LGPL-2.0-or-later
  *
- * Authors:
- *       Jan Grulich <jgrulich@redhat.com>
+ * SPDX-FileCopyrightText: 2019 Jan Grulich <jgrulich@redhat.com>
  */
 
 

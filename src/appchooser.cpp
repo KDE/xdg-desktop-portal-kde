@@ -2,8 +2,7 @@
  * SPDX-FileCopyrightText: 2016-2018 Red Hat Inc
  * SPDX-License-Identifier: LGPL-2.0-or-later
  *
- * Authors:
- *       Jan Grulich <jgrulich@redhat.com>
+ * SPDX-FileCopyrightText: 2016-2018 Jan Grulich <jgrulich@redhat.com>
  */
 
 #include "appchooser.h"
