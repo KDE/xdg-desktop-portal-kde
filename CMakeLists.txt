@@ -47,10 +47,8 @@ find_package(Wayland 1.15 REQUIRED COMPONENTS Client)
 find_package(PlasmaWaylandProtocols REQUIRED)
 find_package(QtWaylandScanner REQUIRED)
 
-if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
-   add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
-   add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054200)
-endif()
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050c00)
+add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054200)
 
 add_subdirectory(data)
 add_subdirectory(src)
