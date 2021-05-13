@@ -22,7 +22,7 @@ QString FileChooserQmlCallback::title() const
 void FileChooserQmlCallback::setTitle(const QString &title)
 {
     m_title = title;
-    emit titleChanged();
+    Q_EMIT titleChanged();
 }
 
 bool FileChooserQmlCallback::selectMultiple() const
@@ -33,7 +33,7 @@ bool FileChooserQmlCallback::selectMultiple() const
 void FileChooserQmlCallback::setSelectMultiple(bool selectMultiple)
 {
     m_selectMultiple = selectMultiple;
-    emit selectMultipleChanged();
+    Q_EMIT selectMultipleChanged();
 }
 
 bool FileChooserQmlCallback::selectExisting() const
@@ -44,7 +44,7 @@ bool FileChooserQmlCallback::selectExisting() const
 void FileChooserQmlCallback::setSelectExisting(bool selectExisting)
 {
     m_selectExisting = selectExisting;
-    emit selectExistingChanged();
+    Q_EMIT selectExistingChanged();
 }
 
 QStringList FileChooserQmlCallback::nameFilters() const
@@ -55,7 +55,7 @@ QStringList FileChooserQmlCallback::nameFilters() const
 void FileChooserQmlCallback::setNameFilters(const QStringList &nameFilters)
 {
     m_nameFilters = nameFilters;
-    emit nameFiltersChanged();
+    Q_EMIT nameFiltersChanged();
 }
 
 QStringList FileChooserQmlCallback::mimeTypeFilters() const
@@ -66,7 +66,7 @@ QStringList FileChooserQmlCallback::mimeTypeFilters() const
 void FileChooserQmlCallback::setMimeTypeFilters(const QStringList &mimeTypeFilters)
 {
     m_mimeTypeFilters = mimeTypeFilters;
-    emit mimeTypeFiltersChanged();
+    Q_EMIT mimeTypeFiltersChanged();
 }
 
 QUrl FileChooserQmlCallback::folder() const
@@ -77,7 +77,7 @@ QUrl FileChooserQmlCallback::folder() const
 void FileChooserQmlCallback::setFolder(const QUrl &folder)
 {
     m_folder = folder;
-    emit folderChanged();
+    Q_EMIT folderChanged();
 }
 
 QString FileChooserQmlCallback::currentFile() const
@@ -88,7 +88,7 @@ QString FileChooserQmlCallback::currentFile() const
 void FileChooserQmlCallback::setCurrentFile(const QString &currentFile)
 {
     m_currentFile = currentFile;
-    emit currentFileChanged();
+    Q_EMIT currentFileChanged();
 }
 
 QString FileChooserQmlCallback::acceptLabel() const
@@ -99,7 +99,7 @@ QString FileChooserQmlCallback::acceptLabel() const
 void FileChooserQmlCallback::setAcceptLabel(const QString &acceptLabel)
 {
     m_acceptLabel = acceptLabel;
-    emit acceptLabelChanged();
+    Q_EMIT acceptLabelChanged();
 }
 
 bool FileChooserQmlCallback::selectFolder() const
@@ -110,5 +110,5 @@ bool FileChooserQmlCallback::selectFolder() const
 void FileChooserQmlCallback::setSelectFolder(bool selectFolder)
 {
     m_selectFolder = selectFolder;
-    emit selectFolderChanged();
+    Q_EMIT selectFolderChanged();
 }

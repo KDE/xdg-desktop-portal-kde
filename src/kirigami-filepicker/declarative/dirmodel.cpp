@@ -82,7 +82,7 @@ void DirModel::setFolder(const QUrl &folder)
     if (folder != m_lister->url()) {
         m_dirModel.openUrl(folder);
 
-        emit folderChanged();
+        Q_EMIT folderChanged();
     }
 }
 
@@ -100,7 +100,7 @@ void DirModel::setShowDotFiles(bool showDotFiles)
 {
     m_lister->setShowingDotFiles(showDotFiles);
     m_lister->emitChanges();
-    emit showDotFilesChanged();
+    Q_EMIT showDotFilesChanged();
 }
 
 QString DirModel::nameFilter() const
@@ -114,7 +114,7 @@ void DirModel::setNameFilter(const QString &nameFilter)
         m_lister->setNameFilter(nameFilter);
         m_lister->emitChanges();
 
-        emit nameFilterChanged();
+        Q_EMIT nameFilterChanged();
     }
 }
 
@@ -132,7 +132,7 @@ void DirModel::setMimeFilters(const QStringList &mimeFilters)
         m_lister->setMimeFilter(newMimeFilters);
         m_lister->emitChanges();
 
-        emit mimeFiltersChanged();
+        Q_EMIT mimeFiltersChanged();
     }
 }
 
