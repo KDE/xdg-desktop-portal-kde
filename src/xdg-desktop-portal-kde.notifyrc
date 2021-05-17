@@ -66,7 +66,7 @@ Name[sl]=Integracija KDE portala
 Name[sv]=Integrering av KDE:s portal
 Name[uk]=Інтеграція через Портал KDE
 Name[x-test]=xxKDE Portal Integrationxx
-Name[zh_CN]=KDE 门户集成
+Name[zh_CN]=KDE 系统1集成
 
 [Context/screencast]
 Name=Screencasting
@@ -100,7 +100,7 @@ Name[sl]=Prenos zaslonov
 Name[sv]=Skärmutsändning
 Name[uk]=Трансляція
 Name[x-test]=xxScreencastingxx
-Name[zh_CN]=屏幕录像
+Name[zh_CN]=投屏
 
 [Event/screencastfailure]
 Name=Screencasting failed
@@ -134,7 +134,7 @@ Name[sl]=Prenos zaslonov ni uspelo
 Name[sv]=Skärmutsändning misslyckades
 Name[uk]=Помилка трансляції даних
 Name[x-test]=xxScreencasting failedxx
-Name[zh_CN]=屏幕录像失败
+Name[zh_CN]=投屏失败
 Comment=An error was encountered while screencasting
 Comment[az]=Ekran video çəkilişi zamanı xəta baş verdi
 Comment[ca]=S'ha trobat un error en fer el vídeo de captura de pantalla
@@ -166,7 +166,7 @@ Comment[sl]=Med prenašanjem zaslona je prišlo do napake
 Comment[sv]=Ett fel påträffades vid skärmutsändning
 Comment[uk]=Сталася помилка під час трансляції даних з екрана
 Comment[x-test]=xxAn error was encountered while screencastingxx
-Comment[zh_CN]=进行投屏时发生错误
+Comment[zh_CN]=投屏时发生错误
 Contexts=screencast
 Action=Popup
 Urgency=Normal
