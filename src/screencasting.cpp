@@ -104,13 +104,6 @@ ScreencastingStream *Screencasting::createOutputStream(Output *output, CursorMod
     return stream;
 }
 
-ScreencastingStream *Screencasting::createWindowStream(PlasmaWindow *window, CursorMode mode)
-{
-    auto stream = createWindowStream(QString::fromUtf8(window->uuid()), mode);
-    stream->setObjectName(window->appId());
-    return stream;
-}
-
 ScreencastingStream *Screencasting::createWindowStream(const QString &uuid, CursorMode mode)
 {
     auto stream = new ScreencastingStream(this);
