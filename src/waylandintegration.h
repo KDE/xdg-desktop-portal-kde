@@ -110,7 +110,7 @@ bool isStreamingAvailable();
 
 void startStreamingInput();
 bool startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
-bool startStreamingWindow(const QByteArray &winid);
+bool startStreamingWindow(const QMap<int, QVariant> &win);
 void stopAllStreaming();
 
 void requestPointerButtonPress(quint32 linuxButton);

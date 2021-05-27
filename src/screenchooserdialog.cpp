@@ -38,6 +38,16 @@ public:
             && !idx.data(PlasmaWindowModel::SkipSwitcher).toBool() //
             && idx.data(PlasmaWindowModel::Pid) != QCoreApplication::applicationPid();
     }
+
+    QMap<int, QVariant> itemData(const QModelIndex &index) const override
+    {
+        using KWayland::Client::PlasmaWindowModel;
+        auto ret = QSortFilterProxyModel::itemData(index);
+        for (int i = PlasmaWindowModel::AppId; i <= PlasmaWindowModel::Uuid; ++i) {
+            ret[i] = index.data(i);
+        }
+        return ret;
+    }
 };
 
 ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, QDialog *parent, Qt::WindowFlags flags)
@@ -124,14 +134,15 @@ QList<quint32> ScreenChooserDialog::selectedScreens() const
     return m_dialog->screenView->selectedScreens();
 }
 
-QList<QByteArray> ScreenChooserDialog::selectedWindows() const
+QVector<QMap<int, QVariant>> ScreenChooserDialog::selectedWindows() const
 {
     const auto idxs = m_dialog->windowsView->selectionModel()->selectedIndexes();
 
-    QList<QByteArray> ret;
+    QVector<QMap<int, QVariant>> ret;
     ret.reserve(idxs.count());
     for (const auto &idx : idxs) {
-        ret += idx.data(KWayland::Client::PlasmaWindowModel::Uuid).toByteArray();
+        auto m = idx.model();
+        ret += m->itemData(idx);
     }
     return ret;
 }

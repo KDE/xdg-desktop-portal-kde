@@ -152,8 +152,8 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             }
         }
         const auto selectedWindows = screenDialog->selectedWindows();
-        for (const QByteArray &winid : selectedWindows) {
-            if (!WaylandIntegration::startStreamingWindow(winid)) {
+        for (const auto &win : selectedWindows) {
+            if (!WaylandIntegration::startStreamingWindow(win)) {
                 return 2;
             }
         }

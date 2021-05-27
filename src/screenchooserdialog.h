@@ -28,7 +28,7 @@ public:
     void setSourceTypes(ScreenCastPortal::SourceTypes types);
 
     QList<quint32> selectedScreens() const;
-    QList<QByteArray> selectedWindows() const;
+    QVector<QMap<int, QVariant>> selectedWindows() const;
 
 private:
     void selectionChanged(const QItemSelection &selected);

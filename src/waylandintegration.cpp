@@ -28,12 +28,14 @@
 #include <KWayland/Client/connection_thread.h>
 #include <KWayland/Client/event_queue.h>
 #include <KWayland/Client/plasmawindowmanagement.h>
+#include <KWayland/Client/plasmawindowmodel.h>
 #include <KWayland/Client/registry.h>
 
 // system
 #include <fcntl.h>
 #include <unistd.h>
 
+#include <KStatusNotifierItem>
 #include <KWayland/Client/fakeinput.h>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeWaylandIntegration, "xdp-kde-wayland-integration")
@@ -76,9 +78,9 @@ bool WaylandIntegration::startStreamingOutput(quint32 outputName, Screencasting:
     return globalWaylandIntegration->startStreamingOutput(outputName, mode);
 }
 
-bool WaylandIntegration::startStreamingWindow(const QByteArray &winid)
+bool WaylandIntegration::startStreamingWindow(const QMap<int, QVariant> &win)
 {
-    return globalWaylandIntegration->startStreamingWindow(winid);
+    return globalWaylandIntegration->startStreamingWindow(win);
 }
 
 void WaylandIntegration::stopAllStreaming()
@@ -234,19 +236,22 @@ void WaylandIntegration::WaylandIntegrationPrivate::startStreamingInput()
     m_streamInput = true;
 }
 
-bool WaylandIntegration::WaylandIntegrationPrivate::startStreamingWindow(const QByteArray &winid)
+bool WaylandIntegration::WaylandIntegrationPrivate::startStreamingWindow(const QMap<int, QVariant> &win)
 {
-    return startStreaming(m_screencasting->createWindowStream(QString::fromUtf8(winid), Screencasting::Hidden), {});
+    auto uuid = win[KWayland::Client::PlasmaWindowModel::Uuid].toString();
+    return startStreaming(m_screencasting->createWindowStream(uuid, Screencasting::Hidden), {}, win);
 }
 
 bool WaylandIntegration::WaylandIntegrationPrivate::startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode)
 {
     auto output = m_outputMap.value(outputName).output();
 
-    return startStreaming(m_screencasting->createOutputStream(output.data(), mode), output);
+    return startStreaming(m_screencasting->createOutputStream(output.data(), mode), output, {});
 }
 
-bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(ScreencastingStream *stream, QSharedPointer<KWayland::Client::Output> output)
+bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(ScreencastingStream *stream,
+                                                                   QSharedPointer<KWayland::Client::Output> output,
+                                                                   const QMap<int, QVariant> &win)
 {
     QEventLoop loop;
     bool streamReady = false;
@@ -282,6 +287,24 @@ bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(Screencasting
             stopStreaming(nodeid);
         });
         streamReady = true;
+
+        auto item = new KStatusNotifierItem(stream);
+        item->setStandardActionsEnabled(false);
+        if (output) {
+            item->setTitle(i18n("Recording screen \"%1\"...", output->model()));
+            item->setIconByName("video-display");
+        } else {
+            auto name = win[Qt::DecorationRole].value<QIcon>().name();
+            item->setIconByName(name.isEmpty() ? "applications-all" : name);
+            item->setTitle(i18n("Recording window \"%1\"...", win[Qt::DisplayRole].toString()));
+        }
+        item->setOverlayIconByName("media-record");
+        item->setToolTip(item->iconName(), item->title(), i18n("Press to cancel"));
+        connect(item, &KStatusNotifierItem::activateRequested, stream, [=] {
+            stopStreaming(nodeid);
+            stream->deleteLater();
+        });
+
         loop.quit();
     });
     QTimer::singleShot(3000, &loop, &QEventLoop::quit);
