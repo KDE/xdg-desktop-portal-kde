@@ -51,7 +51,7 @@ ecm_add_qtwayland_client_protocol(xdg_desktop_portal_kde_SRCS
 
 set_source_files_properties(../data/org.freedesktop.Accounts.User.xml PROPERTIES NO_NAMESPACE TRUE)
 
-qt5_add_dbus_interface(xdg_desktop_portal_kde_SRCS ../data/org.freedesktop.Accounts.User.xml user_interface)
+qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS ../data/org.freedesktop.Accounts.User.xml user_interface)
 
 add_executable(xdg-desktop-portal-kde ${xdg_desktop_portal_kde_SRCS})
 
