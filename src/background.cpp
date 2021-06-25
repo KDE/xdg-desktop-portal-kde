@@ -112,23 +112,28 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
         const QString text = i18n(
             "This might be for a legitimate reason, but the application has not provided one."
             "\n\nNote that forcing an application to quit might cause data loss.");
-        QMessageBox messageBox(QMessageBox::Question, title, text);
-        QPushButton *quitButton = messageBox.addButton(i18n("Force quit"), QMessageBox::RejectRole);
-        QPushButton *allowButton = messageBox.addButton(i18n("Allow"), QMessageBox::AcceptRole);
-        messageBox.exec();
+        QMessageBox *messageBox = new QMessageBox(QMessageBox::Question, title, text);
+        messageBox->addButton(i18n("Force quit"), QMessageBox::RejectRole);
+        messageBox->addButton(i18n("Allow"), QMessageBox::AcceptRole);
 
-        BackgroundPortal::NotifyResult result = BackgroundPortal::Ignore;
-        if (messageBox.clickedButton() == quitButton) {
-            result = BackgroundPortal::Forbid;
-        } else if (messageBox.clickedButton() == allowButton) {
-            result = BackgroundPortal::Allow;
-        }
+        messageBox->show();
 
-        const QVariantMap map = {{QStringLiteral("result"), static_cast<uint>(result)}};
-        QDBusMessage reply = message.createReply({static_cast<uint>(0), map});
-        if (!QDBusConnection::sessionBus().send(reply)) {
-            qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
-        }
+        connect(messageBox, &QMessageBox::accepted, this, [message, messageBox]() {
+            const QVariantMap map = {{QStringLiteral("result"), static_cast<uint>(BackgroundPortal::Allow)}};
+            QDBusMessage reply = message.createReply({static_cast<uint>(0), map});
+            if (!QDBusConnection::sessionBus().send(reply)) {
+                qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
+            }
+            messageBox->deleteLater();
+        });
+        connect(messageBox, &QMessageBox::rejected, this, [message, messageBox]() {
+            const QVariantMap map = {{QStringLiteral("result"), static_cast<uint>(BackgroundPortal::Forbid)}};
+            QDBusMessage reply = message.createReply({static_cast<uint>(0), map});
+            if (!QDBusConnection::sessionBus().send(reply)) {
+                qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
+            }
+            messageBox->deleteLater();
+        });
     });
     connect(notify, &KNotification::closed, this, [=]() {
         if (notify->property("activated").toBool()) {
