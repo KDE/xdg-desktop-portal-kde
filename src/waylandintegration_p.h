@@ -52,7 +52,6 @@ protected Q_SLOTS:
 private:
     bool m_registryInitialized = false;
 
-    QThread *m_thread = nullptr;
     KWayland::Client::ConnectionThread *m_connection = nullptr;
     KWayland::Client::EventQueue *m_queue = nullptr;
     KWayland::Client::Registry *m_registry = nullptr;

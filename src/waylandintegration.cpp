@@ -13,6 +13,7 @@
 
 #include <QDBusArgument>
 #include <QDBusMetaType>
+#include <QGuiApplication>
 
 #include <KNotification>
 #include <QEventLoop>
@@ -414,37 +415,10 @@ KWayland::Client::PlasmaWindowManagement *WaylandIntegration::WaylandIntegration
 
 void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
 {
-    m_thread = new QThread(this);
-    m_connection = new KWayland::Client::ConnectionThread;
+    m_connection = KWayland::Client::ConnectionThread::fromApplication(QGuiApplication::instance());
+    Q_ASSERT(m_connection);
 
-    connect(m_connection, &KWayland::Client::ConnectionThread::connected, this, &WaylandIntegrationPrivate::setupRegistry, Qt::QueuedConnection);
-    connect(m_connection, &KWayland::Client::ConnectionThread::connectionDied, this, [this] {
-        if (m_queue) {
-            delete m_queue;
-            m_queue = nullptr;
-        }
-
-        m_connection->deleteLater();
-        m_connection = nullptr;
-
-        if (m_thread) {
-            m_thread->quit();
-            if (!m_thread->wait(3000)) {
-                m_thread->terminate();
-                m_thread->wait();
-            }
-            delete m_thread;
-            m_thread = nullptr;
-        }
-    });
-    connect(m_connection, &KWayland::Client::ConnectionThread::failed, this, [this] {
-        m_thread->quit();
-        m_thread->wait();
-    });
-
-    m_thread->start();
-    m_connection->moveToThread(m_thread);
-    m_connection->initConnection();
+    setupRegistry();
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::addOutput(quint32 name, quint32 version)
