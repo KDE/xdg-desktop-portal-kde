@@ -18,6 +18,7 @@ class SettingsPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Settings")
+    Q_PROPERTY(uint version READ version CONSTANT)
 public:
     /**
      * An identifier for change signals.

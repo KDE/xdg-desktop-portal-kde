@@ -16,6 +16,8 @@ class RemoteDesktopPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.RemoteDesktop")
+    Q_PROPERTY(uint version READ version CONSTANT)
+    Q_PROPERTY(uint AvailableDeviceTypes READ AvailableDeviceTypes CONSTANT)
 public:
     explicit RemoteDesktopPortal(QObject *parent);
     ~RemoteDesktopPortal();
