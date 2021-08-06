@@ -416,7 +416,9 @@ KWayland::Client::PlasmaWindowManagement *WaylandIntegration::WaylandIntegration
 void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
 {
     m_connection = KWayland::Client::ConnectionThread::fromApplication(QGuiApplication::instance());
-    Q_ASSERT(m_connection);
+    if (!m_connection) {
+        return;
+    }
 
     setupRegistry();
 }
