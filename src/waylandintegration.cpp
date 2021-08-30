@@ -225,13 +225,6 @@ bool WaylandIntegration::WaylandIntegrationPrivate::isStreamingAvailable() const
     return m_screencasting;
 }
 
-void WaylandIntegration::WaylandIntegrationPrivate::bindOutput(int outputName, int outputVersion)
-{
-    KWayland::Client::Output *output = new KWayland::Client::Output(this);
-    output->setup(m_registry->bindOutput(outputName, outputVersion));
-    m_bindOutputs << output;
-}
-
 void WaylandIntegration::WaylandIntegrationPrivate::startStreamingInput()
 {
     m_streamInput = true;

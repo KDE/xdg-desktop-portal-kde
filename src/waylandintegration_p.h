@@ -86,7 +86,6 @@ public:
     void requestPointerMotionAbsolute(const QPointF &pos);
     void requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta);
     void requestKeyboardKeycode(int keycode, bool state);
-    void bindOutput(int outputName, int outputVersion);
 
     QMap<quint32, WaylandOutput> screens();
     QVariant streams();
@@ -106,7 +105,6 @@ private:
     QPoint m_streamedScreenPosition;
 
     QMap<quint32, WaylandOutput> m_outputMap;
-    QList<KWayland::Client::Output *> m_bindOutputs;
 
     KWayland::Client::FakeInput *m_fakeInput = nullptr;
     Screencasting *m_screencasting = nullptr;
