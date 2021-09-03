@@ -53,7 +53,6 @@ private:
     bool m_registryInitialized = false;
 
     KWayland::Client::ConnectionThread *m_connection = nullptr;
-    KWayland::Client::EventQueue *m_queue = nullptr;
     KWayland::Client::Registry *m_registry = nullptr;
     KWayland::Client::PlasmaWindowManagement *m_windowManagement = nullptr;
 

@@ -204,7 +204,6 @@ WaylandIntegration::WaylandIntegrationPrivate::WaylandIntegrationPrivate()
     : WaylandIntegration()
     , m_registryInitialized(false)
     , m_connection(nullptr)
-    , m_queue(nullptr)
     , m_registry(nullptr)
     , m_fakeInput(nullptr)
     , m_screencasting(nullptr)
@@ -446,9 +445,6 @@ void WaylandIntegration::WaylandIntegrationPrivate::removeOutput(quint32 name)
 
 void WaylandIntegration::WaylandIntegrationPrivate::setupRegistry()
 {
-    m_queue = new KWayland::Client::EventQueue(this);
-    m_queue->setup(m_connection);
-
     m_registry = new KWayland::Client::Registry(this);
 
     connect(m_registry, &KWayland::Client::Registry::fakeInputAnnounced, this, [this](quint32 name, quint32 version) {
@@ -473,6 +469,5 @@ void WaylandIntegration::WaylandIntegrationPrivate::setupRegistry()
     });
 
     m_registry->create(m_connection);
-    m_registry->setEventQueue(m_queue);
     m_registry->setup();
 }
