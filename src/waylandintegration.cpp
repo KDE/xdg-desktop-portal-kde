@@ -203,7 +203,6 @@ WaylandIntegration::WaylandIntegration *WaylandIntegration::waylandIntegration()
 WaylandIntegration::WaylandIntegrationPrivate::WaylandIntegrationPrivate()
     : WaylandIntegration()
     , m_registryInitialized(false)
-    , m_connection(nullptr)
     , m_registry(nullptr)
     , m_fakeInput(nullptr)
     , m_screencasting(nullptr)
@@ -405,16 +404,6 @@ KWayland::Client::PlasmaWindowManagement *WaylandIntegration::WaylandIntegration
     return m_windowManagement;
 }
 
-void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
-{
-    m_connection = KWayland::Client::ConnectionThread::fromApplication(QGuiApplication::instance());
-    if (!m_connection) {
-        return;
-    }
-
-    setupRegistry();
-}
-
 void WaylandIntegration::WaylandIntegrationPrivate::addOutput(quint32 name, quint32 version)
 {
     QSharedPointer<KWayland::Client::Output> output(new KWayland::Client::Output(this));
@@ -443,8 +432,9 @@ void WaylandIntegration::WaylandIntegrationPrivate::removeOutput(quint32 name)
     qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "    model: " << output.model();
 }
 
-void WaylandIntegration::WaylandIntegrationPrivate::setupRegistry()
+void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
 {
+    auto connection = KWayland::Client::ConnectionThread::fromApplication(QGuiApplication::instance());
     m_registry = new KWayland::Client::Registry(this);
 
     connect(m_registry, &KWayland::Client::Registry::fakeInputAnnounced, this, [this](quint32 name, quint32 version) {
@@ -468,6 +458,6 @@ void WaylandIntegration::WaylandIntegrationPrivate::setupRegistry()
         qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "Registry initialized";
     });
 
-    m_registry->create(m_connection);
+    m_registry->create(connection);
     m_registry->setup();
 }

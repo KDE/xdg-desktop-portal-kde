@@ -46,13 +46,9 @@ public:
 
     KWayland::Client::PlasmaWindowManagement *plasmaWindowManagement();
 
-protected Q_SLOTS:
-    void setupRegistry();
-
 private:
     bool m_registryInitialized = false;
 
-    KWayland::Client::ConnectionThread *m_connection = nullptr;
     KWayland::Client::Registry *m_registry = nullptr;
     KWayland::Client::PlasmaWindowManagement *m_windowManagement = nullptr;
 
