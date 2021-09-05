@@ -435,6 +435,11 @@ void WaylandIntegration::WaylandIntegrationPrivate::removeOutput(quint32 name)
 void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
 {
     auto connection = KWayland::Client::ConnectionThread::fromApplication(QGuiApplication::instance());
+
+    if (!connection) {
+        return;
+    }
+
     m_registry = new KWayland::Client::Registry(this);
 
     connect(m_registry, &KWayland::Client::Registry::fakeInputAnnounced, this, [this](quint32 name, quint32 version) {
