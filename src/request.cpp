@@ -44,22 +44,27 @@ bool Request::handleMessage(const QDBusMessage &message, const QDBusConnection &
     if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Request")) {
         if (message.member() == QLatin1String("Close")) {
             if (m_portalName == QLatin1String("org.freedesktop.impl.portal.Inhibit")) {
-                QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
-                                                                      QStringLiteral("/org/kde/Solid/PowerManagement/PolicyAgent"),
-                                                                      QStringLiteral("org.kde.Solid.PowerManagement.PolicyAgent"),
-                                                                      QStringLiteral("ReleaseInhibition"));
+                QDBusMessage uninhibitMessage = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
+                                                                               QStringLiteral("/org/kde/Solid/PowerManagement/PolicyAgent"),
+                                                                               QStringLiteral("org.kde.Solid.PowerManagement.PolicyAgent"),
+                                                                               QStringLiteral("ReleaseInhibition"));
 
-                message << m_data.toUInt();
+                uninhibitMessage << m_data.toUInt();
 
-                QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(message);
+                QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(uninhibitMessage);
                 QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingCall);
-                connect(watcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
+                connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, message](QDBusPendingCallWatcher *watcher) {
                     QDBusPendingReply<> reply = *watcher;
+                    QDBusMessage messageReply;
                     if (reply.isError()) {
                         qCDebug(XdgRequestKdeRequest) << "Uninhibit error: " << reply.error().message();
+                        messageReply = message.createErrorReply(reply.error());
                     } else {
+                        messageReply = message.createReply();
                         Q_EMIT closeRequested();
                     }
+
+                    QDBusConnection::sessionBus().asyncCall(messageReply);
                 });
             }
         }
