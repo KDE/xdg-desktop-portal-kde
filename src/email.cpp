@@ -33,16 +33,26 @@ uint EmailPortal::ComposeEmail(const QDBusObjectPath &handle, const QString &app
     qCDebug(XdgDesktopPortalKdeEmail) << "    window: " << window;
     qCDebug(XdgDesktopPortalKdeEmail) << "    options: " << options;
 
+    const QString addresses = options.contains(QStringLiteral("address")) ? options.value(QStringLiteral("address")).toString()
+                                                                          : options.value(QStringLiteral("addresses")).toStringList().join(QLatin1Char(','));
     QString attachmentString;
     const QStringList attachments = options.value(QStringLiteral("attachments")).toStringList();
     for (const QString &attachment : attachments) {
         attachmentString += QStringLiteral("&attachment=%1").arg(attachment);
     }
 
-    const QString mailtoUrl = QStringLiteral("mailto:%1?subject=%2&body=%3%4")
-                                  .arg(options.value(QStringLiteral("address")).toString(),
-                                       options.value(QStringLiteral("subject")).toString(),
-                                       options.value(QStringLiteral("body")).toString(),
-                                       attachmentString);
+    QString cc, bcc;
+    if (options.contains(QStringLiteral("cc"))) {
+        cc = QStringLiteral("&cc=%1").arg(options.value(QStringLiteral("cc")).toStringList().join(QLatin1Char(',')));
+    }
+
+    if (options.contains(QStringLiteral("bcc"))) {
+        bcc = QStringLiteral("&bcc=%1").arg(options.value(QStringLiteral("bcc")).toStringList().join(QLatin1Char(',')));
+    }
+
+    const QString mailtoUrl =
+        QStringLiteral("mailto:%1?subject=%2&body=%3%4%5%6")
+            .arg(addresses, options.value(QStringLiteral("subject")).toString(), options.value(QStringLiteral("body")).toString(), cc, bcc, attachmentString);
+
     return QDesktopServices::openUrl(QUrl(mailtoUrl));
 }
