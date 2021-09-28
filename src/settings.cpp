@@ -122,6 +122,14 @@ void SettingsPortal::ReadAll(const QStringList &groups)
     }
 
     VariantMapMap result;
+
+    if (groupMatches(QStringLiteral("org.freedesktop.appearance"), groups)) {
+        QVariantMap appearanceSettings;
+        appearanceSettings.insert(QStringLiteral("color-scheme"), readFdoColorScheme().variant());
+
+        result.insert(QStringLiteral("org.freedesktop.appearance"), appearanceSettings);
+    }
+
     const auto groupList = m_kdeglobals->groupList();
     for (const QString &settingGroupName : groupList) {
         // NOTE: use org.kde.kdeglobals prefix
@@ -173,8 +181,13 @@ void SettingsPortal::Read(const QString &group, const QString &key)
     QDBusMessage reply;
     QDBusMessage message = q_ptr->message();
 
-    // All our namespaces start with this prefix
-    if (!group.startsWith(QStringLiteral("org.kde.kdeglobals"))) {
+    if (group == QLatin1String("org.freedesktop.appearance") && key == QLatin1String("color-scheme")) {
+        reply = message.createReply(QVariant::fromValue(readFdoColorScheme()));
+        QDBusConnection::sessionBus().send(reply);
+        return;
+    }
+    // All other namespaces start with this prefix
+    else if (!group.startsWith(QStringLiteral("org.kde.kdeglobals"))) {
         qCWarning(XdgDesktopPortalKdeSettings) << "Namespace " << group << " is not supported";
         reply = message.createErrorReply(QDBusError::UnknownProperty, QStringLiteral("Namespace is not supported"));
         QDBusConnection::sessionBus().send(reply);
@@ -210,6 +223,8 @@ void SettingsPortal::globalSettingChanged(int type, int arg)
         Q_EMIT SettingChanged(QStringLiteral("org.kde.kdeglobals.General"),
                               QStringLiteral("ColorScheme"),
                               readProperty(QStringLiteral("org.kde.kdeglobals.General"), QStringLiteral("ColorScheme")));
+
+        Q_EMIT SettingChanged(QStringLiteral("org.freedesktop.appearance"), QStringLiteral("color-scheme"), readFdoColorScheme());
         break;
     case FontChanged:
         fontChanged();
@@ -271,4 +286,20 @@ QDBusVariant SettingsPortal::readProperty(const QString &group, const QString &k
     }
 
     return QDBusVariant(configGroup.readEntry(key));
+}
+
+QDBusVariant SettingsPortal::readFdoColorScheme()
+{
+    const KConfigGroup general = m_kdeglobals->group(QStringLiteral("General"));
+    const QString colorSchemeName = general.readEntry(QStringLiteral("ColorScheme"), QStringLiteral("Breeze"));
+
+    uint result = 0;
+
+    if (colorSchemeName == QLatin1String("Breeze") || colorSchemeName == QLatin1String("BreezeLight") || colorSchemeName == QLatin1String("BreezeClassic")) {
+        result = 2;
+    } else if (colorSchemeName == QLatin1String("BreezeDark")) {
+        result = 1;
+    }
+
+    return QDBusVariant(result);
 }

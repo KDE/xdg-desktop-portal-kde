@@ -76,6 +76,7 @@ private Q_SLOTS:
 
 private:
     QDBusVariant readProperty(const QString &group, const QString &key);
+    QDBusVariant readFdoColorScheme();
 
     KSharedConfigPtr m_kdeglobals;
 };
