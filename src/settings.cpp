@@ -8,12 +8,15 @@
 
 #include "settings.h"
 
+#include <QApplication>
+
 #include <QDBusConnection>
 #include <QDBusContext>
 #include <QDBusMessage>
 #include <QDBusMetaType>
 
 #include <QLoggingCategory>
+#include <QPalette>
 
 #include <KConfigCore/KConfigGroup>
 
@@ -290,15 +293,15 @@ QDBusVariant SettingsPortal::readProperty(const QString &group, const QString &k
 
 QDBusVariant SettingsPortal::readFdoColorScheme()
 {
-    const KConfigGroup general = m_kdeglobals->group(QStringLiteral("General"));
-    const QString colorSchemeName = general.readEntry(QStringLiteral("ColorScheme"), QStringLiteral("Breeze"));
+    const QPalette palette = QApplication::palette();
+    const int windowBackgroundGray = qGray(palette.window().color().rgb());
 
-    uint result = 0;
+    uint result = 0; // no preference
 
-    if (colorSchemeName == QLatin1String("Breeze") || colorSchemeName == QLatin1String("BreezeLight") || colorSchemeName == QLatin1String("BreezeClassic")) {
-        result = 2;
-    } else if (colorSchemeName == QLatin1String("BreezeDark")) {
-        result = 1;
+    if (windowBackgroundGray < 192) {
+        result = 1; // prefer dark
+    } else {
+        result = 2; // prefer light
     }
 
     return QDBusVariant(result);
