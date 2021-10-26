@@ -40,7 +40,7 @@ class WaylandIntegrationPrivate : public WaylandIntegration::WaylandIntegration
     Q_OBJECT
 public:
     WaylandIntegrationPrivate();
-    ~WaylandIntegrationPrivate();
+    ~WaylandIntegrationPrivate() override;
 
     void initWayland();
 

@@ -20,7 +20,7 @@ class RemoteDesktopPortal : public QDBusAbstractAdaptor
     Q_PROPERTY(uint AvailableDeviceTypes READ AvailableDeviceTypes CONSTANT)
 public:
     explicit RemoteDesktopPortal(QObject *parent);
-    ~RemoteDesktopPortal();
+    ~RemoteDesktopPortal() override;
 
     enum DeviceType {
         None = 0x0,

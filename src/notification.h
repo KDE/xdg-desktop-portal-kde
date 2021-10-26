@@ -25,7 +25,7 @@ public:
     };
 
     explicit NotificationPortal(QObject *parent);
-    ~NotificationPortal();
+    ~NotificationPortal() override;
 
 public Q_SLOTS:
     void AddNotification(const QString &app_id, const QString &id, const QVariantMap &notification);

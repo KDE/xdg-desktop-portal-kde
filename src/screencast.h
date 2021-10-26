@@ -36,7 +36,7 @@ public:
     Q_ENUM(CursorModes);
 
     explicit ScreenCastPortal(QObject *parent);
-    ~ScreenCastPortal();
+    ~ScreenCastPortal() override;
 
     uint version() const
     {

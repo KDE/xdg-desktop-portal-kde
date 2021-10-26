@@ -135,7 +135,7 @@ public:
                               const QString &mimeName = QString(),
                               QDialog *parent = nullptr,
                               Qt::WindowFlags flags = {});
-    ~AppChooserDialog();
+    ~AppChooserDialog() override;
 
     void updateChoices(const QStringList &choices);
 

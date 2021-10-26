@@ -22,7 +22,7 @@ class ScreenshotDialog : public QDialog
     Q_OBJECT
 public:
     explicit ScreenshotDialog(QDialog *parent = nullptr, Qt::WindowFlags flags = {});
-    ~ScreenshotDialog();
+    ~ScreenshotDialog() override;
 
     QImage image() const;
 

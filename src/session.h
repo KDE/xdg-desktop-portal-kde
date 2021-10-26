@@ -20,7 +20,7 @@ class Session : public QDBusVirtualObject
     Q_OBJECT
 public:
     explicit Session(QObject *parent = nullptr, const QString &appId = QString(), const QString &path = QString());
-    ~Session();
+    ~Session() override;
 
     enum SessionType {
         ScreenCast = 0,
@@ -49,7 +49,7 @@ class ScreenCastSession : public Session
     Q_OBJECT
 public:
     explicit ScreenCastSession(QObject *parent = nullptr, const QString &appId = QString(), const QString &path = QString());
-    ~ScreenCastSession();
+    ~ScreenCastSession() override;
 
     void setOptions(const QVariantMap &options);
 
@@ -73,7 +73,7 @@ class RemoteDesktopSession : public ScreenCastSession
     Q_OBJECT
 public:
     explicit RemoteDesktopSession(QObject *parent = nullptr, const QString &appId = QString(), const QString &path = QString());
-    ~RemoteDesktopSession();
+    ~RemoteDesktopSession() override;
 
     RemoteDesktopPortal::DeviceTypes deviceTypes() const;
     void setDeviceTypes(RemoteDesktopPortal::DeviceTypes deviceTypes);

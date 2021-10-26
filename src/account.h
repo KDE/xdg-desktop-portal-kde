@@ -18,7 +18,7 @@ class AccountPortal : public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Account")
 public:
     explicit AccountPortal(QObject *parent);
-    ~AccountPortal();
+    ~AccountPortal() override;
 
 public Q_SLOTS:
     uint GetUserInformation(const QDBusObjectPath &handle, //

@@ -18,7 +18,7 @@ class EmailPortal : public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Email")
 public:
     explicit EmailPortal(QObject *parent);
-    ~EmailPortal();
+    ~EmailPortal() override;
 
 public Q_SLOTS:
     uint ComposeEmail(const QDBusObjectPath &handle, const QString &app_id, const QString &window, const QVariantMap &options, QVariantMap &results);

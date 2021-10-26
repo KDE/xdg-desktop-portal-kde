@@ -23,7 +23,7 @@ class ScreenChooserDialog : public QDialog
     Q_OBJECT
 public:
     ScreenChooserDialog(const QString &appName, bool multiple, QDialog *parent = nullptr, Qt::WindowFlags flags = {});
-    ~ScreenChooserDialog();
+    ~ScreenChooserDialog() override;
 
     void setSourceTypes(ScreenCastPortal::SourceTypes types);
 

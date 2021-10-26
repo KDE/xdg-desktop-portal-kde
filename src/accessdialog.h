@@ -21,7 +21,7 @@ class AccessDialog : public QDialog
     Q_OBJECT
 public:
     explicit AccessDialog(QDialog *parent = nullptr, Qt::WindowFlags flags = {});
-    ~AccessDialog();
+    ~AccessDialog() override;
 
     void setAcceptLabel(const QString &label);
     void setBody(const QString &body);

@@ -33,7 +33,7 @@ class DesktopPortal : public QObject, public QDBusContext
     Q_OBJECT
 public:
     explicit DesktopPortal(QObject *parent = nullptr);
-    ~DesktopPortal();
+    ~DesktopPortal() override;
 
 private:
     AccessPortal *m_access;

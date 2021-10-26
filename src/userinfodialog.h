@@ -23,7 +23,7 @@ class UserInfoDialog : public QDialog
     Q_OBJECT
 public:
     explicit UserInfoDialog(const QString &reason, QDialog *parent = nullptr, Qt::WindowFlags flags = {});
-    ~UserInfoDialog();
+    ~UserInfoDialog() override;
 
     QString id() const;
     QString name() const;

@@ -18,7 +18,7 @@ class AccessPortal : public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Access")
 public:
     explicit AccessPortal(QObject *parent);
-    ~AccessPortal();
+    ~AccessPortal() override;
 
 public Q_SLOTS:
     uint AccessDialog(const QDBusObjectPath &handle,

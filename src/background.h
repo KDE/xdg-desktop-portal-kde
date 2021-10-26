@@ -26,7 +26,7 @@ class BackgroundPortal : public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Background")
 public:
     explicit BackgroundPortal(QObject *parent);
-    ~BackgroundPortal();
+    ~BackgroundPortal() override;
 
     enum ApplicationState {
         Background = 0,

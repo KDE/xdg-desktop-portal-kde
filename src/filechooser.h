@@ -26,7 +26,7 @@ public:
     friend class FileChooserPortal;
 
     FileDialog(QDialog *parent = nullptr, Qt::WindowFlags flags = {});
-    ~FileDialog();
+    ~FileDialog() override;
 
 private:
     QDialogButtonBox *m_buttons;
@@ -68,7 +68,7 @@ public:
     typedef QList<Option> OptionList;
 
     explicit FileChooserPortal(QObject *parent);
-    ~FileChooserPortal();
+    ~FileChooserPortal() override;
 
 public Q_SLOTS:
     uint OpenFile(const QDBusObjectPath &handle,

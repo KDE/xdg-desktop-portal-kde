@@ -24,7 +24,7 @@ public:
     };
 
     explicit ScreenshotPortal(QObject *parent);
-    ~ScreenshotPortal();
+    ~ScreenshotPortal() override;
 
 public Q_SLOTS:
     uint Screenshot(const QDBusObjectPath &handle, const QString &app_id, const QString &parent_window, const QVariantMap &options, QVariantMap &results);

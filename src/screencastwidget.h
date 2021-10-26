@@ -16,7 +16,7 @@ class ScreenCastWidget : public QListWidget
     Q_OBJECT
 public:
     ScreenCastWidget(QWidget *parent = nullptr);
-    ~ScreenCastWidget();
+    ~ScreenCastWidget() override;
 
     QList<quint32> selectedScreens() const;
 };

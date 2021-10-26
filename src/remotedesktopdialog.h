@@ -28,7 +28,7 @@ public:
                         bool multiple = false,
                         QDialog *parent = nullptr,
                         Qt::WindowFlags flags = {});
-    ~RemoteDesktopDialog();
+    ~RemoteDesktopDialog() override;
 
     QList<quint32> selectedScreens() const;
     RemoteDesktopPortal::DeviceTypes deviceTypes() const;

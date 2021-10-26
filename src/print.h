@@ -20,7 +20,7 @@ class PrintPortal : public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Print")
 public:
     explicit PrintPortal(QObject *parent);
-    ~PrintPortal();
+    ~PrintPortal() override;
 
 public Q_SLOTS:
     uint Print(const QDBusObjectPath &handle,
