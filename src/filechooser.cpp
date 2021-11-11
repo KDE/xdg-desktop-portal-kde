@@ -21,10 +21,13 @@
 #include <QStandardPaths>
 #include <QUrl>
 #include <QVBoxLayout>
+#include <QWindow>
 
 #include <KFileFilterCombo>
 #include <KFileWidget>
 #include <KLocalizedString>
+#include <KSharedConfig>
+#include <KWindowConfig>
 
 #include <mobilefiledialog.h>
 
@@ -130,6 +133,7 @@ const QDBusArgument &operator>>(const QDBusArgument &arg, FileChooserPortal::Opt
 FileDialog::FileDialog(QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)
     , m_fileWidget(new KFileWidget(QUrl(), this))
+    , m_configGroup(KSharedConfig::openConfig()->group("FileDialogSize"))
 {
     setLayout(new QVBoxLayout);
     layout()->addWidget(m_fileWidget);
@@ -143,10 +147,19 @@ FileDialog::FileDialog(QDialog *parent, Qt::WindowFlags flags)
     connect(m_fileWidget, &KFileWidget::accepted, this, &QDialog::accept);
     connect(m_fileWidget->cancelButton(), &QAbstractButton::clicked, this, &QDialog::reject);
     layout()->addWidget(m_buttons);
+
+    // restore window size
+    if (m_configGroup.exists()) {
+        winId(); // ensure there's a window created
+        KWindowConfig::restoreWindowSize(windowHandle(), m_configGroup);
+        resize(windowHandle()->size());
+    }
 }
 
 FileDialog::~FileDialog()
 {
+    // save window size
+    KWindowConfig::saveWindowSize(windowHandle(), m_configGroup);
 }
 
 FileChooserPortal::FileChooserPortal(QObject *parent)
