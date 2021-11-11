@@ -15,6 +15,8 @@
 #include <QDBusObjectPath>
 #include <QDialog>
 
+#include <KConfigGroup>
+
 class KFileWidget;
 class QDialogButtonBox;
 class MobileFileDialog;
@@ -33,6 +35,7 @@ private:
 
 protected:
     KFileWidget *m_fileWidget;
+    KConfigGroup m_configGroup;
 };
 
 class FileChooserPortal : public QDBusAbstractAdaptor
