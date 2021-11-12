@@ -1,11 +1,16 @@
 set(filepicker_lib_SRCS
     api/mobilefiledialog.cpp
-    declarative/filechooserqmlcallback.cpp
-    declarative/dirmodel.cpp
-    declarative/dirmodelutils.cpp
-    declarative/fileplacesmodel.cpp
-    declarative/filechooserqmlcallback.cpp
+    api/mobilefiledialog.h
     declarative/dirlister.cpp
+    declarative/dirlister.h
+    declarative/dirmodel.cpp
+    declarative/dirmodel.h
+    declarative/dirmodelutils.cpp
+    declarative/dirmodelutils.h
+    declarative/filechooserqmlcallback.cpp
+    declarative/filechooserqmlcallback.h
+    declarative/fileplacesmodel.cpp
+    declarative/fileplacesmodel.h
     declarative/filepicker.qrc
 )
 

@@ -5,35 +5,62 @@ add_definitions(-DTRANSLATION_DOMAIN="xdg-desktop-portal-kde")
 include_directories(${Qt5PrintSupport_PRIVATE_INCLUDE_DIRS})
 
 set(xdg_desktop_portal_kde_SRCS
-    xdg-desktop-portal-kde.cpp
     access.cpp
     accessdialog.cpp
+    accessdialog.h
+    access.h
     account.cpp
+    account.h
     appchooser.cpp
     appchooserdialog.cpp
+    appchooserdialog.h
+    appchooser.h
     background.cpp
+    background.h
     desktopportal.cpp
+    desktopportal.h
     email.cpp
+    email.h
     filechooser.cpp
+    filechooser.h
     inhibit.cpp
+    inhibit.h
     notification.cpp
+    notification.h
     notificationinhibition.cpp
+    notificationinhibition.h
     print.cpp
-    request.cpp
-    session.cpp
-    screenshot.cpp
-    screenshotdialog.cpp
-    settings.cpp
-    utils.cpp
-    userinfodialog.cpp
-    waylandintegration.cpp
-    screencast.cpp
-    screencasting.cpp
-    screencastwidget.cpp
-    screenchooserdialog.cpp
+    print.h
     remotedesktop.cpp
     remotedesktopdialog.cpp
-)
+    remotedesktopdialog.h
+    remotedesktop.h
+    request.cpp
+    request.h
+    screencast.cpp
+    screencast.h
+    screencasting.cpp
+    screencasting.h
+    screencastwidget.cpp
+    screencastwidget.h
+    screenchooserdialog.cpp
+    screenchooserdialog.h
+    screenshot.cpp
+    screenshotdialog.cpp
+    screenshotdialog.h
+    screenshot.h
+    session.cpp
+    session.h
+    settings.cpp
+    settings.h
+    userinfodialog.cpp
+    userinfodialog.h
+    utils.cpp
+    utils.h
+    waylandintegration.cpp
+    waylandintegration.h
+    waylandintegration_p.h
+    xdg-desktop-portal-kde.cpp)
 
 ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
     accessdialog.ui
