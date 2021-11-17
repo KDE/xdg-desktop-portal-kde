@@ -24,8 +24,8 @@ DesktopPortal::DesktopPortal(QObject *parent)
     , m_print(new PrintPortal(this))
     , m_settings(new SettingsPortal(this))
 {
-    const QByteArray xdgCurrentDesktop = qgetenv("XDG_CURRENT_DESKTOP").toUpper();
-    if (xdgCurrentDesktop == "KDE") {
+    const QByteArray xdgCurrentDesktop = qgetenv("XDG_CURRENT_DESKTOP");
+    if (xdgCurrentDesktop.compare("KDE", Qt::CaseInsensitive) == 0) {
         m_background = new BackgroundPortal(this);
         m_screenCast = new ScreenCastPortal(this);
         m_remoteDesktop = new RemoteDesktopPortal(this);
