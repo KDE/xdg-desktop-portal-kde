@@ -9,7 +9,7 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_USERINFO_DIALOG_H
 #define XDG_DESKTOP_PORTAL_KDE_USERINFO_DIALOG_H
 
-#include <QDialog>
+#include "quickdialog.h"
 
 namespace Ui
 {
@@ -18,11 +18,11 @@ class UserInfoDialog;
 
 class OrgFreedesktopAccountsUserInterface;
 
-class UserInfoDialog : public QDialog
+class UserInfoDialog : public QuickDialog
 {
     Q_OBJECT
 public:
-    explicit UserInfoDialog(const QString &reason, QDialog *parent = nullptr, Qt::WindowFlags flags = {});
+    explicit UserInfoDialog(const QString &reason, QObject *parent = nullptr);
     ~UserInfoDialog() override;
 
     QString id() const;
@@ -30,7 +30,6 @@ public:
     QString image() const;
 
 private:
-    Ui::UserInfoDialog *m_dialog;
     OrgFreedesktopAccountsUserInterface *m_userInterface;
 };
 

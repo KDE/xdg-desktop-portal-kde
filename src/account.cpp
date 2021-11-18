@@ -41,7 +41,7 @@ uint AccountPortal::GetUserInformation(const QDBusObjectPath &handle,
     }
 
     UserInfoDialog *userInfoDialog = new UserInfoDialog(reason);
-    Utils::setParentWindow(userInfoDialog, parent_window);
+    Utils::setParentWindow(userInfoDialog->windowHandle(), parent_window);
 
     int result = userInfoDialog->exec();
 

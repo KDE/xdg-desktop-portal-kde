@@ -2,5 +2,6 @@
 <RCC version="1.0">
  <qresource>
     <file>ScreenChooserDialog.qml</file>
+    <file>UserInfoDialog.qml</file>
  </qresource>
 </RCC>
