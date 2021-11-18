@@ -31,6 +31,7 @@ set(xdg_desktop_portal_kde_SRCS
     notificationinhibition.h
     print.cpp
     print.h
+    quickdialog.cpp
     remotedesktop.cpp
     remotedesktopdialog.cpp
     remotedesktopdialog.h

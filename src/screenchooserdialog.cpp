@@ -10,16 +10,12 @@
 #include "ui_screenchooserdialog.h"
 #include "waylandintegration.h"
 
-#include <KLocalizedString>
 #include <KWayland/Client/plasmawindowmanagement.h>
 #include <KWayland/Client/plasmawindowmodel.h>
-#include <QQmlApplicationEngine>
-#include <QQmlContext>
-#include <QQuickWindow>
 #include <QSettings>
 #include <QSortFilterProxyModel>
 #include <QStandardPaths>
-#include <QTimer>
+#include <QWindow>
 
 class FilteredWindowModel : public QSortFilterProxyModel
 {
@@ -212,7 +208,7 @@ private:
 };
 
 ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, ScreenCastPortal::SourceTypes types)
-    : QObject()
+    : QuickDialog()
 {
     QString applicationName;
     const QString desktopFile = appName + QLatin1String(".desktop");
@@ -231,16 +227,12 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
         }
     }
 
-    auto engine = new QQmlApplicationEngine(this);
     QVariantMap props = {
         {"title", i18n("Screen Sharing")},
         {"mainText",
          appName.isEmpty() ? i18n("Select screen to share with the requesting application") : i18n("Select what to share with %1", applicationName)},
         {"multiple", multiple},
     };
-
-    engine->rootContext()->setContextObject(new KLocalizedContext(engine));
-
     Q_ASSERT(types != 0);
     if (types & ScreenCastPortal::Monitor) {
         auto model = new OutputsModel(this);
@@ -254,15 +246,9 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
         props.insert("windowsModel", QVariant::fromValue<QObject *>(windowsProxy));
         connect(this, &ScreenChooserDialog::clearSelection, windowsProxy, &FilteredWindowModel::clearSelection);
     }
-    engine->setInitialProperties(props);
-    engine->load("qrc:/ScreenChooserDialog.qml");
 
-    m_theDialog = qobject_cast<QQuickWindow *>(engine->rootObjects().constFirst());
-    connect(m_theDialog, SIGNAL(accept()), this, SLOT(accept()));
-    connect(m_theDialog, SIGNAL(reject()), this, SLOT(reject()));
+    create("qrc:/ScreenChooserDialog.qml", props);
     connect(m_theDialog, SIGNAL(clearSelection()), this, SIGNAL(clearSelection()));
-
-    QTimer::singleShot(0, m_theDialog, SLOT(show()));
 }
 
 ScreenChooserDialog::~ScreenChooserDialog() = default;
@@ -283,19 +269,4 @@ QVector<QMap<int, QVariant>> ScreenChooserDialog::selectedWindows() const
         return {};
     }
     return model->selectedWindows();
-}
-
-bool ScreenChooserDialog::exec()
-{
-    return m_execLoop.exec() == 0;
-}
-
-void ScreenChooserDialog::reject()
-{
-    m_execLoop.exit(1);
-}
-
-void ScreenChooserDialog::accept()
-{
-    m_execLoop.quit();
 }
