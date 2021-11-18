@@ -66,7 +66,6 @@ set(xdg_desktop_portal_kde_SRCS
 )
 
 ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
-    accessdialog.ui
     appchooserdialog.ui
     screenshotdialog.ui
     screenchooserdialog.ui

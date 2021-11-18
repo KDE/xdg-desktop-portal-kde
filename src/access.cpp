@@ -10,6 +10,7 @@
 #include "utils.h"
 
 #include <QLoggingCategory>
+#include <QWindow>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAccess, "xdp-kde-access")
 
@@ -41,14 +42,9 @@ uint AccessPortal::AccessDialog(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeAccess) << "    options: " << options;
 
     auto accessDialog = new ::AccessDialog();
-    Utils::setParentWindow(accessDialog, parent_window);
     accessDialog->setBody(body);
     accessDialog->setTitle(title);
     accessDialog->setSubtitle(subtitle);
-
-    if (options.contains(QStringLiteral("modal"))) {
-        accessDialog->setModal(options.value(QStringLiteral("modal")).toBool());
-    }
 
     if (options.contains(QStringLiteral("deny_label"))) {
         accessDialog->setRejectLabel(options.value(QStringLiteral("deny_label")).toString());
@@ -63,6 +59,12 @@ uint AccessPortal::AccessDialog(const QDBusObjectPath &handle,
     }
 
     // TODO choices
+
+    accessDialog->createDialog();
+    Utils::setParentWindow(accessDialog->windowHandle(), parent_window);
+    if (options.contains(QStringLiteral("modal"))) {
+        accessDialog->windowHandle()->setModality(options.value(QStringLiteral("modal")).toBool() ? Qt::WindowModal : Qt::NonModal);
+    }
 
     if (accessDialog->exec()) {
         accessDialog->deleteLater();

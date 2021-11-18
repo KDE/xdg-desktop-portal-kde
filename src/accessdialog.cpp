@@ -7,59 +7,55 @@
  */
 
 #include "accessdialog.h"
-#include "ui_accessdialog.h"
 
+#include "utils.h"
+#include <KLocalizedString>
 #include <QLoggingCategory>
 #include <QPushButton>
 #include <QStandardPaths>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAccessDialog, "xdp-kde-access-dialog")
 
-AccessDialog::AccessDialog(QDialog *parent, Qt::WindowFlags flags)
-    : QDialog(parent, flags)
-    , m_dialog(new Ui::AccessDialog)
+AccessDialog::AccessDialog(QObject *parent)
+    : QuickDialog(parent)
 {
-    m_dialog->setupUi(this);
-
-    connect(m_dialog->buttonBox, &QDialogButtonBox::accepted, this, &AccessDialog::accept);
-    connect(m_dialog->buttonBox, &QDialogButtonBox::rejected, this, &AccessDialog::reject);
-
-    m_dialog->iconLabel->setPixmap(QIcon::fromTheme(QStringLiteral("dialog-question")).pixmap(QSize(64, 64)));
-
-    setWindowTitle(i18n("Request device access"));
-}
-
-AccessDialog::~AccessDialog()
-{
-    delete m_dialog;
+    m_props = {
+        {"iconName", "dialog-question"},
+        {"title", i18n("Request device access")},
+    };
 }
 
 void AccessDialog::setAcceptLabel(const QString &label)
 {
-    m_dialog->buttonBox->button(QDialogButtonBox::Ok)->setText(label);
+    m_props.insert("acceptLabel", label);
 }
 
 void AccessDialog::setBody(const QString &body)
 {
-    m_dialog->bodyLabel->setText(body);
+    m_props.insert("body", body);
 }
 
 void AccessDialog::setIcon(const QString &icon)
 {
-    m_dialog->iconLabel->setPixmap(QIcon::fromTheme(icon).pixmap(QSize(64, 64)));
+    m_props.insert("iconName", icon);
 }
 
 void AccessDialog::setRejectLabel(const QString &label)
 {
-    m_dialog->buttonBox->button(QDialogButtonBox::Cancel)->setText(label);
+    m_props.insert("rejectLabel", label);
 }
 
 void AccessDialog::setSubtitle(const QString &subtitle)
 {
-    m_dialog->subtitleLabel->setText(subtitle);
+    m_props.insert("subtitle", subtitle);
 }
 
 void AccessDialog::setTitle(const QString &title)
 {
-    m_dialog->titleLabel->setText(title);
+    m_props.insert("title", title);
+}
+
+void AccessDialog::createDialog()
+{
+    create("qrc:/AccessDialog.qml", m_props);
 }

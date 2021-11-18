@@ -9,19 +9,14 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_ACCESS_DIALOG_H
 #define XDG_DESKTOP_PORTAL_KDE_ACCESS_DIALOG_H
 
-#include <QDialog>
+#include "quickdialog.h"
+#include <QVariantMap>
 
-namespace Ui
-{
-class AccessDialog;
-}
-
-class AccessDialog : public QDialog
+class AccessDialog : public QuickDialog
 {
     Q_OBJECT
 public:
-    explicit AccessDialog(QDialog *parent = nullptr, Qt::WindowFlags flags = {});
-    ~AccessDialog() override;
+    explicit AccessDialog(QObject *parent = nullptr);
 
     void setAcceptLabel(const QString &label);
     void setBody(const QString &body);
@@ -30,8 +25,10 @@ public:
     void setTitle(const QString &title);
     void setSubtitle(const QString &subtitle);
 
+    void createDialog();
+
 private:
-    Ui::AccessDialog *m_dialog;
+    QVariantMap m_props;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_ACCESS_DIALOG_H
