@@ -152,12 +152,16 @@ FileDialog::FileDialog(QDialog *parent, Qt::WindowFlags flags)
     m_buttons = new QDialogButtonBox(this);
     m_buttons->addButton(m_fileWidget->okButton(), QDialogButtonBox::AcceptRole);
     m_buttons->addButton(m_fileWidget->cancelButton(), QDialogButtonBox::RejectRole);
-    connect(m_buttons, &QDialogButtonBox::rejected, m_fileWidget, &KFileWidget::slotCancel);
-    connect(m_fileWidget->okButton(), &QAbstractButton::clicked, m_fileWidget, &KFileWidget::slotOk);
+    layout()->addWidget(m_buttons);
+
+    // accept
+    connect(m_buttons, &QDialogButtonBox::accepted, m_fileWidget, &KFileWidget::slotOk);
     connect(m_fileWidget, &KFileWidget::accepted, m_fileWidget, &KFileWidget::accept);
     connect(m_fileWidget, &KFileWidget::accepted, this, &QDialog::accept);
-    connect(m_fileWidget->cancelButton(), &QAbstractButton::clicked, this, &QDialog::reject);
-    layout()->addWidget(m_buttons);
+
+    // reject
+    connect(m_buttons, &QDialogButtonBox::rejected, this, &QDialog::reject);
+    connect(this, &QDialog::rejected, m_fileWidget, &KFileWidget::slotCancel);
 
     // restore window size
     if (m_configGroup.exists()) {
