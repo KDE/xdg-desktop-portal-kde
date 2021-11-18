@@ -13,10 +13,13 @@
 #include <KLocalizedString>
 #include <KWayland/Client/plasmawindowmanagement.h>
 #include <KWayland/Client/plasmawindowmodel.h>
-#include <QPushButton>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
+#include <QQuickWindow>
 #include <QSettings>
 #include <QSortFilterProxyModel>
 #include <QStandardPaths>
+#include <QTimer>
 
 class FilteredWindowModel : public QSortFilterProxyModel
 {
@@ -48,35 +51,169 @@ public:
         }
         return ret;
     }
+
+    bool setData(const QModelIndex &index, const QVariant &value, int role) override
+    {
+        if (!checkIndex(index, CheckIndexOption::IndexIsValid) || role != Qt::CheckStateRole) {
+            return false;
+        }
+
+        using KWayland::Client::PlasmaWindowModel;
+        const QString uuid = index.data(PlasmaWindowModel::Uuid).toString();
+        if (value == Qt::Checked) {
+            m_selected.insert(index);
+        } else {
+            m_selected.remove(index);
+        }
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
+    }
+
+    QVector<QMap<int, QVariant>> selectedWindows() const
+    {
+        QVector<QMap<int, QVariant>> ret;
+        ret.reserve(m_selected.size());
+        for (const auto &index : m_selected) {
+            if (index.isValid())
+                ret << itemData(index);
+        }
+        return ret;
+    }
+
+    QHash<int, QByteArray> roleNames() const override
+    {
+        QHash<int, QByteArray> ret = sourceModel()->roleNames();
+        ret.insert(Qt::CheckStateRole, "checked");
+        return ret;
+    }
+
+    QVariant data(const QModelIndex &index, int role) const override
+    {
+        if (!checkIndex(index, CheckIndexOption::IndexIsValid)) {
+            return {};
+        }
+
+        switch (role) {
+        case Qt::CheckStateRole:
+            return m_selected.contains(index) ? Qt::Checked : Qt::Unchecked;
+        default:
+            return QSortFilterProxyModel::data(index, role);
+        }
+        return {};
+    }
+    void clearSelection()
+    {
+        auto selected = m_selected;
+        m_selected.clear();
+
+        for (const auto &index : selected) {
+            if (index.isValid())
+                Q_EMIT dataChanged(index, index, {Qt::CheckStateRole});
+        }
+    }
+
+private:
+    QSet<QPersistentModelIndex> m_selected;
 };
 
-ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, QDialog *parent, Qt::WindowFlags flags)
-    : QDialog(parent, flags)
-    , m_multiple(multiple)
-    , m_dialog(new Ui::ScreenChooserDialog)
+class OutputsModel : public QAbstractListModel
 {
-    m_dialog->setupUi(this);
+public:
+    OutputsModel(QObject *parent)
+        : QAbstractListModel(parent)
+    {
+        m_outputs = WaylandIntegration::screens().values();
+    }
 
-    const auto selection = multiple ? QAbstractItemView::ExtendedSelection : QAbstractItemView::SingleSelection;
-    m_dialog->screenView->setSelectionMode(selection);
-    m_dialog->windowsView->setSelectionMode(selection);
+    int rowCount(const QModelIndex &parent) const override
+    {
+        return parent.isValid() ? 0 : m_outputs.count();
+    }
 
-    auto model = new KWayland::Client::PlasmaWindowModel(WaylandIntegration::plasmaWindowManagement());
-    auto proxy = new FilteredWindowModel(this);
-    proxy->setSourceModel(model);
-    m_dialog->windowsView->setModel(proxy);
+    QHash<int, QByteArray> roleNames() const override
+    {
+        return QHash<int, QByteArray>{
+            {Qt::DisplayRole, "display"},
+            {Qt::DecorationRole, "decoration"},
+            {Qt::UserRole, "outputName"},
+            {Qt::CheckStateRole, "checked"},
+        };
+    }
 
-    connect(m_dialog->buttonBox, &QDialogButtonBox::accepted, this, &ScreenChooserDialog::accept);
-    connect(m_dialog->buttonBox, &QDialogButtonBox::rejected, this, &ScreenChooserDialog::reject);
-    connect(m_dialog->screenView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &ScreenChooserDialog::selectionChanged);
-    connect(m_dialog->windowsView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &ScreenChooserDialog::selectionChanged);
-    connect(m_dialog->screenView, &QListWidget::doubleClicked, this, &ScreenChooserDialog::accept);
-    connect(m_dialog->windowsView, &QListView::doubleClicked, this, &ScreenChooserDialog::accept);
+    QVariant data(const QModelIndex &index, int role) const override
+    {
+        if (!checkIndex(index, CheckIndexOption::IndexIsValid)) {
+            return {};
+        }
 
-    auto okButton = m_dialog->buttonBox->button(QDialogButtonBox::Ok);
-    okButton->setText(i18n("Share"));
-    okButton->setEnabled(false);
+        const auto &output = m_outputs[index.row()];
+        switch (role) {
+        case Qt::UserRole:
+            return output.waylandOutputName();
+        case Qt::DecorationRole:
+            switch (output.outputType()) {
+            case WaylandIntegration::WaylandOutput::Laptop:
+                return QIcon::fromTheme(QStringLiteral("computer-laptop"));
+            case WaylandIntegration::WaylandOutput::Monitor:
+                return QIcon::fromTheme(QStringLiteral("video-display"));
+            case WaylandIntegration::WaylandOutput::Television:
+                return QIcon::fromTheme(QStringLiteral("video-television"));
+            }
+        case Qt::DisplayRole:
+            switch (output.outputType()) {
+            case WaylandIntegration::WaylandOutput::Laptop:
+                return i18n("Laptop screen\nModel: %1", output.model());
+            default:
+                return i18n("Manufacturer: %1\nModel: %2", output.manufacturer(), output.model());
+            }
+        case Qt::CheckStateRole:
+            return m_selected.contains(output.waylandOutputName()) ? Qt::Checked : Qt::Unchecked;
+        }
+        return {};
+    }
 
+    bool setData(const QModelIndex &index, const QVariant &value, int role) override
+    {
+        if (!checkIndex(index, CheckIndexOption::IndexIsValid) || role != Qt::CheckStateRole) {
+            return false;
+        }
+
+        const auto &output = m_outputs[index.row()];
+        if (value == Qt::Checked) {
+            m_selected.insert(output.waylandOutputName());
+        } else {
+            m_selected.remove(output.waylandOutputName());
+        }
+        Q_EMIT dataChanged(index, index, {role});
+        return true;
+    }
+
+    QList<quint32> selectedScreens() const
+    {
+        return m_selected.values();
+    }
+    void clearSelection()
+    {
+        auto selected = m_selected;
+        m_selected.clear();
+        int i = 0;
+        for (const auto &output : m_outputs) {
+            if (selected.contains(output.waylandOutputName())) {
+                const auto idx = index(i, 0);
+                Q_EMIT dataChanged(idx, idx, {Qt::CheckStateRole});
+            }
+            ++i;
+        }
+    }
+
+private:
+    QList<WaylandIntegration::WaylandOutput> m_outputs;
+    QSet<quint32> m_selected;
+};
+
+ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, ScreenCastPortal::SourceTypes types)
+    : QObject()
+{
     QString applicationName;
     const QString desktopFile = appName + QLatin1String(".desktop");
     const QStringList desktopFileLocations = QStandardPaths::locateAll(QStandardPaths::ApplicationsLocation, desktopFile, QStandardPaths::LocateFile);
@@ -94,55 +231,71 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
         }
     }
 
-    if (applicationName.isEmpty()) {
-        setWindowTitle(i18n("Select screen to share with the requesting application"));
-    } else {
-        setWindowTitle(i18n("Select screen to share with %1", applicationName));
+    auto engine = new QQmlApplicationEngine(this);
+    QVariantMap props = {
+        {"title", i18n("Screen Sharing")},
+        {"mainText",
+         appName.isEmpty() ? i18n("Select screen to share with the requesting application") : i18n("Select what to share with %1", applicationName)},
+        {"multiple", multiple},
+    };
+
+    engine->rootContext()->setContextObject(new KLocalizedContext(engine));
+
+    Q_ASSERT(types != 0);
+    if (types & ScreenCastPortal::Monitor) {
+        auto model = new OutputsModel(this);
+        props.insert("outputsModel", QVariant::fromValue<QObject *>(model));
+        connect(this, &ScreenChooserDialog::clearSelection, model, &OutputsModel::clearSelection);
     }
-}
-
-ScreenChooserDialog::~ScreenChooserDialog()
-{
-    delete m_dialog;
-}
-
-void ScreenChooserDialog::selectionChanged(const QItemSelection &selected)
-{
-    if (!m_multiple && !selected.isEmpty()) {
-        if (selected.constFirst().model() == m_dialog->windowsView->model())
-            m_dialog->screenView->clearSelection();
-        else
-            m_dialog->windowsView->clearSelection();
+    if (types & ScreenCastPortal::Window) {
+        auto model = new KWayland::Client::PlasmaWindowModel(WaylandIntegration::plasmaWindowManagement());
+        auto windowsProxy = new FilteredWindowModel(this);
+        windowsProxy->setSourceModel(model);
+        props.insert("windowsModel", QVariant::fromValue<QObject *>(windowsProxy));
+        connect(this, &ScreenChooserDialog::clearSelection, windowsProxy, &FilteredWindowModel::clearSelection);
     }
+    engine->setInitialProperties(props);
+    engine->load("qrc:/ScreenChooserDialog.qml");
 
-    auto okButton = m_dialog->buttonBox->button(QDialogButtonBox::Ok);
-    const auto count = m_dialog->screenView->selectionModel()->hasSelection() + m_dialog->windowsView->selectionModel()->hasSelection();
-    okButton->setEnabled(m_multiple ? count > 0 : count == 1);
+    m_theDialog = qobject_cast<QQuickWindow *>(engine->rootObjects().constFirst());
+    connect(m_theDialog, SIGNAL(accept()), this, SLOT(accept()));
+    connect(m_theDialog, SIGNAL(reject()), this, SLOT(reject()));
+    connect(m_theDialog, SIGNAL(clearSelection()), this, SIGNAL(clearSelection()));
+
+    QTimer::singleShot(0, m_theDialog, SLOT(show()));
 }
 
-void ScreenChooserDialog::setSourceTypes(ScreenCastPortal::SourceTypes types)
-{
-    m_dialog->windowsTab->setEnabled(types & ScreenCastPortal::Window);
-    m_dialog->screensTab->setEnabled(types & ScreenCastPortal::Monitor);
-    if (!m_dialog->screensTab->isEnabled()) {
-        m_dialog->tabWidget->setCurrentWidget(m_dialog->windowsTab);
-    }
-}
+ScreenChooserDialog::~ScreenChooserDialog() = default;
 
 QList<quint32> ScreenChooserDialog::selectedScreens() const
 {
-    return m_dialog->screenView->selectedScreens();
+    OutputsModel *model = dynamic_cast<OutputsModel *>(m_theDialog->property("outputsModel").value<QObject *>());
+    if (!model) {
+        return {};
+    }
+    return model->selectedScreens();
 }
 
 QVector<QMap<int, QVariant>> ScreenChooserDialog::selectedWindows() const
 {
-    const auto idxs = m_dialog->windowsView->selectionModel()->selectedIndexes();
-
-    QVector<QMap<int, QVariant>> ret;
-    ret.reserve(idxs.count());
-    for (const auto &idx : idxs) {
-        auto m = idx.model();
-        ret += m->itemData(idx);
+    FilteredWindowModel *model = dynamic_cast<FilteredWindowModel *>(m_theDialog->property("windowsModel").value<QObject *>());
+    if (!model) {
+        return {};
     }
-    return ret;
+    return model->selectedWindows();
+}
+
+bool ScreenChooserDialog::exec()
+{
+    return m_execLoop.exec() == 0;
+}
+
+void ScreenChooserDialog::reject()
+{
+    m_execLoop.exit(1);
+}
+
+void ScreenChooserDialog::accept()
+{
+    m_execLoop.quit();
 }

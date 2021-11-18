@@ -137,10 +137,9 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         return 2;
     }
 
-    QScopedPointer<ScreenChooserDialog, QScopedPointerDeleteLater> screenDialog(new ScreenChooserDialog(app_id, session->multipleSources()));
-    Utils::setParentWindow(screenDialog.data(), parent_window);
-
-    screenDialog->setSourceTypes(SourceTypes(session->types()));
+    QScopedPointer<ScreenChooserDialog, QScopedPointerDeleteLater> screenDialog(
+        new ScreenChooserDialog(app_id, session->multipleSources(), SourceTypes(session->types())));
+    Utils::setParentWindow(screenDialog->windowHandle(), parent_window);
 
     connect(session, &Session::closed, screenDialog.data(), &ScreenChooserDialog::reject);
 
@@ -158,6 +157,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             }
         }
 
+        qDebug() << "WICK" << selectedScreens << selectedWindows;
         QVariant streams = WaylandIntegration::streams();
 
         if (!streams.isValid()) {
@@ -171,6 +171,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             new NotificationInhibition(app_id, i18nc("Do not disturb mode is enabled because...", "Screen sharing in progress"), session);
         }
 
+        qDebug() << "WOCK";
         return 0;
     }
 

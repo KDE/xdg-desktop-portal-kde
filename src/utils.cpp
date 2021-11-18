@@ -15,6 +15,13 @@ void Utils::setParentWindow(QWidget *w, const QString &parent_window)
 {
     if (parent_window.startsWith(QLatin1String("x11:"))) {
         w->setAttribute(Qt::WA_NativeWindow, true);
-        KWindowSystem::setMainWindow(w->windowHandle(), parent_window.midRef(4).toULongLong(nullptr, 16));
+        setParentWindow(w->windowHandle(), parent_window);
+    }
+}
+
+void Utils::setParentWindow(QWindow *w, const QString &parent_window)
+{
+    if (parent_window.startsWith(QLatin1String("x11:"))) {
+        KWindowSystem::setMainWindow(w, parent_window.midRef(4).toULongLong(nullptr, 16));
     }
 }

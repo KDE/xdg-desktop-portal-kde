@@ -60,7 +60,9 @@ set(xdg_desktop_portal_kde_SRCS
     waylandintegration.cpp
     waylandintegration.h
     waylandintegration_p.h
-    xdg-desktop-portal-kde.cpp)
+    xdg-desktop-portal-kde.cpp
+    resources.qrc
+)
 
 ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
     accessdialog.ui

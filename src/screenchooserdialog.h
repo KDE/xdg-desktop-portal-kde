@@ -10,31 +10,36 @@
 #define XDG_DESKTOP_PORTAL_KDE_SCREENCHOOSER_DIALOG_H
 
 #include "screencast.h"
-#include <QDialog>
+#include <QEventLoop>
 
-namespace Ui
-{
-class ScreenChooserDialog;
-}
-class QItemSelection;
+class QWindow;
 
-class ScreenChooserDialog : public QDialog
+class ScreenChooserDialog : public QObject
 {
     Q_OBJECT
 public:
-    ScreenChooserDialog(const QString &appName, bool multiple, QDialog *parent = nullptr, Qt::WindowFlags flags = {});
+    ScreenChooserDialog(const QString &appName, bool multiple, ScreenCastPortal::SourceTypes types);
     ~ScreenChooserDialog() override;
-
-    void setSourceTypes(ScreenCastPortal::SourceTypes types);
 
     QList<quint32> selectedScreens() const;
     QVector<QMap<int, QVariant>> selectedWindows() const;
+    QWindow *windowHandle() const
+    {
+        return m_theDialog;
+    }
+
+    bool exec();
+
+public Q_SLOTS:
+    void reject();
+    void accept();
+
+Q_SIGNALS:
+    void clearSelection();
 
 private:
-    void selectionChanged(const QItemSelection &selected);
-
-    const bool m_multiple;
-    Ui::ScreenChooserDialog *m_dialog;
+    QWindow *m_theDialog = nullptr;
+    QEventLoop m_execLoop;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SCREENCHOOSER_DIALOG_H
