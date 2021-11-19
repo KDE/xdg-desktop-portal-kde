@@ -10,18 +10,14 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import org.kde.kirigami 2.9 as Kirigami
+import org.kde.plasma.workspace.dialogs 1.0 as PWD
 
 import org.kde.xdgdesktopportal 1.0
 
-Item {
+PWD.DesktopSystemDialog
+{
     id: root
-
-    Rectangle {
-        id: background
-        anchors.fill: parent
-        color: Kirigami.Theme.backgroundColor
-    }
-
+    iconName: "applications-all"
     ColumnLayout {
         anchors.fill: parent
 
@@ -37,22 +33,25 @@ Item {
             }
         }
 
-        Rectangle {
+        Frame {
             id: viewBackground
             Layout.fillWidth: true
             Layout.fillHeight: true
+            Kirigami.Theme.inherit: false
             Kirigami.Theme.colorSet: Kirigami.Theme.View
-            color: Kirigami.Theme.backgroundColor
-            property color borderColor: Kirigami.Theme.textColor
-            border.color: Qt.rgba(borderColor.r, borderColor.g, borderColor.b, 0.3)
+            background: Rectangle {
+                color: Kirigami.Theme.backgroundColor
+                property color borderColor: Kirigami.Theme.textColor
+                border.color: Qt.rgba(borderColor.r, borderColor.g, borderColor.b, 0.3)
+            }
 
             ScrollView {
-                id: scrollView
                 anchors.fill: parent
+                implicitHeight: grid.cellHeight * 3
 
                 GridView {
                     id: grid
-                    anchors.fill: parent
+
                     cellHeight: Kirigami.Units.iconSizes.huge + 50
                     cellWidth: Kirigami.Units.iconSizes.huge + 80
                     model: AppModel
@@ -82,7 +81,7 @@ Item {
         }
     }
 
-    Component {
+    readonly property var p0: Component {
         id: appDelegate
 
         Item {

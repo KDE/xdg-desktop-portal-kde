@@ -4,5 +4,6 @@
     <file>ScreenChooserDialog.qml</file>
     <file>UserInfoDialog.qml</file>
     <file>AccessDialog.qml</file>
+    <file>AppChooserDialog.qml</file>
  </qresource>
 </RCC>

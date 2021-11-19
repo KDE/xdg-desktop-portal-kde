@@ -66,7 +66,6 @@ set(xdg_desktop_portal_kde_SRCS
 )
 
 ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
-    appchooserdialog.ui
     screenshotdialog.ui
     screenchooserdialog.ui
     remotedesktopdialog.ui
@@ -105,11 +104,6 @@ target_link_libraries(xdg-desktop-portal-kde
 )
 
 install(TARGETS xdg-desktop-portal-kde DESTINATION ${KDE_INSTALL_LIBEXECDIR})
-
-install(FILES
-    qml/AppChooserDialog.qml
-    qml/UserInfoDialog.qml
-    DESTINATION ${KDE_INSTALL_DATADIR}/xdg-desktop-portal-kde/qml)
 
 install(FILES
     xdg-desktop-portal-kde.notifyrc

@@ -9,7 +9,7 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_APPCHOOSER_DIALOG_H
 #define XDG_DESKTOP_PORTAL_KDE_APPCHOOSER_DIALOG_H
 
-#include <QDialog>
+#include "quickdialog.h"
 
 #include <QAbstractListModel>
 #include <QSortFilterProxyModel>
@@ -125,7 +125,7 @@ private:
     QList<ApplicationItem> m_list;
 };
 
-class AppChooserDialog : public QDialog
+class AppChooserDialog : public QuickDialog
 {
     Q_OBJECT
 public:
@@ -133,10 +133,7 @@ public:
                               const QString &defaultApp,
                               const QString &fileName,
                               const QString &mimeName = QString(),
-                              QDialog *parent = nullptr,
-                              Qt::WindowFlags flags = {});
-    ~AppChooserDialog() override;
-
+                              QObject *parent = nullptr);
     void updateChoices(const QStringList &choices);
 
     QString selectedApplication() const;
@@ -145,13 +142,9 @@ private Q_SLOTS:
     void onOpenDiscover();
 
 private:
-    Ui::AppChooserDialog *m_dialog;
-
     AppModel *m_model;
-    QStringList m_defaultChoices;
-    QString m_defaultApp;
     QString m_selectedApplication;
-    QString m_mimeName;
+    const QString m_mimeName;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_APPCHOOSER_DIALOG_H

@@ -8,7 +8,6 @@
  */
 
 #include "appchooserdialog.h"
-#include "ui_appchooserdialog.h"
 
 #include <QQmlContext>
 #include <QQmlEngine>
@@ -20,33 +19,24 @@
 #include <QStandardPaths>
 
 #include <KApplicationTrader>
+#include <KLocalizedString>
 #include <KProcess>
 #include <KService>
-#include <kdeclarative/kdeclarative.h>
 
 AppChooserDialog::AppChooserDialog(const QStringList &choices,
                                    const QString &defaultApp,
                                    const QString &fileName,
                                    const QString &mimeName,
-                                   QDialog *parent,
-                                   Qt::WindowFlags flags)
-    : QDialog(parent, flags)
-    , m_dialog(new Ui::AppChooserDialog)
-    , m_defaultChoices(choices)
-    , m_defaultApp(defaultApp)
+                                   QObject *parent)
+    : QuickDialog(parent)
     , m_mimeName(mimeName)
 {
-    m_dialog->setupUi(this);
-
-    KDeclarative::KDeclarative kdeclarative;
-    kdeclarative.setDeclarativeEngine(m_dialog->quickWidget->engine());
-    kdeclarative.setTranslationDomain(QStringLiteral(TRANSLATION_DOMAIN));
-    kdeclarative.setupEngine(m_dialog->quickWidget->engine());
-    kdeclarative.setupContext();
-
     m_model = new AppModel(this);
     m_model->setPreferredApps(choices);
 
+    QVariantMap props = {
+        {"title", i18n("Open with...")},
+    };
     AppFilterModel *filterModel = new AppFilterModel(this);
     filterModel->setSourceModel(m_model);
 
@@ -56,20 +46,11 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices,
 
     qmlRegisterSingletonInstance<AppFilterModel>("org.kde.xdgdesktopportal", 1, 0, "AppModel", filterModel);
     qmlRegisterSingletonInstance<AppChooserData>("org.kde.xdgdesktopportal", 1, 0, "AppChooserData", data);
-    m_dialog->quickWidget->setClearColor(Qt::transparent);
-    m_dialog->quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
-    m_dialog->quickWidget->setSource(
-        QUrl::fromLocalFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("xdg-desktop-portal-kde/qml/AppChooserDialog.qml"))));
+
+    create("qrc:/AppChooserDialog.qml", props);
 
     connect(data, &AppChooserData::openDiscover, this, &AppChooserDialog::onOpenDiscover);
     connect(data, &AppChooserData::applicationSelected, this, &AppChooserDialog::onApplicationSelected);
-
-    setWindowTitle(i18n("Open with..."));
-}
-
-AppChooserDialog::~AppChooserDialog()
-{
-    delete m_dialog;
 }
 
 QString AppChooserDialog::selectedApplication() const
@@ -80,7 +61,7 @@ QString AppChooserDialog::selectedApplication() const
 void AppChooserDialog::onApplicationSelected(const QString &desktopFile)
 {
     m_selectedApplication = desktopFile;
-    QDialog::accept();
+    accept();
 }
 
 void AppChooserDialog::onOpenDiscover()

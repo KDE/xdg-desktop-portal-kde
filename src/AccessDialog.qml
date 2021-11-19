@@ -30,5 +30,4 @@ PWD.DesktopSystemDialog
             dialogButtonBox.button(DialogButtonBox.Cancel).text = root.rejectLabel
         }
     }
-
 }
