@@ -7,12 +7,15 @@
  */
 
 #include "remotedesktopdialog.h"
-#include "ui_remotedesktopdialog.h"
+#include "outputsmodel.h"
 
+#include "utils.h"
+#include <KLocalizedString>
 #include <QLoggingCategory>
 #include <QPushButton>
 #include <QSettings>
 #include <QStandardPaths>
+#include <QWindow>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeRemoteDesktopDialog, "xdp-kde-remote-desktop-dialog")
 
@@ -20,76 +23,47 @@ RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName,
                                          RemoteDesktopPortal::DeviceTypes deviceTypes,
                                          bool screenSharingEnabled,
                                          bool multiple,
-                                         QDialog *parent,
-                                         Qt::WindowFlags flags)
-    : QDialog(parent, flags)
-    , m_dialog(new Ui::RemoteDesktopDialog)
+                                         QObject *parent)
+    : QuickDialog(parent)
 {
-    m_dialog->setupUi(this);
+    auto model = new OutputsModel(this);
 
-    m_dialog->screenCastWidget->setVisible(screenSharingEnabled);
-    if (screenSharingEnabled) {
-        connect(m_dialog->screenCastWidget, &QListWidget::itemDoubleClicked, this, &RemoteDesktopDialog::accept);
+    QVariantMap props = {
+        {"outputsModel", QVariant::fromValue<QObject *>(model)},
+        {"withScreenSharing", screenSharingEnabled},
+        {"withMultipleScreenSharing", multiple},
+        {"withKeyboard", deviceTypes.testFlag(RemoteDesktopPortal::Keyboard)},
+        {"withPointer", deviceTypes.testFlag(RemoteDesktopPortal::Pointer)},
+        {"withTouchScreen", deviceTypes.testFlag(RemoteDesktopPortal::TouchScreen)},
+    };
 
-        if (multiple) {
-            m_dialog->screenCastWidget->setSelectionMode(QAbstractItemView::ExtendedSelection);
-        }
-    }
-
-    m_dialog->screenCastWidget->itemAt(0, 0)->setSelected(true);
-
-    m_dialog->keyboardCheckbox->setChecked(deviceTypes.testFlag(RemoteDesktopPortal::Keyboard));
-    m_dialog->pointerCheckbox->setChecked(deviceTypes.testFlag(RemoteDesktopPortal::Pointer));
-    m_dialog->touchScreenCheckbox->setChecked(deviceTypes.testFlag(RemoteDesktopPortal::TouchScreen));
-
-    connect(m_dialog->buttonBox, &QDialogButtonBox::accepted, this, &RemoteDesktopDialog::accept);
-    connect(m_dialog->buttonBox, &QDialogButtonBox::rejected, this, &RemoteDesktopDialog::reject);
-
-    m_dialog->buttonBox->button(QDialogButtonBox::Ok)->setText(i18n("Share"));
-
-    QString applicationName;
-    const QString desktopFile = appName + QLatin1String(".desktop");
-    const QStringList desktopFileLocations = QStandardPaths::locateAll(QStandardPaths::ApplicationsLocation, desktopFile, QStandardPaths::LocateFile);
-    for (const QString &location : desktopFileLocations) {
-        QSettings settings(location, QSettings::IniFormat);
-        settings.beginGroup(QStringLiteral("Desktop Entry"));
-        if (settings.contains(QStringLiteral("X-GNOME-FullName"))) {
-            applicationName = settings.value(QStringLiteral("X-GNOME-FullName")).toString();
-        } else {
-            applicationName = settings.value(QStringLiteral("Name")).toString();
-        }
-
-        if (!applicationName.isEmpty()) {
-            break;
-        }
-    }
-
+    const QString applicationName = Utils::applicationName(appName);
     if (applicationName.isEmpty()) {
-        setWindowTitle(i18n("Select what to share with the requesting application"));
+        props.insert("title", i18n("Select what to share with the requesting application"));
     } else {
-        setWindowTitle(i18n("Select what to share with %1", applicationName));
+        props.insert("title", i18n("Select what to share with %1", applicationName));
     }
-}
 
-RemoteDesktopDialog::~RemoteDesktopDialog()
-{
-    delete m_dialog;
+    create("qrc:/RemoteDesktopDialog.qml", props);
 }
 
 QList<quint32> RemoteDesktopDialog::selectedScreens() const
 {
-    return m_dialog->screenCastWidget->selectedScreens();
+    OutputsModel *model = dynamic_cast<OutputsModel *>(m_theDialog->property("outputsModel").value<QObject *>());
+    if (!model) {
+        return {};
+    }
+    return model->selectedScreens();
 }
 
 RemoteDesktopPortal::DeviceTypes RemoteDesktopDialog::deviceTypes() const
 {
     RemoteDesktopPortal::DeviceTypes types = RemoteDesktopPortal::None;
-    if (m_dialog->keyboardCheckbox->isChecked())
+    if (m_theDialog->property("withKeyboard").toBool())
         types |= RemoteDesktopPortal::Keyboard;
-    if (m_dialog->pointerCheckbox->isChecked())
+    if (m_theDialog->property("withPointer").toBool())
         types |= RemoteDesktopPortal::Pointer;
-    if (m_dialog->touchScreenCheckbox->isChecked())
+    if (m_theDialog->property("withTouchScreen").toBool())
         types |= RemoteDesktopPortal::TouchScreen;
-
     return types;
 }

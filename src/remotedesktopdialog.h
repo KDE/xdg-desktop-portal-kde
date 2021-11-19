@@ -9,8 +9,7 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_DIALOG_H
 #define XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_DIALOG_H
 
-#include <QDialog>
-
+#include "quickdialog.h"
 #include "remotedesktop.h"
 
 namespace Ui
@@ -18,7 +17,7 @@ namespace Ui
 class RemoteDesktopDialog;
 }
 
-class RemoteDesktopDialog : public QDialog
+class RemoteDesktopDialog : public QuickDialog
 {
     Q_OBJECT
 public:
@@ -26,15 +25,10 @@ public:
                         RemoteDesktopPortal::DeviceTypes deviceTypes,
                         bool screenSharingEnabled = false,
                         bool multiple = false,
-                        QDialog *parent = nullptr,
-                        Qt::WindowFlags flags = {});
-    ~RemoteDesktopDialog() override;
+                        QObject *parent = nullptr);
 
     QList<quint32> selectedScreens() const;
     RemoteDesktopPortal::DeviceTypes deviceTypes() const;
-
-private:
-    Ui::RemoteDesktopDialog *m_dialog;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_DIALOG_H

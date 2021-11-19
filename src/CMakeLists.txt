@@ -68,7 +68,6 @@ set(xdg_desktop_portal_kde_SRCS
 
 ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
     screenshotdialog.ui
-    remotedesktopdialog.ui
 )
 
 ecm_add_qtwayland_client_protocol(xdg_desktop_portal_kde_SRCS
