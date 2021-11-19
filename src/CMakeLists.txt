@@ -29,6 +29,7 @@ set(xdg_desktop_portal_kde_SRCS
     notification.h
     notificationinhibition.cpp
     notificationinhibition.h
+    outputsmodel.cpp
     print.cpp
     print.h
     quickdialog.cpp

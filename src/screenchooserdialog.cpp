@@ -7,11 +7,14 @@
  */
 
 #include "screenchooserdialog.h"
-#include "ui_screenchooserdialog.h"
-#include "waylandintegration.h"
+#include "outputsmodel.h"
+#include "utils.h"
 
+#include <KLocalizedString>
 #include <KWayland/Client/plasmawindowmanagement.h>
 #include <KWayland/Client/plasmawindowmodel.h>
+
+#include <QCoreApplication>
 #include <QSettings>
 #include <QSortFilterProxyModel>
 #include <QStandardPaths>
@@ -112,121 +115,10 @@ private:
     QSet<QPersistentModelIndex> m_selected;
 };
 
-class OutputsModel : public QAbstractListModel
-{
-public:
-    OutputsModel(QObject *parent)
-        : QAbstractListModel(parent)
-    {
-        m_outputs = WaylandIntegration::screens().values();
-    }
-
-    int rowCount(const QModelIndex &parent) const override
-    {
-        return parent.isValid() ? 0 : m_outputs.count();
-    }
-
-    QHash<int, QByteArray> roleNames() const override
-    {
-        return QHash<int, QByteArray>{
-            {Qt::DisplayRole, "display"},
-            {Qt::DecorationRole, "decoration"},
-            {Qt::UserRole, "outputName"},
-            {Qt::CheckStateRole, "checked"},
-        };
-    }
-
-    QVariant data(const QModelIndex &index, int role) const override
-    {
-        if (!checkIndex(index, CheckIndexOption::IndexIsValid)) {
-            return {};
-        }
-
-        const auto &output = m_outputs[index.row()];
-        switch (role) {
-        case Qt::UserRole:
-            return output.waylandOutputName();
-        case Qt::DecorationRole:
-            switch (output.outputType()) {
-            case WaylandIntegration::WaylandOutput::Laptop:
-                return QIcon::fromTheme(QStringLiteral("computer-laptop"));
-            case WaylandIntegration::WaylandOutput::Monitor:
-                return QIcon::fromTheme(QStringLiteral("video-display"));
-            case WaylandIntegration::WaylandOutput::Television:
-                return QIcon::fromTheme(QStringLiteral("video-television"));
-            }
-        case Qt::DisplayRole:
-            switch (output.outputType()) {
-            case WaylandIntegration::WaylandOutput::Laptop:
-                return i18n("Laptop screen\nModel: %1", output.model());
-            default:
-                return i18n("Manufacturer: %1\nModel: %2", output.manufacturer(), output.model());
-            }
-        case Qt::CheckStateRole:
-            return m_selected.contains(output.waylandOutputName()) ? Qt::Checked : Qt::Unchecked;
-        }
-        return {};
-    }
-
-    bool setData(const QModelIndex &index, const QVariant &value, int role) override
-    {
-        if (!checkIndex(index, CheckIndexOption::IndexIsValid) || role != Qt::CheckStateRole) {
-            return false;
-        }
-
-        const auto &output = m_outputs[index.row()];
-        if (value == Qt::Checked) {
-            m_selected.insert(output.waylandOutputName());
-        } else {
-            m_selected.remove(output.waylandOutputName());
-        }
-        Q_EMIT dataChanged(index, index, {role});
-        return true;
-    }
-
-    QList<quint32> selectedScreens() const
-    {
-        return m_selected.values();
-    }
-    void clearSelection()
-    {
-        auto selected = m_selected;
-        m_selected.clear();
-        int i = 0;
-        for (const auto &output : m_outputs) {
-            if (selected.contains(output.waylandOutputName())) {
-                const auto idx = index(i, 0);
-                Q_EMIT dataChanged(idx, idx, {Qt::CheckStateRole});
-            }
-            ++i;
-        }
-    }
-
-private:
-    QList<WaylandIntegration::WaylandOutput> m_outputs;
-    QSet<quint32> m_selected;
-};
-
 ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, ScreenCastPortal::SourceTypes types)
     : QuickDialog()
 {
-    QString applicationName;
-    const QString desktopFile = appName + QLatin1String(".desktop");
-    const QStringList desktopFileLocations = QStandardPaths::locateAll(QStandardPaths::ApplicationsLocation, desktopFile, QStandardPaths::LocateFile);
-    for (const QString &location : desktopFileLocations) {
-        QSettings settings(location, QSettings::IniFormat);
-        settings.beginGroup(QStringLiteral("Desktop Entry"));
-        if (settings.contains(QStringLiteral("X-GNOME-FullName"))) {
-            applicationName = settings.value(QStringLiteral("X-GNOME-FullName")).toString();
-        } else {
-            applicationName = settings.value(QStringLiteral("Name")).toString();
-        }
-
-        if (!applicationName.isEmpty()) {
-            break;
-        }
-    }
-
+    const QString applicationName = Utils::applicationName(appName);
     QVariantMap props = {
         {"title", i18n("Screen Sharing")},
         {"mainText",

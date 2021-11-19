@@ -16,6 +16,8 @@ class Utils
 public:
     static void setParentWindow(QWidget *w, const QString &parent_window);
     static void setParentWindow(QWindow *w, const QString &parent_window);
+
+    static QString applicationName(const QString &appId);
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_UTILS_H
