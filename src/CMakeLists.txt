@@ -68,7 +68,6 @@ set(xdg_desktop_portal_kde_SRCS
 
 ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
     screenshotdialog.ui
-    screenchooserdialog.ui
     remotedesktopdialog.ui
 )
 

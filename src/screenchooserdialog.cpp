@@ -22,6 +22,8 @@
 
 class FilteredWindowModel : public QSortFilterProxyModel
 {
+    Q_OBJECT
+    Q_PROPERTY(bool hasSelection READ hasSelection NOTIFY hasSelectionChanged)
 public:
     FilteredWindowModel(QObject *parent)
         : QSortFilterProxyModel(parent)
@@ -65,6 +67,9 @@ public:
             m_selected.remove(index);
         }
         Q_EMIT dataChanged(index, index, {role});
+        if (m_selected.count() <= 1) {
+            Q_EMIT hasSelectionChanged();
+        }
         return true;
     }
 
@@ -100,6 +105,12 @@ public:
         }
         return {};
     }
+
+    bool hasSelection()
+    {
+        return !m_selected.isEmpty();
+    }
+
     void clearSelection()
     {
         auto selected = m_selected;
@@ -109,7 +120,11 @@ public:
             if (index.isValid())
                 Q_EMIT dataChanged(index, index, {Qt::CheckStateRole});
         }
+        Q_EMIT hasSelectionChanged();
     }
+
+Q_SIGNALS:
+    void hasSelectionChanged();
 
 private:
     QSet<QPersistentModelIndex> m_selected;
@@ -162,3 +177,5 @@ QVector<QMap<int, QVariant>> ScreenChooserDialog::selectedWindows() const
     }
     return model->selectedWindows();
 }
+
+#include "screenchooserdialog.moc"

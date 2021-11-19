@@ -157,7 +157,6 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             }
         }
 
-        qDebug() << "WICK" << selectedScreens << selectedWindows;
         QVariant streams = WaylandIntegration::streams();
 
         if (!streams.isValid()) {
@@ -170,8 +169,6 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         if (inhibitionsEnabled()) {
             new NotificationInhibition(app_id, i18nc("Do not disturb mode is enabled because...", "Screen sharing in progress"), session);
         }
-
-        qDebug() << "WOCK";
         return 0;
     }
 

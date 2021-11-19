@@ -17,6 +17,7 @@ PWD.DesktopSystemDialog
     property alias windowsModel: windowsView.model
     property bool multiple: false
     iconName: "video-display"
+    acceptable: (outputsModel && outputsModel.hasSelection) || (windowsModel && windowsModel.hasSelection)
 
     signal clearSelection()
 
