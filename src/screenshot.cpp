@@ -16,6 +16,7 @@
 #include <QLoggingCategory>
 #include <QPointer>
 #include <QStandardPaths>
+#include <QWindow>
 #include <QtDBus>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeScreenshot, "xdp-kde-screenshot")
@@ -86,10 +87,10 @@ uint ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeScreenshot) << "    options: " << options;
 
     QPointer<ScreenshotDialog> screenshotDialog = new ScreenshotDialog;
-    Utils::setParentWindow(screenshotDialog, parent_window);
+    Utils::setParentWindow(screenshotDialog->windowHandle(), parent_window);
 
     const bool modal = options.value(QStringLiteral("modal"), false).toBool();
-    screenshotDialog->setModal(modal);
+    screenshotDialog->windowHandle()->setModality(modal ? Qt::WindowModal : Qt::NonModal);
 
     const bool interactive = options.value(QStringLiteral("interactive"), false).toBool();
     if (!interactive) {

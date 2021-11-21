@@ -7,17 +7,19 @@
  */
 
 #include "screenshotdialog.h"
-#include "ui_screenshotdialog.h"
 
 #include <QLoggingCategory>
 #include <QPushButton>
 
+#include <KLocalizedString>
 #include <QDBusInterface>
 #include <QDBusPendingCall>
 #include <QDBusPendingReply>
 #include <QDBusUnixFileDescriptor>
 #include <QFutureWatcher>
+#include <QStandardItemModel>
 #include <QTimer>
+#include <QWindow>
 #include <QtConcurrentRun>
 #include <qplatformdefs.h>
 
@@ -62,30 +64,18 @@ static QImage readImage(int pipeFd)
     return image;
 }
 
-ScreenshotDialog::ScreenshotDialog(QDialog *parent, Qt::WindowFlags flags)
-    : QDialog(parent, flags)
-    , m_dialog(new Ui::ScreenshotDialog)
+ScreenshotDialog::ScreenshotDialog(QObject *parent)
+    : QuickDialog(parent)
 {
-    m_dialog->setupUi(this);
-
-    connect(m_dialog->buttonBox, &QDialogButtonBox::accepted, this, &ScreenshotDialog::accept);
-    connect(m_dialog->buttonBox, &QDialogButtonBox::rejected, this, &ScreenshotDialog::reject);
-    connect(m_dialog->takeScreenshotButton, &QPushButton::clicked, this, [this]() {
-        QTimer::singleShot(1000 * m_dialog->delaySpinBox->value(), this, &ScreenshotDialog::takeScreenshot);
-    });
-
-    connect(m_dialog->areaComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [this](int index) {
-        m_dialog->includeBordersCheckbox->setEnabled(index == 2);
-    });
-
-    m_dialog->buttonBox->button(QDialogButtonBox::Save)->setEnabled(false);
-
-    setWindowTitle(i18n("Request screenshot"));
-}
-
-ScreenshotDialog::~ScreenshotDialog()
-{
-    delete m_dialog;
+    QStandardItemModel *model = new QStandardItemModel(this);
+    model->appendRow(new QStandardItem(i18n("Full Screen")));
+    model->appendRow(new QStandardItem(i18n("Current Screen")));
+    model->appendRow(new QStandardItem(i18n("Active Window")));
+    create("qrc:/ScreenshotDialog.qml",
+           {
+               {"app", QVariant::fromValue<QObject *>(this)},
+               {"screenshotTypesModel", QVariant::fromValue<QObject *>(model)},
+           });
 }
 
 QImage ScreenshotDialog::image() const
@@ -115,8 +105,7 @@ void ScreenshotDialog::takeScreenshotInteractive()
     QObject::connect(watcher, &QFutureWatcher<QImage>::finished, this, [watcher, this] {
         watcher->deleteLater();
         m_image = watcher->result();
-        m_dialog->image->setPixmap(QPixmap::fromImage(m_image).scaled(400, 320, Qt::KeepAspectRatio));
-        m_dialog->buttonBox->button(QDialogButtonBox::Save)->setEnabled(true);
+        m_theDialog->setProperty("screenshotImage", m_image);
     });
 
     watcher->setFuture(future);
@@ -125,11 +114,11 @@ void ScreenshotDialog::takeScreenshotInteractive()
 int ScreenshotDialog::mask()
 {
     int mask = 0;
-    if (m_dialog->includeBordersCheckbox->isChecked()) {
-        mask = 1;
+    if (m_theDialog->property("withBorders").toBool()) {
+        mask = Borders;
     }
-    if (m_dialog->includeCursorCheckbox->isChecked()) {
-        mask |= 1 << 1;
+    if (m_theDialog->property("withCursor").toBool()) {
+        mask |= Cursor;
     }
     return mask;
 }
@@ -143,12 +132,13 @@ QFuture<QImage> ScreenshotDialog::takeScreenshot()
     }
 
     QDBusInterface interface(QStringLiteral("org.kde.KWin"), QStringLiteral("/Screenshot"), QStringLiteral("org.kde.kwin.Screenshot"));
-    if (m_dialog->areaComboBox->currentIndex() < 2) {
-        interface.asyncCall(m_dialog->areaComboBox->currentIndex() ? QStringLiteral("screenshotScreen") : QStringLiteral("screenshotFullscreen"),
-                            QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])),
-                            m_dialog->includeCursorCheckbox->isChecked());
-    } else {
+    auto types = ScreenshotType(m_theDialog->property("screenshotType").toInt());
+    if (types == ActiveWindow) {
         interface.asyncCall(QStringLiteral("interactive"), QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])), mask());
+    } else {
+        interface.asyncCall(types ? QStringLiteral("screenshotScreen") : QStringLiteral("screenshotFullscreen"),
+                            QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])),
+                            mask());
     }
     ::close(pipeFds[1]);
 

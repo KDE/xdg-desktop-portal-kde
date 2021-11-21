@@ -6,5 +6,6 @@
     <file>AccessDialog.qml</file>
     <file>AppChooserDialog.qml</file>
     <file>RemoteDesktopDialog.qml</file>
+    <file>ScreenshotDialog.qml</file>
  </qresource>
 </RCC>

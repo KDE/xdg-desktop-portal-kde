@@ -66,10 +66,6 @@ set(xdg_desktop_portal_kde_SRCS
     resources.qrc
 )
 
-ki18n_wrap_ui(xdg_desktop_portal_kde_SRCS
-    screenshotdialog.ui
-)
-
 ecm_add_qtwayland_client_protocol(xdg_desktop_portal_kde_SRCS
     PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/screencast.xml
     BASENAME zkde-screencast-unstable-v1
