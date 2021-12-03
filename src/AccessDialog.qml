@@ -12,8 +12,8 @@ PWD.DesktopSystemDialog
 {
     id: root
     property alias body: bodyLabel.text
-    property string acceptLabel: undefined
-    property string rejectLabel: undefined
+    property string acceptLabel: ""
+    property string rejectLabel: ""
 
     QQC2.Label {
         id: bodyLabel
@@ -21,13 +21,13 @@ PWD.DesktopSystemDialog
         wrapMode: Text.WordWrap
     }
 
-    dialogButtonBox.standardButtons: DialogButtonBox.Ok | DialogButtonBox.Cancel
+    dialogButtonBox.standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
     Component.onCompleted: {
-        if (root.acceptLabel) {
-            dialogButtonBox.button(DialogButtonBox.Ok).text = root.acceptLabel
+        if (root.acceptLabel.length > 0) {
+            dialogButtonBox.button(QQC2.DialogButtonBox.Ok).text = root.acceptLabel
         }
-        if (root.rejectLabel) {
-            dialogButtonBox.button(DialogButtonBox.Cancel).text = root.rejectLabel
+        if (root.rejectLabel.length > 0) {
+            dialogButtonBox.button(QQC2.DialogButtonBox.Cancel).text = root.rejectLabel
         }
     }
 }
