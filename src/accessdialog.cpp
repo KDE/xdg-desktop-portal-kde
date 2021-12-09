@@ -27,35 +27,35 @@ AccessDialog::AccessDialog(QObject *parent)
 
 void AccessDialog::setAcceptLabel(const QString &label)
 {
-    m_props.insert("acceptLabel", label);
+    m_props.insert(QStringLiteral("acceptLabel"), label);
 }
 
 void AccessDialog::setBody(const QString &body)
 {
-    m_props.insert("body", body);
+    m_props.insert(QStringLiteral("body"), body);
 }
 
 void AccessDialog::setIcon(const QString &icon)
 {
-    m_props.insert("iconName", icon);
+    m_props.insert(QStringLiteral("iconName"), icon);
 }
 
 void AccessDialog::setRejectLabel(const QString &label)
 {
-    m_props.insert("rejectLabel", label);
+    m_props.insert(QStringLiteral("rejectLabel"), label);
 }
 
 void AccessDialog::setSubtitle(const QString &subtitle)
 {
-    m_props.insert("subtitle", subtitle);
+    m_props.insert(QStringLiteral("subtitle"), subtitle);
 }
 
 void AccessDialog::setTitle(const QString &title)
 {
-    m_props.insert("title", title);
+    m_props.insert(QStringLiteral("title"), title);
 }
 
 void AccessDialog::createDialog()
 {
-    create("qrc:/AccessDialog.qml", m_props);
+    create(QStringLiteral("qrc:/AccessDialog.qml"), m_props);
 }

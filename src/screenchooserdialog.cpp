@@ -154,7 +154,7 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
         connect(this, &ScreenChooserDialog::clearSelection, windowsProxy, &FilteredWindowModel::clearSelection);
     }
 
-    create("qrc:/ScreenChooserDialog.qml", props);
+    create(QStringLiteral("qrc:/ScreenChooserDialog.qml"), props);
     connect(m_theDialog, SIGNAL(clearSelection()), this, SIGNAL(clearSelection()));
 }
 

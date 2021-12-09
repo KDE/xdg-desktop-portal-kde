@@ -164,7 +164,6 @@ FileDialog::~FileDialog()
 
 FileChooserPortal::FileChooserPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
-    , m_mobileFileDialog(nullptr)
 {
     qDBusRegisterMetaType<Filter>();
     qDBusRegisterMetaType<Filters>();

@@ -39,12 +39,12 @@ RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName,
 
     const QString applicationName = Utils::applicationName(appName);
     if (applicationName.isEmpty()) {
-        props.insert("title", i18n("Select what to share with the requesting application"));
+        props.insert(QStringLiteral("title"), i18n("Select what to share with the requesting application"));
     } else {
-        props.insert("title", i18n("Select what to share with %1", applicationName));
+        props.insert(QStringLiteral("title"), i18n("Select what to share with %1", applicationName));
     }
 
-    create("qrc:/RemoteDesktopDialog.qml", props);
+    create(QStringLiteral("qrc:/RemoteDesktopDialog.qml"), props);
 }
 
 QList<quint32> RemoteDesktopDialog::selectedScreens() const

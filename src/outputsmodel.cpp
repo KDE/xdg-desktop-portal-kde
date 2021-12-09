@@ -97,7 +97,7 @@ void OutputsModel::clearSelection()
     auto selected = m_selected;
     m_selected.clear();
     int i = 0;
-    for (const auto &output : m_outputs) {
+    for (const auto &output : qAsConst(m_outputs)) {
         if (selected.contains(output.waylandOutputName())) {
             const auto idx = index(i, 0);
             Q_EMIT dataChanged(idx, idx, {Qt::CheckStateRole});

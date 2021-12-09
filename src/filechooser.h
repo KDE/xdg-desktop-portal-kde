@@ -103,7 +103,7 @@ private:
 
     static bool isMobile();
 
-    MobileFileDialog *m_mobileFileDialog;
+    MobileFileDialog *m_mobileFileDialog = nullptr;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_FILECHOOSER_H

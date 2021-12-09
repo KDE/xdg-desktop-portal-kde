@@ -47,7 +47,7 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices,
     qmlRegisterSingletonInstance<AppFilterModel>("org.kde.xdgdesktopportal", 1, 0, "AppModel", filterModel);
     qmlRegisterSingletonInstance<AppChooserData>("org.kde.xdgdesktopportal", 1, 0, "AppChooserData", data);
 
-    create("qrc:/AppChooserDialog.qml", props);
+    create(QStringLiteral("qrc:/AppChooserDialog.qml"), props);
 
     connect(data, &AppChooserData::openDiscover, this, &AppChooserDialog::onOpenDiscover);
     connect(data, &AppChooserData::applicationSelected, this, &AppChooserDialog::onApplicationSelected);
