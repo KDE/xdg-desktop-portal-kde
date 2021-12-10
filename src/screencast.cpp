@@ -72,6 +72,8 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
         WaylandIntegration::stopAllStreaming();
     });
 
+    connect(WaylandIntegration::waylandIntegration(), &WaylandIntegration::WaylandIntegration::streamingStopped, session, &Session::close);
+
     return 0;
 }
 

@@ -49,6 +49,7 @@ bool Session::handleMessage(const QDBusMessage &message, const QDBusConnection &
 
     if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Session")) {
         if (message.member() == QLatin1String("Close")) {
+            close();
             Q_EMIT closed();
             QDBusMessage reply = message.createReply();
             return connection.send(reply);
@@ -97,7 +98,14 @@ QString Session::introspect(const QString &path) const
 bool Session::close()
 {
     QDBusMessage reply = QDBusMessage::createSignal(m_path, QStringLiteral("org.freedesktop.impl.portal.Session"), QStringLiteral("Closed"));
-    return QDBusConnection::sessionBus().send(reply);
+    const bool result = QDBusConnection::sessionBus().send(reply);
+
+    sessionList.remove(m_path);
+    QDBusConnection::sessionBus().unregisterObject(m_path);
+
+    deleteLater();
+
+    return result;
 }
 
 Session *Session::createSession(QObject *parent, SessionType type, const QString &appId, const QString &path)
