@@ -14,13 +14,11 @@ import org.kde.plasma.workspace.dialogs 1.0 as PWD
 
 import org.kde.xdgdesktopportal 1.0
 
-PWD.DesktopSystemDialog
+PWD.SystemDialog
 {
     id: root
     iconName: "applications-all"
     ColumnLayout {
-        anchors.fill: parent
-
         Label {
             Layout.fillWidth: true
             horizontalAlignment: Text.AlignHCenter

@@ -10,7 +10,7 @@ import QtQuick.Controls 2.15 as QQC2
 import org.kde.kirigami 2.14 as Kirigami
 import org.kde.plasma.workspace.dialogs 1.0 as PWD
 
-PWD.DesktopSystemDialog
+PWD.SystemDialog
 {
     id: root
     property alias outputsModel: outputsView.model
@@ -96,7 +96,7 @@ PWD.DesktopSystemDialog
         }
     }
 
-    dialogButtonBox.standardButtons: QQC2.DialogButtonBox.Ok
+    standardButtons: QQC2.DialogButtonBox.Ok
     Component.onCompleted: {
         dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18n("Share")
     }

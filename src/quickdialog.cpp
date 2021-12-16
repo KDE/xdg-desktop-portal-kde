@@ -29,15 +29,25 @@ void QuickDialog::create(const QString &file, const QVariantMap &props)
     engine->setInitialProperties(props);
     engine->load(file);
 
+    connect(engine, &QQmlEngine::warnings, this, [](const QList<QQmlError> &warnings) {
+        for (const QQmlError &warning : warnings) {
+            qWarning() << warning;
+        }
+    });
+
     m_theDialog = qobject_cast<QQuickWindow *>(engine->rootObjects().constFirst());
     connect(m_theDialog, SIGNAL(accept()), this, SLOT(accept()));
     connect(m_theDialog, SIGNAL(reject()), this, SLOT(reject()));
 
-    QTimer::singleShot(0, m_theDialog, SLOT(show()));
+    QTimer::singleShot(0, m_theDialog, SLOT(present()));
 }
 
 bool QuickDialog::exec()
 {
+    if (!m_theDialog) {
+        qWarning() << "Failed to load dialog, cannot exec";
+        return false;
+    }
     return m_execLoop.exec() == 0;
 }
 
