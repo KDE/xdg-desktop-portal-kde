@@ -1,6 +1,7 @@
 [Global]
 IconName=start-here-kde-plasma
 Comment=Integrating applications into the KDE Plasma desktop
+Comment[ar]=تكامل التطبيقات في سطح مكتب بلازما
 Comment[az]=Tətbiqlərin KDE İş Masasına İnteqrasiyası
 Comment[ca]=Integració d'aplicacions a l'escriptori Plasma del KDE
 Comment[ca@valencia]=Integració d'aplicacions a l'escriptori Plasma del KDE
@@ -35,6 +36,7 @@ Comment[uk]=Інтеграція програм до стільниці Плаз
 Comment[x-test]=xxIntegrating applications into the KDE Plasma desktopxx
 Comment[zh_CN]=将应用程序整合到 KDE Plasma 桌面
 Name=KDE Portal Integration
+Name[ar]=بوابة تكامل كدي
 Name[az]=KDE Portalı İnteqrasiyası
 Name[ca]=Integració del Portal del KDE
 Name[ca@valencia]=Integració del Portal del KDE
@@ -71,6 +73,7 @@ Name[zh_CN]=KDE 系统集成
 
 [Context/screencast]
 Name=Screencasting
+Name[ar]=تسجيل الشاشة
 Name[az]=Ekranın video çəkilişi
 Name[ca]=Vídeo de captura de pantalla
 Name[ca@valencia]=Vídeo de captura de pantalla
@@ -106,6 +109,7 @@ Name[zh_CN]=投屏
 
 [Event/screencastfailure]
 Name=Screencasting failed
+Name[ar]=فشل تسجيل الشاشة
 Name[az]=Ekranın video çəkilişi baş tutmadı
 Name[ca]=Ha fallat el vídeo de captura de pantalla
 Name[ca@valencia]=Ha fallat el vídeo de captura de pantalla
@@ -139,6 +143,7 @@ Name[uk]=Помилка трансляції даних
 Name[x-test]=xxScreencasting failedxx
 Name[zh_CN]=投屏失败
 Comment=An error was encountered while screencasting
+Comment[ar]=حدث خطأ أثناء تسجيل الشاشة
 Comment[az]=Ekran video çəkilişi zamanı xəta baş verdi
 Comment[ca]=S'ha trobat un error en fer el vídeo de captura de pantalla
 Comment[ca@valencia]=S'ha trobat un error en fer el vídeo de captura de pantalla
