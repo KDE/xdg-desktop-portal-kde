@@ -10,6 +10,10 @@
 #include <QDBusConnection>
 #include <QLoggingCategory>
 
+#include <KAboutData>
+#include <KLocalizedString>
+
+#include "../version.h"
 #include "desktopportal.h"
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKde, "xdp-kde")
@@ -19,8 +23,10 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_DisableSessionManager);
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     QApplication a(argc, argv);
-    a.setApplicationName(QStringLiteral("xdg-desktop-portal-kde"));
     a.setQuitOnLastWindowClosed(false);
+
+    KAboutData about(QStringLiteral("xdg-desktop-portal-kde"), i18n("Portal"), QStringLiteral(XDPK_VERSION_STRING));
+    KAboutData::setApplicationData(about);
 
     QDBusConnection sessionBus = QDBusConnection::sessionBus();
 
