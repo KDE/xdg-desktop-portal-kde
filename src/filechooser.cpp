@@ -13,6 +13,7 @@
 #include <QDBusMetaType>
 #include <QDialogButtonBox>
 #include <QFile>
+#include <QFileDialog>
 #include <QGridLayout>
 #include <QLabel>
 #include <QLoggingCategory>
@@ -253,6 +254,37 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
         results.insert(QStringLiteral("uris"), m_mobileFileDialog->results());
 
         return retCode;
+    }
+
+    // Use QFileDialog for most directory requests to utilize
+    // plasma-integration's KDirSelectDialog
+    if (directory && !options.contains(QStringLiteral("choices"))) {
+        QFileDialog dirDialog;
+        dirDialog.setWindowTitle(title);
+        dirDialog.setModal(modalDialog);
+        dirDialog.setFileMode(QFileDialog::Directory);
+        dirDialog.setOptions(QFileDialog::ShowDirsOnly);
+        dirDialog.setSupportedSchemes(QStringList{QStringLiteral("file")});
+        if (!acceptLabel.isEmpty()) {
+            dirDialog.setLabelText(QFileDialog::Accept, acceptLabel);
+        }
+
+        dirDialog.winId(); // Trigger window creation
+        Utils::setParentWindow(&dirDialog, parent_window);
+
+        if (dirDialog.exec() != QDialog::Accepted) {
+            return 1;
+        }
+
+        const auto urls = dirDialog.selectedUrls();
+        if (urls.empty()) {
+            return 2;
+        }
+
+        results.insert(QStringLiteral("uris"), QUrl::toStringList(urls));
+        results.insert(QStringLiteral("writable"), true);
+
+        return 0;
     }
 
     // for handling of options - choices
