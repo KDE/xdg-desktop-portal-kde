@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
     a.setQuitOnLastWindowClosed(false);
 
     KAboutData about(QStringLiteral("xdg-desktop-portal-kde"), i18n("Portal"), QStringLiteral(XDPK_VERSION_STRING));
+    about.setDesktopFileName(QStringLiteral("org.freedesktop.impl.portal.desktop.kde"));
     KAboutData::setApplicationData(about);
 
     QDBusConnection sessionBus = QDBusConnection::sessionBus();
