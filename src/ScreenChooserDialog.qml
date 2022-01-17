@@ -57,6 +57,7 @@ PWD.SystemDialog
                 QQC2.ScrollView {
                     ListView {
                         id: outputsView
+                        clip: true
                         model: null
                         delegate: Kirigami.BasicListItem {
                             icon: model.decoration
@@ -76,6 +77,7 @@ PWD.SystemDialog
                 QQC2.ScrollView {
                     ListView {
                         id: windowsView
+                        clip: true
                         model: null
                         delegate: Kirigami.BasicListItem {
                             icon: model.DecorationRole
