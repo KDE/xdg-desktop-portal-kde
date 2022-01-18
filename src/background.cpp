@@ -26,6 +26,7 @@
 #include <KDesktopFile>
 #include <KLocalizedString>
 #include <KNotification>
+#include <KService>
 #include <KShell>
 
 #include <KWayland/Client/plasmawindowmanagement.h>
@@ -76,9 +77,13 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
         return 0;
     }
 
+    const KService::Ptr app = KService::serviceByDesktopName(app_id);
+
+    const QString appName = app ? app->name() : app_id;
+
     KNotification *notify = new KNotification(QStringLiteral("notification"), KNotification::Persistent | KNotification::DefaultEvent, this);
     notify->setTitle(i18n("Background activity"));
-    notify->setText(i18n("%1 is running in the background.", app_id));
+    notify->setText(i18n("%1 is running in the background.", appName));
     notify->setActions({i18n("Find out more")});
     notify->setProperty("activated", false);
 
@@ -108,7 +113,7 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
         }
         notify->setProperty("activated", true);
 
-        const QString title = i18n("%1 is running in the background", app_id);
+        const QString title = i18n("%1 is running in the background", appName);
         const QString text = i18n(
             "This might be for a legitimate reason, but the application has not provided one."
             "\n\nNote that forcing an application to quit might cause data loss.");
