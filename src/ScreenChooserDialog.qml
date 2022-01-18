@@ -58,9 +58,10 @@ PWD.SystemDialog
                     ListView {
                         id: outputsView
                         model: null
-                        delegate: Kirigami.CheckableListItem {
+                        delegate: Kirigami.BasicListItem {
                             icon: model.decoration
                             label: model.display
+                            highlighted: false
                             checked: model.checked === Qt.Checked
                             onClicked: {
                                 var to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
@@ -76,9 +77,10 @@ PWD.SystemDialog
                     ListView {
                         id: windowsView
                         model: null
-                        delegate: Kirigami.CheckableListItem {
+                        delegate: Kirigami.BasicListItem {
                             icon: model.DecorationRole
                             label: model.DisplayRole
+                            highlighted: false
                             checked: model.checked === Qt.Checked
                             onClicked: {
                                 var to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
