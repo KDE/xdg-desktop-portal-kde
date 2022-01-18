@@ -96,7 +96,7 @@ PWD.SystemDialog
         }
     }
 
-    standardButtons: QQC2.DialogButtonBox.Ok
+    standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
     Component.onCompleted: {
         dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18n("Share")
     }
