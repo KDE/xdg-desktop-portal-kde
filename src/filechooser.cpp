@@ -272,6 +272,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     fileDialog->setModal(modalDialog);
     KFile::Mode mode = directory ? KFile::Mode::Directory : multipleFiles ? KFile::Mode::Files : KFile::Mode::File;
     fileDialog->m_fileWidget->setMode(mode | KFile::Mode::ExistingOnly);
+    fileDialog->m_fileWidget->setSupportedSchemes(QStringList{QStringLiteral("file")});
     fileDialog->m_fileWidget->okButton()->setText(!acceptLabel.isEmpty() ? acceptLabel : i18n("Open"));
 
     bool bMimeFilters = false;
@@ -287,19 +288,13 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     }
 
     if (fileDialog->exec() == QDialog::Accepted) {
-        QStringList files;
-        const auto selectedFiles = fileDialog->m_fileWidget->selectedFiles();
-        for (const QString &filename : selectedFiles) {
-            QUrl url = QUrl::fromLocalFile(filename);
-            files << url.toDisplayString();
-        }
-
-        if (files.isEmpty()) {
+        const auto urls = fileDialog->m_fileWidget->selectedUrls();
+        if (urls.isEmpty()) {
             qCDebug(XdgDesktopPortalKdeFileChooser) << "Failed to open file: no local file selected";
             return 2;
         }
 
-        results.insert(QStringLiteral("uris"), files);
+        results.insert(QStringLiteral("uris"), QUrl::toStringList(urls));
         results.insert(QStringLiteral("writable"), true);
 
         if (optionsWidget) {
