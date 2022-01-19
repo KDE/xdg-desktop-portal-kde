@@ -40,7 +40,7 @@ public:
 
     uint version() const
     {
-        return 1;
+        return 3;
     }
     uint AvailableSourceTypes() const
     {
