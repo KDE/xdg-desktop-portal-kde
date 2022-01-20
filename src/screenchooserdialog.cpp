@@ -133,26 +133,94 @@ private:
 ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, ScreenCastPortal::SourceTypes types)
     : QuickDialog()
 {
-    const QString applicationName = Utils::applicationName(appName);
+    Q_ASSERT(types != 0);
+
     QVariantMap props = {
         {"title", i18n("Screen Sharing")},
-        {"mainText",
-         appName.isEmpty() ? i18n("Select screen to share with the requesting application") : i18n("Select what to share with %1", applicationName)},
         {"multiple", multiple},
     };
-    Q_ASSERT(types != 0);
+
+    int numberOfMonitors = 0;
     if (types & ScreenCastPortal::Monitor) {
         auto model = new OutputsModel(this);
         props.insert("outputsModel", QVariant::fromValue<QObject *>(model));
+        numberOfMonitors += model->rowCount(QModelIndex());
         connect(this, &ScreenChooserDialog::clearSelection, model, &OutputsModel::clearSelection);
     }
+
+    int numberOfWindows = 0;
     if (types & ScreenCastPortal::Window) {
         auto model = new KWayland::Client::PlasmaWindowModel(WaylandIntegration::plasmaWindowManagement());
         auto windowsProxy = new FilteredWindowModel(this);
         windowsProxy->setSourceModel(model);
         props.insert("windowsModel", QVariant::fromValue<QObject *>(windowsProxy));
         connect(this, &ScreenChooserDialog::clearSelection, windowsProxy, &FilteredWindowModel::clearSelection);
+        numberOfWindows += model->rowCount(QModelIndex());
     }
+
+    const QString applicationName = Utils::applicationName(appName);
+
+    QString mainText;
+
+    // App asked for monitors and windows
+    if (types & ScreenCastPortal::Monitor && types & ScreenCastPortal::Window) {
+        if (appName.isEmpty()) {
+            mainText = i18n("Choose what to share with the requesting application:");
+        } else {
+            mainText = i18n("Choose what to share with %1:", applicationName);
+        }
+    }
+
+    // App only asked for monitors
+    else if (types & ScreenCastPortal::Monitor) {
+        if (numberOfMonitors == 1) {
+            if (appName.isEmpty()) {
+                mainText = i18n("Share this screen with the requesting application?");
+            } else {
+                mainText = i18n("Share this screen with %1?", applicationName);
+            }
+        } else {
+            if (multiple) {
+                if (appName.isEmpty()) {
+                    mainText = i18n("Choose screens to share with the requesting application:");
+                } else {
+                    mainText = i18n("Choose screens to share with %1:", applicationName);
+                }
+            } else {
+                if (appName.isEmpty()) {
+                    mainText = i18n("Choose which screen to share with the requesting application:");
+                } else {
+                    mainText = i18n("Choose which screen to share with %1:", applicationName);
+                }
+            }
+        }
+    }
+
+    // App only asked for windows
+    else if (types & ScreenCastPortal::Window) {
+        if (numberOfWindows == 1) {
+            if (appName.isEmpty()) {
+                mainText = i18n("Share this window with the requesting application?");
+            } else {
+                mainText = i18n("Share this window with %1?", applicationName);
+            }
+        } else {
+            if (multiple) {
+                if (appName.isEmpty()) {
+                    mainText = i18n("Choose windows to share with the requesting application:");
+                } else {
+                    mainText = i18n("Choose windows to share with %1:", applicationName);
+                }
+            } else {
+                if (appName.isEmpty()) {
+                    mainText = i18n("Choose which window to share with the requesting application:");
+                } else {
+                    mainText = i18n("Choose which window to share with %1:", applicationName);
+                }
+            }
+        }
+    }
+    props.insert("mainText", mainText);
 
     create(QStringLiteral("qrc:/ScreenChooserDialog.qml"), props);
     connect(m_theDialog, SIGNAL(clearSelection()), this, SIGNAL(clearSelection()));
