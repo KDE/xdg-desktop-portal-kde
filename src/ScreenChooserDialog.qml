@@ -99,5 +99,12 @@ PWD.SystemDialog
     standardButtons: QQC2.DialogButtonBox.Ok
     Component.onCompleted: {
         dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18n("Share")
+
+        // If there's only one thing in the list, pre-select it to save the user a click
+        if (outputsView.count == 1 && windowsView.count == 0) {
+            outputsView.model.setData(outputsView.model.index(0, 0), Qt.Checked, Qt.CheckStateRole);
+        } else if (windowsView.count == 1 && outputsView.count == 0) {
+            windowsView.model.setData(outputsView.model.index(0, 0), Qt.Checked, Qt.CheckStateRole);
+        }
     }
 }
