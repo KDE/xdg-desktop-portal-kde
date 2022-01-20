@@ -22,6 +22,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
 include(ECMSetupVersion)
+include(ECMConfiguredInstall)
 
 include(FeatureSummary)
 
