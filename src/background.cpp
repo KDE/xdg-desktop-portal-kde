@@ -207,17 +207,17 @@ void BackgroundPortal::addWindow(KWayland::Client::PlasmaWindow *window)
     connect(window, &KWayland::Client::PlasmaWindow::activeChanged, this, [this, window]() {
         setActiveWindow(window->appId(), window->isActive());
     });
-    connect(window, &KWayland::Client::PlasmaWindow::unmapped, this, [this, window]() {
-        uint windows = 0;
-        const QString appId = window->appId();
+    connect(window, &QObject::destroyed, this, [this, appId]() {
+        bool windowFound = false;
         const auto plasmaWindows = WaylandIntegration::plasmaWindowManagement()->windows();
         for (KWayland::Client::PlasmaWindow *otherWindow : plasmaWindows) {
-            if (otherWindow->appId() == appId && otherWindow->uuid() != window->uuid()) {
-                windows++;
+            if (otherWindow->appId() == appId && otherWindow != sender()) {
+                windowFound = true;
+                break;
             }
         }
 
-        if (!windows) {
+        if (!windowFound) {
             m_appStates.remove(appId);
             Q_EMIT RunningApplicationsChanged();
         }
