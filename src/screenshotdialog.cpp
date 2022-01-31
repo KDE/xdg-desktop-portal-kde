@@ -24,30 +24,49 @@
 #include <qplatformdefs.h>
 
 #include <fcntl.h>
+#include <poll.h>
 #include <unistd.h>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeScreenshotDialog, "xdp-kde-screenshot-dialog")
 
 static int readData(int fd, QByteArray &data)
 {
-    // implementation based on QtWayland file qwaylanddataoffer.cpp
-    char buf[4096];
-    int retryCount = 0;
-    int n;
+    char buffer[4096];
+    pollfd pfds[1];
+    pfds[0].fd = fd;
+    pfds[0].events = POLLIN;
+
     while (true) {
-        n = QT_READ(fd, buf, sizeof buf);
         // give user 30 sec to click a window, afterwards considered as error
-        if (n == -1 && (errno == EAGAIN) && ++retryCount < 30000) {
-            usleep(1000);
+        const int ready = poll(pfds, 1, 30000);
+        if (ready < 0) {
+            if (errno != EINTR) {
+                qWarning() << "poll() failed:" << strerror(errno);
+                return -1;
+            }
+        } else if (ready == 0) {
+            qDebug() << "failed to read screenshot: timeout";
+            return -1;
+        } else if (pfds[0].revents & POLLIN) {
+            const int n = QT_READ(fd, buffer, sizeof(buffer));
+
+            if (n < 0) {
+                qWarning() << "read() failed:" << strerror(errno);
+                return -1;
+            } else if (n == 0) {
+                return 0;
+            } else if (n > 0) {
+                data.append(buffer, n);
+            }
+        } else if (pfds[0].revents & POLLHUP) {
+            return 0;
         } else {
-            break;
+            qWarning() << "failed to read screenshot: pipe is broken";
+            return -1;
         }
     }
-    if (n > 0) {
-        data.append(buf, n);
-        n = readData(fd, data);
-    }
-    return n;
+
+    Q_UNREACHABLE();
 }
 
 static QImage readImage(int pipeFd)
