@@ -111,18 +111,6 @@ void ScreenshotDialog::takeScreenshotInteractive()
     watcher->setFuture(future);
 }
 
-int ScreenshotDialog::mask()
-{
-    int mask = 0;
-    if (m_theDialog->property("withBorders").toBool()) {
-        mask = Borders;
-    }
-    if (m_theDialog->property("withCursor").toBool()) {
-        mask |= Cursor;
-    }
-    return mask;
-}
-
 QFuture<QImage> ScreenshotDialog::takeScreenshot()
 {
     int pipeFds[2];
@@ -131,14 +119,24 @@ QFuture<QImage> ScreenshotDialog::takeScreenshot()
         return {};
     }
 
+    const bool withBorders = m_theDialog->property("withBorders").toBool();
+    const bool withCursor = m_theDialog->property("withCursor").toBool();
+
     QDBusInterface interface(QStringLiteral("org.kde.KWin"), QStringLiteral("/Screenshot"), QStringLiteral("org.kde.kwin.Screenshot"));
     auto types = ScreenshotType(m_theDialog->property("screenshotType").toInt());
     if (types == ActiveWindow) {
-        interface.asyncCall(QStringLiteral("interactive"), QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])), mask());
+        int mask = 0;
+        if (withBorders) {
+            mask = Borders;
+        }
+        if (withCursor) {
+            mask |= Cursor;
+        }
+        interface.asyncCall(QStringLiteral("interactive"), QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])), mask);
     } else {
         interface.asyncCall(types ? QStringLiteral("screenshotScreen") : QStringLiteral("screenshotFullscreen"),
                             QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])),
-                            mask());
+                            withCursor);
     }
     ::close(pipeFds[1]);
 

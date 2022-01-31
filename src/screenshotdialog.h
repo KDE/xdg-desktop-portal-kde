@@ -41,10 +41,9 @@ Q_SIGNALS:
     void failed();
 
 private:
-    QImage m_image;
-
-    int mask();
     QFuture<QImage> takeScreenshot();
+
+    QImage m_image;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SCREENSHOT_DIALOG_H
