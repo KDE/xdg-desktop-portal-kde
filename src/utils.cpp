@@ -6,6 +6,8 @@
 
 #include "utils.h"
 
+#include "waylandintegration.h"
+
 #include <KWindowSystem>
 
 #include <QSettings>
@@ -19,12 +21,21 @@ void Utils::setParentWindow(QWidget *w, const QString &parent_window)
         w->setAttribute(Qt::WA_NativeWindow, true);
         setParentWindow(w->windowHandle(), parent_window);
     }
+    if (parent_window.startsWith((QLatin1String("wayland:")))) {
+        if (!w->window()->windowHandle()) {
+            w->window()->winId(); // create QWindow
+        }
+        setParentWindow(w->window()->windowHandle(), parent_window);
+    }
 }
 
 void Utils::setParentWindow(QWindow *w, const QString &parent_window)
 {
     if (parent_window.startsWith(QLatin1String("x11:"))) {
         KWindowSystem::setMainWindow(w, parent_window.midRef(4).toULongLong(nullptr, 16));
+    }
+    if (parent_window.startsWith((QLatin1String("wayland:")))) {
+        WaylandIntegration::setParentWindow(w, parent_window.mid(strlen("wayland:")));
     }
 }
 

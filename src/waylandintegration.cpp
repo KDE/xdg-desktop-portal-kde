@@ -31,6 +31,8 @@
 #include <KWayland/Client/plasmawindowmanagement.h>
 #include <KWayland/Client/plasmawindowmodel.h>
 #include <KWayland/Client/registry.h>
+#include <KWayland/Client/surface.h>
+#include <KWayland/Client/xdgforeign.h>
 
 // system
 #include <fcntl.h>
@@ -127,6 +129,11 @@ QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::screens()
 QVariant WaylandIntegration::streams()
 {
     return globalWaylandIntegration->streams();
+}
+
+void WaylandIntegration::setParentWindow(QWindow *window, const QString &parentWindow)
+{
+    globalWaylandIntegration->setParentWindow(window, parentWindow);
 }
 
 // Thank you kscreen
@@ -393,6 +400,28 @@ QVariant WaylandIntegration::WaylandIntegrationPrivate::streams()
     return QVariant::fromValue<WaylandIntegrationPrivate::Streams>(m_streams);
 }
 
+void WaylandIntegration::WaylandIntegrationPrivate::setParentWindow(QWindow *window, const QString &parentHandle)
+{
+    if (!m_xdgImporter) {
+        return;
+    }
+
+    auto importedParent = m_xdgImporter->importTopLevel(parentHandle, window);
+    if (window->isVisible()) {
+        importedParent->setParentOf(KWayland::Client::Surface::fromWindow(window));
+    } else {
+        connect(
+            window,
+            &QWindow::visibleChanged,
+            this,
+            [importedParent, window, this] {
+                importedParent->setParentOf(KWayland::Client::Surface::fromWindow(window));
+                QObject::disconnect(this);
+            },
+            Qt::QueuedConnection);
+    }
+}
+
 void WaylandIntegration::WaylandIntegrationPrivate::authenticate()
 {
     if (!m_waylandAuthenticationRequested) {
@@ -459,7 +488,9 @@ void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
         m_windowManagement = m_registry->createPlasmaWindowManagement(name, version, this);
         Q_EMIT waylandIntegration()->plasmaWindowManagementInitialized();
     });
-
+    connect(m_registry, &KWayland::Client::Registry::importerUnstableV2Announced, this, [this](quint32 name, quint32 version) {
+        m_xdgImporter = m_registry->createXdgImporter(name, std::min(version, quint32(1)), this);
+    });
     connect(m_registry, &KWayland::Client::Registry::interfacesAnnounced, this, [this] {
         m_registryInitialized = true;
         qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "Registry initialized";

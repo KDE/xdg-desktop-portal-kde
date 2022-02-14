@@ -30,8 +30,11 @@ class PlasmaWindowManagement;
 class FakeInput;
 class RemoteBuffer;
 class Output;
+class XdgImporter;
 }
 }
+
+class QWindow;
 
 namespace WaylandIntegration
 {
@@ -51,6 +54,7 @@ private:
 
     KWayland::Client::Registry *m_registry = nullptr;
     KWayland::Client::PlasmaWindowManagement *m_windowManagement = nullptr;
+    KWayland::Client::XdgImporter *m_xdgImporter = nullptr;
 
 public:
     struct Stream {
@@ -84,6 +88,8 @@ public:
 
     QMap<quint32, WaylandOutput> screens();
     QVariant streams();
+
+    void setParentWindow(QWindow *window, const QString &parentHandle);
 
 protected Q_SLOTS:
     void addOutput(quint32 name, quint32 version);

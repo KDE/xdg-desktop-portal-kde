@@ -26,6 +26,8 @@ class ScreencastingSource;
 }
 }
 
+class QWindow;
+
 namespace WaylandIntegration
 {
 class WaylandOutput
@@ -124,6 +126,8 @@ void requestKeyboardKeycode(int keycode, bool state);
 
 QMap<quint32, WaylandOutput> screens();
 QVariant streams();
+
+void setParentWindow(QWindow *window, const QString &parentWindow);
 
 void init();
 
