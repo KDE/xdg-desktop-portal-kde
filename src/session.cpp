@@ -169,6 +169,10 @@ void ScreenCastSession::setOptions(const QVariantMap &options)
     m_multipleSources = options.value(QStringLiteral("multiple")).toBool();
     m_cursorMode = ScreenCastPortal::CursorModes(options.value(QStringLiteral("cursor_mode")).toUInt());
     m_types = ScreenCastPortal::SourceType(options.value(QStringLiteral("types")).toUInt());
+
+    if (m_types == 0) {
+        m_types = ScreenCastPortal::Monitor;
+    }
 }
 
 RemoteDesktopSession::RemoteDesktopSession(QObject *parent, const QString &appId, const QString &path)
