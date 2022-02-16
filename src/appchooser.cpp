@@ -10,6 +10,7 @@
 #include "utils.h"
 
 #include <QLoggingCategory>
+#include <QWindow>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAppChooser, "xdp-kde-app-chooser")
 
@@ -48,6 +49,7 @@ uint AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
     }
     AppChooserDialog *appDialog = new AppChooserDialog(choices, latestChoice, itemName.toString(), options.value(QStringLiteral("content_type")).toString());
     m_appChooserDialogs.insert(handle.path(), appDialog);
+    appDialog->windowHandle()->show();
     Utils::setParentWindow(appDialog->windowHandle(), parent_window);
 
     int result = appDialog->exec();

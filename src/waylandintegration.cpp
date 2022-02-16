@@ -406,20 +406,12 @@ void WaylandIntegration::WaylandIntegrationPrivate::setParentWindow(QWindow *win
         return;
     }
 
-    auto importedParent = m_xdgImporter->importTopLevel(parentHandle, window);
-    if (window->isVisible()) {
-        importedParent->setParentOf(KWayland::Client::Surface::fromWindow(window));
-    } else {
-        connect(
-            window,
-            &QWindow::visibleChanged,
-            this,
-            [importedParent, window, this] {
-                importedParent->setParentOf(KWayland::Client::Surface::fromWindow(window));
-                QObject::disconnect(this);
-            },
-            Qt::QueuedConnection);
+    if (!window->isVisible()) {
+        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "setParentWindow called with non-visible window, call show() before";
+        return;
     }
+    auto importedParent = m_xdgImporter->importTopLevel(parentHandle, window);
+    importedParent->setParentOf(KWayland::Client::Surface::fromWindow(window));
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::authenticate()

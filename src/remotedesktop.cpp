@@ -13,6 +13,7 @@
 #include "waylandintegration.h"
 
 #include <QLoggingCategory>
+#include <QWindow>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeRemoteDesktop, "xdp-kde-remotedesktop")
 
@@ -116,6 +117,7 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
 
     QScopedPointer<RemoteDesktopDialog, QScopedPointerDeleteLater> remoteDesktopDialog(
         new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled(), session->multipleSources()));
+    remoteDesktopDialog->windowHandle()->show();
     Utils::setParentWindow(remoteDesktopDialog->windowHandle(), parent_window);
 
     connect(session, &Session::closed, remoteDesktopDialog.data(), &RemoteDesktopDialog::reject);

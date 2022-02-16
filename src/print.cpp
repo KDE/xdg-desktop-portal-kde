@@ -506,6 +506,7 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
     printer->setPageMargins(pageMargins, QPageLayout::Millimeter);
 
     QPrintDialog *printDialog = new QPrintDialog(printer);
+    printDialog->show();
     Utils::setParentWindow(printDialog, parent_window);
 
     // Process options

@@ -61,6 +61,7 @@ uint AccessPortal::AccessDialog(const QDBusObjectPath &handle,
     // TODO choices
 
     accessDialog->createDialog();
+    accessDialog->windowHandle()->show();
     Utils::setParentWindow(accessDialog->windowHandle(), parent_window);
     if (options.contains(QStringLiteral("modal"))) {
         accessDialog->windowHandle()->setModality(options.value(QStringLiteral("modal")).toBool() ? Qt::WindowModal : Qt::NonModal);
