@@ -18,7 +18,6 @@
 #include <KSharedConfig>
 
 #include <QLoggingCategory>
-#include <QWindow>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeScreenCast, "xdp-kde-screencast")
 
@@ -142,7 +141,6 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
 
     QScopedPointer<ScreenChooserDialog, QScopedPointerDeleteLater> screenDialog(
         new ScreenChooserDialog(app_id, session->multipleSources(), SourceTypes(session->types())));
-    screenDialog->windowHandle()->show();
     Utils::setParentWindow(screenDialog->windowHandle(), parent_window);
 
     connect(session, &Session::closed, screenDialog.data(), &ScreenChooserDialog::reject);

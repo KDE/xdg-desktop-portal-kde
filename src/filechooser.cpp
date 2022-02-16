@@ -270,7 +270,6 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
         }
 
         dirDialog.winId(); // Trigger window creation
-        dirDialog.show();
         Utils::setParentWindow(&dirDialog, parent_window);
 
         if (dirDialog.exec() != QDialog::Accepted) {
@@ -300,7 +299,6 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     }
 
     QScopedPointer<FileDialog, QScopedPointerDeleteLater> fileDialog(new FileDialog());
-    fileDialog->show();
     Utils::setParentWindow(fileDialog.data(), parent_window);
     fileDialog->setWindowTitle(title);
     fileDialog->setModal(modalDialog);
@@ -451,7 +449,6 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     }
 
     QScopedPointer<FileDialog, QScopedPointerDeleteLater> fileDialog(new FileDialog());
-    fileDialog->show();
     Utils::setParentWindow(fileDialog.data(), parent_window);
     fileDialog->setWindowTitle(title);
     fileDialog->setModal(modalDialog);

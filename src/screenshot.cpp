@@ -87,7 +87,6 @@ uint ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeScreenshot) << "    options: " << options;
 
     QPointer<ScreenshotDialog> screenshotDialog = new ScreenshotDialog;
-    screenshotDialog->windowHandle()->show();
     Utils::setParentWindow(screenshotDialog->windowHandle(), parent_window);
 
     const bool modal = options.value(QStringLiteral("modal"), false).toBool();

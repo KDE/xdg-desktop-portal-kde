@@ -10,7 +10,6 @@
 #include "utils.h"
 
 #include <QLoggingCategory>
-#include <QWindow>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAccount, "xdp-kde-account")
 
@@ -42,7 +41,6 @@ uint AccountPortal::GetUserInformation(const QDBusObjectPath &handle,
     }
 
     UserInfoDialog *userInfoDialog = new UserInfoDialog(reason);
-    userInfoDialog->windowHandle()->show();
     Utils::setParentWindow(userInfoDialog->windowHandle(), parent_window);
 
     int result = userInfoDialog->exec();
