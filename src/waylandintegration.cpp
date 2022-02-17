@@ -400,26 +400,33 @@ QVariant WaylandIntegration::WaylandIntegrationPrivate::streams()
     return QVariant::fromValue<WaylandIntegrationPrivate::Streams>(m_streams);
 }
 
+static const char *windowParentHandlePropertyName = "waylandintegration-parentHandle";
 void WaylandIntegration::WaylandIntegrationPrivate::setParentWindow(QWindow *window, const QString &parentHandle)
 {
     if (!m_xdgImporter) {
         return;
     }
 
-    auto importedParent = m_xdgImporter->importTopLevel(parentHandle, window);
     if (window->isVisible()) {
-        importedParent->setParentOf(KWayland::Client::Surface::fromWindow(window));
-    } else {
-        connect(
-            window,
-            &QWindow::visibleChanged,
-            this,
-            [importedParent, window, this] {
-                importedParent->setParentOf(KWayland::Client::Surface::fromWindow(window));
-                QObject::disconnect(this);
-            },
-            Qt::QueuedConnection);
+        auto importedParent = m_xdgImporter->importTopLevel(parentHandle, window);
+        auto surface = KWayland::Client::Surface::fromWindow(window);
+        importedParent->setParentOf(surface);
     }
+
+    window->setProperty(windowParentHandlePropertyName, parentHandle);
+    installEventFilter(window);
+}
+
+bool WaylandIntegration::WaylandIntegrationPrivate::eventFilter(QObject *watched, QEvent *event)
+{
+    const bool ret = WaylandIntegration::WaylandIntegration::eventFilter(watched, event);
+    QWindow *window = static_cast<QWindow *>(watched);
+    if (event->type() == QEvent::Expose && window->isExposed()) {
+        const QString parentHandle = window->property(windowParentHandlePropertyName).toString();
+        auto importedParent = m_xdgImporter->importTopLevel(parentHandle, window);
+        importedParent->setParentOf(KWayland::Client::Surface::fromWindow(window));
+    }
+    return ret;
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::authenticate()

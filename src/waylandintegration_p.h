@@ -96,6 +96,8 @@ protected Q_SLOTS:
     void removeOutput(quint32 name);
 
 private:
+    bool eventFilter(QObject *watched, QEvent *event) override;
+
     bool m_streamInput = false;
     bool m_waylandAuthenticationRequested = false;
 
