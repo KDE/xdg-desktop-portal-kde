@@ -414,7 +414,7 @@ void WaylandIntegration::WaylandIntegrationPrivate::setParentWindow(QWindow *win
     }
 
     window->setProperty(windowParentHandlePropertyName, parentHandle);
-    installEventFilter(window);
+    window->installEventFilter(this);
 }
 
 bool WaylandIntegration::WaylandIntegrationPrivate::eventFilter(QObject *watched, QEvent *event)
