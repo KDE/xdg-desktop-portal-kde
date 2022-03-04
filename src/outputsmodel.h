@@ -10,12 +10,15 @@
 #include <QAbstractListModel>
 #include <QSet>
 
+class Output;
+
 class OutputsModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(bool hasSelection READ hasSelection NOTIFY hasSelectionChanged)
 public:
     OutputsModel(QObject *parent);
+    ~OutputsModel() override;
 
     int rowCount(const QModelIndex &parent) const override;
     QHash<int, QByteArray> roleNames() const override;
@@ -35,6 +38,6 @@ Q_SIGNALS:
     void hasSelectionChanged();
 
 private:
-    QList<WaylandIntegration::WaylandOutput> m_outputs;
+    QList<Output> m_outputs;
     QSet<quint32> m_selected;
 };

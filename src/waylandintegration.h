@@ -113,6 +113,7 @@ bool isStreamingAvailable();
 
 void startStreamingInput();
 bool startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
+bool startStreamingWorkspace(Screencasting::CursorMode mode);
 bool startStreamingWindow(const QMap<int, QVariant> &win);
 void stopAllStreaming();
 

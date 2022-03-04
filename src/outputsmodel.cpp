@@ -8,11 +8,61 @@
 #include <KLocalizedString>
 #include <QIcon>
 
+class Output
+{
+public:
+    int waylandOutputName() const
+    {
+        return m_waylandOutputName;
+    }
+
+    QString iconName() const
+    {
+        switch (m_outputType) {
+        case WaylandIntegration::WaylandOutput::Laptop:
+            return QStringLiteral("computer-laptop");
+        case WaylandIntegration::WaylandOutput::Television:
+            return QStringLiteral("video-television");
+        default:
+        case WaylandIntegration::WaylandOutput::Monitor:
+            return QStringLiteral("video-display");
+        }
+    }
+
+    QString display() const
+    {
+        return m_display;
+    }
+
+    WaylandIntegration::WaylandOutput::OutputType m_outputType;
+    int m_waylandOutputName;
+    QString m_display;
+};
+
 OutputsModel::OutputsModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    m_outputs = WaylandIntegration::screens().values();
+    const auto outputs = WaylandIntegration::screens().values();
+
+    // Only show the full workspace if there's several outputs
+    if (outputs.count() > 1) {
+        m_outputs << Output{WaylandIntegration::WaylandOutput::Monitor, 0, i18n("Full Workspace")};
+    }
+    for (auto output : outputs) {
+        QString display;
+        switch (output.outputType()) {
+        case WaylandIntegration::WaylandOutput::Laptop:
+            display = i18n("Laptop screen\nModel: %1", output.model());
+            break;
+        default:
+            display = i18n("Manufacturer: %1\nModel: %2", output.manufacturer(), output.model());
+            break;
+        }
+        m_outputs << Output{output.outputType(), output.waylandOutputName(), display};
+    }
 }
+
+OutputsModel::~OutputsModel() = default;
 
 int OutputsModel::rowCount(const QModelIndex &parent) const
 {
@@ -40,21 +90,9 @@ QVariant OutputsModel::data(const QModelIndex &index, int role) const
     case Qt::UserRole:
         return output.waylandOutputName();
     case Qt::DecorationRole:
-        switch (output.outputType()) {
-        case WaylandIntegration::WaylandOutput::Laptop:
-            return QIcon::fromTheme(QStringLiteral("computer-laptop"));
-        case WaylandIntegration::WaylandOutput::Monitor:
-            return QIcon::fromTheme(QStringLiteral("video-display"));
-        case WaylandIntegration::WaylandOutput::Television:
-            return QIcon::fromTheme(QStringLiteral("video-television"));
-        }
+        return QIcon::fromTheme(output.iconName());
     case Qt::DisplayRole:
-        switch (output.outputType()) {
-        case WaylandIntegration::WaylandOutput::Laptop:
-            return i18n("Laptop screen\nModel: %1", output.model());
-        default:
-            return i18n("Manufacturer: %1\nModel: %2", output.manufacturer(), output.model());
-        }
+        return output.display();
     case Qt::CheckStateRole:
         return m_selected.contains(output.waylandOutputName()) ? Qt::Checked : Qt::Unchecked;
     }

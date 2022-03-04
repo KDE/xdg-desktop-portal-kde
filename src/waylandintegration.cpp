@@ -17,11 +17,11 @@
 
 #include <KNotification>
 #include <QEventLoop>
+#include <QImage>
 #include <QLoggingCategory>
+#include <QScreen>
 #include <QThread>
 #include <QTimer>
-
-#include <QImage>
 
 #include <KLocalizedString>
 
@@ -79,6 +79,11 @@ void WaylandIntegration::startStreamingInput()
 bool WaylandIntegration::startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode)
 {
     return globalWaylandIntegration->startStreamingOutput(outputName, mode);
+}
+
+bool WaylandIntegration::startStreamingWorkspace(Screencasting::CursorMode mode)
+{
+    return globalWaylandIntegration->startStreamingWorkspace(mode);
 }
 
 bool WaylandIntegration::startStreamingWindow(const QMap<int, QVariant> &win)
@@ -238,22 +243,33 @@ void WaylandIntegration::WaylandIntegrationPrivate::startStreamingInput()
 bool WaylandIntegration::WaylandIntegrationPrivate::startStreamingWindow(const QMap<int, QVariant> &win)
 {
     auto uuid = win[KWayland::Client::PlasmaWindowModel::Uuid].toString();
-    return startStreaming(m_screencasting->createWindowStream(uuid, Screencasting::Hidden), {}, win);
+    return startStreaming(m_screencasting->createWindowStream(uuid, Screencasting::Hidden), {}, win, {});
 }
 
 bool WaylandIntegration::WaylandIntegrationPrivate::startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode)
 {
     auto output = m_outputMap.value(outputName).output();
+    return startStreaming(m_screencasting->createOutputStream(output.data(), mode), output, {}, {});
+}
 
-    return startStreaming(m_screencasting->createOutputStream(output.data(), mode), output, {});
+bool WaylandIntegration::WaylandIntegrationPrivate::startStreamingWorkspace(Screencasting::CursorMode mode)
+{
+    QRect workspace;
+    const auto screens = qGuiApp->screens();
+    for (QScreen *screen : screens) {
+        workspace |= screen->geometry();
+    }
+    return startStreaming(m_screencasting->createRegionStream(workspace, 1, mode), {}, {}, workspace);
 }
 
 bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(ScreencastingStream *stream,
                                                                    QSharedPointer<KWayland::Client::Output> output,
-                                                                   const QMap<int, QVariant> &win)
+                                                                   const QMap<int, QVariant> &win,
+                                                                   const std::optional<QRect> &region)
 {
     QEventLoop loop;
     bool streamReady = false;
+
     connect(stream, &ScreencastingStream::failed, this, [&](const QString &error) {
         qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "failed to start streaming" << stream << error;
 
@@ -276,6 +292,12 @@ bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(Screencasting
                 {QLatin1String("size"), output->pixelSize()},
                 {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
             };
+        } else if (region) {
+            m_streamedScreenPosition = region->topLeft();
+            s.map = {
+                {QLatin1String("size"), region->size()},
+                {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
+            };
         } else {
             s.map = {{QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Window)}};
         }
@@ -286,16 +308,20 @@ bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(Screencasting
             stopStreaming(nodeid);
         });
         streamReady = true;
+        qDebug() << "start streaming" << s << m_streamedScreenPosition;
 
         auto item = new KStatusNotifierItem(stream);
         item->setStandardActionsEnabled(false);
         if (output) {
             item->setTitle(i18n("Recording screen \"%1\"...", output->model()));
             item->setIconByName("video-display");
-        } else {
+        } else if (!win.isEmpty()) {
             auto name = win[Qt::DecorationRole].value<QIcon>().name();
             item->setIconByName(name.isEmpty() ? "applications-all" : name);
             item->setTitle(i18n("Recording window \"%1\"...", win[Qt::DisplayRole].toString()));
+        } else {
+            item->setIconByName("video-display");
+            item->setTitle(i18n("Recording workspace..."));
         }
         item->setOverlayIconByName("media-record");
         item->setToolTip(item->iconName(), item->title(), i18n("Press to cancel"));

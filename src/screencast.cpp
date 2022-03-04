@@ -148,7 +148,11 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     if (screenDialog->exec()) {
         const auto selectedScreens = screenDialog->selectedScreens();
         for (quint32 outputid : selectedScreens) {
-            if (!WaylandIntegration::startStreamingOutput(outputid, Screencasting::CursorMode(session->cursorMode()))) {
+            if (outputid == 0) {
+                if (!WaylandIntegration::startStreamingWorkspace(Screencasting::CursorMode(session->cursorMode()))) {
+                    return 2;
+                }
+            } else if (!WaylandIntegration::startStreamingOutput(outputid, Screencasting::CursorMode(session->cursorMode()))) {
                 return 2;
             }
         }

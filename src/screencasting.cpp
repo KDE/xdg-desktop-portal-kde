@@ -111,6 +111,13 @@ ScreencastingStream *Screencasting::createWindowStream(const QString &uuid, Curs
     return stream;
 }
 
+ScreencastingStream *Screencasting::createRegionStream(const QRect &g, qreal scale, CursorMode mode)
+{
+    auto stream = new ScreencastingStream(this);
+    stream->d->init(d->stream_region(g.x(), g.y(), g.width(), g.height(), wl_fixed_from_double(scale), mode));
+    return stream;
+}
+
 void Screencasting::setup(::zkde_screencast_unstable_v1 *screencasting)
 {
     d.reset(new ScreencastingPrivate(screencasting, this));

@@ -73,9 +73,13 @@ public:
 
     void startStreamingInput();
 
-    bool startStreaming(ScreencastingStream *stream, QSharedPointer<KWayland::Client::Output> output, const QMap<int, QVariant> &win);
+    bool startStreaming(ScreencastingStream *stream,
+                        QSharedPointer<KWayland::Client::Output> output,
+                        const QMap<int, QVariant> &win,
+                        const std::optional<QRect> &region);
     bool startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
     bool startStreamingWindow(const QMap<int, QVariant> &win);
+    bool startStreamingWorkspace(Screencasting::CursorMode mode);
     void stopStreaming(uint32_t nodeid);
     void stopAllStreaming();
 
