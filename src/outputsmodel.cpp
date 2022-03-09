@@ -7,6 +7,7 @@
 #include "outputsmodel.h"
 #include <KLocalizedString>
 #include <QIcon>
+#include <QDebug>
 
 OutputsModel::OutputsModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -74,8 +75,10 @@ bool OutputsModel::setData(const QModelIndex &index, const QVariant &value, int 
     const auto &output = m_outputs[index.row()];
     if (value == Qt::Checked) {
         m_selected.insert(output.waylandOutputName());
+        qWarning() << "Checked a thing; m_selected is now" << m_selected;
     } else {
         m_selected.remove(output.waylandOutputName());
+        qWarning() << "Unchecked a thing; m_selected is now" << m_selected;
     }
     Q_EMIT dataChanged(index, index, {role});
     if (m_selected.count() <= 1) {

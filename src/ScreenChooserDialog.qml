@@ -72,12 +72,18 @@ PWD.SystemDialog
                                 outputsView.model.setData(outputsView.model.index(model.row, 0), to, Qt.CheckStateRole)
                             }
                             onDoubleClicked: {
-                                console.warn("I was double-clicked! Don't do that.")
-                                var to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
-                                if (!root.multiple && to === Qt.Checked) {
-                                    root.clearSelection()
+                                console.warn("I was double-clicked! Don't do that, as it can cause the model to drift out of sync with the visual status.")
+                                var modelChecked = model.checked === Qt.Checked
+                                console.warn("Model status is " + modelChecked)
+                                console.warn("Am I the currently-selected list item? " + ListView.isCurrentItem)
+                                if (ListView.isCurrentItem && !modelChecked) {
+                                    console.warn("I am the currently-selected list item but the model says I'm unchecked; forcing the model row to be checked to reflect this!")
+                                    outputsView.model.setData(outputsView.model.index(model.row, 0), Qt.Checked, Qt.CheckStateRole)
                                 }
-                                outputsView.model.setData(outputsView.model.index(model.row, 0), to, Qt.CheckStateRole)
+                                if (!ListView.isCurrentItem && modelChecked) {
+                                    console.warn("I am not currently-selected list item but the model says I'm checked; forcing the model row to be unchecked to reflect this!")
+                                    outputsView.model.setData(outputsView.model.index(model.row, 0), Qt.Unchecked, Qt.CheckStateRole)
+                                }
                             }
                         }
                     }
@@ -92,15 +98,6 @@ PWD.SystemDialog
                             highlighted: false
                             checked: model.checked === Qt.Checked
                             onClicked: {
-                                console.warn("I was single-clicked!")
-                                var to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
-                                if (!root.multiple && to === Qt.Checked) {
-                                    root.clearSelection()
-                                }
-                                windowsView.model.setData(windowsView.model.index(model.row, 0), to, Qt.CheckStateRole)
-                            }
-                            onDoubleClicked: {
-                                console.warn("I was double-clicked! Don't do that.")
                                 var to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
                                 if (!root.multiple && to === Qt.Checked) {
                                     root.clearSelection()
