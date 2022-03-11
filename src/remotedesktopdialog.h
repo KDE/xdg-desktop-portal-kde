@@ -9,6 +9,7 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_DIALOG_H
 #define XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_DIALOG_H
 
+#include "outputsmodel.h"
 #include "quickdialog.h"
 #include "remotedesktop.h"
 
@@ -27,7 +28,7 @@ public:
                         bool multiple = false,
                         QObject *parent = nullptr);
 
-    QList<quint32> selectedScreens() const;
+    QList<Output> selectedOutputs() const;
     RemoteDesktopPortal::DeviceTypes deviceTypes() const;
 };
 

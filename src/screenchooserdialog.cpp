@@ -142,7 +142,7 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
 
     int numberOfMonitors = 0;
     if (types & ScreenCastPortal::Monitor) {
-        auto model = new OutputsModel(this);
+        auto model = new OutputsModel(OutputsModel::WorkspaceIncluded, this);
         props.insert("outputsModel", QVariant::fromValue<QObject *>(model));
         numberOfMonitors += model->rowCount(QModelIndex());
         connect(this, &ScreenChooserDialog::clearSelection, model, &OutputsModel::clearSelection);
@@ -228,13 +228,13 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
 
 ScreenChooserDialog::~ScreenChooserDialog() = default;
 
-QList<quint32> ScreenChooserDialog::selectedScreens() const
+QList<Output> ScreenChooserDialog::selectedOutputs() const
 {
     OutputsModel *model = dynamic_cast<OutputsModel *>(m_theDialog->property("outputsModel").value<QObject *>());
     if (!model) {
         return {};
     }
-    return model->selectedScreens();
+    return model->selectedOutputs();
 }
 
 QVector<QMap<int, QVariant>> ScreenChooserDialog::selectedWindows() const

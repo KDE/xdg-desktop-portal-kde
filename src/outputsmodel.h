@@ -10,14 +10,62 @@
 #include <QAbstractListModel>
 #include <QSet>
 
-class Output;
+class Output
+{
+public:
+    Output(WaylandIntegration::WaylandOutput::OutputType outputType, int waylandOutputName, const QString &display)
+        : m_outputType(outputType)
+        , m_waylandOutputName(waylandOutputName)
+        , m_display(display)
+    {
+    }
+
+    int waylandOutputName() const
+    {
+        return m_waylandOutputName;
+    }
+
+    QString iconName() const
+    {
+        switch (m_outputType) {
+        case WaylandIntegration::WaylandOutput::Laptop:
+            return QStringLiteral("computer-laptop");
+        case WaylandIntegration::WaylandOutput::Television:
+            return QStringLiteral("video-television");
+        default:
+        case WaylandIntegration::WaylandOutput::Monitor:
+            return QStringLiteral("video-display");
+        }
+    }
+
+    QString display() const
+    {
+        return m_display;
+    }
+
+    WaylandIntegration::WaylandOutput::OutputType outputType() const
+    {
+        return m_outputType;
+    }
+
+private:
+    WaylandIntegration::WaylandOutput::OutputType m_outputType;
+    int m_waylandOutputName;
+    QString m_display;
+};
 
 class OutputsModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(bool hasSelection READ hasSelection NOTIFY hasSelectionChanged)
 public:
-    OutputsModel(QObject *parent);
+    enum Options {
+        None = 0,
+        WorkspaceIncluded,
+    };
+    Q_ENUM(Options);
+
+    OutputsModel(Options o, QObject *parent);
     ~OutputsModel() override;
 
     int rowCount(const QModelIndex &parent) const override;
@@ -25,10 +73,10 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 
-    QList<quint32> selectedScreens() const;
+    QList<Output> selectedOutputs() const;
     bool hasSelection() const
     {
-        return !m_selected.isEmpty();
+        return !m_selectedRows.isEmpty();
     }
 
 public Q_SLOTS:
@@ -39,5 +87,5 @@ Q_SIGNALS:
 
 private:
     QList<Output> m_outputs;
-    QSet<quint32> m_selected;
+    QSet<quint32> m_selectedRows;
 };

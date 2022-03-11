@@ -9,6 +9,7 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_SCREENCHOOSER_DIALOG_H
 #define XDG_DESKTOP_PORTAL_KDE_SCREENCHOOSER_DIALOG_H
 
+#include "outputsmodel.h"
 #include "quickdialog.h"
 #include "screencast.h"
 #include <QEventLoop>
@@ -20,7 +21,7 @@ public:
     ScreenChooserDialog(const QString &appName, bool multiple, ScreenCastPortal::SourceTypes types);
     ~ScreenChooserDialog() override;
 
-    QList<quint32> selectedScreens() const;
+    QList<Output> selectedOutputs() const;
     QVector<QMap<int, QVariant>> selectedWindows() const;
 
 Q_SIGNALS:

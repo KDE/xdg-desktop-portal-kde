@@ -37,6 +37,7 @@ public:
         Laptop,
         Monitor,
         Television,
+        Workspace,
     };
     QString manufacturer() const
     {

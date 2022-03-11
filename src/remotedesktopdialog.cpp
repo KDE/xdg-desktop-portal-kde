@@ -26,7 +26,8 @@ RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName,
                                          QObject *parent)
     : QuickDialog(parent)
 {
-    auto model = new OutputsModel(this);
+    // We disable sharing the full workspace, can be addressed eventually
+    auto model = new OutputsModel(OutputsModel::None, this);
 
     QVariantMap props = {
         {"outputsModel", QVariant::fromValue<QObject *>(model)},
@@ -47,13 +48,13 @@ RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName,
     create(QStringLiteral("qrc:/RemoteDesktopDialog.qml"), props);
 }
 
-QList<quint32> RemoteDesktopDialog::selectedScreens() const
+QList<Output> RemoteDesktopDialog::selectedOutputs() const
 {
     OutputsModel *model = dynamic_cast<OutputsModel *>(m_theDialog->property("outputsModel").value<QObject *>());
     if (!model) {
         return {};
     }
-    return model->selectedScreens();
+    return model->selectedOutputs();
 }
 
 RemoteDesktopPortal::DeviceTypes RemoteDesktopDialog::deviceTypes() const

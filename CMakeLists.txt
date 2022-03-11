@@ -10,6 +10,8 @@ project(xdg-desktop-portal-kde VERSION ${PROJECT_VERSION})
 set(QT_MIN_VERSION "5.15.0")
 set(KF5_MIN_VERSION "5.86")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ################# set KDE specific information #################
 
@@ -49,7 +51,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     WindowSystem
 )
 find_package(Wayland 1.15 REQUIRED COMPONENTS Client)
-find_package(PlasmaWaylandProtocols REQUIRED)
+find_package(PlasmaWaylandProtocols 1.7.0 REQUIRED)
 find_package(QtWaylandScanner REQUIRED)
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)

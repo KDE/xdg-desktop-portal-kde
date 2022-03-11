@@ -8,45 +8,14 @@
 #include <KLocalizedString>
 #include <QIcon>
 
-class Output
-{
-public:
-    int waylandOutputName() const
-    {
-        return m_waylandOutputName;
-    }
-
-    QString iconName() const
-    {
-        switch (m_outputType) {
-        case WaylandIntegration::WaylandOutput::Laptop:
-            return QStringLiteral("computer-laptop");
-        case WaylandIntegration::WaylandOutput::Television:
-            return QStringLiteral("video-television");
-        default:
-        case WaylandIntegration::WaylandOutput::Monitor:
-            return QStringLiteral("video-display");
-        }
-    }
-
-    QString display() const
-    {
-        return m_display;
-    }
-
-    WaylandIntegration::WaylandOutput::OutputType m_outputType;
-    int m_waylandOutputName;
-    QString m_display;
-};
-
-OutputsModel::OutputsModel(QObject *parent)
+OutputsModel::OutputsModel(Options o, QObject *parent)
     : QAbstractListModel(parent)
 {
     const auto outputs = WaylandIntegration::screens().values();
 
     // Only show the full workspace if there's several outputs
-    if (outputs.count() > 1) {
-        m_outputs << Output{WaylandIntegration::WaylandOutput::Monitor, 0, i18n("Full Workspace")};
+    if (outputs.count() > 1 && (o & WorkspaceIncluded)) {
+        m_outputs << Output{WaylandIntegration::WaylandOutput::Workspace, 0, i18n("Full Workspace")};
     }
     for (auto output : outputs) {
         QString display;
@@ -94,7 +63,7 @@ QVariant OutputsModel::data(const QModelIndex &index, int role) const
     case Qt::DisplayRole:
         return output.display();
     case Qt::CheckStateRole:
-        return m_selected.contains(output.waylandOutputName()) ? Qt::Checked : Qt::Unchecked;
+        return m_selectedRows.contains(index.row()) ? Qt::Checked : Qt::Unchecked;
     }
     return {};
 }
@@ -109,38 +78,40 @@ bool OutputsModel::setData(const QModelIndex &index, const QVariant &value, int 
         return true;
     }
 
-    const auto &output = m_outputs[index.row()];
     if (value == Qt::Checked) {
-        m_selected.insert(output.waylandOutputName());
+        m_selectedRows.insert(index.row());
     } else {
-        m_selected.remove(output.waylandOutputName());
+        m_selectedRows.remove(index.row());
     }
     Q_EMIT dataChanged(index, index, {role});
-    if (m_selected.count() <= 1) {
+    if (m_selectedRows.count() <= 1) {
         Q_EMIT hasSelectionChanged();
     }
     return true;
 }
 
-QList<quint32> OutputsModel::selectedScreens() const
-{
-    return m_selected.values();
-}
-
 void OutputsModel::clearSelection()
 {
-    if (m_selected.isEmpty())
+    if (m_selectedRows.isEmpty())
         return;
 
-    auto selected = m_selected;
-    m_selected.clear();
-    int i = 0;
-    for (const auto &output : qAsConst(m_outputs)) {
-        if (selected.contains(output.waylandOutputName())) {
+    auto selected = m_selectedRows;
+    m_selectedRows.clear();
+    for (int i = 0, c = rowCount({}); i < c; ++i) {
+        if (selected.contains(i)) {
             const auto idx = index(i, 0);
             Q_EMIT dataChanged(idx, idx, {Qt::CheckStateRole});
         }
-        ++i;
     }
     Q_EMIT hasSelectionChanged();
+}
+
+QList<Output> OutputsModel::selectedOutputs() const
+{
+    QList<Output> ret;
+    ret.reserve(m_selectedRows.count());
+    for (auto x : qAsConst(m_selectedRows)) {
+        ret << m_outputs[x];
+    }
+    return ret;
 }

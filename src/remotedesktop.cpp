@@ -122,7 +122,7 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
 
     if (remoteDesktopDialog->exec()) {
         if (session->screenSharingEnabled()) {
-            if (!WaylandIntegration::startStreamingOutput(remoteDesktopDialog->selectedScreens().first(), Screencasting::Hidden)) {
+            if (!WaylandIntegration::startStreamingOutput(remoteDesktopDialog->selectedOutputs().constFirst().waylandOutputName(), Screencasting::Hidden)) {
                 return 2;
             }
 

@@ -146,13 +146,13 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     connect(session, &Session::closed, screenDialog.data(), &ScreenChooserDialog::reject);
 
     if (screenDialog->exec()) {
-        const auto selectedScreens = screenDialog->selectedScreens();
-        for (quint32 outputid : selectedScreens) {
-            if (outputid == 0) {
+        const auto selectedOutputs = screenDialog->selectedOutputs();
+        for (const auto &output : selectedOutputs) {
+            if (output.outputType() == WaylandIntegration::WaylandOutput::Workspace) {
                 if (!WaylandIntegration::startStreamingWorkspace(Screencasting::CursorMode(session->cursorMode()))) {
                     return 2;
                 }
-            } else if (!WaylandIntegration::startStreamingOutput(outputid, Screencasting::CursorMode(session->cursorMode()))) {
+            } else if (!WaylandIntegration::startStreamingOutput(output.waylandOutputName(), Screencasting::CursorMode(session->cursorMode()))) {
                 return 2;
             }
         }
