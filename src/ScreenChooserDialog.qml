@@ -16,6 +16,7 @@ PWD.SystemDialog
     property alias outputsModel: outputsView.model
     property alias windowsModel: windowsView.model
     property bool multiple: false
+    property alias allowRestore: allowRestoreItem.checked
     iconName: "video-display"
     acceptable: (outputsModel && outputsModel.hasSelection) || (windowsModel && windowsModel.hasSelection)
 
@@ -93,6 +94,12 @@ PWD.SystemDialog
                     }
                 }
             }
+        }
+
+        QQC2.CheckBox {
+            id: allowRestoreItem
+            checked: true
+            text: i18n("Allow restoring on future sessions")
         }
     }
 

@@ -23,6 +23,7 @@ public:
 
     QList<Output> selectedOutputs() const;
     QVector<QMap<int, QVariant>> selectedWindows() const;
+    bool allowRestore() const;
 
 Q_SIGNALS:
     void clearSelection();

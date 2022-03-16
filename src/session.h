@@ -61,11 +61,22 @@ public:
     {
         return SessionType::ScreenCast;
     }
+    QVariant restoreData() const
+    {
+        return m_restoreData;
+    }
+    ScreenCastPortal::PersistMode persistMode() const
+    {
+        return m_persistMode;
+    }
 
 private:
     bool m_multipleSources;
     ScreenCastPortal::CursorModes m_cursorMode;
     ScreenCastPortal::SourceType m_types;
+    ScreenCastPortal::PersistMode m_persistMode = ScreenCastPortal::NoPersist;
+
+    QVariant m_restoreData;
 };
 
 class RemoteDesktopSession : public ScreenCastSession

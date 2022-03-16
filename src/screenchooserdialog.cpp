@@ -246,4 +246,9 @@ QVector<QMap<int, QVariant>> ScreenChooserDialog::selectedWindows() const
     return model->selectedWindows();
 }
 
+bool ScreenChooserDialog::allowRestore() const
+{
+    return m_theDialog->property("allowRestore").toBool();
+}
+
 #include "screenchooserdialog.moc"

@@ -15,7 +15,7 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
 
     // Only show the full workspace if there's several outputs
     if (outputs.count() > 1 && (o & WorkspaceIncluded)) {
-        m_outputs << Output{WaylandIntegration::WaylandOutput::Workspace, 0, i18n("Full Workspace")};
+        m_outputs << Output{WaylandIntegration::WaylandOutput::Workspace, 0, i18n("Full Workspace"), "Workspace"};
     }
     for (auto output : outputs) {
         QString display;
@@ -27,7 +27,8 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
             display = i18n("Manufacturer: %1\nModel: %2", output.manufacturer(), output.model());
             break;
         }
-        m_outputs << Output{output.outputType(), output.waylandOutputName(), display};
+        const QPoint pos = output.globalPosition();
+        m_outputs << Output{output.outputType(), output.waylandOutputName(), display, QStringLiteral("%1x%2").arg(pos.x()).arg(pos.y())};
     }
 }
 
@@ -88,6 +89,11 @@ bool OutputsModel::setData(const QModelIndex &index, const QVariant &value, int 
         Q_EMIT hasSelectionChanged();
     }
     return true;
+}
+
+const Output &OutputsModel::outputAt(int row) const
+{
+    return m_outputs[row];
 }
 
 void OutputsModel::clearSelection()

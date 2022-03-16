@@ -35,12 +35,19 @@ public:
     };
     Q_ENUM(CursorModes);
 
+    enum PersistMode {
+        NoPersist = 0,
+        PersistWhileRunning = 1,
+        PersistUntilRevoked = 2,
+    };
+    Q_ENUM(PersistMode);
+
     explicit ScreenCastPortal(QObject *parent);
     ~ScreenCastPortal() override;
 
     uint version() const
     {
-        return 3;
+        return 4;
     }
     uint AvailableSourceTypes() const
     {

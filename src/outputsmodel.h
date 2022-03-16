@@ -13,10 +13,11 @@
 class Output
 {
 public:
-    Output(WaylandIntegration::WaylandOutput::OutputType outputType, int waylandOutputName, const QString &display)
+    Output(WaylandIntegration::WaylandOutput::OutputType outputType, int waylandOutputName, const QString &display, const QString &uniqueId)
         : m_outputType(outputType)
         , m_waylandOutputName(waylandOutputName)
         , m_display(display)
+        , m_uniqueId(uniqueId)
     {
     }
 
@@ -43,6 +44,11 @@ public:
         return m_display;
     }
 
+    QString uniqueId() const
+    {
+        return m_uniqueId;
+    }
+
     WaylandIntegration::WaylandOutput::OutputType outputType() const
     {
         return m_outputType;
@@ -52,6 +58,7 @@ private:
     WaylandIntegration::WaylandOutput::OutputType m_outputType;
     int m_waylandOutputName;
     QString m_display;
+    QString m_uniqueId;
 };
 
 class OutputsModel : public QAbstractListModel
@@ -68,11 +75,12 @@ public:
     OutputsModel(Options o, QObject *parent);
     ~OutputsModel() override;
 
-    int rowCount(const QModelIndex &parent) const override;
+    int rowCount(const QModelIndex &parent = {}) const override;
     QHash<int, QByteArray> roleNames() const override;
     QVariant data(const QModelIndex &index, int role) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 
+    const Output &outputAt(int row) const;
     QList<Output> selectedOutputs() const;
     bool hasSelection() const
     {

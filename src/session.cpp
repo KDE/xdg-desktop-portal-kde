@@ -168,6 +168,8 @@ void ScreenCastSession::setOptions(const QVariantMap &options)
 {
     m_multipleSources = options.value(QStringLiteral("multiple")).toBool();
     m_cursorMode = ScreenCastPortal::CursorModes(options.value(QStringLiteral("cursor_mode")).toUInt());
+    m_persistMode = ScreenCastPortal::PersistMode(options.value("persist_mode").toUInt());
+    m_restoreData = options.value(QStringLiteral("restore_data"));
     m_types = ScreenCastPortal::SourceType(options.value(QStringLiteral("types")).toUInt());
 
     if (m_types == 0) {
