@@ -9,8 +9,8 @@
 #include <QUrl>
 #include <QVariant>
 
-#include <KIOFileWidgets/KDirSortFilterProxyModel>
-#include <KIOWidgets/KDirModel>
+#include <KDirModel>
+#include <KDirSortFilterProxyModel>
 class DirLister;
 
 class DirModel : public KDirSortFilterProxyModel

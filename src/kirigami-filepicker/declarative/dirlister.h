@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include <KIOWidgets/KDirLister>
+#include <KDirLister>
 #include <QObject>
 
 class DirLister : public KDirLister
