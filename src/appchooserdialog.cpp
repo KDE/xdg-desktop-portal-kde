@@ -23,15 +23,11 @@
 #include <KProcess>
 #include <KService>
 
-AppChooserDialog::AppChooserDialog(const QStringList &choices,
-                                   const QString &defaultApp,
-                                   const QString &fileName,
-                                   const QString &mimeName,
-                                   QObject *parent)
+AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, const QString &mimeName, QObject *parent)
     : QuickDialog(parent)
+    , m_model(new AppModel(this))
     , m_mimeName(mimeName)
 {
-    m_model = new AppModel(this);
     m_model->setPreferredApps(choices);
 
     QVariantMap props = {

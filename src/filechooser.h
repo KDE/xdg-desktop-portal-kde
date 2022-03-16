@@ -27,14 +27,14 @@ class FileDialog : public QDialog
 public:
     friend class FileChooserPortal;
 
-    FileDialog(QDialog *parent = nullptr, Qt::WindowFlags flags = {});
+    explicit FileDialog(QDialog *parent = nullptr, Qt::WindowFlags flags = {});
     ~FileDialog() override;
 
 private:
     QDialogButtonBox *m_buttons;
 
 protected:
-    KFileWidget *m_fileWidget;
+    KFileWidget *const m_fileWidget;
     KConfigGroup m_configGroup;
 };
 

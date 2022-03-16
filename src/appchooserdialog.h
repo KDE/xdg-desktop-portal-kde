@@ -142,7 +142,7 @@ private Q_SLOTS:
     void onOpenDiscover();
 
 private:
-    AppModel *m_model;
+    AppModel *const m_model;
     QString m_selectedApplication;
     const QString m_mimeName;
 };

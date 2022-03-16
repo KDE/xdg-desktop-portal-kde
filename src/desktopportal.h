@@ -36,19 +36,19 @@ public:
     ~DesktopPortal() override;
 
 private:
-    AccessPortal *m_access;
-    AccountPortal *m_account;
-    AppChooserPortal *m_appChooser;
-    BackgroundPortal *m_background;
-    EmailPortal *m_email;
-    FileChooserPortal *m_fileChooser;
-    InhibitPortal *m_inhibit;
-    NotificationPortal *m_notification;
-    PrintPortal *m_print;
-    ScreenshotPortal *m_screenshot;
-    SettingsPortal *m_settings;
-    ScreenCastPortal *m_screenCast;
-    RemoteDesktopPortal *m_remoteDesktop;
+    AccessPortal *const m_access;
+    AccountPortal *const m_account;
+    AppChooserPortal *const m_appChooser;
+    BackgroundPortal *m_background = nullptr;
+    EmailPortal *const m_email;
+    FileChooserPortal *const m_fileChooser;
+    InhibitPortal *const m_inhibit;
+    NotificationPortal *const m_notification;
+    PrintPortal *const m_print;
+    ScreenshotPortal *m_screenshot = nullptr;
+    SettingsPortal *const m_settings;
+    ScreenCastPortal *m_screenCast = nullptr;
+    RemoteDesktopPortal *m_remoteDesktop = nullptr;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H

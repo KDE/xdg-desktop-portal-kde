@@ -314,16 +314,16 @@ bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(Screencasting
         item->setStandardActionsEnabled(false);
         if (output) {
             item->setTitle(i18n("Recording screen \"%1\"...", output->model()));
-            item->setIconByName("video-display");
+            item->setIconByName(QStringLiteral("video-display"));
         } else if (!win.isEmpty()) {
             auto name = win[Qt::DecorationRole].value<QIcon>().name();
-            item->setIconByName(name.isEmpty() ? "applications-all" : name);
+            item->setIconByName(name.isEmpty() ? QStringLiteral("applications-all") : name);
             item->setTitle(i18n("Recording window \"%1\"...", win[Qt::DisplayRole].toString()));
         } else {
             item->setIconByName("video-display");
             item->setTitle(i18n("Recording workspace..."));
         }
-        item->setOverlayIconByName("media-record");
+        item->setOverlayIconByName(QStringLiteral("media-record"));
         item->setToolTip(item->iconName(), item->title(), i18n("Press to cancel"));
         connect(item, &KStatusNotifierItem::activateRequested, stream, [=] {
             stopStreaming(nodeid);
