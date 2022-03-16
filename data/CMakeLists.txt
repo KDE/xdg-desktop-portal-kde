@@ -6,4 +6,4 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.freedesktop.impl.portal.desktop.kd
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.freedesktop.impl.portal.desktop.kde.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 
 ecm_install_configured_files(INPUT plasma-xdg-desktop-portal-kde.service.in @ONLY
-            DESTINATION ${SYSTEMD_USER_UNIT_INSTALL_DIR})
+            DESTINATION ${KDE_INSTALL_SYSTEMDUSERUNITDIR})

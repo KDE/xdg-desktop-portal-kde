@@ -66,10 +66,17 @@ set(xdg_desktop_portal_kde_SRCS
     resources.qrc
 )
 
-ecm_add_qtwayland_client_protocol(xdg_desktop_portal_kde_SRCS
-    PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/screencast.xml
-    BASENAME zkde-screencast-unstable-v1
-)
+if (QT_MAJOR_VERSION EQUAL "5")
+    ecm_add_qtwayland_client_protocol(xdg_desktop_portal_kde_SRCS
+        PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/screencast.xml
+        BASENAME zkde-screencast-unstable-v1
+    )
+else()
+#    qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde FILES ${PLASMA_WAYLAND_PROTOCOLS_DIR}/screencast.xml
+#        ${CMAKE_CURRENT_SOURCE_DIR}/zkde-screencast-unstable-v1.xml
+#    )
+endif()
+
 
 set_source_files_properties(../data/org.freedesktop.Accounts.User.xml PROPERTIES NO_NAMESPACE TRUE)
 
@@ -102,4 +109,4 @@ install(TARGETS xdg-desktop-portal-kde DESTINATION ${KDE_INSTALL_LIBEXECDIR})
 
 install(FILES
     xdg-desktop-portal-kde.notifyrc
-    DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR})
+    DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})
