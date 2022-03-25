@@ -26,6 +26,7 @@ set(xdg_desktop_portal_kde_SRCS
     email.h
     filechooser.cpp
     filechooser.h
+    globalshortcuts.cpp
     inhibit.cpp
     inhibit.h
     notification.cpp
@@ -70,6 +71,7 @@ set(xdg_desktop_portal_kde_SRCS
     portalicon.cpp
     dynamiclauncher.cpp
     dynamiclauncherdialog.cpp
+    xdgshortcut.cpp
 )
 
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
@@ -235,6 +237,22 @@ ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     EXPORT XDPKDE
 )
 
+set(kglobalaccel_xml ${KGLOBALACCEL_DBUS_INTERFACES_DIR}/kf5_org.kde.KGlobalAccel.xml)
+set_source_files_properties(${kglobalaccel_xml} PROPERTIES
+    INCLUDE "kglobalaccel.h"
+    NO_NAMESPACE TRUE
+    CLASSNAME "KGlobalAccelInterface"
+)
+qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS ${kglobalaccel_xml} kglobalaccel_interface)
+
+set(kglobalaccel_component_xml ${KGLOBALACCEL_DBUS_INTERFACES_DIR}/kf5_org.kde.kglobalaccel.Component.xml)
+set_source_files_properties(${kglobalaccel_component_xml} PROPERTIES
+    INCLUDE "kglobalshortcutinfo.h"
+    NO_NAMESPACE TRUE
+    CLASSNAME "KGlobalAccelComponentInterface"
+)
+qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS ${kglobalaccel_component_xml} kglobalaccel_component_interface)
+
 if (QT_MAJOR_VERSION EQUAL "5")
     ecm_add_qtwayland_client_protocol(xdg_desktop_portal_kde_SRCS
         PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/zkde-screencast-unstable-v1.xml
@@ -272,6 +290,8 @@ target_link_libraries(xdg-desktop-portal-kde
     KF5::CoreAddons
     KF5::ConfigCore
     KF5::Declarative
+    KF5::GlobalAccel
+    KF5::GuiAddons
     KF5::I18n
     KF5::KIOFileWidgets
     KF5::Notifications
@@ -285,7 +305,9 @@ target_link_libraries(xdg-desktop-portal-kde
     PkgConfig::XKB
 )
 if (QT_MAJOR_VERSION EQUAL "6")
-    target_link_libraries(xdg-desktop-portal-kde Qt::PrintSupportPrivate)
+    target_link_libraries(xdg-desktop-portal-kde Qt::PrintSupportPrivate Qt::GuiPrivate)
+elseif (QT_MAJOR_VERSION EQUAL "5")
+    target_link_libraries(xdg-desktop-portal-kde Qt::XkbCommonSupportPrivate)
 endif()
 
 install(TARGETS xdg-desktop-portal-kde DESTINATION ${KDE_INSTALL_LIBEXECDIR})

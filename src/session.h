@@ -9,16 +9,23 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_SESSION_H
 #define XDG_DESKTOP_PORTAL_KDE_SESSION_H
 
+#include <QAction>
 #include <QDBusVirtualObject>
 #include <QObject>
+#include <QShortcut>
 
+#include "globalshortcuts.h"
 #include "remotedesktop.h"
 #include "screencast.h"
 #include "waylandintegration.h"
 
+class KGlobalAccelInterface;
+class KGlobalAccelComponentInterface;
+
 class Session : public QDBusVirtualObject
 {
     Q_OBJECT
+    Q_DISABLE_COPY(Session)
 public:
     explicit Session(QObject *parent = nullptr, const QString &appId = QString(), const QString &path = QString());
     ~Session() override;
@@ -26,6 +33,7 @@ public:
     enum SessionType {
         ScreenCast = 0,
         RemoteDesktop = 1,
+        GlobalShortcuts = 2,
     };
 
     bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) override;
@@ -37,10 +45,15 @@ public:
     static Session *createSession(QObject *parent, SessionType type, const QString &appId, const QString &path);
     static Session *getSession(const QString &sessionHandle);
 
+    QString handle() const
+    {
+        return m_path;
+    }
+
 Q_SIGNALS:
     void closed();
 
-private:
+protected:
     const QString m_appId;
     const QString m_path;
 };
@@ -112,6 +125,47 @@ private:
     bool m_screenSharingEnabled;
     RemoteDesktopPortal::DeviceTypes m_deviceTypes;
     bool m_acquired = false;
+};
+
+class GlobalShortcutsSession : public Session
+{
+    Q_OBJECT
+public:
+    explicit GlobalShortcutsSession(QObject *parent, const QString &appId, const QString &path);
+    ~GlobalShortcutsSession() override;
+
+    SessionType type() const override
+    {
+        return SessionType::GlobalShortcuts;
+    }
+
+    void restoreActions(const QVariant &shortcurts);
+    QHash<QString, QAction *> shortcuts() const
+    {
+        return m_shortcuts;
+    }
+
+    QVariant shortcutDescriptionsVariant() const;
+    Shortcuts shortcutDescriptions() const;
+    KGlobalAccelComponentInterface *component() const
+    {
+        return m_component;
+    }
+    QString componentName() const
+    {
+        return m_appId + m_token;
+    }
+
+Q_SIGNALS:
+    void shortcutsChanged();
+    void shortcutActivated(const QString &shortcutName, qlonglong timestamp);
+    void shortcutDeactivated(const QString &shortcutName, qlonglong timestamp);
+
+private:
+    const QString m_token;
+    QHash<QString, QAction *> m_shortcuts;
+    KGlobalAccelInterface *const m_globalAccelInterface;
+    KGlobalAccelComponentInterface *const m_component;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SESSION_H

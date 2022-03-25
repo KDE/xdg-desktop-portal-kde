@@ -26,6 +26,7 @@ include(KDEGitCommitHooks)
 include(ECMSetupVersion)
 include(ECMConfiguredInstall)
 include(ECMQtDeclareLoggingCategory)
+include(ECMAddTests)
 
 include(FeatureSummary)
 
@@ -37,9 +38,12 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     QuickWidgets
     Widgets
     WaylandClient
+    Test
 )
 if (QT_MAJOR_VERSION EQUAL "6")
     find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS WaylandClient)
+else()
+    find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS XkbCommonSupport)
 endif()
 
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
@@ -47,6 +51,8 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     Config
     I18n
     Declarative
+    GuiAddons
+    GlobalAccel
     KIO
     Kirigami2
     Notifications
@@ -87,6 +93,7 @@ ecm_setup_version(${PROJECT_VERSION}
 
 add_subdirectory(data)
 add_subdirectory(src)
+add_subdirectory(autotests)
 
 # add clang-format target for all our real source files
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)

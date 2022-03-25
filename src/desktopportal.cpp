@@ -10,6 +10,7 @@
 #include "desktopportal_debug.h"
 
 #include "dynamiclauncher.h"
+#include "globalshortcuts.h"
 
 DesktopPortal::DesktopPortal(QObject *parent)
     : QObject(parent)
@@ -26,6 +27,8 @@ DesktopPortal::DesktopPortal(QObject *parent)
 {
     const QByteArray xdgCurrentDesktop = qgetenv("XDG_CURRENT_DESKTOP");
     if (xdgCurrentDesktop.compare("KDE", Qt::CaseInsensitive) == 0) {
+        new GlobalShortcutsPortal(this);
+
         m_background = new BackgroundPortal(this);
         m_screenCast = new ScreenCastPortal(this);
         m_remoteDesktop = new RemoteDesktopPortal(this);

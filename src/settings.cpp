@@ -21,42 +21,6 @@
 #include "dbushelpers.h"
 #include <KConfigCore/KConfigGroup>
 
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeSettings, "xdp-kde-settings")
-Q_DECLARE_METATYPE(SettingsPortal::VariantMapMap)
-
-QDBusArgument &operator<<(QDBusArgument &argument, const SettingsPortal::VariantMapMap &mymap)
-{
-    argument.beginMap(QVariant::String, QVariant::Map);
-
-    QMapIterator<QString, QVariantMap> i(mymap);
-    while (i.hasNext()) {
-        i.next();
-        argument.beginMapEntry();
-        argument << i.key() << i.value();
-        argument.endMapEntry();
-    }
-    argument.endMap();
-    return argument;
-}
-
-const QDBusArgument &operator>>(const QDBusArgument &argument, SettingsPortal::VariantMapMap &mymap)
-{
-    argument.beginMap();
-    mymap.clear();
-
-    while (!argument.atEnd()) {
-        QString key;
-        QVariantMap value;
-        argument.beginMapEntry();
-        argument >> key >> value;
-        argument.endMapEntry();
-        mymap.insert(key, value);
-    }
-
-    argument.endMap();
-    return argument;
-}
-
 static bool groupMatches(const QString &group, const QStringList &patterns)
 {
     for (const QString &pattern : patterns) {
