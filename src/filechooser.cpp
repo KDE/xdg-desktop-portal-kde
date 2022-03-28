@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: LGPL-2.0-or-later
  *
  * SPDX-FileCopyrightText: 2016-2018 Jan Grulich <jgrulich@redhat.com>
+ * SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
  */
 
 #include "filechooser.h"
@@ -14,6 +15,7 @@
 #include <QDialogButtonBox>
 #include <QFile>
 #include <QFileDialog>
+#include <QFileInfo>
 #include <QGridLayout>
 #include <QLabel>
 #include <QLoggingCategory>
@@ -30,6 +32,7 @@
 #include <KSharedConfig>
 #include <KWindowConfig>
 
+#include "fuse_interface.h"
 #include <mobilefiledialog.h>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeFileChooser, "xdp-kde-file-chooser")
@@ -131,6 +134,13 @@ const QDBusArgument &operator>>(const QDBusArgument &arg, FileChooserPortal::Opt
     return arg;
 }
 
+static bool isKIOFuseAvailable()
+{
+    static bool available =
+        QDBusConnection::sessionBus().interface() && QDBusConnection::sessionBus().interface()->activatableServiceNames().value().contains("org.kde.KIOFuse");
+    return available;
+}
+
 FileDialog::FileDialog(QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)
     , m_fileWidget(new KFileWidget(QUrl(), this))
@@ -178,6 +188,47 @@ FileChooserPortal::FileChooserPortal(QObject *parent)
 
 FileChooserPortal::~FileChooserPortal()
 {
+}
+
+static QStringList fuseRedirect(QList<QUrl> urls)
+{
+    qCDebug(XdgDesktopPortalKdeFileChooser) << "mounting urls with fuse" << urls;
+
+    OrgKdeKIOFuseVFSInterface kiofuse_iface(QStringLiteral("org.kde.KIOFuse"), QStringLiteral("/org/kde/KIOFuse"), QDBusConnection::sessionBus());
+    struct MountRequest {
+        QDBusPendingReply<QString> reply;
+        int urlIndex;
+        QString basename;
+    };
+    QVector<MountRequest> requests;
+    requests.reserve(urls.count());
+    for (int i = 0; i < urls.count(); ++i) {
+        QUrl url = urls.at(i);
+        if (!url.isLocalFile()) {
+            const QString path(url.path());
+            const int slashes = path.count(QLatin1Char('/'));
+            QString basename;
+            if (slashes > 1) {
+                url.setPath(path.section(QLatin1Char('/'), 0, slashes - 1));
+                basename = path.section(QLatin1Char('/'), slashes, slashes);
+            }
+            requests.push_back({kiofuse_iface.mountUrl(url.toString()), i, basename});
+        }
+    }
+
+    for (auto &request : requests) {
+        request.reply.waitForFinished();
+        if (request.reply.isError()) {
+            qWarning() << "FUSE request failed:" << request.reply.error();
+            continue;
+        }
+
+        urls[request.urlIndex] = QUrl::fromLocalFile(request.reply.value() + QLatin1Char('/') + request.basename);
+    };
+
+    qCDebug(XdgDesktopPortalKdeFileChooser) << "mounted urls with fuse, maybe" << urls;
+
+    return QUrl::toStringList(urls);
 }
 
 uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
@@ -264,7 +315,9 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
         dirDialog.setModal(modalDialog);
         dirDialog.setFileMode(QFileDialog::Directory);
         dirDialog.setOptions(QFileDialog::ShowDirsOnly);
-        dirDialog.setSupportedSchemes(QStringList{QStringLiteral("file")});
+        if (!isKIOFuseAvailable()) {
+            dirDialog.setSupportedSchemes(QStringList{QStringLiteral("file")});
+        }
         if (!acceptLabel.isEmpty()) {
             dirDialog.setLabelText(QFileDialog::Accept, acceptLabel);
         }
@@ -281,7 +334,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
             return 2;
         }
 
-        results.insert(QStringLiteral("uris"), QUrl::toStringList(urls));
+        results.insert(QStringLiteral("uris"), fuseRedirect(urls));
         results.insert(QStringLiteral("writable"), true);
 
         return 0;
@@ -304,7 +357,9 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     fileDialog->setModal(modalDialog);
     KFile::Mode mode = directory ? KFile::Mode::Directory : multipleFiles ? KFile::Mode::Files : KFile::Mode::File;
     fileDialog->m_fileWidget->setMode(mode | KFile::Mode::ExistingOnly);
-    fileDialog->m_fileWidget->setSupportedSchemes(QStringList{QStringLiteral("file")});
+    if (!isKIOFuseAvailable()) {
+        fileDialog->m_fileWidget->setSupportedSchemes(QStringList{QStringLiteral("file")});
+    }
     fileDialog->m_fileWidget->okButton()->setText(!acceptLabel.isEmpty() ? acceptLabel : i18n("Open"));
 
     bool bMimeFilters = false;
@@ -326,7 +381,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
             return 2;
         }
 
-        results.insert(QStringLiteral("uris"), QUrl::toStringList(urls));
+        results.insert(QStringLiteral("uris"), fuseRedirect(urls));
         results.insert(QStringLiteral("writable"), true);
 
         if (optionsWidget) {
@@ -485,10 +540,8 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     }
 
     if (fileDialog->exec() == QDialog::Accepted) {
-        QStringList files;
-        QUrl url = QUrl::fromLocalFile(fileDialog->m_fileWidget->selectedFile());
-        files << url.toDisplayString();
-        results.insert(QStringLiteral("uris"), files);
+        const auto urls = fileDialog->m_fileWidget->selectedUrls();
+        results.insert(QStringLiteral("uris"), fuseRedirect(urls));
 
         if (optionsWidget) {
             QVariant choices = EvaluateSelectedChoices(checkboxes, comboboxes);
