@@ -485,8 +485,14 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     }
 
     if (fileDialog->exec() == QDialog::Accepted) {
+        qDebug() << "ACCEPTED" << fileDialog->m_fileWidget->selectedFile();
         QStringList files;
         QUrl url = QUrl::fromLocalFile(fileDialog->m_fileWidget->selectedFile());
+        if (url.isEmpty()) {
+            qDebug() << "REJECTED 2";
+            return 1;
+        }
+        qDebug() << files;
         files << url.toDisplayString();
         results.insert(QStringLiteral("uris"), files);
 
@@ -509,6 +515,8 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
         return 0;
     }
 
+qDebug() << "REJECTED";
+    // results.insert(QStringLiteral("uris"), "");
     return 1;
 }
 
