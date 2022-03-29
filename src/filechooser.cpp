@@ -32,6 +32,7 @@
 #include <KSharedConfig>
 #include <KWindowConfig>
 
+#include "documents_interface.h"
 #include "fuse_interface.h"
 #include "request.h"
 #include <mobilefiledialog.h>
@@ -413,6 +414,59 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     return 1;
 }
 
+enum class Entity { File, Folder };
+static QUrl kioUrlFromSandboxPath(const QString &path, Entity entity)
+{
+    if (path.isEmpty()) {
+        return {};
+    }
+
+    static QString mountPoint;
+    if (!mountPoint.isEmpty() && !path.startsWith(mountPoint)) {
+        return QUrl::fromLocalFile(path);
+    }
+
+    OrgFreedesktopPortalDocumentsInterface documents_iface(QStringLiteral("org.freedesktop.portal.Documents"),
+                                                           QStringLiteral("/org/freedesktop/portal/documents"),
+                                                           QDBusConnection::sessionBus());
+
+    if (mountPoint.isEmpty()) {
+        mountPoint = QString::fromUtf8(documents_iface.GetMountPoint());
+        if (!path.startsWith(mountPoint)) {
+            return QUrl::fromLocalFile(path);
+        }
+    }
+
+    QByteArray localFilePath;
+    switch (entity) {
+    case Entity::File: // basename of dirpath (= id of the shared document on the portal)
+        localFilePath = documents_iface.Info(QFileInfo(QFileInfo(path).path()).fileName());
+        break;
+    case Entity::Folder: // basename of path
+        localFilePath = documents_iface.Info(QFileInfo(path).fileName());
+        break;
+    }
+    if (localFilePath.isEmpty()) {
+        return QUrl::fromLocalFile(path);
+    }
+
+    if (!isKIOFuseAvailable()) {
+        return QUrl::fromLocalFile(localFilePath);
+    }
+
+    OrgKdeKIOFuseVFSInterface fuse_iface(QStringLiteral("org.kde.KIOFuse"), QStringLiteral("/org/kde/KIOFuse"), QDBusConnection::sessionBus());
+
+    QString remoteFilePath = fuse_iface.remoteUrl(localFilePath);
+    if (remoteFilePath.isEmpty()) {
+        return QUrl::fromLocalFile(path);
+    }
+
+    QUrl url(remoteFilePath);
+    url.setPath(QFileInfo(url.path()).path());
+    qCDebug(XdgDesktopPortalKdeFileChooser) << "Translated portal url to" << url;
+    return url;
+};
+
 uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
                                  const QString &app_id,
                                  const QString &parent_window,
@@ -518,12 +572,21 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     fileDialog->m_fileWidget->setOperationMode(KFileWidget::Saving);
     fileDialog->m_fileWidget->setConfirmOverwrite(true);
 
-    if (!currentFolder.isEmpty()) {
-        fileDialog->m_fileWidget->setUrl(QUrl::fromLocalFile(currentFolder));
+    const QUrl translatedCurrentFolderUrl = kioUrlFromSandboxPath(currentFolder, Entity::Folder);
+    if (!translatedCurrentFolderUrl.isEmpty()) {
+        fileDialog->m_fileWidget->setUrl(translatedCurrentFolderUrl);
     }
 
     if (!currentFile.isEmpty()) {
-        fileDialog->m_fileWidget->setSelectedUrl(QUrl::fromLocalFile(currentFile));
+        // If we also had a currentfolder then recycle its URL, otherwise calculate from scratch.
+        // In either case append the basename to get to a complete file URL again.
+        QUrl kioUrl = translatedCurrentFolderUrl.isEmpty() ? kioUrlFromSandboxPath(currentFile, Entity::File) : translatedCurrentFolderUrl;
+        if (!kioUrl.isEmpty()) {
+            kioUrl.setPath(kioUrl.path() + QLatin1Char('/') + QFileInfo(currentFile).completeBaseName());
+            fileDialog->m_fileWidget->setSelectedUrl(kioUrl);
+        } else {
+            fileDialog->m_fileWidget->setSelectedUrl(QUrl::fromLocalFile(currentFile));
+        }
     }
 
     if (!currentName.isEmpty()) {
