@@ -52,7 +52,7 @@ public:
     void setSelectFolder(bool selectFolder);
 
 Q_SIGNALS:
-    void accepted(const QStringList &files);
+    void accepted(const QList<QUrl> &files);
     void cancel();
 
     void titleChanged();

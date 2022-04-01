@@ -302,7 +302,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
 
         uint retCode = m_mobileFileDialog->exec();
 
-        results.insert(QStringLiteral("uris"), m_mobileFileDialog->results());
+        results.insert(QStringLiteral("uris"), fuseRedirect(m_mobileFileDialog->results()));
 
         return retCode;
     }
@@ -487,7 +487,7 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
 
         uint retCode = m_mobileFileDialog->exec();
 
-        results.insert(QStringLiteral("uris"), m_mobileFileDialog->results());
+        results.insert(QStringLiteral("uris"), fuseRedirect(m_mobileFileDialog->results()));
 
         return retCode;
     }

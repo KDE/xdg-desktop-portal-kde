@@ -46,12 +46,12 @@ public:
     bool selectFolder() const;
     void setSelectFolder(bool selectFolder);
 
-    QStringList results() const;
+    QList<QUrl> results() const;
 
     uint exec();
 
 Q_SIGNALS:
-    void accepted(const QStringList &files);
+    void accepted(const QList<QUrl> &files);
     void titleChanged();
     void selectMultipleChanged();
     void selectExistingChanged();
@@ -65,7 +65,7 @@ Q_SIGNALS:
 private:
     QQmlApplicationEngine *m_engine;
     FileChooserQmlCallback *m_callback;
-    QStringList m_results;
+    QList<QUrl> m_results;
     QQuickWindow *m_window;
 
     bool m_customTitleSet;

@@ -185,10 +185,8 @@ uint MobileFileDialog::exec()
     bool handled = false;
     uint exitCode = 0;
 
-    const auto acceptedConn = connect(m_callback, &FileChooserQmlCallback::accepted, this, [this, &exitCode, &handled](const QStringList &urls) {
-        for (const auto &filename : urls) {
-            m_results << QUrl(filename).toDisplayString();
-        }
+    const auto acceptedConn = connect(m_callback, &FileChooserQmlCallback::accepted, this, [this, &exitCode, &handled](const QList<QUrl> &urls) {
+        m_results = urls;
         handled = true;
         exitCode = 0;
         qDebug(KirigamiFilepicker) << "Got results" << m_results;
@@ -216,7 +214,7 @@ uint MobileFileDialog::exec()
     return exitCode;
 }
 
-QStringList MobileFileDialog::results() const
+QList<QUrl> MobileFileDialog::results() const
 {
     return m_results;
 }
