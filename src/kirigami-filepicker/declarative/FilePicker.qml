@@ -145,78 +145,92 @@ Kirigami.ScrollablePage {
         visible: dirModel.isLoading
     }
 
+    leftPadding: 0
+    rightPadding: 0
+
     GridView {
         model: dirModel
         clip: true
         reuseItems: true
+        cellHeight: 110
+        cellWidth: 110
 
-        delegate: Kirigami.AbstractCard {
+        delegate: Item {
+            id: delegateItem
             required property string name
             required property string iconName
             required property url url
             required property bool isDir
             required property var thumbnail
 
-            width: 95
-            height: 95
+            width: 110
+            height: 110
 
-            contentItem: Item {
-                Kirigami.Icon {
-                    anchors.centerIn: parent
-                    source: thumbnail ? thumbnail : iconName
+            Kirigami.AbstractCard {
+                id: card
+                anchors.margins: 20
+                anchors.centerIn: parent
+                width: 95
+                height: 95
 
-                    width: Kirigami.Units.iconSizes.huge
-                    height: width
-                }
+                contentItem: Item {
+                    Kirigami.Icon {
+                        anchors.centerIn: parent
+                        source: thumbnail ? thumbnail : iconName
 
-                Kirigami.Icon {
-                    source: "emblem-checked"
-                    visible: checked
-                    anchors.right: parent.right
-                    anchors.bottom: parent.bottom
-                    width: parent.width / 3
-                    height: parent.height / 3
-                }
-            }
-
-            checkable: root.selectExisting && root.selectMultiple
-            checked: root.fileUrls.includes(url)
-            highlighted: false
-
-            footer: Kirigami.Heading {
-                text: name
-                level: 3
-                elide: Qt.ElideRight
-            }
-
-            onClicked: {
-                // open
-                if (root.selectExisting) {
-                    // The delegate being clicked on represents a directory
-                    if (isDir) {
-                        // Change into folder
-                        dirModel.folder = url
+                        width: Kirigami.Units.iconSizes.huge
+                        height: width
                     }
-                    // The delegate represents a file
-                    else {
-                        if (root.selectMultiple) {
-                            // add the file to the list of accepted files
-                            // (or remove it if it is already there)
-                            root.addOrRemoveUrl(url)
-                        } else {
-                            // If we only want to select one file,
-                            // Write it into the output variable and close the dialog
-                            root.fileUrls = [url]
-                            root.accepted(root.fileUrls)
+
+                    Kirigami.Icon {
+                        source: "emblem-checked"
+                        visible: card.checked
+                        anchors.right: parent.right
+                        anchors.bottom: parent.bottom
+                        width: parent.width / 3
+                        height: parent.height / 3
+                    }
+                }
+
+                checkable: root.selectExisting && root.selectMultiple
+                checked: root.fileUrls.includes(url)
+                highlighted: false
+
+                footer: Kirigami.Heading {
+                    text: name
+                    level: 3
+                    elide: Qt.ElideRight
+                }
+
+                onClicked: {
+                    // open
+                    if (root.selectExisting) {
+                        // The delegate being clicked on represents a directory
+                        if (isDir) {
+                            // Change into folder
+                            dirModel.folder = url
+                        }
+                        // The delegate represents a file
+                        else {
+                            if (root.selectMultiple) {
+                                // add the file to the list of accepted files
+                                // (or remove it if it is already there)
+                                root.addOrRemoveUrl(url)
+                            } else {
+                                // If we only want to select one file,
+                                // Write it into the output variable and close the dialog
+                                root.fileUrls = [url]
+                                root.accepted(root.fileUrls)
+                            }
                         }
                     }
-                }
-                // save
-                else {
-                    if (isDir) {
-                        dirModel.folder = url
-                    } else {
-                        fileNameField.text = name
+                    // save
+                    else {
+                        if (isDir) {
+                            dirModel.folder = url
+                        } else {
+                            fileNameField.text = name
+                        }
                     }
                 }
             }

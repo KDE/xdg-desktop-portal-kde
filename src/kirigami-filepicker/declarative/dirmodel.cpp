@@ -11,8 +11,6 @@
 #include <KIO/Job>
 #include <KIO/PreviewJob>
 
-#include "dirlister.h"
-
 DirModel::DirModel(QObject *parent)
     : KDirSortFilterProxyModel(parent)
     , m_lister(new KDirLister(this))
