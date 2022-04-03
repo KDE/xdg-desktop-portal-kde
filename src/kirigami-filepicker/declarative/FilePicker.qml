@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick 2.15
+import QtQuick.Window 2.15
 import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.2 as Controls
 import org.kde.kirigami 2.4 as Kirigami
@@ -131,7 +132,8 @@ Kirigami.ScrollablePage {
         mimeFilters: root.mimeTypeFilters
         onLastErrorChanged: errorMessage.visible = true
         onFolderChanged: errorMessage.visible = false
-        thumbnailSize: Qt.size(Kirigami.Units.iconSizes.huge, Kirigami.Units.iconSizes.huge)
+        thumbnailSize: Qt.size(Kirigami.Units.iconSizes.huge * Screen.devicePixelRatio,
+                               Kirigami.Units.iconSizes.huge * Screen.devicePixelRatio)
     }
 
     Controls.BusyIndicator {
