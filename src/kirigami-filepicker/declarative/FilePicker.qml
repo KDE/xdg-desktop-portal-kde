@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-import QtQuick 2.7
+import QtQuick 2.15
 import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.2 as Controls
 import org.kde.kirigami 2.4 as Kirigami
@@ -131,6 +131,7 @@ Kirigami.ScrollablePage {
         mimeFilters: root.mimeTypeFilters
         onLastErrorChanged: errorMessage.visible = true
         onFolderChanged: errorMessage.visible = false
+        thumbnailSize: Qt.size(Kirigami.Units.iconSizes.huge, Kirigami.Units.iconSizes.huge)
     }
 
     Controls.BusyIndicator {
@@ -142,21 +143,49 @@ Kirigami.ScrollablePage {
         visible: dirModel.isLoading
     }
 
-    ListView {
+    GridView {
         model: dirModel
         clip: true
+        reuseItems: true
 
-        delegate: Kirigami.BasicListItem {
+        delegate: Kirigami.AbstractCard {
             required property string name
             required property string iconName
             required property url url
             required property bool isDir
+            required property var thumbnail
 
-            text: name
-            icon: checked ? "emblem-checked" : iconName
+            width: 95
+            height: 95
+
+            contentItem: Item {
+                Kirigami.Icon {
+                    anchors.centerIn: parent
+                    source: thumbnail ? thumbnail : iconName
+
+                    width: Kirigami.Units.iconSizes.huge
+                    height: width
+                }
+
+                Kirigami.Icon {
+                    source: "emblem-checked"
+                    visible: checked
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    width: parent.width / 3
+                    height: parent.height / 3
+                }
+            }
+
             checkable: root.selectExisting && root.selectMultiple
             checked: root.fileUrls.includes(url)
             highlighted: false
+
+            footer: Kirigami.Heading {
+                text: name
+                level: 3
+                elide: Qt.ElideRight
+            }
 
             onClicked: {
                 // open

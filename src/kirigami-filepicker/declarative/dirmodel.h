@@ -6,6 +6,7 @@
 #pragma once
 
 #include <QAbstractListModel>
+#include <QPixmap>
 #include <QUrl>
 #include <QVariant>
 
@@ -21,6 +22,7 @@ class DirModel : public KDirSortFilterProxyModel
     Q_PROPERTY(bool isLoading READ isLoading NOTIFY isLoadingChanged)
     Q_PROPERTY(QString nameFilter READ nameFilter WRITE setNameFilter NOTIFY nameFilterChanged)
     Q_PROPERTY(QStringList mimeFilters READ mimeFilters WRITE setMimeFilters RESET resetMimeFilters NOTIFY mimeFiltersChanged)
+    Q_PROPERTY(QSize thumbnailSize READ thumbnailSize WRITE setThumbnailSize NOTIFY thumbnailSizeChanged)
 
     Q_PROPERTY(QString lastError READ lastError NOTIFY lastErrorChanged)
 
@@ -37,6 +39,7 @@ public:
         IsReadable,
         IsWritable,
         ModificationTime,
+        Thumbnail,
     };
 
     Q_ENUM(Roles)
@@ -61,6 +64,12 @@ public:
     void setMimeFilters(const QStringList &mimeFilters);
     void resetMimeFilters();
 
+    inline QSize thumbnailSize() const
+    {
+        return m_thumbnailSize;
+    };
+    void setThumbnailSize(QSize size);
+
     QString lastError() const;
 
 Q_SIGNALS:
@@ -69,12 +78,16 @@ Q_SIGNALS:
     void isLoadingChanged();
     void nameFilterChanged();
     void mimeFiltersChanged();
+    void thumbnailSizeChanged();
 
     void lastErrorChanged();
 
 private:
     KDirModel m_dirModel;
     KDirLister *m_lister;
+
+    QSize m_thumbnailSize = {100, 100};
+    QHash<KFileItem, QPixmap> m_previews;
 
     QString m_lastError;
 };

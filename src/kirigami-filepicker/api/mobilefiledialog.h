@@ -16,7 +16,7 @@ class MobileFileDialog : public QObject
     Q_OBJECT
 
 public:
-    MobileFileDialog(QObject *parent);
+    MobileFileDialog(QObject *parent = nullptr);
     ~MobileFileDialog() override = default;
 
     QString title() const;

@@ -5,8 +5,14 @@
 
 #include "dirmodel.h"
 
+#include <QDebug>
+#include <QSize>
+
 #include <KDirLister>
 #include <KIO/Job>
+#include <KIO/PreviewJob>
+
+#include "dirlister.h"
 
 DirModel::DirModel(QObject *parent)
     : KDirSortFilterProxyModel(parent)
@@ -14,6 +20,18 @@ DirModel::DirModel(QObject *parent)
 {
     setSourceModel(&m_dirModel);
     m_dirModel.setDirLister(m_lister);
+    connect(m_lister, &DirLister::newItems, this, [this](const KFileItemList &items) {
+        qDebug() << "New items";
+        auto *job = new KIO::PreviewJob(items, m_thumbnailSize);
+        connect(job, &KIO::PreviewJob::gotPreview, this, [this](const KFileItem &item, const QPixmap &preview) {
+            qDebug() << "New thumbnail";
+            m_previews.insert(item, preview);
+
+            // Kirigami.Icon checks if we are assigning the same data again,
+            // so this isn't actually heavy.
+            Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {Roles::Thumbnail});
+        });
+    });
     connect(m_lister, QOverload<>::of(&KCoreDirLister::completed), this, &DirModel::isLoadingChanged);
     connect(m_lister, &KDirLister::jobError, this, [this](KIO::Job *job) {
         m_lastError = job->errorString();
@@ -27,7 +45,7 @@ QVariant DirModel::data(const QModelIndex &index, int role) const
         return {};
 
     switch (role) {
-    case Roles::Name:
+    case Name:
         return qvariant_cast<KFileItem>(KDirSortFilterProxyModel::data(index, KDirModel::FileItemRole)).name();
     case Url:
         return qvariant_cast<KFileItem>(KDirSortFilterProxyModel::data(index, KDirModel::FileItemRole)).url();
@@ -49,6 +67,15 @@ QVariant DirModel::data(const QModelIndex &index, int role) const
         return qvariant_cast<KFileItem>(KDirSortFilterProxyModel::data(index, KDirModel::FileItemRole)).isWritable();
     case ModificationTime:
         return qvariant_cast<KFileItem>(KDirSortFilterProxyModel::data(index, KDirModel::FileItemRole)).time(KFileItem::ModificationTime);
+    case Thumbnail: {
+        // return a null QVariant instead of a null QPixmap
+        const auto pixmap = m_previews.value(qvariant_cast<KFileItem>(KDirSortFilterProxyModel::data(index, KDirModel::FileItemRole)));
+        if (pixmap.isNull()) {
+            return {};
+        } else {
+            return pixmap;
+        }
+    }
     }
 
     return {};
@@ -68,6 +95,7 @@ QHash<int, QByteArray> DirModel::roleNames() const
         {IsReadable, QByteArrayLiteral("isReadable")},
         {IsWritable, QByteArrayLiteral("isWritable")},
         {ModificationTime, QByteArrayLiteral("modificationTime")},
+        {Thumbnail, QByteArrayLiteral("thumbnail")},
     };
 }
 
@@ -140,6 +168,16 @@ void DirModel::resetMimeFilters()
     m_lister->clearMimeFilter();
     m_lister->emitChanges();
     Q_EMIT mimeFiltersChanged();
+}
+
+void DirModel::setThumbnailSize(QSize size)
+{
+    if (m_thumbnailSize == size) {
+        return;
+    }
+
+    m_thumbnailSize = size;
+    Q_EMIT thumbnailSizeChanged();
 }
 
 QString DirModel::lastError() const
