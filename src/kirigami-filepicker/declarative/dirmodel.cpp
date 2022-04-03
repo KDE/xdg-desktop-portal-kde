@@ -20,16 +20,30 @@ DirModel::DirModel(QObject *parent)
 {
     setSourceModel(&m_dirModel);
     m_dirModel.setDirLister(m_lister);
-    connect(m_lister, &DirLister::newItems, this, [this](const KFileItemList &items) {
-        qDebug() << "New items";
+    connect(&m_dirModel, &QAbstractListModel::rowsInserted, [this](const QModelIndex &parent, int first, int last) {
+        Q_UNUSED(parent);
+
+        KFileItemList items;
+        items.reserve(last - first);
+
+        // Fetch file items from all affected rows
+        for (int i = first; i < last; i++) {
+            auto item = qvariant_cast<KFileItem>(KDirSortFilterProxyModel::data(index(i, 0), KDirModel::FileItemRole));
+            items.append(item);
+        }
         auto *job = new KIO::PreviewJob(items, m_thumbnailSize);
-        connect(job, &KIO::PreviewJob::gotPreview, this, [this](const KFileItem &item, const QPixmap &preview) {
-            qDebug() << "New thumbnail";
+        connect(job, &KIO::PreviewJob::gotPreview, this, [this, first, items](const KFileItem &item, const QPixmap &preview) {
             m_previews.insert(item, preview);
 
-            // Kirigami.Icon checks if we are assigning the same data again,
-            // so this isn't actually heavy.
-            Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {Roles::Thumbnail});
+            // TODO check if n * indexOf is actually better than n * dataChanged(first, last);
+            int i = items.indexOf(item);
+            if (i == -1) {
+                return;
+            }
+
+            int row = i + first;
+            auto modelIndex = index(row, 0);
+            Q_EMIT dataChanged(modelIndex, modelIndex, {Roles::Thumbnail});
         });
     });
     connect(m_lister, QOverload<>::of(&KCoreDirLister::completed), this, &DirModel::isLoadingChanged);
