@@ -5,7 +5,6 @@
 
 #include "dirmodel.h"
 
-#include <QDebug>
 #include <QSize>
 
 #include <KDirLister>
@@ -122,6 +121,7 @@ void DirModel::setFolder(const QUrl &folder)
 {
     if (folder != m_lister->url()) {
         m_dirModel.openUrl(folder);
+        m_previews.clear();
 
         Q_EMIT folderChanged();
     }
