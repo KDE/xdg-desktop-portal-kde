@@ -19,6 +19,7 @@ set(xdg_desktop_portal_kde_SRCS
     appchooser.h
     background.cpp
     background.h
+    dbushelpers.cpp
     desktopportal.cpp
     desktopportal.h
     email.cpp

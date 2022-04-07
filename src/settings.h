@@ -55,8 +55,6 @@ public:
     explicit SettingsPortal(QObject *parent);
     ~SettingsPortal() override;
 
-    typedef QMap<QString, QMap<QString, QVariant>> VariantMapMap;
-
     uint version() const
     {
         return 1;

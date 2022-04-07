@@ -18,8 +18,10 @@
 
 #include <QPalette>
 
+#include "dbushelpers.h"
 #include <KConfigCore/KConfigGroup>
 
+Q_LOGGING_CATEGORY(XdgDesktopPortalKdeSettings, "xdp-kde-settings")
 Q_DECLARE_METATYPE(SettingsPortal::VariantMapMap)
 
 QDBusArgument &operator<<(QDBusArgument &argument, const SettingsPortal::VariantMapMap &mymap)
