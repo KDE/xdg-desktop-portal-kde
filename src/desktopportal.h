@@ -28,6 +28,8 @@
 #include "remotedesktop.h"
 #include "screencast.h"
 
+class DynamicLauncherPortal;
+
 class DesktopPortal : public QObject, public QDBusContext
 {
     Q_OBJECT
@@ -49,6 +51,7 @@ private:
     SettingsPortal *const m_settings;
     ScreenCastPortal *m_screenCast = nullptr;
     RemoteDesktopPortal *m_remoteDesktop = nullptr;
+    DynamicLauncherPortal *const m_dynamicLauncher;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H

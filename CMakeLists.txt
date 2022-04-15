@@ -49,6 +49,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     Wayland
     WidgetsAddons
     WindowSystem
+    IconThemes
 )
 find_package(Wayland 1.15 REQUIRED COMPONENTS Client)
 find_package(PlasmaWaylandProtocols 1.7.0 REQUIRED)

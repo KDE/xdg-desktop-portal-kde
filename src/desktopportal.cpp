@@ -10,6 +10,8 @@
 
 #include <QLoggingCategory>
 
+#include "dynamiclauncher.h"
+
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeDesktopPortal, "xdp-kde-desktop-portal")
 
 DesktopPortal::DesktopPortal(QObject *parent)
@@ -23,6 +25,7 @@ DesktopPortal::DesktopPortal(QObject *parent)
     , m_notification(new NotificationPortal(this))
     , m_print(new PrintPortal(this))
     , m_settings(new SettingsPortal(this))
+    , m_dynamicLauncher(new DynamicLauncherPortal(this))
 {
     const QByteArray xdgCurrentDesktop = qgetenv("XDG_CURRENT_DESKTOP");
     if (xdgCurrentDesktop.compare("KDE", Qt::CaseInsensitive) == 0) {

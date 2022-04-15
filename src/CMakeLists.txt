@@ -65,6 +65,8 @@ set(xdg_desktop_portal_kde_SRCS
     xdg-desktop-portal-kde.cpp
     resources.qrc
     portalicon.cpp
+    dynamiclauncher.cpp
+    dynamiclauncherdialog.cpp
 )
 
 if (QT_MAJOR_VERSION EQUAL "5")
@@ -104,6 +106,7 @@ target_link_libraries(xdg-desktop-portal-kde
     KF5::WaylandClient
     KF5::WidgetsAddons
     KF5::WindowSystem
+    KF5::IconThemes
     KirigamiFilepicker
     Wayland::Client
 )

@@ -7,5 +7,6 @@
     <file>AppChooserDialog.qml</file>
     <file>RemoteDesktopDialog.qml</file>
     <file>ScreenshotDialog.qml</file>
+    <file>DynamicLauncherDialog.qml</file>
  </qresource>
 </RCC>
