@@ -13,30 +13,14 @@
 #include <QDBusMetaType>
 #include <QLoggingCategory>
 
-QDBusArgument &operator<<(QDBusArgument &argument, const NotificationPortal::PortalIcon &icon)
-{
-    argument.beginStructure();
-    argument << icon.str << icon.data;
-    argument.endStructure();
-    return argument;
-}
-
-const QDBusArgument &operator>>(const QDBusArgument &argument, NotificationPortal::PortalIcon &icon)
-{
-    argument.beginStructure();
-    argument >> icon.str >> icon.data;
-    argument.endStructure();
-    return argument;
-}
-
-Q_DECLARE_METATYPE(NotificationPortal::PortalIcon)
+#include "portalicon.h"
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeNotification, "xdp-kde-notification")
 
 NotificationPortal::NotificationPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
 {
-    qDBusRegisterMetaType<PortalIcon>();
+    PortalIcon::registerDBusType();
 }
 
 NotificationPortal::~NotificationPortal()

@@ -64,6 +64,7 @@ set(xdg_desktop_portal_kde_SRCS
     waylandintegration_p.h
     xdg-desktop-portal-kde.cpp
     resources.qrc
+    portalicon.cpp
 )
 
 if (QT_MAJOR_VERSION EQUAL "5")
