@@ -4,10 +4,12 @@
  * SPDX-License-Identifier: LGPL-2.0-or-later
  *
  * SPDX-FileCopyrightText: 2018 Jan Grulich <jgrulich@redhat.com>
+ * SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
  */
 
 #include "screencast.h"
 #include "notificationinhibition.h"
+#include "request.h"
 #include "screenchooserdialog.h"
 #include "session.h"
 #include "utils.h"
@@ -242,6 +244,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             new ScreenChooserDialog(app_id, session->multipleSources(), SourceTypes(session->types())));
         connect(session, &Session::closed, screenDialog.data(), &ScreenChooserDialog::reject);
         Utils::setParentWindow(screenDialog->windowHandle(), parent_window);
+        Request::makeClosableDialogRequest(handle, screenDialog.get());
         valid = screenDialog->exec();
         if (valid) {
             allowRestore = screenDialog->allowRestore();

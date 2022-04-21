@@ -33,6 +33,7 @@
 #include <KWindowConfig>
 
 #include "fuse_interface.h"
+#include "request.h"
 #include <mobilefiledialog.h>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeFileChooser, "xdp-kde-file-chooser")
@@ -328,6 +329,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
 
         dirDialog.winId(); // Trigger window creation
         Utils::setParentWindow(&dirDialog, parent_window);
+        Request::makeClosableDialogRequest(handle, &dirDialog);
 
         if (dirDialog.exec() != QDialog::Accepted) {
             return 1;
@@ -357,6 +359,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
 
     QScopedPointer<FileDialog, QScopedPointerDeleteLater> fileDialog(new FileDialog());
     Utils::setParentWindow(fileDialog.data(), parent_window);
+    Request::makeClosableDialogRequest(handle, fileDialog.get());
     fileDialog->setWindowTitle(title);
     fileDialog->setModal(modalDialog);
     KFile::Mode mode = directory ? KFile::Mode::Directory : multipleFiles ? KFile::Mode::Files : KFile::Mode::File;
@@ -509,6 +512,7 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
 
     QScopedPointer<FileDialog, QScopedPointerDeleteLater> fileDialog(new FileDialog());
     Utils::setParentWindow(fileDialog.data(), parent_window);
+    Request::makeClosableDialogRequest(handle, fileDialog.get());
     fileDialog->setWindowTitle(title);
     fileDialog->setModal(modalDialog);
     fileDialog->m_fileWidget->setOperationMode(KFileWidget::Saving);

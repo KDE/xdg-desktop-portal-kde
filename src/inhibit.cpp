@@ -50,17 +50,7 @@ void InhibitPortal::Inhibit(const QDBusObjectPath &handle, const QString &app_id
             qCDebug(XdgDesktopPortalKdeInhibit) << "Inhibition error: " << reply.error().message();
         } else {
             QDBusConnection sessionBus = QDBusConnection::sessionBus();
-            Request *request = new Request(this, QStringLiteral("org.freedesktop.impl.portal.Inhibit"), QVariant(reply.value()));
-            if (sessionBus.registerVirtualObject(handle.path(), request, QDBusConnection::VirtualObjectRegisterOption::SubPath)) {
-                connect(request, &Request::closeRequested, [request, handle]() {
-                    QDBusConnection::sessionBus().unregisterObject(handle.path());
-                    request->deleteLater();
-                });
-            } else {
-                qCDebug(XdgDesktopPortalKdeInhibit) << sessionBus.lastError().message();
-                qCDebug(XdgDesktopPortalKdeInhibit) << "Failed to register request object with inhibition";
-                request->deleteLater();
-            }
+            new Request(handle, this, QStringLiteral("org.freedesktop.impl.portal.Inhibit"), QVariant(reply.value()));
         }
     });
 }

@@ -2,12 +2,14 @@
  * SPDX-FileCopyrightText: 2016-2017 Jan Grulich <jgrulich@redhat.com>
  * SPDX-FileCopyrightText: 2007, 2010 John Layt <john@layt.net>
  * SPDX-FileCopyrightText: 2007 Alex Merry <huntedhacker@tiscali.co.uk>
+ * SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
  *
  * SPDX-License-Identifier: LGPL-2.0-or-later
  *
  */
 
 #include "print.h"
+#include "request.h"
 #include "utils.h"
 
 #include <KProcess>
@@ -507,6 +509,7 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
 
     QPrintDialog *printDialog = new QPrintDialog(printer);
     Utils::setParentWindow(printDialog, parent_window);
+    Request::makeClosableDialogRequest(handle, printDialog);
 
     // Process options
     if (options.contains(QStringLiteral("modal"))) {

@@ -3,10 +3,12 @@
  * SPDX-License-Identifier: LGPL-2.0-or-later
  *
  * SPDX-FileCopyrightText: 2017 Jan Grulich <jgrulich@redhat.com>
+ * SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
  */
 
 #include "access.h"
 #include "accessdialog.h"
+#include "request.h"
 #include "utils.h"
 
 #include <QLoggingCategory>
@@ -62,6 +64,7 @@ uint AccessPortal::AccessDialog(const QDBusObjectPath &handle,
 
     accessDialog->createDialog();
     Utils::setParentWindow(accessDialog->windowHandle(), parent_window);
+    Request::makeClosableDialogRequest(handle, accessDialog);
     if (options.contains(QStringLiteral("modal"))) {
         accessDialog->windowHandle()->setModality(options.value(QStringLiteral("modal")).toBool() ? Qt::WindowModal : Qt::NonModal);
     }

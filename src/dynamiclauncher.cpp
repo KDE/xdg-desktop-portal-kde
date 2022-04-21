@@ -16,6 +16,7 @@
 
 #include "dynamiclauncherdialog.h"
 #include "portalicon.h"
+#include "request.h"
 #include "utils.h"
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeDynamicLauncher, "xdp-kde-dynamic-launcher")
@@ -126,6 +127,7 @@ uint DynamicLauncherPortal::PrepareInstall(const QDBusObjectPath &handle,
     DynamicLauncherDialog dialog(typeToTitle(launcherType), icon, name, optionalTarget ? QUrl(optionalTarget.value()) : QUrl());
     dialog.windowHandle()->setModality(modal ? Qt::WindowModal : Qt::NonModal);
     Utils::setParentWindow(dialog.windowHandle(), parent_window);
+    Request::makeClosableDialogRequest(handle, &dialog);
 
     const bool result = dialog.exec();
 

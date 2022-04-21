@@ -17,11 +17,22 @@
 
 Q_LOGGING_CATEGORY(XdgRequestKdeRequest, "xdp-kde-request")
 
-Request::Request(QObject *parent, const QString &portalName, const QVariant &data)
+Request::Request(const QDBusObjectPath &handle, QObject *parent, const QString &portalName, const QVariant &data)
     : QDBusVirtualObject(parent)
     , m_data(data)
     , m_portalName(portalName)
 {
+    auto sessionBus = QDBusConnection::sessionBus();
+    if (sessionBus.registerVirtualObject(handle.path(), this, QDBusConnection::VirtualObjectRegisterOption::SubPath)) {
+        connect(this, &Request::closeRequested, this, [this, handle]() {
+            QDBusConnection::sessionBus().unregisterObject(handle.path());
+            deleteLater();
+        });
+    } else {
+        qCDebug(XdgRequestKdeRequest) << sessionBus.lastError().message();
+        qCDebug(XdgRequestKdeRequest) << "Failed to register request object for" << handle.path();
+        deleteLater();
+    }
 }
 
 Request::~Request()
@@ -66,6 +77,8 @@ bool Request::handleMessage(const QDBusMessage &message, const QDBusConnection &
 
                     QDBusConnection::sessionBus().asyncCall(messageReply);
                 });
+            } else {
+                Q_EMIT closeRequested();
             }
         }
     }

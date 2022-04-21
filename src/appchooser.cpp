@@ -3,10 +3,12 @@
  * SPDX-License-Identifier: LGPL-2.0-or-later
  *
  * SPDX-FileCopyrightText: 2016-2018 Jan Grulich <jgrulich@redhat.com>
+ * SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
  */
 
 #include "appchooser.h"
 #include "appchooserdialog.h"
+#include "request.h"
 #include "utils.h"
 
 #include <QLoggingCategory>
@@ -49,6 +51,7 @@ uint AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
     AppChooserDialog *appDialog = new AppChooserDialog(choices, latestChoice, itemName.toString(), options.value(QStringLiteral("content_type")).toString());
     m_appChooserDialogs.insert(handle.path(), appDialog);
     Utils::setParentWindow(appDialog->windowHandle(), parent_window);
+    Request::makeClosableDialogRequest(handle, appDialog);
 
     int result = appDialog->exec();
 

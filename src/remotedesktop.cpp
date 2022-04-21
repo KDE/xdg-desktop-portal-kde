@@ -4,10 +4,12 @@
  * SPDX-License-Identifier: LGPL-2.0-or-later
  *
  * SPDX-FileCopyrightText: 2018 Jan Grulich <jgrulich@redhat.com>
+ * SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
  */
 
 #include "remotedesktop.h"
 #include "remotedesktopdialog.h"
+#include "request.h"
 #include "session.h"
 #include "utils.h"
 #include "waylandintegration.h"
@@ -117,6 +119,7 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
     QScopedPointer<RemoteDesktopDialog, QScopedPointerDeleteLater> remoteDesktopDialog(
         new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled(), session->multipleSources()));
     Utils::setParentWindow(remoteDesktopDialog->windowHandle(), parent_window);
+    Request::makeClosableDialogRequest(handle, remoteDesktopDialog.get());
 
     connect(session, &Session::closed, remoteDesktopDialog.data(), &RemoteDesktopDialog::reject);
 

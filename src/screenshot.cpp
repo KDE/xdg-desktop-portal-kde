@@ -4,9 +4,11 @@
  * SPDX-License-Identifier: LGPL-2.0-or-later
  *
  * SPDX-FileCopyrightText: 2018 Jan Grulich <jgrulich@redhat.com>
+ * SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
  */
 
 #include "screenshot.h"
+#include "request.h"
 #include "screenshotdialog.h"
 #include "utils.h"
 
@@ -88,6 +90,7 @@ uint ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
 
     QPointer<ScreenshotDialog> screenshotDialog = new ScreenshotDialog;
     Utils::setParentWindow(screenshotDialog->windowHandle(), parent_window);
+    Request::makeClosableDialogRequest(handle, screenshotDialog.data());
 
     const bool modal = options.value(QStringLiteral("modal"), false).toBool();
     screenshotDialog->windowHandle()->setModality(modal ? Qt::WindowModal : Qt::NonModal);
