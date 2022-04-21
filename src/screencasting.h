@@ -68,7 +68,6 @@ public:
     void destroy();
 
 Q_SIGNALS:
-    void initialized();
     void removed();
     void sourcesChanged();
 
