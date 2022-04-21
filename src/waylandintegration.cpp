@@ -454,7 +454,7 @@ bool WaylandIntegration::WaylandIntegrationPrivate::eventFilter(QObject *watched
 void WaylandIntegration::WaylandIntegrationPrivate::authenticate()
 {
     if (!m_waylandAuthenticationRequested) {
-        m_fakeInput->authenticate(i18n("xdg-desktop-portals-kde"), i18n("Remote desktop"));
+        m_fakeInput->authenticate(QStringLiteral("xdg-desktop-portals-kde"), i18n("Remote desktop"));
         m_waylandAuthenticationRequested = true;
     }
 }
