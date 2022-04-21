@@ -243,13 +243,25 @@ void WaylandIntegration::WaylandIntegrationPrivate::startStreamingInput()
 bool WaylandIntegration::WaylandIntegrationPrivate::startStreamingWindow(const QMap<int, QVariant> &win)
 {
     auto uuid = win[KWayland::Client::PlasmaWindowModel::Uuid].toString();
-    return startStreaming(m_screencasting->createWindowStream(uuid, Screencasting::Hidden), {}, win, {});
+    QString iconName = win[Qt::DecorationRole].value<QIcon>().name();
+    iconName = iconName.isEmpty() ? QStringLiteral("applications-all") : iconName;
+    return startStreaming(m_screencasting->createWindowStream(uuid, Screencasting::Hidden),
+                          iconName,
+                          i18n("Recording window \"%1\"...", win[Qt::DisplayRole].toString()),
+                          {{QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Window)}});
 }
 
 bool WaylandIntegration::WaylandIntegrationPrivate::startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode)
 {
     auto output = m_outputMap.value(outputName).output();
-    return startStreaming(m_screencasting->createOutputStream(output.data(), mode), output, {}, {});
+    m_streamedScreenPosition = output->globalPosition();
+    return startStreaming(m_screencasting->createOutputStream(output.data(), mode),
+                          QStringLiteral("video-display"),
+                          i18n("Recording screen \"%1\"...", output->model()),
+                          {
+                              {QLatin1String("size"), output->pixelSize()},
+                              {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
+                          });
 }
 
 bool WaylandIntegration::WaylandIntegrationPrivate::startStreamingWorkspace(Screencasting::CursorMode mode)
@@ -259,13 +271,20 @@ bool WaylandIntegration::WaylandIntegrationPrivate::startStreamingWorkspace(Scre
     for (QScreen *screen : screens) {
         workspace |= screen->geometry();
     }
-    return startStreaming(m_screencasting->createRegionStream(workspace, 1, mode), {}, {}, workspace);
+    m_streamedScreenPosition = workspace.topLeft();
+    return startStreaming(m_screencasting->createRegionStream(workspace, 1, mode),
+                          QStringLiteral("video-display"),
+                          i18n("Recording workspace..."),
+                          {
+                              {QLatin1String("size"), workspace.size()},
+                              {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
+                          });
 }
 
 bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(ScreencastingStream *stream,
-                                                                   QSharedPointer<KWayland::Client::Output> output,
-                                                                   const QMap<int, QVariant> &win,
-                                                                   const std::optional<QRect> &region)
+                                                                   const QString &iconName,
+                                                                   const QString &description,
+                                                                   const QVariantMap &streamOptions)
 {
     QEventLoop loop;
     bool streamReady = false;
@@ -286,21 +305,7 @@ bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(Screencasting
         Stream s;
         s.stream = stream;
         s.nodeId = nodeid;
-        if (output) {
-            m_streamedScreenPosition = output->globalPosition();
-            s.map = {
-                {QLatin1String("size"), output->pixelSize()},
-                {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
-            };
-        } else if (region) {
-            m_streamedScreenPosition = region->topLeft();
-            s.map = {
-                {QLatin1String("size"), region->size()},
-                {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
-            };
-        } else {
-            s.map = {{QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Window)}};
-        }
+        s.map = streamOptions;
         m_streams.append(s);
         startStreamingInput();
 
@@ -312,17 +317,8 @@ bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(Screencasting
 
         auto item = new KStatusNotifierItem(stream);
         item->setStandardActionsEnabled(false);
-        if (output) {
-            item->setTitle(i18n("Recording screen \"%1\"...", output->model()));
-            item->setIconByName(QStringLiteral("video-display"));
-        } else if (!win.isEmpty()) {
-            auto name = win[Qt::DecorationRole].value<QIcon>().name();
-            item->setIconByName(name.isEmpty() ? QStringLiteral("applications-all") : name);
-            item->setTitle(i18n("Recording window \"%1\"...", win[Qt::DisplayRole].toString()));
-        } else {
-            item->setIconByName("video-display");
-            item->setTitle(i18n("Recording workspace..."));
-        }
+        item->setTitle(description);
+        item->setIconByName(iconName);
         item->setOverlayIconByName(QStringLiteral("media-record"));
         item->setToolTip(item->iconName(), item->title(), i18n("Press to cancel"));
         connect(item, &KStatusNotifierItem::activateRequested, stream, [=] {
