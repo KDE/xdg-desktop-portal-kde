@@ -22,8 +22,9 @@ class ScreenCastPortal : public QDBusAbstractAdaptor
 public:
     enum SourceType {
         Any = 0,
-        Monitor,
-        Window,
+        Monitor = 1,
+        Window = 2,
+        Virtual = 4,
     };
     Q_ENUM(SourceType);
     Q_DECLARE_FLAGS(SourceTypes, SourceType)

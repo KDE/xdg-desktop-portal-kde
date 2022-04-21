@@ -73,13 +73,11 @@ public:
 
     void startStreamingInput();
 
-    bool startStreaming(ScreencastingStream *stream,
-                        const QString &iconName,
-                        const QString &description,
-                        const QVariantMap &streamOptions);
+    bool startStreaming(ScreencastingStream *stream, const QString &iconName, const QString &description, const QVariantMap &streamOptions);
     bool startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
     bool startStreamingWindow(const QMap<int, QVariant> &win);
     bool startStreamingWorkspace(Screencasting::CursorMode mode);
+    bool startStreamingVirtualOutput(const QString &name, const QSize &size, Screencasting::CursorMode mode);
     void stopStreaming(uint32_t nodeid);
     void stopAllStreaming();
 

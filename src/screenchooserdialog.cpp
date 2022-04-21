@@ -142,7 +142,7 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
 
     int numberOfMonitors = 0;
     if (types & ScreenCastPortal::Monitor) {
-        auto model = new OutputsModel(OutputsModel::WorkspaceIncluded, this);
+        auto model = new OutputsModel(OutputsModel::Options(OutputsModel::WorkspaceIncluded | OutputsModel::VirtualIncluded), this);
         props.insert("outputsModel", QVariant::fromValue<QObject *>(model));
         numberOfMonitors += model->rowCount(QModelIndex());
         connect(this, &ScreenChooserDialog::clearSelection, model, &OutputsModel::clearSelection);

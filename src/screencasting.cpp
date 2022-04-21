@@ -118,6 +118,13 @@ ScreencastingStream *Screencasting::createRegionStream(const QRect &g, qreal sca
     return stream;
 }
 
+ScreencastingStream *Screencasting::createVirtualOutputStream(const QString &name, const QSize &s, qreal scale, Screencasting::CursorMode mode)
+{
+    auto stream = new ScreencastingStream(this);
+    stream->d->init(d->stream_virtual_output(name, s.width(), s.height(), wl_fixed_from_double(scale), mode));
+    return stream;
+}
+
 void Screencasting::setup(::zkde_screencast_unstable_v1 *screencasting)
 {
     d.reset(new ScreencastingPrivate(screencasting, this));

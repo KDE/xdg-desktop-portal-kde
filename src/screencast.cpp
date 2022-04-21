@@ -262,6 +262,10 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
                 if (!WaylandIntegration::startStreamingWorkspace(Screencasting::CursorMode(session->cursorMode()))) {
                     return 2;
                 }
+            } else if (output.outputType() == WaylandIntegration::WaylandOutput::Virtual) {
+                if (!WaylandIntegration::startStreamingVirtual(output.uniqueId(), {1920, 1080}, Screencasting::CursorMode(session->cursorMode()))) {
+                    return 2;
+                }
             } else if (!WaylandIntegration::startStreamingOutput(output.waylandOutputName(), Screencasting::CursorMode(session->cursorMode()))) {
                 return 2;
             }

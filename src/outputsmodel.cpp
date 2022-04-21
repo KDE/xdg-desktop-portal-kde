@@ -17,6 +17,10 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
     if (outputs.count() > 1 && (o & WorkspaceIncluded)) {
         m_outputs << Output{WaylandIntegration::WaylandOutput::Workspace, 0, i18n("Full Workspace"), "Workspace"};
     }
+    if (o & VirtualIncluded) {
+        static quint64 i = 0;
+        m_outputs << Output{WaylandIntegration::WaylandOutput::Virtual, 0, i18n("New Virtual Output"), QStringLiteral("Virtual%1").arg(i++)};
+    }
     for (auto output : outputs) {
         QString display;
         switch (output.outputType()) {

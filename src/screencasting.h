@@ -63,6 +63,7 @@ public:
     ScreencastingStream *createOutputStream(KWayland::Client::Output *output, CursorMode mode);
     ScreencastingStream *createWindowStream(const QString &uuid, CursorMode mode);
     ScreencastingStream *createRegionStream(const QRect &geometry, qreal scale, CursorMode mode);
+    ScreencastingStream *createVirtualOutputStream(const QString &name, const QSize &size, qreal scale, CursorMode mode);
 
     void setup(zkde_screencast_unstable_v1 *screencasting);
     void destroy();

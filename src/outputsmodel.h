@@ -66,11 +66,13 @@ class OutputsModel : public QAbstractListModel
     Q_OBJECT
     Q_PROPERTY(bool hasSelection READ hasSelection NOTIFY hasSelectionChanged)
 public:
-    enum Options {
+    enum Option {
         None = 0,
-        WorkspaceIncluded,
+        WorkspaceIncluded = 0x1,
+        VirtualIncluded = 0x2,
     };
-    Q_ENUM(Options);
+    Q_ENUM(Option);
+    Q_DECLARE_FLAGS(Options, Option);
 
     OutputsModel(Options o, QObject *parent);
     ~OutputsModel() override;

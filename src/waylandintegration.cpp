@@ -86,6 +86,11 @@ bool WaylandIntegration::startStreamingWorkspace(Screencasting::CursorMode mode)
     return globalWaylandIntegration->startStreamingWorkspace(mode);
 }
 
+bool WaylandIntegration::startStreamingVirtual(const QString &name, const QSize &size, Screencasting::CursorMode mode)
+{
+    return globalWaylandIntegration->startStreamingVirtualOutput(name, size, mode);
+}
+
 bool WaylandIntegration::startStreamingWindow(const QMap<int, QVariant> &win)
 {
     return globalWaylandIntegration->startStreamingWindow(win);
@@ -278,6 +283,17 @@ bool WaylandIntegration::WaylandIntegrationPrivate::startStreamingWorkspace(Scre
                           {
                               {QLatin1String("size"), workspace.size()},
                               {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
+                          });
+}
+
+bool WaylandIntegration::WaylandIntegrationPrivate::startStreamingVirtualOutput(const QString &name, const QSize &size, Screencasting::CursorMode mode)
+{
+    return startStreaming(m_screencasting->createVirtualOutputStream(name, size, 1, mode),
+                          QStringLiteral("video-display"),
+                          i18n("Recording virtual output '%1'...", name),
+                          {
+                              {QLatin1String("size"), size},
+                              {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Virtual)},
                           });
 }
 

@@ -38,6 +38,7 @@ public:
         Monitor,
         Television,
         Workspace,
+        Virtual,
     };
     QString manufacturer() const
     {
@@ -115,6 +116,7 @@ bool isStreamingAvailable();
 void startStreamingInput();
 bool startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
 bool startStreamingWorkspace(Screencasting::CursorMode mode);
+bool startStreamingVirtual(const QString &name, const QSize &size, Screencasting::CursorMode mode);
 bool startStreamingWindow(const QMap<int, QVariant> &win);
 void stopAllStreaming();
 
