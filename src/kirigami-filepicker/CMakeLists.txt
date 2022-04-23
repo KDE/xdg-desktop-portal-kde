@@ -1,8 +1,6 @@
 set(filepicker_lib_SRCS
     api/mobilefiledialog.cpp
     api/mobilefiledialog.h
-    declarative/dirlister.cpp
-    declarative/dirlister.h
     declarative/dirmodel.cpp
     declarative/dirmodel.h
     declarative/dirmodelutils.cpp

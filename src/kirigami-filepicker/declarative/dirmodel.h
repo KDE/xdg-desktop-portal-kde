@@ -11,7 +11,7 @@
 
 #include <KDirModel>
 #include <KDirSortFilterProxyModel>
-class DirLister;
+class KDirLister;
 
 class DirModel : public KDirSortFilterProxyModel
 {
@@ -74,7 +74,7 @@ Q_SIGNALS:
 
 private:
     KDirModel m_dirModel;
-    DirLister *m_lister;
+    KDirLister *m_lister;
 
     QString m_lastError;
 };

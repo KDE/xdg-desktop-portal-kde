@@ -6,18 +6,17 @@
 #include "dirmodel.h"
 
 #include <KDirLister>
-
-#include "dirlister.h"
+#include <KIO/Job>
 
 DirModel::DirModel(QObject *parent)
     : KDirSortFilterProxyModel(parent)
-    , m_lister(new DirLister(this))
+    , m_lister(new KDirLister(this))
 {
     setSourceModel(&m_dirModel);
     m_dirModel.setDirLister(m_lister);
     connect(m_lister, QOverload<>::of(&KCoreDirLister::completed), this, &DirModel::isLoadingChanged);
-    connect(m_lister, &DirLister::errorOccured, this, [this](const QString &message) {
-        m_lastError = message;
+    connect(m_lister, &KDirLister::jobError, this, [this](KIO::Job *job) {
+        m_lastError = job->errorString();
         Q_EMIT lastErrorChanged();
     });
 }
