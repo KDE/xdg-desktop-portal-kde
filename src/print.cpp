@@ -299,7 +299,7 @@ uint PrintPortal::Print(const QDBusObjectPath &handle,
                 return 1;
             }
 
-            argList = printArguments(printer, useCupsOptions, exe, QPrinter::Orientation(printer->pageLayout().orientation())) << tempFile.fileName();
+            argList = printArguments(printer, useCupsOptions, exe, printer->pageLayout().orientation()) << tempFile.fileName();
             // qCDebug(XdgDesktopPortalKdePrint) << "Executing" << exe << "with arguments" << argList << tempFile.fileName();
             int retValue = KProcess::execute(exe, argList);
 
@@ -689,12 +689,12 @@ QString PrintPortal::mediaPaperSource(const QPrinter *printer)
     }
 }
 
-QStringList PrintPortal::optionOrientation(const QPrinter *printer, QPrinter::Orientation documentOrientation)
+QStringList PrintPortal::optionOrientation(const QPrinter *printer, QPageLayout::Orientation documentOrientation)
 {
     // portrait and landscape options rotate the document according to the document orientation
     // If we want to print a landscape document as one would expect it, we have to pass the
     // portrait option so that the document is not rotated additionally
-    if (QPrinter::Orientation(printer->pageLayout().orientation()) == documentOrientation) {
+    if (printer->pageLayout().orientation() == documentOrientation) {
         // the user wants the document printed as is
         return QStringList(QStringLiteral("-o")) << QStringLiteral("portrait");
     } else {
@@ -709,7 +709,7 @@ QStringList PrintPortal::optionDoubleSidedPrinting(const QPrinter *printer)
     case QPrinter::DuplexNone:
         return QStringList(QStringLiteral("-o")) << QStringLiteral("sides=one-sided");
     case QPrinter::DuplexAuto:
-        if (QPrinter::Orientation(printer->pageLayout().orientation()) == QPrinter::Landscape) {
+        if (printer->pageLayout().orientation() == QPageLayout::Landscape) {
             return QStringList(QStringLiteral("-o")) << QStringLiteral("sides=two-sided-short-edge");
         } else {
             return QStringList(QStringLiteral("-o")) << QStringLiteral("sides=two-sided-long-edge");
@@ -819,7 +819,7 @@ QStringList PrintPortal::pages(const QPrinter *printer, bool useCupsOptions, con
     return QStringList(); // AllPages
 }
 
-QStringList PrintPortal::cupsOptions(const QPrinter *printer, QPrinter::Orientation documentOrientation)
+QStringList PrintPortal::cupsOptions(const QPrinter *printer, QPageLayout::Orientation documentOrientation)
 {
     Q_UNUSED(documentOrientation)
     QStringList optionList;
@@ -853,7 +853,7 @@ QStringList PrintPortal::cupsOptions(const QPrinter *printer, QPrinter::Orientat
     return optionList;
 }
 
-QStringList PrintPortal::printArguments(const QPrinter *printer, bool useCupsOptions, const QString &version, QPrinter::Orientation documentOrientation)
+QStringList PrintPortal::printArguments(const QPrinter *printer, bool useCupsOptions, const QString &version, QPageLayout::Orientation documentOrientation)
 {
     QStringList argList;
 
