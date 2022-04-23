@@ -218,3 +218,5 @@ QList<QUrl> MobileFileDialog::results() const
 {
     return m_results;
 }
+
+#include "moc_mobilefiledialog.cpp"

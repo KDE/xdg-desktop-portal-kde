@@ -23,6 +23,7 @@
 #include <QDBusArgument>
 #include <QDBusMetaType>
 #include <QDataStream>
+#include <QIODevice>
 #include <QLoggingCategory>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeScreenCast, "xdp-kde-screencast")

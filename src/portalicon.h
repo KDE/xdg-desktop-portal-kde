@@ -15,7 +15,7 @@ struct PortalIcon {
     QString str;
     QDBusVariant data;
 
-    static int registerDBusType()
+    static auto registerDBusType()
     {
         return qDBusRegisterMetaType<PortalIcon>();
     }

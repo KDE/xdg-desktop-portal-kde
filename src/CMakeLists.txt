@@ -4,6 +4,8 @@ add_definitions(-DTRANSLATION_DOMAIN="xdg-desktop-portal-kde")
 
 include_directories(${Qt5PrintSupport_PRIVATE_INCLUDE_DIRS})
 
+add_executable(xdg-desktop-portal-kde)
+
 set(xdg_desktop_portal_kde_SRCS
     access.cpp
     accessdialog.cpp
@@ -75,9 +77,7 @@ if (QT_MAJOR_VERSION EQUAL "5")
         BASENAME zkde-screencast-unstable-v1
     )
 else()
-#    qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde FILES ${PLASMA_WAYLAND_PROTOCOLS_DIR}/screencast.xml
-#        ${CMAKE_CURRENT_SOURCE_DIR}/zkde-screencast-unstable-v1.xml
-#    )
+    qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde FILES ${PLASMA_WAYLAND_PROTOCOLS_DIR}/screencast.xml)
 endif()
 
 
@@ -87,7 +87,7 @@ qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS ../data/org.freedesktop.Accoun
 set_source_files_properties(../data/org.kde.KIOFuse.VFS.xml PROPERTIES NO_NAMESPACE TRUE)
 qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS ../data/org.kde.KIOFuse.VFS.xml fuse_interface)
 
-add_executable(xdg-desktop-portal-kde ${xdg_desktop_portal_kde_SRCS})
+target_sources(xdg-desktop-portal-kde PRIVATE ${xdg_desktop_portal_kde_SRCS})
 
 target_link_libraries(xdg-desktop-portal-kde
     Qt::Core
@@ -110,6 +110,9 @@ target_link_libraries(xdg-desktop-portal-kde
     KirigamiFilepicker
     Wayland::Client
 )
+if (QT_MAJOR_VERSION EQUAL "6")
+    target_link_libraries(xdg-desktop-portal-kde Qt::PrintSupportPrivate)
+endif()
 
 install(TARGETS xdg-desktop-portal-kde DESTINATION ${KDE_INSTALL_LIBEXECDIR})
 

@@ -36,6 +36,9 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     QuickWidgets
     Widgets
 )
+if (QT_MAJOR_VERSION EQUAL "6")
+    find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS WaylandClient)
+endif()
 
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     CoreAddons
