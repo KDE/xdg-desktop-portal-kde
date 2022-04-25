@@ -21,7 +21,9 @@ Q_LOGGING_CATEGORY(XdgDesktopPortalKde, "xdp-kde")
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_DisableSessionManager);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+#endif
     QApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(false);
 
