@@ -90,20 +90,19 @@ PWD.SystemDialog
             height: grid.cellHeight
             width: grid.cellWidth
 
+            HoverHandler {
+                acceptedButtons: Qt.NoButton
+                cursorShape: hovered ? Qt.PointingHandCursor : Qt.ArrowCursor
+            }
+            TapHandler {
+                onTapped: AppChooserData.applicationSelected(model.applicationDesktopFile)
+            }
+
             Rectangle {
                 anchors.fill: parent
                 color: Kirigami.Theme.highlightColor
                 visible: model.applicationDesktopFile === AppChooserData.defaultApp
                 radius: 2
-            }
-
-            MouseArea {
-                id: mouseArea
-                anchors.fill: parent
-                hoverEnabled: true
-
-                onContainsMouseChanged: cursorShape = containsMouse ? Qt.PointingHandCursor : Qt.ArrowCursor
-                onClicked: AppChooserData.applicationSelected(model.applicationDesktopFile)
             }
 
             Column {
