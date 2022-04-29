@@ -55,8 +55,8 @@ PWD.SystemDialog
 
                 currentIndex: -1 // Don't pre-select anything as that doesn't make sense here
 
-                cellHeight: Kirigami.Units.iconSizes.huge + 50
-                cellWidth: Kirigami.Units.iconSizes.huge + 80
+                cellHeight: Kirigami.Units.iconSizes.huge + (Kirigami.Units.gridUnit * 4)
+                cellWidth: Kirigami.Units.iconSizes.huge + (Kirigami.Units.gridUnit * 4)
                 model: AppModel
                 delegate: appDelegate
             }
@@ -105,24 +105,26 @@ PWD.SystemDialog
                 radius: 2
             }
 
-            Column {
-                anchors.fill: parent
-                anchors.margins: Kirigami.Units.gridUnit / 2
-                spacing: Kirigami.Units.gridUnit / 3
+            ColumnLayout {
+                anchors {
+                    top: parent.top
+                    left: parent.left
+                    right: parent.right
+                    margins: Kirigami.Units.largeSpacing
+                }
+                spacing: Kirigami.Units.largeSpacing
 
                 Kirigami.Icon {
                     anchors.horizontalCenter: parent.horizontalCenter
-                    height: Kirigami.Units.iconSizes.huge
-                    width: Kirigami.Units.iconSizes.huge
+                    Layout.preferredWidth: Kirigami.Units.iconSizes.huge
+                    Layout.preferredHeight: Kirigami.Units.iconSizes.huge
                     source: model.applicationIcon
                     smooth: true
                 }
 
                 Label {
-                    anchors {
-                        left: parent.left
-                        right: parent.right
-                    }
+                    Layout.fillWidth: true
+                    Layout.alignment: Qt.AlignTop
                     horizontalAlignment: Text.AlignHCenter
                     elide: Text.ElideRight
                     maximumLineCount: 2
