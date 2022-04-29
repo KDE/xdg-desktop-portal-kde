@@ -6,8 +6,8 @@
  */
 
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.12
 import org.kde.kirigami 2.9 as Kirigami
 import org.kde.plasma.workspace.dialogs 1.0 as PWD
@@ -19,15 +19,27 @@ PWD.SystemDialog
     id: root
     iconName: "applications-all"
     ColumnLayout {
-        Label {
+        // Using a TextEdit here instead of a Label because it can know when any
+        // links are hovered, which is needed for us to be able to use the correct
+        // cursor shape for it
+        TextEdit {
             Layout.fillWidth: true
             horizontalAlignment: Text.AlignHCenter
             text: xi18nc("@info", "Select an application to open <filename>%1</filename>. More applications are available in <link>Discover</link>.", AppChooserData.fileName)
             textFormat: Text.RichText
             wrapMode: Text.WordWrap
+            readOnly: true
+            color: Kirigami.Theme.textColor
+            selectedTextColor: Kirigami.Theme.highlightedTextColor
+            selectionColor: Kirigami.Theme.highlightColor
 
             onLinkActivated: {
                 AppChooserData.openDiscover()
+            }
+
+            HoverHandler {
+                acceptedButtons: Qt.NoButton
+                cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
             }
         }
 
