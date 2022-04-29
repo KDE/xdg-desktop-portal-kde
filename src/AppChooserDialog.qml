@@ -43,30 +43,20 @@ PWD.SystemDialog
             }
         }
 
-        Frame {
-            id: viewBackground
+        ScrollView {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Kirigami.Theme.inherit: false
-            Kirigami.Theme.colorSet: Kirigami.Theme.View
-            background: Rectangle {
-                color: Kirigami.Theme.backgroundColor
-                property color borderColor: Kirigami.Theme.textColor
-                border.color: Qt.rgba(borderColor.r, borderColor.g, borderColor.b, 0.3)
-            }
+            Layout.minimumHeight: grid.cellHeight * 3
 
-            ScrollView {
-                anchors.fill: parent
-                implicitHeight: grid.cellHeight * 3
+            Component.onCompleted: background.visible = true
 
-                GridView {
-                    id: grid
+            GridView {
+                id: grid
 
-                    cellHeight: Kirigami.Units.iconSizes.huge + 50
-                    cellWidth: Kirigami.Units.iconSizes.huge + 80
-                    model: AppModel
-                    delegate: appDelegate
-                }
+                cellHeight: Kirigami.Units.iconSizes.huge + 50
+                cellWidth: Kirigami.Units.iconSizes.huge + 80
+                model: AppModel
+                delegate: appDelegate
             }
         }
 
