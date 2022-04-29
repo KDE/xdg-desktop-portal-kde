@@ -53,6 +53,8 @@ PWD.SystemDialog
             GridView {
                 id: grid
 
+                currentIndex: -1 // Don't pre-select anything as that doesn't make sense here
+
                 cellHeight: Kirigami.Units.iconSizes.huge + 50
                 cellWidth: Kirigami.Units.iconSizes.huge + 80
                 model: AppModel
