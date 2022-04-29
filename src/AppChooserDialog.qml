@@ -22,7 +22,7 @@ PWD.SystemDialog
         Label {
             Layout.fillWidth: true
             horizontalAlignment: Text.AlignHCenter
-            text: i18n("Select an application to open <b>%1</b>. More applications are available in <a href=#discover>Discover</a>.", AppChooserData.fileName)
+            text: xi18nc("@info", "Select an application to open <filename>%1</filename>. More applications are available in <link>Discover</link>.", AppChooserData.fileName)
             textFormat: Text.RichText
             wrapMode: Text.WordWrap
 
