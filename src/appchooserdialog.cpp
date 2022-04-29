@@ -31,7 +31,7 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &de
     m_model->setPreferredApps(choices);
 
     QVariantMap props = {
-        {"title", i18n("Open with...")},
+        {"title", i18n("Select an application to open '%1'", fileName)},
     };
     AppFilterModel *filterModel = new AppFilterModel(this);
     filterModel->setSourceModel(m_model);
@@ -156,16 +156,12 @@ bool AppFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_
         static_cast<ApplicationItem::ApplicationCategory>(sourceModel()->data(index, AppModel::ApplicationCategoryRole).toInt());
     QString appName = sourceModel()->data(index, AppModel::ApplicationNameRole).toString();
 
-    if (m_showOnlyPreferredApps)
-        return category == ApplicationItem::PreferredApplication;
+    if (m_filter.isEmpty()) {
+        return m_showOnlyPreferredApps ? category == ApplicationItem::PreferredApplication : true;
+    }
 
-    if (category == ApplicationItem::PreferredApplication)
-        return true;
-
-    if (m_filter.isEmpty())
-        return true;
-
-    return appName.toLower().contains(m_filter);
+    return m_showOnlyPreferredApps ? category == ApplicationItem::PreferredApplication && appName.toLower().contains(m_filter)
+                                   : appName.toLower().contains(m_filter);
 }
 
 bool AppFilterModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
