@@ -45,8 +45,8 @@ PWD.SystemDialog
 
         ScrollView {
             Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.minimumHeight: grid.cellHeight * 3
+            Layout.preferredHeight: grid.cellHeight * 3
+            Layout.maximumHeight: grid.cellHeight * 3
 
             Component.onCompleted: background.visible = true
 
