@@ -19,6 +19,8 @@ PWD.SystemDialog
     id: root
     iconName: "applications-all"
     ColumnLayout {
+        spacing: Kirigami.Units.smallSpacing
+
         // Using a TextEdit here instead of a Label because it can know when any
         // links are hovered, which is needed for us to be able to use the correct
         // cursor shape for it
