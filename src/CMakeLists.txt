@@ -73,11 +73,11 @@ set(xdg_desktop_portal_kde_SRCS
 
 if (QT_MAJOR_VERSION EQUAL "5")
     ecm_add_qtwayland_client_protocol(xdg_desktop_portal_kde_SRCS
-        PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/screencast.xml
+        PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/zkde-screencast-unstable-v1.xml
         BASENAME zkde-screencast-unstable-v1
     )
 else()
-    qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde FILES ${PLASMA_WAYLAND_PROTOCOLS_DIR}/screencast.xml)
+    qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde FILES ${PLASMA_WAYLAND_PROTOCOLS_DIR}/zkde-screencast-unstable-v1.xml)
 endif()
 
 
