@@ -7,7 +7,6 @@
  */
 
 #include "remotedesktopdialog.h"
-#include "outputsmodel.h"
 
 #include "utils.h"
 #include <KLocalizedString>
