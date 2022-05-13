@@ -337,6 +337,7 @@ bool WaylandIntegration::WaylandIntegrationPrivate::startStreaming(Screencasting
         item->setIconByName(iconName);
         item->setOverlayIconByName(QStringLiteral("media-record"));
         item->setToolTip(item->iconName(), item->title(), i18n("Press to cancel"));
+        item->setStatus(KStatusNotifierItem::Active);
         connect(item, &KStatusNotifierItem::activateRequested, stream, [=] {
             stopStreaming(nodeid);
             stream->deleteLater();
