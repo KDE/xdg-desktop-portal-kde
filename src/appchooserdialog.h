@@ -102,6 +102,7 @@ private:
 class AppModel : public QAbstractListModel
 {
     Q_OBJECT
+    Q_PROPERTY(bool hasPreferredApps MEMBER m_hasPreferredApps NOTIFY hasPreferredAppsChanged)
 public:
     enum ItemRoles {
         ApplicationNameRole = Qt::UserRole + 1,
@@ -119,11 +120,15 @@ public:
     int rowCount(const QModelIndex &parent) const override;
     QHash<int, QByteArray> roleNames() const override;
 
+Q_SIGNALS:
+    void hasPreferredAppsChanged();
+
 private:
     void loadApplications();
 
     QList<ApplicationItem> m_list;
     QHash<QString, QString> m_noDisplayAliasesFor;
+    bool m_hasPreferredApps = false;
 };
 
 class AppChooserDialog : public QuickDialog

@@ -39,6 +39,8 @@ PWD.SystemDialog
 
                 checkable: true
                 checked: !AppModel.showOnlyPreferredApps
+                visible: AppModel.sourceModel.hasPreferredApps
+                onVisibleChanged: AppModel.showOnlyPreferredApps = visible
 
                 onClicked: {
                     AppModel.showOnlyPreferredApps = !AppModel.showOnlyPreferredApps

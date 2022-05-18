@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: LGPL-2.0-or-later
  *
  * SPDX-FileCopyrightText: 2016-2018 Jan Grulich <jgrulich@redhat.com>
+ * SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
  */
 
 #ifndef XDG_DESKTOP_PORTAL_KDE_APPCHOOSER_H
@@ -12,6 +13,7 @@
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
+class QDBusMessage;
 class AppChooserDialog;
 
 class AppChooserPortal : public QDBusAbstractAdaptor
@@ -29,6 +31,9 @@ public Q_SLOTS:
                            const QStringList &choices,
                            const QVariantMap &options,
                            QVariantMap &results);
+
+    uint
+    ChooseApplicationPrivate(const QString &parent_window, const QStringList &urls, const QVariantMap &options, const QDBusMessage &msg, QVariantMap &results);
     void UpdateChoices(const QDBusObjectPath &handle, const QStringList &choices);
 
 private:

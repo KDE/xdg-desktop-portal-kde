@@ -221,6 +221,9 @@ AppModel::~AppModel()
 
 void AppModel::setPreferredApps(const QStringList &possiblyAliasedList)
 {
+    m_hasPreferredApps = false;
+    Q_EMIT hasPreferredAppsChanged();
+
     // In the event that we get incoming NoDisplay entries that are AliasFor another desktop file,
     // switch the NoDisplay name for the aliased name.
     QStringList list;
@@ -244,6 +247,8 @@ void AppModel::setPreferredApps(const QStringList &possiblyAliasedList)
         if (list.contains(item.applicationDesktopFile())) {
             item.setApplicationCategory(ApplicationItem::PreferredApplication);
             changed = true;
+            m_hasPreferredApps = true;
+            Q_EMIT hasPreferredAppsChanged();
         }
 
         if (changed) {

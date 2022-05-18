@@ -12,6 +12,11 @@
 #include "request.h"
 #include "utils.h"
 
+#include <KLocalizedString>
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusServiceWatcher>
+
 AppChooserPortal::AppChooserPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
 {
@@ -71,4 +76,36 @@ void AppChooserPortal::UpdateChoices(const QDBusObjectPath &handle, const QStrin
     if (m_appChooserDialogs.contains(handle.path())) {
         m_appChooserDialogs.value(handle.path())->updateChoices(choices);
     }
+}
+
+uint AppChooserPortal::ChooseApplicationPrivate(const QString &parent_window,
+                                                const QStringList &urls,
+                                                const QVariantMap &options,
+                                                const QDBusMessage &msg,
+                                                QVariantMap &results)
+{
+    qCDebug(XdgDesktopPortalKdeAppChooser) << "ChooseApplicationPrivate called with parameters:";
+    qCDebug(XdgDesktopPortalKdeAppChooser) << "    parent_window: " << parent_window;
+    qCDebug(XdgDesktopPortalKdeAppChooser) << "    urls: " << urls;
+    qCDebug(XdgDesktopPortalKdeAppChooser) << "    options: " << options;
+
+    if (urls.isEmpty()) {
+        return 1;
+    }
+
+    const QString itemName = urls.size() == 1 ? urls.at(0) : i18nc("count of files to open", "%1 files", urls.size());
+
+    AppChooserDialog appDialog({}, {}, itemName, options.value(QStringLiteral("content_type")).toString());
+    Utils::setParentWindow(appDialog.windowHandle(), parent_window);
+
+    QDBusServiceWatcher watcher(msg.service(), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForUnregistration);
+    connect(&watcher, &QDBusServiceWatcher::serviceUnregistered, &appDialog, [&appDialog] {
+        appDialog.reject();
+    });
+
+    const bool result = appDialog.exec();
+    if (result) {
+        results.insert(QStringLiteral("choice"), appDialog.selectedApplication());
+    }
+    return result ? 0 : 1;
 }
