@@ -8,9 +8,10 @@
 
 #include "email.h"
 
-#include <QDesktopServices>
 #include <QLoggingCategory>
 #include <QUrl>
+
+#include <KEMailClientLauncherJob>
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeEmail, "xdp-kde-email")
 
@@ -33,26 +34,22 @@ uint EmailPortal::ComposeEmail(const QDBusObjectPath &handle, const QString &app
     qCDebug(XdgDesktopPortalKdeEmail) << "    window: " << window;
     qCDebug(XdgDesktopPortalKdeEmail) << "    options: " << options;
 
-    const QString addresses = options.contains(QStringLiteral("address")) ? options.value(QStringLiteral("address")).toString()
-                                                                          : options.value(QStringLiteral("addresses")).toStringList().join(QLatin1Char(','));
-    QString attachmentString;
-    const QStringList attachments = options.value(QStringLiteral("attachments")).toStringList();
-    for (const QString &attachment : attachments) {
-        attachmentString += QStringLiteral("&attachment=%1").arg(attachment);
+    const QStringList addresses = options.contains(QStringLiteral("address")) ? options.value(QStringLiteral("address")).toStringList()
+                                                                              : options.value(QStringLiteral("addresses")).toStringList();
+
+    KEMailClientLauncherJob job;
+    job.setTo(addresses);
+    job.setCc(options.value(QStringLiteral("cc")).toStringList());
+    job.setBcc(options.value(QStringLiteral("bcc")).toStringList());
+    job.setSubject(options.value(QStringLiteral("subject")).toString());
+    job.setBody(options.value(QStringLiteral("body")).toString());
+
+    const QStringList attachmentStrings = options.value(QStringLiteral("attachments")).toStringList();
+    QList<QUrl> attachments;
+    for (const QString &attachment : attachmentStrings) {
+        attachments << QUrl(attachment);
     }
+    job.setAttachments(attachments);
 
-    QString cc, bcc;
-    if (options.contains(QStringLiteral("cc"))) {
-        cc = QStringLiteral("&cc=%1").arg(options.value(QStringLiteral("cc")).toStringList().join(QLatin1Char(',')));
-    }
-
-    if (options.contains(QStringLiteral("bcc"))) {
-        bcc = QStringLiteral("&bcc=%1").arg(options.value(QStringLiteral("bcc")).toStringList().join(QLatin1Char(',')));
-    }
-
-    const QString mailtoUrl =
-        QStringLiteral("mailto:%1?subject=%2&body=%3%4%5%6")
-            .arg(addresses, options.value(QStringLiteral("subject")).toString(), options.value(QStringLiteral("body")).toString(), cc, bcc, attachmentString);
-
-    return QDesktopServices::openUrl(QUrl(mailtoUrl));
+    return job.exec();
 }
