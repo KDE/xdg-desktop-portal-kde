@@ -167,7 +167,7 @@ PWD.SystemDialog
         TextEdit {
             visible: !placeholderLoader.active
             Layout.fillWidth: true
-            text: xi18nc("@info", "Don't see the right app? Find more in <link>Discover</link>.", AppChooserData.fileName)
+            text: xi18nc("@info", "Don't see the right app? Find more in <link>Discover</link>.")
             textFormat: Text.RichText
             wrapMode: Text.WordWrap
             readOnly: true
