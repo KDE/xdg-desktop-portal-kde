@@ -239,7 +239,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         }
     }
 
-    bool allowRestore = false;
+    bool allowRestore = valid;
     if (!valid) {
         QScopedPointer<ScreenChooserDialog, QScopedPointerDeleteLater> screenDialog(
             new ScreenChooserDialog(app_id, session->multipleSources(), SourceTypes(session->types())));
