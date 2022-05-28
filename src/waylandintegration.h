@@ -135,6 +135,7 @@ Stream startStreamingWorkspace(Screencasting::CursorMode mode);
 Stream startStreamingVirtual(const QString &name, const QSize &size, Screencasting::CursorMode mode);
 Stream startStreamingWindow(const QMap<int, QVariant> &win);
 void stopAllStreaming();
+void stopStreaming(uint node);
 
 void requestPointerButtonPress(quint32 linuxButton);
 void requestPointerButtonRelease(quint32 linuxButton);
