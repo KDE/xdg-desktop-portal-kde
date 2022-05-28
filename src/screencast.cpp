@@ -257,25 +257,35 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     if (valid) {
         QVariantList outputs;
         QStringList windows;
+        WaylandIntegration::Streams streams;
         for (const auto &output : qAsConst(selectedOutputs)) {
-            if (output.outputType() == WaylandIntegration::WaylandOutput::Workspace) {
-                if (!WaylandIntegration::startStreamingWorkspace(Screencasting::CursorMode(session->cursorMode()))) {
-                    return 2;
-                }
-            } else if (output.outputType() == WaylandIntegration::WaylandOutput::Virtual) {
-                if (!WaylandIntegration::startStreamingVirtual(output.uniqueId(), {1920, 1080}, Screencasting::CursorMode(session->cursorMode()))) {
-                    return 2;
-                }
-            } else if (!WaylandIntegration::startStreamingOutput(output.waylandOutputName(), Screencasting::CursorMode(session->cursorMode()))) {
+            WaylandIntegration::Stream stream;
+            switch (output.outputType()) {
+            case WaylandIntegration::WaylandOutput::Workspace:
+                stream = WaylandIntegration::startStreamingWorkspace(Screencasting::CursorMode(session->cursorMode()));
+                break;
+            case WaylandIntegration::WaylandOutput::Virtual:
+                stream = WaylandIntegration::startStreamingVirtual(output.uniqueId(), {1920, 1080}, Screencasting::CursorMode(session->cursorMode()));
+                break;
+            default:
+                stream = WaylandIntegration::startStreamingOutput(output.waylandOutputName(), Screencasting::CursorMode(session->cursorMode()));
+                break;
+            }
+
+            if (!stream.isValid()) {
+                qCWarning(XdgDesktopPortalKdeScreenCast) << "Invalid screen!" << output.outputType() << output.uniqueId();
                 return 2;
             }
 
             if (allowRestore) {
                 outputs += output.uniqueId();
             }
+            streams << stream;
         }
         for (const auto &win : qAsConst(selectedWindows)) {
-            if (!WaylandIntegration::startStreamingWindow(win)) {
+            WaylandIntegration::Stream stream = WaylandIntegration::startStreamingWindow(win);
+            if (!stream.isValid()) {
+                qCWarning(XdgDesktopPortalKdeScreenCast) << "Invalid window!" << win;
                 return 2;
             }
 
@@ -284,14 +294,12 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             }
         }
 
-        QVariant streams = WaylandIntegration::streams();
-
-        if (!streams.isValid()) {
+        if (streams.isEmpty()) {
             qCWarning(XdgDesktopPortalKdeScreenCast) << "Pipewire stream is not ready to be streamed";
             return 2;
         }
 
-        results.insert(QStringLiteral("streams"), streams);
+        results.insert(QStringLiteral("streams"), QVariant::fromValue<WaylandIntegration::Streams>(streams));
         if (allowRestore) {
             results.insert("persist_mode", quint32(persist));
             if (persist != NoPersist) {

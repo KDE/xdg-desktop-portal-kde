@@ -57,15 +57,6 @@ private:
     KWayland::Client::XdgImporter *m_xdgImporter = nullptr;
 
 public:
-    struct Stream {
-        ScreencastingStream *stream = nullptr;
-        uint nodeId;
-        QVariantMap map;
-
-        void close();
-    };
-    typedef QVector<Stream> Streams;
-
     void authenticate();
 
     bool isStreamingEnabled() const;
@@ -73,11 +64,10 @@ public:
 
     void startStreamingInput();
 
-    bool startStreaming(ScreencastingStream *stream, const QString &iconName, const QString &description, const QVariantMap &streamOptions);
-    bool startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
-    bool startStreamingWindow(const QMap<int, QVariant> &win);
-    bool startStreamingWorkspace(Screencasting::CursorMode mode);
-    bool startStreamingVirtualOutput(const QString &name, const QSize &size, Screencasting::CursorMode mode);
+    Stream startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
+    Stream startStreamingWindow(const QMap<int, QVariant> &win);
+    Stream startStreamingWorkspace(Screencasting::CursorMode mode);
+    Stream startStreamingVirtualOutput(const QString &name, const QSize &size, Screencasting::CursorMode mode);
     void stopStreaming(uint32_t nodeid);
     void stopAllStreaming();
 
@@ -89,7 +79,6 @@ public:
     void requestKeyboardKeycode(int keycode, bool state);
 
     QMap<quint32, WaylandOutput> screens();
-    QVariant streams();
 
     void setParentWindow(QWindow *window, const QString &parentHandle);
 
@@ -98,6 +87,7 @@ protected Q_SLOTS:
     void removeOutput(quint32 name);
 
 private:
+    Stream startStreaming(ScreencastingStream *stream, const QString &iconName, const QString &description, const QVariantMap &streamOptions);
     bool eventFilter(QObject *watched, QEvent *event) override;
 
     bool m_streamInput = false;

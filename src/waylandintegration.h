@@ -9,6 +9,7 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_WAYLAND_INTEGRATION_H
 #define XDG_DESKTOP_PORTAL_KDE_WAYLAND_INTEGRATION_H
 
+#include <QDBusArgument>
 #include <QObject>
 #include <QPoint>
 #include <QSize>
@@ -32,6 +33,7 @@ namespace WaylandIntegration
 {
 class WaylandOutput
 {
+    Q_GADGET
 public:
     enum OutputType {
         Laptop,
@@ -40,6 +42,7 @@ public:
         Workspace,
         Virtual,
     };
+    Q_ENUM(OutputType)
     QString manufacturer() const
     {
         return m_output->manufacturer();
@@ -99,6 +102,19 @@ private:
     int m_waylandOutputVersion;
 };
 
+struct Stream {
+    ScreencastingStream *stream = nullptr;
+    uint nodeId;
+    QVariantMap map;
+    bool isValid() const
+    {
+        return stream != nullptr;
+    }
+
+    void close();
+};
+typedef QVector<Stream> Streams;
+
 class WaylandIntegration : public QObject
 {
     Q_OBJECT
@@ -114,10 +130,10 @@ bool isStreamingEnabled();
 bool isStreamingAvailable();
 
 void startStreamingInput();
-bool startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
-bool startStreamingWorkspace(Screencasting::CursorMode mode);
-bool startStreamingVirtual(const QString &name, const QSize &size, Screencasting::CursorMode mode);
-bool startStreamingWindow(const QMap<int, QVariant> &win);
+Stream startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
+Stream startStreamingWorkspace(Screencasting::CursorMode mode);
+Stream startStreamingVirtual(const QString &name, const QSize &size, Screencasting::CursorMode mode);
+Stream startStreamingWindow(const QMap<int, QVariant> &win);
 void stopAllStreaming();
 
 void requestPointerButtonPress(quint32 linuxButton);
@@ -129,7 +145,6 @@ void requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta);
 void requestKeyboardKeycode(int keycode, bool state);
 
 QMap<quint32, WaylandOutput> screens();
-QVariant streams();
 
 void setParentWindow(QWindow *window, const QString &parentWindow);
 
@@ -138,6 +153,14 @@ void init();
 KWayland::Client::PlasmaWindowManagement *plasmaWindowManagement();
 
 WaylandIntegration *waylandIntegration();
+
+QDebug operator<<(QDebug dbg, const Stream &c);
+
+const QDBusArgument &operator<<(QDBusArgument &arg, const Stream &stream);
+const QDBusArgument &operator>>(const QDBusArgument &arg, Stream &stream);
 }
+
+Q_DECLARE_METATYPE(WaylandIntegration::Stream)
+Q_DECLARE_METATYPE(WaylandIntegration::Streams)
 
 #endif // XDG_DESKTOP_PORTAL_KDE_WAYLAND_INTEGRATION_H
