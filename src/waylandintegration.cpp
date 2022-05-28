@@ -89,6 +89,11 @@ void WaylandIntegration::stopAllStreaming()
     globalWaylandIntegration->stopAllStreaming();
 }
 
+void WaylandIntegration::stopStreaming(uint node)
+{
+    globalWaylandIntegration->stopStreaming(node);
+}
+
 void WaylandIntegration::requestPointerButtonPress(quint32 linuxButton)
 {
     globalWaylandIntegration->requestPointerButtonPress(linuxButton);

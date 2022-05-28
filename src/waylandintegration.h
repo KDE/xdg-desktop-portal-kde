@@ -131,6 +131,7 @@ void startStreamingInput();
 Stream startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
 Stream startStreamingWindow(const QMap<int, QVariant> &win);
 void stopAllStreaming();
+void stopStreaming(uint node);
 
 void requestPointerButtonPress(quint32 linuxButton);
 void requestPointerButtonRelease(quint32 linuxButton);

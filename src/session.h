@@ -14,6 +14,7 @@
 
 #include "remotedesktop.h"
 #include "screencast.h"
+#include "waylandintegration.h"
 
 class Session : public QDBusVirtualObject
 {
@@ -62,10 +63,21 @@ public:
         return SessionType::ScreenCast;
     }
 
+    WaylandIntegration::Streams streams() const
+    {
+        return m_streams;
+    }
+    void setStreams(const WaylandIntegration::Streams &streams)
+    {
+        m_streams = streams;
+    }
+
 private:
     bool m_multipleSources;
     ScreenCastPortal::CursorModes m_cursorMode;
     ScreenCastPortal::SourceType m_types;
+
+    WaylandIntegration::Streams m_streams;
 };
 
 class RemoteDesktopSession : public ScreenCastSession

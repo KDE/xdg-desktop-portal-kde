@@ -68,8 +68,12 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
         return 2;
     }
 
-    connect(session, &Session::closed, []() {
-        WaylandIntegration::stopAllStreaming();
+    connect(session, &Session::closed, [session] {
+        auto screencastSession = qobject_cast<ScreenCastSession *>(session);
+        const auto streams = screencastSession->streams();
+        for (const WaylandIntegration::Stream &stream : streams) {
+            WaylandIntegration::stopStreaming(stream.nodeId);
+        }
     });
 
     connect(WaylandIntegration::waylandIntegration(), &WaylandIntegration::WaylandIntegration::streamingStopped, session, &Session::close);
@@ -169,7 +173,8 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             return 2;
         }
 
-        results.insert(QStringLiteral("streams"), QVariant::fromValue(streams));
+        session->setStreams(streams);
+        results.insert(QStringLiteral("streams"), QVariant::fromValue<WaylandIntegration::Streams>(streams));
 
         if (inhibitionsEnabled()) {
             new NotificationInhibition(app_id, i18nc("Do not disturb mode is enabled because...", "Screen sharing in progress"), session);
