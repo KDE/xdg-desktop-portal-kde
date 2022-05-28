@@ -372,6 +372,7 @@ void WaylandIntegration::WaylandIntegrationPrivate::stopStreaming(uint32_t nodei
 {
     for (auto it = m_streams.begin(), itEnd = m_streams.end(); it != itEnd; ++it) {
         if (it->nodeId == nodeid) {
+            it->close();
             m_streams.erase(it);
             break;
         }
