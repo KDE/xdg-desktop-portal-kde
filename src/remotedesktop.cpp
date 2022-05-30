@@ -33,6 +33,7 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
                                         const QVariantMap &options,
                                         QVariantMap &results)
 {
+    Q_UNUSED(results);
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "CreateSession called with parameters:";
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    handle: " << handle.path();
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    session_handle: " << session_handle.path();
@@ -63,6 +64,7 @@ uint RemoteDesktopPortal::SelectDevices(const QDBusObjectPath &handle,
                                         const QVariantMap &options,
                                         QVariantMap &results)
 {
+    Q_UNUSED(results);
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "SelectDevices called with parameters:";
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    handle: " << handle.path();
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    session_handle: " << session_handle.path();
@@ -241,6 +243,10 @@ void RemoteDesktopPortal::NotifyPointerAxisDiscrete(const QDBusObjectPath &sessi
 
 void RemoteDesktopPortal::NotifyKeyboardKeysym(const QDBusObjectPath &session_handle, const QVariantMap &options, int keysym, uint state)
 {
+    Q_UNUSED(session_handle)
+    Q_UNUSED(options)
+    Q_UNUSED(keysym)
+    Q_UNUSED(state)
 }
 
 void RemoteDesktopPortal::NotifyKeyboardKeycode(const QDBusObjectPath &session_handle, const QVariantMap &options, int keycode, uint state)

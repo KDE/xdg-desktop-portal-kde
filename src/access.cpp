@@ -61,6 +61,7 @@ uint AccessPortal::AccessDialog(const QDBusObjectPath &handle,
     }
 
     // TODO choices
+    Q_UNUSED(results);
 
     accessDialog->createDialog();
     Utils::setParentWindow(accessDialog->windowHandle(), parent_window);
