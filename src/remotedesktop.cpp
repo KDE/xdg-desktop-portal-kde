@@ -264,12 +264,39 @@ void RemoteDesktopPortal::NotifyKeyboardKeycode(const QDBusObjectPath &session_h
 
 void RemoteDesktopPortal::NotifyTouchDown(const QDBusObjectPath &session_handle, const QVariantMap &options, uint stream, uint slot, int x, int y)
 {
+    Q_UNUSED(options)
+    Q_UNUSED(stream)
+
+    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
+    if (!session) {
+        qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerAxisDiscrete on non-existing session " << session_handle.path();
+        return;
+    }
+    WaylandIntegration::requestTouchDown(slot, QPoint(x, y));
 }
 
 void RemoteDesktopPortal::NotifyTouchMotion(const QDBusObjectPath &session_handle, const QVariantMap &options, uint stream, uint slot, int x, int y)
 {
+    Q_UNUSED(options)
+    Q_UNUSED(stream)
+
+    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
+    if (!session) {
+        qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerAxisDiscrete on non-existing session " << session_handle.path();
+        return;
+    }
+    WaylandIntegration::requestTouchMotion(slot, QPoint(x, y));
 }
 
 void RemoteDesktopPortal::NotifyTouchUp(const QDBusObjectPath &session_handle, const QVariantMap &options, uint slot)
 {
+    Q_UNUSED(options)
+
+    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
+    if (!session) {
+        qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerAxisDiscrete on non-existing session " << session_handle.path();
+        return;
+    }
+
+    WaylandIntegration::requestTouchUp(slot);
 }

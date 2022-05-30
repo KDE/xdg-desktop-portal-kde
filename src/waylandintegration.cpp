@@ -170,6 +170,21 @@ void WaylandIntegration::requestKeyboardKeycode(int keycode, bool state)
     globalWaylandIntegration->requestKeyboardKeycode(keycode, state);
 }
 
+void WaylandIntegration::requestTouchDown(quint32 touchPoint, const QPointF &pos)
+{
+    globalWaylandIntegration->requestTouchDown(touchPoint, pos);
+}
+
+void WaylandIntegration::requestTouchMotion(quint32 touchPoint, const QPointF &pos)
+{
+    globalWaylandIntegration->requestTouchMotion(touchPoint, pos);
+}
+
+void WaylandIntegration::requestTouchUp(quint32 touchPoint)
+{
+    globalWaylandIntegration->requestTouchUp(touchPoint);
+}
+
 QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::screens()
 {
     return globalWaylandIntegration->screens();
@@ -426,6 +441,27 @@ void WaylandIntegration::WaylandIntegrationPrivate::requestKeyboardKeycode(int k
         } else {
             m_fakeInput->requestKeyboardKeyRelease(keycode);
         }
+    }
+}
+
+void WaylandIntegration::WaylandIntegrationPrivate::requestTouchDown(quint32 touchPoint, const QPointF &pos)
+{
+    if (m_streamInput && m_fakeInput) {
+        m_fakeInput->requestTouchDown(touchPoint, pos);
+    }
+}
+
+void WaylandIntegration::WaylandIntegrationPrivate::requestTouchMotion(quint32 touchPoint, const QPointF &pos)
+{
+    if (m_streamInput && m_fakeInput) {
+        m_fakeInput->requestTouchMotion(touchPoint, pos);
+    }
+}
+
+void WaylandIntegration::WaylandIntegrationPrivate::requestTouchUp(quint32 touchPoint)
+{
+    if (m_streamInput && m_fakeInput) {
+        m_fakeInput->requestTouchUp(touchPoint);
     }
 }
 

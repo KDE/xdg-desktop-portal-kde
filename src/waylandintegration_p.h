@@ -77,6 +77,9 @@ public:
     void requestPointerMotionAbsolute(const QPointF &pos);
     void requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta);
     void requestKeyboardKeycode(int keycode, bool state);
+    void requestTouchDown(quint32 touchPoint, const QPointF &pos);
+    void requestTouchMotion(quint32 touchPoint, const QPointF &pos);
+    void requestTouchUp(quint32 touchPoint);
 
     QMap<quint32, WaylandOutput> screens();
 
