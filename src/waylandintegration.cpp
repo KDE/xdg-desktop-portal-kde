@@ -338,7 +338,6 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
         ret.nodeId = nodeid;
         ret.map = streamOptions;
         m_streams.append(ret);
-        startStreamingInput();
 
         connect(stream, &ScreencastingStream::closed, this, [this, nodeid] {
             stopStreaming(nodeid);
