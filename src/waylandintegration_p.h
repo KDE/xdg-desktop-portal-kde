@@ -53,15 +53,6 @@ private:
     KWayland::Client::PlasmaWindowManagement *m_windowManagement = nullptr;
 
 public:
-    struct Stream {
-        ScreencastingStream *stream = nullptr;
-        uint nodeId;
-        QVariantMap map;
-
-        void close();
-    };
-    typedef QVector<Stream> Streams;
-
     void authenticate();
 
     bool isStreamingEnabled() const;
@@ -69,9 +60,9 @@ public:
 
     void startStreamingInput();
 
-    bool startStreaming(ScreencastingStream *stream, QSharedPointer<KWayland::Client::Output> output, const QMap<int, QVariant> &win);
-    bool startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
-    bool startStreamingWindow(const QMap<int, QVariant> &win);
+    Stream startStreaming(ScreencastingStream *stream, QSharedPointer<KWayland::Client::Output> output, const QMap<int, QVariant> &win);
+    Stream startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
+    Stream startStreamingWindow(const QMap<int, QVariant> &win);
     void stopStreaming(uint32_t nodeid);
     void stopAllStreaming();
 

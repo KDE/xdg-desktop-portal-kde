@@ -9,6 +9,7 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_WAYLAND_INTEGRATION_H
 #define XDG_DESKTOP_PORTAL_KDE_WAYLAND_INTEGRATION_H
 
+#include <QDBusArgument>
 #include <QObject>
 #include <QPoint>
 #include <QSize>
@@ -28,6 +29,23 @@ class ScreencastingSource;
 
 namespace WaylandIntegration
 {
+
+struct Stream {
+    ScreencastingStream *stream = nullptr;
+    uint nodeId;
+    QVariantMap map;
+
+    bool isValid() const
+    {
+        return stream != nullptr;
+    }
+
+    void close();
+};
+typedef QVector<Stream> Streams;
+const QDBusArgument &operator<<(QDBusArgument &arg, const Stream &stream);
+const QDBusArgument &operator>>(const QDBusArgument &arg, Stream &stream);
+
 class WaylandOutput
 {
 public:
@@ -110,8 +128,8 @@ bool isStreamingEnabled();
 bool isStreamingAvailable();
 
 void startStreamingInput();
-bool startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
-bool startStreamingWindow(const QMap<int, QVariant> &win);
+Stream startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
+Stream startStreamingWindow(const QMap<int, QVariant> &win);
 void stopAllStreaming();
 
 void requestPointerButtonPress(quint32 linuxButton);
@@ -123,7 +141,6 @@ void requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta);
 void requestKeyboardKeycode(int keycode, bool state);
 
 QMap<quint32, WaylandOutput> screens();
-QVariant streams();
 
 void init();
 
@@ -131,5 +148,8 @@ KWayland::Client::PlasmaWindowManagement *plasmaWindowManagement();
 
 WaylandIntegration *waylandIntegration();
 }
+
+Q_DECLARE_METATYPE(WaylandIntegration::Stream)
+Q_DECLARE_METATYPE(WaylandIntegration::Streams)
 
 #endif // XDG_DESKTOP_PORTAL_KDE_WAYLAND_INTEGRATION_H

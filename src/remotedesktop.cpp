@@ -122,20 +122,14 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
 
     if (remoteDesktopDialog->exec()) {
         if (session->screenSharingEnabled()) {
-            if (!WaylandIntegration::startStreamingOutput(remoteDesktopDialog->selectedScreens().first(), Screencasting::Hidden)) {
+            auto stream = WaylandIntegration::startStreamingOutput(remoteDesktopDialog->selectedScreens().first(), Screencasting::Hidden);
+            if (!stream.isValid()) {
                 return 2;
             }
 
             WaylandIntegration::authenticate();
 
-            QVariant streams = WaylandIntegration::streams();
-
-            if (!streams.isValid()) {
-                qCWarning(XdgDesktopPortalKdeRemoteDesktop()) << "Pipewire stream is not ready to be streamed";
-                return 2;
-            }
-
-            results.insert(QStringLiteral("streams"), streams);
+            results.insert(QStringLiteral("streams"), QVariant::fromValue<WaylandIntegration::Streams>({stream}));
         } else {
             qCWarning(XdgDesktopPortalKdeRemoteDesktop()) << "Only stream input";
             WaylandIntegration::startStreamingInput();

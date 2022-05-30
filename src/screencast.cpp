@@ -147,26 +147,29 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
 
     if (screenDialog->exec()) {
         const auto selectedScreens = screenDialog->selectedScreens();
+        WaylandIntegration::Streams streams;
         for (quint32 outputid : selectedScreens) {
-            if (!WaylandIntegration::startStreamingOutput(outputid, Screencasting::CursorMode(session->cursorMode()))) {
+            auto stream = WaylandIntegration::startStreamingOutput(outputid, Screencasting::CursorMode(session->cursorMode()));
+            if (!stream.isValid()) {
                 return 2;
             }
+            streams << stream;
         }
         const auto selectedWindows = screenDialog->selectedWindows();
         for (const auto &win : selectedWindows) {
-            if (!WaylandIntegration::startStreamingWindow(win)) {
+            auto stream = WaylandIntegration::startStreamingWindow(win);
+            if (!stream.isValid()) {
                 return 2;
             }
+            streams << stream;
         }
 
-        QVariant streams = WaylandIntegration::streams();
-
-        if (!streams.isValid()) {
+        if (streams.isEmpty()) {
             qCWarning(XdgDesktopPortalKdeScreenCast) << "Pipewire stream is not ready to be streamed";
             return 2;
         }
 
-        results.insert(QStringLiteral("streams"), streams);
+        results.insert(QStringLiteral("streams"), QVariant::fromValue(streams));
 
         if (inhibitionsEnabled()) {
             new NotificationInhibition(app_id, i18nc("Do not disturb mode is enabled because...", "Screen sharing in progress"), session);
