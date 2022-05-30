@@ -296,6 +296,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             if (allowRestore) {
                 windows += win[KWayland::Client::PlasmaWindowModel::Uuid].toString();
             }
+            streams << stream;
         }
 
         if (streams.isEmpty()) {
