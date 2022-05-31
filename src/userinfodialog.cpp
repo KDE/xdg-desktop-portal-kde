@@ -38,7 +38,7 @@ UserInfoDialog::UserInfoDialog(const QString &reason, QObject *parent)
     if (QFileInfo::exists(m_userInterface->iconFile())) {
         props.insert(QStringLiteral("iconName"), m_userInterface->iconFile());
     } else {
-        props.insert(QStringLiteral("iconName"), QIcon::fromTheme(QStringLiteral("user-identity")));
+        props.insert(QStringLiteral("iconName"), QStringLiteral("user-identity"));
     }
     create("qrc:/UserInfoDialog.qml", props);
 }
