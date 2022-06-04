@@ -237,7 +237,6 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
                         }
                     }
                 }
-                QByteArray payloadSerialised;
                 valid = selectedWindows.count() == restoreWindows.count();
             }
         }
