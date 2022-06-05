@@ -117,8 +117,7 @@ uint ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
         return 1;
     }
 
-    const QString resultFileName = QStringLiteral("file://") + filename;
-    results.insert(QStringLiteral("uri"), resultFileName);
+    results.insert(QStringLiteral("uri"), QUrl::fromLocalFile(filename).toString(QUrl::FullyEncoded));
 
     return 0;
 }
