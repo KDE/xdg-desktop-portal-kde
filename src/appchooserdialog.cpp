@@ -160,8 +160,8 @@ bool AppFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_
         return m_showOnlyPreferredApps ? category == ApplicationItem::PreferredApplication : true;
     }
 
-    return m_showOnlyPreferredApps ? category == ApplicationItem::PreferredApplication && appName.toLower().contains(m_filter)
-                                   : appName.toLower().contains(m_filter);
+    return m_showOnlyPreferredApps ? category == ApplicationItem::PreferredApplication && appName.contains(m_filter, Qt::CaseInsensitive)
+                                   : appName.contains(m_filter, Qt::CaseInsensitive);
 }
 
 bool AppFilterModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
