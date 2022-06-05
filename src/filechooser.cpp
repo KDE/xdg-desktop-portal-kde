@@ -234,7 +234,7 @@ static QStringList fuseRedirect(QList<QUrl> urls)
 
     qCDebug(XdgDesktopPortalKdeFileChooser) << "mounted urls with fuse, maybe" << urls;
 
-    return QUrl::toStringList(urls);
+    return QUrl::toStringList(urls, QUrl::FullyEncoded);
 }
 
 uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
