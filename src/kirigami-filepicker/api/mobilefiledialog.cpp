@@ -187,7 +187,7 @@ uint MobileFileDialog::exec()
 
     const auto acceptedConn = connect(m_callback, &FileChooserQmlCallback::accepted, this, [this, &exitCode, &handled](const QStringList &urls) {
         for (const auto &filename : urls) {
-            m_results << QUrl(filename).toDisplayString();
+            m_results << QUrl(filename).toString(QUrl::FullyEncoded);
         }
         handled = true;
         exitCode = 0;

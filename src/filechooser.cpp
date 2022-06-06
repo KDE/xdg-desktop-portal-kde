@@ -285,7 +285,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
             return 2;
         }
 
-        results.insert(QStringLiteral("uris"), QUrl::toStringList(urls));
+        results.insert(QStringLiteral("uris"), QUrl::toStringList(urls, QUrl::FullyEncoded));
         results.insert(QStringLiteral("writable"), true);
 
         return 0;
@@ -330,7 +330,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
             return 2;
         }
 
-        results.insert(QStringLiteral("uris"), QUrl::toStringList(urls));
+        results.insert(QStringLiteral("uris"), QUrl::toStringList(urls, QUrl::FullyEncoded));
         results.insert(QStringLiteral("writable"), true);
 
         if (optionsWidget) {
