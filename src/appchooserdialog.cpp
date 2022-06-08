@@ -1,6 +1,6 @@
 /*
  * SPDX-FileCopyrightText: 2017-2019 Red Hat Inc
- * SPDX-FileCopyrightText: 2020 Harald Sitter <sitter@kde.org>
+ * SPDX-FileCopyrightText: 2020-2022 Harald Sitter <sitter@kde.org>
  *
  * SPDX-License-Identifier: LGPL-2.0-or-later
  *
@@ -219,8 +219,19 @@ AppModel::~AppModel()
 {
 }
 
-void AppModel::setPreferredApps(const QStringList &list)
+void AppModel::setPreferredApps(const QStringList &possiblyAliasedList)
 {
+    // In the event that we get incoming NoDisplay entries that are AliasFor another desktop file,
+    // switch the NoDisplay name for the aliased name.
+    QStringList list;
+    for (const auto &entry : possiblyAliasedList) {
+        if (const auto value = m_noDisplayAliasesFor.value(entry); !value.isEmpty()) {
+            list << value;
+        } else {
+            list << entry;
+        }
+    }
+
     for (ApplicationItem &item : m_list) {
         bool changed = false;
 
@@ -287,12 +298,20 @@ QHash<int, QByteArray> AppModel::roleNames() const
 void AppModel::loadApplications()
 {
     const KService::List appServices = KApplicationTrader::query([](const KService::Ptr &service) -> bool {
-        return service->isValid() && !service->noDisplay() /* includes platform and desktop considerations */;
+        return service->isValid();
     });
     for (const KService::Ptr &service : appServices) {
+        if (service->noDisplay()) {
+            if (const auto alias = service->aliasFor(); !alias.isEmpty()) {
+                m_noDisplayAliasesFor.insert(service->desktopEntryName(), service->aliasFor());
+            }
+            continue; // no display after all
+        }
+
         const QString fullName = service->property(QStringLiteral("X-GNOME-FullName"), QVariant::String).toString();
         const QString name = fullName.isEmpty() ? service->name() : fullName;
         ApplicationItem appItem(name, service->icon(), service->desktopEntryName());
+
         if (!m_list.contains(appItem)) {
             m_list.append(appItem);
         }

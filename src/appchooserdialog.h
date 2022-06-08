@@ -123,6 +123,7 @@ private:
     void loadApplications();
 
     QList<ApplicationItem> m_list;
+    QHash<QString, QString> m_noDisplayAliasesFor;
 };
 
 class AppChooserDialog : public QuickDialog
