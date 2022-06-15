@@ -27,3 +27,5 @@ Dependencies:
     'frameworks/solid': '@latest'
     'frameworks/kirigami': '@latest'
     'frameworks/plasma-framework': '@latest'
+Options:
+  require-passing-tests-on: [ 'Linux', 'FreeBSD']
