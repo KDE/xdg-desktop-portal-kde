@@ -11,7 +11,6 @@
 #include "screencasting.h"
 #include "waylandintegration_p.h"
 
-#include <QDBusArgument>
 #include <QDBusMetaType>
 #include <QGuiApplication>
 
