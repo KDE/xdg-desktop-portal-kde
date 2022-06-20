@@ -12,6 +12,11 @@ set(filepicker_lib_SRCS
     declarative/filepicker.qrc
 )
 
+ecm_qt_declare_logging_category(filepicker_lib_SRCS
+    IDENTIFIER "KirigamiFilepicker"
+    CATEGORY_NAME "xdp-kde-file-chooser"
+    HEADER mobilefiledialog_debug.h)
+
 add_library(KirigamiFilepicker STATIC ${filepicker_lib_SRCS})
 target_include_directories(KirigamiFilepicker PRIVATE declarative)
 target_link_libraries(KirigamiFilepicker

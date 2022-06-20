@@ -8,15 +8,13 @@
 
 #include <QApplication>
 #include <QDBusConnection>
-#include <QLoggingCategory>
 
 #include <KAboutData>
 #include <KLocalizedString>
 
 #include "../version.h"
+#include "debug.h"
 #include "desktopportal.h"
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKde, "xdp-kde")
 
 int main(int argc, char *argv[])
 {

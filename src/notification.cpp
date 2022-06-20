@@ -11,11 +11,9 @@
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusMetaType>
-#include <QLoggingCategory>
 
+#include "notification_debug.h"
 #include "portalicon.h"
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeNotification, "xdp-kde-notification")
 
 NotificationPortal::NotificationPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)

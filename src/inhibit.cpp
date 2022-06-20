@@ -7,15 +7,13 @@
  */
 
 #include "inhibit.h"
+#include "inhibit_debug.h"
 
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCall>
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
-#include <QLoggingCategory>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeInhibit, "xdp-kde-inhibit")
 
 InhibitPortal::InhibitPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)

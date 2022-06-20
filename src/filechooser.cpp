@@ -8,6 +8,7 @@
  */
 
 #include "filechooser.h"
+#include "filechooser_debug.h"
 #include "utils.h"
 
 #include <QDBusArgument>
@@ -18,7 +19,6 @@
 #include <QFileInfo>
 #include <QGridLayout>
 #include <QLabel>
-#include <QLoggingCategory>
 #include <QPushButton>
 #include <QQmlApplicationEngine>
 #include <QStandardPaths>
@@ -36,8 +36,6 @@
 #include "fuse_interface.h"
 #include "request.h"
 #include <mobilefiledialog.h>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeFileChooser, "xdp-kde-file-chooser")
 
 // Keep in sync with qflatpakfiledialog from flatpak-platform-plugin
 Q_DECLARE_METATYPE(FileChooserPortal::Filter)

@@ -9,6 +9,7 @@
 #include "waylandintegration.h"
 #include "screencast.h"
 #include "screencasting.h"
+#include "waylandintegration_debug.h"
 #include "waylandintegration_p.h"
 
 #include <QDBusMetaType>
@@ -17,7 +18,6 @@
 #include <KNotification>
 #include <QEventLoop>
 #include <QImage>
-#include <QLoggingCategory>
 #include <QScreen>
 #include <QThread>
 #include <QTimer>
@@ -39,8 +39,6 @@
 
 #include <KStatusNotifierItem>
 #include <KWayland/Client/fakeinput.h>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeWaylandIntegration, "xdp-kde-wayland-integration")
 
 Q_GLOBAL_STATIC(WaylandIntegration::WaylandIntegrationPrivate, globalWaylandIntegration)
 

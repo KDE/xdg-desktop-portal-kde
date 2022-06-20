@@ -8,14 +8,12 @@
 
 #include "session.h"
 #include "desktopportal.h"
+#include "session_debug.h"
 
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCall>
 #include <QDBusPendingCallWatcher>
-#include <QLoggingCategory>
-
-Q_LOGGING_CATEGORY(XdgSessionKdeSession, "xdp-kde-session")
 
 static QMap<QString, Session *> sessionList;
 

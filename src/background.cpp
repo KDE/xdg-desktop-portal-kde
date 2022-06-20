@@ -6,6 +6,7 @@
  */
 
 #include "background.h"
+#include "background_debug.h"
 #include "utils.h"
 #include "waylandintegration.h"
 
@@ -16,7 +17,6 @@
 
 #include <QDir>
 #include <QFile>
-#include <QLoggingCategory>
 #include <QMessageBox>
 #include <QPushButton>
 #include <QSettings>
@@ -30,8 +30,6 @@
 #include <KShell>
 
 #include <KWayland/Client/plasmawindowmanagement.h>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeBackground, "xdp-kde-background")
 
 BackgroundPortal::BackgroundPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)

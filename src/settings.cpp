@@ -7,6 +7,7 @@
  */
 
 #include "settings.h"
+#include "settings_debug.h"
 
 #include <QApplication>
 
@@ -15,12 +16,9 @@
 #include <QDBusMessage>
 #include <QDBusMetaType>
 
-#include <QLoggingCategory>
 #include <QPalette>
 
 #include <KConfigCore/KConfigGroup>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeSettings, "xdp-kde-settings")
 
 Q_DECLARE_METATYPE(SettingsPortal::VariantMapMap)
 

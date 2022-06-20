@@ -7,16 +7,14 @@
  */
 
 #include "remotedesktopdialog.h"
-
+#include "remotedesktopdialog_debug.h"
 #include "utils.h"
+
 #include <KLocalizedString>
-#include <QLoggingCategory>
 #include <QPushButton>
 #include <QSettings>
 #include <QStandardPaths>
 #include <QWindow>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeRemoteDesktopDialog, "xdp-kde-remote-desktop-dialog")
 
 RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName,
                                          RemoteDesktopPortal::DeviceTypes deviceTypes,

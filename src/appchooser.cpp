@@ -7,13 +7,10 @@
  */
 
 #include "appchooser.h"
+#include "appchooser_debug.h"
 #include "appchooserdialog.h"
 #include "request.h"
 #include "utils.h"
-
-#include <QLoggingCategory>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAppChooser, "xdp-kde-app-chooser")
 
 AppChooserPortal::AppChooserPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)

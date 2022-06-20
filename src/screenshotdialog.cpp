@@ -7,8 +7,8 @@
  */
 
 #include "screenshotdialog.h"
+#include "screenshotdialog_debug.h"
 
-#include <QLoggingCategory>
 #include <QPushButton>
 
 #include <KLocalizedString>
@@ -26,8 +26,6 @@
 #include <fcntl.h>
 #include <poll.h>
 #include <unistd.h>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeScreenshotDialog, "xdp-kde-screenshot-dialog")
 
 static int readData(int fd, QByteArray &data)
 {

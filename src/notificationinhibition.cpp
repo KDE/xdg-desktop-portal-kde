@@ -5,16 +5,14 @@
  */
 
 #include "notificationinhibition.h"
+#include "notificationinhibition_debug.h"
 
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCall>
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
-#include <QLoggingCategory>
 #include <QPointer>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeNotificationInhibition, "xdp-kde-notificationinhibition")
 
 static const auto s_notificationService = QStringLiteral("org.freedesktop.Notifications");
 static const auto s_notificationPath = QStringLiteral("/org/freedesktop/Notifications");

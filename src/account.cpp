@@ -6,12 +6,9 @@
  */
 
 #include "account.h"
+#include "account_debug.h"
 #include "userinfodialog.h"
 #include "utils.h"
-
-#include <QLoggingCategory>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAccount, "xdp-kde-account")
 
 AccountPortal::AccountPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)

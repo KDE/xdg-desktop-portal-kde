@@ -10,6 +10,7 @@
 #include "screencast.h"
 #include "notificationinhibition.h"
 #include "request.h"
+#include "screencast_debug.h"
 #include "screenchooserdialog.h"
 #include "session.h"
 #include "utils.h"
@@ -24,9 +25,6 @@
 #include <QDBusMetaType>
 #include <QDataStream>
 #include <QIODevice>
-#include <QLoggingCategory>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeScreenCast, "xdp-kde-screencast")
 
 struct RestoreData {
     static uint currentRestoreDataVersion()

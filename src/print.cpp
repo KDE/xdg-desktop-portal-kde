@@ -9,13 +9,13 @@
  */
 
 #include "print.h"
+#include "print_debug.h"
 #include "request.h"
 #include "utils.h"
 
 #include <KProcess>
 
 #include <QFile>
-#include <QLoggingCategory>
 #include <QPrintDialog>
 #include <QPrintEngine>
 #include <QStandardPaths>
@@ -23,8 +23,6 @@
 #include <QTemporaryFile>
 #include <QUrl>
 #include <QtPrintSupport/private/qcups_p.h>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdePrint, "xdp-kde-print")
 
 // INFO: code below is copied from Qt as there is no public API for converting key to PageSizeId
 

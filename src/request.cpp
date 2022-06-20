@@ -7,15 +7,13 @@
  */
 
 #include "desktopportal.h"
+#include "request_debug.h"
 
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCall>
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
-#include <QLoggingCategory>
-
-Q_LOGGING_CATEGORY(XdgRequestKdeRequest, "xdp-kde-request")
 
 Request::Request(const QDBusObjectPath &handle, QObject *parent, const QString &portalName, const QVariant &data)
     : QDBusVirtualObject(parent)

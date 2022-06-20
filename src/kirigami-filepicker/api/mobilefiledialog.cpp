@@ -5,7 +5,6 @@
 #include "mobilefiledialog.h"
 
 #include <QGuiApplication>
-#include <QLoggingCategory>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickWindow>
@@ -17,12 +16,11 @@
 #include "dirmodel.h"
 #include "dirmodelutils.h"
 #include "fileplacesmodel.h"
+#include "mobilefiledialog_debug.h"
 
 #include "filechooserqmlcallback.h"
 
 constexpr auto URI = "org.kde.kirigamifilepicker";
-
-Q_LOGGING_CATEGORY(KirigamiFilepicker, "xdp-kde-file-chooser")
 
 MobileFileDialog::MobileFileDialog(QObject *parent)
     : QObject(parent)

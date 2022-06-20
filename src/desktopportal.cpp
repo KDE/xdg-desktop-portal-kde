@@ -7,12 +7,9 @@
  */
 
 #include "desktopportal.h"
-
-#include <QLoggingCategory>
+#include "desktopportal_debug.h"
 
 #include "dynamiclauncher.h"
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeDesktopPortal, "xdp-kde-desktop-portal")
 
 DesktopPortal::DesktopPortal(QObject *parent)
     : QObject(parent)

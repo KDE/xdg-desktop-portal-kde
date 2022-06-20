@@ -7,14 +7,12 @@
  */
 
 #include "access.h"
+#include "access_debug.h"
 #include "accessdialog.h"
 #include "request.h"
 #include "utils.h"
 
-#include <QLoggingCategory>
 #include <QWindow>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAccess, "xdp-kde-access")
 
 AccessPortal::AccessPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)

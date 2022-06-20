@@ -9,19 +9,17 @@
 
 #include "screenshot.h"
 #include "request.h"
+#include "screenshot_debug.h"
 #include "screenshotdialog.h"
 #include "utils.h"
 
 #include <QDBusArgument>
 #include <QDBusReply>
 #include <QDateTime>
-#include <QLoggingCategory>
 #include <QPointer>
 #include <QStandardPaths>
 #include <QWindow>
 #include <QtDBus>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeScreenshot, "xdp-kde-screenshot")
 
 // Keep in sync with qflatpakcolordialog from Qt flatpak platform theme
 Q_DECLARE_METATYPE(ScreenshotPortal::ColorRGB)

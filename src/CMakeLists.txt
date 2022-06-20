@@ -71,6 +71,103 @@ set(xdg_desktop_portal_kde_SRCS
     dynamiclauncherdialog.cpp
 )
 
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeBackground"
+    CATEGORY_NAME "xdp-kde-background"
+    HEADER background_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeNotificationInhibition"
+    CATEGORY_NAME "xdp-kde-notificationinhibition"
+    HEADER notificationinhibition_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeAccess"
+    CATEGORY_NAME "xdp-kde-access"
+    HEADER access_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeAccount"
+    CATEGORY_NAME "xdp-kde-account"
+    HEADER account_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeSettings"
+    CATEGORY_NAME "xdp-kde-settings"
+    HEADER settings_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeAppChooser"
+    CATEGORY_NAME "xdp-kde-app-chooser"
+    HEADER appchooser_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeDesktopPortal"
+    CATEGORY_NAME "xdp-kde-desktop-portal"
+    HEADER desktopportal_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeDynamicLauncher"
+    CATEGORY_NAME "xdp-kde-dynamic-launcher"
+    HEADER dynamiclauncher_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeDynamicLauncherDialog"
+    CATEGORY_NAME "xdp-kde-dynamic-launcher-dialog"
+    HEADER dynamiclauncherdialog_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeEmail"
+    CATEGORY_NAME "xdp-kde-email"
+    HEADER email_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeFileChooser"
+    CATEGORY_NAME "xdp-kde-file-chooser"
+    HEADER filechooser_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeInhibit"
+    CATEGORY_NAME "xdp-kde-inhibit"
+    HEADER inhibit_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeNotification"
+    CATEGORY_NAME "xdp-kde-notification"
+    HEADER notification_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdePrint"
+    CATEGORY_NAME "xdp-kde-print"
+    HEADER print_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeRemoteDesktop"
+    CATEGORY_NAME "xdp-kde-remotedesktop"
+    HEADER remotedesktop_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeRemoteDesktopDialog"
+    CATEGORY_NAME "xdp-kde-remote-desktop-dialog"
+    HEADER remotedesktopdialog_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgRequestKdeRequest"
+    CATEGORY_NAME "xdp-kde-request"
+    HEADER request_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeScreenCast"
+    CATEGORY_NAME "xdp-kde-screencast"
+    HEADER screencast_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeScreenshot"
+    CATEGORY_NAME "xdp-kde-screenshot"
+    HEADER screenshot_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeScreenshotDialog"
+    CATEGORY_NAME "xdp-kde-screenshot-dialog"
+    HEADER screenshotdialog_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgSessionKdeSession"
+    CATEGORY_NAME "xdp-kde-session"
+    HEADER session_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKde"
+    CATEGORY_NAME "xdp-kde"
+    HEADER debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeWaylandIntegration"
+    CATEGORY_NAME "xdp-kde-wayland-integration"
+    HEADER waylandintegration_debug.h)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeAccessDialog"
+    CATEGORY_NAME "xdp-kde-access-dialog"
+    HEADER accessdialog_debug.h)
+
 if (QT_MAJOR_VERSION EQUAL "5")
     ecm_add_qtwayland_client_protocol(xdg_desktop_portal_kde_SRCS
         PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/zkde-screencast-unstable-v1.xml

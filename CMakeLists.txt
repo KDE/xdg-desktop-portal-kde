@@ -25,6 +25,7 @@ include(KDEClangFormat)
 include(KDEGitCommitHooks)
 include(ECMSetupVersion)
 include(ECMConfiguredInstall)
+include(ECMQtDeclareLoggingCategory)
 
 include(FeatureSummary)
 

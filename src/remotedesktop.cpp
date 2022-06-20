@@ -8,15 +8,12 @@
  */
 
 #include "remotedesktop.h"
+#include "remotedesktop_debug.h"
 #include "remotedesktopdialog.h"
 #include "request.h"
 #include "session.h"
 #include "utils.h"
 #include "waylandintegration.h"
-
-#include <QLoggingCategory>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeRemoteDesktop, "xdp-kde-remotedesktop")
 
 RemoteDesktopPortal::RemoteDesktopPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)

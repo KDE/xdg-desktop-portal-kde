@@ -7,13 +7,11 @@
  */
 
 #include "email.h"
+#include "email_debug.h"
 
-#include <QLoggingCategory>
 #include <QUrl>
 
 #include <KEMailClientLauncherJob>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeEmail, "xdp-kde-email")
 
 EmailPortal::EmailPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)

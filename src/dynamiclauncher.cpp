@@ -7,19 +7,17 @@
 
 #include <QFile>
 #include <QGuiApplication>
-#include <QLoggingCategory>
 #include <QUrl>
 #include <QWindow>
 
 #include <KIconLoader>
 #include <KLocalizedString>
 
+#include "dynamiclauncher_debug.h"
 #include "dynamiclauncherdialog.h"
 #include "portalicon.h"
 #include "request.h"
 #include "utils.h"
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeDynamicLauncher, "xdp-kde-dynamic-launcher")
 
 DynamicLauncherPortal::DynamicLauncherPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)

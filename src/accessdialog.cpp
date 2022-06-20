@@ -7,14 +7,12 @@
  */
 
 #include "accessdialog.h"
-
+#include "accessdialog_debug.h"
 #include "utils.h"
+
 #include <KLocalizedString>
-#include <QLoggingCategory>
 #include <QPushButton>
 #include <QStandardPaths>
-
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeAccessDialog, "xdp-kde-access-dialog")
 
 AccessDialog::AccessDialog(QObject *parent)
     : QuickDialog(parent)

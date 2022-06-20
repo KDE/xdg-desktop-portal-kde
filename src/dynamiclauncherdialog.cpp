@@ -4,9 +4,8 @@
 #include "dynamiclauncherdialog.h"
 
 #include <QIcon>
-#include <QLoggingCategory>
 
-Q_LOGGING_CATEGORY(XdgDesktopPortalKdeDynamicLauncherDialog, "xdp-kde-dynamic-launcher-dialog")
+#include "dynamiclauncherdialog_debug.h"
 
 DynamicLauncherDialog::DynamicLauncherDialog(const QString &title, const QIcon &icon, const QString &name, const QUrl &launcherURL, QObject *parent)
     : QuickDialog(parent)
