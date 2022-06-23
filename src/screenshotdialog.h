@@ -29,7 +29,7 @@ public:
         CurrentScreen,
         ActiveWindow,
     };
-    Q_ENUM(ScreenshotType);
+    Q_ENUM(ScreenshotType)
 
     QImage image() const;
     void takeScreenshotNonInteractive();

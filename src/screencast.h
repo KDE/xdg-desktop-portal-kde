@@ -26,7 +26,7 @@ public:
         Window = 2,
         Virtual = 4,
     };
-    Q_ENUM(SourceType);
+    Q_ENUM(SourceType)
     Q_DECLARE_FLAGS(SourceTypes, SourceType)
 
     enum CursorModes {
@@ -34,14 +34,14 @@ public:
         Embedded = 2,
         Metadata = 4,
     };
-    Q_ENUM(CursorModes);
+    Q_ENUM(CursorModes)
 
     enum PersistMode {
         NoPersist = 0,
         PersistWhileRunning = 1,
         PersistUntilRevoked = 2,
     };
-    Q_ENUM(PersistMode);
+    Q_ENUM(PersistMode)
 
     explicit ScreenCastPortal(QObject *parent);
     ~ScreenCastPortal() override;
