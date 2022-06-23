@@ -72,7 +72,7 @@ public:
         VirtualIncluded = 0x2,
     };
     Q_ENUM(Option)
-    Q_DECLARE_FLAGS(Options, Option);
+    Q_DECLARE_FLAGS(Options, Option)
 
     OutputsModel(Options o, QObject *parent);
     ~OutputsModel() override;
