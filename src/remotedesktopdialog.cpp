@@ -34,7 +34,7 @@ RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName,
         {"withMultipleScreenSharing", multiple},
         {"withKeyboard", deviceTypes.testFlag(RemoteDesktopPortal::Keyboard)},
         {"withPointer", deviceTypes.testFlag(RemoteDesktopPortal::Pointer)},
-        {"withTouchScreen", deviceTypes.testFlag(RemoteDesktopPortal::TouchScreen)},
+        {"withTouch", deviceTypes.testFlag(RemoteDesktopPortal::TouchScreen)},
     };
 
     const QString applicationName = Utils::applicationName(appName);
@@ -63,7 +63,7 @@ RemoteDesktopPortal::DeviceTypes RemoteDesktopDialog::deviceTypes() const
         types |= RemoteDesktopPortal::Keyboard;
     if (m_theDialog->property("withPointer").toBool())
         types |= RemoteDesktopPortal::Pointer;
-    if (m_theDialog->property("withTouchScreen").toBool())
+    if (m_theDialog->property("withTouch").toBool())
         types |= RemoteDesktopPortal::TouchScreen;
     return types;
 }
