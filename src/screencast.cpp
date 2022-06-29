@@ -233,11 +233,15 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
                         const QModelIndex index = model.index(i, 0);
 
                         if (model.data(index, KWayland::Client::PlasmaWindowModel::Uuid) == windowUuid) {
-                            selectedWindows << model.itemData(index);
+                            // For some reason itemData() doesn't return a map with all the data
+                            // we need and for example UUID is missing, which is the most important
+                            // information we need for stream restoration.
+                            QMap<int, QVariant> data = model.itemData(index);
+                            data.insert(KWayland::Client::PlasmaWindowModel::Uuid, windowUuid);
+                            selectedWindows << data;
                         }
                     }
                 }
-                QByteArray payloadSerialised;
                 valid = selectedWindows.count() == restoreWindows.count();
             }
         }
