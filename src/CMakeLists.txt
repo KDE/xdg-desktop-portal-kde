@@ -239,8 +239,13 @@ if (QT_MAJOR_VERSION EQUAL "5")
         PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/zkde-screencast-unstable-v1.xml
         BASENAME zkde-screencast-unstable-v1
     )
+    ecm_add_qtwayland_client_protocol(xdg_desktop_portal_kde_SRCS
+        PROTOCOL ${Wayland_DATADIR}/wayland.xml
+        BASENAME wayland
+    )
 else()
     qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde FILES ${PLASMA_WAYLAND_PROTOCOLS_DIR}/zkde-screencast-unstable-v1.xml)
+    qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde FILES ${Wayland_DATADIR}/wayland.xml)
 endif()
 
 
@@ -262,6 +267,7 @@ target_link_libraries(xdg-desktop-portal-kde
     Qt::PrintSupport
     Qt::QuickWidgets
     Qt::Widgets
+    Qt::WaylandClient
     KF5::CoreAddons
     KF5::ConfigCore
     KF5::Declarative
@@ -275,6 +281,7 @@ target_link_libraries(xdg-desktop-portal-kde
     KF5::IconThemes
     KirigamiFilepicker
     Wayland::Client
+    PkgConfig::XKB
 )
 if (QT_MAJOR_VERSION EQUAL "6")
     target_link_libraries(xdg-desktop-portal-kde Qt::PrintSupportPrivate)

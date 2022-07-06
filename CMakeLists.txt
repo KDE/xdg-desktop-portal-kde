@@ -36,6 +36,7 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     PrintSupport
     QuickWidgets
     Widgets
+    WaylandClient
 )
 if (QT_MAJOR_VERSION EQUAL "6")
     find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS WaylandClient)
@@ -61,11 +62,21 @@ if (QT_MAJOR_VERSION EQUAL "5")
     find_package(QtWaylandScanner REQUIRED)
 endif()
 
+find_package(WaylandProtocols 1.25)
+set_package_properties(WaylandProtocols PROPERTIES
+    TYPE REQUIRED
+    PURPOSE "Collection of Wayland protocols that add functionality not available in the Wayland core protocol"
+    URL "https://gitlab.freedesktop.org/wayland/wayland-protocols/"
+)
+
 find_package(KIOFuse)
 set_package_properties(KIOFuse PROPERTIES
     URL https://commits.kde.org/system/kio-fuse
     TYPE RUNTIME
     PURPOSE "Automatic mounting of remote URLs")
+
+pkg_check_modules(XKB IMPORTED_TARGET xkbcommon REQUIRED)
+add_feature_info(XKB XKBX11_FOUND "Required for converting keysyms into keycodes")
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
 add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055B00)

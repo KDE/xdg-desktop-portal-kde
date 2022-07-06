@@ -240,10 +240,16 @@ void RemoteDesktopPortal::NotifyPointerAxisDiscrete(const QDBusObjectPath &sessi
 
 void RemoteDesktopPortal::NotifyKeyboardKeysym(const QDBusObjectPath &session_handle, const QVariantMap &options, int keysym, uint state)
 {
-    Q_UNUSED(session_handle)
     Q_UNUSED(options)
-    Q_UNUSED(keysym)
-    Q_UNUSED(state)
+
+    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
+
+    if (!session) {
+        qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyKeyboardKeysym on non-existing session " << session_handle.path();
+        return;
+    }
+
+    WaylandIntegration::requestKeyboardKeysym(keysym, state != 0);
 }
 
 void RemoteDesktopPortal::NotifyKeyboardKeycode(const QDBusObjectPath &session_handle, const QVariantMap &options, int keycode, uint state)
