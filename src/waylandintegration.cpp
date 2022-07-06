@@ -167,6 +167,11 @@ void WaylandIntegration::requestKeyboardKeycode(int keycode, bool state)
     globalWaylandIntegration->requestKeyboardKeycode(keycode, state);
 }
 
+void WaylandIntegration::requestKeyboardKeysym(int keysym, bool state)
+{
+    globalWaylandIntegration->requestKeyboardKeysym(keysym, state);
+}
+
 void WaylandIntegration::requestTouchDown(quint32 touchPoint, const QPointF &pos)
 {
     globalWaylandIntegration->requestTouchDown(touchPoint, pos);
@@ -434,6 +439,17 @@ void WaylandIntegration::WaylandIntegrationPrivate::requestKeyboardKeycode(int k
     if (m_streamInput && m_fakeInput) {
         if (state) {
             m_fakeInput->requestKeyboardKeyPress(keycode);
+        } else {
+            m_fakeInput->requestKeyboardKeyRelease(keycode);
+        }
+    }
+}
+
+void WaylandIntegration::WaylandIntegrationPrivate::requestKeyboardKeysym(int keycode, bool state)
+{
+    if (m_streamInput && m_fakeInput) {
+        if (state) {
+            m_fakeInput->requestKeyboardKeySymPress(keycode);
         } else {
             m_fakeInput->requestKeyboardKeyRelease(keycode);
         }
