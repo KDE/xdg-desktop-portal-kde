@@ -149,7 +149,7 @@ PWD.SystemDialog
                         anchors.centerIn: parent
 
                         icon.name: "edit-none"
-                        text: searchField.text.length > 0 ? i18n("No matches") : xi18nc("@info", "No installed applications can open <filename>$1</filename>", AppChooserData.fileName)
+                        text: searchField.text.length > 0 ? i18n("No matches") : xi18nc("@info", "No installed applications can open <filename>%1</filename>", AppChooserData.fileName)
 
                         helpfulAction: Kirigami.Action {
                             iconName: "plasmadiscover"
