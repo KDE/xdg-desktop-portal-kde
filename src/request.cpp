@@ -77,6 +77,8 @@ bool Request::handleMessage(const QDBusMessage &message, const QDBusConnection &
                 });
             } else {
                 Q_EMIT closeRequested();
+                QDBusMessage reply = message.createReply();
+                return connection.send(reply);
             }
         }
     }
