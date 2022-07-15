@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: LGPL-2.0-or-later
  *
  * SPDX-FileCopyrightText: 2018 Jan Grulich <jgrulich@redhat.com>
+ * SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
  */
 
 #include "waylandintegration.h"
@@ -18,6 +19,7 @@
 #include <KNotification>
 #include <QEventLoop>
 #include <QImage>
+#include <QMenu>
 #include <QScreen>
 #include <QThread>
 #include <QTimer>
@@ -347,12 +349,19 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
         item->setTitle(description);
         item->setIconByName(iconName);
         item->setOverlayIconByName(QStringLiteral("media-record"));
-        item->setToolTip(item->iconName(), item->title(), i18n("Press to cancel"));
         item->setStatus(KStatusNotifierItem::Active);
-        connect(item, &KStatusNotifierItem::activateRequested, stream, [=] {
+        connect(item, &KStatusNotifierItem::activateRequested, stream, [item] {
+            item->contextMenu()->show();
+        });
+        auto menu = new QMenu;
+        auto stopAction =
+            new QAction(QIcon::fromTheme(QStringLiteral("process-stop")), i18nc("@action:inmenu stops screen/window recording", "Stop Recording"));
+        connect(stopAction, &QAction::triggered, this, [this, nodeid, stream] {
             stopStreaming(nodeid);
             stream->deleteLater();
         });
+        menu->addAction(stopAction);
+        item->setContextMenu(menu);
 
         loop.quit();
     });
