@@ -588,8 +588,15 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     }
 
     if (!currentName.isEmpty()) {
-        const QUrl url = fileDialog->m_fileWidget->baseUrl();
-        fileDialog->m_fileWidget->setSelectedUrl(QUrl::fromLocalFile(QStringLiteral("%1/%2").arg(url.toDisplayString(QUrl::StripTrailingSlash), currentName)));
+        QUrl url = fileDialog->m_fileWidget->baseUrl();
+        QString path = url.path();
+        if (path.back() == QLatin1Char('/')) {
+            path = path + currentName;
+        } else {
+            path = path + QLatin1Char('/') + currentName;
+        }
+        url.setPath(path);
+        fileDialog->m_fileWidget->setSelectedUrl(url);
     }
 
     if (!acceptLabel.isEmpty()) {
