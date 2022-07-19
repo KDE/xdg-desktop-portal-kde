@@ -64,7 +64,8 @@ PWD.SystemDialog
                             label: model.display
                             highlighted: false
                             checked: model.checked === Qt.Checked
-                            onClicked: {
+                            checkable: true
+                            onToggled: {
                                 var to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
                                 if (!root.multiple && to === Qt.Checked) {
                                     root.clearSelection()
@@ -83,7 +84,8 @@ PWD.SystemDialog
                             label: model.DisplayRole
                             highlighted: false
                             checked: model.checked === Qt.Checked
-                            onClicked: {
+                            checkable: true
+                            onToggled: {
                                 var to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
                                 if (!root.multiple && to === Qt.Checked) {
                                     root.clearSelection()
