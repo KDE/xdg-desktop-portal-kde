@@ -124,9 +124,9 @@ WaylandIntegration::Stream WaylandIntegration::startStreamingVirtual(const QStri
     return globalWaylandIntegration->startStreamingVirtualOutput(name, size, mode);
 }
 
-WaylandIntegration::Stream WaylandIntegration::startStreamingWindow(const QMap<int, QVariant> &win)
+WaylandIntegration::Stream WaylandIntegration::startStreamingWindow(const QMap<int, QVariant> &win, Screencasting::CursorMode mode)
 {
-    return globalWaylandIntegration->startStreamingWindow(win);
+    return globalWaylandIntegration->startStreamingWindow(win, mode);
 }
 
 void WaylandIntegration::stopAllStreaming()
@@ -260,12 +260,13 @@ void WaylandIntegration::WaylandIntegrationPrivate::startStreamingInput()
     m_streamInput = true;
 }
 
-WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingWindow(const QMap<int, QVariant> &win)
+WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingWindow(const QMap<int, QVariant> &win,
+                                                                                               Screencasting::CursorMode cursorMode)
 {
     auto uuid = win[KWayland::Client::PlasmaWindowModel::Uuid].toString();
     QString iconName = win[Qt::DecorationRole].value<QIcon>().name();
     iconName = iconName.isEmpty() ? QStringLiteral("applications-all") : iconName;
-    return startStreaming(m_screencasting->createWindowStream(uuid, Screencasting::Hidden),
+    return startStreaming(m_screencasting->createWindowStream(uuid, cursorMode),
                           iconName,
                           i18n("Recording window \"%1\"...", win[Qt::DisplayRole].toString()),
                           {{QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Window)}});

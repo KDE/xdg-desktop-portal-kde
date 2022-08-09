@@ -284,7 +284,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             streams << stream;
         }
         for (const auto &win : qAsConst(selectedWindows)) {
-            WaylandIntegration::Stream stream = WaylandIntegration::startStreamingWindow(win);
+            WaylandIntegration::Stream stream = WaylandIntegration::startStreamingWindow(win, Screencasting::CursorMode(session->cursorMode()));
             if (!stream.isValid()) {
                 qCWarning(XdgDesktopPortalKdeScreenCast) << "Invalid window!" << win;
                 return 2;

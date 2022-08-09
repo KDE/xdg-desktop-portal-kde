@@ -133,7 +133,7 @@ void startStreamingInput();
 Stream startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
 Stream startStreamingWorkspace(Screencasting::CursorMode mode);
 Stream startStreamingVirtual(const QString &name, const QSize &size, Screencasting::CursorMode mode);
-Stream startStreamingWindow(const QMap<int, QVariant> &win);
+Stream startStreamingWindow(const QMap<int, QVariant> &win, Screencasting::CursorMode mode);
 void stopAllStreaming();
 void stopStreaming(uint node);
 
