@@ -106,10 +106,10 @@ PWD.SystemDialog
                         spacing: 0 // Items add their own as needed here
 
                         Kirigami.Icon {
-                            anchors.horizontalCenter: parent.horizontalCenter
                             Layout.preferredWidth: Kirigami.Units.iconSizes.huge
                             Layout.preferredHeight: Kirigami.Units.iconSizes.huge
                             Layout.bottomMargin: Kirigami.Units.largeSpacing
+                            Layout.alignment: Qt.AlignHCenter
                             source: model.applicationIcon
                             smooth: true
                         }
