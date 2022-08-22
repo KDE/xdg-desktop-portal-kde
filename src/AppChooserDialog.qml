@@ -30,7 +30,23 @@ PWD.SystemDialog
                 id: searchField
                 implicitWidth: Kirigami.Units.gridUnit * 20
                 Layout.fillWidth: true
-                onTextChanged: AppModel.filter = text
+                focus: true
+                // We don't want auto-accept here because it would cause the
+                // selected app in the grid view to be immediately launched
+                // without user input
+                autoAccept: false
+
+                Keys.onDownPressed: {
+                    grid.forceActiveFocus();
+                    grid.currentIndex = 0;
+                }
+                onTextChanged: {
+                    AppModel.filter = text;
+                    if (text.length > 0 && grid.count === 1) {
+                        grid.currentIndex = 0;
+                    }
+                }
+                onAccepted: grid.currentItem.activate();
             }
 
             Button {
@@ -64,6 +80,9 @@ PWD.SystemDialog
 
                 readonly property int gridDelegateSize: Kirigami.Units.iconSizes.huge + (Kirigami.Units.gridUnit * 4)
 
+                Keys.onReturnPressed: currentItem.activate();
+                Keys.onEnterPressed: currentItem.activate();
+
                 currentIndex: -1 // Don't pre-select anything as that doesn't make sense here
 
                 cellWidth: {
@@ -74,21 +93,27 @@ PWD.SystemDialog
 
                 model: AppModel
                 delegate: Item {
+                    id: delegate
+
                     height: grid.cellHeight
                     width: grid.cellWidth
+
+                    function activate() {
+                        AppChooserData.applicationSelected(model.applicationDesktopFile)
+                    }
 
                     HoverHandler {
                         id: hoverhandler
                     }
                     TapHandler {
                         id: taphandler
-                        onTapped: AppChooserData.applicationSelected(model.applicationDesktopFile)
+                        onTapped: delegate.activate()
                     }
 
                     Rectangle {
                         readonly property color theColor: Kirigami.Theme.highlightColor
                         anchors.fill: parent
-                        visible: hoverhandler.hovered
+                        visible: hoverhandler.hovered || delegate == grid.currentItem
                         border.color: theColor
                         border.width: 1
                         color: taphandler.pressed ? theColor
