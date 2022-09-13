@@ -8,6 +8,7 @@
 
 
 import QtQuick 2.15
+import Qt.labs.platform 1.1
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.12
 import org.kde.kirigami 2.19 as Kirigami
@@ -192,7 +193,7 @@ PWD.SystemDialog
         // links are hovered, which is needed for us to be able to use the correct
         // cursor shape for it.
         TextEdit {
-            visible: !placeholderLoader.active
+            visible: !placeholderLoader.active && StandardPaths.findExecutable("plasma-discover") != ""
             Layout.fillWidth: true
             text: xi18nc("@info", "Don't see the right app? Find more in <link>Discover</link>.")
             textFormat: Text.RichText
