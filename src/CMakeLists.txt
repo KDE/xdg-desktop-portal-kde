@@ -74,15 +74,24 @@ set(xdg_desktop_portal_kde_SRCS
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeBackground"
     CATEGORY_NAME "xdp-kde-background"
-    HEADER background_debug.h)
+    HEADER background_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Background"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeNotificationInhibition"
     CATEGORY_NAME "xdp-kde-notificationinhibition"
-    HEADER notificationinhibition_debug.h)
+    HEADER notificationinhibition_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Notification Inhibition"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeAccess"
     CATEGORY_NAME "xdp-kde-access"
-    HEADER access_debug.h)
+    HEADER access_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Access"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeAccount"
     CATEGORY_NAME "xdp-kde-account"
@@ -90,63 +99,108 @@ ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeSettings"
     CATEGORY_NAME "xdp-kde-settings"
-    HEADER settings_debug.h)
+    HEADER settings_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Settings"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeAppChooser"
     CATEGORY_NAME "xdp-kde-app-chooser"
-    HEADER appchooser_debug.h)
+    HEADER appchooser_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE App Chooser"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeDesktopPortal"
     CATEGORY_NAME "xdp-kde-desktop-portal"
-    HEADER desktopportal_debug.h)
+    HEADER desktopportal_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Desktop Portal"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeDynamicLauncher"
     CATEGORY_NAME "xdp-kde-dynamic-launcher"
-    HEADER dynamiclauncher_debug.h)
+    HEADER dynamiclauncher_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Dynamic Launcher"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeDynamicLauncherDialog"
     CATEGORY_NAME "xdp-kde-dynamic-launcher-dialog"
-    HEADER dynamiclauncherdialog_debug.h)
+    HEADER dynamiclauncherdialog_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Dynamic Launcher Dialog"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeEmail"
     CATEGORY_NAME "xdp-kde-email"
-    HEADER email_debug.h)
+    HEADER email_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE e-mail"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeFileChooser"
     CATEGORY_NAME "xdp-kde-file-chooser"
-    HEADER filechooser_debug.h)
+    HEADER filechooser_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE File Chooser"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeInhibit"
     CATEGORY_NAME "xdp-kde-inhibit"
-    HEADER inhibit_debug.h)
+    HEADER inhibit_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Inhibit"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeNotification"
     CATEGORY_NAME "xdp-kde-notification"
-    HEADER notification_debug.h)
+    HEADER notification_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Notification"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdePrint"
     CATEGORY_NAME "xdp-kde-print"
-    HEADER print_debug.h)
+    HEADER print_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Print"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeRemoteDesktop"
     CATEGORY_NAME "xdp-kde-remotedesktop"
-    HEADER remotedesktop_debug.h)
+    HEADER remotedesktop_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Remote Desktop"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeRemoteDesktopDialog"
     CATEGORY_NAME "xdp-kde-remote-desktop-dialog"
-    HEADER remotedesktopdialog_debug.h)
+    HEADER remotedesktopdialog_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Remote Desktop Dialog"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgRequestKdeRequest"
     CATEGORY_NAME "xdp-kde-request"
-    HEADER request_debug.h)
+    HEADER request_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Request"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeScreenCast"
     CATEGORY_NAME "xdp-kde-screencast"
-    HEADER screencast_debug.h)
+    HEADER screencast_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Screencast"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeScreenshot"
     CATEGORY_NAME "xdp-kde-screenshot"
-    HEADER screenshot_debug.h)
+    HEADER screenshot_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Screenshot"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeScreenshotDialog"
     CATEGORY_NAME "xdp-kde-screenshot-dialog"
@@ -154,19 +208,31 @@ ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgSessionKdeSession"
     CATEGORY_NAME "xdp-kde-session"
-    HEADER session_debug.h)
+    HEADER session_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Session"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKde"
     CATEGORY_NAME "xdp-kde"
-    HEADER debug.h)
+    HEADER debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Generic"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeWaylandIntegration"
     CATEGORY_NAME "xdp-kde-wayland-integration"
-    HEADER waylandintegration_debug.h)
+    HEADER waylandintegration_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Wayland"
+    EXPORT XDPKDE
+)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeAccessDialog"
     CATEGORY_NAME "xdp-kde-access-dialog"
-    HEADER accessdialog_debug.h)
+    HEADER accessdialog_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Access Dialog"
+    EXPORT XDPKDE
+)
 
 if (QT_MAJOR_VERSION EQUAL "5")
     ecm_add_qtwayland_client_protocol(xdg_desktop_portal_kde_SRCS
@@ -219,3 +285,5 @@ install(TARGETS xdg-desktop-portal-kde DESTINATION ${KDE_INSTALL_LIBEXECDIR})
 install(FILES
     xdg-desktop-portal-kde.notifyrc
     DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})
+
+ecm_qt_install_logging_categories(EXPORT XDPKDE FILE xdp-kde.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
