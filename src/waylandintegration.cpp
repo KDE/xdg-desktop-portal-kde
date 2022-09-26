@@ -104,9 +104,9 @@ bool WaylandIntegration::isStreamingAvailable()
     return globalWaylandIntegration->isStreamingAvailable();
 }
 
-void WaylandIntegration::startStreamingInput()
+void WaylandIntegration::acquireStreamingInput(bool acquire)
 {
-    globalWaylandIntegration->startStreamingInput();
+    globalWaylandIntegration->acquireStreamingInput(acquire);
 }
 
 WaylandIntegration::Stream WaylandIntegration::startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode)
@@ -127,11 +127,6 @@ WaylandIntegration::Stream WaylandIntegration::startStreamingVirtual(const QStri
 WaylandIntegration::Stream WaylandIntegration::startStreamingWindow(const QMap<int, QVariant> &win, Screencasting::CursorMode mode)
 {
     return globalWaylandIntegration->startStreamingWindow(win, mode);
-}
-
-void WaylandIntegration::stopAllStreaming()
-{
-    globalWaylandIntegration->stopAllStreaming();
 }
 
 void WaylandIntegration::stopStreaming(uint node)
@@ -255,9 +250,14 @@ bool WaylandIntegration::WaylandIntegrationPrivate::isStreamingAvailable() const
     return m_screencasting;
 }
 
-void WaylandIntegration::WaylandIntegrationPrivate::startStreamingInput()
+void WaylandIntegration::WaylandIntegrationPrivate::acquireStreamingInput(bool acquire)
 {
-    m_streamInput = true;
+    if (acquire) {
+        ++m_streamInput;
+    } else {
+        Q_ASSERT(m_streamInput > 0);
+        --m_streamInput;
+    }
 }
 
 WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingWindow(const QMap<int, QVariant> &win,
@@ -376,16 +376,6 @@ void WaylandIntegration::Stream::close()
     stream->deleteLater();
 }
 
-void WaylandIntegration::WaylandIntegrationPrivate::stopAllStreaming()
-{
-    for (auto &stream : m_streams) {
-        stream.close();
-    }
-    m_streams.clear();
-
-    m_streamInput = false;
-}
-
 void WaylandIntegration::WaylandIntegrationPrivate::stopStreaming(uint32_t nodeid)
 {
     for (auto it = m_streams.begin(), itEnd = m_streams.end(); it != itEnd; ++it) {
@@ -394,10 +384,6 @@ void WaylandIntegration::WaylandIntegrationPrivate::stopStreaming(uint32_t nodei
             m_streams.erase(it);
             break;
         }
-    }
-
-    if (m_streams.isEmpty()) {
-        stopAllStreaming();
     }
 }
 

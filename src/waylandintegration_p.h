@@ -62,14 +62,13 @@ public:
     bool isStreamingEnabled() const;
     bool isStreamingAvailable() const;
 
-    void startStreamingInput();
+    void acquireStreamingInput(bool acquire);
 
     Stream startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
     Stream startStreamingWindow(const QMap<int, QVariant> &win, Screencasting::CursorMode mode);
     Stream startStreamingWorkspace(Screencasting::CursorMode mode);
     Stream startStreamingVirtualOutput(const QString &name, const QSize &size, Screencasting::CursorMode mode);
     void stopStreaming(uint32_t nodeid);
-    void stopAllStreaming();
 
     void requestPointerButtonPress(quint32 linuxButton);
     void requestPointerButtonRelease(quint32 linuxButton);
@@ -93,7 +92,7 @@ private:
     Stream startStreaming(ScreencastingStream *stream, const QString &iconName, const QString &description, const QVariantMap &streamOptions);
     bool eventFilter(QObject *watched, QEvent *event) override;
 
-    bool m_streamInput = false;
+    uint m_streamInput = 0;
     bool m_waylandAuthenticationRequested = false;
 
     quint32 m_output;

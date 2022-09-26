@@ -128,12 +128,11 @@ void authenticate();
 bool isStreamingEnabled();
 bool isStreamingAvailable();
 
-void startStreamingInput();
+void acquireStreamingInput(bool acquire);
 Stream startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
 Stream startStreamingWorkspace(Screencasting::CursorMode mode);
 Stream startStreamingVirtual(const QString &name, const QSize &size, Screencasting::CursorMode mode);
 Stream startStreamingWindow(const QMap<int, QVariant> &win, Screencasting::CursorMode mode);
-void stopAllStreaming();
 void stopStreaming(uint node);
 
 void requestPointerButtonPress(quint32 linuxButton);
