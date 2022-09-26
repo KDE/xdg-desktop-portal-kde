@@ -121,7 +121,6 @@ class WaylandIntegration : public QObject
 Q_SIGNALS:
     void newBuffer(uint8_t *screenData);
     void plasmaWindowManagementInitialized();
-    void streamingStopped();
 };
 
 void authenticate();

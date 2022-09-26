@@ -384,9 +384,6 @@ void WaylandIntegration::WaylandIntegrationPrivate::stopAllStreaming()
     m_streams.clear();
 
     m_streamInput = false;
-    // First unbound outputs and destroy remote access manager so we no longer receive buffers
-
-    Q_EMIT streamingStopped();
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::stopStreaming(uint32_t nodeid)

@@ -133,9 +133,6 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
             WaylandIntegration::stopStreaming(stream.nodeId);
         }
     });
-
-    connect(WaylandIntegration::waylandIntegration(), &WaylandIntegration::WaylandIntegration::streamingStopped, session, &Session::close);
-
     return 0;
 }
 
