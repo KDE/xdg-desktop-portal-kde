@@ -187,7 +187,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    parent_window: " << parent_window;
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    options: " << options;
 
-    ScreenCastSession *session = qobject_cast<ScreenCastSession *>(Session::getSession(session_handle.path()));
+    QPointer<ScreenCastSession> session = qobject_cast<ScreenCastSession *>(Session::getSession(session_handle.path()));
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeScreenCast) << "Tried to call start on non-existing session " << session_handle.path();
@@ -255,7 +255,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         }
     }
 
-    if (valid) {
+    if (valid && session) {
         QVariantList outputs;
         QStringList windows;
         WaylandIntegration::Streams streams;
