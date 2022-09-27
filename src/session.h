@@ -75,16 +75,14 @@ public:
     {
         return m_streams;
     }
-    void setStreams(const WaylandIntegration::Streams &streams)
-    {
-        m_streams = streams;
-    }
+    void setStreams(const WaylandIntegration::Streams &streams);
 
 private:
     bool m_multipleSources;
     ScreenCastPortal::CursorModes m_cursorMode;
     ScreenCastPortal::SourceType m_types;
     ScreenCastPortal::PersistMode m_persistMode = ScreenCastPortal::NoPersist;
+    void streamClosed();
 
     WaylandIntegration::Streams m_streams;
     QVariant m_restoreData;
