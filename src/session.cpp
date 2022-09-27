@@ -14,6 +14,7 @@
 #include <QDBusMessage>
 #include <QDBusPendingCall>
 #include <QDBusPendingCallWatcher>
+#include <screencast_debug.h>
 
 static QMap<QString, Session *> sessionList;
 
@@ -203,4 +204,29 @@ bool RemoteDesktopSession::screenSharingEnabled() const
 void RemoteDesktopSession::setScreenSharingEnabled(bool enabled)
 {
     m_screenSharingEnabled = enabled;
+}
+
+void ScreenCastSession::setStreams(const WaylandIntegration::Streams &streams)
+{
+    m_streams = streams;
+
+    for (const auto &s : streams) {
+        connect(s.stream, &ScreencastingStream::closed, this, &ScreenCastSession::streamClosed);
+        connect(s.stream, &ScreencastingStream::failed, this, [this](const QString &error) {
+            qCWarning(XdgDesktopPortalKdeScreenCast) << "ScreenCast session failed" << error;
+            streamClosed();
+        });
+    }
+}
+
+void ScreenCastSession::streamClosed()
+{
+    ScreencastingStream *stream = qobject_cast<ScreencastingStream *>(sender());
+    std::remove_if(m_streams.begin(), m_streams.end(), [stream](const WaylandIntegration::Stream &s) {
+        return s.stream == stream;
+    });
+
+    if (m_streams.isEmpty()) {
+        close();
+    }
 }
