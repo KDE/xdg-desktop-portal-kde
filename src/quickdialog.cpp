@@ -24,7 +24,9 @@ QuickDialog::~QuickDialog() noexcept
 void QuickDialog::create(const QString &file, const QVariantMap &props)
 {
     auto engine = new QQmlApplicationEngine(this);
-    engine->rootContext()->setContextObject(new KLocalizedContext(engine));
+    auto context = new KLocalizedContext(engine);
+    context->setTranslationDomain(TRANSLATION_DOMAIN);
+    engine->rootContext()->setContextObject(context);
 
     engine->setInitialProperties(props);
     engine->load(file);
