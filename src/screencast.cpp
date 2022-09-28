@@ -256,17 +256,18 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         QVariantList outputs;
         QStringList windows;
         WaylandIntegration::Streams streams;
+        Screencasting::CursorMode cursorMode = Screencasting::CursorMode(session->cursorMode());
         for (const auto &output : qAsConst(selectedOutputs)) {
             WaylandIntegration::Stream stream;
             switch (output.outputType()) {
             case WaylandIntegration::WaylandOutput::Workspace:
-                stream = WaylandIntegration::startStreamingWorkspace(Screencasting::CursorMode(session->cursorMode()));
+                stream = WaylandIntegration::startStreamingWorkspace(cursorMode);
                 break;
             case WaylandIntegration::WaylandOutput::Virtual:
-                stream = WaylandIntegration::startStreamingVirtual(output.uniqueId(), {1920, 1080}, Screencasting::CursorMode(session->cursorMode()));
+                stream = WaylandIntegration::startStreamingVirtual(output.uniqueId(), {1920, 1080}, cursorMode);
                 break;
             default:
-                stream = WaylandIntegration::startStreamingOutput(output.waylandOutputName(), Screencasting::CursorMode(session->cursorMode()));
+                stream = WaylandIntegration::startStreamingOutput(output.waylandOutputName(), cursorMode);
                 break;
             }
 
@@ -281,7 +282,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             streams << stream;
         }
         for (const auto &win : qAsConst(selectedWindows)) {
-            WaylandIntegration::Stream stream = WaylandIntegration::startStreamingWindow(win, Screencasting::CursorMode(session->cursorMode()));
+            WaylandIntegration::Stream stream = WaylandIntegration::startStreamingWindow(win, cursorMode);
             if (!stream.isValid()) {
                 qCWarning(XdgDesktopPortalKdeScreenCast) << "Invalid window!" << win;
                 return 2;
