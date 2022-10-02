@@ -1,0 +1,414 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Dimitris Kardarakos <dimkard@gmail.com>, 2017.
+# Stelios <sstavra@gmail.com>, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-29 00:48+0000\n"
+"PO-Revision-Date: 2021-07-09 11:02+0300\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.04.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: src/accessdialog.cpp:22
+#, kde-format
+msgid "Request device access"
+msgstr "Αίτημα πρόσβασης σε συσκευή"
+
+#: src/appchooser.cpp:96
+#, kde-format
+msgctxt "count of files to open"
+msgid "%1 files"
+msgstr ""
+
+#: src/appchooserdialog.cpp:34
+#, kde-format
+msgid "Select an application to open '%1'"
+msgstr ""
+
+#: src/background.cpp:83
+#, kde-format
+msgid "Background activity"
+msgstr "Δραστηριότητα παρασκηνίου"
+
+#: src/background.cpp:84
+#, kde-format
+msgid "%1 is running in the background."
+msgstr "Το %1 εκτελείται στο παρασκήνιο."
+
+#: src/background.cpp:85
+#, kde-format
+msgid "Find out more"
+msgstr "Ανακαλύψτε περισσότερα"
+
+#: src/background.cpp:114
+#, kde-format
+msgid "%1 is running in the background"
+msgstr "%1 εκτελείται στο παρασκήνιο"
+
+#: src/background.cpp:116
+#, kde-format
+msgid ""
+"This might be for a legitimate reason, but the application has not provided "
+"one.\n"
+"\n"
+"Note that forcing an application to quit might cause data loss."
+msgstr ""
+"Αυτό ίσως είναι για αποδεκτή αιτία, αλλά η εφαρμογή δεν το παρέχει.\n"
+"\n"
+"Σημειώστε ότι ο εξαναγκασμός μιας εφαρμογής να τερματιστεί ίσως προκαλέσει "
+"απώλεια δεδομένων."
+
+#: src/background.cpp:119
+#, kde-format
+msgid "Force quit"
+msgstr "Αναγκαστικός τερματισμός"
+
+#: src/background.cpp:120
+#, kde-format
+msgid "Allow"
+msgstr "Να επιτρέπεται"
+
+#: src/dynamiclauncher.cpp:76
+#, fuzzy, kde-format
+#| msgid "Select application"
+msgctxt "@title"
+msgid "Add Web Application…"
+msgstr "Επιλογή εφαρμογής"
+
+#: src/dynamiclauncher.cpp:81
+#, fuzzy, kde-format
+#| msgid "Select application"
+msgctxt "@title"
+msgid "Add Application…"
+msgstr "Επιλογή εφαρμογής"
+
+#: src/filechooser.cpp:369
+#, kde-format
+msgid "Open"
+msgstr "Άνοιγμα"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:100
+#, kde-format
+msgid "Select Folder"
+msgstr "Επιλογή φακέλου"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
+#, kde-format
+msgid "Open File"
+msgstr "Άνοιγμα αρχείου"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#, kde-format
+msgid "Save File"
+msgstr "Αποθήκευση αρχείου"
+
+#: src/outputsmodel.cpp:18
+#, kde-format
+msgid "Full Workspace"
+msgstr ""
+
+#: src/outputsmodel.cpp:22
+#, kde-format
+msgid "New Virtual Output"
+msgstr ""
+
+#: src/outputsmodel.cpp:28 src/screencastwidget.cpp:24
+#, kde-format
+msgid ""
+"Laptop screen\n"
+"Model: %1"
+msgstr ""
+"Οθόνη φορητού\n"
+"Μοντέλο: %1"
+
+#: src/outputsmodel.cpp:31 src/screencastwidget.cpp:27
+#: src/screencastwidget.cpp:30
+#, kde-format
+msgid ""
+"Manufacturer: %1\n"
+"Model: %2"
+msgstr ""
+"Κατασκευαστής: %1\n"
+"Μοντέλο: %2"
+
+#: src/remotedesktopdialog.cpp:40
+#, kde-format
+msgid "Select what to share with the requesting application"
+msgstr "Επιλέξτε τι θα μοιράζεστε με την εφαρμογή που ζητάει την κοινή χρήση"
+
+#: src/remotedesktopdialog.cpp:42
+#, kde-format
+msgid "Select what to share with %1"
+msgstr "Επιλέξτε τι θα μοιράζεστε με την %1"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, RemoteDesktopDialog)
+#: src/remotedesktopdialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Διάλογος"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/remotedesktopdialog.ui:38
+#, kde-format
+msgid "Allow access to:"
+msgstr "Να επιτρέπεται η πρόσβαση στο:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, pointerCheckbox)
+#: src/remotedesktopdialog.ui:47
+#, kde-format
+msgid "Pointer"
+msgstr "Δείκτης"
+
+#. i18n: ectx: property (text), widget (QCheckBox, keyboardCheckbox)
+#: src/remotedesktopdialog.ui:57
+#, kde-format
+msgid "Keyboard"
+msgstr "Πληκτρολόγιο"
+
+#. i18n: ectx: property (text), widget (QCheckBox, touchScreenCheckbox)
+#: src/remotedesktopdialog.ui:67
+#, kde-format
+msgid "Touch screen"
+msgstr "Οθόνη αφής"
+
+#: src/screencast.cpp:318
+#, kde-format
+msgctxt "Do not disturb mode is enabled because..."
+msgid "Screen sharing in progress"
+msgstr "Κοινή χρήση οθόνης σε εξέλιξη"
+
+#: src/screenchooserdialog.cpp:138
+#, fuzzy, kde-format
+#| msgctxt "Do not disturb mode is enabled because..."
+#| msgid "Screen sharing in progress"
+msgid "Screen Sharing"
+msgstr "Κοινή χρήση οθόνης σε εξέλιξη"
+
+#: src/screenchooserdialog.cpp:167
+#, fuzzy, kde-format
+#| msgid "Select what to share with the requesting application"
+msgid "Choose what to share with the requesting application:"
+msgstr "Επιλέξτε τι θα μοιράζεστε με την εφαρμογή που ζητάει την κοινή χρήση"
+
+#: src/screenchooserdialog.cpp:169
+#, fuzzy, kde-format
+#| msgid "Select what to share with %1"
+msgid "Choose what to share with %1:"
+msgstr "Επιλέξτε τι θα μοιράζεστε με την %1"
+
+#: src/screenchooserdialog.cpp:177
+#, fuzzy, kde-format
+#| msgid "Select screen to share with the requesting application"
+msgid "Share this screen with the requesting application?"
+msgstr ""
+"Επιλέξτε την οθόνη που θα μοιράζεστε με την εφαρμογή που ζητάει κοινή χρήση"
+
+#: src/screenchooserdialog.cpp:179
+#, fuzzy, kde-format
+#| msgid "Select screen to share with %1"
+msgid "Share this screen with %1?"
+msgstr "Επιλέξτε την οθόνη που θα μοιράζεστε με την %1"
+
+#: src/screenchooserdialog.cpp:184
+#, fuzzy, kde-format
+#| msgid "Select screen to share with the requesting application"
+msgid "Choose screens to share with the requesting application:"
+msgstr ""
+"Επιλέξτε την οθόνη που θα μοιράζεστε με την εφαρμογή που ζητάει κοινή χρήση"
+
+#: src/screenchooserdialog.cpp:186
+#, fuzzy, kde-format
+#| msgid "Select screen to share with %1"
+msgid "Choose screens to share with %1:"
+msgstr "Επιλέξτε την οθόνη που θα μοιράζεστε με την %1"
+
+#: src/screenchooserdialog.cpp:190
+#, fuzzy, kde-format
+#| msgid "Select screen to share with the requesting application"
+msgid "Choose which screen to share with the requesting application:"
+msgstr ""
+"Επιλέξτε την οθόνη που θα μοιράζεστε με την εφαρμογή που ζητάει κοινή χρήση"
+
+#: src/screenchooserdialog.cpp:192
+#, fuzzy, kde-format
+#| msgid "Select screen to share with %1"
+msgid "Choose which screen to share with %1:"
+msgstr "Επιλέξτε την οθόνη που θα μοιράζεστε με την %1"
+
+#: src/screenchooserdialog.cpp:202
+#, fuzzy, kde-format
+#| msgid "Select what to share with the requesting application"
+msgid "Share this window with the requesting application?"
+msgstr "Επιλέξτε τι θα μοιράζεστε με την εφαρμογή που ζητάει την κοινή χρήση"
+
+#: src/screenchooserdialog.cpp:204
+#, kde-format
+msgid "Share this window with %1?"
+msgstr ""
+
+#: src/screenchooserdialog.cpp:209
+#, fuzzy, kde-format
+#| msgid "Select what to share with the requesting application"
+msgid "Choose windows to share with the requesting application:"
+msgstr "Επιλέξτε τι θα μοιράζεστε με την εφαρμογή που ζητάει την κοινή χρήση"
+
+#: src/screenchooserdialog.cpp:211
+#, fuzzy, kde-format
+#| msgid "Select what to share with %1"
+msgid "Choose windows to share with %1:"
+msgstr "Επιλέξτε τι θα μοιράζεστε με την %1"
+
+#: src/screenchooserdialog.cpp:215
+#, fuzzy, kde-format
+#| msgid "Select what to share with the requesting application"
+msgid "Choose which window to share with the requesting application:"
+msgstr "Επιλέξτε τι θα μοιράζεστε με την εφαρμογή που ζητάει την κοινή χρήση"
+
+#: src/screenchooserdialog.cpp:217
+#, fuzzy, kde-format
+#| msgid "Select what to share with %1"
+msgid "Choose which window to share with %1:"
+msgstr "Επιλέξτε τι θα μοιράζεστε με την %1"
+
+#: src/screenshotdialog.cpp:88
+#, fuzzy, kde-format
+#| msgid "Screens"
+msgid "Full Screen"
+msgstr "Οθόνες"
+
+#: src/screenshotdialog.cpp:89
+#, kde-format
+msgid "Current Screen"
+msgstr "Τρέχουσα οθόνη"
+
+#: src/screenshotdialog.cpp:90
+#, kde-format
+msgid "Active Window"
+msgstr "Ενεργό παράθυρο"
+
+#: src/userinfodialog.cpp:32
+#, kde-format
+msgid "Share Information"
+msgstr "Κοινή χρήση πληροφοριών"
+
+#: src/userinfodialog.cpp:33
+#, fuzzy, kde-format
+#| msgid "Select what to share with the requesting application"
+msgid "Share your personal information with the requesting application?"
+msgstr "Επιλέξτε τι θα μοιράζεστε με την εφαρμογή που ζητάει την κοινή χρήση"
+
+#: src/waylandintegration.cpp:271
+#, kde-format
+msgid "Recording window \"%1\"..."
+msgstr "Καταγραφή παραθύρου «%1»..."
+
+#: src/waylandintegration.cpp:281
+#, kde-format
+msgid "Recording screen \"%1\"..."
+msgstr "Καταγραφή οθόνης «%1»..."
+
+#: src/waylandintegration.cpp:298
+#, fuzzy, kde-format
+#| msgid "Recording screen \"%1\"..."
+msgid "Recording workspace..."
+msgstr "Καταγραφή οθόνης «%1»..."
+
+#: src/waylandintegration.cpp:310
+#, fuzzy, kde-format
+#| msgid "Recording window \"%1\"..."
+msgid "Recording virtual output '%1'..."
+msgstr "Καταγραφή παραθύρου «%1»..."
+
+#: src/waylandintegration.cpp:329
+#, kde-format
+msgid "Failed to start screencasting"
+msgstr "Αποτυχία έναρξης αποτύπωσης οθόνης"
+
+#: src/waylandintegration.cpp:359
+#, kde-format
+msgctxt "@action:inmenu stops screen/window recording"
+msgid "Stop Recording"
+msgstr ""
+
+#: src/waylandintegration.cpp:494
+#, kde-format
+msgid "Remote desktop"
+msgstr "Απομακρυσμένη επιφάνεια εργασίας"
+
+#: src/xdg-desktop-portal-kde.cpp:28
+#, kde-format
+msgid "Portal"
+msgstr ""
+
+#~ msgid "Press to cancel"
+#~ msgstr "Πατήστε για ακύρωση"
+
+#~ msgid "xdg-desktop-portals-kde"
+#~ msgstr "xdg-desktop-portals-kde"
+
+#~ msgid "Open with..."
+#~ msgstr "Άνοιγμα με..."
+
+#~ msgid "Icon"
+#~ msgstr "Εικονίδιο"
+
+#~ msgid "TextLabel"
+#~ msgstr "ΕτικέταΚειμένου"
+
+#~ msgid "Share"
+#~ msgstr "Διαμοιρασμός"
+
+#~ msgid "Windows"
+#~ msgstr "Παράθυρα"
+
+#~ msgid "Request screenshot"
+#~ msgstr "Αίτημα στιγμιοτύπου οθόνης"
+
+#~ msgid "<b>Capture Mode</b>"
+#~ msgstr "<b>Λειτουργία σύλληψης</b>"
+
+#~ msgid "Area:"
+#~ msgstr "Περιοχή:"
+
+#~ msgid "Full Screen (All Monitors)"
+#~ msgstr "Πλήρης οθόνη (Όλες οι οθόνες)"
+
+#~ msgid "Delay:"
+#~ msgstr "Καθυστέρηση:"
+
+#~ msgid "No Delay"
+#~ msgstr "Χωρίς καθυστέρηση"
+
+#~ msgid "<b>Content Options</b>"
+#~ msgstr "<b>Τρέχουσες επιλογές</b>"
+
+#~ msgid "Include mouse pointer"
+#~ msgstr "Να συμπεριλαμβάνεται ο δείτης του ποντικιού"
+
+#~ msgid "Include window borders"
+#~ msgstr "Να συμπεριλαμβάνονται τα περιγράμματα των παραθύρων"
+
+#~ msgid "Take screenshot"
+#~ msgstr "Λήψη στιγμιοτύπου οθόνης"
+
+#~ msgid "Search"
+#~ msgstr "Αναζήτηση"

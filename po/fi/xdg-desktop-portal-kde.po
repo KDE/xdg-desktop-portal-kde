@@ -1,0 +1,415 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Tommi Nieminen <translator@legisign.org>, 2017, 2018, 2019, 2020, 2021, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-29 00:48+0000\n"
+"PO-Revision-Date: 2022-04-18 22:17+0300\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Tommi Nieminen"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "translator@legisign.org"
+
+#: src/accessdialog.cpp:22
+#, kde-format
+msgid "Request device access"
+msgstr "Pyydä laiteyhteyttä"
+
+#: src/appchooser.cpp:96
+#, kde-format
+msgctxt "count of files to open"
+msgid "%1 files"
+msgstr ""
+
+#: src/appchooserdialog.cpp:34
+#, kde-format
+msgid "Select an application to open '%1'"
+msgstr ""
+
+#: src/background.cpp:83
+#, kde-format
+msgid "Background activity"
+msgstr "Taustatoiminta"
+
+#: src/background.cpp:84
+#, kde-format
+msgid "%1 is running in the background."
+msgstr "%1 on käynnissä taustalla."
+
+#: src/background.cpp:85
+#, kde-format
+msgid "Find out more"
+msgstr "Lisätietoa"
+
+#: src/background.cpp:114
+#, kde-format
+msgid "%1 is running in the background"
+msgstr "%1 on käynnissä taustalla"
+
+#: src/background.cpp:116
+#, kde-format
+msgid ""
+"This might be for a legitimate reason, but the application has not provided "
+"one.\n"
+"\n"
+"Note that forcing an application to quit might cause data loss."
+msgstr ""
+"Näin voi olla hyvästä syystä, mutta sovellus ei kerro syytä.\n"
+"\n"
+"Huomaa, että sovelluksen pakottaminen sulkeutumaan voi johtaa tiedon "
+"menetykseen."
+
+#: src/background.cpp:119
+#, kde-format
+msgid "Force quit"
+msgstr "Pakota lopetus"
+
+#: src/background.cpp:120
+#, kde-format
+msgid "Allow"
+msgstr "Salli"
+
+#: src/dynamiclauncher.cpp:76
+#, fuzzy, kde-format
+#| msgid "Select application"
+msgctxt "@title"
+msgid "Add Web Application…"
+msgstr "Valitse sovellus"
+
+#: src/dynamiclauncher.cpp:81
+#, fuzzy, kde-format
+#| msgid "Select application"
+msgctxt "@title"
+msgid "Add Application…"
+msgstr "Valitse sovellus"
+
+#: src/filechooser.cpp:369
+#, kde-format
+msgid "Open"
+msgstr "Avaa"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:100
+#, kde-format
+msgid "Select Folder"
+msgstr "Valitse kansio"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
+#, kde-format
+msgid "Open File"
+msgstr "Avaa tiedosto"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#, kde-format
+msgid "Save File"
+msgstr "Tallenna tiedosto"
+
+#: src/outputsmodel.cpp:18
+#, kde-format
+msgid "Full Workspace"
+msgstr "Koko työtila"
+
+#: src/outputsmodel.cpp:22
+#, kde-format
+msgid "New Virtual Output"
+msgstr ""
+
+#: src/outputsmodel.cpp:28 src/screencastwidget.cpp:24
+#, kde-format
+msgid ""
+"Laptop screen\n"
+"Model: %1"
+msgstr ""
+"Kannettavan näyttö\n"
+"Malli: %1"
+
+#: src/outputsmodel.cpp:31 src/screencastwidget.cpp:27
+#: src/screencastwidget.cpp:30
+#, kde-format
+msgid ""
+"Manufacturer: %1\n"
+"Model: %2"
+msgstr ""
+"Valmistaja: %1\n"
+"Malli: %2"
+
+#: src/remotedesktopdialog.cpp:40
+#, kde-format
+msgid "Select what to share with the requesting application"
+msgstr "Valitse, mitä pyytävälle sovellukselle jaetaan"
+
+#: src/remotedesktopdialog.cpp:42
+#, kde-format
+msgid "Select what to share with %1"
+msgstr "Valitse mitä käyttäjälle %1 jaetaan"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, RemoteDesktopDialog)
+#: src/remotedesktopdialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Valintaikkuna"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/remotedesktopdialog.ui:38
+#, kde-format
+msgid "Allow access to:"
+msgstr "Salli pääsy:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, pointerCheckbox)
+#: src/remotedesktopdialog.ui:47
+#, kde-format
+msgid "Pointer"
+msgstr "Osoittimeen"
+
+#. i18n: ectx: property (text), widget (QCheckBox, keyboardCheckbox)
+#: src/remotedesktopdialog.ui:57
+#, kde-format
+msgid "Keyboard"
+msgstr "Näppäimistöön"
+
+#. i18n: ectx: property (text), widget (QCheckBox, touchScreenCheckbox)
+#: src/remotedesktopdialog.ui:67
+#, kde-format
+msgid "Touch screen"
+msgstr "Kosketusnäyttöön"
+
+#: src/screencast.cpp:318
+#, kde-format
+msgctxt "Do not disturb mode is enabled because..."
+msgid "Screen sharing in progress"
+msgstr "Näytönjako käynnissä"
+
+#: src/screenchooserdialog.cpp:138
+#, kde-format
+msgid "Screen Sharing"
+msgstr "Näytönjako"
+
+#: src/screenchooserdialog.cpp:167
+#, kde-format
+msgid "Choose what to share with the requesting application:"
+msgstr "Valitse, mitä pyytävälle sovellukselle jaetaan:"
+
+#: src/screenchooserdialog.cpp:169
+#, kde-format
+msgid "Choose what to share with %1:"
+msgstr "Valitse mitä käyttäjälle %1 jaetaan:"
+
+#: src/screenchooserdialog.cpp:177
+#, kde-format
+msgid "Share this screen with the requesting application?"
+msgstr "Jaetaanko tämä näyttö pyytävälle sovellukselle?"
+
+#: src/screenchooserdialog.cpp:179
+#, kde-format
+msgid "Share this screen with %1?"
+msgstr "Jaetaanko tämä näyttö käyttäjälle %1?"
+
+#: src/screenchooserdialog.cpp:184
+#, kde-format
+msgid "Choose screens to share with the requesting application:"
+msgstr "Valitse, mitkä näytöt pyytävälle sovellukselle jaetaan:"
+
+#: src/screenchooserdialog.cpp:186
+#, kde-format
+msgid "Choose screens to share with %1:"
+msgstr "Valitse, mitkä näytöt käyttäjälle %1 jaetaan:"
+
+#: src/screenchooserdialog.cpp:190
+#, kde-format
+msgid "Choose which screen to share with the requesting application:"
+msgstr "Valitse, mikä näyttö pyytävälle sovellukselle jaetaan:"
+
+#: src/screenchooserdialog.cpp:192
+#, kde-format
+msgid "Choose which screen to share with %1:"
+msgstr "Valitse, mikä näyttö käyttäjälle %1 jaetaan:"
+
+#: src/screenchooserdialog.cpp:202
+#, kde-format
+msgid "Share this window with the requesting application?"
+msgstr "Jaetaanko tämä ikkuna pyytävälle sovellukselle?"
+
+#: src/screenchooserdialog.cpp:204
+#, kde-format
+msgid "Share this window with %1?"
+msgstr "Jaetaanko tämä ikkuna käyttäjälle %1?"
+
+#: src/screenchooserdialog.cpp:209
+#, kde-format
+msgid "Choose windows to share with the requesting application:"
+msgstr "Valitse, mitkä ikkunat pyytävälle sovellukselle jaetaan:"
+
+#: src/screenchooserdialog.cpp:211
+#, kde-format
+msgid "Choose windows to share with %1:"
+msgstr "Valitse, mitkä ikkunat käyttäjälle %1 jaetaan:"
+
+#: src/screenchooserdialog.cpp:215
+#, kde-format
+msgid "Choose which window to share with the requesting application:"
+msgstr "Valitse, mikä ikkuna pyytävälle sovellukselle jaetaan:"
+
+#: src/screenchooserdialog.cpp:217
+#, kde-format
+msgid "Choose which window to share with %1:"
+msgstr "Valitse, mikä ikkuna käyttäjälle %1 jaetaan:"
+
+#: src/screenshotdialog.cpp:88
+#, kde-format
+msgid "Full Screen"
+msgstr "Koko näyttö"
+
+#: src/screenshotdialog.cpp:89
+#, kde-format
+msgid "Current Screen"
+msgstr "Nykyinen näyttö"
+
+#: src/screenshotdialog.cpp:90
+#, kde-format
+msgid "Active Window"
+msgstr "Aktiivinen ikkuna"
+
+#: src/userinfodialog.cpp:32
+#, kde-format
+msgid "Share Information"
+msgstr "Jaa tietoa"
+
+#: src/userinfodialog.cpp:33
+#, kde-format
+msgid "Share your personal information with the requesting application?"
+msgstr "Jaetaanko henkilökohtaiset tietosi pyytävälle sovellukselle?"
+
+#: src/waylandintegration.cpp:271
+#, kde-format
+msgid "Recording window \"%1\"..."
+msgstr "Nauhoitetaan ikkunaa ”%1”…"
+
+#: src/waylandintegration.cpp:281
+#, kde-format
+msgid "Recording screen \"%1\"..."
+msgstr "Nauhoitetaan näyttöä ”%1”…"
+
+#: src/waylandintegration.cpp:298
+#, kde-format
+msgid "Recording workspace..."
+msgstr "Nauhoitetaan työtilaa…"
+
+#: src/waylandintegration.cpp:310
+#, fuzzy, kde-format
+#| msgid "Recording window \"%1\"..."
+msgid "Recording virtual output '%1'..."
+msgstr "Nauhoitetaan ikkunaa ”%1”…"
+
+#: src/waylandintegration.cpp:329
+#, kde-format
+msgid "Failed to start screencasting"
+msgstr "Näytöntoiston käynnistäminen epäonnistui"
+
+#: src/waylandintegration.cpp:359
+#, kde-format
+msgctxt "@action:inmenu stops screen/window recording"
+msgid "Stop Recording"
+msgstr ""
+
+#: src/waylandintegration.cpp:494
+#, kde-format
+msgid "Remote desktop"
+msgstr "Etätyöpöytä"
+
+#: src/xdg-desktop-portal-kde.cpp:28
+#, kde-format
+msgid "Portal"
+msgstr "Portaali"
+
+#~ msgid "Press to cancel"
+#~ msgstr "Peru napsauttamalla"
+
+#~ msgid "xdg-desktop-portals-kde"
+#~ msgstr "xdg-desktop-portals-kde"
+
+#~ msgid "Open with..."
+#~ msgstr "Avaa ohjelmalla…"
+
+#~ msgid "Icon"
+#~ msgstr "Kuvake"
+
+#~ msgid "TextLabel"
+#~ msgstr "Tekstiselite"
+
+#~ msgid "Share"
+#~ msgstr "Jaa"
+
+#~ msgid "Windows"
+#~ msgstr "Ikkunat"
+
+#~ msgid "Request screenshot"
+#~ msgstr "Pyydä kuvakaappausta"
+
+#~ msgid "<b>Capture Mode</b>"
+#~ msgstr "<b>Kaappaustapa</b>"
+
+#~ msgid "Area:"
+#~ msgstr "Alue:"
+
+#~ msgid "Full Screen (All Monitors)"
+#~ msgstr "Koko näyttö (kaikki näytöt)"
+
+#~ msgid "Delay:"
+#~ msgstr "Viive:"
+
+#~ msgid "No Delay"
+#~ msgstr "Ei viivettä"
+
+#~ msgid "<b>Content Options</b>"
+#~ msgstr "<b>Sisältövalinnat</b>"
+
+#~ msgid "Include mouse pointer"
+#~ msgstr "Ota hiirikohdistin mukaan"
+
+#~ msgid "Include window borders"
+#~ msgstr "Ota ikkunareunat mukaan"
+
+#~ msgid "Take screenshot"
+#~ msgstr "Ota kuvakaappaus"
+
+#~ msgid "Failed to create PipeWire context"
+#~ msgstr "PipeWire-kontekstin luominen epäonnistui"
+
+#~ msgid "Failed to connect PipeWire context"
+#~ msgstr "PipeWire-kontekstiin yhdistäminen epäonnistui"
+
+#~ msgid "Failed to create PipeWire stream"
+#~ msgstr "PipeWire-virran käynnistys epäonnistui"
+
+#~ msgid "Failed to start main PipeWire loop"
+#~ msgstr "Pää-PipeWire-silmukan käynnistys epäonnistui"
+
+#~ msgid ""
+#~ "Select application to open \"%1\". Other applications are available in <a "
+#~ "href=#discover><span style=\"text-decoration: underline\">Discover</"
+#~ "span></a>."
+#~ msgstr ""
+#~ "Valitse sovellus, jolla ”%1” avataan. Muita sovelluksia on saatavilla <a "
+#~ "href=#discover><span style=\"text-decoration: underline\">Discover</"
+#~ "span></a>issa.Valitse sovellus, jolla ”%1” avataan. Muita sovelluksia on "
+#~ "saatavilla <a href=#discover><span style=\"text-decoration: underline"
+#~ "\">Discover</span></a>issa."
+
+#~ msgid "Search"
+#~ msgstr "Etsi"

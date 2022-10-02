@@ -1,0 +1,386 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the xdg-desktop-portal-kde package.
+#
+# Kheyyam Gojayev <xxmn77@gmail.com>, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: xdg-desktop-portal-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-29 00:48+0000\n"
+"PO-Revision-Date: 2022-08-24 17:55+0400\n"
+"Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
+"Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
+"Language: az\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 22.08.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Xəyyam Qocayev"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "xxmn77@gmail.com"
+
+#: src/accessdialog.cpp:22
+#, kde-format
+msgid "Request device access"
+msgstr "Cihaza giriş tələb etmək"
+
+#: src/appchooser.cpp:96
+#, kde-format
+msgctxt "count of files to open"
+msgid "%1 files"
+msgstr "%1 fayl"
+
+#: src/appchooserdialog.cpp:34
+#, kde-format
+msgid "Select an application to open '%1'"
+msgstr "\"%1\" açacaq üçün bir tətbiq seçin"
+
+#: src/background.cpp:83
+#, kde-format
+msgid "Background activity"
+msgstr "Arxa fon fəaliyyət"
+
+#: src/background.cpp:84
+#, kde-format
+msgid "%1 is running in the background."
+msgstr "%1 arxa fonda işləyir."
+
+#: src/background.cpp:85
+#, kde-format
+msgid "Find out more"
+msgstr "Daha çox tapmaq"
+
+#: src/background.cpp:114
+#, kde-format
+msgid "%1 is running in the background"
+msgstr "%1 arxa fonda işləyir"
+
+#: src/background.cpp:116
+#, kde-format
+msgid ""
+"This might be for a legitimate reason, but the application has not provided "
+"one.\n"
+"\n"
+"Note that forcing an application to quit might cause data loss."
+msgstr ""
+"Buna tutarlı bir səbəb ola bilər, lakin, tətbiq heç bir səbəb göstərməyib.\n"
+"\n"
+"Nəzərə alın ki, tətbiqin məcburi dayandırılması məlumatlarınızın itirilməsi "
+"ilə nəticələnə bilər."
+
+#: src/background.cpp:119
+#, kde-format
+msgid "Force quit"
+msgstr "Məcburi çıxmaq"
+
+#: src/background.cpp:120
+#, kde-format
+msgid "Allow"
+msgstr "İcazə Vermək"
+
+#: src/dynamiclauncher.cpp:76
+#, kde-format
+msgctxt "@title"
+msgid "Add Web Application…"
+msgstr "Veb-tətbiq əlavə edin..."
+
+#: src/dynamiclauncher.cpp:81
+#, kde-format
+msgctxt "@title"
+msgid "Add Application…"
+msgstr "Tətbiq əlavə edin..."
+
+#: src/filechooser.cpp:369
+#, kde-format
+msgid "Open"
+msgstr "Açmaq"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:100
+#, kde-format
+msgid "Select Folder"
+msgstr "Qovluq Seçmək"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
+#, kde-format
+msgid "Open File"
+msgstr "Faylı Açmaq"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#, kde-format
+msgid "Save File"
+msgstr "Faylı Saxlayın"
+
+#: src/outputsmodel.cpp:18
+#, kde-format
+msgid "Full Workspace"
+msgstr "Tam iş sahəsi"
+
+#: src/outputsmodel.cpp:22
+#, kde-format
+msgid "New Virtual Output"
+msgstr "Yeni virtual çıxarış"
+
+#: src/outputsmodel.cpp:28 src/screencastwidget.cpp:24
+#, kde-format
+msgid ""
+"Laptop screen\n"
+"Model: %1"
+msgstr ""
+"Noutbuk ekranı\n"
+"Model: %1"
+
+#: src/outputsmodel.cpp:31 src/screencastwidget.cpp:27
+#: src/screencastwidget.cpp:30
+#, kde-format
+msgid ""
+"Manufacturer: %1\n"
+"Model: %2"
+msgstr ""
+"İstehsalçı: %1\n"
+"Model: %2"
+
+#: src/remotedesktopdialog.cpp:40
+#, kde-format
+msgid "Select what to share with the requesting application"
+msgstr "Tələb olunan tətbiq ilə nəyi paylaşacağınızı seçin"
+
+#: src/remotedesktopdialog.cpp:42
+#, kde-format
+msgid "Select what to share with %1"
+msgstr "%1 ilə nəyi paylaşacağınızı seçin"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, RemoteDesktopDialog)
+#: src/remotedesktopdialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Dialoq"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/remotedesktopdialog.ui:38
+#, kde-format
+msgid "Allow access to:"
+msgstr "Buraya girişə icarə vermək:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, pointerCheckbox)
+#: src/remotedesktopdialog.ui:47
+#, kde-format
+msgid "Pointer"
+msgstr "Kursor"
+
+#. i18n: ectx: property (text), widget (QCheckBox, keyboardCheckbox)
+#: src/remotedesktopdialog.ui:57
+#, kde-format
+msgid "Keyboard"
+msgstr "Klaviatura"
+
+#. i18n: ectx: property (text), widget (QCheckBox, touchScreenCheckbox)
+#: src/remotedesktopdialog.ui:67
+#, kde-format
+msgid "Touch screen"
+msgstr "Toxunma ekranı"
+
+#: src/screencast.cpp:318
+#, kde-format
+msgctxt "Do not disturb mode is enabled because..."
+msgid "Screen sharing in progress"
+msgstr "Ekran paylaşımı icra olunur"
+
+#: src/screenchooserdialog.cpp:138
+#, kde-format
+msgid "Screen Sharing"
+msgstr "Ekran paylaşılır"
+
+#: src/screenchooserdialog.cpp:167
+#, kde-format
+msgid "Choose what to share with the requesting application:"
+msgstr "Tələb olunan tətbiq ilə nəyi paylaşacağınızı seçin:"
+
+#: src/screenchooserdialog.cpp:169
+#, kde-format
+msgid "Choose what to share with %1:"
+msgstr "%1 ilə nəyi paylaşacağınızı seçin:"
+
+#: src/screenchooserdialog.cpp:177
+#, kde-format
+msgid "Share this screen with the requesting application?"
+msgstr "Bu ekran tələb olunan tətbiq ilə paylaşılsın?"
+
+#: src/screenchooserdialog.cpp:179
+#, kde-format
+msgid "Share this screen with %1?"
+msgstr "Bu ekran %1 ilə paylaşılsın?"
+
+#: src/screenchooserdialog.cpp:184
+#, kde-format
+msgid "Choose screens to share with the requesting application:"
+msgstr "Təlbə olunan tətbiq ilə paylaşılacaq ekranı seçin:"
+
+#: src/screenchooserdialog.cpp:186
+#, kde-format
+msgid "Choose screens to share with %1:"
+msgstr "%1 ilə paylaşılacaq ekranları seçin:"
+
+#: src/screenchooserdialog.cpp:190
+#, kde-format
+msgid "Choose which screen to share with the requesting application:"
+msgstr "Tələb edilən tətbiqlə paylaşmaq üçün ekranı seçin:"
+
+#: src/screenchooserdialog.cpp:192
+#, kde-format
+msgid "Choose which screen to share with %1:"
+msgstr "%1 ilə paylaşmaq üçün ekranı seçin:"
+
+#: src/screenchooserdialog.cpp:202
+#, kde-format
+msgid "Share this window with the requesting application?"
+msgstr "Bu pəncərə tələb olunan tətbiq ilə paylaşılsın?"
+
+#: src/screenchooserdialog.cpp:204
+#, kde-format
+msgid "Share this window with %1?"
+msgstr "Bu pəncərə %1 ilə paylaşılsın?"
+
+#: src/screenchooserdialog.cpp:209
+#, kde-format
+msgid "Choose windows to share with the requesting application:"
+msgstr "Tələb olunan tətbiq ilə paylaşacağınız pəncərələri seçin:"
+
+#: src/screenchooserdialog.cpp:211
+#, kde-format
+msgid "Choose windows to share with %1:"
+msgstr "%1 ilə nəyi paylaşacağınız pəncərələri seçin:"
+
+#: src/screenchooserdialog.cpp:215
+#, kde-format
+msgid "Choose which window to share with the requesting application:"
+msgstr "Tələb olunan tətbiq ilə paylaşacağınız pəncərəni seçin:"
+
+#: src/screenchooserdialog.cpp:217
+#, kde-format
+msgid "Choose which window to share with %1:"
+msgstr "%1 ilə paylaşacağınız pəncərəni seçin:"
+
+#: src/screenshotdialog.cpp:88
+#, kde-format
+msgid "Full Screen"
+msgstr "Tam ekran"
+
+#: src/screenshotdialog.cpp:89
+#, kde-format
+msgid "Current Screen"
+msgstr "Cari Ekran"
+
+#: src/screenshotdialog.cpp:90
+#, kde-format
+msgid "Active Window"
+msgstr "Aktiv Pəncərə"
+
+#: src/userinfodialog.cpp:32
+#, kde-format
+msgid "Share Information"
+msgstr "Məlumatları paylaşmaq"
+
+#: src/userinfodialog.cpp:33
+#, kde-format
+msgid "Share your personal information with the requesting application?"
+msgstr "Tələb olunan tətbiq ilə şəxsi məlumatlarınız paylaşılsın?"
+
+#: src/waylandintegration.cpp:271
+#, kde-format
+msgid "Recording window \"%1\"..."
+msgstr "Pəncərə \"%1\" yazılır..."
+
+#: src/waylandintegration.cpp:281
+#, kde-format
+msgid "Recording screen \"%1\"..."
+msgstr "Ekran \"%1\" yazılır..."
+
+#: src/waylandintegration.cpp:298
+#, kde-format
+msgid "Recording workspace..."
+msgstr "İş sahəsinin çəkilişi gedir..."
+
+#: src/waylandintegration.cpp:310
+#, kde-format
+msgid "Recording virtual output '%1'..."
+msgstr "Virtual çıxarış \"%1\" yazılır..."
+
+#: src/waylandintegration.cpp:329
+#, kde-format
+msgid "Failed to start screencasting"
+msgstr "Ekranın paylaşımı baş tutmadı"
+
+#: src/waylandintegration.cpp:359
+#, kde-format
+msgctxt "@action:inmenu stops screen/window recording"
+msgid "Stop Recording"
+msgstr "Yazılışı dayandırın"
+
+#: src/waylandintegration.cpp:494
+#, kde-format
+msgid "Remote desktop"
+msgstr "Şəbəkədəki İş masası"
+
+#: src/xdg-desktop-portal-kde.cpp:28
+#, kde-format
+msgid "Portal"
+msgstr "Portal"
+
+#~ msgid "Press to cancel"
+#~ msgstr "Ləğvi üçün vurun"
+
+#~ msgid "xdg-desktop-portals-kde"
+#~ msgstr "xdg-desktop-portals-kde"
+
+#~ msgid "Open with..."
+#~ msgstr "Bununla açmaq..."
+
+#~ msgid "Icon"
+#~ msgstr "Nişan"
+
+#~ msgid "TextLabel"
+#~ msgstr "Mətn_Etiketi"
+
+#~ msgid "Share"
+#~ msgstr "Paylaşmaq"
+
+#~ msgid "Windows"
+#~ msgstr "Pəncərələr"
+
+#~ msgid "Request screenshot"
+#~ msgstr "Skrinşot tələb etmək"
+
+#~ msgid "<b>Capture Mode</b>"
+#~ msgstr "<b>Çəkiliş Rejimi</b>"
+
+#~ msgid "Area:"
+#~ msgstr "Sahə:"
+
+#~ msgid "Full Screen (All Monitors)"
+#~ msgstr "Tam Ekran (Bütün Monitorlar)"
+
+#~ msgid "Delay:"
+#~ msgstr "Müddət:"
+
+#~ msgid "No Delay"
+#~ msgstr "Müddətsiz"
+
+#~ msgid "<b>Content Options</b>"
+#~ msgstr "<b>Tərkiblərin Parametrləri</b>"
+
+#~ msgid "Include mouse pointer"
+#~ msgstr "Kusrsor daxil olmaqla"
+
+#~ msgid "Include window borders"
+#~ msgstr "Pəncərə çərçivəsi daxil"
+
+#~ msgid "Take screenshot"
+#~ msgstr "Skrinşot saxlamaq"

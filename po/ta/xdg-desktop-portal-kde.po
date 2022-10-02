@@ -1,0 +1,383 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the xdg-desktop-portal-kde package.
+#
+# Kishore G <kishore96@gmail.com>, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: xdg-desktop-portal-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-29 00:48+0000\n"
+"PO-Revision-Date: 2022-08-23 19:41+0530\n"
+"Last-Translator: Kishore G <kishore96@gmail.com>\n"
+"Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.07.90\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "கோ. கிஷோர்"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "Kde-l10n-ta@kde.org"
+
+#: src/accessdialog.cpp:22
+#, kde-format
+msgid "Request device access"
+msgstr "சாதன அணுகலை கோரு"
+
+#: src/appchooser.cpp:96
+#, kde-format
+msgctxt "count of files to open"
+msgid "%1 files"
+msgstr "%1 கோப்புகள்"
+
+#: src/appchooserdialog.cpp:34
+#, kde-format
+msgid "Select an application to open '%1'"
+msgstr "'%1' என்பதை திறப்பதற்கான செயலியைத் தேர்ந்தெடுங்கள்"
+
+#: src/background.cpp:83
+#, kde-format
+msgid "Background activity"
+msgstr "பின்னணி செயல்பாடு"
+
+#: src/background.cpp:84
+#, kde-format
+msgid "%1 is running in the background."
+msgstr "%1 பின்னணியில் இயங்குகிறது."
+
+#: src/background.cpp:85
+#, kde-format
+msgid "Find out more"
+msgstr "மேலும் காட்டு"
+
+#: src/background.cpp:114
+#, kde-format
+msgid "%1 is running in the background"
+msgstr "%1 பின்னணியில் இயங்குகிறது"
+
+#: src/background.cpp:116
+#, kde-format
+msgid ""
+"This might be for a legitimate reason, but the application has not provided "
+"one.\n"
+"\n"
+"Note that forcing an application to quit might cause data loss."
+msgstr ""
+"இது முறையான காரணத்திற்கு இருக்கலாம், ஆனால் செயலி அப்படிப்பட்ட எந்த காரணத்தையும் "
+"கூறவில்லை.\n"
+"\n"
+"கட்டாயமாக ஒரு செயலியை நிறுத்துதல், தரவு இழப்பை உண்டாக்கலாம்."
+
+#: src/background.cpp:119
+#, kde-format
+msgid "Force quit"
+msgstr "கட்டாயமாக நிறுத்து"
+
+#: src/background.cpp:120
+#, kde-format
+msgid "Allow"
+msgstr "அனுமதி"
+
+#: src/dynamiclauncher.cpp:76
+#, kde-format
+msgctxt "@title"
+msgid "Add Web Application…"
+msgstr "இணையச்செயலியைச் சேர்..."
+
+#: src/dynamiclauncher.cpp:81
+#, kde-format
+msgctxt "@title"
+msgid "Add Application…"
+msgstr "செயலியைச் சேர்…"
+
+#: src/filechooser.cpp:369
+#, kde-format
+msgid "Open"
+msgstr "திற"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:100
+#, kde-format
+msgid "Select Folder"
+msgstr "அடைவை தேர்வு செய்தல்"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
+#, kde-format
+msgid "Open File"
+msgstr "கோப்பை திறத்தல்"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#, kde-format
+msgid "Save File"
+msgstr "கோப்பை சேமித்தல்"
+
+#: src/outputsmodel.cpp:18
+#, kde-format
+msgid "Full Workspace"
+msgstr "முழுப் பணிமேடை"
+
+#: src/outputsmodel.cpp:22
+#, kde-format
+msgid "New Virtual Output"
+msgstr "புதிய மெய்நிகர் வெளியீடு"
+
+#: src/outputsmodel.cpp:28 src/screencastwidget.cpp:24
+#, kde-format
+msgid ""
+"Laptop screen\n"
+"Model: %1"
+msgstr ""
+"மடிக்கணினி திரை\n"
+"மாடல்: %1"
+
+#: src/outputsmodel.cpp:31 src/screencastwidget.cpp:27
+#: src/screencastwidget.cpp:30
+#, kde-format
+msgid ""
+"Manufacturer: %1\n"
+"Model: %2"
+msgstr ""
+"தயாரிப்பாளர்: %1\n"
+"மாடல்: %2"
+
+#: src/remotedesktopdialog.cpp:40
+#, kde-format
+msgid "Select what to share with the requesting application"
+msgstr "கோரிக்கையிடும் செயலியுடன் எதை பகிர வேண்டுமென தேர்வு செய்தல்"
+
+#: src/remotedesktopdialog.cpp:42
+#, kde-format
+msgid "Select what to share with %1"
+msgstr "%1 உடன் எதை பகிர வேண்டுமென தேர்வு செய்தல்"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, RemoteDesktopDialog)
+#: src/remotedesktopdialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "சாளரம்"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/remotedesktopdialog.ui:38
+#, kde-format
+msgid "Allow access to:"
+msgstr "இவற்றை அணுக விடு:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, pointerCheckbox)
+#: src/remotedesktopdialog.ui:47
+#, kde-format
+msgid "Pointer"
+msgstr "சுட்டிக்குறி"
+
+#. i18n: ectx: property (text), widget (QCheckBox, keyboardCheckbox)
+#: src/remotedesktopdialog.ui:57
+#, kde-format
+msgid "Keyboard"
+msgstr "விசைப்பலகை"
+
+#. i18n: ectx: property (text), widget (QCheckBox, touchScreenCheckbox)
+#: src/remotedesktopdialog.ui:67
+#, kde-format
+msgid "Touch screen"
+msgstr "தொடுதிரை"
+
+#: src/screencast.cpp:318
+#, kde-format
+msgctxt "Do not disturb mode is enabled because..."
+msgid "Screen sharing in progress"
+msgstr "திரை பகிரப்படுகிறது"
+
+#: src/screenchooserdialog.cpp:138
+#, kde-format
+msgid "Screen Sharing"
+msgstr "திரை பகிர்வு"
+
+#: src/screenchooserdialog.cpp:167
+#, kde-format
+msgid "Choose what to share with the requesting application:"
+msgstr "கோரிக்கையிடும் செயலியுடன் எதை பகிர வேண்டுமென்பதை தேர்வு செய்தல்"
+
+#: src/screenchooserdialog.cpp:169
+#, kde-format
+msgid "Choose what to share with %1:"
+msgstr "%1 உடன் எதை பகிர வேண்டுமென்பதை தேர்வு செய்யுங்கள்:"
+
+#: src/screenchooserdialog.cpp:177
+#, kde-format
+msgid "Share this screen with the requesting application?"
+msgstr "கோரிக்கையிடும் செயலியுடன் இத்திரையை பகிரலாமா?"
+
+#: src/screenchooserdialog.cpp:179
+#, kde-format
+msgid "Share this screen with %1?"
+msgstr "%1 உடன் இத்திரையை பகிரலாமா?"
+
+#: src/screenchooserdialog.cpp:184
+#, kde-format
+msgid "Choose screens to share with the requesting application:"
+msgstr "கோரிக்கையிடும் செயலியுடன் பகிர வேண்டிய திரைகளை தேர்ந்தெடுங்கள்:"
+
+#: src/screenchooserdialog.cpp:186
+#, kde-format
+msgid "Choose screens to share with %1:"
+msgstr "%1 உடன் பகிர வேண்டிய திரைகளை தேர்ந்தெடுங்கள்:"
+
+#: src/screenchooserdialog.cpp:190
+#, kde-format
+msgid "Choose which screen to share with the requesting application:"
+msgstr "கோரிக்கையிடும் செயலியுடன் பகிர வேண்டிய திரையை தேர்ந்தெடுங்கள்:"
+
+#: src/screenchooserdialog.cpp:192
+#, kde-format
+msgid "Choose which screen to share with %1:"
+msgstr "%1 உடன் பகிர வேண்டிய திரைகளை தேர்ந்தெடுங்கள்:"
+
+#: src/screenchooserdialog.cpp:202
+#, kde-format
+msgid "Share this window with the requesting application?"
+msgstr "கோரிக்கையிடும் செயலியுடன் இச்சாளரத்தை பகிரலாமா?"
+
+#: src/screenchooserdialog.cpp:204
+#, kde-format
+msgid "Share this window with %1?"
+msgstr "%1 உடன் இச்சாளரத்தை பகிரலாமா?"
+
+#: src/screenchooserdialog.cpp:209
+#, kde-format
+msgid "Choose windows to share with the requesting application:"
+msgstr "கோரிக்கையிடும் செயலியுடன் பகிர வேண்டிய சாளரங்களை தேர்ந்தெடுங்கள்:"
+
+#: src/screenchooserdialog.cpp:211
+#, kde-format
+msgid "Choose windows to share with %1:"
+msgstr "%1 உடன் பகிர வேண்டிய சாளரங்களை தேர்ந்தெடுங்கள்:"
+
+#: src/screenchooserdialog.cpp:215
+#, kde-format
+msgid "Choose which window to share with the requesting application:"
+msgstr "கோரிக்கையிடும் செயலியுடன் பகிர வேண்டிய சாளரத்தை தேர்ந்தெடுங்கள்:"
+
+#: src/screenchooserdialog.cpp:217
+#, kde-format
+msgid "Choose which window to share with %1:"
+msgstr "%1 உடன் பகிர வேண்டிய சாளரத்தை தேர்ந்தெடுங்கள்:"
+
+#: src/screenshotdialog.cpp:88
+#, kde-format
+msgid "Full Screen"
+msgstr "முழுத்திரை"
+
+#: src/screenshotdialog.cpp:89
+#, kde-format
+msgid "Current Screen"
+msgstr "தற்போதைய காட்சிக் கருவி"
+
+#: src/screenshotdialog.cpp:90
+#, kde-format
+msgid "Active Window"
+msgstr "செயலில் உள்ள சாளரம்"
+
+#: src/userinfodialog.cpp:32
+#, kde-format
+msgid "Share Information"
+msgstr "விவரங்களை பகிர்தல்"
+
+#: src/userinfodialog.cpp:33
+#, kde-format
+msgid "Share your personal information with the requesting application?"
+msgstr "கோரிக்கையிடும் செயலிக்கு உங்களை பற்றிய விவரங்களை வழங்கலாமா?"
+
+#: src/waylandintegration.cpp:271
+#, kde-format
+msgid "Recording window \"%1\"..."
+msgstr "\"%1\" சாளரம் பதிவு செய்யப்படுகிறது..."
+
+#: src/waylandintegration.cpp:281
+#, kde-format
+msgid "Recording screen \"%1\"..."
+msgstr "\"%1\" திரை பதிவு செய்யப்படுகிறது..."
+
+#: src/waylandintegration.cpp:298
+#, kde-format
+msgid "Recording workspace..."
+msgstr "பணிமேடை பதிவு செய்யப்படுகிறது..."
+
+#: src/waylandintegration.cpp:310
+#, kde-format
+msgid "Recording virtual output '%1'..."
+msgstr "மெய்நிகர் வெளியீடு '%1' பதிவு செய்யப்படுகிறது..."
+
+#: src/waylandintegration.cpp:329
+#, kde-format
+msgid "Failed to start screencasting"
+msgstr "திரைப்பகிர்வை தொடங்குதல் தோல்வியடைந்தது"
+
+#: src/waylandintegration.cpp:359
+#, kde-format
+msgctxt "@action:inmenu stops screen/window recording"
+msgid "Stop Recording"
+msgstr "பதிவு செய்வதை நிறுத்து"
+
+#: src/waylandintegration.cpp:494
+#, kde-format
+msgid "Remote desktop"
+msgstr "பணிமேடை தொலையியக்கி"
+
+#: src/xdg-desktop-portal-kde.cpp:28
+#, kde-format
+msgid "Portal"
+msgstr ""
+
+#~ msgid "Press to cancel"
+#~ msgstr "ரத்து செய்ய அழுத்தவும்"
+
+#~ msgid "xdg-desktop-portals-kde"
+#~ msgstr "xdg-desktop-portals-kde"
+
+#~ msgid "Open with..."
+#~ msgstr "இதனால் திற..."
+
+#~ msgid "Icon"
+#~ msgstr "சின்னம்"
+
+#~ msgid "Share"
+#~ msgstr "பகிர்"
+
+#~ msgid "Windows"
+#~ msgstr "சாளரங்கள்"
+
+#~ msgid "Request screenshot"
+#~ msgstr "திரைப்பிடிப்பு கோரிக்கை"
+
+#~ msgid "<b>Capture Mode</b>"
+#~ msgstr "<b>பிடிப்பு முறை</b>"
+
+#~ msgid "Area:"
+#~ msgstr "பரப்பளவு:"
+
+#~ msgid "Full Screen (All Monitors)"
+#~ msgstr "முழுத்திரை (அனைத்து காட்சிக் கருவிகளும்)"
+
+#~ msgid "Delay:"
+#~ msgstr "தாமதம்:"
+
+#~ msgid "No Delay"
+#~ msgstr "தாமதிக்க வேண்டாம்"
+
+#~ msgid "<b>Content Options</b>"
+#~ msgstr "<b>உள்ளடக்க விருப்பத்தேர்வுகள்</b>"
+
+#~ msgid "Include mouse pointer"
+#~ msgstr "சுட்டிக்குறியை உட்படுத்து"
+
+#~ msgid "Include window borders"
+#~ msgstr "சாளர விளிம்புகளை உட்படுத்து"
+
+#~ msgid "Take screenshot"
+#~ msgstr "திரைப்பிடிப்பை எடு"

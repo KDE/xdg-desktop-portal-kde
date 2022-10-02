@@ -1,0 +1,420 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the xdg-desktop-portal-kde package.
+#
+# pan93412 <pan93412@gmail.com>, 2019, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: xdg-desktop-portal-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-29 00:48+0000\n"
+"PO-Revision-Date: 2020-05-02 23:09+0800\n"
+"Last-Translator: Yi-Jyun Pan <pan93412@gmail.com>\n"
+"Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 20.04.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: src/accessdialog.cpp:22
+#, kde-format
+msgid "Request device access"
+msgstr "請求裝置存取權限"
+
+#: src/appchooser.cpp:96
+#, kde-format
+msgctxt "count of files to open"
+msgid "%1 files"
+msgstr ""
+
+#: src/appchooserdialog.cpp:34
+#, kde-format
+msgid "Select an application to open '%1'"
+msgstr ""
+
+#: src/background.cpp:83
+#, kde-format
+msgid "Background activity"
+msgstr "背景活動"
+
+#: src/background.cpp:84
+#, kde-format
+msgid "%1 is running in the background."
+msgstr "%1 正在背景執行。"
+
+#: src/background.cpp:85
+#, kde-format
+msgid "Find out more"
+msgstr "尋找更多"
+
+#: src/background.cpp:114
+#, kde-format
+msgid "%1 is running in the background"
+msgstr "%1 正在背景執行"
+
+#: src/background.cpp:116
+#, kde-format
+msgid ""
+"This might be for a legitimate reason, but the application has not provided "
+"one.\n"
+"\n"
+"Note that forcing an application to quit might cause data loss."
+msgstr ""
+"此處應為合理的問題原因，但應用程式未提供。\n"
+"\n"
+"注意，強制關閉應用程式可能會導致資料遺失。"
+
+#: src/background.cpp:119
+#, kde-format
+msgid "Force quit"
+msgstr "強制結束"
+
+#: src/background.cpp:120
+#, kde-format
+msgid "Allow"
+msgstr "允許"
+
+#: src/dynamiclauncher.cpp:76
+#, kde-format
+msgctxt "@title"
+msgid "Add Web Application…"
+msgstr ""
+
+#: src/dynamiclauncher.cpp:81
+#, kde-format
+msgctxt "@title"
+msgid "Add Application…"
+msgstr ""
+
+#: src/filechooser.cpp:369
+#, kde-format
+msgid "Open"
+msgstr "開啟"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:100
+#, kde-format
+msgid "Select Folder"
+msgstr ""
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
+#, fuzzy, kde-format
+#| msgid "Open"
+msgid "Open File"
+msgstr "開啟"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#, kde-format
+msgid "Save File"
+msgstr ""
+
+#: src/outputsmodel.cpp:18
+#, kde-format
+msgid "Full Workspace"
+msgstr ""
+
+#: src/outputsmodel.cpp:22
+#, kde-format
+msgid "New Virtual Output"
+msgstr ""
+
+#: src/outputsmodel.cpp:28 src/screencastwidget.cpp:24
+#, kde-format
+msgid ""
+"Laptop screen\n"
+"Model: %1"
+msgstr ""
+"筆電螢幕\n"
+"型號：%1"
+
+#: src/outputsmodel.cpp:31 src/screencastwidget.cpp:27
+#: src/screencastwidget.cpp:30
+#, kde-format
+msgid ""
+"Manufacturer: %1\n"
+"Model: %2"
+msgstr ""
+"製造商：%1\n"
+"型號：%2"
+
+#: src/remotedesktopdialog.cpp:40
+#, kde-format
+msgid "Select what to share with the requesting application"
+msgstr "選擇要與請求應用程式分享的項目"
+
+#: src/remotedesktopdialog.cpp:42
+#, kde-format
+msgid "Select what to share with %1"
+msgstr "選擇要與 %1 分享的項目"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, RemoteDesktopDialog)
+#: src/remotedesktopdialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "對話框"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/remotedesktopdialog.ui:38
+#, kde-format
+msgid "Allow access to:"
+msgstr "允許存取："
+
+#. i18n: ectx: property (text), widget (QCheckBox, pointerCheckbox)
+#: src/remotedesktopdialog.ui:47
+#, kde-format
+msgid "Pointer"
+msgstr "指向裝置"
+
+#. i18n: ectx: property (text), widget (QCheckBox, keyboardCheckbox)
+#: src/remotedesktopdialog.ui:57
+#, kde-format
+msgid "Keyboard"
+msgstr "鍵盤"
+
+#. i18n: ectx: property (text), widget (QCheckBox, touchScreenCheckbox)
+#: src/remotedesktopdialog.ui:67
+#, kde-format
+msgid "Touch screen"
+msgstr "觸控螢幕"
+
+#: src/screencast.cpp:318
+#, kde-format
+msgctxt "Do not disturb mode is enabled because..."
+msgid "Screen sharing in progress"
+msgstr ""
+
+#: src/screenchooserdialog.cpp:138
+#, kde-format
+msgid "Screen Sharing"
+msgstr ""
+
+#: src/screenchooserdialog.cpp:167
+#, fuzzy, kde-format
+#| msgid "Select what to share with the requesting application"
+msgid "Choose what to share with the requesting application:"
+msgstr "選擇要與請求應用程式分享的項目"
+
+#: src/screenchooserdialog.cpp:169
+#, fuzzy, kde-format
+#| msgid "Select what to share with %1"
+msgid "Choose what to share with %1:"
+msgstr "選擇要與 %1 分享的項目"
+
+#: src/screenchooserdialog.cpp:177
+#, fuzzy, kde-format
+#| msgid "Select screen to share with the requesting application"
+msgid "Share this screen with the requesting application?"
+msgstr "選擇要與請求應用程式分享的螢幕"
+
+#: src/screenchooserdialog.cpp:179
+#, fuzzy, kde-format
+#| msgid "Select screen to share with %1"
+msgid "Share this screen with %1?"
+msgstr "選擇要與 %1 分享的螢幕"
+
+#: src/screenchooserdialog.cpp:184
+#, fuzzy, kde-format
+#| msgid "Select screen to share with the requesting application"
+msgid "Choose screens to share with the requesting application:"
+msgstr "選擇要與請求應用程式分享的螢幕"
+
+#: src/screenchooserdialog.cpp:186
+#, fuzzy, kde-format
+#| msgid "Select screen to share with %1"
+msgid "Choose screens to share with %1:"
+msgstr "選擇要與 %1 分享的螢幕"
+
+#: src/screenchooserdialog.cpp:190
+#, fuzzy, kde-format
+#| msgid "Select screen to share with the requesting application"
+msgid "Choose which screen to share with the requesting application:"
+msgstr "選擇要與請求應用程式分享的螢幕"
+
+#: src/screenchooserdialog.cpp:192
+#, fuzzy, kde-format
+#| msgid "Select screen to share with %1"
+msgid "Choose which screen to share with %1:"
+msgstr "選擇要與 %1 分享的螢幕"
+
+#: src/screenchooserdialog.cpp:202
+#, fuzzy, kde-format
+#| msgid "Select what to share with the requesting application"
+msgid "Share this window with the requesting application?"
+msgstr "選擇要與請求應用程式分享的項目"
+
+#: src/screenchooserdialog.cpp:204
+#, kde-format
+msgid "Share this window with %1?"
+msgstr ""
+
+#: src/screenchooserdialog.cpp:209
+#, fuzzy, kde-format
+#| msgid "Select what to share with the requesting application"
+msgid "Choose windows to share with the requesting application:"
+msgstr "選擇要與請求應用程式分享的項目"
+
+#: src/screenchooserdialog.cpp:211
+#, fuzzy, kde-format
+#| msgid "Select what to share with %1"
+msgid "Choose windows to share with %1:"
+msgstr "選擇要與 %1 分享的項目"
+
+#: src/screenchooserdialog.cpp:215
+#, fuzzy, kde-format
+#| msgid "Select what to share with the requesting application"
+msgid "Choose which window to share with the requesting application:"
+msgstr "選擇要與請求應用程式分享的項目"
+
+#: src/screenchooserdialog.cpp:217
+#, fuzzy, kde-format
+#| msgid "Select what to share with %1"
+msgid "Choose which window to share with %1:"
+msgstr "選擇要與 %1 分享的項目"
+
+#: src/screenshotdialog.cpp:88
+#, fuzzy, kde-format
+#| msgid "Current Screen"
+msgid "Full Screen"
+msgstr "目前的螢幕"
+
+#: src/screenshotdialog.cpp:89
+#, kde-format
+msgid "Current Screen"
+msgstr "目前的螢幕"
+
+#: src/screenshotdialog.cpp:90
+#, kde-format
+msgid "Active Window"
+msgstr "使用中視窗"
+
+#: src/userinfodialog.cpp:32
+#, kde-format
+msgid "Share Information"
+msgstr "分享資訊"
+
+#: src/userinfodialog.cpp:33
+#, fuzzy, kde-format
+#| msgid "Select what to share with the requesting application"
+msgid "Share your personal information with the requesting application?"
+msgstr "選擇要與請求應用程式分享的項目"
+
+#: src/waylandintegration.cpp:271
+#, kde-format
+msgid "Recording window \"%1\"..."
+msgstr ""
+
+#: src/waylandintegration.cpp:281
+#, kde-format
+msgid "Recording screen \"%1\"..."
+msgstr ""
+
+#: src/waylandintegration.cpp:298
+#, kde-format
+msgid "Recording workspace..."
+msgstr ""
+
+#: src/waylandintegration.cpp:310
+#, kde-format
+msgid "Recording virtual output '%1'..."
+msgstr ""
+
+#: src/waylandintegration.cpp:329
+#, kde-format
+msgid "Failed to start screencasting"
+msgstr "無法開始螢幕錄製"
+
+#: src/waylandintegration.cpp:359
+#, kde-format
+msgctxt "@action:inmenu stops screen/window recording"
+msgid "Stop Recording"
+msgstr ""
+
+#: src/waylandintegration.cpp:494
+#, kde-format
+msgid "Remote desktop"
+msgstr "遠端桌面"
+
+#: src/xdg-desktop-portal-kde.cpp:28
+#, kde-format
+msgid "Portal"
+msgstr ""
+
+#~ msgid "xdg-desktop-portals-kde"
+#~ msgstr "xdg-desktop-portals-kde"
+
+#~ msgid "Open with..."
+#~ msgstr "開啟方式..."
+
+#~ msgid "Icon"
+#~ msgstr "圖示"
+
+#~ msgid "TextLabel"
+#~ msgstr "文字標籤"
+
+#~ msgid "Share"
+#~ msgstr "分享"
+
+#, fuzzy
+#~| msgid "Active Window"
+#~ msgid "Windows"
+#~ msgstr "使用中視窗"
+
+#~ msgid "Request screenshot"
+#~ msgstr "請求螢幕截圖"
+
+#~ msgid "<b>Capture Mode</b>"
+#~ msgstr "<b>擷取模式</b>"
+
+#~ msgid "Area:"
+#~ msgstr "區塊："
+
+#~ msgid "Full Screen (All Monitors)"
+#~ msgstr "全螢幕（全部顯示器）"
+
+#~ msgid "Delay:"
+#~ msgstr "延遲："
+
+#~ msgid "No Delay"
+#~ msgstr "無延遲"
+
+#~ msgid "<b>Content Options</b>"
+#~ msgstr "<b>內容設定</b>"
+
+#~ msgid "Include mouse pointer"
+#~ msgstr "包含滑鼠指向裝置"
+
+#~ msgid "Include window borders"
+#~ msgstr "包含視窗邊框"
+
+#~ msgid "Take screenshot"
+#~ msgstr "擷取螢幕截圖"
+
+#~ msgid "Failed to create PipeWire context"
+#~ msgstr "無法建立 PipeWire 上下文"
+
+#~ msgid "Failed to connect PipeWire context"
+#~ msgstr "無法連線 PipeWire 上下文"
+
+#~ msgid "Failed to create PipeWire stream"
+#~ msgstr "無法建立 PipeWire 串流"
+
+#~ msgid "Failed to start main PipeWire loop"
+#~ msgstr "無法開始主 PipeWire 循環"
+
+#~ msgid ""
+#~ "Select application to open \"%1\". Other applications are available in <a "
+#~ "href=#discover><span style=\"text-decoration: underline\">Discover</"
+#~ "span></a>."
+#~ msgstr ""
+#~ "選擇用來開啟「%1」的應用程式。可在 <a href=#discover><span style=\"text-"
+#~ "decoration: underline\">Discover</span> 商店</a>找到其他可用的應用程式。"

@@ -1,0 +1,414 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Alexander Potashev <aspotashev@gmail.com>, 2017, 2018.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2022.
+# Мария Шикунова <translation-team@basealt.ru>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-29 00:48+0000\n"
+"PO-Revision-Date: 2022-09-29 21:45+0300\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 21.08.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Мария Шикунова,Олеся Герасименко"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "translation-team@basealt.ru,translation-team@basealt.ru"
+
+#: src/accessdialog.cpp:22
+#, kde-format
+msgid "Request device access"
+msgstr "Запрос доступа к устройству"
+
+#: src/appchooser.cpp:96
+#, kde-format
+msgctxt "count of files to open"
+msgid "%1 files"
+msgstr "файлов: %1"
+
+#: src/appchooserdialog.cpp:34
+#, kde-format
+msgid "Select an application to open '%1'"
+msgstr "Выберите приложение для открытия «%1»"
+
+#: src/background.cpp:83
+#, kde-format
+msgid "Background activity"
+msgstr "Фоновая активность"
+
+#: src/background.cpp:84
+#, kde-format
+msgid "%1 is running in the background."
+msgstr "%1 выполняется в фоне."
+
+#: src/background.cpp:85
+#, kde-format
+msgid "Find out more"
+msgstr "Подробнее"
+
+#: src/background.cpp:114
+#, kde-format
+msgid "%1 is running in the background"
+msgstr "Приложение %1 выполняется в фоне"
+
+#: src/background.cpp:116
+#, kde-format
+msgid ""
+"This might be for a legitimate reason, but the application has not provided "
+"one.\n"
+"\n"
+"Note that forcing an application to quit might cause data loss."
+msgstr ""
+"Это может быть нормальным поведением, но приложение не предоставило запрос "
+"на выполнение в фоне.\n"
+"\n"
+"Внимание: принудительное завершение работы приложения может привести к "
+"потере данных."
+
+#: src/background.cpp:119
+#, kde-format
+msgid "Force quit"
+msgstr "Закрыть принудительно"
+
+#: src/background.cpp:120
+#, kde-format
+msgid "Allow"
+msgstr "Разрешить"
+
+#: src/dynamiclauncher.cpp:76
+#, kde-format
+msgctxt "@title"
+msgid "Add Web Application…"
+msgstr "Добавить веб-приложение…"
+
+#: src/dynamiclauncher.cpp:81
+#, kde-format
+msgctxt "@title"
+msgid "Add Application…"
+msgstr "Добавить приложение…"
+
+#: src/filechooser.cpp:369
+#, kde-format
+msgid "Open"
+msgstr "Открыть"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:100
+#, kde-format
+msgid "Select Folder"
+msgstr "Выбор папки"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
+#, kde-format
+msgid "Open File"
+msgstr "Открытие файла"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#, kde-format
+msgid "Save File"
+msgstr "Сохранение файла"
+
+#: src/outputsmodel.cpp:18
+#, kde-format
+msgid "Full Workspace"
+msgstr "Всё рабочее пространство"
+
+#: src/outputsmodel.cpp:22
+#, kde-format
+msgid "New Virtual Output"
+msgstr "Новый виртуальный вывод"
+
+#: src/outputsmodel.cpp:28 src/screencastwidget.cpp:24
+#, kde-format
+msgid ""
+"Laptop screen\n"
+"Model: %1"
+msgstr ""
+"Экран ноутбука\n"
+"Модель: %1"
+
+#: src/outputsmodel.cpp:31 src/screencastwidget.cpp:27
+#: src/screencastwidget.cpp:30
+#, kde-format
+msgid ""
+"Manufacturer: %1\n"
+"Model: %2"
+msgstr ""
+"Производитель: %1\n"
+"Модель: %2"
+
+#: src/remotedesktopdialog.cpp:40
+#, kde-format
+msgid "Select what to share with the requesting application"
+msgstr "Выберите что будет доступно запрашивающему приложению"
+
+#: src/remotedesktopdialog.cpp:42
+#, kde-format
+msgid "Select what to share with %1"
+msgstr "Выберите что будет доступно приложению %1"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, RemoteDesktopDialog)
+#: src/remotedesktopdialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Диалог"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/remotedesktopdialog.ui:38
+#, kde-format
+msgid "Allow access to:"
+msgstr "Разрешить доступ к:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, pointerCheckbox)
+#: src/remotedesktopdialog.ui:47
+#, kde-format
+msgid "Pointer"
+msgstr "Указателю мыши"
+
+#. i18n: ectx: property (text), widget (QCheckBox, keyboardCheckbox)
+#: src/remotedesktopdialog.ui:57
+#, kde-format
+msgid "Keyboard"
+msgstr "Клавиатуре"
+
+#. i18n: ectx: property (text), widget (QCheckBox, touchScreenCheckbox)
+#: src/remotedesktopdialog.ui:67
+#, kde-format
+msgid "Touch screen"
+msgstr "Сенсорному экрану"
+
+#: src/screencast.cpp:318
+#, kde-format
+msgctxt "Do not disturb mode is enabled because..."
+msgid "Screen sharing in progress"
+msgstr "Выполняется трансляция изображения экрана"
+
+#: src/screenchooserdialog.cpp:138
+#, kde-format
+msgid "Screen Sharing"
+msgstr "Демонстрация экрана"
+
+#: src/screenchooserdialog.cpp:167
+#, kde-format
+msgid "Choose what to share with the requesting application:"
+msgstr "Выберите, что будет доступно запрашивающему приложению:"
+
+#: src/screenchooserdialog.cpp:169
+#, kde-format
+msgid "Choose what to share with %1:"
+msgstr "Выберите, что будет доступно приложению %1:"
+
+#: src/screenchooserdialog.cpp:177
+#, kde-format
+msgid "Share this screen with the requesting application?"
+msgstr "Поделиться этим экраном с запрашивающим приложением?"
+
+#: src/screenchooserdialog.cpp:179
+#, kde-format
+msgid "Share this screen with %1?"
+msgstr "Поделиться этим экраном с приложением %1?"
+
+#: src/screenchooserdialog.cpp:184
+#, kde-format
+msgid "Choose screens to share with the requesting application:"
+msgstr "Выберите, какие экраны будут доступны запрашивающему приложению:"
+
+#: src/screenchooserdialog.cpp:186
+#, kde-format
+msgid "Choose screens to share with %1:"
+msgstr "Выберите, какие экраны будут доступны приложению %1:"
+
+#: src/screenchooserdialog.cpp:190
+#, kde-format
+msgid "Choose which screen to share with the requesting application:"
+msgstr "Выберите, какой экран будет доступен запрашивающему приложению:"
+
+#: src/screenchooserdialog.cpp:192
+#, kde-format
+msgid "Choose which screen to share with %1:"
+msgstr "Выберите, какой экран будет доступен приложению %1:"
+
+#: src/screenchooserdialog.cpp:202
+#, kde-format
+msgid "Share this window with the requesting application?"
+msgstr "Поделиться этим окном с запрашивающим приложением?"
+
+#: src/screenchooserdialog.cpp:204
+#, kde-format
+msgid "Share this window with %1?"
+msgstr "Поделиться этим окном с приложением %1?"
+
+#: src/screenchooserdialog.cpp:209
+#, kde-format
+msgid "Choose windows to share with the requesting application:"
+msgstr "Выберите, какие окна будут доступны запрашивающему приложению:"
+
+#: src/screenchooserdialog.cpp:211
+#, kde-format
+msgid "Choose windows to share with %1:"
+msgstr "Выберите, какие окна будут доступны приложению %1:"
+
+#: src/screenchooserdialog.cpp:215
+#, kde-format
+msgid "Choose which window to share with the requesting application:"
+msgstr "Выберите, какое окно будет доступно запрашивающему приложению:"
+
+#: src/screenchooserdialog.cpp:217
+#, kde-format
+msgid "Choose which window to share with %1:"
+msgstr "Выберите, какое окно будет доступно приложению %1:"
+
+#: src/screenshotdialog.cpp:88
+#, kde-format
+msgid "Full Screen"
+msgstr "Полный экран"
+
+#: src/screenshotdialog.cpp:89
+#, kde-format
+msgid "Current Screen"
+msgstr "Текущий экран"
+
+#: src/screenshotdialog.cpp:90
+#, kde-format
+msgid "Active Window"
+msgstr "Активное окно"
+
+#: src/userinfodialog.cpp:32
+#, kde-format
+msgid "Share Information"
+msgstr "Сведения об общем доступе"
+
+#: src/userinfodialog.cpp:33
+#, kde-format
+msgid "Share your personal information with the requesting application?"
+msgstr "Поделиться личными данными с запрашивающим приложением?"
+
+#: src/waylandintegration.cpp:271
+#, kde-format
+msgid "Recording window \"%1\"..."
+msgstr "Запись окна «%1»..."
+
+#: src/waylandintegration.cpp:281
+#, kde-format
+msgid "Recording screen \"%1\"..."
+msgstr "Запись экрана «%1»..."
+
+#: src/waylandintegration.cpp:298
+#, kde-format
+msgid "Recording workspace..."
+msgstr "Запись рабочего пространства…"
+
+#: src/waylandintegration.cpp:310
+#, kde-format
+msgid "Recording virtual output '%1'..."
+msgstr "Запись виртуального вывода «%1»…"
+
+#: src/waylandintegration.cpp:329
+#, kde-format
+msgid "Failed to start screencasting"
+msgstr "Ошибка при запуске трансляции экрана"
+
+#: src/waylandintegration.cpp:359
+#, kde-format
+msgctxt "@action:inmenu stops screen/window recording"
+msgid "Stop Recording"
+msgstr "Остановить запись"
+
+#: src/waylandintegration.cpp:494
+#, kde-format
+msgid "Remote desktop"
+msgstr "Удалённый рабочий стол"
+
+#: src/xdg-desktop-portal-kde.cpp:28
+#, kde-format
+msgid "Portal"
+msgstr "Портал"
+
+#~ msgid "Press to cancel"
+#~ msgstr "Нажмите для отмены"
+
+#~ msgid "xdg-desktop-portals-kde"
+#~ msgstr "xdg-desktop-portals-kde"
+
+#~ msgid "Open with..."
+#~ msgstr "Открыть с помощью..."
+
+#~ msgid "Icon"
+#~ msgstr "Значок"
+
+#~ msgid "TextLabel"
+#~ msgstr "Текстовая метка"
+
+#~ msgid "Share"
+#~ msgstr "Поделиться"
+
+#~ msgid "Windows"
+#~ msgstr "Окна"
+
+#~ msgid "Request screenshot"
+#~ msgstr "Запрос снимка экрана"
+
+#~ msgid "<b>Capture Mode</b>"
+#~ msgstr "<b>Режим съёмки</b>"
+
+#~ msgid "Area:"
+#~ msgstr "Область:"
+
+#~ msgid "Full Screen (All Monitors)"
+#~ msgstr "Все экраны"
+
+#~ msgid "Delay:"
+#~ msgstr "Задержка:"
+
+#~ msgid "No Delay"
+#~ msgstr "Без задержки"
+
+#~ msgid "<b>Content Options</b>"
+#~ msgstr "<b>Параметры содержимого</b>"
+
+#~ msgid "Include mouse pointer"
+#~ msgstr "Включая курсор мыши"
+
+#~ msgid "Include window borders"
+#~ msgstr "Включая границы окна"
+
+#~ msgid "Take screenshot"
+#~ msgstr "Сделать снимок экрана"
+
+#~ msgid "Failed to create PipeWire context"
+#~ msgstr "Ошибка создания контекста PipeWire"
+
+#~ msgid "Failed to connect PipeWire context"
+#~ msgstr "Ошибка подключения к контексту PipeWire"
+
+#~ msgid "Failed to create PipeWire stream"
+#~ msgstr "Ошибка создания потока PipeWire"
+
+#~ msgid "Failed to start main PipeWire loop"
+#~ msgstr "Ошибка запуска основного цикла PipeWire"
+
+#~ msgid ""
+#~ "Select application to open \"%1\". Other applications are available in <a "
+#~ "href=#discover><span style=\"text-decoration: underline\">Discover</"
+#~ "span></a>."
+#~ msgstr ""
+#~ "Выберите программу для открытия файла «%1». Другие программы доступны в "
+#~ "<a href=#discover><span style=\"text-decoration: underline\">центре "
+#~ "программ Discover</span></a>."
+
+#~ msgid "Search"
+#~ msgstr "Поиск:"

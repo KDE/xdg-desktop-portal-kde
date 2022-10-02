@@ -1,0 +1,414 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Shinjo Park <kde@peremen.name>, 2017, 2018, 2019, 2020, 2021, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-29 00:48+0000\n"
+"PO-Revision-Date: 2022-08-09 14:35+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "박신조"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde@peremen.name"
+
+#: src/accessdialog.cpp:22
+#, kde-format
+msgid "Request device access"
+msgstr "장치 접근 요청"
+
+#: src/appchooser.cpp:96
+#, kde-format
+msgctxt "count of files to open"
+msgid "%1 files"
+msgstr ""
+
+#: src/appchooserdialog.cpp:34
+#, kde-format
+msgid "Select an application to open '%1'"
+msgstr "'%1'을(를) 열 프로그램 선택"
+
+#: src/background.cpp:83
+#, kde-format
+msgid "Background activity"
+msgstr "백그라운드 활동"
+
+#: src/background.cpp:84
+#, kde-format
+msgid "%1 is running in the background."
+msgstr "%1이(가) 백그라운드에서 실행 중입니다."
+
+#: src/background.cpp:85
+#, kde-format
+msgid "Find out more"
+msgstr "더 찾기"
+
+#: src/background.cpp:114
+#, kde-format
+msgid "%1 is running in the background"
+msgstr "%1이(가) 백그라운드에서 실행 중"
+
+#: src/background.cpp:116
+#, kde-format
+msgid ""
+"This might be for a legitimate reason, but the application has not provided "
+"one.\n"
+"\n"
+"Note that forcing an application to quit might cause data loss."
+msgstr ""
+"프로그램에서 필요한 작업 때문일 수도 있으나, 프로그램에서 이유를 지정하지 않"
+"았습니다.\n"
+" \n"
+"프로그램을 강제로 끝내면 데이터가 손실될 수도 있습니다."
+
+#: src/background.cpp:119
+#, kde-format
+msgid "Force quit"
+msgstr "강제로 끝내기"
+
+#: src/background.cpp:120
+#, kde-format
+msgid "Allow"
+msgstr "허용"
+
+#: src/dynamiclauncher.cpp:76
+#, kde-format
+msgctxt "@title"
+msgid "Add Web Application…"
+msgstr "웹 프로그램 추가…"
+
+#: src/dynamiclauncher.cpp:81
+#, kde-format
+msgctxt "@title"
+msgid "Add Application…"
+msgstr "프로그램 추가…"
+
+#: src/filechooser.cpp:369
+#, kde-format
+msgid "Open"
+msgstr "열기"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:100
+#, kde-format
+msgid "Select Folder"
+msgstr "폴더 선택"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
+#, kde-format
+msgid "Open File"
+msgstr "파일 열기"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#, kde-format
+msgid "Save File"
+msgstr "파일 저장"
+
+#: src/outputsmodel.cpp:18
+#, kde-format
+msgid "Full Workspace"
+msgstr "전체 작업 공간"
+
+#: src/outputsmodel.cpp:22
+#, kde-format
+msgid "New Virtual Output"
+msgstr "새 가상 출력"
+
+#: src/outputsmodel.cpp:28 src/screencastwidget.cpp:24
+#, kde-format
+msgid ""
+"Laptop screen\n"
+"Model: %1"
+msgstr ""
+"노트북 화면\n"
+"모델: %1"
+
+#: src/outputsmodel.cpp:31 src/screencastwidget.cpp:27
+#: src/screencastwidget.cpp:30
+#, kde-format
+msgid ""
+"Manufacturer: %1\n"
+"Model: %2"
+msgstr ""
+"제조사: %1\n"
+"모델: %2"
+
+#: src/remotedesktopdialog.cpp:40
+#, kde-format
+msgid "Select what to share with the requesting application"
+msgstr "요청하는 프로그램과 공유할 항목 선택"
+
+#: src/remotedesktopdialog.cpp:42
+#, kde-format
+msgid "Select what to share with %1"
+msgstr "%1와(과) 공유할 항목 선택"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, RemoteDesktopDialog)
+#: src/remotedesktopdialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "대화 상자"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/remotedesktopdialog.ui:38
+#, kde-format
+msgid "Allow access to:"
+msgstr "다음 항목에 접근 허용:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, pointerCheckbox)
+#: src/remotedesktopdialog.ui:47
+#, kde-format
+msgid "Pointer"
+msgstr "포인터"
+
+#. i18n: ectx: property (text), widget (QCheckBox, keyboardCheckbox)
+#: src/remotedesktopdialog.ui:57
+#, kde-format
+msgid "Keyboard"
+msgstr "키보드"
+
+#. i18n: ectx: property (text), widget (QCheckBox, touchScreenCheckbox)
+#: src/remotedesktopdialog.ui:67
+#, kde-format
+msgid "Touch screen"
+msgstr "터치 스크린"
+
+#: src/screencast.cpp:318
+#, kde-format
+msgctxt "Do not disturb mode is enabled because..."
+msgid "Screen sharing in progress"
+msgstr "화면 공유 진행 중"
+
+#: src/screenchooserdialog.cpp:138
+#, kde-format
+msgid "Screen Sharing"
+msgstr "화면 공유"
+
+#: src/screenchooserdialog.cpp:167
+#, kde-format
+msgid "Choose what to share with the requesting application:"
+msgstr "요청하는 프로그램과 공유할 항목을 선택하십시오:"
+
+#: src/screenchooserdialog.cpp:169
+#, kde-format
+msgid "Choose what to share with %1:"
+msgstr "%1와(과) 공유할 항목 선택:"
+
+#: src/screenchooserdialog.cpp:177
+#, kde-format
+msgid "Share this screen with the requesting application?"
+msgstr "요청한 프로그램과 화면을 공유하시겠습니까?"
+
+#: src/screenchooserdialog.cpp:179
+#, kde-format
+msgid "Share this screen with %1?"
+msgstr "%1와(과) 이 화면을 공유하시겠습니까?"
+
+#: src/screenchooserdialog.cpp:184
+#, kde-format
+msgid "Choose screens to share with the requesting application:"
+msgstr "요청하는 프로그램과 공유할 화면을 선택하십시오:"
+
+#: src/screenchooserdialog.cpp:186
+#, kde-format
+msgid "Choose screens to share with %1:"
+msgstr "%1와(과) 공유할 화면 선택:"
+
+#: src/screenchooserdialog.cpp:190
+#, kde-format
+msgid "Choose which screen to share with the requesting application:"
+msgstr "요청하는 프로그램과 공유할 화면을 선택하십시오:"
+
+#: src/screenchooserdialog.cpp:192
+#, kde-format
+msgid "Choose which screen to share with %1:"
+msgstr "%1와(과) 공유할 화면 선택:"
+
+#: src/screenchooserdialog.cpp:202
+#, kde-format
+msgid "Share this window with the requesting application?"
+msgstr "요청한 프로그램과 창을 공유하시겠습니까?"
+
+#: src/screenchooserdialog.cpp:204
+#, kde-format
+msgid "Share this window with %1?"
+msgstr "%1와(과) 이 창을 공유하시겠습니까?"
+
+#: src/screenchooserdialog.cpp:209
+#, kde-format
+msgid "Choose windows to share with the requesting application:"
+msgstr "요청하는 프로그램과 공유할 창을 선택하십시오:"
+
+#: src/screenchooserdialog.cpp:211
+#, kde-format
+msgid "Choose windows to share with %1:"
+msgstr "%1와(과) 공유할 창 선택:"
+
+#: src/screenchooserdialog.cpp:215
+#, kde-format
+msgid "Choose which window to share with the requesting application:"
+msgstr "요청하는 프로그램과 공유할 창을 선택하십시오:"
+
+#: src/screenchooserdialog.cpp:217
+#, kde-format
+msgid "Choose which window to share with %1:"
+msgstr "%1와(과) 공유할 창 선택:"
+
+#: src/screenshotdialog.cpp:88
+#, kde-format
+msgid "Full Screen"
+msgstr "전체 화면"
+
+#: src/screenshotdialog.cpp:89
+#, kde-format
+msgid "Current Screen"
+msgstr "현재 화면"
+
+#: src/screenshotdialog.cpp:90
+#, kde-format
+msgid "Active Window"
+msgstr "활성 창"
+
+#: src/userinfodialog.cpp:32
+#, kde-format
+msgid "Share Information"
+msgstr "정보 공유"
+
+#: src/userinfodialog.cpp:33
+#, kde-format
+msgid "Share your personal information with the requesting application?"
+msgstr "요청하는 프로그램과 개인 정보를 공유하시겠습니까?"
+
+#: src/waylandintegration.cpp:271
+#, kde-format
+msgid "Recording window \"%1\"..."
+msgstr "\"%1\" 창 녹화 중..."
+
+#: src/waylandintegration.cpp:281
+#, kde-format
+msgid "Recording screen \"%1\"..."
+msgstr "\"%1\" 화면 녹화 중..."
+
+#: src/waylandintegration.cpp:298
+#, kde-format
+msgid "Recording workspace..."
+msgstr "작업 공간 녹화 중..."
+
+#: src/waylandintegration.cpp:310
+#, kde-format
+msgid "Recording virtual output '%1'..."
+msgstr "가상 출력 '%1' 녹화 중..."
+
+#: src/waylandintegration.cpp:329
+#, kde-format
+msgid "Failed to start screencasting"
+msgstr "스크린캐스팅을 시작할 수 없음"
+
+#: src/waylandintegration.cpp:359
+#, kde-format
+msgctxt "@action:inmenu stops screen/window recording"
+msgid "Stop Recording"
+msgstr "녹화 중지"
+
+#: src/waylandintegration.cpp:494
+#, kde-format
+msgid "Remote desktop"
+msgstr "원격 데스크톱"
+
+#: src/xdg-desktop-portal-kde.cpp:28
+#, kde-format
+msgid "Portal"
+msgstr "포털"
+
+#~ msgid "Press to cancel"
+#~ msgstr "취소하려면 누르기"
+
+#~ msgid "xdg-desktop-portals-kde"
+#~ msgstr "xdg-desktop-portals-kde"
+
+#~ msgid "Open with..."
+#~ msgstr "다음으로 열기..."
+
+#~ msgid "Icon"
+#~ msgstr "아이콘"
+
+#~ msgid "TextLabel"
+#~ msgstr "텍스트 레이블"
+
+#~ msgid "Share"
+#~ msgstr "공유"
+
+#~ msgid "Windows"
+#~ msgstr "창"
+
+#~ msgid "Request screenshot"
+#~ msgstr "스크린샷 요청"
+
+#~ msgid "<b>Capture Mode</b>"
+#~ msgstr "<b>캡처 모드</b>"
+
+#~ msgid "Area:"
+#~ msgstr "영역:"
+
+#~ msgid "Full Screen (All Monitors)"
+#~ msgstr "전체 화면(모든 모니터)"
+
+#~ msgid "Delay:"
+#~ msgstr "지연 시간:"
+
+#~ msgid "No Delay"
+#~ msgstr "지연 없음"
+
+#~ msgid "<b>Content Options</b>"
+#~ msgstr "<b>내용 옵션</b>"
+
+#~ msgid "Include mouse pointer"
+#~ msgstr "마우스 포인터 포함"
+
+#~ msgid "Include window borders"
+#~ msgstr "창 경계선 포함"
+
+#~ msgid "Take screenshot"
+#~ msgstr "스크린샷 찍기"
+
+#~ msgid "Failed to create PipeWire context"
+#~ msgstr "PipeWire 콘텍스트를 만들 수 없음"
+
+#~ msgid "Failed to connect PipeWire context"
+#~ msgstr "PipeWire 콘텍스트에 연결할 수 없음"
+
+#~ msgid "Failed to create PipeWire stream"
+#~ msgstr "PipeWire 스트림을 만들 수 없음"
+
+#~ msgid "Failed to start main PipeWire loop"
+#~ msgstr "주 PipeWire 루프를 시작할 수 없음"
+
+#~ msgctxt "Introduces an error message"
+#~ msgid "Error: %1"
+#~ msgstr "오류: %1"
+
+#~ msgid ""
+#~ "Select application to open \"%1\". Other applications are available in <a "
+#~ "href=#discover><span style=\"text-decoration: underline\">Discover</"
+#~ "span></a>."
+#~ msgstr ""
+#~ "\"%1\"을(를) 열 프로그램을 선택하십시오. <a href=#discover><span style="
+#~ "\"text-decoration: underline\">발견</span></a> 프로그램에서 더 많은 프로그"
+#~ "램을 찾을 수 있습니다."
+
+#~ msgid "Search"
+#~ msgstr "찾기"

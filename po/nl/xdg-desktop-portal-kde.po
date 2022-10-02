@@ -1,0 +1,415 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2017, 2018, 2019, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-29 00:48+0000\n"
+"PO-Revision-Date: 2022-08-20 13:00+0200\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.04.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Freek de Kruijf - 2022"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "freekdekruijf@kde.nl"
+
+#: src/accessdialog.cpp:22
+#, kde-format
+msgid "Request device access"
+msgstr "Toegang tot apparaat verzoeken"
+
+#: src/appchooser.cpp:96
+#, kde-format
+msgctxt "count of files to open"
+msgid "%1 files"
+msgstr "%1 bestanden"
+
+#: src/appchooserdialog.cpp:34
+#, kde-format
+msgid "Select an application to open '%1'"
+msgstr "Een toepassing selecteren om '%1' te openen"
+
+#: src/background.cpp:83
+#, kde-format
+msgid "Background activity"
+msgstr "Achtergrondactiviteit"
+
+#: src/background.cpp:84
+#, kde-format
+msgid "%1 is running in the background."
+msgstr "%1 is actief in de achtergrond."
+
+#: src/background.cpp:85
+#, kde-format
+msgid "Find out more"
+msgstr "Probeer meer te weten te komen"
+
+#: src/background.cpp:114
+#, kde-format
+msgid "%1 is running in the background"
+msgstr "%1 is actief in de achtergrond"
+
+#: src/background.cpp:116
+#, kde-format
+msgid ""
+"This might be for a legitimate reason, but the application has not provided "
+"one.\n"
+"\n"
+"Note that forcing an application to quit might cause data loss."
+msgstr ""
+"Dit kan zijn voor een legitieme reden, maar de toepassing heeft er geen "
+"rekening mee gehouden.\n"
+"\n"
+"Merk op dat een toepassing te dwingen tot stoppen, verlies van gegevens kan "
+"betekenen."
+
+#: src/background.cpp:119
+#, kde-format
+msgid "Force quit"
+msgstr "Afsluiten afdwingen"
+
+#: src/background.cpp:120
+#, kde-format
+msgid "Allow"
+msgstr "Toestaan"
+
+#: src/dynamiclauncher.cpp:76
+#, kde-format
+msgctxt "@title"
+msgid "Add Web Application…"
+msgstr "Webtoepassing toevoegen…"
+
+#: src/dynamiclauncher.cpp:81
+#, kde-format
+msgctxt "@title"
+msgid "Add Application…"
+msgstr "Toepassing toevoegen…"
+
+#: src/filechooser.cpp:369
+#, kde-format
+msgid "Open"
+msgstr "Openen"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:100
+#, kde-format
+msgid "Select Folder"
+msgstr "Map selecteren"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
+#, kde-format
+msgid "Open File"
+msgstr "Bestand openen"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#, kde-format
+msgid "Save File"
+msgstr "Bestand opslaan"
+
+#: src/outputsmodel.cpp:18
+#, kde-format
+msgid "Full Workspace"
+msgstr "Volledige werkruimte"
+
+#: src/outputsmodel.cpp:22
+#, kde-format
+msgid "New Virtual Output"
+msgstr "Nieuwe virtuele uitvoer"
+
+#: src/outputsmodel.cpp:28 src/screencastwidget.cpp:24
+#, kde-format
+msgid ""
+"Laptop screen\n"
+"Model: %1"
+msgstr ""
+"Laptopscherm\n"
+"model: %1"
+
+#: src/outputsmodel.cpp:31 src/screencastwidget.cpp:27
+#: src/screencastwidget.cpp:30
+#, kde-format
+msgid ""
+"Manufacturer: %1\n"
+"Model: %2"
+msgstr ""
+"Fabrikant: %1\n"
+"model: %2"
+
+#: src/remotedesktopdialog.cpp:40
+#, kde-format
+msgid "Select what to share with the requesting application"
+msgstr "Selecteer wat te delen met de vragende toepassing"
+
+#: src/remotedesktopdialog.cpp:42
+#, kde-format
+msgid "Select what to share with %1"
+msgstr "Selecteer wat te delen met %1"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, RemoteDesktopDialog)
+#: src/remotedesktopdialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Dialoog"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/remotedesktopdialog.ui:38
+#, kde-format
+msgid "Allow access to:"
+msgstr "Toegang toestaan tot:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, pointerCheckbox)
+#: src/remotedesktopdialog.ui:47
+#, kde-format
+msgid "Pointer"
+msgstr "Aanwijzer"
+
+#. i18n: ectx: property (text), widget (QCheckBox, keyboardCheckbox)
+#: src/remotedesktopdialog.ui:57
+#, kde-format
+msgid "Keyboard"
+msgstr "Toetsenbord"
+
+#. i18n: ectx: property (text), widget (QCheckBox, touchScreenCheckbox)
+#: src/remotedesktopdialog.ui:67
+#, kde-format
+msgid "Touch screen"
+msgstr "Aanraakscherm"
+
+#: src/screencast.cpp:318
+#, kde-format
+msgctxt "Do not disturb mode is enabled because..."
+msgid "Screen sharing in progress"
+msgstr "Delen van schermen is bezig"
+
+#: src/screenchooserdialog.cpp:138
+#, kde-format
+msgid "Screen Sharing"
+msgstr "Delen van schermen"
+
+#: src/screenchooserdialog.cpp:167
+#, kde-format
+msgid "Choose what to share with the requesting application:"
+msgstr "Kies wat te delen met de vragende toepassing:"
+
+#: src/screenchooserdialog.cpp:169
+#, kde-format
+msgid "Choose what to share with %1:"
+msgstr "Kies wat te delen met %1:"
+
+#: src/screenchooserdialog.cpp:177
+#, kde-format
+msgid "Share this screen with the requesting application?"
+msgstr "Dit scherm delen met de vragende toepassing?"
+
+#: src/screenchooserdialog.cpp:179
+#, kde-format
+msgid "Share this screen with %1?"
+msgstr "Dit scherm delen met %1?"
+
+#: src/screenchooserdialog.cpp:184
+#, kde-format
+msgid "Choose screens to share with the requesting application:"
+msgstr "Kies te delen schermen met de vragende toepassing"
+
+#: src/screenchooserdialog.cpp:186
+#, kde-format
+msgid "Choose screens to share with %1:"
+msgstr "Kies te delen scherm met %1:"
+
+#: src/screenchooserdialog.cpp:190
+#, kde-format
+msgid "Choose which screen to share with the requesting application:"
+msgstr "Kies welk te delen scherm met de vragende toepassing:"
+
+#: src/screenchooserdialog.cpp:192
+#, kde-format
+msgid "Choose which screen to share with %1:"
+msgstr "Kies welk te delen scherm met %1:"
+
+#: src/screenchooserdialog.cpp:202
+#, kde-format
+msgid "Share this window with the requesting application?"
+msgstr "Dit venster delen met de vragende toepassing?"
+
+#: src/screenchooserdialog.cpp:204
+#, kde-format
+msgid "Share this window with %1?"
+msgstr "Dit venster delen met %1?"
+
+#: src/screenchooserdialog.cpp:209
+#, kde-format
+msgid "Choose windows to share with the requesting application:"
+msgstr "Kies te delen vensters met de vragende toepassing:"
+
+#: src/screenchooserdialog.cpp:211
+#, kde-format
+msgid "Choose windows to share with %1:"
+msgstr "Kies te delen vensters met %1:"
+
+#: src/screenchooserdialog.cpp:215
+#, kde-format
+msgid "Choose which window to share with the requesting application:"
+msgstr "Kies welk te delen venster met de vragende toepassing:"
+
+#: src/screenchooserdialog.cpp:217
+#, kde-format
+msgid "Choose which window to share with %1:"
+msgstr "Selecteer welk venster te delen met %1:"
+
+#: src/screenshotdialog.cpp:88
+#, kde-format
+msgid "Full Screen"
+msgstr "Volledig scherm"
+
+#: src/screenshotdialog.cpp:89
+#, kde-format
+msgid "Current Screen"
+msgstr "Huidig scherm"
+
+#: src/screenshotdialog.cpp:90
+#, kde-format
+msgid "Active Window"
+msgstr "Actief venster"
+
+#: src/userinfodialog.cpp:32
+#, kde-format
+msgid "Share Information"
+msgstr "Informatie delen"
+
+#: src/userinfodialog.cpp:33
+#, kde-format
+msgid "Share your personal information with the requesting application?"
+msgstr "Uw persoonlijke informatie delen met de vragende toepassing?"
+
+#: src/waylandintegration.cpp:271
+#, kde-format
+msgid "Recording window \"%1\"..."
+msgstr "Venster \"%1\" wordt opgenomen..."
+
+#: src/waylandintegration.cpp:281
+#, kde-format
+msgid "Recording screen \"%1\"..."
+msgstr "Scherm \"%1\" wordt opgenomen..."
+
+#: src/waylandintegration.cpp:298
+#, kde-format
+msgid "Recording workspace..."
+msgstr "Werkruimte wordt opgenomen..."
+
+#: src/waylandintegration.cpp:310
+#, kde-format
+msgid "Recording virtual output '%1'..."
+msgstr "Virtuele uitvoer '%1' wordt opgenomen..."
+
+#: src/waylandintegration.cpp:329
+#, kde-format
+msgid "Failed to start screencasting"
+msgstr "Beginnen van screencasting is mislukt"
+
+#: src/waylandintegration.cpp:359
+#, kde-format
+msgctxt "@action:inmenu stops screen/window recording"
+msgid "Stop Recording"
+msgstr "Opnemen stoppen"
+
+#: src/waylandintegration.cpp:494
+#, kde-format
+msgid "Remote desktop"
+msgstr "Bureaublad op afstand"
+
+#: src/xdg-desktop-portal-kde.cpp:28
+#, kde-format
+msgid "Portal"
+msgstr "Portaal"
+
+#~ msgid "Press to cancel"
+#~ msgstr "Drukken om te annuleren"
+
+#~ msgid "xdg-desktop-portals-kde"
+#~ msgstr "xdg-desktop-portals-kde"
+
+#~ msgid "Open with..."
+#~ msgstr "Openen met..."
+
+#~ msgid "Icon"
+#~ msgstr "Pictogram"
+
+#~ msgid "TextLabel"
+#~ msgstr "Tekstlabel"
+
+#~ msgid "Share"
+#~ msgstr "Delen"
+
+#~ msgid "Windows"
+#~ msgstr "Vensters"
+
+#~ msgid "Request screenshot"
+#~ msgstr "Om schermafdruk vragen"
+
+#~ msgid "<b>Capture Mode</b>"
+#~ msgstr "<b>Opnamemodus</b>"
+
+#~ msgid "Area:"
+#~ msgstr "Gebied:"
+
+#~ msgid "Full Screen (All Monitors)"
+#~ msgstr "Volledig scherm (alle monitoren)"
+
+#~ msgid "Delay:"
+#~ msgstr "Vertraging:"
+
+#~ msgid "No Delay"
+#~ msgstr "Geen vertraging"
+
+#~ msgid "<b>Content Options</b>"
+#~ msgstr "<b>Opties voor inhoud</b>"
+
+#~ msgid "Include mouse pointer"
+#~ msgstr "Muisaanwijzer ook meenemen"
+
+#~ msgid "Include window borders"
+#~ msgstr "Vensterranden meenemen"
+
+#~ msgid "Take screenshot"
+#~ msgstr "Schermafdruk maken"
+
+#~ msgid "Failed to create PipeWire context"
+#~ msgstr "Aanmaken van PipeWire-context is mislukt"
+
+#~ msgid "Failed to connect PipeWire context"
+#~ msgstr "Verbinden met PipeWire-context is mislukt"
+
+#~ msgid "Failed to create PipeWire stream"
+#~ msgstr "Aanmaken van PipeWire-stream is mislukt"
+
+#~ msgid "Failed to start main PipeWire loop"
+#~ msgstr "Starten van hoofd PipeWire-loop is mislukt"
+
+#~ msgctxt "Introduces an error message"
+#~ msgid "Error: %1"
+#~ msgstr "Fout: %1"
+
+#~ msgid ""
+#~ "Select application to open \"%1\". Other applications are available in <a "
+#~ "href=#discover><span style=\"text-decoration: underline\">Discover</"
+#~ "span></a>."
+#~ msgstr ""
+#~ "Selecteer de te openen toepassing \"%1\". Andere toepassingen zijn "
+#~ "beschikbaar in <a href=#discover><span style=\"text-decoration: underline"
+#~ "\">Ontdekken</span></a>."
+
+#~ msgid "Search"
+#~ msgstr "Zoeken"

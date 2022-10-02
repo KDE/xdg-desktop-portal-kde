@@ -1,0 +1,395 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# A S Alam <aalam@users.sf.net>, 2017, 2018, 2019, 2020, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-29 00:48+0000\n"
+"PO-Revision-Date: 2022-06-11 09:29-0700\n"
+"Last-Translator: A S Alam <aalam@satluj.org>\n"
+"Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 21.12.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ ੨੦੨੨"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "alam.yellow@gmail.com"
+
+#: src/accessdialog.cpp:22
+#, kde-format
+msgid "Request device access"
+msgstr "ਜੰਤਰ ਲਈ ਪਹੁੰਚ ਬੇਨਤੀ"
+
+#: src/appchooser.cpp:96
+#, kde-format
+msgctxt "count of files to open"
+msgid "%1 files"
+msgstr ""
+
+#: src/appchooserdialog.cpp:34
+#, kde-format
+msgid "Select an application to open '%1'"
+msgstr "'%1' ਖੋਲ੍ਹਣ ਲਈ ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
+
+#: src/background.cpp:83
+#, kde-format
+msgid "Background activity"
+msgstr "ਬੈਕਗਰਾਊਂਡ ਸਰਗਰਮੀ"
+
+#: src/background.cpp:84
+#, kde-format
+msgid "%1 is running in the background."
+msgstr "%1 ਬੈਕਗਰਾਊਂਡ 'ਚ ਚੱਲ ਰਹੀ ਹੈ।"
+
+#: src/background.cpp:85
+#, kde-format
+msgid "Find out more"
+msgstr "ਹੋਰ ਲੱਭੋ"
+
+#: src/background.cpp:114
+#, kde-format
+msgid "%1 is running in the background"
+msgstr "%1 ਬੈਕਗਰਾਊਂਡ 'ਚ ਚੱਲ ਰਹੀ ਹੈ"
+
+#: src/background.cpp:116
+#, kde-format
+msgid ""
+"This might be for a legitimate reason, but the application has not provided "
+"one.\n"
+"\n"
+"Note that forcing an application to quit might cause data loss."
+msgstr ""
+
+#: src/background.cpp:119
+#, kde-format
+msgid "Force quit"
+msgstr "ਬੰਦ ਹੋਣ ਲਈ ਮਜ਼ਬੂਰ ਕਰੋ"
+
+#: src/background.cpp:120
+#, kde-format
+msgid "Allow"
+msgstr "ਮਨਜ਼ੂਰ"
+
+#: src/dynamiclauncher.cpp:76
+#, kde-format
+msgctxt "@title"
+msgid "Add Web Application…"
+msgstr "…ਵੈੱਬ ਐਪਲੀਕੇਸ਼ਨ ਜੋੜੋ"
+
+#: src/dynamiclauncher.cpp:81
+#, kde-format
+msgctxt "@title"
+msgid "Add Application…"
+msgstr "…ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
+
+#: src/filechooser.cpp:369
+#, kde-format
+msgid "Open"
+msgstr "ਖੋਲ੍ਹੋ"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:100
+#, kde-format
+msgid "Select Folder"
+msgstr "ਫੋਲਡਰ ਚੁਣੋ"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
+#, kde-format
+msgid "Open File"
+msgstr "ਫ਼ਾਇਲ ਖੋਲ੍ਹੋ"
+
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#, kde-format
+msgid "Save File"
+msgstr "ਫਾਇਲ ਸੰਭਾਲੋ"
+
+#: src/outputsmodel.cpp:18
+#, kde-format
+msgid "Full Workspace"
+msgstr "ਪੂਰਾ ਵਰਕਸਪੇਸ"
+
+#: src/outputsmodel.cpp:22
+#, kde-format
+msgid "New Virtual Output"
+msgstr "ਨਵਾਂ ਵਰਚੁਅਲ ਆਉਟਪੁੱਟ"
+
+#: src/outputsmodel.cpp:28 src/screencastwidget.cpp:24
+#, kde-format
+msgid ""
+"Laptop screen\n"
+"Model: %1"
+msgstr ""
+"ਲੈਪਟਾਪ ਸਕਰੀਨ\n"
+"ਮਾਡਲ: %1"
+
+#: src/outputsmodel.cpp:31 src/screencastwidget.cpp:27
+#: src/screencastwidget.cpp:30
+#, kde-format
+msgid ""
+"Manufacturer: %1\n"
+"Model: %2"
+msgstr ""
+"ਨਿਰਮਾਤਾ: %1\n"
+"ਮਾਡਲ: %2"
+
+#: src/remotedesktopdialog.cpp:40
+#, kde-format
+msgid "Select what to share with the requesting application"
+msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੋਣ ਕਰੋ"
+
+#: src/remotedesktopdialog.cpp:42
+#, kde-format
+msgid "Select what to share with %1"
+msgstr "ਚੁਣੋ ਕਿ %1 ਨਾਲ ਕੀ ਸਾਂਝਾ ਕਰਨਾ ਹੈ"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, RemoteDesktopDialog)
+#: src/remotedesktopdialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "ਡਾਈਲਾਗ"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/remotedesktopdialog.ui:38
+#, kde-format
+msgid "Allow access to:"
+msgstr "ਇਸ ਲਈ ਪਹੁੰਚ ਲਈ ਸਹਿਮਤੀ:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, pointerCheckbox)
+#: src/remotedesktopdialog.ui:47
+#, kde-format
+msgid "Pointer"
+msgstr "ਪੁਆਇੰਟਰ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, keyboardCheckbox)
+#: src/remotedesktopdialog.ui:57
+#, kde-format
+msgid "Keyboard"
+msgstr "ਕੀਬੋਰਡ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, touchScreenCheckbox)
+#: src/remotedesktopdialog.ui:67
+#, kde-format
+msgid "Touch screen"
+msgstr "ਟੱਚ ਸਕਰੀਨ"
+
+#: src/screencast.cpp:318
+#, kde-format
+msgctxt "Do not disturb mode is enabled because..."
+msgid "Screen sharing in progress"
+msgstr "ਸ਼ੇਅਰ ਸਾਂਝਾ ਕਰਨਾ ਜਾਰੀ ਹੈ"
+
+#: src/screenchooserdialog.cpp:138
+#, kde-format
+msgid "Screen Sharing"
+msgstr "ਸਕਰੀਨ ਸਾਂਝਾ ਕਰਨਾ"
+
+#: src/screenchooserdialog.cpp:167
+#, kde-format
+msgid "Choose what to share with the requesting application:"
+msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੁਣੋ:"
+
+#: src/screenchooserdialog.cpp:169
+#, kde-format
+msgid "Choose what to share with %1:"
+msgstr "ਚੁਣੋ ਕਿ %1 ਨਾਲ ਕੀ ਸਾਂਝਾ ਕਰਨਾ ਹੈ:"
+
+#: src/screenchooserdialog.cpp:177
+#, kde-format
+msgid "Share this screen with the requesting application?"
+msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਇਹ ਸਕਰੀਨ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
+
+#: src/screenchooserdialog.cpp:179
+#, kde-format
+msgid "Share this screen with %1?"
+msgstr "ਇਹ ਸਕਰੀਨ %1 ਨਾਲ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
+
+#: src/screenchooserdialog.cpp:184
+#, fuzzy, kde-format
+#| msgid "Select screen to share with the requesting application"
+msgid "Choose screens to share with the requesting application:"
+msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ"
+
+#: src/screenchooserdialog.cpp:186
+#, fuzzy, kde-format
+#| msgid "Select screen to share with %1"
+msgid "Choose screens to share with %1:"
+msgstr "%1 ਨਾਲ ਸਾਂਝੀ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ"
+
+#: src/screenchooserdialog.cpp:190
+#, fuzzy, kde-format
+#| msgid "Select screen to share with the requesting application"
+msgid "Choose which screen to share with the requesting application:"
+msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ"
+
+#: src/screenchooserdialog.cpp:192
+#, fuzzy, kde-format
+#| msgid "Select screen to share with %1"
+msgid "Choose which screen to share with %1:"
+msgstr "%1 ਨਾਲ ਸਾਂਝੀ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ"
+
+#: src/screenchooserdialog.cpp:202
+#, fuzzy, kde-format
+#| msgid "Select what to share with the requesting application"
+msgid "Share this window with the requesting application?"
+msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੋਣ ਕਰੋ"
+
+#: src/screenchooserdialog.cpp:204
+#, kde-format
+msgid "Share this window with %1?"
+msgstr "ਇਹ ਵਿੰਡੋ %1 ਨਾਲ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
+
+#: src/screenchooserdialog.cpp:209
+#, fuzzy, kde-format
+#| msgid "Select what to share with the requesting application"
+msgid "Choose windows to share with the requesting application:"
+msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੋਣ ਕਰੋ"
+
+#: src/screenchooserdialog.cpp:211
+#, fuzzy, kde-format
+#| msgid "Select what to share with %1"
+msgid "Choose windows to share with %1:"
+msgstr "ਚੁਣੋ ਕਿ %1 ਨਾਲ ਕੀ ਸਾਂਝਾ ਕਰਨਾ ਹੈ"
+
+#: src/screenchooserdialog.cpp:215
+#, fuzzy, kde-format
+#| msgid "Select what to share with the requesting application"
+msgid "Choose which window to share with the requesting application:"
+msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੋਣ ਕਰੋ"
+
+#: src/screenchooserdialog.cpp:217
+#, fuzzy, kde-format
+#| msgid "Select what to share with %1"
+msgid "Choose which window to share with %1:"
+msgstr "ਚੁਣੋ ਕਿ %1 ਨਾਲ ਕੀ ਸਾਂਝਾ ਕਰਨਾ ਹੈ"
+
+#: src/screenshotdialog.cpp:88
+#, kde-format
+msgid "Full Screen"
+msgstr "ਪੂਰੀ ਸਕਰੀਨ"
+
+#: src/screenshotdialog.cpp:89
+#, kde-format
+msgid "Current Screen"
+msgstr "ਮੌਜੂਦਾ ਸਕਰੀਨ"
+
+#: src/screenshotdialog.cpp:90
+#, kde-format
+msgid "Active Window"
+msgstr "ਸਰਗਰਮ ਵਿੰਡੋ"
+
+#: src/userinfodialog.cpp:32
+#, kde-format
+msgid "Share Information"
+msgstr "ਜਾਣਕਾਰੀ ਸਾਂਝੀ ਕਰੋ"
+
+#: src/userinfodialog.cpp:33
+#, fuzzy, kde-format
+#| msgid "Select what to share with the requesting application"
+msgid "Share your personal information with the requesting application?"
+msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੋਣ ਕਰੋ"
+
+#: src/waylandintegration.cpp:271
+#, kde-format
+msgid "Recording window \"%1\"..."
+msgstr "\"%1\" ਵਿੰਡੋ ਰਿਕਾਰਡ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…"
+
+#: src/waylandintegration.cpp:281
+#, kde-format
+msgid "Recording screen \"%1\"..."
+msgstr "\"%1\" ਸਕਰੀਨ ਰਿਕਾਰਡ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…"
+
+#: src/waylandintegration.cpp:298
+#, kde-format
+msgid "Recording workspace..."
+msgstr "ਵਰਕਸਪੇਸ ਰਿਕਾਰਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"
+
+#: src/waylandintegration.cpp:310
+#, kde-format
+msgid "Recording virtual output '%1'..."
+msgstr "'%1' ਵਰਚੁਅਲ ਆਉਟਪੁੱਟ ਰਿਕਾਰਡ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…"
+
+#: src/waylandintegration.cpp:329
+#, kde-format
+msgid "Failed to start screencasting"
+msgstr "ਸਕਰੀਨ-ਕਾਸਟ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਅਸਫ਼ਲ"
+
+#: src/waylandintegration.cpp:359
+#, kde-format
+msgctxt "@action:inmenu stops screen/window recording"
+msgid "Stop Recording"
+msgstr ""
+
+#: src/waylandintegration.cpp:494
+#, kde-format
+msgid "Remote desktop"
+msgstr "ਰਿਮੋਟ ਡੈਸਕਟਾਪ"
+
+#: src/xdg-desktop-portal-kde.cpp:28
+#, kde-format
+msgid "Portal"
+msgstr "ਪੋਰਟਲ"
+
+#~ msgid "Press to cancel"
+#~ msgstr "ਰੱਦ ਕਰਨ ਲਈ ਦਬਾਓ"
+
+#~ msgid "xdg-desktop-portals-kde"
+#~ msgstr "xdg-desktop-portals-kde"
+
+#~ msgid "Open with..."
+#~ msgstr "...ਨਾਲ ਖੋਲ੍ਹੋ"
+
+#~ msgid "Icon"
+#~ msgstr "ਆਈਕਾਨ"
+
+#~ msgid "TextLabel"
+#~ msgstr "TextLabel"
+
+#~ msgid "Share"
+#~ msgstr "ਸਾਂਝਾ ਕਰੋ"
+
+#~ msgid "Windows"
+#~ msgstr "ਵਿੰਡੋ"
+
+#~ msgid "Request screenshot"
+#~ msgstr "ਸਕਰੀਨਸ਼ਾਟ ਦੀ ਬੇਨਤੀ"
+
+#~ msgid "<b>Capture Mode</b>"
+#~ msgstr "<b>ਕੈਪਚਰ ਢੰਗ</b>"
+
+#~ msgid "Area:"
+#~ msgstr "ਖੇਤਰ:"
+
+#~ msgid "Full Screen (All Monitors)"
+#~ msgstr "ਪੂਰੀ ਸਕਰੀਨ (ਸਾਰੇ ਮਾਨੀਟਰ)"
+
+#~ msgid "Delay:"
+#~ msgstr "ਦੇਰੀ:"
+
+#~ msgid "No Delay"
+#~ msgstr "ਕੋਈ ਦੇਰੀ ਨਹੀਂ"
+
+#~ msgid "<b>Content Options</b>"
+#~ msgstr "<b>ਸਮੱਗਰੀ ਚੋਣਾਂ</b>"
+
+#~ msgid "Include mouse pointer"
+#~ msgstr "ਮਾਊਸ ਪੁਆਇੰਟਰ ਸਮੇਤ"
+
+#~ msgid "Include window borders"
+#~ msgstr "ਵਿੰਡੋ ਹਾਸ਼ੀਏ ਦੇ ਸਮੇਤ"
+
+#~ msgid "Take screenshot"
+#~ msgstr "ਸਕਰੀਨ-ਸ਼ਾਟ ਲਵੋ"
+
+#~ msgid "Search"
+#~ msgstr "ਖੋਜ"
