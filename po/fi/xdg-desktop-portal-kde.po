@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-29 00:48+0000\n"
-"PO-Revision-Date: 2022-04-18 22:17+0300\n"
+"PO-Revision-Date: 2022-10-11 11:02+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 20.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -41,7 +41,7 @@ msgstr ""
 #: src/appchooserdialog.cpp:34
 #, kde-format
 msgid "Select an application to open '%1'"
-msgstr ""
+msgstr "Valitse sovellus, johon ”%1” avataan"
 
 #: src/background.cpp:83
 #, kde-format
@@ -87,18 +87,16 @@ msgid "Allow"
 msgstr "Salli"
 
 #: src/dynamiclauncher.cpp:76
-#, fuzzy, kde-format
-#| msgid "Select application"
+#, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
-msgstr "Valitse sovellus"
+msgstr "Lisää verkkosovellus…"
 
 #: src/dynamiclauncher.cpp:81
-#, fuzzy, kde-format
-#| msgid "Select application"
+#, kde-format
 msgctxt "@title"
 msgid "Add Application…"
-msgstr "Valitse sovellus"
+msgstr "Lisää sovellus…"
 
 #: src/filechooser.cpp:369
 #, kde-format
@@ -128,7 +126,7 @@ msgstr "Koko työtila"
 #: src/outputsmodel.cpp:22
 #, kde-format
 msgid "New Virtual Output"
-msgstr ""
+msgstr "Seuraava virtuaaliulostulo"
 
 #: src/outputsmodel.cpp:28 src/screencastwidget.cpp:24
 #, kde-format
@@ -311,10 +309,9 @@ msgid "Recording workspace..."
 msgstr "Nauhoitetaan työtilaa…"
 
 #: src/waylandintegration.cpp:310
-#, fuzzy, kde-format
-#| msgid "Recording window \"%1\"..."
+#, kde-format
 msgid "Recording virtual output '%1'..."
-msgstr "Nauhoitetaan ikkunaa ”%1”…"
+msgstr "Nauhoitetaan virtuaaliulostuloa ”%1”…"
 
 #: src/waylandintegration.cpp:329
 #, kde-format
@@ -325,7 +322,7 @@ msgstr "Näytöntoiston käynnistäminen epäonnistui"
 #, kde-format
 msgctxt "@action:inmenu stops screen/window recording"
 msgid "Stop Recording"
-msgstr ""
+msgstr "Lopeta nauhoitus"
 
 #: src/waylandintegration.cpp:494
 #, kde-format
