@@ -277,7 +277,7 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
     auto output = m_outputMap.value(outputName).output();
     m_streamedScreenPosition = output->globalPosition();
     return startStreaming(m_screencasting->createOutputStream(output.data(), mode),
-                          QStringLiteral("monitor"),
+                          QStringLiteral("media-record"),
                           i18n("Recording screen \"%1\"...", output->model()),
                           {
                               {QLatin1String("size"), output->pixelSize()},
@@ -294,7 +294,7 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
     }
     m_streamedScreenPosition = workspace.topLeft();
     return startStreaming(m_screencasting->createRegionStream(workspace, 1, mode),
-                          QStringLiteral("monitor"),
+                          QStringLiteral("media-record"),
                           i18n("Recording workspace..."),
                           {
                               {QLatin1String("size"), workspace.size()},
@@ -306,7 +306,7 @@ WaylandIntegration::Stream
 WaylandIntegration::WaylandIntegrationPrivate::startStreamingVirtualOutput(const QString &name, const QSize &size, Screencasting::CursorMode mode)
 {
     return startStreaming(m_screencasting->createVirtualOutputStream(name, size, 1, mode),
-                          QStringLiteral("monitor"),
+                          QStringLiteral("media-record"),
                           i18n("Recording virtual output '%1'...", name),
                           {
                               {QLatin1String("size"), size},
