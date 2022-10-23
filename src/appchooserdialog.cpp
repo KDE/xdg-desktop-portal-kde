@@ -31,9 +31,10 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &de
     m_model->setPreferredApps(choices);
 
     QVariantMap props = {
+        {"title", i18nc("@title:window", "Select Application")},
         // fileName is actually the full path, confusingly enough. But showing the
         // whole thing is overkill; let's just show the user the file itself
-        {"title", i18n("Select an application to open '%1'", QUrl::fromLocalFile(fileName).fileName())},
+        {"mainText", i18n("Select an application to open '%1'", QUrl::fromLocalFile(fileName).fileName())},
     };
     AppFilterModel *filterModel = new AppFilterModel(this);
     filterModel->setSourceModel(m_model);
