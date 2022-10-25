@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-29 00:48+0000\n"
+"POT-Creation-Date: 2022-10-25 00:49+0000\n"
 "PO-Revision-Date: 2022-09-23 10:41+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -41,8 +41,18 @@ msgid "%1 files"
 msgstr "%1 plików"
 
 #: src/appchooserdialog.cpp:34
-#, kde-format
-msgid "Select an application to open '%1'"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Add Application…"
+msgctxt "@title:window"
+msgid "Choose Application"
+msgstr "Dodaj program..."
+
+#: src/appchooserdialog.cpp:37
+#, fuzzy, kde-kuit-format
+#| msgid "Select an application to open '%1'"
+msgctxt "@info"
+msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Wybierz aplikację do otwarcia '%1'"
 
 #: src/background.cpp:83

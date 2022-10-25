@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-29 00:48+0000\n"
+"POT-Creation-Date: 2022-10-25 00:49+0000\n"
 "PO-Revision-Date: 2022-10-22 05:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -40,8 +40,18 @@ msgid "%1 files"
 msgstr "%1 个文件"
 
 #: src/appchooserdialog.cpp:34
-#, kde-format
-msgid "Select an application to open '%1'"
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Add Application…"
+msgctxt "@title:window"
+msgid "Choose Application"
+msgstr "添加应用程序…"
+
+#: src/appchooserdialog.cpp:37
+#, fuzzy, kde-kuit-format
+#| msgid "Select an application to open '%1'"
+msgctxt "@info"
+msgid "Choose an application to open <filename>%1</filename>"
 msgstr "选择打开“%1”的应用程序"
 
 #: src/background.cpp:83
