@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-25 00:49+0000\n"
-"PO-Revision-Date: 2022-08-21 06:58+0200\n"
+"PO-Revision-Date: 2022-10-26 07:02+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Lokalize 22.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -44,19 +44,16 @@ msgid "%1 files"
 msgstr "%1 datotek"
 
 #: src/appchooserdialog.cpp:34
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Add Application…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
-msgstr "Dodaj aplikacijo…"
+msgstr "Izberi aplikacijo"
 
 #: src/appchooserdialog.cpp:37
-#, fuzzy, kde-kuit-format
-#| msgid "Select an application to open '%1'"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
-msgstr "Izberite aplikacijo za odprtje '%1'"
+msgstr "Izberite aplikacijo za odprtje <filename>%1</filename>"
 
 #: src/background.cpp:83
 #, kde-format
