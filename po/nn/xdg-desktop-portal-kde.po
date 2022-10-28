@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-29 00:48+0000\n"
+"POT-Creation-Date: 2022-10-25 00:49+0000\n"
 "PO-Revision-Date: 2022-09-11 19:44+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -43,8 +43,15 @@ msgstr "%1 filer"
 
 #: src/appchooserdialog.cpp:34
 #, kde-format
-msgid "Select an application to open '%1'"
-msgstr "Vel program for å opna «%1»"
+msgctxt "@title:window"
+msgid "Choose Application"
+msgstr ""
+
+#: src/appchooserdialog.cpp:37
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Choose an application to open <filename>%1</filename>"
+msgstr ""
 
 #: src/background.cpp:83
 #, kde-format
