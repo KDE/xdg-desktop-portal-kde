@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-25 00:49+0000\n"
-"PO-Revision-Date: 2022-09-11 19:44+0200\n"
+"PO-Revision-Date: 2022-10-30 09:32+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -45,13 +45,13 @@ msgstr "%1 filer"
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
-msgstr ""
+msgstr "Vel program"
 
 #: src/appchooserdialog.cpp:37
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
-msgstr ""
+msgstr "Vel eit program for å opna <filename>%1</filename>"
 
 #: src/background.cpp:83
 #, kde-format
