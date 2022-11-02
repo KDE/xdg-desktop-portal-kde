@@ -92,12 +92,12 @@ bool DirModel::isLoading() const
 
 bool DirModel::showDotFiles() const
 {
-    return m_lister->showingDotFiles();
+    return m_lister->showHiddenFiles();
 }
 
 void DirModel::setShowDotFiles(bool showDotFiles)
 {
-    m_lister->setShowingDotFiles(showDotFiles);
+    m_lister->setShowHiddenFiles(showDotFiles);
     m_lister->emitChanges();
     Q_EMIT showDotFilesChanged();
 }
