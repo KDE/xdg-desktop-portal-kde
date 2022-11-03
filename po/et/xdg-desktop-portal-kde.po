@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-25 00:49+0000\n"
+"POT-Creation-Date: 2022-11-03 00:48+0000\n"
 "PO-Revision-Date: 2020-10-11 01:46+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -315,38 +315,38 @@ msgstr "Jaga teavet"
 msgid "Share your personal information with the requesting application?"
 msgstr "Valimine, mida nõutud rakendusega jagada"
 
-#: src/waylandintegration.cpp:271
+#: src/waylandintegration.cpp:283
 #, kde-format
 msgid "Recording window \"%1\"..."
 msgstr ""
 
-#: src/waylandintegration.cpp:281
+#: src/waylandintegration.cpp:293
 #, kde-format
 msgid "Recording screen \"%1\"..."
 msgstr ""
 
-#: src/waylandintegration.cpp:298
+#: src/waylandintegration.cpp:310
 #, kde-format
 msgid "Recording workspace..."
 msgstr ""
 
-#: src/waylandintegration.cpp:310
+#: src/waylandintegration.cpp:322
 #, kde-format
 msgid "Recording virtual output '%1'..."
 msgstr ""
 
-#: src/waylandintegration.cpp:329
+#: src/waylandintegration.cpp:341
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Ekraanivideo tegemise alustamine nurjus"
 
-#: src/waylandintegration.cpp:359
+#: src/waylandintegration.cpp:371
 #, kde-format
 msgctxt "@action:inmenu stops screen/window recording"
 msgid "Stop Recording"
 msgstr ""
 
-#: src/waylandintegration.cpp:494
+#: src/waylandintegration.cpp:652
 #, kde-format
 msgid "Remote desktop"
 msgstr "Kaugtöölaud"

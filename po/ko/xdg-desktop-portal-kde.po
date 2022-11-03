@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-25 00:49+0000\n"
+"POT-Creation-Date: 2022-11-03 00:48+0000\n"
 "PO-Revision-Date: 2022-10-03 15:09+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -303,38 +303,38 @@ msgstr "정보 공유"
 msgid "Share your personal information with the requesting application?"
 msgstr "요청하는 프로그램과 개인 정보를 공유하시겠습니까?"
 
-#: src/waylandintegration.cpp:271
+#: src/waylandintegration.cpp:283
 #, kde-format
 msgid "Recording window \"%1\"..."
 msgstr "\"%1\" 창 녹화 중..."
 
-#: src/waylandintegration.cpp:281
+#: src/waylandintegration.cpp:293
 #, kde-format
 msgid "Recording screen \"%1\"..."
 msgstr "\"%1\" 화면 녹화 중..."
 
-#: src/waylandintegration.cpp:298
+#: src/waylandintegration.cpp:310
 #, kde-format
 msgid "Recording workspace..."
 msgstr "작업 공간 녹화 중..."
 
-#: src/waylandintegration.cpp:310
+#: src/waylandintegration.cpp:322
 #, kde-format
 msgid "Recording virtual output '%1'..."
 msgstr "가상 출력 '%1' 녹화 중..."
 
-#: src/waylandintegration.cpp:329
+#: src/waylandintegration.cpp:341
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "스크린캐스팅을 시작할 수 없음"
 
-#: src/waylandintegration.cpp:359
+#: src/waylandintegration.cpp:371
 #, kde-format
 msgctxt "@action:inmenu stops screen/window recording"
 msgid "Stop Recording"
 msgstr "녹화 중지"
 
-#: src/waylandintegration.cpp:494
+#: src/waylandintegration.cpp:652
 #, kde-format
 msgid "Remote desktop"
 msgstr "원격 데스크톱"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-25 00:49+0000\n"
+"POT-Creation-Date: 2022-11-03 00:48+0000\n"
 "PO-Revision-Date: 2022-10-25 21:18+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -300,38 +300,38 @@ msgstr "விவரங்களை பகிர்தல்"
 msgid "Share your personal information with the requesting application?"
 msgstr "கோரிக்கையிடும் செயலிக்கு உங்களை பற்றிய விவரங்களை வழங்கலாமா?"
 
-#: src/waylandintegration.cpp:271
+#: src/waylandintegration.cpp:283
 #, kde-format
 msgid "Recording window \"%1\"..."
 msgstr "\"%1\" சாளரம் பதிவு செய்யப்படுகிறது..."
 
-#: src/waylandintegration.cpp:281
+#: src/waylandintegration.cpp:293
 #, kde-format
 msgid "Recording screen \"%1\"..."
 msgstr "\"%1\" திரை பதிவு செய்யப்படுகிறது..."
 
-#: src/waylandintegration.cpp:298
+#: src/waylandintegration.cpp:310
 #, kde-format
 msgid "Recording workspace..."
 msgstr "பணிமேடை பதிவு செய்யப்படுகிறது..."
 
-#: src/waylandintegration.cpp:310
+#: src/waylandintegration.cpp:322
 #, kde-format
 msgid "Recording virtual output '%1'..."
 msgstr "மெய்நிகர் வெளியீடு '%1' பதிவு செய்யப்படுகிறது..."
 
-#: src/waylandintegration.cpp:329
+#: src/waylandintegration.cpp:341
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "திரைப்பகிர்வை தொடங்குதல் தோல்வியடைந்தது"
 
-#: src/waylandintegration.cpp:359
+#: src/waylandintegration.cpp:371
 #, kde-format
 msgctxt "@action:inmenu stops screen/window recording"
 msgid "Stop Recording"
 msgstr "பதிவு செய்வதை நிறுத்து"
 
-#: src/waylandintegration.cpp:494
+#: src/waylandintegration.cpp:652
 #, kde-format
 msgid "Remote desktop"
 msgstr "பணிமேடை தொலையியக்கி"

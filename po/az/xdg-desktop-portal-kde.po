@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-25 00:49+0000\n"
+"POT-Creation-Date: 2022-11-03 00:48+0000\n"
 "PO-Revision-Date: 2022-08-24 17:55+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -303,38 +303,38 @@ msgstr "Məlumatları paylaşmaq"
 msgid "Share your personal information with the requesting application?"
 msgstr "Tələb olunan tətbiq ilə şəxsi məlumatlarınız paylaşılsın?"
 
-#: src/waylandintegration.cpp:271
+#: src/waylandintegration.cpp:283
 #, kde-format
 msgid "Recording window \"%1\"..."
 msgstr "Pəncərə \"%1\" yazılır..."
 
-#: src/waylandintegration.cpp:281
+#: src/waylandintegration.cpp:293
 #, kde-format
 msgid "Recording screen \"%1\"..."
 msgstr "Ekran \"%1\" yazılır..."
 
-#: src/waylandintegration.cpp:298
+#: src/waylandintegration.cpp:310
 #, kde-format
 msgid "Recording workspace..."
 msgstr "İş sahəsinin çəkilişi gedir..."
 
-#: src/waylandintegration.cpp:310
+#: src/waylandintegration.cpp:322
 #, kde-format
 msgid "Recording virtual output '%1'..."
 msgstr "Virtual çıxarış \"%1\" yazılır..."
 
-#: src/waylandintegration.cpp:329
+#: src/waylandintegration.cpp:341
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Ekranın paylaşımı baş tutmadı"
 
-#: src/waylandintegration.cpp:359
+#: src/waylandintegration.cpp:371
 #, kde-format
 msgctxt "@action:inmenu stops screen/window recording"
 msgid "Stop Recording"
 msgstr "Yazılışı dayandırın"
 
-#: src/waylandintegration.cpp:494
+#: src/waylandintegration.cpp:652
 #, kde-format
 msgid "Remote desktop"
 msgstr "Şəbəkədəki İş masası"

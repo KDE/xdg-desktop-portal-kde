@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-25 00:49+0000\n"
+"POT-Creation-Date: 2022-11-03 00:48+0000\n"
 "PO-Revision-Date: 2021-07-09 11:02+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -324,40 +324,40 @@ msgstr "Κοινή χρήση πληροφοριών"
 msgid "Share your personal information with the requesting application?"
 msgstr "Επιλέξτε τι θα μοιράζεστε με την εφαρμογή που ζητάει την κοινή χρήση"
 
-#: src/waylandintegration.cpp:271
+#: src/waylandintegration.cpp:283
 #, kde-format
 msgid "Recording window \"%1\"..."
 msgstr "Καταγραφή παραθύρου «%1»..."
 
-#: src/waylandintegration.cpp:281
+#: src/waylandintegration.cpp:293
 #, kde-format
 msgid "Recording screen \"%1\"..."
 msgstr "Καταγραφή οθόνης «%1»..."
 
-#: src/waylandintegration.cpp:298
+#: src/waylandintegration.cpp:310
 #, fuzzy, kde-format
 #| msgid "Recording screen \"%1\"..."
 msgid "Recording workspace..."
 msgstr "Καταγραφή οθόνης «%1»..."
 
-#: src/waylandintegration.cpp:310
+#: src/waylandintegration.cpp:322
 #, fuzzy, kde-format
 #| msgid "Recording window \"%1\"..."
 msgid "Recording virtual output '%1'..."
 msgstr "Καταγραφή παραθύρου «%1»..."
 
-#: src/waylandintegration.cpp:329
+#: src/waylandintegration.cpp:341
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Αποτυχία έναρξης αποτύπωσης οθόνης"
 
-#: src/waylandintegration.cpp:359
+#: src/waylandintegration.cpp:371
 #, kde-format
 msgctxt "@action:inmenu stops screen/window recording"
 msgid "Stop Recording"
 msgstr ""
 
-#: src/waylandintegration.cpp:494
+#: src/waylandintegration.cpp:652
 #, kde-format
 msgid "Remote desktop"
 msgstr "Απομακρυσμένη επιφάνεια εργασίας"
