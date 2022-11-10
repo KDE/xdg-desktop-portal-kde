@@ -13,17 +13,27 @@
 class Output
 {
 public:
-    Output(WaylandIntegration::WaylandOutput::OutputType outputType, int waylandOutputName, const QString &display, const QString &uniqueId)
+    Output(WaylandIntegration::WaylandOutput::OutputType outputType,
+           int waylandOutputName,
+           const QString &display,
+           const QString &uniqueId,
+           const QString &name)
         : m_outputType(outputType)
         , m_waylandOutputName(waylandOutputName)
         , m_display(display)
         , m_uniqueId(uniqueId)
+        , m_name(name)
     {
     }
 
     int waylandOutputName() const
     {
         return m_waylandOutputName;
+    }
+
+    QString name() const
+    {
+        return m_name;
     }
 
     QString iconName() const
@@ -59,6 +69,7 @@ private:
     int m_waylandOutputName;
     QString m_display;
     QString m_uniqueId;
+    QString m_name;
 };
 
 class OutputsModel : public QAbstractListModel
@@ -73,6 +84,11 @@ public:
     };
     Q_ENUM(Option)
     Q_DECLARE_FLAGS(Options, Option)
+
+    enum Roles {
+        OutputNameRole = Qt::UserRole,
+        NameRole,
+    };
 
     OutputsModel(Options o, QObject *parent);
     ~OutputsModel() override;

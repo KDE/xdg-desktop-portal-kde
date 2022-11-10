@@ -15,24 +15,25 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
 
     // Only show the full workspace if there's several outputs
     if (outputs.count() > 1 && (o & WorkspaceIncluded)) {
-        m_outputs << Output{WaylandIntegration::WaylandOutput::Workspace, 0, i18n("Full Workspace"), "Workspace"};
+        m_outputs << Output{WaylandIntegration::WaylandOutput::Workspace, 0, i18n("Full Workspace"), "Workspace", {}};
     }
     if (o & VirtualIncluded) {
         static quint64 i = 0;
-        m_outputs << Output{WaylandIntegration::WaylandOutput::Virtual, 0, i18n("New Virtual Output"), QStringLiteral("Virtual%1").arg(i++)};
+        m_outputs << Output{WaylandIntegration::WaylandOutput::Virtual, 0, i18n("New Virtual Output"), QStringLiteral("Virtual%1").arg(i++), {}};
     }
     for (auto output : outputs) {
         QString display;
         switch (output.outputType()) {
         case WaylandIntegration::WaylandOutput::Laptop:
-            display = i18n("Laptop screen\nModel: %1", output.model());
+            display = i18n("Laptop screen");
             break;
         default:
-            display = i18n("Manufacturer: %1\nModel: %2", output.manufacturer(), output.model());
+            display = output.model();
             break;
         }
         const QPoint pos = output.globalPosition();
-        m_outputs << Output{output.outputType(), output.waylandOutputName(), display, QStringLiteral("%1x%2").arg(pos.x()).arg(pos.y())};
+        m_outputs
+            << Output(output.outputType(), output.waylandOutputName(), display, QStringLiteral("%1x%2").arg(pos.x()).arg(pos.y()), output.output()->name());
     }
 }
 
@@ -48,8 +49,9 @@ QHash<int, QByteArray> OutputsModel::roleNames() const
     return QHash<int, QByteArray>{
         {Qt::DisplayRole, "display"},
         {Qt::DecorationRole, "decoration"},
-        {Qt::UserRole, "outputName"},
         {Qt::CheckStateRole, "checked"},
+        {OutputNameRole, "outputName"},
+        {NameRole, "name"},
     };
 }
 
@@ -61,8 +63,10 @@ QVariant OutputsModel::data(const QModelIndex &index, int role) const
 
     const auto &output = m_outputs[index.row()];
     switch (role) {
-    case Qt::UserRole:
+    case OutputNameRole:
         return output.waylandOutputName();
+    case NameRole:
+        return output.name();
     case Qt::DecorationRole:
         return QIcon::fromTheme(output.iconName());
     case Qt::DisplayRole:

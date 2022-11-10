@@ -8,5 +8,6 @@
     <file>RemoteDesktopDialog.qml</file>
     <file>ScreenshotDialog.qml</file>
     <file>DynamicLauncherDialog.qml</file>
+    <file>PipeWireDelegate.qml</file>
  </qresource>
 </RCC>

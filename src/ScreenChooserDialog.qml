@@ -9,6 +9,7 @@ import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as QQC2
 import org.kde.kirigami 2.14 as Kirigami
 import org.kde.plasma.workspace.dialogs 1.0 as PWD
+import org.kde.taskmanager 0.1 as TaskManager
 
 PWD.SystemDialog
 {
@@ -42,7 +43,8 @@ PWD.SystemDialog
         QQC2.Frame {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.preferredHeight: Kirigami.Units.gridUnit * 10
+            Layout.preferredHeight: Kirigami.Units.gridUnit * 20
+            Layout.preferredWidth: Kirigami.Units.gridUnit * 30
             Kirigami.Theme.inherit: false
             Kirigami.Theme.colorSet: Kirigami.Theme.View
             background: Rectangle {
@@ -56,16 +58,25 @@ PWD.SystemDialog
                 currentIndex: tabView.currentIndex
 
                 QQC2.ScrollView {
-                    ListView {
+                    Kirigami.CardsGridView {
                         id: outputsView
-                        clip: true
                         model: null
-                        delegate: Kirigami.BasicListItem {
-                            icon: model.decoration
-                            label: model.display
-                            highlighted: false
-                            checked: model.checked === Qt.Checked
+                        cellHeight: Kirigami.Units.gridUnit * 15
+                        delegate: PipeWireDelegate {
+                            height: outputsView.cellHeight - Kirigami.Units.largeSpacing
+
+                            banner {
+                                title: model.display
+                                titleIcon: model.decoration
+                            }
                             checkable: true
+                            checked: model.checked === Qt.Checked
+                            nodeId: waylandItem.nodeId
+                            TaskManager.ScreencastingRequest {
+                                id: waylandItem
+                                outputName: model.name
+                            }
+
                             onToggled: {
                                 var to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
                                 if (!root.multiple && to === Qt.Checked) {
@@ -77,16 +88,26 @@ PWD.SystemDialog
                     }
                 }
                 QQC2.ScrollView {
-                    ListView {
+                    Kirigami.CardsGridView {
                         id: windowsView
-                        clip: true
                         model: null
-                        delegate: Kirigami.BasicListItem {
-                            icon: model.DecorationRole
-                            label: model.DisplayRole
-                            highlighted: false
-                            checked: model.checked === Qt.Checked
+                        clip: true
+                        cellHeight: Kirigami.Units.gridUnit * 15
+
+                        delegate: PipeWireDelegate {
+                            height: windowsView.cellHeight - Kirigami.Units.smallSpacing
+                            banner {
+                                title: model.DisplayRole || ""
+                                titleIcon: model.DecorationRole || ""
+                            }
                             checkable: true
+                            checked: model.checked === Qt.Checked
+                            nodeId: waylandItem.nodeId
+                            TaskManager.ScreencastingRequest {
+                                id: waylandItem
+                                uuid: model.Uuid
+                            }
+
                             onToggled: {
                                 var to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
                                 if (!root.multiple && to === Qt.Checked) {
