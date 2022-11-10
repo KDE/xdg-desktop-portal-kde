@@ -22,14 +22,7 @@ class RemoteDesktopDialog : public QuickDialog
 {
     Q_OBJECT
 public:
-    RemoteDesktopDialog(const QString &appName,
-                        RemoteDesktopPortal::DeviceTypes deviceTypes,
-                        bool screenSharingEnabled = false,
-                        bool multiple = false,
-                        QObject *parent = nullptr);
-
-    QList<Output> selectedOutputs() const;
-    RemoteDesktopPortal::DeviceTypes deviceTypes() const;
+    RemoteDesktopDialog(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled, QObject *parent = nullptr);
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_DIALOG_H

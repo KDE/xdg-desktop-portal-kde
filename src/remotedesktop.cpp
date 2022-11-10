@@ -14,6 +14,9 @@
 #include "session.h"
 #include "utils.h"
 #include "waylandintegration.h"
+#include <QGuiApplication>
+#include <QRegion>
+#include <QScreen>
 
 RemoteDesktopPortal::RemoteDesktopPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
@@ -109,14 +112,13 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
         return 2;
     }
 
-    // TODO check whether we got some outputs?
     if (WaylandIntegration::screens().isEmpty()) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Failed to show dialog as there is no screen to select";
         return 2;
     }
 
     QScopedPointer<RemoteDesktopDialog, QScopedPointerDeleteLater> remoteDesktopDialog(
-        new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled(), session->multipleSources()));
+        new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled()));
     Utils::setParentWindow(remoteDesktopDialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequest(handle, remoteDesktopDialog.get());
 
@@ -125,16 +127,17 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
     if (remoteDesktopDialog->exec()) {
         if (session->screenSharingEnabled()) {
             WaylandIntegration::Streams streams;
-            const auto outputs = remoteDesktopDialog->selectedOutputs();
-            if (outputs.isEmpty()) {
-                return 2;
-            }
-            for (const auto &output : outputs) {
-                auto stream = WaylandIntegration::startStreamingOutput(output.waylandOutputName(), Screencasting::Hidden);
-                if (!stream.isValid()) {
-                    return 2;
+            if (session->multipleSources() || WaylandIntegration::screens().count() == 1) {
+                const auto outputs = WaylandIntegration::screens().values();
+                for (const auto &output : outputs) {
+                    auto stream = WaylandIntegration::startStreamingOutput(output.waylandOutputName(), Screencasting::Metadata);
+                    if (!stream.isValid()) {
+                        return 2;
+                    }
+                    streams << stream;
                 }
-                streams << stream;
+            } else {
+                streams << WaylandIntegration::startStreamingWorkspace(Screencasting::Metadata);
             }
 
             results.insert(QStringLiteral("streams"), QVariant::fromValue<WaylandIntegration::Streams>(streams));
@@ -144,7 +147,7 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
         WaylandIntegration::acquireStreamingInput(true);
         WaylandIntegration::authenticate();
 
-        results.insert(QStringLiteral("devices"), QVariant::fromValue<uint>(remoteDesktopDialog->deviceTypes()));
+        results.insert(QStringLiteral("devices"), QVariant::fromValue<uint>(session->deviceTypes()));
 
         return 0;
     }

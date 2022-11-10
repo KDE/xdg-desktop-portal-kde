@@ -16,24 +16,18 @@
 #include <QStandardPaths>
 #include <QWindow>
 
-RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName,
-                                         RemoteDesktopPortal::DeviceTypes deviceTypes,
-                                         bool screenSharingEnabled,
-                                         bool multiple,
-                                         QObject *parent)
+RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled, QObject *parent)
     : QuickDialog(parent)
 {
-    // We disable sharing the full workspace, can be addressed eventually
-    auto model = new OutputsModel(OutputsModel::None, this);
+    QString description = i18n("Requested access to:\n");
+    if (screenSharingEnabled) {
+        description += i18nc("Will allow the app to see what's on the outputs", "- Screens\n");
+    }
+    if (deviceTypes != RemoteDesktopPortal::None) {
+        description += i18nc("Will allow the app to send input events", "- Input devices\n");
+    }
 
-    QVariantMap props = {
-        {"outputsModel", QVariant::fromValue<QObject *>(model)},
-        {"withScreenSharing", screenSharingEnabled},
-        {"withMultipleScreenSharing", multiple},
-        {"withKeyboard", deviceTypes.testFlag(RemoteDesktopPortal::Keyboard)},
-        {"withPointer", deviceTypes.testFlag(RemoteDesktopPortal::Pointer)},
-        {"withTouch", deviceTypes.testFlag(RemoteDesktopPortal::TouchScreen)},
-    };
+    QVariantMap props = {{"description", description}};
 
     const QString applicationName = Utils::applicationName(appName);
     if (applicationName.isEmpty()) {
@@ -43,25 +37,4 @@ RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName,
     }
 
     create(QStringLiteral("qrc:/RemoteDesktopDialog.qml"), props);
-}
-
-QList<Output> RemoteDesktopDialog::selectedOutputs() const
-{
-    OutputsModel *model = dynamic_cast<OutputsModel *>(m_theDialog->property("outputsModel").value<QObject *>());
-    if (!model) {
-        return {};
-    }
-    return model->selectedOutputs();
-}
-
-RemoteDesktopPortal::DeviceTypes RemoteDesktopDialog::deviceTypes() const
-{
-    RemoteDesktopPortal::DeviceTypes types = RemoteDesktopPortal::None;
-    if (m_theDialog->property("withKeyboard").toBool())
-        types |= RemoteDesktopPortal::Keyboard;
-    if (m_theDialog->property("withPointer").toBool())
-        types |= RemoteDesktopPortal::Pointer;
-    if (m_theDialog->property("withTouch").toBool())
-        types |= RemoteDesktopPortal::TouchScreen;
-    return types;
 }
