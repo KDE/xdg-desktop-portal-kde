@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-03 00:48+0000\n"
+"POT-Creation-Date: 2022-11-16 00:48+0000\n"
 "PO-Revision-Date: 2022-06-11 09:29-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -153,45 +153,34 @@ msgstr ""
 "ਨਿਰਮਾਤਾ: %1\n"
 "ਮਾਡਲ: %2"
 
-#: src/remotedesktopdialog.cpp:40
+#: src/remotedesktopdialog.cpp:22
+#, fuzzy, kde-format
+#| msgid "Request device access"
+msgid "Requested access to:\n"
+msgstr "ਜੰਤਰ ਲਈ ਪਹੁੰਚ ਬੇਨਤੀ"
+
+#: src/remotedesktopdialog.cpp:24
+#, fuzzy, kde-format
+#| msgid "Full Screen"
+msgctxt "Will allow the app to see what's on the outputs"
+msgid "- Screens\n"
+msgstr "ਪੂਰੀ ਸਕਰੀਨ"
+
+#: src/remotedesktopdialog.cpp:27
+#, kde-format
+msgctxt "Will allow the app to send input events"
+msgid "- Input devices\n"
+msgstr ""
+
+#: src/remotedesktopdialog.cpp:34
 #, kde-format
 msgid "Select what to share with the requesting application"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੋਣ ਕਰੋ"
 
-#: src/remotedesktopdialog.cpp:42
+#: src/remotedesktopdialog.cpp:36
 #, kde-format
 msgid "Select what to share with %1"
 msgstr "ਚੁਣੋ ਕਿ %1 ਨਾਲ ਕੀ ਸਾਂਝਾ ਕਰਨਾ ਹੈ"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, RemoteDesktopDialog)
-#: src/remotedesktopdialog.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "ਡਾਈਲਾਗ"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/remotedesktopdialog.ui:38
-#, kde-format
-msgid "Allow access to:"
-msgstr "ਇਸ ਲਈ ਪਹੁੰਚ ਲਈ ਸਹਿਮਤੀ:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, pointerCheckbox)
-#: src/remotedesktopdialog.ui:47
-#, kde-format
-msgid "Pointer"
-msgstr "ਪੁਆਇੰਟਰ"
-
-#. i18n: ectx: property (text), widget (QCheckBox, keyboardCheckbox)
-#: src/remotedesktopdialog.ui:57
-#, kde-format
-msgid "Keyboard"
-msgstr "ਕੀਬੋਰਡ"
-
-#. i18n: ectx: property (text), widget (QCheckBox, touchScreenCheckbox)
-#: src/remotedesktopdialog.ui:67
-#, kde-format
-msgid "Touch screen"
-msgstr "ਟੱਚ ਸਕਰੀਨ"
 
 #: src/screencast.cpp:318
 #, kde-format
@@ -349,6 +338,21 @@ msgstr "ਰਿਮੋਟ ਡੈਸਕਟਾਪ"
 #, kde-format
 msgid "Portal"
 msgstr "ਪੋਰਟਲ"
+
+#~ msgid "Dialog"
+#~ msgstr "ਡਾਈਲਾਗ"
+
+#~ msgid "Allow access to:"
+#~ msgstr "ਇਸ ਲਈ ਪਹੁੰਚ ਲਈ ਸਹਿਮਤੀ:"
+
+#~ msgid "Pointer"
+#~ msgstr "ਪੁਆਇੰਟਰ"
+
+#~ msgid "Keyboard"
+#~ msgstr "ਕੀਬੋਰਡ"
+
+#~ msgid "Touch screen"
+#~ msgstr "ਟੱਚ ਸਕਰੀਨ"
 
 #~ msgid "Press to cancel"
 #~ msgstr "ਰੱਦ ਕਰਨ ਲਈ ਦਬਾਓ"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-03 00:48+0000\n"
+"POT-Creation-Date: 2022-11-16 00:48+0000\n"
 "PO-Revision-Date: 2022-10-25 21:15+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -157,47 +157,36 @@ msgstr ""
 "Fabricant : %1\n"
 "Modèle : %2"
 
-#: src/remotedesktopdialog.cpp:40
+#: src/remotedesktopdialog.cpp:22
+#, fuzzy, kde-format
+#| msgid "Request device access"
+msgid "Requested access to:\n"
+msgstr "Demander l'accès au périphérique"
+
+#: src/remotedesktopdialog.cpp:24
+#, fuzzy, kde-format
+#| msgid "Full Screen"
+msgctxt "Will allow the app to see what's on the outputs"
+msgid "- Screens\n"
+msgstr "Plein écran"
+
+#: src/remotedesktopdialog.cpp:27
+#, kde-format
+msgctxt "Will allow the app to send input events"
+msgid "- Input devices\n"
+msgstr ""
+
+#: src/remotedesktopdialog.cpp:34
 #, kde-format
 msgid "Select what to share with the requesting application"
 msgstr ""
 "Sélectionnez ce que vous souhaitez partager avec l'application ayant "
 "effectué la demande"
 
-#: src/remotedesktopdialog.cpp:42
+#: src/remotedesktopdialog.cpp:36
 #, kde-format
 msgid "Select what to share with %1"
 msgstr "Sélectionnez ce que vous souhaitez partager avec « %1 »"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, RemoteDesktopDialog)
-#: src/remotedesktopdialog.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Dialogue"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/remotedesktopdialog.ui:38
-#, kde-format
-msgid "Allow access to:"
-msgstr "Autoriser l'accès à :"
-
-#. i18n: ectx: property (text), widget (QCheckBox, pointerCheckbox)
-#: src/remotedesktopdialog.ui:47
-#, kde-format
-msgid "Pointer"
-msgstr "Pointeur"
-
-#. i18n: ectx: property (text), widget (QCheckBox, keyboardCheckbox)
-#: src/remotedesktopdialog.ui:57
-#, kde-format
-msgid "Keyboard"
-msgstr "Clavier"
-
-#. i18n: ectx: property (text), widget (QCheckBox, touchScreenCheckbox)
-#: src/remotedesktopdialog.ui:67
-#, kde-format
-msgid "Touch screen"
-msgstr "Écran tactile"
 
 #: src/screencast.cpp:318
 #, kde-format
@@ -352,6 +341,21 @@ msgstr "Bureau distant"
 #, kde-format
 msgid "Portal"
 msgstr "Portail"
+
+#~ msgid "Dialog"
+#~ msgstr "Dialogue"
+
+#~ msgid "Allow access to:"
+#~ msgstr "Autoriser l'accès à :"
+
+#~ msgid "Pointer"
+#~ msgstr "Pointeur"
+
+#~ msgid "Keyboard"
+#~ msgstr "Clavier"
+
+#~ msgid "Touch screen"
+#~ msgstr "Écran tactile"
 
 #~ msgid "Press to cancel"
 #~ msgstr "Appuyez pour annuler"

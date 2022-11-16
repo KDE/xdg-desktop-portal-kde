@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-03 00:48+0000\n"
+"POT-Creation-Date: 2022-11-16 00:48+0000\n"
 "PO-Revision-Date: 2021-12-13 12:52+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt\n"
@@ -157,45 +157,34 @@ msgstr ""
 "Gamintojas: %1\n"
 "Modelis: %2"
 
-#: src/remotedesktopdialog.cpp:40
+#: src/remotedesktopdialog.cpp:22
+#, fuzzy, kde-format
+#| msgid "Request device access"
+msgid "Requested access to:\n"
+msgstr "Užklausti prieigą prie įrenginio"
+
+#: src/remotedesktopdialog.cpp:24
+#, fuzzy, kde-format
+#| msgid "Full Screen"
+msgctxt "Will allow the app to see what's on the outputs"
+msgid "- Screens\n"
+msgstr "Visas ekranas"
+
+#: src/remotedesktopdialog.cpp:27
+#, kde-format
+msgctxt "Will allow the app to send input events"
+msgid "- Input devices\n"
+msgstr ""
+
+#: src/remotedesktopdialog.cpp:34
 #, kde-format
 msgid "Select what to share with the requesting application"
 msgstr "Pasirinkite, ką norite bendrinti su užklausą pateikusia programa"
 
-#: src/remotedesktopdialog.cpp:42
+#: src/remotedesktopdialog.cpp:36
 #, kde-format
 msgid "Select what to share with %1"
 msgstr "Pasirinkite ką bendrinti su %1"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, RemoteDesktopDialog)
-#: src/remotedesktopdialog.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Dialogas"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/remotedesktopdialog.ui:38
-#, kde-format
-msgid "Allow access to:"
-msgstr "Leisti prieigą prie:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, pointerCheckbox)
-#: src/remotedesktopdialog.ui:47
-#, kde-format
-msgid "Pointer"
-msgstr "Rodyklė"
-
-#. i18n: ectx: property (text), widget (QCheckBox, keyboardCheckbox)
-#: src/remotedesktopdialog.ui:57
-#, kde-format
-msgid "Keyboard"
-msgstr "Klaviatūra"
-
-#. i18n: ectx: property (text), widget (QCheckBox, touchScreenCheckbox)
-#: src/remotedesktopdialog.ui:67
-#, kde-format
-msgid "Touch screen"
-msgstr "Jutiklinis ekranas"
 
 #: src/screencast.cpp:318
 #, kde-format
@@ -358,6 +347,21 @@ msgstr "Nuotolinis darbalaukis"
 #, kde-format
 msgid "Portal"
 msgstr ""
+
+#~ msgid "Dialog"
+#~ msgstr "Dialogas"
+
+#~ msgid "Allow access to:"
+#~ msgstr "Leisti prieigą prie:"
+
+#~ msgid "Pointer"
+#~ msgstr "Rodyklė"
+
+#~ msgid "Keyboard"
+#~ msgstr "Klaviatūra"
+
+#~ msgid "Touch screen"
+#~ msgstr "Jutiklinis ekranas"
 
 #~ msgid "Press to cancel"
 #~ msgstr "Paspauskite, norėdami atsisakyti"

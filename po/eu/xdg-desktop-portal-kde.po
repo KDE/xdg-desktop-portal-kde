@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-03 00:48+0000\n"
+"POT-Creation-Date: 2022-11-16 00:48+0000\n"
 "PO-Revision-Date: 2022-10-25 07:31+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -159,45 +159,34 @@ msgstr ""
 "Fabrikatzailea: %1\n"
 "Eredua: %2"
 
-#: src/remotedesktopdialog.cpp:40
+#: src/remotedesktopdialog.cpp:22
+#, fuzzy, kde-format
+#| msgid "Request device access"
+msgid "Requested access to:\n"
+msgstr "Eskatu gailua atzitzea"
+
+#: src/remotedesktopdialog.cpp:24
+#, fuzzy, kde-format
+#| msgid "Full Screen"
+msgctxt "Will allow the app to see what's on the outputs"
+msgid "- Screens\n"
+msgstr "Pantaila-betea"
+
+#: src/remotedesktopdialog.cpp:27
+#, kde-format
+msgctxt "Will allow the app to send input events"
+msgid "- Input devices\n"
+msgstr ""
+
+#: src/remotedesktopdialog.cpp:34
 #, kde-format
 msgid "Select what to share with the requesting application"
 msgstr "Hautatu zer partekatu eskatzen ari den aplikazioarekin"
 
-#: src/remotedesktopdialog.cpp:42
+#: src/remotedesktopdialog.cpp:36
 #, kde-format
 msgid "Select what to share with %1"
 msgstr "Hautatu zer partekatu %1(r)ekin"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, RemoteDesktopDialog)
-#: src/remotedesktopdialog.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Elkarrizketa-koadroa"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/remotedesktopdialog.ui:38
-#, kde-format
-msgid "Allow access to:"
-msgstr "Baimendu sarbidea honi:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, pointerCheckbox)
-#: src/remotedesktopdialog.ui:47
-#, kde-format
-msgid "Pointer"
-msgstr "Erakuslea"
-
-#. i18n: ectx: property (text), widget (QCheckBox, keyboardCheckbox)
-#: src/remotedesktopdialog.ui:57
-#, kde-format
-msgid "Keyboard"
-msgstr "Teklatua"
-
-#. i18n: ectx: property (text), widget (QCheckBox, touchScreenCheckbox)
-#: src/remotedesktopdialog.ui:67
-#, kde-format
-msgid "Touch screen"
-msgstr "Ukimen-pantaila"
 
 #: src/screencast.cpp:318
 #, kde-format
@@ -346,6 +335,21 @@ msgstr "Urruneko mahaigaina"
 #, kde-format
 msgid "Portal"
 msgstr "Ataria"
+
+#~ msgid "Dialog"
+#~ msgstr "Elkarrizketa-koadroa"
+
+#~ msgid "Allow access to:"
+#~ msgstr "Baimendu sarbidea honi:"
+
+#~ msgid "Pointer"
+#~ msgstr "Erakuslea"
+
+#~ msgid "Keyboard"
+#~ msgstr "Teklatua"
+
+#~ msgid "Touch screen"
+#~ msgstr "Ukimen-pantaila"
 
 #~ msgid "Press to cancel"
 #~ msgstr "Sakatu galarazteko"

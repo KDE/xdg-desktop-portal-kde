@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-03 00:48+0000\n"
+"POT-Creation-Date: 2022-11-16 00:48+0000\n"
 "PO-Revision-Date: 2022-11-06 01:07\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -154,45 +154,34 @@ msgstr ""
 "制造商：%1\n"
 "型号：%2"
 
-#: src/remotedesktopdialog.cpp:40
+#: src/remotedesktopdialog.cpp:22
+#, fuzzy, kde-format
+#| msgid "Request device access"
+msgid "Requested access to:\n"
+msgstr "请求设备访问"
+
+#: src/remotedesktopdialog.cpp:24
+#, fuzzy, kde-format
+#| msgid "Full Screen"
+msgctxt "Will allow the app to see what's on the outputs"
+msgid "- Screens\n"
+msgstr "全屏"
+
+#: src/remotedesktopdialog.cpp:27
+#, kde-format
+msgctxt "Will allow the app to send input events"
+msgid "- Input devices\n"
+msgstr ""
+
+#: src/remotedesktopdialog.cpp:34
 #, kde-format
 msgid "Select what to share with the requesting application"
 msgstr "选择要与发出请求的应用程序共享的内容"
 
-#: src/remotedesktopdialog.cpp:42
+#: src/remotedesktopdialog.cpp:36
 #, kde-format
 msgid "Select what to share with %1"
 msgstr "选择要与 %1 共享的内容"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, RemoteDesktopDialog)
-#: src/remotedesktopdialog.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "对话框"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/remotedesktopdialog.ui:38
-#, kde-format
-msgid "Allow access to:"
-msgstr "允许访问："
-
-#. i18n: ectx: property (text), widget (QCheckBox, pointerCheckbox)
-#: src/remotedesktopdialog.ui:47
-#, kde-format
-msgid "Pointer"
-msgstr "指针"
-
-#. i18n: ectx: property (text), widget (QCheckBox, keyboardCheckbox)
-#: src/remotedesktopdialog.ui:57
-#, kde-format
-msgid "Keyboard"
-msgstr "键盘"
-
-#. i18n: ectx: property (text), widget (QCheckBox, touchScreenCheckbox)
-#: src/remotedesktopdialog.ui:67
-#, kde-format
-msgid "Touch screen"
-msgstr "触摸屏"
 
 #: src/screencast.cpp:318
 #, kde-format
@@ -340,3 +329,18 @@ msgstr "远程桌面"
 #, kde-format
 msgid "Portal"
 msgstr "系统门户"
+
+#~ msgid "Dialog"
+#~ msgstr "对话框"
+
+#~ msgid "Allow access to:"
+#~ msgstr "允许访问："
+
+#~ msgid "Pointer"
+#~ msgstr "指针"
+
+#~ msgid "Keyboard"
+#~ msgstr "键盘"
+
+#~ msgid "Touch screen"
+#~ msgstr "触摸屏"
