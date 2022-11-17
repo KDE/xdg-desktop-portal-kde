@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-16 00:48+0000\n"
-"PO-Revision-Date: 2022-10-25 12:00+0300\n"
+"PO-Revision-Date: 2022-11-16 18:44+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -158,23 +158,21 @@ msgstr ""
 "Модель: %2"
 
 #: src/remotedesktopdialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgid "Requested access to:\n"
-msgstr "Запит щодо доступу до пристрою"
+msgstr "Отримано запит щодо доступу до такого:\n"
 
 #: src/remotedesktopdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs"
 msgid "- Screens\n"
-msgstr "На весь екран"
+msgstr "- Екрани\n"
 
 #: src/remotedesktopdialog.cpp:27
 #, kde-format
 msgctxt "Will allow the app to send input events"
 msgid "- Input devices\n"
-msgstr ""
+msgstr "- Пристрої введення\n"
 
 #: src/remotedesktopdialog.cpp:34
 #, kde-format

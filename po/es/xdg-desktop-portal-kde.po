@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-16 00:48+0000\n"
-"PO-Revision-Date: 2022-10-25 14:51+0200\n"
+"PO-Revision-Date: 2022-11-16 12:44+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -157,23 +157,21 @@ msgstr ""
 "Modelo: %2"
 
 #: src/remotedesktopdialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgid "Requested access to:\n"
-msgstr "Solicitar acceso a dispositivo"
+msgstr "Ha solicitado acceso a:\n"
 
 #: src/remotedesktopdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs"
 msgid "- Screens\n"
-msgstr "Pantalla completa"
+msgstr "- Pantallas\n"
 
 #: src/remotedesktopdialog.cpp:27
 #, kde-format
 msgctxt "Will allow the app to send input events"
 msgid "- Input devices\n"
-msgstr ""
+msgstr "- Dispositivos de entrada\n"
 
 #: src/remotedesktopdialog.cpp:34
 #, kde-format
