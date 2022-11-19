@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-03 00:48+0000\n"
+"POT-Creation-Date: 2022-11-16 00:48+0000\n"
 "PO-Revision-Date: 2022-10-30 09:32+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -157,45 +157,32 @@ msgstr ""
 "Produsent: %1\n"
 "Modell: %2"
 
-#: src/remotedesktopdialog.cpp:40
+#: src/remotedesktopdialog.cpp:22
+#, kde-format
+msgid "Requested access to:\n"
+msgstr ""
+
+#: src/remotedesktopdialog.cpp:24
+#, kde-format
+msgctxt "Will allow the app to see what's on the outputs"
+msgid "- Screens\n"
+msgstr ""
+
+#: src/remotedesktopdialog.cpp:27
+#, kde-format
+msgctxt "Will allow the app to send input events"
+msgid "- Input devices\n"
+msgstr ""
+
+#: src/remotedesktopdialog.cpp:34
 #, kde-format
 msgid "Select what to share with the requesting application"
 msgstr "Vel kva du vil dela med førespurnadsprogrammet"
 
-#: src/remotedesktopdialog.cpp:42
+#: src/remotedesktopdialog.cpp:36
 #, kde-format
 msgid "Select what to share with %1"
 msgstr "Vel kva du vil dela med %1"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, RemoteDesktopDialog)
-#: src/remotedesktopdialog.ui:14
-#, kde-format
-msgid "Dialog"
-msgstr "Dialogvindauge"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/remotedesktopdialog.ui:38
-#, kde-format
-msgid "Allow access to:"
-msgstr "Gje tilgang til:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, pointerCheckbox)
-#: src/remotedesktopdialog.ui:47
-#, kde-format
-msgid "Pointer"
-msgstr "Peikar"
-
-#. i18n: ectx: property (text), widget (QCheckBox, keyboardCheckbox)
-#: src/remotedesktopdialog.ui:57
-#, kde-format
-msgid "Keyboard"
-msgstr "Tastatur"
-
-#. i18n: ectx: property (text), widget (QCheckBox, touchScreenCheckbox)
-#: src/remotedesktopdialog.ui:67
-#, kde-format
-msgid "Touch screen"
-msgstr "Trykkskjerm"
 
 #: src/screencast.cpp:318
 #, kde-format
