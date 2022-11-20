@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-16 00:48+0000\n"
-"PO-Revision-Date: 2022-10-25 08:54+0200\n"
+"PO-Revision-Date: 2022-11-19 22:09+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.08.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -155,23 +155,21 @@ msgstr ""
 "Модел: %2"
 
 #: src/remotedesktopdialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgid "Requested access to:\n"
-msgstr "Заявяване достъп до устройство"
+msgstr "Заявен достъп до:\n"
 
 #: src/remotedesktopdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs"
 msgid "- Screens\n"
-msgstr "Цял екран"
+msgstr "- Екрани\n"
 
 #: src/remotedesktopdialog.cpp:27
 #, kde-format
 msgctxt "Will allow the app to send input events"
 msgid "- Input devices\n"
-msgstr ""
+msgstr "- Входни устройства\n"
 
 #: src/remotedesktopdialog.cpp:34
 #, kde-format
@@ -329,18 +327,3 @@ msgstr "Отдалечен работен плот"
 #, kde-format
 msgid "Portal"
 msgstr "Портал"
-
-#~ msgid "Dialog"
-#~ msgstr "Диалогов прозорец"
-
-#~ msgid "Allow access to:"
-#~ msgstr "Разрешаване на достъп до:"
-
-#~ msgid "Pointer"
-#~ msgstr "Показалец"
-
-#~ msgid "Keyboard"
-#~ msgstr "Клавиатура"
-
-#~ msgid "Touch screen"
-#~ msgstr "Сензорен екран"
