@@ -18,6 +18,7 @@ PWD.SystemDialog
 
     QQC2.Label {
         id: desc
+        textFormat: Text.RichText
     }
 
     standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel

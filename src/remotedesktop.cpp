@@ -14,6 +14,8 @@
 #include "session.h"
 #include "utils.h"
 #include "waylandintegration.h"
+#include <KLocalizedString>
+#include <KNotification>
 #include <QGuiApplication>
 #include <QRegion>
 #include <QScreen>
@@ -111,41 +113,52 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
         return 2;
     }
 
-    QScopedPointer<RemoteDesktopDialog, QScopedPointerDeleteLater> remoteDesktopDialog(
-        new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled()));
-    Utils::setParentWindow(remoteDesktopDialog->windowHandle(), parent_window);
-    Request::makeClosableDialogRequest(handle, remoteDesktopDialog.get());
+    if (app_id.isEmpty()) {
+        // non-sandboxed local applications are generally able to take over the system already without much hassle.
+        // Instead of making users interact with the dialog (which they probably can't because this is for remote access), just
+        // show a notification so they are aware of it.
+        auto notification = new KNotification(QStringLiteral("remotedesktopstarted"), KNotification::CloseOnTimeout);
+        notification->setTitle(i18nc("title of notification about input systems taken over", "Remote control session started"));
+        notification->setText(RemoteDesktopDialog::buildDescription(app_id, session->deviceTypes(), session->screenSharingEnabled()));
+        notification->setIconName(QStringLiteral("krfb"));
+        notification->sendEvent();
+    } else {
+        QScopedPointer<RemoteDesktopDialog, QScopedPointerDeleteLater> remoteDesktopDialog(
+            new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled()));
+        Utils::setParentWindow(remoteDesktopDialog->windowHandle(), parent_window);
+        Request::makeClosableDialogRequest(handle, remoteDesktopDialog.get());
+        connect(session, &Session::closed, remoteDesktopDialog.data(), &RemoteDesktopDialog::reject);
 
-    connect(session, &Session::closed, remoteDesktopDialog.data(), &RemoteDesktopDialog::reject);
-
-    if (remoteDesktopDialog->exec()) {
-        if (session->screenSharingEnabled()) {
-            WaylandIntegration::Streams streams;
-            if (session->multipleSources() || WaylandIntegration::screens().count() == 1) {
-                const auto outputs = WaylandIntegration::screens().values();
-                for (const auto &output : outputs) {
-                    auto stream = WaylandIntegration::startStreamingOutput(output.waylandOutputName(), Screencasting::Metadata);
-                    if (!stream.isValid()) {
-                        return 2;
-                    }
-                    streams << stream;
-                }
-            } else {
-                streams << WaylandIntegration::startStreamingWorkspace(Screencasting::Metadata);
-            }
-
-            results.insert(QStringLiteral("streams"), QVariant::fromValue<WaylandIntegration::Streams>(streams));
-        } else {
-            qCWarning(XdgDesktopPortalKdeRemoteDesktop()) << "Only stream input";
+        if (!remoteDesktopDialog->exec()) {
+            return 1;
         }
-        session->acquireStreamingInput();
-
-        results.insert(QStringLiteral("devices"), QVariant::fromValue<uint>(session->deviceTypes()));
-
-        return 0;
     }
 
-    return 1;
+    if (session->screenSharingEnabled()) {
+        WaylandIntegration::Streams streams;
+        if (session->multipleSources() || WaylandIntegration::screens().count() == 1) {
+            const auto outputs = WaylandIntegration::screens().values();
+            for (const auto &output : outputs) {
+                auto stream = WaylandIntegration::startStreamingOutput(output.waylandOutputName(), Screencasting::Metadata);
+                if (!stream.isValid()) {
+                    return 2;
+                }
+                streams << stream;
+            }
+        } else {
+            streams << WaylandIntegration::startStreamingWorkspace(Screencasting::Metadata);
+        }
+
+        session->setStreams(streams);
+        results.insert(QStringLiteral("streams"), QVariant::fromValue<WaylandIntegration::Streams>(streams));
+    } else {
+        qCWarning(XdgDesktopPortalKdeRemoteDesktop()) << "Only stream input";
+    }
+    session->acquireStreamingInput();
+
+    results.insert(QStringLiteral("devices"), QVariant::fromValue<uint>(session->deviceTypes()));
+
+    return 0;
 }
 
 void RemoteDesktopPortal::NotifyPointerMotion(const QDBusObjectPath &session_handle, const QVariantMap &options, double dx, double dy)

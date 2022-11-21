@@ -194,3 +194,13 @@ Comment[zh_CN]=投屏时发生错误
 Contexts=screencast
 Action=Popup
 Urgency=Normal
+
+[Context/remotedesktop]
+Name=Remote Desktop
+
+[Event/remotedesktopstarted]
+Name=Started Remote Desktop
+Comment=An application gained control over your input and displays
+Contexts=remotedesktop
+Action=Popup
+Urgency=High

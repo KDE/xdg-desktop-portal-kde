@@ -19,22 +19,26 @@
 RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled, QObject *parent)
     : QuickDialog(parent)
 {
-    QString description = i18n("Requested access to:\n");
+    const QVariantMap props = {
+        {QStringLiteral("title"), i18nc("Title of the dialog that requests remote input privileges", "Remote control requested")},
+        {QStringLiteral("description"), buildDescription(appName, deviceTypes, screenSharingEnabled)},
+    };
+    create(QStringLiteral("qrc:/RemoteDesktopDialog.qml"), props);
+}
+
+QString RemoteDesktopDialog::buildDescription(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled)
+{
+    const QString applicationName = Utils::applicationName(appName);
+    QString description = applicationName.isEmpty() ? i18nc("Unordered list with privileges granted to an external process", "Requested access to:\n<ul>")
+                                                    : i18nc("Unordered list with privileges granted to an external process, included the app's name",
+                                                            "%1 requested access to remotely control:<ul>",
+                                                            applicationName);
     if (screenSharingEnabled) {
-        description += i18nc("Will allow the app to see what's on the outputs", "- Screens\n");
+        description += i18nc("Will allow the app to see what's on the outputs", " <li>Screens\n</li>");
     }
     if (deviceTypes != RemoteDesktopPortal::None) {
-        description += i18nc("Will allow the app to send input events", "- Input devices\n");
+        description += i18nc("Will allow the app to send input events", " <li>Input devices\n</li>");
     }
-
-    QVariantMap props = {{"description", description}};
-
-    const QString applicationName = Utils::applicationName(appName);
-    if (applicationName.isEmpty()) {
-        props.insert(QStringLiteral("title"), i18n("Select what to share with the requesting application"));
-    } else {
-        props.insert(QStringLiteral("title"), i18n("Select what to share with %1", applicationName));
-    }
-
-    create(QStringLiteral("qrc:/RemoteDesktopDialog.qml"), props);
+    description += "</ul>";
+    return description;
 }

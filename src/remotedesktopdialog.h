@@ -23,6 +23,8 @@ class RemoteDesktopDialog : public QuickDialog
     Q_OBJECT
 public:
     RemoteDesktopDialog(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled, QObject *parent = nullptr);
+
+    static QString buildDescription(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled);
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_DIALOG_H
