@@ -123,8 +123,6 @@ Q_SIGNALS:
     void plasmaWindowManagementInitialized();
 };
 
-void authenticate();
-
 bool isStreamingEnabled();
 bool isStreamingAvailable();
 

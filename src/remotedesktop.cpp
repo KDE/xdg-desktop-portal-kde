@@ -46,10 +46,6 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
         return 2;
     }
 
-    connect(session, &Session::closed, []() {
-        WaylandIntegration::acquireStreamingInput(false);
-    });
-
     if (!WaylandIntegration::isStreamingAvailable()) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "zkde_screencast_unstable_v1 does not seem to be available";
         return 2;
@@ -71,9 +67,10 @@ uint RemoteDesktopPortal::SelectDevices(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    options: " << options;
 
-    RemoteDesktopPortal::DeviceTypes types = RemoteDesktopPortal::None;
-    if (options.contains(QStringLiteral("types"))) {
-        types = static_cast<RemoteDesktopPortal::DeviceTypes>(options.value(QStringLiteral("types")).toUInt());
+    const auto types = static_cast<RemoteDesktopPortal::DeviceTypes>(options.value(QStringLiteral("types")).toUInt());
+    if (types == None) {
+        qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "There are no devices to remotely control";
+        return 2;
     }
 
     RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
@@ -83,9 +80,6 @@ uint RemoteDesktopPortal::SelectDevices(const QDBusObjectPath &handle,
         return 2;
     }
 
-    if (options.contains(QStringLiteral("types"))) {
-        types = (DeviceTypes)(options.value(QStringLiteral("types")).toUInt());
-    }
     session->setDeviceTypes(types);
 
     return 0;
@@ -144,8 +138,7 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
         } else {
             qCWarning(XdgDesktopPortalKdeRemoteDesktop()) << "Only stream input";
         }
-        WaylandIntegration::acquireStreamingInput(true);
-        WaylandIntegration::authenticate();
+        session->acquireStreamingInput();
 
         results.insert(QStringLiteral("devices"), QVariant::fromValue<uint>(session->deviceTypes()));
 

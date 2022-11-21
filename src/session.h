@@ -101,6 +101,8 @@ public:
     bool screenSharingEnabled() const;
     void setScreenSharingEnabled(bool enabled);
 
+    void acquireStreamingInput();
+
     SessionType type() const override
     {
         return SessionType::RemoteDesktop;
@@ -109,6 +111,7 @@ public:
 private:
     bool m_screenSharingEnabled;
     RemoteDesktopPortal::DeviceTypes m_deviceTypes;
+    bool m_acquired = false;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SESSION_H

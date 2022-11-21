@@ -96,11 +96,6 @@ void WaylandIntegration::init()
     globalWaylandIntegration->initWayland();
 }
 
-void WaylandIntegration::authenticate()
-{
-    globalWaylandIntegration->authenticate();
-}
-
 bool WaylandIntegration::isStreamingEnabled()
 {
     return globalWaylandIntegration->isStreamingEnabled();
@@ -265,6 +260,7 @@ bool WaylandIntegration::WaylandIntegrationPrivate::isStreamingAvailable() const
 void WaylandIntegration::WaylandIntegrationPrivate::acquireStreamingInput(bool acquire)
 {
     if (acquire) {
+        authenticate();
         ++m_streamInput;
     } else {
         Q_ASSERT(m_streamInput > 0);

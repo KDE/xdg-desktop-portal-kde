@@ -180,6 +180,11 @@ RemoteDesktopSession::RemoteDesktopSession(QObject *parent, const QString &appId
     : ScreenCastSession(parent, appId, path)
     , m_screenSharingEnabled(false)
 {
+    connect(this, &RemoteDesktopSession::closed, this, [this] {
+        if (m_acquired) {
+            WaylandIntegration::acquireStreamingInput(false);
+        }
+    });
 }
 
 RemoteDesktopSession::~RemoteDesktopSession()
@@ -204,6 +209,12 @@ bool RemoteDesktopSession::screenSharingEnabled() const
 void RemoteDesktopSession::setScreenSharingEnabled(bool enabled)
 {
     m_screenSharingEnabled = enabled;
+}
+
+void RemoteDesktopSession::acquireStreamingInput()
+{
+    WaylandIntegration::acquireStreamingInput(true);
+    m_acquired = true;
 }
 
 void ScreenCastSession::setStreams(const WaylandIntegration::Streams &streams)
