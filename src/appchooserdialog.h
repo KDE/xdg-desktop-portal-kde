@@ -58,6 +58,9 @@ public:
     void setShowOnlyPrefferedApps(bool show);
     bool showOnlyPreferredApps() const;
 
+    void setDefaultApp(const QString &);
+    QString defaultApp() const;
+
     void setFilter(const QString &text);
     QString filter() const;
 
@@ -72,6 +75,7 @@ protected:
 private:
     bool m_showOnlyPreferredApps = true;
     QString m_filter;
+    QString m_defaultApp;
 };
 
 class AppChooserData : public QObject
@@ -79,6 +83,7 @@ class AppChooserData : public QObject
     Q_OBJECT
     Q_PROPERTY(QString fileName READ fileName WRITE setFileName NOTIFY fileNameChanged)
     Q_PROPERTY(QString defaultApp READ defaultApp WRITE setDefaultApp NOTIFY defaultAppChanged)
+    Q_PROPERTY(QString mimeName READ mimeName WRITE setMimeName NOTIFY mimeNameChanged)
 
 public:
     AppChooserData(QObject *parent = nullptr);
@@ -91,12 +96,17 @@ public:
     void setDefaultApp(const QString &defaultApp);
     Q_SIGNAL void defaultAppChanged();
 
+    QString mimeName() const;
+    void setMimeName(const QString &mimeName);
+    Q_SIGNAL void mimeNameChanged();
+
     Q_SIGNAL void applicationSelected(const QString &desktopFile);
     Q_SIGNAL void openDiscover();
 
 private:
     QString m_defaultApp;
     QString m_fileName;
+    QString m_mimeName;
 };
 
 class AppModel : public QAbstractListModel
@@ -150,7 +160,7 @@ private Q_SLOTS:
 private:
     AppModel *const m_model;
     QString m_selectedApplication;
-    const QString m_mimeName;
+    AppChooserData *const m_appChooserData;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_APPCHOOSER_DIALOG_H

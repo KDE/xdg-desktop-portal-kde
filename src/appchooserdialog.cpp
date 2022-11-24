@@ -8,6 +8,7 @@
  */
 
 #include "appchooserdialog.h"
+#include "appchooser_debug.h"
 
 #include <QQmlContext>
 #include <QQmlEngine>
@@ -15,41 +16,92 @@
 #include <QQuickWidget>
 
 #include <QDir>
+#include <QMimeDatabase>
 #include <QSettings>
 #include <QStandardPaths>
 
 #include <KApplicationTrader>
+#include <KIO/MimeTypeFinderJob>
 #include <KLocalizedString>
 #include <KProcess>
 #include <KService>
+#include <algorithm>
+#include <iterator>
 
 AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, const QString &mimeName, QObject *parent)
     : QuickDialog(parent)
     , m_model(new AppModel(this))
-    , m_mimeName(mimeName)
+    , m_appChooserData(new AppChooserData(this))
 {
-    m_model->setPreferredApps(choices);
-
     QVariantMap props = {
         {"title", i18nc("@title:window", "Choose Application")},
         // fileName is actually the full path, confusingly enough. But showing the
         // whole thing is overkill; let's just show the user the file itself
         {"mainText", xi18nc("@info", "Choose an application to open <filename>%1</filename>", QUrl::fromLocalFile(fileName).fileName())},
     };
+
     AppFilterModel *filterModel = new AppFilterModel(this);
     filterModel->setSourceModel(m_model);
 
-    auto *data = new AppChooserData(this);
-    data->setFileName(fileName);
-    data->setDefaultApp(defaultApp);
+    m_appChooserData->setFileName(fileName);
+    m_appChooserData->setDefaultApp(defaultApp);
+    filterModel->setDefaultApp(defaultApp);
+
+    auto findDefaultApp = [this, &defaultApp, filterModel]() {
+        if (!defaultApp.isEmpty()) {
+            return;
+        }
+        KService::Ptr defaultService = KApplicationTrader::preferredService(m_appChooserData->mimeName());
+        if (defaultService && defaultService->isValid()) {
+            QString id = defaultService->desktopEntryName();
+            m_appChooserData->setDefaultApp(id);
+            filterModel->setDefaultApp(id);
+        }
+    };
+
+    auto findPreferredApps = [this, &choices]() {
+        if (!choices.isEmpty()) {
+            m_model->setPreferredApps(choices);
+            return;
+        }
+        QStringList choices;
+        const KService::List appServices = KApplicationTrader::queryByMimeType(m_appChooserData->mimeName(), [](const KService::Ptr &service) -> bool {
+            return service->isValid();
+        });
+        std::transform(appServices.begin(), appServices.end(), std::back_inserter(choices), [](const KService::Ptr &service) {
+            return service ? service->desktopEntryName() : QString();
+        });
+        m_model->setPreferredApps(choices);
+    };
+
+    if (mimeName.isEmpty()) {
+        auto job = new KIO::MimeTypeFinderJob(QUrl::fromUserInput(fileName));
+        job->setAuthenticationPromptEnabled(false);
+        connect(job, &KIO::MimeTypeFinderJob::result, this, [this, job, findDefaultApp, findPreferredApps]() {
+            if (job->error() == KJob::NoError) {
+                m_appChooserData->setMimeName(job->mimeType());
+                findDefaultApp();
+                findPreferredApps();
+            } else {
+                qCWarning(XdgDesktopPortalKdeAppChooser) << "couldn't get mimetype:" << job->errorString();
+            }
+        });
+        job->start();
+    } else {
+        QMimeDatabase mimeDB;
+        QMimeType mime = mimeDB.mimeTypeForName(mimeName);
+        m_appChooserData->setMimeName(mimeName);
+        findDefaultApp();
+        findPreferredApps();
+    }
 
     qmlRegisterSingletonInstance<AppFilterModel>("org.kde.xdgdesktopportal", 1, 0, "AppModel", filterModel);
-    qmlRegisterSingletonInstance<AppChooserData>("org.kde.xdgdesktopportal", 1, 0, "AppChooserData", data);
+    qmlRegisterSingletonInstance<AppChooserData>("org.kde.xdgdesktopportal", 1, 0, "AppChooserData", m_appChooserData);
 
     create(QStringLiteral("qrc:/AppChooserDialog.qml"), props);
 
-    connect(data, &AppChooserData::openDiscover, this, &AppChooserDialog::onOpenDiscover);
-    connect(data, &AppChooserData::applicationSelected, this, &AppChooserDialog::onApplicationSelected);
+    connect(m_appChooserData, &AppChooserData::openDiscover, this, &AppChooserDialog::onOpenDiscover);
+    connect(m_appChooserData, &AppChooserData::applicationSelected, this, &AppChooserDialog::onApplicationSelected);
 }
 
 QString AppChooserDialog::selectedApplication() const
@@ -66,8 +118,8 @@ void AppChooserDialog::onApplicationSelected(const QString &desktopFile)
 void AppChooserDialog::onOpenDiscover()
 {
     QStringList args;
-    if (!m_mimeName.isEmpty()) {
-        args << QStringLiteral("--mime") << m_mimeName;
+    if (!m_appChooserData->mimeName().isEmpty()) {
+        args << QStringLiteral("--mime") << m_appChooserData->mimeName();
     }
     KProcess::startDetached(QStringLiteral("plasma-discover"), args);
 }
@@ -139,6 +191,18 @@ bool AppFilterModel::showOnlyPreferredApps() const
     return m_showOnlyPreferredApps;
 }
 
+void AppFilterModel::setDefaultApp(const QString &defaultApp)
+{
+    m_defaultApp = defaultApp;
+
+    invalidate();
+}
+
+QString AppFilterModel::defaultApp() const
+{
+    return m_defaultApp;
+}
+
 void AppFilterModel::setFilter(const QString &text)
 {
     m_filter = text;
@@ -169,6 +233,12 @@ bool AppFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_
 
 bool AppFilterModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
+    if (sourceModel()->data(left, AppModel::ApplicationDesktopFileRole) == m_defaultApp) {
+        return false;
+    }
+    if (sourceModel()->data(right, AppModel::ApplicationDesktopFileRole) == m_defaultApp) {
+        return true;
+    }
     ApplicationItem::ApplicationCategory leftCategory =
         static_cast<ApplicationItem::ApplicationCategory>(sourceModel()->data(left, AppModel::ApplicationCategoryRole).toInt());
     ApplicationItem::ApplicationCategory rightCategory =
@@ -210,6 +280,19 @@ void AppChooserData::setFileName(const QString &fileName)
 {
     m_fileName = fileName;
     Q_EMIT fileNameChanged();
+}
+
+QString AppChooserData::mimeName() const
+{
+    return m_mimeName;
+}
+
+void AppChooserData::setMimeName(const QString &mimeName)
+{
+    if (m_mimeName != mimeName) {
+        m_mimeName = mimeName;
+        Q_EMIT mimeNameChanged();
+    }
 }
 
 AppModel::AppModel(QObject *parent)
