@@ -21,8 +21,17 @@ PWD.SystemDialog
     id: root
     iconName: "applications-all"
 
+    property bool remember: false
+
+
     ColumnLayout {
         spacing: Kirigami.Units.smallSpacing
+
+        CheckBox {
+            text: i18nc("@option:check %1 is description of a file type, like 'PNG image'", "Always open %1 files with the chosen app", AppChooserData.mimeDesc)
+            checked: root.remember
+            onToggled: { root.remember = checked }
+        }
 
         RowLayout {
             spacing: Kirigami.Units.smallSpacing
@@ -65,6 +74,7 @@ PWD.SystemDialog
             }
         }
 
+
         ScrollView {
             id: scrollView
 
@@ -100,7 +110,7 @@ PWD.SystemDialog
                     width: grid.cellWidth
 
                     function activate() {
-                        AppChooserData.applicationSelected(model.applicationDesktopFile)
+                        AppChooserData.applicationSelected(model.applicationDesktopFile, root.remember)
                     }
 
                     HoverHandler {
@@ -192,6 +202,7 @@ PWD.SystemDialog
         // Using a TextEdit here instead of a Label because it can know when any
         // links are hovered, which is needed for us to be able to use the correct
         // cursor shape for it.
+
         TextEdit {
             visible: !placeholderLoader.active && StandardPaths.findExecutable("plasma-discover") != ""
             Layout.fillWidth: true

@@ -15,6 +15,7 @@
 #include <QQuickItem>
 #include <QQuickWidget>
 
+#include <QApplication>
 #include <QDir>
 #include <QMimeDatabase>
 #include <QSettings>
@@ -27,6 +28,8 @@
 #include <KService>
 #include <algorithm>
 #include <iterator>
+#include <KBuildSycocaProgressDialog>
+#include <kapplicationtrader.h>
 
 AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, const QString &mimeName, QObject *parent)
     : QuickDialog(parent)
@@ -88,8 +91,6 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &de
         });
         job->start();
     } else {
-        QMimeDatabase mimeDB;
-        QMimeType mime = mimeDB.mimeTypeForName(mimeName);
         m_appChooserData->setMimeName(mimeName);
         findDefaultApp();
         findPreferredApps();
@@ -109,9 +110,17 @@ QString AppChooserDialog::selectedApplication() const
     return m_selectedApplication;
 }
 
-void AppChooserDialog::onApplicationSelected(const QString &desktopFile)
+void AppChooserDialog::onApplicationSelected(const QString &desktopFile, const bool remember)
 {
     m_selectedApplication = desktopFile;
+
+    if (remember && !m_appChooserData->mimeName().isEmpty()) {
+        KService::Ptr serv = KService::serviceByDesktopName(desktopFile);
+        KApplicationTrader::setPreferredService(m_appChooserData->mimeName(), serv);
+        // kbuildsycoca is the one reading mimeapps.list, so we need to run it now
+        KBuildSycocaProgressDialog::rebuildKSycoca(QApplication::activeWindow());
+    }
+
     accept();
 }
 
@@ -292,7 +301,13 @@ void AppChooserData::setMimeName(const QString &mimeName)
     if (m_mimeName != mimeName) {
         m_mimeName = mimeName;
         Q_EMIT mimeNameChanged();
+        Q_EMIT mimeDescChanged();
     }
+}
+
+QString AppChooserData::mimeDesc() const
+{
+    return QMimeDatabase().mimeTypeForName(m_mimeName).comment();
 }
 
 AppModel::AppModel(QObject *parent)

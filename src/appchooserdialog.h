@@ -13,6 +13,7 @@
 
 #include <QAbstractListModel>
 #include <QSortFilterProxyModel>
+#include <qmimetype.h>
 
 namespace Ui
 {
@@ -84,6 +85,7 @@ class AppChooserData : public QObject
     Q_PROPERTY(QString fileName READ fileName WRITE setFileName NOTIFY fileNameChanged)
     Q_PROPERTY(QString defaultApp READ defaultApp WRITE setDefaultApp NOTIFY defaultAppChanged)
     Q_PROPERTY(QString mimeName READ mimeName WRITE setMimeName NOTIFY mimeNameChanged)
+    Q_PROPERTY(QString mimeDesc READ mimeDesc NOTIFY mimeDescChanged)
 
 public:
     AppChooserData(QObject *parent = nullptr);
@@ -100,7 +102,11 @@ public:
     void setMimeName(const QString &mimeName);
     Q_SIGNAL void mimeNameChanged();
 
-    Q_SIGNAL void applicationSelected(const QString &desktopFile);
+    QString mimeDesc() const;
+    void setMimeDesc(const QString &mimeDesc);
+    Q_SIGNAL void mimeDescChanged();
+
+    Q_SIGNAL void applicationSelected(const QString &desktopFile, bool remember = false);
     Q_SIGNAL void openDiscover();
 
 private:
@@ -154,7 +160,7 @@ public:
 
     QString selectedApplication() const;
 private Q_SLOTS:
-    void onApplicationSelected(const QString &desktopFile);
+    void onApplicationSelected(const QString &desktopFile, const bool remember = false);
     void onOpenDiscover();
 
 private:
