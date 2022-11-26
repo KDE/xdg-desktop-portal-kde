@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-25 00:49+0000\n"
+"POT-Creation-Date: 2022-11-26 00:48+0000\n"
 "PO-Revision-Date: 2022-03-21 22:32+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -38,14 +38,14 @@ msgctxt "count of files to open"
 msgid "%1 files"
 msgstr ""
 
-#: src/appchooserdialog.cpp:37
+#: src/appchooserdialog.cpp:40
 #, fuzzy, kde-format
 #| msgid "Select application"
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "Selige application"
 
-#: src/appchooserdialog.cpp:40
+#: src/appchooserdialog.cpp:43
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
