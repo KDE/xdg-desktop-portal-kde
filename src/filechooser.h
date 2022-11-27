@@ -16,6 +16,7 @@
 #include <QDialog>
 
 #include <KConfigGroup>
+#include <KFileFilter>
 
 class KFileWidget;
 class QDialogButtonBox;
@@ -95,13 +96,17 @@ private:
 
     static QString ExtractAcceptLabel(const QVariantMap &options);
 
-    static void ExtractFilters(const QVariantMap &options,
-                               QStringList &nameFilters,
-                               QStringList &mimeTypeFilters,
-                               QMap<QString, FilterList> &allFilters,
-                               QString &selectedMimeTypeFilter);
+    struct FilterExtract {
+        QVector<KFileFilter> filters;
+        KFileFilter currentFilter;
+    };
+
+    static FilterExtract ExtractFilters(const QVariantMap &options);
 
     static bool isMobile();
+
+    static FilterList fileFilterToFilterList(const KFileFilter &filter);
+    static KFileFilter filterListToFileFilter(const FilterList &list);
 
     MobileFileDialog *m_mobileFileDialog = nullptr;
 };

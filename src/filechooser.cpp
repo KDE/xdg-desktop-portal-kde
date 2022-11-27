@@ -26,6 +26,7 @@
 #include <QVBoxLayout>
 #include <QWindow>
 
+#include <KFileFilter>
 #include <KFileFilterCombo>
 #include <KFileWidget>
 #include <KLocalizedString>
@@ -242,6 +243,44 @@ static QStringList fuseRedirect(QList<QUrl> urls)
     return QUrl::toStringList(urls, QUrl::FullyEncoded);
 }
 
+FileChooserPortal::FilterList FileChooserPortal::fileFilterToFilterList(const KFileFilter &filter)
+{
+    FilterList filterList;
+    filterList.userVisibleName = filter.label();
+
+    for (const QString &mimeFilter : filter.mimePatterns()) {
+        Filter filter;
+        filter.filterString = mimeFilter;
+        filter.type = 1;
+        filterList.filters << filter;
+    }
+
+    for (const QString &nameFilter : filter.filePatterns()) {
+        Filter filter;
+        filter.filterString = nameFilter;
+        filter.type = 0;
+        filterList.filters << filter;
+    }
+
+    return filterList;
+}
+
+KFileFilter FileChooserPortal::filterListToFileFilter(const FileChooserPortal::FilterList &filterList)
+{
+    QStringList nameFilters;
+    QStringList mimeFilters;
+
+    for (const Filter &filterStruct : filterList.filters) {
+        if (filterStruct.type == 0) {
+            nameFilters << filterStruct.filterString;
+        } else {
+            mimeFilters << filterStruct.filterString;
+        }
+    }
+
+    return KFileFilter(filterList.userVisibleName, nameFilters, mimeFilters);
+}
+
 enum class Entity { File, Folder };
 static QUrl kioUrlFromSandboxPath(const QString &path, Entity entity)
 {
@@ -314,11 +353,6 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     bool modalDialog = true;
     bool multipleFiles = false;
     QString currentFolder;
-    QStringList nameFilters;
-    QStringList mimeTypeFilters;
-    QString selectedMimeTypeFilter;
-    // mapping between filter strings and actual filters
-    QMap<QString, FilterList> allFilters;
 
     const QString acceptLabel = ExtractAcceptLabel(options);
 
@@ -338,7 +372,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
         currentFolder = decodeFileName(options.value(QStringLiteral("current_folder")).toByteArray());
     }
 
-    ExtractFilters(options, nameFilters, mimeTypeFilters, allFilters, selectedMimeTypeFilter);
+    const auto [filters, currentFilter] = ExtractFilters(options);
 
     if (isMobile()) {
         if (!m_mobileFileDialog) {
@@ -365,12 +399,12 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
             m_mobileFileDialog->setAcceptLabel(acceptLabel);
         }
 
-        if (!nameFilters.isEmpty()) {
-            m_mobileFileDialog->setNameFilters(nameFilters);
+        if (!filters.isEmpty() && !filters.first().filePatterns().isEmpty()) {
+            m_mobileFileDialog->setNameFilters(filters.first().filePatterns());
         }
 
-        if (!mimeTypeFilters.isEmpty()) {
-            m_mobileFileDialog->setMimeTypeFilters(mimeTypeFilters);
+        if (!filters.isEmpty() && !filters.first().mimePatterns().isEmpty()) {
+            m_mobileFileDialog->setMimeTypeFilters(filters.first().mimePatterns());
         }
 
         uint retCode = m_mobileFileDialog->exec();
@@ -446,13 +480,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
         fileDialog->m_fileWidget->setUrl(translatedCurrentFolderUrl);
     }
 
-    bool bMimeFilters = false;
-    if (!mimeTypeFilters.isEmpty()) {
-        fileDialog->m_fileWidget->setMimeFilter(mimeTypeFilters, selectedMimeTypeFilter);
-        bMimeFilters = true;
-    } else if (!nameFilters.isEmpty()) {
-        fileDialog->m_fileWidget->setFilter(nameFilters.join(QLatin1Char('\n')));
-    }
+    fileDialog->m_fileWidget->setFilters(filters);
 
     if (optionsWidget) {
         fileDialog->m_fileWidget->setCustomWidget({}, optionsWidget.get());
@@ -473,16 +501,8 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
             results.insert(QStringLiteral("choices"), choices);
         }
 
-        // try to map current filter back to one of the predefined ones
-        QString selectedFilter;
-        if (bMimeFilters) {
-            selectedFilter = fileDialog->m_fileWidget->currentMimeFilter();
-        } else {
-            selectedFilter = fileDialog->m_fileWidget->filterWidget()->currentText();
-        }
-        if (allFilters.contains(selectedFilter)) {
-            results.insert(QStringLiteral("current_filter"), QVariant::fromValue<FilterList>(allFilters.value(selectedFilter)));
-        }
+        FilterList currentFilter = fileFilterToFilterList(fileDialog->m_fileWidget->currentFilter());
+        results.insert(QStringLiteral("current_filter"), QVariant::fromValue<FilterList>(currentFilter));
 
         return 0;
     }
@@ -509,11 +529,6 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     QString currentName;
     QString currentFolder;
     QString currentFile;
-    QStringList nameFilters;
-    QStringList mimeTypeFilters;
-    QString selectedMimeTypeFilter;
-    // mapping between filter strings and actual filters
-    QMap<QString, FilterList> allFilters;
 
     if (options.contains(QStringLiteral("modal"))) {
         modalDialog = options.value(QStringLiteral("modal")).toBool();
@@ -533,7 +548,7 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
         currentFile = decodeFileName(options.value(QStringLiteral("current_file")).toByteArray());
     }
 
-    ExtractFilters(options, nameFilters, mimeTypeFilters, allFilters, selectedMimeTypeFilter);
+    const auto [filters, currentFilter] = ExtractFilters(options);
 
     if (isMobile()) {
         if (!m_mobileFileDialog) {
@@ -561,12 +576,12 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
             m_mobileFileDialog->setAcceptLabel(acceptLabel);
         }
 
-        if (!nameFilters.isEmpty()) {
-            m_mobileFileDialog->setNameFilters(nameFilters);
+        if (!filters.isEmpty() && !filters.first().filePatterns().isEmpty()) {
+            m_mobileFileDialog->setNameFilters(filters.first().filePatterns());
         }
 
-        if (!mimeTypeFilters.isEmpty()) {
-            m_mobileFileDialog->setMimeTypeFilters(mimeTypeFilters);
+        if (!filters.isEmpty() && !filters.first().mimePatterns().isEmpty()) {
+            m_mobileFileDialog->setMimeTypeFilters(filters.first().mimePatterns());
         }
 
         uint retCode = m_mobileFileDialog->exec();
@@ -628,13 +643,7 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
         fileDialog->m_fileWidget->okButton()->setText(acceptLabel);
     }
 
-    bool bMimeFilters = false;
-    if (!mimeTypeFilters.isEmpty()) {
-        fileDialog->m_fileWidget->setMimeFilter(mimeTypeFilters, selectedMimeTypeFilter);
-        bMimeFilters = true;
-    } else if (!nameFilters.isEmpty()) {
-        fileDialog->m_fileWidget->setFilter(nameFilters.join(QLatin1Char('\n')));
-    }
+    fileDialog->m_fileWidget->setFilters(filters);
 
     if (optionsWidget) {
         fileDialog->m_fileWidget->setCustomWidget(optionsWidget.get());
@@ -649,16 +658,8 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
             results.insert(QStringLiteral("choices"), choices);
         }
 
-        // try to map current filter back to one of the predefined ones
-        QString selectedFilter;
-        if (bMimeFilters) {
-            selectedFilter = fileDialog->m_fileWidget->currentMimeFilter();
-        } else {
-            selectedFilter = fileDialog->m_fileWidget->filterWidget()->currentText();
-        }
-        if (allFilters.contains(selectedFilter)) {
-            results.insert(QStringLiteral("current_filter"), QVariant::fromValue<FilterList>(allFilters.value(selectedFilter)));
-        }
+        FilterList currentFilter = fileFilterToFilterList(fileDialog->m_fileWidget->currentFilter());
+        results.insert(QStringLiteral("current_filter"), QVariant::fromValue<FilterList>(currentFilter));
 
         return 0;
     }
@@ -749,59 +750,28 @@ QString FileChooserPortal::ExtractAcceptLabel(const QVariantMap &options)
     return acceptLabel;
 }
 
-void FileChooserPortal::ExtractFilters(const QVariantMap &options,
-                                       QStringList &nameFilters,
-                                       QStringList &mimeTypeFilters,
-                                       QMap<QString, FilterList> &allFilters,
-                                       QString &selectedMimeTypeFilter)
+FileChooserPortal::FilterExtract FileChooserPortal::ExtractFilters(const QVariantMap &options)
 {
+    FilterExtract result;
+
     if (options.contains(QStringLiteral("filters"))) {
         const FilterListList filterListList = qdbus_cast<FilterListList>(options.value(QStringLiteral("filters")));
-        for (const FilterList &filterList : filterListList) {
-            QStringList filterStrings;
-            for (const Filter &filterStruct : filterList.filters) {
-                if (filterStruct.type == 0) {
-                    filterStrings << filterStruct.filterString;
-                } else {
-                    mimeTypeFilters << filterStruct.filterString;
-                    allFilters[filterStruct.filterString] = filterList;
-                }
-            }
 
-            if (!filterStrings.isEmpty()) {
-                QString userVisibleName = filterList.userVisibleName;
-                if (!isMobile()) {
-                    userVisibleName.replace(QLatin1Char('/'), QStringLiteral("\\/"));
-                }
-                const QString filterString = filterStrings.join(QLatin1Char(' '));
-                const QString nameFilter = QStringLiteral("%1|%2").arg(filterString, userVisibleName);
-                nameFilters << nameFilter;
-                allFilters[filterList.userVisibleName] = filterList;
-            }
+        for (const FilterList &filterList : filterListList) {
+            result.filters << filterListToFileFilter(filterList);
         }
     }
 
     if (options.contains(QStringLiteral("current_filter"))) {
         FilterList filterList = qdbus_cast<FilterList>(options.value(QStringLiteral("current_filter")));
         if (filterList.filters.size() == 1) {
-            Filter filterStruct = filterList.filters.at(0);
-            if (filterStruct.type == 0) {
-                // make the relevant entry the first one in the list of filters,
-                // since that is the one that gets preselected by KFileWidget::setFilter
-                QString userVisibleName = filterList.userVisibleName;
-                if (!isMobile()) {
-                    userVisibleName.replace(QLatin1Char('/'), QStringLiteral("\\/"));
-                }
-                QString nameFilter = QStringLiteral("%1|%2").arg(filterStruct.filterString, userVisibleName);
-                nameFilters.removeAll(nameFilter);
-                nameFilters.push_front(nameFilter);
-            } else {
-                selectedMimeTypeFilter = filterStruct.filterString;
-            }
+            result.currentFilter = filterListToFileFilter(filterList);
         } else {
             qCDebug(XdgDesktopPortalKdeFileChooser) << "Ignoring 'current_filter' parameter with 0 or multiple filters specified.";
         }
     }
+
+    return result;
 }
 
 bool FileChooserPortal::isMobile()
