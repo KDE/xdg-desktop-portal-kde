@@ -277,6 +277,8 @@ qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS ../data/org.freedesktop.portal
 set_source_files_properties(../data/org.kde.KIOFuse.VFS.xml PROPERTIES NO_NAMESPACE TRUE)
 qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS ../data/org.kde.KIOFuse.VFS.xml fuse_interface)
 
+qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS ../data/org.freedesktop.Application.xml fdo_application_interface)
+
 target_sources(xdg-desktop-portal-kde PRIVATE ${xdg_desktop_portal_kde_SRCS})
 
 target_link_libraries(xdg-desktop-portal-kde
