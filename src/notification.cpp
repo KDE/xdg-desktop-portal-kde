@@ -16,6 +16,9 @@
 #include "notification_debug.h"
 #include "portalicon.h"
 
+using Action = QPair<QString, QVariant>;
+Q_DECLARE_METATYPE(QList<Action>);
+
 NotificationPortal::NotificationPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
 {
@@ -76,6 +79,8 @@ void NotificationPortal::AddNotification(const QString &app_id, const QString &i
         notify->setDefaultAction(notification.value(QStringLiteral("default-action")).toString());
     }
 
+    QList<Action> actionValues = {
+        {notification.value(QStringLiteral("default-action")).toString(), notification.value(QStringLiteral("default-action-target"))}};
     if (notification.contains(QStringLiteral("buttons"))) {
         QList<QVariantMap> buttons;
         QDBusArgument dbusArgument = notification.value(QStringLiteral("buttons")).value<QDBusArgument>();
@@ -84,20 +89,22 @@ void NotificationPortal::AddNotification(const QString &app_id, const QString &i
         }
 
         QStringList actions;
+
         for (const QVariantMap &button : qAsConst(buttons)) {
             actions << button.value(QStringLiteral("label")).toString();
+
+            actionValues.append({button.value(QStringLiteral("action")).toString(), button.value(QStringLiteral("target"))});
         }
 
         if (!actions.isEmpty()) {
             notify->setActions(actions);
         }
     }
-
     notify->setHint(QStringLiteral("desktop-entry"), app_id);
 
+    notify->setProperty("actionValues", QVariant::fromValue<QList<Action>>(actionValues));
     notify->setProperty("app_id", app_id);
     notify->setProperty("id", id);
-    notify->setProperty("notification", notification);
     connect(notify, static_cast<void (KNotification::*)(uint)>(&KNotification::activated), this, &NotificationPortal::notificationActivated);
     connect(notify, &KNotification::closed, this, &NotificationPortal::notificationClosed);
     notify->sendEvent();
@@ -123,24 +130,41 @@ void NotificationPortal::notificationActivated(uint action)
 
     const QString appId = notify->property("app_id").toString();
     const QString id = notify->property("id").toString();
-    const QVariant target = notify->property("target");
-    const QStringList actionIds = notify->property("actionIds").toStringList();
-    const QVariantMap platformData({{"activation-token", notify->xdgActivationToken()}});
+    const auto actionValues = notify->property("actionValues").value<QList<Action>>();
+    QVariantMap platformData;
+    if (!notify->xdgActivationToken().isEmpty()) {
+        platformData = {
+            {QStringLiteral("activation-token"), notify->xdgActivationToken()},
+
+            // apparently gtk uses "desktop-startup-id"
+            {QStringLiteral("desktop-startup-id"), notify->xdgActivationToken()},
+        };
+    }
 
     qCDebug(XdgDesktopPortalKdeNotification) << "Notification activated:";
     qCDebug(XdgDesktopPortalKdeNotification) << "    app_id: " << appId;
     qCDebug(XdgDesktopPortalKdeNotification) << "    id: " << id;
-    qCDebug(XdgDesktopPortalKdeNotification) << "    action: " << action;
+    qCDebug(XdgDesktopPortalKdeNotification) << "    action: " << action << actionValues;
+
+    const auto ourAction = actionValues.value(action);
+
+    QVariantList params;
+    if (ourAction.second.isValid()) {
+        params += ourAction.second;
+    }
 
     OrgFreedesktopApplicationInterface iface("org.freedesktop.Application", appPathFromId(appId), QDBusConnection::sessionBus());
-    if (id.startsWith("app.")) {
-        iface.ActivateAction(id.mid(4), {target}, platformData);
+    if (id.startsWith("app.") && iface.isValid()) {
+        iface.ActivateAction(id.mid(4), params, platformData);
     } else {
-        iface.Activate(platformData);
+        if (iface.isValid()) {
+            iface.Activate(platformData);
+        }
+
         QDBusMessage message = QDBusMessage::createSignal(QStringLiteral("/org/freedesktop/portal/desktop"),
                                                           QStringLiteral("org.freedesktop.impl.portal.Notification"),
                                                           QStringLiteral("ActionInvoked"));
-        message << appId << id << QString::number(action) << QVariantList();
+        message << appId << id << ourAction.first << params;
         QDBusConnection::sessionBus().send(message);
     }
 }
