@@ -12,6 +12,7 @@
 #include <QDBusMessage>
 #include <QDBusMetaType>
 
+#include "fdo_application_interface.h"
 #include "notification_debug.h"
 #include "portalicon.h"
 
@@ -96,11 +97,20 @@ void NotificationPortal::AddNotification(const QString &app_id, const QString &i
 
     notify->setProperty("app_id", app_id);
     notify->setProperty("id", id);
+    notify->setProperty("notification", notification);
     connect(notify, static_cast<void (KNotification::*)(uint)>(&KNotification::activated), this, &NotificationPortal::notificationActivated);
     connect(notify, &KNotification::closed, this, &NotificationPortal::notificationClosed);
     notify->sendEvent();
 
     m_notifications.insert(QStringLiteral("%1:%2").arg(app_id, id), notify);
+}
+
+static QString appPathFromId(const QString &app_id)
+{
+    QString ret = QLatin1Char('/') + app_id;
+    ret.replace('.', '/');
+    ret.replace('-', '_');
+    return ret;
 }
 
 void NotificationPortal::notificationActivated(uint action)
@@ -113,17 +123,26 @@ void NotificationPortal::notificationActivated(uint action)
 
     const QString appId = notify->property("app_id").toString();
     const QString id = notify->property("id").toString();
+    const QVariant target = notify->property("target");
+    const QStringList actionIds = notify->property("actionIds").toStringList();
+    const QVariantMap platformData({{"activation-token", notify->xdgActivationToken()}});
 
     qCDebug(XdgDesktopPortalKdeNotification) << "Notification activated:";
     qCDebug(XdgDesktopPortalKdeNotification) << "    app_id: " << appId;
     qCDebug(XdgDesktopPortalKdeNotification) << "    id: " << id;
     qCDebug(XdgDesktopPortalKdeNotification) << "    action: " << action;
 
-    QDBusMessage message = QDBusMessage::createSignal(QStringLiteral("/org/freedesktop/portal/desktop"),
-                                                      QStringLiteral("org.freedesktop.impl.portal.Notification"),
-                                                      QStringLiteral("ActionInvoked"));
-    message << appId << id << QString::number(action) << QVariantList();
-    QDBusConnection::sessionBus().send(message);
+    OrgFreedesktopApplicationInterface iface("org.freedesktop.Application", appPathFromId(appId), QDBusConnection::sessionBus());
+    if (id.startsWith("app.")) {
+        iface.ActivateAction(id.mid(4), {target}, platformData);
+    } else {
+        iface.Activate(platformData);
+        QDBusMessage message = QDBusMessage::createSignal(QStringLiteral("/org/freedesktop/portal/desktop"),
+                                                          QStringLiteral("org.freedesktop.impl.portal.Notification"),
+                                                          QStringLiteral("ActionInvoked"));
+        message << appId << id << QString::number(action) << QVariantList();
+        QDBusConnection::sessionBus().send(message);
+    }
 }
 
 void NotificationPortal::RemoveNotification(const QString &app_id, const QString &id)
