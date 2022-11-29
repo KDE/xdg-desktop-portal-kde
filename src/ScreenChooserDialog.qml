@@ -68,6 +68,7 @@ PWD.SystemDialog
                             banner {
                                 title: model.display
                                 titleIcon: model.decoration
+                                titleLevel: 3
                             }
                             checkable: true
                             checked: model.checked === Qt.Checked
@@ -99,6 +100,7 @@ PWD.SystemDialog
                             banner {
                                 title: model.DisplayRole || ""
                                 titleIcon: model.DecorationRole || ""
+                                titleLevel: 3
                             }
                             checkable: true
                             checked: model.checked === Qt.Checked
