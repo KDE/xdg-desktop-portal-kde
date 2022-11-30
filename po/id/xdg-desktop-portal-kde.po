@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:48+0000\n"
+"POT-Creation-Date: 2022-11-30 00:49+0000\n"
 "PO-Revision-Date: 2022-09-27 18:12+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -139,24 +139,15 @@ msgstr "Workspace Penuh"
 msgid "New Virtual Output"
 msgstr "Output Virtual Baru"
 
-#: src/outputsmodel.cpp:28 src/screencastwidget.cpp:24
-#, kde-format
-msgid ""
-"Laptop screen\n"
-"Model: %1"
+#: src/outputsmodel.cpp:28
+#, fuzzy, kde-format
+#| msgid ""
+#| "Laptop screen\n"
+#| "Model: %1"
+msgid "Laptop screen"
 msgstr ""
 "Layar laptop\n"
 "Model: %1"
-
-#: src/outputsmodel.cpp:31 src/screencastwidget.cpp:27
-#: src/screencastwidget.cpp:30
-#, kde-format
-msgid ""
-"Manufacturer: %1\n"
-"Model: %2"
-msgstr ""
-"Manufaktur: %1\n"
-"Model: %2"
 
 #: src/remotedesktopdialog.cpp:22
 #, fuzzy, kde-format
@@ -192,6 +183,24 @@ msgstr "Pilih apa untuk berbagi dengan %1"
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Berbagi layar dalam proses"
+
+#: src/screencastwidget.cpp:24
+#, kde-format
+msgid ""
+"Laptop screen\n"
+"Model: %1"
+msgstr ""
+"Layar laptop\n"
+"Model: %1"
+
+#: src/screencastwidget.cpp:27 src/screencastwidget.cpp:30
+#, kde-format
+msgid ""
+"Manufacturer: %1\n"
+"Model: %2"
+msgstr ""
+"Manufaktur: %1\n"
+"Model: %2"
 
 #: src/screenchooserdialog.cpp:138
 #, kde-format

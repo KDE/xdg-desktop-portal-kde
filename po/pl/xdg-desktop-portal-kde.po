@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:48+0000\n"
+"POT-Creation-Date: 2022-11-30 00:49+0000\n"
 "PO-Revision-Date: 2022-09-23 10:41+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -139,24 +139,15 @@ msgstr "Pełna przestrzeń pracy"
 msgid "New Virtual Output"
 msgstr "Nowe wyjście wirtualne"
 
-#: src/outputsmodel.cpp:28 src/screencastwidget.cpp:24
-#, kde-format
-msgid ""
-"Laptop screen\n"
-"Model: %1"
+#: src/outputsmodel.cpp:28
+#, fuzzy, kde-format
+#| msgid ""
+#| "Laptop screen\n"
+#| "Model: %1"
+msgid "Laptop screen"
 msgstr ""
 "Ekran laptopa\n"
 "Model: %1"
-
-#: src/outputsmodel.cpp:31 src/screencastwidget.cpp:27
-#: src/screencastwidget.cpp:30
-#, kde-format
-msgid ""
-"Manufacturer: %1\n"
-"Model: %2"
-msgstr ""
-"Wytwórca: %1\n"
-"Model: %2"
 
 #: src/remotedesktopdialog.cpp:22
 #, fuzzy, kde-format
@@ -192,6 +183,24 @@ msgstr "Wybierz co udostępnić %1"
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Udostępnianie ekranu w trakcie"
+
+#: src/screencastwidget.cpp:24
+#, kde-format
+msgid ""
+"Laptop screen\n"
+"Model: %1"
+msgstr ""
+"Ekran laptopa\n"
+"Model: %1"
+
+#: src/screencastwidget.cpp:27 src/screencastwidget.cpp:30
+#, kde-format
+msgid ""
+"Manufacturer: %1\n"
+"Model: %2"
+msgstr ""
+"Wytwórca: %1\n"
+"Model: %2"
 
 #: src/screenchooserdialog.cpp:138
 #, kde-format

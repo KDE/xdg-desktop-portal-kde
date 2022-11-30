@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:48+0000\n"
+"POT-Creation-Date: 2022-11-30 00:49+0000\n"
 "PO-Revision-Date: 2020-10-11 01:46+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -135,24 +135,15 @@ msgstr ""
 msgid "New Virtual Output"
 msgstr ""
 
-#: src/outputsmodel.cpp:28 src/screencastwidget.cpp:24
-#, kde-format
-msgid ""
-"Laptop screen\n"
-"Model: %1"
+#: src/outputsmodel.cpp:28
+#, fuzzy, kde-format
+#| msgid ""
+#| "Laptop screen\n"
+#| "Model: %1"
+msgid "Laptop screen"
 msgstr ""
 "Sülearvuti ekraan\n"
 "Mudel :%1"
-
-#: src/outputsmodel.cpp:31 src/screencastwidget.cpp:27
-#: src/screencastwidget.cpp:30
-#, kde-format
-msgid ""
-"Manufacturer: %1\n"
-"Model: %2"
-msgstr ""
-"Tootja: %1\n"
-"Mudel: %2"
 
 #: src/remotedesktopdialog.cpp:22
 #, fuzzy, kde-format
@@ -188,6 +179,24 @@ msgstr "Valimine, mida rakendusega %1 jagada"
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr ""
+
+#: src/screencastwidget.cpp:24
+#, kde-format
+msgid ""
+"Laptop screen\n"
+"Model: %1"
+msgstr ""
+"Sülearvuti ekraan\n"
+"Mudel :%1"
+
+#: src/screencastwidget.cpp:27 src/screencastwidget.cpp:30
+#, kde-format
+msgid ""
+"Manufacturer: %1\n"
+"Model: %2"
+msgstr ""
+"Tootja: %1\n"
+"Mudel: %2"
 
 #: src/screenchooserdialog.cpp:138
 #, kde-format

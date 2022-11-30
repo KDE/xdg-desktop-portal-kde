@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:48+0000\n"
+"POT-Creation-Date: 2022-11-30 00:49+0000\n"
 "PO-Revision-Date: 2017-04-27 19:03-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -128,19 +128,9 @@ msgstr ""
 msgid "New Virtual Output"
 msgstr ""
 
-#: src/outputsmodel.cpp:28 src/screencastwidget.cpp:24
+#: src/outputsmodel.cpp:28
 #, kde-format
-msgid ""
-"Laptop screen\n"
-"Model: %1"
-msgstr ""
-
-#: src/outputsmodel.cpp:31 src/screencastwidget.cpp:27
-#: src/screencastwidget.cpp:30
-#, kde-format
-msgid ""
-"Manufacturer: %1\n"
-"Model: %2"
+msgid "Laptop screen"
 msgstr ""
 
 #: src/remotedesktopdialog.cpp:22
@@ -174,6 +164,20 @@ msgstr ""
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
+msgstr ""
+
+#: src/screencastwidget.cpp:24
+#, kde-format
+msgid ""
+"Laptop screen\n"
+"Model: %1"
+msgstr ""
+
+#: src/screencastwidget.cpp:27 src/screencastwidget.cpp:30
+#, kde-format
+msgid ""
+"Manufacturer: %1\n"
+"Model: %2"
 msgstr ""
 
 #: src/screenchooserdialog.cpp:138

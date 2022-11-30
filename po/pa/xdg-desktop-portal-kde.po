@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:48+0000\n"
+"POT-Creation-Date: 2022-11-30 00:49+0000\n"
 "PO-Revision-Date: 2022-06-11 09:29-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -134,24 +134,15 @@ msgstr "ਪੂਰਾ ਵਰਕਸਪੇਸ"
 msgid "New Virtual Output"
 msgstr "ਨਵਾਂ ਵਰਚੁਅਲ ਆਉਟਪੁੱਟ"
 
-#: src/outputsmodel.cpp:28 src/screencastwidget.cpp:24
-#, kde-format
-msgid ""
-"Laptop screen\n"
-"Model: %1"
+#: src/outputsmodel.cpp:28
+#, fuzzy, kde-format
+#| msgid ""
+#| "Laptop screen\n"
+#| "Model: %1"
+msgid "Laptop screen"
 msgstr ""
 "ਲੈਪਟਾਪ ਸਕਰੀਨ\n"
 "ਮਾਡਲ: %1"
-
-#: src/outputsmodel.cpp:31 src/screencastwidget.cpp:27
-#: src/screencastwidget.cpp:30
-#, kde-format
-msgid ""
-"Manufacturer: %1\n"
-"Model: %2"
-msgstr ""
-"ਨਿਰਮਾਤਾ: %1\n"
-"ਮਾਡਲ: %2"
 
 #: src/remotedesktopdialog.cpp:22
 #, fuzzy, kde-format
@@ -187,6 +178,24 @@ msgstr "ਚੁਣੋ ਕਿ %1 ਨਾਲ ਕੀ ਸਾਂਝਾ ਕਰਨਾ ਹ
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "ਸ਼ੇਅਰ ਸਾਂਝਾ ਕਰਨਾ ਜਾਰੀ ਹੈ"
+
+#: src/screencastwidget.cpp:24
+#, kde-format
+msgid ""
+"Laptop screen\n"
+"Model: %1"
+msgstr ""
+"ਲੈਪਟਾਪ ਸਕਰੀਨ\n"
+"ਮਾਡਲ: %1"
+
+#: src/screencastwidget.cpp:27 src/screencastwidget.cpp:30
+#, kde-format
+msgid ""
+"Manufacturer: %1\n"
+"Model: %2"
+msgstr ""
+"ਨਿਰਮਾਤਾ: %1\n"
+"ਮਾਡਲ: %2"
 
 #: src/screenchooserdialog.cpp:138
 #, kde-format

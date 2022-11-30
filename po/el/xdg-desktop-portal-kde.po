@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:48+0000\n"
+"POT-Creation-Date: 2022-11-30 00:49+0000\n"
 "PO-Revision-Date: 2021-07-09 11:02+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -139,24 +139,15 @@ msgstr ""
 msgid "New Virtual Output"
 msgstr ""
 
-#: src/outputsmodel.cpp:28 src/screencastwidget.cpp:24
-#, kde-format
-msgid ""
-"Laptop screen\n"
-"Model: %1"
+#: src/outputsmodel.cpp:28
+#, fuzzy, kde-format
+#| msgid ""
+#| "Laptop screen\n"
+#| "Model: %1"
+msgid "Laptop screen"
 msgstr ""
 "Οθόνη φορητού\n"
 "Μοντέλο: %1"
-
-#: src/outputsmodel.cpp:31 src/screencastwidget.cpp:27
-#: src/screencastwidget.cpp:30
-#, kde-format
-msgid ""
-"Manufacturer: %1\n"
-"Model: %2"
-msgstr ""
-"Κατασκευαστής: %1\n"
-"Μοντέλο: %2"
 
 #: src/remotedesktopdialog.cpp:22
 #, fuzzy, kde-format
@@ -192,6 +183,24 @@ msgstr "Επιλέξτε τι θα μοιράζεστε με την %1"
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Κοινή χρήση οθόνης σε εξέλιξη"
+
+#: src/screencastwidget.cpp:24
+#, kde-format
+msgid ""
+"Laptop screen\n"
+"Model: %1"
+msgstr ""
+"Οθόνη φορητού\n"
+"Μοντέλο: %1"
+
+#: src/screencastwidget.cpp:27 src/screencastwidget.cpp:30
+#, kde-format
+msgid ""
+"Manufacturer: %1\n"
+"Model: %2"
+msgstr ""
+"Κατασκευαστής: %1\n"
+"Μοντέλο: %2"
 
 #: src/screenchooserdialog.cpp:138
 #, fuzzy, kde-format

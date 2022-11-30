@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:48+0000\n"
+"POT-Creation-Date: 2022-11-30 00:49+0000\n"
 "PO-Revision-Date: 2022-11-19 14:49\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -135,24 +135,15 @@ msgstr "完整工作区"
 msgid "New Virtual Output"
 msgstr "新建虚拟输出"
 
-#: src/outputsmodel.cpp:28 src/screencastwidget.cpp:24
-#, kde-format
-msgid ""
-"Laptop screen\n"
-"Model: %1"
+#: src/outputsmodel.cpp:28
+#, fuzzy, kde-format
+#| msgid ""
+#| "Laptop screen\n"
+#| "Model: %1"
+msgid "Laptop screen"
 msgstr ""
 "笔记本电脑屏幕\n"
 "型号：%1"
-
-#: src/outputsmodel.cpp:31 src/screencastwidget.cpp:27
-#: src/screencastwidget.cpp:30
-#, kde-format
-msgid ""
-"Manufacturer: %1\n"
-"Model: %2"
-msgstr ""
-"制造商：%1\n"
-"型号：%2"
 
 #: src/remotedesktopdialog.cpp:22
 #, kde-format
@@ -186,6 +177,24 @@ msgstr "选择要与 %1 共享的内容"
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "正在共享屏幕"
+
+#: src/screencastwidget.cpp:24
+#, kde-format
+msgid ""
+"Laptop screen\n"
+"Model: %1"
+msgstr ""
+"笔记本电脑屏幕\n"
+"型号：%1"
+
+#: src/screencastwidget.cpp:27 src/screencastwidget.cpp:30
+#, kde-format
+msgid ""
+"Manufacturer: %1\n"
+"Model: %2"
+msgstr ""
+"制造商：%1\n"
+"型号：%2"
 
 #: src/screenchooserdialog.cpp:138
 #, kde-format
