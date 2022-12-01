@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:49+0000\n"
+"POT-Creation-Date: 2022-12-01 00:48+0000\n"
 "PO-Revision-Date: 2017-04-27 19:03-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -270,6 +270,11 @@ msgstr ""
 msgid "Active Window"
 msgstr ""
 
+#: src/session.cpp:393
+#, kde-format
+msgid ", "
+msgstr ""
+
 #: src/userinfodialog.cpp:32
 #, kde-format
 msgid "Share Information"
@@ -280,38 +285,38 @@ msgstr ""
 msgid "Share your personal information with the requesting application?"
 msgstr ""
 
-#: src/waylandintegration.cpp:283
+#: src/waylandintegration.cpp:279
 #, kde-format
 msgid "Recording window \"%1\"..."
 msgstr ""
 
-#: src/waylandintegration.cpp:293
+#: src/waylandintegration.cpp:289
 #, kde-format
 msgid "Recording screen \"%1\"..."
 msgstr ""
 
-#: src/waylandintegration.cpp:310
+#: src/waylandintegration.cpp:306
 #, kde-format
 msgid "Recording workspace..."
 msgstr ""
 
-#: src/waylandintegration.cpp:322
+#: src/waylandintegration.cpp:318
 #, kde-format
 msgid "Recording virtual output '%1'..."
 msgstr ""
 
-#: src/waylandintegration.cpp:341
+#: src/waylandintegration.cpp:337
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr ""
 
-#: src/waylandintegration.cpp:371
+#: src/waylandintegration.cpp:367
 #, kde-format
 msgctxt "@action:inmenu stops screen/window recording"
 msgid "Stop Recording"
 msgstr ""
 
-#: src/waylandintegration.cpp:652
+#: src/waylandintegration.cpp:648
 #, kde-format
 msgid "Remote desktop"
 msgstr ""

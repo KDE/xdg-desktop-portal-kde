@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:49+0000\n"
+"POT-Creation-Date: 2022-12-01 00:48+0000\n"
 "PO-Revision-Date: 2022-11-16 06:33+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -290,6 +290,11 @@ msgstr "Uneko pantaila"
 msgid "Active Window"
 msgstr "Leiho aktiboa"
 
+#: src/session.cpp:393
+#, kde-format
+msgid ", "
+msgstr ""
+
 #: src/userinfodialog.cpp:32
 #, kde-format
 msgid "Share Information"
@@ -301,38 +306,38 @@ msgid "Share your personal information with the requesting application?"
 msgstr ""
 "Zure informazio pertsonala eskatzen duen aplikazioarekin partekatu nahi duzu?"
 
-#: src/waylandintegration.cpp:283
+#: src/waylandintegration.cpp:279
 #, kde-format
 msgid "Recording window \"%1\"..."
 msgstr "«%1» leihoa grabatzen..."
 
-#: src/waylandintegration.cpp:293
+#: src/waylandintegration.cpp:289
 #, kde-format
 msgid "Recording screen \"%1\"..."
 msgstr "«%1» pantaila grabatzen..."
 
-#: src/waylandintegration.cpp:310
+#: src/waylandintegration.cpp:306
 #, kde-format
 msgid "Recording workspace..."
 msgstr "Langunea grabatzen..."
 
-#: src/waylandintegration.cpp:322
+#: src/waylandintegration.cpp:318
 #, kde-format
 msgid "Recording virtual output '%1'..."
 msgstr "«%1» alegiazko irteerakoa grabatzen..."
 
-#: src/waylandintegration.cpp:341
+#: src/waylandintegration.cpp:337
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Huts egin du pantaila-grabatzea abiatzea"
 
-#: src/waylandintegration.cpp:371
+#: src/waylandintegration.cpp:367
 #, kde-format
 msgctxt "@action:inmenu stops screen/window recording"
 msgid "Stop Recording"
 msgstr "Gelditu grabazioa"
 
-#: src/waylandintegration.cpp:652
+#: src/waylandintegration.cpp:648
 #, kde-format
 msgid "Remote desktop"
 msgstr "Urruneko mahaigaina"

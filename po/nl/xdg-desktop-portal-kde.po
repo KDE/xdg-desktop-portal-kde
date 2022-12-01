@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:49+0000\n"
-"PO-Revision-Date: 2022-11-16 15:26+0100\n"
+"POT-Creation-Date: 2022-12-01 00:48+0000\n"
+"PO-Revision-Date: 2022-11-30 10:50+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -137,14 +137,9 @@ msgid "New Virtual Output"
 msgstr "Nieuwe virtuele uitvoer"
 
 #: src/outputsmodel.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Laptop screen\n"
-#| "Model: %1"
+#, kde-format
 msgid "Laptop screen"
-msgstr ""
-"Laptopscherm\n"
-"model: %1"
+msgstr "Laptopscherm"
 
 #: src/remotedesktopdialog.cpp:22
 #, kde-format
@@ -287,6 +282,11 @@ msgstr "Huidig scherm"
 msgid "Active Window"
 msgstr "Actief venster"
 
+#: src/session.cpp:393
+#, kde-format
+msgid ", "
+msgstr ""
+
 #: src/userinfodialog.cpp:32
 #, kde-format
 msgid "Share Information"
@@ -297,38 +297,38 @@ msgstr "Informatie delen"
 msgid "Share your personal information with the requesting application?"
 msgstr "Uw persoonlijke informatie delen met de vragende toepassing?"
 
-#: src/waylandintegration.cpp:283
+#: src/waylandintegration.cpp:279
 #, kde-format
 msgid "Recording window \"%1\"..."
 msgstr "Venster \"%1\" wordt opgenomen..."
 
-#: src/waylandintegration.cpp:293
+#: src/waylandintegration.cpp:289
 #, kde-format
 msgid "Recording screen \"%1\"..."
 msgstr "Scherm \"%1\" wordt opgenomen..."
 
-#: src/waylandintegration.cpp:310
+#: src/waylandintegration.cpp:306
 #, kde-format
 msgid "Recording workspace..."
 msgstr "Werkruimte wordt opgenomen..."
 
-#: src/waylandintegration.cpp:322
+#: src/waylandintegration.cpp:318
 #, kde-format
 msgid "Recording virtual output '%1'..."
 msgstr "Virtuele uitvoer '%1' wordt opgenomen..."
 
-#: src/waylandintegration.cpp:341
+#: src/waylandintegration.cpp:337
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Beginnen van screencasting is mislukt"
 
-#: src/waylandintegration.cpp:371
+#: src/waylandintegration.cpp:367
 #, kde-format
 msgctxt "@action:inmenu stops screen/window recording"
 msgid "Stop Recording"
 msgstr "Opnemen stoppen"
 
-#: src/waylandintegration.cpp:652
+#: src/waylandintegration.cpp:648
 #, kde-format
 msgid "Remote desktop"
 msgstr "Bureaublad op afstand"

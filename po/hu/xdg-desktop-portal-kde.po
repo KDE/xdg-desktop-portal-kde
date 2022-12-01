@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:49+0000\n"
+"POT-Creation-Date: 2022-12-01 00:48+0000\n"
 "PO-Revision-Date: 2022-01-25 10:23+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -293,6 +293,11 @@ msgstr "Jelenlegi képernyő"
 msgid "Active Window"
 msgstr "Aktív ablak"
 
+#: src/session.cpp:393
+#, kde-format
+msgid ", "
+msgstr ""
+
 #: src/userinfodialog.cpp:32
 #, kde-format
 msgid "Share Information"
@@ -303,40 +308,40 @@ msgstr "Információ megosztása"
 msgid "Share your personal information with the requesting application?"
 msgstr "Megosztja a személyes adadait az igénylő alkalmazással?"
 
-#: src/waylandintegration.cpp:283
+#: src/waylandintegration.cpp:279
 #, kde-format
 msgid "Recording window \"%1\"..."
 msgstr "A(z) „%1” ablak rögzítése…"
 
-#: src/waylandintegration.cpp:293
+#: src/waylandintegration.cpp:289
 #, kde-format
 msgid "Recording screen \"%1\"..."
 msgstr "A(z) „%1” képernyő rögzítése…"
 
-#: src/waylandintegration.cpp:310
+#: src/waylandintegration.cpp:306
 #, fuzzy, kde-format
 #| msgid "Recording screen \"%1\"..."
 msgid "Recording workspace..."
 msgstr "A(z) „%1” képernyő rögzítése…"
 
-#: src/waylandintegration.cpp:322
+#: src/waylandintegration.cpp:318
 #, fuzzy, kde-format
 #| msgid "Recording window \"%1\"..."
 msgid "Recording virtual output '%1'..."
 msgstr "A(z) „%1” ablak rögzítése…"
 
-#: src/waylandintegration.cpp:341
+#: src/waylandintegration.cpp:337
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Nem sikerült elindítani a képernyőfelvételt"
 
-#: src/waylandintegration.cpp:371
+#: src/waylandintegration.cpp:367
 #, kde-format
 msgctxt "@action:inmenu stops screen/window recording"
 msgid "Stop Recording"
 msgstr ""
 
-#: src/waylandintegration.cpp:652
+#: src/waylandintegration.cpp:648
 #, kde-format
 msgid "Remote desktop"
 msgstr "Távoli asztal"

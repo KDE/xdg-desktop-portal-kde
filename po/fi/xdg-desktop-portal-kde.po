@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:49+0000\n"
+"POT-Creation-Date: 2022-12-01 00:48+0000\n"
 "PO-Revision-Date: 2022-10-28 22:11+0300\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -289,6 +289,11 @@ msgstr "Nykyinen näyttö"
 msgid "Active Window"
 msgstr "Aktiivinen ikkuna"
 
+#: src/session.cpp:393
+#, kde-format
+msgid ", "
+msgstr ""
+
 #: src/userinfodialog.cpp:32
 #, kde-format
 msgid "Share Information"
@@ -299,38 +304,38 @@ msgstr "Jaa tietoa"
 msgid "Share your personal information with the requesting application?"
 msgstr "Jaetaanko henkilökohtaiset tietosi pyytävälle sovellukselle?"
 
-#: src/waylandintegration.cpp:283
+#: src/waylandintegration.cpp:279
 #, kde-format
 msgid "Recording window \"%1\"..."
 msgstr "Nauhoitetaan ikkunaa ”%1”…"
 
-#: src/waylandintegration.cpp:293
+#: src/waylandintegration.cpp:289
 #, kde-format
 msgid "Recording screen \"%1\"..."
 msgstr "Nauhoitetaan näyttöä ”%1”…"
 
-#: src/waylandintegration.cpp:310
+#: src/waylandintegration.cpp:306
 #, kde-format
 msgid "Recording workspace..."
 msgstr "Nauhoitetaan työtilaa…"
 
-#: src/waylandintegration.cpp:322
+#: src/waylandintegration.cpp:318
 #, kde-format
 msgid "Recording virtual output '%1'..."
 msgstr "Nauhoitetaan virtuaaliulostuloa ”%1”…"
 
-#: src/waylandintegration.cpp:341
+#: src/waylandintegration.cpp:337
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Näytöntoiston käynnistäminen epäonnistui"
 
-#: src/waylandintegration.cpp:371
+#: src/waylandintegration.cpp:367
 #, kde-format
 msgctxt "@action:inmenu stops screen/window recording"
 msgid "Stop Recording"
 msgstr "Lopeta nauhoitus"
 
-#: src/waylandintegration.cpp:652
+#: src/waylandintegration.cpp:648
 #, kde-format
 msgid "Remote desktop"
 msgstr "Etätyöpöytä"
