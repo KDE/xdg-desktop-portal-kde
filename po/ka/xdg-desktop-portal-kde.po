@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-01 00:48+0000\n"
-"PO-Revision-Date: 2022-11-17 06:44+0100\n"
+"PO-Revision-Date: 2022-12-01 06:49+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -138,14 +138,9 @@ msgid "New Virtual Output"
 msgstr "ახალი ვირტუალური გამოტანა"
 
 #: src/outputsmodel.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Laptop screen\n"
-#| "Model: %1"
+#, kde-format
 msgid "Laptop screen"
-msgstr ""
-"ნოუთბუქის ეკრანი\n"
-"მოდელი: %1"
+msgstr "ნოუთბუქის ეკრანი"
 
 #: src/remotedesktopdialog.cpp:22
 #, kde-format

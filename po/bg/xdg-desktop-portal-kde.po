@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-01 00:48+0000\n"
-"PO-Revision-Date: 2022-11-19 22:09+0100\n"
+"PO-Revision-Date: 2022-12-01 23:59+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -136,14 +136,9 @@ msgid "New Virtual Output"
 msgstr "Нов виртуален изход"
 
 #: src/outputsmodel.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Laptop screen\n"
-#| "Model: %1"
+#, kde-format
 msgid "Laptop screen"
-msgstr ""
-"Екран на лаптоп\n"
-"Модел: %1"
+msgstr "Екран на лаптоп"
 
 #: src/remotedesktopdialog.cpp:22
 #, kde-format
@@ -289,7 +284,7 @@ msgstr "Текущ прозорец"
 #: src/session.cpp:393
 #, kde-format
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/userinfodialog.cpp:32
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-01 00:48+0000\n"
-"PO-Revision-Date: 2022-11-17 21:22+0530\n"
+"PO-Revision-Date: 2022-12-01 21:39+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -136,14 +136,9 @@ msgid "New Virtual Output"
 msgstr "புதிய மெய்நிகர் வெளியீடு"
 
 #: src/outputsmodel.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Laptop screen\n"
-#| "Model: %1"
+#, kde-format
 msgid "Laptop screen"
-msgstr ""
-"மடிக்கணினி திரை\n"
-"மாடல்: %1"
+msgstr "மடிக்கணினித் திரை"
 
 #: src/remotedesktopdialog.cpp:22
 #, kde-format
@@ -289,7 +284,7 @@ msgstr "செயலில் உள்ள சாளரம்"
 #: src/session.cpp:393
 #, kde-format
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/userinfodialog.cpp:32
 #, kde-format
