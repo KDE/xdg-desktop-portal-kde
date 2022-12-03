@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:48+0000\n"
+"POT-Creation-Date: 2022-12-01 00:48+0000\n"
 "PO-Revision-Date: 2022-10-30 09:32+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -138,24 +138,10 @@ msgstr "Fullt arbeidsområde"
 msgid "New Virtual Output"
 msgstr "Ny virtuell uteining"
 
-#: src/outputsmodel.cpp:28 src/screencastwidget.cpp:24
+#: src/outputsmodel.cpp:28
 #, kde-format
-msgid ""
-"Laptop screen\n"
-"Model: %1"
+msgid "Laptop screen"
 msgstr ""
-"Skjerm på berbar\n"
-"Modell: %1"
-
-#: src/outputsmodel.cpp:31 src/screencastwidget.cpp:27
-#: src/screencastwidget.cpp:30
-#, kde-format
-msgid ""
-"Manufacturer: %1\n"
-"Model: %2"
-msgstr ""
-"Produsent: %1\n"
-"Modell: %2"
 
 #: src/remotedesktopdialog.cpp:22
 #, kde-format
@@ -189,6 +175,24 @@ msgstr "Vel kva du vil dela med %1"
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Skjermdeling pågår"
+
+#: src/screencastwidget.cpp:24
+#, kde-format
+msgid ""
+"Laptop screen\n"
+"Model: %1"
+msgstr ""
+"Skjerm på berbar\n"
+"Modell: %1"
+
+#: src/screencastwidget.cpp:27 src/screencastwidget.cpp:30
+#, kde-format
+msgid ""
+"Manufacturer: %1\n"
+"Model: %2"
+msgstr ""
+"Produsent: %1\n"
+"Modell: %2"
 
 #: src/screenchooserdialog.cpp:138
 #, kde-format
@@ -280,6 +284,11 @@ msgstr "Gjeldande skjerm"
 msgid "Active Window"
 msgstr "Aktivt vindauge"
 
+#: src/session.cpp:393
+#, kde-format
+msgid ", "
+msgstr ""
+
 #: src/userinfodialog.cpp:32
 #, kde-format
 msgid "Share Information"
@@ -290,38 +299,38 @@ msgstr "Del informasjon"
 msgid "Share your personal information with the requesting application?"
 msgstr "Vil du dela persondata med førespurnadsprogrammet?"
 
-#: src/waylandintegration.cpp:283
+#: src/waylandintegration.cpp:279
 #, kde-format
 msgid "Recording window \"%1\"..."
 msgstr "Opptak pågår av vindauget «%1» …"
 
-#: src/waylandintegration.cpp:293
+#: src/waylandintegration.cpp:289
 #, kde-format
 msgid "Recording screen \"%1\"..."
 msgstr "Opptak pågår av «%1» …"
 
-#: src/waylandintegration.cpp:310
+#: src/waylandintegration.cpp:306
 #, kde-format
 msgid "Recording workspace..."
 msgstr "Gjer opptak av arbeidsområde …"
 
-#: src/waylandintegration.cpp:322
+#: src/waylandintegration.cpp:318
 #, kde-format
 msgid "Recording virtual output '%1'..."
 msgstr "Gjer opptak av virtuelt område «%1» …"
 
-#: src/waylandintegration.cpp:341
+#: src/waylandintegration.cpp:337
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Klarte ikkje starta skjermdeling"
 
-#: src/waylandintegration.cpp:371
+#: src/waylandintegration.cpp:367
 #, kde-format
 msgctxt "@action:inmenu stops screen/window recording"
 msgid "Stop Recording"
 msgstr "Stopp opptak"
 
-#: src/waylandintegration.cpp:652
+#: src/waylandintegration.cpp:648
 #, kde-format
 msgid "Remote desktop"
 msgstr "Nettverksskrivebord"
