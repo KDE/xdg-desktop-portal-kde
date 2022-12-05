@@ -279,7 +279,7 @@ msgstr "Janela Activa"
 #: src/session.cpp:393
 #, kde-format
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/userinfodialog.cpp:32
 #, kde-format

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-01 00:48+0000\n"
-"PO-Revision-Date: 2022-11-18 06:48+0100\n"
+"PO-Revision-Date: 2022-12-04 07:37+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.11.80\n"
+"X-Generator: Lokalize 22.11.90\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -139,14 +139,9 @@ msgid "New Virtual Output"
 msgstr "Nouvelle sortie virtuelle"
 
 #: src/outputsmodel.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Laptop screen\n"
-#| "Model: %1"
+#, kde-format
 msgid "Laptop screen"
-msgstr ""
-"Écran d'ordinateur portable\n"
-"Modèle : %1"
+msgstr "Écran d'ordinateur portable"
 
 #: src/remotedesktopdialog.cpp:22
 #, kde-format
@@ -300,7 +295,7 @@ msgstr "Fenêtre active"
 #: src/session.cpp:393
 #, kde-format
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/userinfodialog.cpp:32
 #, kde-format
