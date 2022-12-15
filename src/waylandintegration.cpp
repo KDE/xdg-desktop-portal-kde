@@ -44,7 +44,6 @@
 #include <unistd.h>
 #include <xkbcommon/xkbcommon.h>
 
-#include <KStatusNotifierItem>
 #include <KWayland/Client/fakeinput.h>
 #include <qpa/qplatformnativeinterface.h>
 #include <waylandintegration_debug.h>
@@ -272,12 +271,7 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
                                                                                                Screencasting::CursorMode cursorMode)
 {
     auto uuid = win[KWayland::Client::PlasmaWindowModel::Uuid].toString();
-    QString iconName = win[Qt::DecorationRole].value<QIcon>().name();
-    iconName = iconName.isEmpty() ? QStringLiteral("applications-all") : iconName;
-    return startStreaming(m_screencasting->createWindowStream(uuid, cursorMode),
-                          iconName,
-                          i18n("Recording window \"%1\"...", win[Qt::DisplayRole].toString()),
-                          {{QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Window)}});
+    return startStreaming(m_screencasting->createWindowStream(uuid, cursorMode), {{QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Window)}});
 }
 
 WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode)
@@ -285,8 +279,6 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
     auto output = m_outputMap.value(outputName).output();
     m_streamedScreenPosition = output->globalPosition();
     return startStreaming(m_screencasting->createOutputStream(output.data(), mode),
-                          QStringLiteral("media-record"),
-                          i18n("Recording screen \"%1\"...", output->model()),
                           {
                               {QLatin1String("size"), output->pixelSize()},
                               {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
@@ -302,8 +294,6 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
     }
     m_streamedScreenPosition = workspace.topLeft();
     return startStreaming(m_screencasting->createRegionStream(workspace, 1, mode),
-                          QStringLiteral("media-record"),
-                          i18n("Recording workspace..."),
                           {
                               {QLatin1String("size"), workspace.size()},
                               {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
@@ -314,18 +304,13 @@ WaylandIntegration::Stream
 WaylandIntegration::WaylandIntegrationPrivate::startStreamingVirtualOutput(const QString &name, const QSize &size, Screencasting::CursorMode mode)
 {
     return startStreaming(m_screencasting->createVirtualOutputStream(name, size, 1, mode),
-                          QStringLiteral("media-record"),
-                          i18n("Recording virtual output '%1'...", name),
                           {
                               {QLatin1String("size"), size},
                               {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Virtual)},
                           });
 }
 
-WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreaming(ScreencastingStream *stream,
-                                                                                         const QString &iconName,
-                                                                                         const QString &description,
-                                                                                         const QVariantMap &streamOptions)
+WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreaming(ScreencastingStream *stream, const QVariantMap &streamOptions)
 {
     QEventLoop loop;
     Stream ret;
@@ -352,25 +337,6 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
         });
         Q_ASSERT(ret.isValid());
         qDebug() << "start streaming" << ret << m_streamedScreenPosition;
-
-        auto item = new KStatusNotifierItem(stream);
-        item->setStandardActionsEnabled(false);
-        item->setTitle(description);
-        item->setIconByName(iconName);
-        item->setOverlayIconByName(QStringLiteral("media-record"));
-        item->setStatus(KStatusNotifierItem::Active);
-        connect(item, &KStatusNotifierItem::activateRequested, stream, [item] {
-            item->contextMenu()->show();
-        });
-        auto menu = new QMenu;
-        auto stopAction =
-            new QAction(QIcon::fromTheme(QStringLiteral("process-stop")), i18nc("@action:inmenu stops screen/window recording", "Stop Recording"));
-        connect(stopAction, &QAction::triggered, this, [this, nodeid, stream] {
-            stopStreaming(nodeid);
-            stream->deleteLater();
-        });
-        menu->addAction(stopAction);
-        item->setContextMenu(menu);
 
         loop.quit();
     });

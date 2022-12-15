@@ -20,9 +20,13 @@
 
 #include <KGlobalAccel>
 #include <KLocalizedString>
+#include <KStatusNotifierItem>
 
 #include "kglobalaccel_component_interface.h"
 #include "kglobalaccel_interface.h"
+#include "remotedesktopdialog.h"
+#include "utils.h"
+#include <QMenu>
 
 static QMap<QString, Session *> sessionList;
 
@@ -122,7 +126,7 @@ Session *Session::createSession(QObject *parent, SessionType type, const QString
     Session *session = nullptr;
     switch (type) {
     case ScreenCast:
-        session = new ScreenCastSession(parent, appId, path);
+        session = new ScreenCastSession(parent, appId, path, QStringLiteral("media-record"));
         break;
     case RemoteDesktop:
         session = new RemoteDesktopSession(parent, appId, path);
@@ -153,9 +157,11 @@ Session *Session::getSession(const QString &sessionHandle)
     return sessionList.value(sessionHandle);
 }
 
-ScreenCastSession::ScreenCastSession(QObject *parent, const QString &appId, const QString &path)
+ScreenCastSession::ScreenCastSession(QObject *parent, const QString &appId, const QString &path, const QString &iconName)
     : Session(parent, appId, path)
+    , m_item(new KStatusNotifierItem(this))
 {
+    m_item->setIconByName(iconName);
 }
 
 ScreenCastSession::~ScreenCastSession()
@@ -191,7 +197,7 @@ void ScreenCastSession::setOptions(const QVariantMap &options)
 }
 
 RemoteDesktopSession::RemoteDesktopSession(QObject *parent, const QString &appId, const QString &path)
-    : ScreenCastSession(parent, appId, path)
+    : ScreenCastSession(parent, appId, path, QStringLiteral("krfb"))
     , m_screenSharingEnabled(false)
 {
     connect(this, &RemoteDesktopSession::closed, this, [this] {
@@ -212,6 +218,9 @@ RemoteDesktopPortal::DeviceTypes RemoteDesktopSession::deviceTypes() const
 
 void RemoteDesktopSession::setDeviceTypes(RemoteDesktopPortal::DeviceTypes deviceTypes)
 {
+    if (m_deviceTypes != deviceTypes) {
+        return;
+    }
     m_deviceTypes = deviceTypes;
 }
 
@@ -222,6 +231,10 @@ bool RemoteDesktopSession::screenSharingEnabled() const
 
 void RemoteDesktopSession::setScreenSharingEnabled(bool enabled)
 {
+    if (m_screenSharingEnabled == enabled) {
+        return;
+    }
+
     m_screenSharingEnabled = enabled;
 }
 
@@ -231,9 +244,42 @@ void RemoteDesktopSession::acquireStreamingInput()
     m_acquired = true;
 }
 
+void RemoteDesktopSession::refreshDescription()
+{
+    setDescription(RemoteDesktopDialog::buildDescription(m_appId, deviceTypes(), screenSharingEnabled()));
+}
+
 void ScreenCastSession::setStreams(const WaylandIntegration::Streams &streams)
 {
+    Q_ASSERT(!streams.isEmpty());
     m_streams = streams;
+
+    m_item->setStandardActionsEnabled(false);
+    if (qobject_cast<RemoteDesktopSession *>(this)) {
+        m_item->setTitle(i18nc("SNI title that indicates there's a process remotely controlling the system", "Remote Desktop"));
+        refreshDescription();
+    } else {
+        const bool isWindow = m_streams[0].map[QLatin1String("source_type")] == ScreenCastPortal::Window;
+        m_item->setToolTipSubTitle(i18ncp("%1 number of screens, %2 the app that receives them",
+                                          "Sharing contents to %2",
+                                          "%1 video streams to %2",
+                                          m_streams.count(),
+                                          Utils::applicationName(m_appId)));
+        m_item->setTitle(i18nc("SNI title that indicates there's a process seeing our windows or screens", "Screen casting"));
+        if (isWindow) {
+            m_item->setOverlayIconByName(QStringLiteral("window"));
+        } else {
+            m_item->setOverlayIconByName(QStringLiteral("monitor"));
+        }
+    }
+    m_item->setToolTipIconByName(m_item->overlayIconName());
+    m_item->setToolTipTitle(m_item->title());
+    auto menu = new QMenu;
+    auto stopAction = new QAction(QIcon::fromTheme(QStringLiteral("process-stop")), i18nc("@action:inmenu stops screen/window sharing", "Terminate"));
+    connect(stopAction, &QAction::triggered, this, &Session::close);
+    connect(m_item, &KStatusNotifierItem::activateRequested, menu, &QMenu::show);
+    menu->addAction(stopAction);
+    m_item->setContextMenu(menu);
 
     for (const auto &s : streams) {
         connect(s.stream, &ScreencastingStream::closed, this, &ScreenCastSession::streamClosed);
@@ -242,6 +288,12 @@ void ScreenCastSession::setStreams(const WaylandIntegration::Streams &streams)
             streamClosed();
         });
     }
+    m_item->setStatus(KStatusNotifierItem::Active);
+}
+
+void ScreenCastSession::setDescription(const QString &description)
+{
+    m_item->setToolTipSubTitle(description);
 }
 
 void ScreenCastSession::streamClosed()

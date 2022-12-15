@@ -19,6 +19,7 @@
 #include "screencast.h"
 #include "waylandintegration.h"
 
+class KStatusNotifierItem;
 class KGlobalAccelInterface;
 class KGlobalAccelComponentInterface;
 
@@ -62,7 +63,7 @@ class ScreenCastSession : public Session
 {
     Q_OBJECT
 public:
-    explicit ScreenCastSession(QObject *parent = nullptr, const QString &appId = QString(), const QString &path = QString());
+    explicit ScreenCastSession(QObject *parent, const QString &appId, const QString &path, const QString &iconName);
     ~ScreenCastSession() override;
 
     void setOptions(const QVariantMap &options);
@@ -90,22 +91,29 @@ public:
     }
     void setStreams(const WaylandIntegration::Streams &streams);
 
+protected:
+    virtual void refreshDescription()
+    {
+    }
+    void setDescription(const QString &description);
+
 private:
-    bool m_multipleSources;
-    ScreenCastPortal::CursorModes m_cursorMode;
-    ScreenCastPortal::SourceType m_types;
+    bool m_multipleSources = false;
+    ScreenCastPortal::CursorModes m_cursorMode = ScreenCastPortal::Hidden;
+    ScreenCastPortal::SourceType m_types = ScreenCastPortal::Any;
     ScreenCastPortal::PersistMode m_persistMode = ScreenCastPortal::NoPersist;
     void streamClosed();
 
     WaylandIntegration::Streams m_streams;
     QVariant m_restoreData;
+    KStatusNotifierItem *const m_item;
 };
 
 class RemoteDesktopSession : public ScreenCastSession
 {
     Q_OBJECT
 public:
-    explicit RemoteDesktopSession(QObject *parent = nullptr, const QString &appId = QString(), const QString &path = QString());
+    explicit RemoteDesktopSession(QObject *parent, const QString &appId, const QString &path);
     ~RemoteDesktopSession() override;
 
     RemoteDesktopPortal::DeviceTypes deviceTypes() const;
@@ -122,6 +130,8 @@ public:
     }
 
 private:
+    void refreshDescription() override;
+
     bool m_screenSharingEnabled;
     RemoteDesktopPortal::DeviceTypes m_deviceTypes;
     bool m_acquired = false;

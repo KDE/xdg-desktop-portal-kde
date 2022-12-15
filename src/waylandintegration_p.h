@@ -90,7 +90,7 @@ protected Q_SLOTS:
     void removeOutput(quint32 name);
 
 private:
-    Stream startStreaming(ScreencastingStream *stream, const QString &iconName, const QString &description, const QVariantMap &streamOptions);
+    Stream startStreaming(ScreencastingStream *stream, const QVariantMap &streamOptions);
     bool eventFilter(QObject *watched, QEvent *event) override;
 
     uint m_streamInput = 0;
