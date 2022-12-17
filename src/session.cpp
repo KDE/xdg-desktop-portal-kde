@@ -11,7 +11,6 @@
 #include "session_debug.h"
 #include "xdgshortcut.h"
 
-#include <QAction>
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCall>
