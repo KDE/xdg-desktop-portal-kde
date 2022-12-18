@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-01 00:48+0000\n"
+"POT-Creation-Date: 2022-12-18 00:56+0000\n"
 "PO-Revision-Date: 2022-06-11 09:29-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -296,7 +296,7 @@ msgstr "ਮੌਜੂਦਾ ਸਕਰੀਨ"
 msgid "Active Window"
 msgstr "ਸਰਗਰਮ ਵਿੰਡੋ"
 
-#: src/session.cpp:393
+#: src/session.cpp:392
 #, kde-format
 msgid ", "
 msgstr ""

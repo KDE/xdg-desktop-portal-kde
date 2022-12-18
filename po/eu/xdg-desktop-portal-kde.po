@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-01 00:48+0000\n"
+"POT-Creation-Date: 2022-12-18 00:56+0000\n"
 "PO-Revision-Date: 2022-12-01 22:08+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -285,7 +285,7 @@ msgstr "Uneko pantaila"
 msgid "Active Window"
 msgstr "Leiho aktiboa"
 
-#: src/session.cpp:393
+#: src/session.cpp:392
 #, kde-format
 msgid ", "
 msgstr ", "
