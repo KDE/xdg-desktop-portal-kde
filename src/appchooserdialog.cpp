@@ -414,7 +414,7 @@ void AppModel::loadApplications()
             continue; // no display after all
         }
 
-        const QString fullName = service->property(QStringLiteral("X-GNOME-FullName"), QVariant::String).toString();
+        const QString fullName = service->property(QStringLiteral("X-GNOME-FullName"), QMetaType::QString).toString();
         const QString name = fullName.isEmpty() ? service->name() : fullName;
         ApplicationItem appItem(name, service->icon(), service->desktopEntryName());
 
