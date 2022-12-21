@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-18 00:56+0000\n"
-"PO-Revision-Date: 2022-10-19 14:57-0300\n"
+"PO-Revision-Date: 2022-12-20 10:43-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -41,19 +41,16 @@ msgid "%1 files"
 msgstr "%1 arquivos"
 
 #: src/appchooserdialog.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Add Application…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
-msgstr "Adicionar aplicativo..."
+msgstr "Escolher aplicativo"
 
 #: src/appchooserdialog.cpp:43
-#, fuzzy, kde-kuit-format
-#| msgid "Select an application to open '%1'"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
-msgstr "Selecione um aplicativo para abrir '%1'"
+msgstr "Escolha um aplicativo para abrir <filename>%1</filename>"
 
 #: src/background.cpp:83
 #, kde-format
@@ -140,33 +137,26 @@ msgid "New Virtual Output"
 msgstr "Nova saída virtual"
 
 #: src/outputsmodel.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Laptop screen\n"
-#| "Model: %1"
+#, kde-format
 msgid "Laptop screen"
-msgstr ""
-"Tela do laptop\n"
-"Modelo: %1"
+msgstr "Tela do laptop"
 
 #: src/remotedesktopdialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgid "Requested access to:\n"
-msgstr "Solicitar acesso ao dispositivo"
+msgstr "Solicitar acesso para:\n"
 
 #: src/remotedesktopdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs"
 msgid "- Screens\n"
-msgstr "Tela inteira"
+msgstr "- Telas\n"
 
 #: src/remotedesktopdialog.cpp:27
 #, kde-format
 msgctxt "Will allow the app to send input events"
 msgid "- Input devices\n"
-msgstr ""
+msgstr "- Dispositivos de entrada\n"
 
 #: src/remotedesktopdialog.cpp:34
 #, kde-format
@@ -295,7 +285,7 @@ msgstr "Janela ativa"
 #: src/session.cpp:392
 #, kde-format
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/userinfodialog.cpp:32
 #, kde-format
