@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-18 00:56+0000\n"
-"PO-Revision-Date: 2022-03-21 22:32+0100\n"
+"PO-Revision-Date: 2022-12-21 12:36+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -39,11 +39,10 @@ msgid "%1 files"
 msgstr ""
 
 #: src/appchooserdialog.cpp:40
-#, fuzzy, kde-format
-#| msgid "Select application"
+#, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
-msgstr "Selige application"
+msgstr "Selige application "
 
 #: src/appchooserdialog.cpp:43
 #, kde-kuit-format
@@ -102,11 +101,10 @@ msgid "Add Web Application…"
 msgstr "Selige application"
 
 #: src/dynamiclauncher.cpp:81
-#, fuzzy, kde-format
-#| msgid "Select application"
+#, kde-format
 msgctxt "@title"
 msgid "Add Application…"
-msgstr "Selige application"
+msgstr "Adde Application..."
 
 #: src/filechooser.cpp:369
 #, kde-format
@@ -294,7 +292,7 @@ msgstr "Fenestra active"
 #: src/session.cpp:392
 #, kde-format
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/userinfodialog.cpp:32
 #, kde-format
@@ -336,7 +334,7 @@ msgstr "Il falleva a initiar screencasting"
 #, kde-format
 msgctxt "@action:inmenu stops screen/window recording"
 msgid "Stop Recording"
-msgstr ""
+msgstr "Stoppa Registrar"
 
 #: src/waylandintegration.cpp:648
 #, kde-format
