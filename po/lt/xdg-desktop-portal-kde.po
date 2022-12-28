@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-18 00:56+0000\n"
-"PO-Revision-Date: 2021-12-13 12:52+0200\n"
-"Last-Translator: Moo\n"
+"PO-Revision-Date: 2022-12-28 02:03+0200\n"
+"Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
@@ -17,17 +17,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Moo"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "<>"
 
 #: src/accessdialog.cpp:22
 #, kde-format
@@ -38,19 +38,19 @@ msgstr "Užklausti prieigą prie įrenginio"
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
-msgstr ""
+msgstr "Failų: %1"
 
 #: src/appchooserdialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
-msgstr ""
+msgstr "Pasirinkti programą"
 
 #: src/appchooserdialog.cpp:43
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
-msgstr ""
+msgstr "Pasirinkite programą, skirtą atverti <filename>%1</filename>"
 
 #: src/background.cpp:83
 #, kde-format
@@ -100,13 +100,13 @@ msgstr "Leisti"
 #, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
-msgstr ""
+msgstr "Pridėti saityno programą…"
 
 #: src/dynamiclauncher.cpp:81
 #, kde-format
 msgctxt "@title"
 msgid "Add Application…"
-msgstr ""
+msgstr "Pridėti programą…"
 
 #: src/filechooser.cpp:369
 #, kde-format
@@ -131,41 +131,34 @@ msgstr "Įrašyti failą"
 #: src/outputsmodel.cpp:18
 #, kde-format
 msgid "Full Workspace"
-msgstr ""
+msgstr "Visa darbo sritis"
 
 #: src/outputsmodel.cpp:22
 #, kde-format
 msgid "New Virtual Output"
-msgstr ""
+msgstr "Nauja virtualioji išvestis"
 
 #: src/outputsmodel.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Laptop screen\n"
-#| "Model: %1"
+#, kde-format
 msgid "Laptop screen"
-msgstr ""
-"Nešiojamasis kompiuteris\n"
-"Modelis: %1"
+msgstr "Nešiojamasis kompiuteris"
 
 #: src/remotedesktopdialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgid "Requested access to:\n"
-msgstr "Užklausti prieigą prie įrenginio"
+msgstr "Paprašyta prieigos prie:\n"
 
 #: src/remotedesktopdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs"
 msgid "- Screens\n"
-msgstr "Visas ekranas"
+msgstr "- Ekranai\n"
 
 #: src/remotedesktopdialog.cpp:27
 #, kde-format
 msgctxt "Will allow the app to send input events"
 msgid "- Input devices\n"
-msgstr ""
+msgstr "- Įvesties įrenginiai\n"
 
 #: src/remotedesktopdialog.cpp:34
 #, kde-format
@@ -175,7 +168,7 @@ msgstr "Pasirinkite, ką norite bendrinti su užklausą pateikusia programa"
 #: src/remotedesktopdialog.cpp:36
 #, kde-format
 msgid "Select what to share with %1"
-msgstr "Pasirinkite ką bendrinti su %1"
+msgstr "Pasirinkite, ką bendrinti su %1"
 
 #: src/screencast.cpp:318
 #, kde-format
@@ -189,7 +182,7 @@ msgid ""
 "Laptop screen\n"
 "Model: %1"
 msgstr ""
-"Nešiojamasis kompiuteris\n"
+"Nešiojamojo kompiuterio ekranas\n"
 "Modelis: %1"
 
 #: src/screencastwidget.cpp:27 src/screencastwidget.cpp:30
@@ -207,87 +200,75 @@ msgid "Screen Sharing"
 msgstr "Ekrano bendrinimas"
 
 #: src/screenchooserdialog.cpp:167
-#, fuzzy, kde-format
-#| msgid "Select what to share with the requesting application"
+#, kde-format
 msgid "Choose what to share with the requesting application:"
-msgstr "Pasirinkite, ką norite bendrinti su užklausą pateikusia programa"
+msgstr "Pasirinkite, ką bendrinti su užklausą pateikusia programa:"
 
 #: src/screenchooserdialog.cpp:169
-#, fuzzy, kde-format
-#| msgid "Select what to share with %1"
+#, kde-format
 msgid "Choose what to share with %1:"
-msgstr "Pasirinkite ką bendrinti su %1"
+msgstr "Pasirinkite, ką bendrinti su %1:"
 
 #: src/screenchooserdialog.cpp:177
-#, fuzzy, kde-format
-#| msgid "Select screen to share with the requesting application"
+#, kde-format
 msgid "Share this screen with the requesting application?"
-msgstr "Pasirinkite kurį ekraną bendrinti su užklausą pateikusia programa"
+msgstr "Bendrinti šį ekraną su užklausą pateikusia programa?"
 
 #: src/screenchooserdialog.cpp:179
-#, fuzzy, kde-format
-#| msgid "Select screen to share with %1"
+#, kde-format
 msgid "Share this screen with %1?"
-msgstr "Pasirinkite kurį ekraną bendrinti su %1"
+msgstr "Bendrinti šį ekraną su %1?"
 
 #: src/screenchooserdialog.cpp:184
-#, fuzzy, kde-format
-#| msgid "Select screen to share with the requesting application"
+#, kde-format
 msgid "Choose screens to share with the requesting application:"
-msgstr "Pasirinkite kurį ekraną bendrinti su užklausą pateikusia programa"
+msgstr ""
+"Pasirinkite, kuriuos ekranus bendrinti su užklausą pateikusia programa:"
 
 #: src/screenchooserdialog.cpp:186
-#, fuzzy, kde-format
-#| msgid "Select screen to share with %1"
+#, kde-format
 msgid "Choose screens to share with %1:"
-msgstr "Pasirinkite kurį ekraną bendrinti su %1"
+msgstr "Pasirinkite, kuriuos ekranus bendrinti su %1:"
 
 #: src/screenchooserdialog.cpp:190
-#, fuzzy, kde-format
-#| msgid "Select screen to share with the requesting application"
+#, kde-format
 msgid "Choose which screen to share with the requesting application:"
-msgstr "Pasirinkite kurį ekraną bendrinti su užklausą pateikusia programa"
+msgstr "Pasirinkite, kurį ekraną bendrinti su užklausą pateikusia programa:"
 
 #: src/screenchooserdialog.cpp:192
-#, fuzzy, kde-format
-#| msgid "Select screen to share with %1"
+#, kde-format
 msgid "Choose which screen to share with %1:"
-msgstr "Pasirinkite kurį ekraną bendrinti su %1"
+msgstr "Pasirinkite, kurį ekraną bendrinti su %1:"
 
 #: src/screenchooserdialog.cpp:202
-#, fuzzy, kde-format
-#| msgid "Share your personal information with the requesting application?"
+#, kde-format
 msgid "Share this window with the requesting application?"
-msgstr "Bendrinti jūsų asmeninę informaciją su užklausą pateikusia programa?"
+msgstr "Bendrinti šį langą su užklausą pateikusia programa?"
 
 #: src/screenchooserdialog.cpp:204
 #, kde-format
 msgid "Share this window with %1?"
-msgstr ""
+msgstr "Bendrinti šį langą su %1?"
 
 #: src/screenchooserdialog.cpp:209
-#, fuzzy, kde-format
-#| msgid "Select what to share with the requesting application"
+#, kde-format
 msgid "Choose windows to share with the requesting application:"
-msgstr "Pasirinkite, ką norite bendrinti su užklausą pateikusia programa"
+msgstr "Pasirinkite, kuriuos langus bendrinti su užklausą pateikusia programa:"
 
 #: src/screenchooserdialog.cpp:211
-#, fuzzy, kde-format
-#| msgid "Select what to share with %1"
+#, kde-format
 msgid "Choose windows to share with %1:"
-msgstr "Pasirinkite ką bendrinti su %1"
+msgstr "Pasirinkite, kuriuos langus bendrinti su %1:"
 
 #: src/screenchooserdialog.cpp:215
-#, fuzzy, kde-format
-#| msgid "Select what to share with the requesting application"
+#, kde-format
 msgid "Choose which window to share with the requesting application:"
-msgstr "Pasirinkite, ką norite bendrinti su užklausą pateikusia programa"
+msgstr "Pasirinkite, kurį langą bendrinti su užklausą pateikusia programa:"
 
 #: src/screenchooserdialog.cpp:217
-#, fuzzy, kde-format
-#| msgid "Select what to share with %1"
+#, kde-format
 msgid "Choose which window to share with %1:"
-msgstr "Pasirinkite ką bendrinti su %1"
+msgstr "Pasirinkite, kurį langą bendrinti su %1:"
 
 #: src/screenshotdialog.cpp:88
 #, kde-format
@@ -307,7 +288,7 @@ msgstr "Aktyvus langas"
 #: src/session.cpp:392
 #, kde-format
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/userinfodialog.cpp:32
 #, kde-format
@@ -330,16 +311,14 @@ msgid "Recording screen \"%1\"..."
 msgstr "Įrašinėjamas ekranas „%1“..."
 
 #: src/waylandintegration.cpp:306
-#, fuzzy, kde-format
-#| msgid "Recording screen \"%1\"..."
+#, kde-format
 msgid "Recording workspace..."
-msgstr "Įrašinėjamas ekranas „%1“..."
+msgstr "Įrašinėjama darbo sritis..."
 
 #: src/waylandintegration.cpp:318
-#, fuzzy, kde-format
-#| msgid "Recording window \"%1\"..."
+#, kde-format
 msgid "Recording virtual output '%1'..."
-msgstr "Įrašinėjamas langas „%1“..."
+msgstr "Įrašinėjama virtualioji išvestis „%1“..."
 
 #: src/waylandintegration.cpp:337
 #, kde-format
@@ -350,7 +329,7 @@ msgstr "Nepavyko pradėti ekrano įrašo"
 #, kde-format
 msgctxt "@action:inmenu stops screen/window recording"
 msgid "Stop Recording"
-msgstr ""
+msgstr "Stabdyti įrašinėjimą"
 
 #: src/waylandintegration.cpp:648
 #, kde-format
@@ -360,7 +339,7 @@ msgstr "Nuotolinis darbalaukis"
 #: src/xdg-desktop-portal-kde.cpp:28
 #, kde-format
 msgid "Portal"
-msgstr ""
+msgstr "Portalas"
 
 #~ msgid "Dialog"
 #~ msgstr "Dialogas"
