@@ -312,22 +312,22 @@ msgstr ""
 #: src/waylandintegration.cpp:279
 #, kde-format
 msgid "Recording window \"%1\"..."
-msgstr "S'està enregistrant la finestra «%1»..."
+msgstr "S'està gravant la finestra «%1»..."
 
 #: src/waylandintegration.cpp:289
 #, kde-format
 msgid "Recording screen \"%1\"..."
-msgstr "S'està enregistrant la pantalla «%1»..."
+msgstr "S'està gravant la pantalla «%1»..."
 
 #: src/waylandintegration.cpp:306
 #, kde-format
 msgid "Recording workspace..."
-msgstr "S'està enregistrant l'espai de treball..."
+msgstr "S'està gravant l'espai de treball..."
 
 #: src/waylandintegration.cpp:318
 #, kde-format
 msgid "Recording virtual output '%1'..."
-msgstr "S'està enregistrant l'eixida virtual «%1»..."
+msgstr "S'està gravant l'eixida virtual «%1»..."
 
 #: src/waylandintegration.cpp:337
 #, kde-format
