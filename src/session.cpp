@@ -247,9 +247,10 @@ void ScreenCastSession::setStreams(const WaylandIntegration::Streams &streams)
 void ScreenCastSession::streamClosed()
 {
     ScreencastingStream *stream = qobject_cast<ScreencastingStream *>(sender());
-    std::remove_if(m_streams.begin(), m_streams.end(), [stream](const WaylandIntegration::Stream &s) {
+    auto it = std::remove_if(m_streams.begin(), m_streams.end(), [stream](const WaylandIntegration::Stream &s) {
         return s.stream == stream;
     });
+    m_streams.erase(it, m_streams.end());
 
     if (m_streams.isEmpty()) {
         close();
