@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-18 00:56+0000\n"
+"POT-Creation-Date: 2023-01-03 00:49+0000\n"
 "PO-Revision-Date: 2022-12-28 02:03+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
@@ -285,7 +285,7 @@ msgstr "Dabartinis ekranas"
 msgid "Active Window"
 msgstr "Aktyvus langas"
 
-#: src/session.cpp:392
+#: src/session.cpp:393
 #, kde-format
 msgid ", "
 msgstr ", "

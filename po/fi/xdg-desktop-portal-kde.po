@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-18 00:56+0000\n"
+"POT-Creation-Date: 2023-01-03 00:49+0000\n"
 "PO-Revision-Date: 2022-10-28 22:11+0300\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -289,7 +289,7 @@ msgstr "Nykyinen näyttö"
 msgid "Active Window"
 msgstr "Aktiivinen ikkuna"
 
-#: src/session.cpp:392
+#: src/session.cpp:393
 #, kde-format
 msgid ", "
 msgstr ""
