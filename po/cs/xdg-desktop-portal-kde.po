@@ -1,7 +1,7 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Vít Pelčák <vit@pelcak.org>, 2017, 2018, 2019, 2020.
-# Vit Pelcak <vpelcak@suse.cz>, 2021, 2022.
+# Vit Pelcak <vit@pelcak.org>, 2021, 2022.
 #
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-03 00:49+0000\n"
 "PO-Revision-Date: 2022-06-28 10:42+0200\n"
-"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -40,19 +40,16 @@ msgid "%1 files"
 msgstr ""
 
 #: src/appchooserdialog.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Add Application…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
-msgstr "Přidat aplikaci…"
+msgstr ""
 
 #: src/appchooserdialog.cpp:43
-#, fuzzy, kde-kuit-format
-#| msgid "Select an application to open '%1'"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
-msgstr "Vyberte aplikaci pro otevření '%1'"
+msgstr ""
 
 #: src/background.cpp:83
 #, kde-format
@@ -136,27 +133,20 @@ msgid "New Virtual Output"
 msgstr "Nový virtuální výstup"
 
 #: src/outputsmodel.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Laptop screen\n"
-#| "Model: %1"
+#, kde-format
 msgid "Laptop screen"
 msgstr ""
-"Obrazovka notebooku\n"
-"Model: %1"
 
 #: src/remotedesktopdialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgid "Requested access to:\n"
-msgstr "Vyžádat přístup k zařízení"
+msgstr ""
 
 #: src/remotedesktopdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs"
 msgid "- Screens\n"
-msgstr "Celá obrazovka"
+msgstr ""
 
 #: src/remotedesktopdialog.cpp:27
 #, kde-format
@@ -291,7 +281,7 @@ msgstr "Aktivní okno"
 #: src/session.cpp:393
 #, kde-format
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/userinfodialog.cpp:32
 #, kde-format
@@ -343,18 +333,3 @@ msgstr "Vzdálená plocha"
 #, kde-format
 msgid "Portal"
 msgstr "Portál"
-
-#~ msgid "Dialog"
-#~ msgstr "Dialog"
-
-#~ msgid "Allow access to:"
-#~ msgstr "Povolit přístup k:"
-
-#~ msgid "Pointer"
-#~ msgstr "Ukazatel"
-
-#~ msgid "Keyboard"
-#~ msgstr "Klávesnice"
-
-#~ msgid "Touch screen"
-#~ msgstr "Dotyková obrazovka"
