@@ -218,9 +218,6 @@ RemoteDesktopPortal::DeviceTypes RemoteDesktopSession::deviceTypes() const
 
 void RemoteDesktopSession::setDeviceTypes(RemoteDesktopPortal::DeviceTypes deviceTypes)
 {
-    if (m_deviceTypes != deviceTypes) {
-        return;
-    }
     m_deviceTypes = deviceTypes;
 }
 
