@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-03 00:49+0000\n"
+"POT-Creation-Date: 2023-01-13 00:58+0000\n"
 "PO-Revision-Date: 2022-09-29 21:45+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -152,34 +152,51 @@ msgstr ""
 "Экран ноутбука\n"
 "Модель: %1"
 
-#: src/remotedesktopdialog.cpp:22
+#: src/remotedesktop.cpp:121
+#, kde-format
+msgctxt "title of notification about input systems taken over"
+msgid "Remote control session started"
+msgstr ""
+
+#: src/remotedesktopdialog.cpp:23
+#, kde-format
+msgctxt "Title of the dialog that requests remote input privileges"
+msgid "Remote control requested"
+msgstr ""
+
+#: src/remotedesktopdialog.cpp:32
 #, fuzzy, kde-format
 #| msgid "Request device access"
-msgid "Requested access to:\n"
+msgctxt "Unordered list with privileges granted to an external process"
+msgid ""
+"Requested access to:\n"
+"<ul>"
 msgstr "Запрос доступа к устройству"
-
-#: src/remotedesktopdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Full Screen"
-msgctxt "Will allow the app to see what's on the outputs"
-msgid "- Screens\n"
-msgstr "Полный экран"
-
-#: src/remotedesktopdialog.cpp:27
-#, kde-format
-msgctxt "Will allow the app to send input events"
-msgid "- Input devices\n"
-msgstr ""
 
 #: src/remotedesktopdialog.cpp:34
 #, kde-format
-msgid "Select what to share with the requesting application"
-msgstr "Выберите что будет доступно запрашивающему приложению"
+msgctxt ""
+"Unordered list with privileges granted to an external process, included the "
+"app's name"
+msgid "%1 requested access to remotely control:<ul>"
+msgstr ""
 
-#: src/remotedesktopdialog.cpp:36
+#: src/remotedesktopdialog.cpp:37
+#, fuzzy, kde-format
+#| msgid "Full Screen"
+msgctxt "Will allow the app to see what's on the outputs"
+msgid ""
+" <li>Screens\n"
+"</li>"
+msgstr "Полный экран"
+
+#: src/remotedesktopdialog.cpp:40
 #, kde-format
-msgid "Select what to share with %1"
-msgstr "Выберите что будет доступно приложению %1"
+msgctxt "Will allow the app to send input events"
+msgid ""
+" <li>Input devices\n"
+"</li>"
+msgstr ""
 
 #: src/screencast.cpp:318
 #, kde-format
@@ -295,7 +312,39 @@ msgstr "Текущий экран"
 msgid "Active Window"
 msgstr "Активное окно"
 
-#: src/session.cpp:393
+#: src/session.cpp:256
+#, fuzzy, kde-format
+#| msgid "Remote desktop"
+msgctxt ""
+"SNI title that indicates there's a process remotely controlling the system"
+msgid "Remote Desktop"
+msgstr "Удалённый рабочий стол"
+
+#: src/session.cpp:261
+#, kde-format
+msgctxt "%1 number of screens, %2 the app that receives them"
+msgid "Sharing contents to %2"
+msgid_plural "%1 video streams to %2"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: src/session.cpp:265
+#, fuzzy, kde-format
+#| msgid "Screen Sharing"
+msgctxt ""
+"SNI title that indicates there's a process seeing our windows or screens"
+msgid "Screen casting"
+msgstr "Демонстрация экрана"
+
+#: src/session.cpp:275
+#, kde-format
+msgctxt "@action:inmenu stops screen/window sharing"
+msgid "Terminate"
+msgstr ""
+
+#: src/session.cpp:442
 #, kde-format
 msgid ", "
 msgstr ""
@@ -310,38 +359,12 @@ msgstr "Сведения об общем доступе"
 msgid "Share your personal information with the requesting application?"
 msgstr "Поделиться личными данными с запрашивающим приложением?"
 
-#: src/waylandintegration.cpp:279
-#, kde-format
-msgid "Recording window \"%1\"..."
-msgstr "Запись окна «%1»..."
-
-#: src/waylandintegration.cpp:289
-#, kde-format
-msgid "Recording screen \"%1\"..."
-msgstr "Запись экрана «%1»..."
-
-#: src/waylandintegration.cpp:306
-#, kde-format
-msgid "Recording workspace..."
-msgstr "Запись рабочего пространства…"
-
-#: src/waylandintegration.cpp:318
-#, kde-format
-msgid "Recording virtual output '%1'..."
-msgstr "Запись виртуального вывода «%1»…"
-
-#: src/waylandintegration.cpp:337
+#: src/waylandintegration.cpp:322
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Ошибка при запуске трансляции экрана"
 
-#: src/waylandintegration.cpp:367
-#, kde-format
-msgctxt "@action:inmenu stops screen/window recording"
-msgid "Stop Recording"
-msgstr "Остановить запись"
-
-#: src/waylandintegration.cpp:648
+#: src/waylandintegration.cpp:614
 #, kde-format
 msgid "Remote desktop"
 msgstr "Удалённый рабочий стол"
@@ -350,6 +373,28 @@ msgstr "Удалённый рабочий стол"
 #, kde-format
 msgid "Portal"
 msgstr "Портал"
+
+#~ msgid "Select what to share with the requesting application"
+#~ msgstr "Выберите что будет доступно запрашивающему приложению"
+
+#~ msgid "Select what to share with %1"
+#~ msgstr "Выберите что будет доступно приложению %1"
+
+#~ msgid "Recording window \"%1\"..."
+#~ msgstr "Запись окна «%1»..."
+
+#~ msgid "Recording screen \"%1\"..."
+#~ msgstr "Запись экрана «%1»..."
+
+#~ msgid "Recording workspace..."
+#~ msgstr "Запись рабочего пространства…"
+
+#~ msgid "Recording virtual output '%1'..."
+#~ msgstr "Запись виртуального вывода «%1»…"
+
+#~ msgctxt "@action:inmenu stops screen/window recording"
+#~ msgid "Stop Recording"
+#~ msgstr "Остановить запись"
 
 #~ msgid "Dialog"
 #~ msgstr "Диалог"
