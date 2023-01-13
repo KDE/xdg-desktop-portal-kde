@@ -153,9 +153,9 @@ void NotificationPortal::notificationActivated(uint action)
         params += ourAction.second;
     }
 
-    OrgFreedesktopApplicationInterface iface("org.freedesktop.Application", appPathFromId(appId), QDBusConnection::sessionBus());
-    if (id.startsWith("app.") && iface.isValid()) {
-        iface.ActivateAction(id.mid(4), params, platformData);
+    OrgFreedesktopApplicationInterface iface(appId, appPathFromId(appId), QDBusConnection::sessionBus());
+    if (ourAction.first.startsWith("app.") && iface.isValid()) {
+        iface.ActivateAction(ourAction.first.mid(4), params, platformData);
     } else {
         if (iface.isValid()) {
             iface.Activate(platformData);
