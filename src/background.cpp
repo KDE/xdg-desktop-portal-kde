@@ -77,14 +77,6 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
 
     const KService::Ptr app = KService::serviceByDesktopName(app_id);
 
-    const QString appName = app ? app->name() : app_id;
-
-    KNotification *notify = new KNotification(QStringLiteral("notification"), KNotification::Persistent | KNotification::DefaultEvent, this);
-    notify->setTitle(i18n("Background activity"));
-    notify->setText(i18n("%1 is running in the background.", appName));
-    notify->setActions({i18n("Find out more")});
-    notify->setProperty("activated", false);
-
     QObject *obj = QObject::parent();
 
     if (!obj) {
@@ -100,8 +92,26 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
         return 2;
     }
 
-    QDBusMessage reply;
     QDBusMessage message = q_ptr->message();
+
+    const QString appName = app ? app->name() : app_id;
+    if (m_backgroundAppWarned.contains(app_id)) {
+        const QVariantMap map = {
+            {QStringLiteral("result"), static_cast<uint>(BackgroundPortal::Ignore)},
+        };
+        QDBusMessage reply = message.createReply({uint(0), map});
+        if (!QDBusConnection::sessionBus().send(reply)) {
+            qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
+        }
+
+        return 0;
+    }
+
+    KNotification *notify = new KNotification(QStringLiteral("notification"), KNotification::Persistent | KNotification::DefaultEvent, this);
+    notify->setTitle(i18n("Background activity"));
+    notify->setText(i18n("%1 is running in the background.", appName));
+    notify->setActions({i18n("Find out more")});
+    notify->setProperty("activated", false);
 
     message.setDelayedReply(true);
 
@@ -152,6 +162,12 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
     });
 
     notify->sendEvent();
+
+    Q_ASSERT(!m_backgroundAppWarned.contains(app_id));
+    connect(notify, &KNotification::closed, this, [this, app_id] {
+        m_backgroundAppWarned.remove(app_id);
+    });
+    m_backgroundAppWarned.insert(app_id);
 
     return 0;
 }

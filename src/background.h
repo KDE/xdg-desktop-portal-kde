@@ -11,6 +11,7 @@
 
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
+#include <QSet>
 
 namespace KWayland
 {
@@ -19,6 +20,8 @@ namespace Client
 class PlasmaWindow;
 }
 }
+
+class KNotification;
 
 class BackgroundPortal : public QDBusAbstractAdaptor
 {
@@ -62,6 +65,7 @@ private:
     uint m_notificationCounter = 0;
     QList<KWayland::Client::PlasmaWindow *> m_windows;
     QVariantMap m_appStates;
+    QSet<QString> m_backgroundAppWarned;
 };
 Q_DECLARE_OPERATORS_FOR_FLAGS(BackgroundPortal::AutostartFlags)
 
