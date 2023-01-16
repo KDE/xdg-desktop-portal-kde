@@ -243,6 +243,8 @@ void RemoteDesktopSession::acquireStreamingInput()
 
 void RemoteDesktopSession::refreshDescription()
 {
+    m_item->setTitle(i18nc("SNI title that indicates there's a process remotely controlling the system", "Remote Desktop"));
+    m_item->setToolTipTitle(m_item->title());
     setDescription(RemoteDesktopDialog::buildDescription(m_appId, deviceTypes(), screenSharingEnabled()));
 }
 
@@ -253,7 +255,6 @@ void ScreenCastSession::setStreams(const WaylandIntegration::Streams &streams)
 
     m_item->setStandardActionsEnabled(false);
     if (qobject_cast<RemoteDesktopSession *>(this)) {
-        m_item->setTitle(i18nc("SNI title that indicates there's a process remotely controlling the system", "Remote Desktop"));
         refreshDescription();
     } else {
         const bool isWindow = m_streams[0].map[QLatin1String("source_type")] == ScreenCastPortal::Window;

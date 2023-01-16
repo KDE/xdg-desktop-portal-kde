@@ -22,6 +22,7 @@
 class KStatusNotifierItem;
 class KGlobalAccelInterface;
 class KGlobalAccelComponentInterface;
+class RemoteDesktopPortal;
 
 class Session : public QDBusVirtualObject
 {
@@ -90,12 +91,13 @@ public:
         return m_streams;
     }
     void setStreams(const WaylandIntegration::Streams &streams);
-
-protected:
     virtual void refreshDescription()
     {
     }
+
+protected:
     void setDescription(const QString &description);
+    KStatusNotifierItem *const m_item;
 
 private:
     bool m_multipleSources = false;
@@ -106,7 +108,7 @@ private:
 
     WaylandIntegration::Streams m_streams;
     QVariant m_restoreData;
-    KStatusNotifierItem *const m_item;
+    friend class RemoteDesktopPortal;
 };
 
 class RemoteDesktopSession : public ScreenCastSession
@@ -123,6 +125,7 @@ public:
     void setScreenSharingEnabled(bool enabled);
 
     void acquireStreamingInput();
+    void refreshDescription() override;
 
     SessionType type() const override
     {
@@ -130,8 +133,6 @@ public:
     }
 
 private:
-    void refreshDescription() override;
-
     bool m_screenSharingEnabled;
     RemoteDesktopPortal::DeviceTypes m_deviceTypes;
     bool m_acquired = false;

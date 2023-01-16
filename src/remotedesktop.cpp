@@ -153,6 +153,7 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
         results.insert(QStringLiteral("streams"), QVariant::fromValue<WaylandIntegration::Streams>(streams));
     } else {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop()) << "Only stream input";
+        session->refreshDescription();
     }
     session->acquireStreamingInput();
 
