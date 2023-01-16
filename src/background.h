@@ -47,7 +47,7 @@ public:
     enum NotifyResult {
         Forbid = 0,
         Allow = 1,
-        Ignore = 2,
+        AllowOnce = 2,
     };
 
 public Q_SLOTS:

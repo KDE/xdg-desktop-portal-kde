@@ -72,7 +72,7 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
     // If KWayland::Client::PlasmaWindowManagement hasn't been created, we would be notified about every
     // application, which is not what we want. This will be mostly happening on X11 session.
     if (!WaylandIntegration::plasmaWindowManagement()) {
-        results.insert(QStringLiteral("result"), static_cast<uint>(BackgroundPortal::Ignore));
+        results.insert(QStringLiteral("result"), static_cast<uint>(BackgroundPortal::AllowOnce));
         return 0;
     }
 
@@ -90,7 +90,7 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
     const QString appName = app ? app->name() : app_id;
     if (m_backgroundAppWarned.contains(app_id)) {
         const QVariantMap map = {
-            {QStringLiteral("result"), static_cast<uint>(BackgroundPortal::Ignore)},
+            {QStringLiteral("result"), static_cast<uint>(BackgroundPortal::AllowOnce)},
         };
         QDBusMessage reply = message.createReply({uint(0), map});
         if (!QDBusConnection::sessionBus().send(reply)) {
@@ -147,7 +147,7 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
         }
 
         QVariantMap map;
-        map.insert(QStringLiteral("result"), static_cast<uint>(BackgroundPortal::Ignore));
+        map.insert(QStringLiteral("result"), static_cast<uint>(BackgroundPortal::AllowOnce));
         QDBusMessage reply = message.createReply({static_cast<uint>(0), map});
         if (!QDBusConnection::sessionBus().send(reply)) {
             qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
