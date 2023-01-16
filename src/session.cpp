@@ -161,7 +161,15 @@ ScreenCastSession::ScreenCastSession(QObject *parent, const QString &appId, cons
     : Session(parent, appId, path)
     , m_item(new KStatusNotifierItem(this))
 {
+    m_item->setStandardActionsEnabled(false);
     m_item->setIconByName(iconName);
+
+    auto menu = new QMenu;
+    auto stopAction = new QAction(QIcon::fromTheme(QStringLiteral("process-stop")), i18nc("@action:inmenu stops screen/window sharing", "End"));
+    connect(stopAction, &QAction::triggered, this, &Session::close);
+    connect(m_item, &KStatusNotifierItem::activateRequested, menu, &QMenu::show);
+    menu->addAction(stopAction);
+    m_item->setContextMenu(menu);
 }
 
 ScreenCastSession::~ScreenCastSession()
@@ -272,12 +280,6 @@ void ScreenCastSession::setStreams(const WaylandIntegration::Streams &streams)
     }
     m_item->setToolTipIconByName(m_item->overlayIconName());
     m_item->setToolTipTitle(m_item->title());
-    auto menu = new QMenu;
-    auto stopAction = new QAction(QIcon::fromTheme(QStringLiteral("process-stop")), i18nc("@action:inmenu stops screen/window sharing", "Terminate"));
-    connect(stopAction, &QAction::triggered, this, &Session::close);
-    connect(m_item, &KStatusNotifierItem::activateRequested, menu, &QMenu::show);
-    menu->addAction(stopAction);
-    m_item->setContextMenu(menu);
 
     for (const auto &s : streams) {
         connect(s.stream, &ScreencastingStream::closed, this, &ScreenCastSession::streamClosed);
