@@ -74,6 +74,7 @@ public:
     void requestPointerButtonRelease(quint32 linuxButton);
     void requestPointerMotion(const QSizeF &delta);
     void requestPointerMotionAbsolute(const QPointF &pos);
+    void requestPointerAxis(qreal x, qreal y);
     void requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta);
     void requestKeyboardKeycode(int keycode, bool state);
     void requestKeyboardKeysym(int keysym, bool state);

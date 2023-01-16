@@ -160,6 +160,11 @@ void WaylandIntegration::requestPointerAxisDiscrete(Qt::Orientation axis, qreal 
     globalWaylandIntegration->requestPointerAxisDiscrete(axis, delta);
 }
 
+void WaylandIntegration::requestPointerAxis(qreal x, qreal y)
+{
+    globalWaylandIntegration->requestPointerAxis(x, y);
+}
+
 void WaylandIntegration::requestKeyboardKeycode(int keycode, bool state)
 {
     globalWaylandIntegration->requestKeyboardKeycode(keycode, state);
@@ -393,6 +398,17 @@ void WaylandIntegration::WaylandIntegrationPrivate::requestPointerAxisDiscrete(Q
 {
     if (m_streamInput && m_fakeInput) {
         m_fakeInput->requestPointerAxis(axis, delta);
+    }
+}
+void WaylandIntegration::WaylandIntegrationPrivate::requestPointerAxis(qreal x, qreal y)
+{
+    if (m_streamInput && m_fakeInput) {
+        if (x != 0) {
+            m_fakeInput->requestPointerAxis(Qt::Horizontal, x);
+        }
+        if (y != 0) {
+            m_fakeInput->requestPointerAxis(Qt::Vertical, -y);
+        }
     }
 }
 
