@@ -29,7 +29,7 @@ DesktopPortal::DesktopPortal(QObject *parent)
     if (xdgCurrentDesktop.compare("KDE", Qt::CaseInsensitive) == 0) {
         new GlobalShortcutsPortal(this);
 
-        m_background = new BackgroundPortal(this);
+        m_background = new BackgroundPortal(this, this);
         m_screenCast = new ScreenCastPortal(this);
         m_remoteDesktop = new RemoteDesktopPortal(this);
         m_screenshot = new ScreenshotPortal(this);

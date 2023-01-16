@@ -31,8 +31,9 @@
 
 #include <KWayland/Client/plasmawindowmanagement.h>
 
-BackgroundPortal::BackgroundPortal(QObject *parent)
+BackgroundPortal::BackgroundPortal(QObject *parent, QDBusContext *context)
     : QDBusAbstractAdaptor(parent)
+    , m_context(context)
 {
     connect(WaylandIntegration::waylandIntegration(), &WaylandIntegration::WaylandIntegration::plasmaWindowManagementInitialized, this, [=]() {
         connect(WaylandIntegration::plasmaWindowManagement(),
@@ -84,15 +85,7 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
         return 2;
     }
 
-    void *ptr = obj->qt_metacast("QDBusContext");
-    QDBusContext *q_ptr = reinterpret_cast<QDBusContext *>(ptr);
-
-    if (!q_ptr) {
-        qCWarning(XdgDesktopPortalKdeBackground) << "Failed to get dbus context";
-        return 2;
-    }
-
-    QDBusMessage message = q_ptr->message();
+    QDBusMessage message = m_context->message();
 
     const QString appName = app ? app->name() : app_id;
     if (m_backgroundAppWarned.contains(app_id)) {

@@ -10,6 +10,7 @@
 #define XDG_DESKTOP_PORTAL_KDE_BACKGROUND_H
 
 #include <QDBusAbstractAdaptor>
+#include <QDBusContext>
 #include <QDBusObjectPath>
 #include <QSet>
 
@@ -28,7 +29,7 @@ class BackgroundPortal : public QDBusAbstractAdaptor
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Background")
 public:
-    explicit BackgroundPortal(QObject *parent);
+    explicit BackgroundPortal(QObject *parent, QDBusContext *context);
     ~BackgroundPortal() override;
 
     enum ApplicationState {
@@ -66,6 +67,7 @@ private:
     QList<KWayland::Client::PlasmaWindow *> m_windows;
     QVariantMap m_appStates;
     QSet<QString> m_backgroundAppWarned;
+    QDBusContext *const m_context;
 };
 Q_DECLARE_OPERATORS_FOR_FLAGS(BackgroundPortal::AutostartFlags)
 
