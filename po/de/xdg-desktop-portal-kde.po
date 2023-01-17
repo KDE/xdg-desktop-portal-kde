@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-13 00:58+0000\n"
+"POT-Creation-Date: 2023-01-17 01:00+0000\n"
 "PO-Revision-Date: 2022-11-10 20:37+0100\n"
 "Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -49,27 +49,27 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Wählen Sie eine Anwendung, um <filename>%1</filename> zu öffnen"
 
-#: src/background.cpp:83
+#: src/background.cpp:104
 #, kde-format
 msgid "Background activity"
 msgstr "Hintergrundaktivität"
 
-#: src/background.cpp:84
+#: src/background.cpp:105
 #, kde-format
 msgid "%1 is running in the background."
 msgstr "%1 wird im Hintergrund ausgeführt."
 
-#: src/background.cpp:85
+#: src/background.cpp:106
 #, kde-format
 msgid "Find out more"
 msgstr "Mehr erfahren"
 
-#: src/background.cpp:114
+#: src/background.cpp:117
 #, kde-format
 msgid "%1 is running in the background"
 msgstr "%1 wird im Hintergrund ausgeführt"
 
-#: src/background.cpp:116
+#: src/background.cpp:119
 #, kde-format
 msgid ""
 "This might be for a legitimate reason, but the application has not provided "
@@ -83,12 +83,12 @@ msgstr ""
 "Beachten Sie, dass das Erzwingen des Beendens einer Anwendung zu "
 "Datenverlust führen kann."
 
-#: src/background.cpp:119
+#: src/background.cpp:122
 #, kde-format
 msgid "Force quit"
 msgstr "Beenden erzwingen"
 
-#: src/background.cpp:120
+#: src/background.cpp:123
 #, kde-format
 msgid "Allow"
 msgstr "Erlauben"
@@ -353,12 +353,12 @@ msgstr ""
 "Möchten Sie Ihre persönlichen Informationen für die anfragende Anwendung "
 "freigeben?"
 
-#: src/waylandintegration.cpp:322
+#: src/waylandintegration.cpp:327
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Das Bildschirmvideo kann nicht gestartet werden"
 
-#: src/waylandintegration.cpp:614
+#: src/waylandintegration.cpp:630
 #, kde-format
 msgid "Remote desktop"
 msgstr "Arbeitsfläche des Fremdgeräts"

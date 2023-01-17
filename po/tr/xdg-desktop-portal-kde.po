@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-13 00:58+0000\n"
+"POT-Creation-Date: 2023-01-17 01:00+0000\n"
 "PO-Revision-Date: 2023-01-13 19:51+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -50,27 +50,27 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "<filename>%1</filename> ögesini açmak için bir uygulama seçin"
 
-#: src/background.cpp:83
+#: src/background.cpp:104
 #, kde-format
 msgid "Background activity"
 msgstr "Arka plan etkinliği"
 
-#: src/background.cpp:84
+#: src/background.cpp:105
 #, kde-format
 msgid "%1 is running in the background."
 msgstr "%1, arka planda çalışıyor."
 
-#: src/background.cpp:85
+#: src/background.cpp:106
 #, kde-format
 msgid "Find out more"
 msgstr "Daha fazla bilgi"
 
-#: src/background.cpp:114
+#: src/background.cpp:117
 #, kde-format
 msgid "%1 is running in the background"
 msgstr "%1, arka planda çalışıyor"
 
-#: src/background.cpp:116
+#: src/background.cpp:119
 #, kde-format
 msgid ""
 "This might be for a legitimate reason, but the application has not provided "
@@ -82,12 +82,12 @@ msgstr ""
 "\n"
 "Bir uygulamayı çıkmaya zorlamanın veri kaybına neden olabileceğini unutmayın."
 
-#: src/background.cpp:119
+#: src/background.cpp:122
 #, kde-format
 msgid "Force quit"
 msgstr "Çıkmaya Zorla"
 
-#: src/background.cpp:120
+#: src/background.cpp:123
 #, kde-format
 msgid "Allow"
 msgstr "İzin Ver"
@@ -346,12 +346,12 @@ msgstr "Bilgi Paylaş"
 msgid "Share your personal information with the requesting application?"
 msgstr "İsteyen uygulama ile kişisel bilgileriniz paylaşılsın mı?"
 
-#: src/waylandintegration.cpp:322
+#: src/waylandintegration.cpp:327
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Ekran yayını başlatılamadı"
 
-#: src/waylandintegration.cpp:614
+#: src/waylandintegration.cpp:630
 #, kde-format
 msgid "Remote desktop"
 msgstr "Uzak Masaüstü"

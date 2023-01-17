@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-13 00:58+0000\n"
+"POT-Creation-Date: 2023-01-17 01:00+0000\n"
 "PO-Revision-Date: 2022-01-25 10:23+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -53,27 +53,27 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr ""
 
-#: src/background.cpp:83
+#: src/background.cpp:104
 #, kde-format
 msgid "Background activity"
 msgstr "Háttéraktivitás"
 
-#: src/background.cpp:84
+#: src/background.cpp:105
 #, kde-format
 msgid "%1 is running in the background."
 msgstr "A(z) %1 a háttérben fut."
 
-#: src/background.cpp:85
+#: src/background.cpp:106
 #, kde-format
 msgid "Find out more"
 msgstr "Tudjon meg többet"
 
-#: src/background.cpp:114
+#: src/background.cpp:117
 #, kde-format
 msgid "%1 is running in the background"
 msgstr "A(z) %1 a háttérben fut"
 
-#: src/background.cpp:116
+#: src/background.cpp:119
 #, kde-format
 msgid ""
 "This might be for a legitimate reason, but the application has not provided "
@@ -86,12 +86,12 @@ msgstr ""
 "\n"
 "Az alkalmazás kényszerített bezárása adatvesztéssel járhat."
 
-#: src/background.cpp:119
+#: src/background.cpp:122
 #, kde-format
 msgid "Force quit"
 msgstr "Kényszerített kilépés"
 
-#: src/background.cpp:120
+#: src/background.cpp:123
 #, kde-format
 msgid "Allow"
 msgstr "Engedélyezés"
@@ -355,12 +355,12 @@ msgstr "Információ megosztása"
 msgid "Share your personal information with the requesting application?"
 msgstr "Megosztja a személyes adadait az igénylő alkalmazással?"
 
-#: src/waylandintegration.cpp:322
+#: src/waylandintegration.cpp:327
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Nem sikerült elindítani a képernyőfelvételt"
 
-#: src/waylandintegration.cpp:614
+#: src/waylandintegration.cpp:630
 #, kde-format
 msgid "Remote desktop"
 msgstr "Távoli asztal"

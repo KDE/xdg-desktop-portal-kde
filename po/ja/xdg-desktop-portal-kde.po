@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-13 00:58+0000\n"
+"POT-Creation-Date: 2023-01-17 01:00+0000\n"
 "PO-Revision-Date: 2017-04-27 19:03-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -47,27 +47,27 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr ""
 
-#: src/background.cpp:83
+#: src/background.cpp:104
 #, kde-format
 msgid "Background activity"
 msgstr ""
 
-#: src/background.cpp:84
+#: src/background.cpp:105
 #, kde-format
 msgid "%1 is running in the background."
 msgstr ""
 
-#: src/background.cpp:85
+#: src/background.cpp:106
 #, kde-format
 msgid "Find out more"
 msgstr ""
 
-#: src/background.cpp:114
+#: src/background.cpp:117
 #, kde-format
 msgid "%1 is running in the background"
 msgstr ""
 
-#: src/background.cpp:116
+#: src/background.cpp:119
 #, kde-format
 msgid ""
 "This might be for a legitimate reason, but the application has not provided "
@@ -76,12 +76,12 @@ msgid ""
 "Note that forcing an application to quit might cause data loss."
 msgstr ""
 
-#: src/background.cpp:119
+#: src/background.cpp:122
 #, kde-format
 msgid "Force quit"
 msgstr ""
 
-#: src/background.cpp:120
+#: src/background.cpp:123
 #, kde-format
 msgid "Allow"
 msgstr ""
@@ -330,12 +330,12 @@ msgstr ""
 msgid "Share your personal information with the requesting application?"
 msgstr ""
 
-#: src/waylandintegration.cpp:322
+#: src/waylandintegration.cpp:327
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr ""
 
-#: src/waylandintegration.cpp:614
+#: src/waylandintegration.cpp:630
 #, kde-format
 msgid "Remote desktop"
 msgstr ""

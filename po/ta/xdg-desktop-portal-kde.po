@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-13 00:58+0000\n"
+"POT-Creation-Date: 2023-01-17 01:00+0000\n"
 "PO-Revision-Date: 2022-12-01 21:39+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -50,27 +50,27 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "<filename>%1</filename> என்பதை திறப்பதற்கான செயலியைத் தேர்ந்தெடுங்கள்"
 
-#: src/background.cpp:83
+#: src/background.cpp:104
 #, kde-format
 msgid "Background activity"
 msgstr "பின்னணி செயல்பாடு"
 
-#: src/background.cpp:84
+#: src/background.cpp:105
 #, kde-format
 msgid "%1 is running in the background."
 msgstr "%1 பின்னணியில் இயங்குகிறது."
 
-#: src/background.cpp:85
+#: src/background.cpp:106
 #, kde-format
 msgid "Find out more"
 msgstr "மேலும் காட்டு"
 
-#: src/background.cpp:114
+#: src/background.cpp:117
 #, kde-format
 msgid "%1 is running in the background"
 msgstr "%1 பின்னணியில் இயங்குகிறது"
 
-#: src/background.cpp:116
+#: src/background.cpp:119
 #, kde-format
 msgid ""
 "This might be for a legitimate reason, but the application has not provided "
@@ -83,12 +83,12 @@ msgstr ""
 "\n"
 "கட்டாயமாக ஒரு செயலியை நிறுத்துதல், தரவு இழப்பை உண்டாக்கலாம்."
 
-#: src/background.cpp:119
+#: src/background.cpp:122
 #, kde-format
 msgid "Force quit"
 msgstr "கட்டாயமாக நிறுத்து"
 
-#: src/background.cpp:120
+#: src/background.cpp:123
 #, kde-format
 msgid "Allow"
 msgstr "அனுமதி"
@@ -348,12 +348,12 @@ msgstr "விவரங்களை பகிர்தல்"
 msgid "Share your personal information with the requesting application?"
 msgstr "கோரிக்கையிடும் செயலிக்கு உங்களை பற்றிய விவரங்களை வழங்கலாமா?"
 
-#: src/waylandintegration.cpp:322
+#: src/waylandintegration.cpp:327
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "திரைப்பகிர்வை தொடங்குதல் தோல்வியடைந்தது"
 
-#: src/waylandintegration.cpp:614
+#: src/waylandintegration.cpp:630
 #, kde-format
 msgid "Remote desktop"
 msgstr "பணிமேடை தொலையியக்கி"
