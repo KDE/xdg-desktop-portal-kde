@@ -29,16 +29,15 @@ RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName, RemoteDesktopPo
 QString RemoteDesktopDialog::buildDescription(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled)
 {
     const QString applicationName = Utils::applicationName(appName);
-    QString description = applicationName.isEmpty() ? i18nc("Unordered list with privileges granted to an external process", "Requested access to:\n<ul>")
+    QString description = applicationName.isEmpty() ? i18nc("Unordered list with privileges granted to an external process", "Requested access to:\n")
                                                     : i18nc("Unordered list with privileges granted to an external process, included the app's name",
-                                                            "%1 requested access to remotely control:<ul>",
+                                                            "%1 requested access to remotely control:\n",
                                                             applicationName);
     if (screenSharingEnabled) {
-        description += i18nc("Will allow the app to see what's on the outputs", " <li>Screens\n</li>");
+        description += i18nc("Will allow the app to see what's on the outputs, in markdown", " - Screens\n");
     }
     if (deviceTypes != RemoteDesktopPortal::None) {
-        description += i18nc("Will allow the app to send input events", " <li>Input devices\n</li>");
+        description += i18nc("Will allow the app to send input events, in markdown", " - Input devices\n");
     }
-    description += "</ul>";
     return description;
 }

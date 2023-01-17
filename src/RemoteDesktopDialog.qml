@@ -18,7 +18,7 @@ PWD.SystemDialog
 
     QQC2.Label {
         id: desc
-        textFormat: Text.StyledText
+        textFormat: Text.MarkdownText
     }
 
     standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
