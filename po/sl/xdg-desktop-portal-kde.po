@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-17 01:00+0000\n"
+"POT-Creation-Date: 2023-01-18 00:59+0000\n"
 "PO-Revision-Date: 2023-01-14 12:17+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -159,39 +159,44 @@ msgid "Remote control requested"
 msgstr "Zahtevan oddaljeni nadzor"
 
 #: src/remotedesktopdialog.cpp:32
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Unordered list with privileges granted to an external process"
+#| msgid ""
+#| "Requested access to:\n"
+#| "<ul>"
 msgctxt "Unordered list with privileges granted to an external process"
-msgid ""
-"Requested access to:\n"
-"<ul>"
+msgid "Requested access to:\n"
 msgstr ""
 "Zahtevan dostop do:\n"
 "<ul>"
 
 #: src/remotedesktopdialog.cpp:34
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Unordered list with privileges granted to an external process, included "
+#| "the app's name"
+#| msgid "%1 requested access to remotely control:<ul>"
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
-msgid "%1 requested access to remotely control:<ul>"
+msgid "%1 requested access to remotely control:\n"
 msgstr "%1 je zahteval dostop do oddaljenega nadzora:<ul>"
 
 #: src/remotedesktopdialog.cpp:37
-#, kde-format
-msgctxt "Will allow the app to see what's on the outputs"
-msgid ""
-" <li>Screens\n"
-"</li>"
-msgstr ""
-" <li>Zasloni\n"
-"</li>"
+#, fuzzy, kde-format
+#| msgid "Full Screen"
+msgctxt "Will allow the app to see what's on the outputs, in markdown"
+msgid " - Screens\n"
+msgstr "Celotni zaslon"
 
 #: src/remotedesktopdialog.cpp:40
-#, kde-format
-msgctxt "Will allow the app to send input events"
-msgid ""
-" <li>Input devices\n"
-"</li>"
+#, fuzzy, kde-format
+#| msgctxt "Will allow the app to send input events"
+#| msgid ""
+#| " <li>Input devices\n"
+#| "</li>"
+msgctxt "Will allow the app to send input events, in markdown"
+msgid " - Input devices\n"
 msgstr ""
 " <li>Vhodne naprave\n"
 "</li>"
@@ -310,14 +315,20 @@ msgstr "Trenutni zaslon"
 msgid "Active Window"
 msgstr "Dejavno okno"
 
-#: src/session.cpp:256
+#: src/session.cpp:168
+#, kde-format
+msgctxt "@action:inmenu stops screen/window sharing"
+msgid "End"
+msgstr ""
+
+#: src/session.cpp:254
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
 msgstr "Oddaljeno namizje"
 
-#: src/session.cpp:261
+#: src/session.cpp:270
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -327,20 +338,14 @@ msgstr[1] "%1 video tokova z %2"
 msgstr[2] "%1 video tokov z %2"
 msgstr[3] "%1 video tokov z %2"
 
-#: src/session.cpp:265
+#: src/session.cpp:274
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
 msgstr "Deljenje zaslonov"
 
-#: src/session.cpp:275
-#, kde-format
-msgctxt "@action:inmenu stops screen/window sharing"
-msgid "Terminate"
-msgstr "Končaj"
-
-#: src/session.cpp:442
+#: src/session.cpp:445
 #, kde-format
 msgid ", "
 msgstr ", "
@@ -369,6 +374,18 @@ msgstr "Oddaljeni zaslon"
 #, kde-format
 msgid "Portal"
 msgstr "Portal"
+
+#~ msgctxt "Will allow the app to see what's on the outputs"
+#~ msgid ""
+#~ " <li>Screens\n"
+#~ "</li>"
+#~ msgstr ""
+#~ " <li>Zasloni\n"
+#~ "</li>"
+
+#~ msgctxt "@action:inmenu stops screen/window sharing"
+#~ msgid "Terminate"
+#~ msgstr "Končaj"
 
 #~ msgid "Select what to share with the requesting application"
 #~ msgstr "Izberite, kaj želite deliti s programom, ki pošilja zahtevek"

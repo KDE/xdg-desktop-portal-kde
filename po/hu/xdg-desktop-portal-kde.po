@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-17 01:00+0000\n"
+"POT-Creation-Date: 2023-01-18 00:59+0000\n"
 "PO-Revision-Date: 2022-01-25 10:23+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -166,34 +166,29 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Request device access"
 msgctxt "Unordered list with privileges granted to an external process"
-msgid ""
-"Requested access to:\n"
-"<ul>"
+msgid "Requested access to:\n"
 msgstr "Eszközhozzáférés kérése"
 
 #: src/remotedesktopdialog.cpp:34
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Request device access"
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
-msgid "%1 requested access to remotely control:<ul>"
-msgstr ""
+msgid "%1 requested access to remotely control:\n"
+msgstr "Eszközhozzáférés kérése"
 
 #: src/remotedesktopdialog.cpp:37
 #, fuzzy, kde-format
 #| msgid "Full Screen"
-msgctxt "Will allow the app to see what's on the outputs"
-msgid ""
-" <li>Screens\n"
-"</li>"
+msgctxt "Will allow the app to see what's on the outputs, in markdown"
+msgid " - Screens\n"
 msgstr "Teljes képernyő"
 
 #: src/remotedesktopdialog.cpp:40
 #, kde-format
-msgctxt "Will allow the app to send input events"
-msgid ""
-" <li>Input devices\n"
-"</li>"
+msgctxt "Will allow the app to send input events, in markdown"
+msgid " - Input devices\n"
 msgstr ""
 
 #: src/screencast.cpp:318
@@ -310,7 +305,13 @@ msgstr "Jelenlegi képernyő"
 msgid "Active Window"
 msgstr "Aktív ablak"
 
-#: src/session.cpp:256
+#: src/session.cpp:168
+#, kde-format
+msgctxt "@action:inmenu stops screen/window sharing"
+msgid "End"
+msgstr ""
+
+#: src/session.cpp:254
 #, fuzzy, kde-format
 #| msgid "Remote desktop"
 msgctxt ""
@@ -318,7 +319,7 @@ msgctxt ""
 msgid "Remote Desktop"
 msgstr "Távoli asztal"
 
-#: src/session.cpp:261
+#: src/session.cpp:270
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -326,7 +327,7 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/session.cpp:265
+#: src/session.cpp:274
 #, fuzzy, kde-format
 #| msgid "Screen Sharing"
 msgctxt ""
@@ -334,13 +335,7 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "Képernyőmegosztás"
 
-#: src/session.cpp:275
-#, kde-format
-msgctxt "@action:inmenu stops screen/window sharing"
-msgid "Terminate"
-msgstr ""
-
-#: src/session.cpp:442
+#: src/session.cpp:445
 #, kde-format
 msgid ", "
 msgstr ""
@@ -369,6 +364,14 @@ msgstr "Távoli asztal"
 #, kde-format
 msgid "Portal"
 msgstr "Portál"
+
+#, fuzzy
+#~| msgid "Full Screen"
+#~ msgctxt "Will allow the app to see what's on the outputs"
+#~ msgid ""
+#~ " <li>Screens\n"
+#~ "</li>"
+#~ msgstr "Teljes képernyő"
 
 #~ msgid "Select what to share with the requesting application"
 #~ msgstr "Válassza ki, mit oszt meg az alkalmazással"
