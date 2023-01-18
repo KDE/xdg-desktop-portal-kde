@@ -13,7 +13,6 @@
 
 #include <KGlobalAccel>
 #include <QAction>
-#include <QDBusArgument>
 #include <QDBusMetaType>
 #include <QDataStream>
 #include <QDesktopServices>

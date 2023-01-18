@@ -201,9 +201,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     QList<Output> selectedOutputs;
     QVector<QMap<int, QVariant>> selectedWindows;
     if (persist != NoPersist && session->restoreData().isValid()) {
-        RestoreData restoreData;
-        auto arg = session->restoreData().value<QDBusArgument>();
-        arg >> restoreData;
+        const RestoreData restoreData = qdbus_cast<RestoreData>(session->restoreData().value<QDBusArgument>());
         if (restoreData.session == QLatin1String("KDE") && restoreData.version == RestoreData::currentRestoreDataVersion()) {
             const QVariantMap restoreDataPayload = restoreData.payload;
             const QVariantList restoreOutputs = restoreDataPayload[QStringLiteral("outputs")].toList();

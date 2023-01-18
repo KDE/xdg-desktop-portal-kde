@@ -7,7 +7,6 @@
 
 #include "notification.h"
 
-#include <QDBusArgument>
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusMetaType>
@@ -82,14 +81,11 @@ void NotificationPortal::AddNotification(const QString &app_id, const QString &i
     QList<Action> actionValues = {
         {notification.value(QStringLiteral("default-action")).toString(), notification.value(QStringLiteral("default-action-target"))}};
     if (notification.contains(QStringLiteral("buttons"))) {
-        QList<QVariantMap> buttons;
-        QDBusArgument dbusArgument = notification.value(QStringLiteral("buttons")).value<QDBusArgument>();
-        while (!dbusArgument.atEnd()) {
-            dbusArgument >> buttons;
-        }
+        const QDBusArgument dbusArgument = notification.value(QStringLiteral("buttons")).value<QDBusArgument>();
+        const auto buttons = qdbus_cast<QList<QVariantMap>>(dbusArgument);
 
         QStringList actions;
-
+        actions.reserve(buttons.count());
         for (const QVariantMap &button : qAsConst(buttons)) {
             actions << button.value(QStringLiteral("label")).toString();
 
