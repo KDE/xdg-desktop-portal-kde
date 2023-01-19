@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:59+0000\n"
+"POT-Creation-Date: 2023-01-19 00:59+0000\n"
 "PO-Revision-Date: 2023-01-13 10:59+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -196,7 +196,7 @@ msgstr ""
 " <li>Invoerapparaten\n"
 "</li>"
 
-#: src/screencast.cpp:318
+#: src/screencast.cpp:316
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
@@ -338,7 +338,7 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "Delen van schermen"
 
-#: src/session.cpp:445
+#: src/session.cpp:444
 #, kde-format
 msgid ", "
 msgstr ", "

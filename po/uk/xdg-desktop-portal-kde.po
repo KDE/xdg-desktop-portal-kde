@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:59+0000\n"
-"PO-Revision-Date: 2023-01-13 08:51+0200\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"POT-Creation-Date: 2023-01-19 00:59+0000\n"
+"PO-Revision-Date: 2023-01-18 14:31+0200\n"
+"Last-Translator: Fracture dept <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -156,49 +156,32 @@ msgid "Remote control requested"
 msgstr "Надіслано запит щодо віддаленого керування"
 
 #: src/remotedesktopdialog.cpp:32
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid ""
-#| "Requested access to:\n"
-#| "<ul>"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
-msgstr ""
-"Отримано запит щодо доступу до такого:\n"
-"<ul>"
+msgstr "Отримано запит щодо доступу до такого:\n"
 
 #: src/remotedesktopdialog.cpp:34
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Unordered list with privileges granted to an external process, included "
-#| "the app's name"
-#| msgid "%1 requested access to remotely control:<ul>"
+#, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr "%1 надіслано запит щодо доступу до віддаленого керування:<ul>"
+msgstr "%1 надіслано запит щодо доступу до віддаленого керування:\n"
 
 #: src/remotedesktopdialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr "На весь екран"
+msgstr " - Екрани\n"
 
 #: src/remotedesktopdialog.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events"
-#| msgid ""
-#| " <li>Input devices\n"
-#| "</li>"
+#, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
-msgstr ""
-" <li>Пристрої введення\n"
-"</li>"
+msgstr " - Пристрої введення\n"
 
-#: src/screencast.cpp:318
+#: src/screencast.cpp:316
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
@@ -318,7 +301,7 @@ msgstr "Активне вікно"
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
-msgstr ""
+msgstr "Завершити"
 
 #: src/session.cpp:254
 #, kde-format
@@ -344,7 +327,7 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "Відео з екрана"
 
-#: src/session.cpp:445
+#: src/session.cpp:444
 #, kde-format
 msgid ", "
 msgstr ", "

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:59+0000\n"
-"PO-Revision-Date: 2023-01-13 13:24+0100\n"
+"POT-Creation-Date: 2023-01-19 00:59+0000\n"
+"PO-Revision-Date: 2023-01-18 09:31+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -159,49 +159,32 @@ msgid "Remote control requested"
 msgstr "S'ha demanat control remot"
 
 #: src/remotedesktopdialog.cpp:32
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid ""
-#| "Requested access to:\n"
-#| "<ul>"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
-msgstr ""
-"Es demana accés a:\n"
-"<ul>"
+msgstr "Es demana accés a:\n"
 
 #: src/remotedesktopdialog.cpp:34
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Unordered list with privileges granted to an external process, included "
-#| "the app's name"
-#| msgid "%1 requested access to remotely control:<ul>"
+#, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr "%1 ha demanat accés per a controlar remotament:<ul>"
+msgstr "%1 ha demanat accés per a controlar remotament:\n"
 
 #: src/remotedesktopdialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr "Pantalla completa"
+msgstr " - Pantalles\n"
 
 #: src/remotedesktopdialog.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events"
-#| msgid ""
-#| " <li>Input devices\n"
-#| "</li>"
+#, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
-msgstr ""
-" <li>Dispositius d'entrada\n"
-"</li>"
+msgstr " - Dispositius d'entrada\n"
 
-#: src/screencast.cpp:318
+#: src/screencast.cpp:316
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
@@ -325,7 +308,7 @@ msgstr "Finestra activa"
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
-msgstr ""
+msgstr "Finalitza"
 
 #: src/session.cpp:254
 #, kde-format
@@ -349,7 +332,7 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "Vídeo de captura de pantalla"
 
-#: src/session.cpp:445
+#: src/session.cpp:444
 #, kde-format
 msgid ", "
 msgstr ", "
@@ -379,15 +362,3 @@ msgstr "Escriptori remot"
 #, kde-format
 msgid "Portal"
 msgstr "Portal"
-
-#~ msgctxt "Will allow the app to see what's on the outputs"
-#~ msgid ""
-#~ " <li>Screens\n"
-#~ "</li>"
-#~ msgstr ""
-#~ " <li>Pantalles\n"
-#~ "</li>"
-
-#~ msgctxt "@action:inmenu stops screen/window sharing"
-#~ msgid "Terminate"
-#~ msgstr "Finalitza"
