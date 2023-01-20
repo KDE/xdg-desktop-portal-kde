@@ -103,9 +103,9 @@ void NotificationPortal::AddNotification(const QString &app_id, const QString &i
     notify->setProperty("id", id);
     connect(notify, static_cast<void (KNotification::*)(uint)>(&KNotification::activated), this, &NotificationPortal::notificationActivated);
     connect(notify, &KNotification::closed, this, &NotificationPortal::notificationClosed);
-    notify->sendEvent();
 
     m_notifications.insert(QStringLiteral("%1:%2").arg(app_id, id), notify);
+    notify->sendEvent();
 }
 
 static QString appPathFromId(const QString &app_id)
@@ -173,22 +173,21 @@ void NotificationPortal::RemoveNotification(const QString &app_id, const QString
 
     KNotification *notify = m_notifications.take(QStringLiteral("%1:%2").arg(app_id, id));
     if (notify) {
+        disconnect(notify, &KNotification::closed, this, &NotificationPortal::notificationClosed);
         notify->close();
-        notify->deleteLater();
     }
 }
 
 void NotificationPortal::notificationClosed()
 {
     KNotification *notify = qobject_cast<KNotification *>(sender());
-
-    if (!notify) {
-        return;
-    }
-
+    Q_ASSERT(notify);
     const QString appId = notify->property("app_id").toString();
     const QString id = notify->property("id").toString();
 
-    m_notifications.remove(QStringLiteral("%1:%2").arg(appId, id));
-    notify->deleteLater();
+    auto n = m_notifications.take(QStringLiteral("%1:%2").arg(appId, id));
+    if (n) {
+        Q_ASSERT(n == notify);
+        n->close();
+    }
 }
