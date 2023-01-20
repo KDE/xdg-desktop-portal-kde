@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-19 00:59+0000\n"
-"PO-Revision-Date: 2023-01-14 12:06+0100\n"
+"PO-Revision-Date: 2023-01-19 05:26+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -155,47 +155,30 @@ msgid "Remote control requested"
 msgstr "დაშორებული მართვის მოთხოვნა გაგზავნილია"
 
 #: src/remotedesktopdialog.cpp:32
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid ""
-#| "Requested access to:\n"
-#| "<ul>"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
-msgstr ""
-"წვდომის მოთხოვნა: \n"
-"<ul>"
+msgstr "წვდომის მოთხოვნა: \n"
 
 #: src/remotedesktopdialog.cpp:34
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Unordered list with privileges granted to an external process, included "
-#| "the app's name"
-#| msgid "%1 requested access to remotely control:<ul>"
+#, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr "%1-მა დაშორებული მართვა გთხოვათ:<ul>"
+msgstr "%1-მა დაშორებული მართვა გთხოვათ:\n"
 
 #: src/remotedesktopdialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr "სრულეკრანიანი რეჟიმი"
+msgstr " - ეკრანი\n"
 
 #: src/remotedesktopdialog.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events"
-#| msgid ""
-#| " <li>Input devices\n"
-#| "</li>"
+#, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
-msgstr ""
-" <li>შეყვანის მოწყობილობები\n"
-"</li>"
+msgstr " შეყვანის მოწყობილობები\n"
 
 #: src/screencast.cpp:316
 #, kde-format
@@ -315,7 +298,7 @@ msgstr "აქტიური ფანჯარა"
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
-msgstr ""
+msgstr "დასრულება"
 
 #: src/session.cpp:254
 #, kde-format
