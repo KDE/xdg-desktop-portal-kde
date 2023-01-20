@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-19 00:59+0000\n"
-"PO-Revision-Date: 2023-01-17 21:38+0530\n"
+"PO-Revision-Date: 2023-01-19 19:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -153,47 +153,30 @@ msgid "Remote control requested"
 msgstr "தொலையியக்கு அனுமதி கோரப்பட்டுள்ளது"
 
 #: src/remotedesktopdialog.cpp:32
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid ""
-#| "Requested access to:\n"
-#| "<ul>"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
-msgstr ""
-"இவற்றுக்கான அணுகலை கோரப்பட்டுள்ளது:\n"
-"<ul>"
+msgstr "இவற்றுக்கான அணுகல் கோரப்பட்டுள்ளது:\n"
 
 #: src/remotedesktopdialog.cpp:34
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Unordered list with privileges granted to an external process, included "
-#| "the app's name"
-#| msgid "%1 requested access to remotely control:<ul>"
+#, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr "தொலையியக்கு அனுமதியை %1 கோரியது:<ul>"
+msgstr "தொலையியக்கு அனுமதியை %1 கோரியுள்ளது:\n"
 
 #: src/remotedesktopdialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr "முழுத்திரை"
+msgstr " - திரைகள்\n"
 
 #: src/remotedesktopdialog.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events"
-#| msgid ""
-#| " <li>Input devices\n"
-#| "</li>"
+#, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
-msgstr ""
-" <li>உள்ளீட்டு சாதனங்கள்\n"
-"</li>"
+msgstr " - உள்ளீட்டு சாதனங்கள்\n"
 
 #: src/screencast.cpp:316
 #, kde-format
@@ -313,7 +296,7 @@ msgstr "செயலில் உள்ள சாளரம்"
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
-msgstr ""
+msgstr "நிறுத்து"
 
 #: src/session.cpp:254
 #, kde-format
