@@ -82,7 +82,7 @@ set_package_properties(KIOFuse PROPERTIES
     PURPOSE "Automatic mounting of remote URLs")
 
 pkg_check_modules(XKB IMPORTED_TARGET xkbcommon REQUIRED)
-add_feature_info(XKB XKBX11_FOUND "Required for converting keysyms into keycodes")
+add_feature_info(XKB XKB_FOUND "Required for converting keysyms into keycodes")
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
 add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055B00)
