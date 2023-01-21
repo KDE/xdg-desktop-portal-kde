@@ -19,24 +19,24 @@ set(xdg_desktop_portal_kde_SRCS
     appchooser.h
     background.cpp
     background.h
-    dbushelpers.cpp
+    dbushelpers.cpp dbushelpers.h
     desktopportal.cpp
     desktopportal.h
     email.cpp
     email.h
     filechooser.cpp
     filechooser.h
-    globalshortcuts.cpp
+    globalshortcuts.cpp globalshortcuts.h
     inhibit.cpp
     inhibit.h
     notification.cpp
     notification.h
     notificationinhibition.cpp
     notificationinhibition.h
-    outputsmodel.cpp
+    outputsmodel.cpp outputsmodel.h
     print.cpp
     print.h
-    quickdialog.cpp
+    quickdialog.cpp quickdialog.h
     remotedesktop.cpp
     remotedesktopdialog.cpp
     remotedesktopdialog.h
@@ -68,10 +68,10 @@ set(xdg_desktop_portal_kde_SRCS
     waylandintegration_p.h
     xdg-desktop-portal-kde.cpp
     resources.qrc
-    portalicon.cpp
-    dynamiclauncher.cpp
-    dynamiclauncherdialog.cpp
-    xdgshortcut.cpp
+    portalicon.cpp portalicon.h
+    dynamiclauncher.cpp dynamiclauncher.h
+    dynamiclauncherdialog.cpp dynamiclauncherdialog.h
+    xdgshortcut.cpp xdgshortcut.h
 )
 
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
