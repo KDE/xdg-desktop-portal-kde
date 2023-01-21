@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-19 00:59+0000\n"
-"PO-Revision-Date: 2023-01-16 16:04+0100\n"
+"PO-Revision-Date: 2023-01-18 12:25+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -153,47 +153,30 @@ msgid "Remote control requested"
 msgstr "Заявен е отдалечен контрол"
 
 #: src/remotedesktopdialog.cpp:32
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid ""
-#| "Requested access to:\n"
-#| "<ul>"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
-msgstr ""
-"Заявен достъп до:\n"
-"<ul>"
+msgstr "Заявен достъп до:\n"
 
 #: src/remotedesktopdialog.cpp:34
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Unordered list with privileges granted to an external process, included "
-#| "the app's name"
-#| msgid "%1 requested access to remotely control:<ul>"
+#, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr "%1 поиска достъп за отдалечен контрол:<ul>"
+msgstr "%1 поиска достъп за отдалечен контрол:\n"
 
 #: src/remotedesktopdialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr "Цял екран"
+msgstr " - Екрани\n"
 
 #: src/remotedesktopdialog.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events"
-#| msgid ""
-#| " <li>Input devices\n"
-#| "</li>"
+#, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
-msgstr ""
-" <li>Входни устройства\n"
-"</li>"
+msgstr " - Входни устройства\n"
 
 #: src/screencast.cpp:316
 #, kde-format
@@ -313,7 +296,7 @@ msgstr "Текущ прозорец"
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
-msgstr ""
+msgstr "Край"
 
 #: src/session.cpp:254
 #, kde-format
