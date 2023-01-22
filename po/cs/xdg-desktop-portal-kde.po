@@ -150,27 +150,24 @@ msgid "Remote control requested"
 msgstr ""
 
 #: src/remotedesktopdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
-msgstr "Vyžádat přístup k zařízení"
+msgstr ""
 
 #: src/remotedesktopdialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr "Vyžádat přístup k zařízení"
+msgstr ""
 
 #: src/remotedesktopdialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr "Celá obrazovka"
+msgstr ""
 
 #: src/remotedesktopdialog.cpp:40
 #, kde-format
@@ -299,12 +296,11 @@ msgid "End"
 msgstr ""
 
 #: src/session.cpp:254
-#, fuzzy, kde-format
-#| msgid "Remote desktop"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
-msgstr "Vzdálená plocha"
+msgstr ""
 
 #: src/session.cpp:270
 #, kde-format
@@ -316,12 +312,11 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: src/session.cpp:274
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
-msgstr "Sdílení obrazovky"
+msgstr ""
 
 #: src/session.cpp:444
 #, kde-format
@@ -352,18 +347,3 @@ msgstr "Vzdálená plocha"
 #, kde-format
 msgid "Portal"
 msgstr "Portál"
-
-#~ msgid "Select what to share with %1"
-#~ msgstr "Vyberte, co si přejete sdílet s %1"
-
-#~ msgid "Recording window \"%1\"..."
-#~ msgstr "Nahrávání okna \"%1\"..."
-
-#~ msgid "Recording screen \"%1\"..."
-#~ msgstr "Nahrávání obrazovky \"%1\"..."
-
-#~ msgid "Recording workspace..."
-#~ msgstr "Nahrává se pracovní plocha..."
-
-#~ msgid "Recording virtual output '%1'..."
-#~ msgstr "Nahrávám virtuální výstup '%1'..."
