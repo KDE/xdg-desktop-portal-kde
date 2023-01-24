@@ -197,6 +197,7 @@ Urgency=Normal
 
 [Context/remotedesktop]
 Name=Remote Desktop
+Name[ar]=سطح المكتب بعيد
 Name[bg]=Отдалечено работно място:
 Name[ca]=Escriptori remot
 Name[ca@valencia]=Escriptori remot
@@ -208,6 +209,7 @@ Name[ka]=დაშორებული სამუშაო მაგიდა
 Name[nl]=Bureaublad op afstand
 Name[pl]=Pulpit zdalny
 Name[pt]=Ecrã Remoto
+Name[sk]=Vzdialená plocha
 Name[sl]=Oddaljeno namizje
 Name[ta]=தொலையியக்கு பணிமேடை
 Name[tr]=Uzak Masaüstü
@@ -216,6 +218,7 @@ Name[x-test]=xxRemote Desktopxx
 
 [Event/remotedesktopstarted]
 Name=Started Remote Desktop
+Name[ar]=يبدأ سطح المكتب بعيد
 Name[bg]=Стартирано отдалечено работно място
 Name[ca]=S'ha iniciat un escriptori remot
 Name[ca@valencia]=S'ha iniciat un escriptori remot
@@ -227,12 +230,14 @@ Name[ka]=დაშორებული სამუშაო მაგიდა
 Name[nl]=Bureaublad op afstand gestart
 Name[pl]=Rozpoczęto pulpit zdalny
 Name[pt]=Uma dada aplicação ganhou sobre si no que diz repeito às suas entradas e ecrãs
+Name[sk]=Spustená vzdialená plocha
 Name[sl]=Zagnano oddaljeno namizje
 Name[ta]=பணிமேடை தொலையியக்கம் துவக்கப்பட்டது
 Name[tr]=Uzak Masaüstü Başlatıldı
 Name[uk]=Запущено віддалену стільницю
 Name[x-test]=xxStarted Remote Desktopxx
 Comment=An application gained control over your input and displays
+Comment[ar]=تطبيق امتلك التحكم بأجهزة الإدخال و العرض الخاص بك
 Comment[bg]=Приложение придоби контрол над вашите входни устройства и дисплеи
 Comment[ca]=Una aplicació ha obtingut el control de la vostra entrada i de les pantalles
 Comment[ca@valencia]=Una aplicació ha obtingut el control de la vostra entrada i de les pantalles
@@ -244,6 +249,7 @@ Comment[ka]=აპლიკაციამ თქვენს შეყვან
 Comment[nl]=Een toepassing heeft de controle gekregen over uw invoer en schermen
 Comment[pl]=Aplikacja może teraz sterować twoimi urządzeniami wejściowymi i wyświetlaczami
 Comment[pt]=Uma aplicação adquiriu o controlo dos seus dispositivos de entrada e ecrãs
+Comment[sk]=Aplikácia má prístup k vašim vstupom a obrazovkám
 Comment[sl]=Aplikacija je pridobila nadzor nad vašim vhodom in zasloni
 Comment[ta]=உள்ளீட்டையும் திரைகளையும் கட்டுப்படுத்தும் அனுமதியை ஓர் செயலி பெற்றுள்ளது
 Comment[tr]=Bir uygulama, veri girişi ve ekranlarınız üzerinde denetim kazandı
