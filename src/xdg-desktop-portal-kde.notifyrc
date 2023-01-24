@@ -197,6 +197,7 @@ Urgency=Normal
 
 [Context/remotedesktop]
 Name=Remote Desktop
+Name[ar]=سطح المكتب بعيد
 Name[bg]=Отдалечено работно място:
 Name[ca]=Escriptori remot
 Name[ca@valencia]=Escriptori remot
@@ -217,6 +218,7 @@ Name[x-test]=xxRemote Desktopxx
 
 [Event/remotedesktopstarted]
 Name=Started Remote Desktop
+Name[ar]=يبدأ سطح المكتب بعيد
 Name[bg]=Стартирано отдалечено работно място
 Name[ca]=S'ha iniciat un escriptori remot
 Name[ca@valencia]=S'ha iniciat un escriptori remot
@@ -235,6 +237,7 @@ Name[tr]=Uzak Masaüstü Başlatıldı
 Name[uk]=Запущено віддалену стільницю
 Name[x-test]=xxStarted Remote Desktopxx
 Comment=An application gained control over your input and displays
+Comment[ar]=تطبيق امتلك التحكم بأجهزة الإدخال و العرض الخاص بك
 Comment[bg]=Приложение придоби контрол над вашите входни устройства и дисплеи
 Comment[ca]=Una aplicació ha obtingut el control de la vostra entrada i de les pantalles
 Comment[ca@valencia]=Una aplicació ha obtingut el control de la vostra entrada i de les pantalles
