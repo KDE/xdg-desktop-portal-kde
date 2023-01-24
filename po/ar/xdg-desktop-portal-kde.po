@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the xdg-desktop-portal-kde package.
 #
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-19 00:59+0000\n"
-"PO-Revision-Date: 2022-12-22 12:44+0400\n"
+"PO-Revision-Date: 2023-01-23 21:14+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -144,44 +144,39 @@ msgstr "شاشة حاسوب محمول"
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
-msgstr ""
+msgstr "بدأت جلسة التحكم عن بعد"
 
 #: src/remotedesktopdialog.cpp:23
 #, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
-msgstr ""
+msgstr "طلب التحكم عن بعد"
 
 #: src/remotedesktopdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Requested access to:\n"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
-msgstr "طلب وصول إلى: \n"
+msgstr "طُلب أذن الوصول إلى: \n"
 
 #: src/remotedesktopdialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "Requested access to:\n"
+#, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr "طلب وصول إلى: \n"
+msgstr "طلب %1 أذن بالتحكم عن بعد بـ: \n"
 
 #: src/remotedesktopdialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr "ملء الشاشة"
+msgstr " - الشاشات\n"
 
 #: src/remotedesktopdialog.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events"
-#| msgid "- Input devices\n"
+#, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
-msgstr "- أجهزة الإدخال\n"
+msgstr " - أجهزة الإدخال\n"
 
 #: src/screencast.cpp:316
 #, kde-format
@@ -301,35 +296,33 @@ msgstr "النّافذة النّشطة"
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
-msgstr ""
+msgstr "أنهِ"
 
 #: src/session.cpp:254
-#, fuzzy, kde-format
-#| msgid "Remote desktop"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
-msgstr "سطح المكتب البعيد"
+msgstr "سطح المكتب بعيد"
 
 #: src/session.cpp:270
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "مشاركة المحتوى مع %2"
+msgstr[1] "فيديو واحد يبث إلى %2"
+msgstr[2] "فيديوان يبثان إلى %2"
+msgstr[3] "%1 فيديوات يبثثن إلى %2"
+msgstr[4] "%1 فيديوات يبثثن إلى %2"
+msgstr[5] "%1 فيديوات يبثثن إلى %2"
 
 #: src/session.cpp:274
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
-msgstr "مشاركة الشاشة"
+msgstr "بث الشاشة"
 
 #: src/session.cpp:444
 #, kde-format
