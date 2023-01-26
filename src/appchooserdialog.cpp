@@ -50,7 +50,7 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &de
     m_appChooserData->setDefaultApp(defaultApp);
     filterModel->setDefaultApp(defaultApp);
 
-    auto findDefaultApp = [this, &defaultApp, filterModel]() {
+    auto findDefaultApp = [this, defaultApp, filterModel]() {
         if (!defaultApp.isEmpty()) {
             return;
         }
@@ -62,7 +62,7 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &de
         }
     };
 
-    auto findPreferredApps = [this, &choices]() {
+    auto findPreferredApps = [this, choices]() {
         if (!choices.isEmpty()) {
             m_model->setPreferredApps(choices);
             return;
