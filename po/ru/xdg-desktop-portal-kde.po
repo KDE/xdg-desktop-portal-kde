@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Alexander Potashev <aspotashev@gmail.com>, 2017, 2018.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2022.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2022, 2023.
 # Мария Шикунова <translation-team@basealt.ru>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-19 00:59+0000\n"
-"PO-Revision-Date: 2022-09-29 21:45+0300\n"
+"PO-Revision-Date: 2023-01-28 14:29+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -42,19 +42,16 @@ msgid "%1 files"
 msgstr "файлов: %1"
 
 #: src/appchooserdialog.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Add Application…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
-msgstr "Добавить приложение…"
+msgstr "Выбор приложения"
 
 #: src/appchooserdialog.cpp:43
-#, fuzzy, kde-kuit-format
-#| msgid "Select an application to open '%1'"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
-msgstr "Выберите приложение для открытия «%1»"
+msgstr "Выберите приложение для открытия <filename>%1</filename>"
 
 #: src/background.cpp:104
 #, kde-format
@@ -143,55 +140,47 @@ msgid "New Virtual Output"
 msgstr "Новый виртуальный вывод"
 
 #: src/outputsmodel.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Laptop screen\n"
-#| "Model: %1"
+#, kde-format
 msgid "Laptop screen"
-msgstr ""
-"Экран ноутбука\n"
-"Модель: %1"
+msgstr "Экран ноутбука"
 
 #: src/remotedesktop.cpp:121
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
-msgstr ""
+msgstr "Удалённо управляемый сеанс начат"
 
 #: src/remotedesktopdialog.cpp:23
 #, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
-msgstr ""
+msgstr "Запрошен удалённо управляемый сеанс"
 
 #: src/remotedesktopdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
-msgstr "Запрос доступа к устройству"
+msgstr "Запрошен доступ к:\n"
 
 #: src/remotedesktopdialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr "Запрос доступа к устройству"
+msgstr "%1 запрашивает удалённое управление:\n"
 
 #: src/remotedesktopdialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr "Полный экран"
+msgstr " - Экранам\n"
 
 #: src/remotedesktopdialog.cpp:40
 #, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
-msgstr ""
+msgstr " - Устройствам ввода\n"
 
 #: src/screencast.cpp:316
 #, kde-format
@@ -311,11 +300,10 @@ msgstr "Активное окно"
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
-msgstr ""
+msgstr "Завершить"
 
 #: src/session.cpp:254
-#, fuzzy, kde-format
-#| msgid "Remote desktop"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
@@ -332,8 +320,7 @@ msgstr[2] ""
 msgstr[3] ""
 
 #: src/session.cpp:274
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
@@ -342,7 +329,7 @@ msgstr "Демонстрация экрана"
 #: src/session.cpp:444
 #, kde-format
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/userinfodialog.cpp:32
 #, kde-format
