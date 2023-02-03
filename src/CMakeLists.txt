@@ -291,6 +291,7 @@ target_link_libraries(xdg-desktop-portal-kde
     Qt::WaylandClient
     KF5::CoreAddons
     KF5::ConfigCore
+    KF5::ConfigGui
     KF5::Declarative
     KF5::GlobalAccel
     KF5::GuiAddons
