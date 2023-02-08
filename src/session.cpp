@@ -15,8 +15,8 @@
 #include <QDBusMessage>
 #include <QDBusPendingCall>
 #include <QDBusPendingCallWatcher>
-#include <screencast_debug.h>
 #include <QLoggingCategory>
+#include <screencast_debug.h>
 
 #include <KGlobalAccel>
 #include <KLocalizedString>
@@ -61,7 +61,6 @@ bool Session::handleMessage(const QDBusMessage &message, const QDBusConnection &
     if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Session")) {
         if (message.member() == QLatin1String("Close")) {
             close();
-            Q_EMIT closed();
             QDBusMessage reply = message.createReply();
             return connection.send(reply);
         }
@@ -110,6 +109,8 @@ bool Session::close()
 {
     QDBusMessage reply = QDBusMessage::createSignal(m_path, QStringLiteral("org.freedesktop.impl.portal.Session"), QStringLiteral("Closed"));
     const bool result = QDBusConnection::sessionBus().send(reply);
+
+    Q_EMIT closed();
 
     sessionList.remove(m_path);
     QDBusConnection::sessionBus().unregisterObject(m_path);
