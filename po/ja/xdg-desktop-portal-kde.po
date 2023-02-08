@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-19 00:59+0000\n"
+"POT-Creation-Date: 2023-02-08 01:01+0000\n"
 "PO-Revision-Date: 2017-04-27 19:03-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -281,20 +281,20 @@ msgstr ""
 msgid "Active Window"
 msgstr ""
 
-#: src/session.cpp:168
+#: src/session.cpp:169
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr ""
 
-#: src/session.cpp:254
+#: src/session.cpp:255
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
 msgstr ""
 
-#: src/session.cpp:270
+#: src/session.cpp:271
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -302,14 +302,14 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/session.cpp:274
+#: src/session.cpp:275
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
 msgstr ""
 
-#: src/session.cpp:444
+#: src/session.cpp:445
 #, kde-format
 msgid ", "
 msgstr ""
