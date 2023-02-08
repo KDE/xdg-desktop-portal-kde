@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-19 00:59+0000\n"
+"POT-Creation-Date: 2023-02-08 04:20+0000\n"
 "PO-Revision-Date: 2022-12-20 10:43-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -298,13 +298,13 @@ msgstr "Tela atual"
 msgid "Active Window"
 msgstr "Janela ativa"
 
-#: src/session.cpp:168
+#: src/session.cpp:169
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr ""
 
-#: src/session.cpp:254
+#: src/session.cpp:255
 #, fuzzy, kde-format
 #| msgid "Remote desktop"
 msgctxt ""
@@ -312,7 +312,7 @@ msgctxt ""
 msgid "Remote Desktop"
 msgstr "Área de trabalho remota"
 
-#: src/session.cpp:270
+#: src/session.cpp:271
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -320,7 +320,7 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/session.cpp:274
+#: src/session.cpp:275
 #, fuzzy, kde-format
 #| msgid "Screen Sharing"
 msgctxt ""
@@ -328,7 +328,7 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "Compartilhamento de tela"
 
-#: src/session.cpp:444
+#: src/session.cpp:445
 #, kde-format
 msgid ", "
 msgstr ", "

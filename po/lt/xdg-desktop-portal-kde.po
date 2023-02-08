@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-19 00:59+0000\n"
+"POT-Creation-Date: 2023-02-08 04:20+0000\n"
 "PO-Revision-Date: 2022-12-28 02:03+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
@@ -301,13 +301,13 @@ msgstr "Dabartinis ekranas"
 msgid "Active Window"
 msgstr "Aktyvus langas"
 
-#: src/session.cpp:168
+#: src/session.cpp:169
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr ""
 
-#: src/session.cpp:254
+#: src/session.cpp:255
 #, fuzzy, kde-format
 #| msgid "Remote desktop"
 msgctxt ""
@@ -315,7 +315,7 @@ msgctxt ""
 msgid "Remote Desktop"
 msgstr "Nuotolinis darbalaukis"
 
-#: src/session.cpp:270
+#: src/session.cpp:271
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -325,7 +325,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/session.cpp:274
+#: src/session.cpp:275
 #, fuzzy, kde-format
 #| msgid "Screen Sharing"
 msgctxt ""
@@ -333,7 +333,7 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "Ekrano bendrinimas"
 
-#: src/session.cpp:444
+#: src/session.cpp:445
 #, kde-format
 msgid ", "
 msgstr ", "

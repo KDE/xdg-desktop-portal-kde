@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-19 00:59+0000\n"
+"POT-Creation-Date: 2023-02-08 04:20+0000\n"
 "PO-Revision-Date: 2023-01-19 11:03+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -298,20 +298,20 @@ msgstr "Trenutni zaslon"
 msgid "Active Window"
 msgstr "Dejavno okno"
 
-#: src/session.cpp:168
+#: src/session.cpp:169
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Konec"
 
-#: src/session.cpp:254
+#: src/session.cpp:255
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
 msgstr "Oddaljeno namizje"
 
-#: src/session.cpp:270
+#: src/session.cpp:271
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -321,14 +321,14 @@ msgstr[1] "%1 video tokova z %2"
 msgstr[2] "%1 video tokov z %2"
 msgstr[3] "%1 video tokov z %2"
 
-#: src/session.cpp:274
+#: src/session.cpp:275
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
 msgstr "Deljenje zaslonov"
 
-#: src/session.cpp:444
+#: src/session.cpp:445
 #, kde-format
 msgid ", "
 msgstr ", "
