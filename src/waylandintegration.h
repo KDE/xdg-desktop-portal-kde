@@ -41,6 +41,7 @@ public:
         Television,
         Workspace,
         Virtual,
+        Region,
     };
     Q_ENUM(OutputType)
     QString manufacturer() const
@@ -131,6 +132,7 @@ Stream startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
 Stream startStreamingWorkspace(Screencasting::CursorMode mode);
 Stream startStreamingVirtual(const QString &name, const QSize &size, Screencasting::CursorMode mode);
 Stream startStreamingWindow(const QMap<int, QVariant> &win, Screencasting::CursorMode mode);
+Stream startStreamingRegion(const QRect &region, Screencasting::CursorMode mode);
 void stopStreaming(uint node);
 
 void requestPointerButtonPress(quint32 linuxButton);

@@ -72,6 +72,8 @@ set(xdg_desktop_portal_kde_SRCS
     dynamiclauncher.cpp dynamiclauncher.h
     dynamiclauncherdialog.cpp dynamiclauncherdialog.h
     xdgshortcut.cpp xdgshortcut.h
+    region-select/SelectionEditor.h
+    region-select/SelectionEditor.cpp
 )
 
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS

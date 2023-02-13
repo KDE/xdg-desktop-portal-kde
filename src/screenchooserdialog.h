@@ -13,6 +13,7 @@
 #include "quickdialog.h"
 #include "screencast.h"
 #include <QEventLoop>
+#include <QRect>
 
 class ScreenChooserDialog : public QuickDialog
 {
@@ -24,9 +25,18 @@ public:
     QList<Output> selectedOutputs() const;
     QVector<QMap<int, QVariant>> selectedWindows() const;
     bool allowRestore() const;
+    QRect selectedRegion() const;
+
+public Q_SLOTS:
+    void accept() override;
 
 Q_SIGNALS:
     void clearSelection();
+
+private:
+    void setRegion(const QRect region);
+
+    QRect m_region;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SCREENCHOOSER_DIALOG_H

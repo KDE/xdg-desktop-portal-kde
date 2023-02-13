@@ -38,6 +38,9 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     QuickWidgets
     Widgets
     WaylandClient
+    Quick
+    QuickControls2
+    Qml
     Test
 )
 if (QT_MAJOR_VERSION EQUAL "6")

@@ -200,6 +200,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     bool valid = false;
     QList<Output> selectedOutputs;
     QVector<QMap<int, QVariant>> selectedWindows;
+    QRect selectedRegion;
     if (persist != NoPersist && session->restoreData().isValid()) {
         const RestoreData restoreData = qdbus_cast<RestoreData>(session->restoreData().value<QDBusArgument>());
         if (restoreData.session == QLatin1String("KDE") && restoreData.version == RestoreData::currentRestoreDataVersion()) {
@@ -247,6 +248,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             allowRestore = screenDialog->allowRestore();
             selectedOutputs = screenDialog->selectedOutputs();
             selectedWindows = screenDialog->selectedWindows();
+            selectedRegion = screenDialog->selectedRegion();
         }
     }
 
@@ -258,6 +260,9 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         for (const auto &output : qAsConst(selectedOutputs)) {
             WaylandIntegration::Stream stream;
             switch (output.outputType()) {
+            case WaylandIntegration::WaylandOutput::Region:
+                stream = WaylandIntegration::startStreamingRegion(selectedRegion, cursorMode);
+                break;
             case WaylandIntegration::WaylandOutput::Workspace:
                 stream = WaylandIntegration::startStreamingWorkspace(cursorMode);
                 break;

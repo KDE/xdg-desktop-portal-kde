@@ -28,7 +28,7 @@ public:
 
 public Q_SLOTS:
     void reject();
-    void accept();
+    virtual void accept();
 
 protected:
     QWindow *m_theDialog = nullptr;

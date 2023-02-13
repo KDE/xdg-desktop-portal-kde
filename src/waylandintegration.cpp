@@ -120,6 +120,11 @@ WaylandIntegration::Stream WaylandIntegration::startStreamingWorkspace(Screencas
     return globalWaylandIntegration->startStreamingWorkspace(mode);
 }
 
+WaylandIntegration::Stream WaylandIntegration::startStreamingRegion(const QRect &region, Screencasting::CursorMode mode)
+{
+    return globalWaylandIntegration->startStreamingRegion(region, mode);
+}
+
 WaylandIntegration::Stream WaylandIntegration::startStreamingVirtual(const QString &name, const QSize &size, Screencasting::CursorMode mode)
 {
     return globalWaylandIntegration->startStreamingVirtualOutput(name, size, mode);
@@ -301,6 +306,16 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
     return startStreaming(m_screencasting->createRegionStream(workspace, 1, mode),
                           {
                               {QLatin1String("size"), workspace.size()},
+                              {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
+                          });
+}
+
+WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingRegion(const QRect region, Screencasting::CursorMode mode)
+{
+    m_streamedScreenPosition = region.topLeft();
+    return startStreaming(m_screencasting->createRegionStream(region, 1, mode),
+                          {
+                              {QLatin1String("size"), region.size()},
                               {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
                           });
 }

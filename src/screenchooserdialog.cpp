@@ -9,14 +9,18 @@
 #include "screenchooserdialog.h"
 #include "utils.h"
 
+#include "region-select/SelectionEditor.h"
+
 #include <KLocalizedString>
 #include <KWayland/Client/plasmawindowmanagement.h>
 #include <KWayland/Client/plasmawindowmodel.h>
 
 #include <QCoreApplication>
+#include <QScreen>
 #include <QSettings>
 #include <QSortFilterProxyModel>
 #include <QStandardPaths>
+#include <QTimer>
 #include <QWindow>
 
 class FilteredWindowModel : public QSortFilterProxyModel
@@ -141,7 +145,8 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
 
     int numberOfMonitors = 0;
     if (types & ScreenCastPortal::Monitor) {
-        auto model = new OutputsModel(OutputsModel::Options(OutputsModel::WorkspaceIncluded | OutputsModel::VirtualIncluded), this);
+        auto model =
+            new OutputsModel(OutputsModel::Options(OutputsModel::WorkspaceIncluded | OutputsModel::VirtualIncluded | OutputsModel::RegionIncluded), this);
         props.insert("outputsModel", QVariant::fromValue<QObject *>(model));
         numberOfMonitors += model->rowCount(QModelIndex());
         connect(this, &ScreenChooserDialog::clearSelection, model, &OutputsModel::clearSelection);
@@ -245,9 +250,42 @@ QVector<QMap<int, QVariant>> ScreenChooserDialog::selectedWindows() const
     return model->selectedWindows();
 }
 
+QRect ScreenChooserDialog::selectedRegion() const
+{
+    return m_region;
+}
+
+void ScreenChooserDialog::setRegion(const QRect region)
+{
+    m_region = region;
+}
+
 bool ScreenChooserDialog::allowRestore() const
 {
     return m_theDialog->property("allowRestore").toBool();
+}
+
+void ScreenChooserDialog::accept()
+{
+    bool valid = true;
+
+    for (const auto &output : selectedOutputs()) {
+        if (output.outputType() == WaylandIntegration::WaylandOutput::OutputType::Region) {
+            QScopedPointer<SelectionEditor, QScopedPointerDeleteLater> selectionEditor(new SelectionEditor(this));
+
+            valid = selectionEditor->exec();
+            setRegion(selectionEditor->rect());
+
+            break;
+        }
+    }
+
+    if (!valid) {
+        // if we selected rectangular region, but didn't actually choose a region, start over
+        QTimer::singleShot(0, m_theDialog, SLOT(present()));
+    } else {
+        QuickDialog::accept();
+    }
 }
 
 #include "screenchooserdialog.moc"
