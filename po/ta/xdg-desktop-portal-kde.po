@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-08 01:01+0000\n"
+"POT-Creation-Date: 2023-02-14 01:00+0000\n"
 "PO-Revision-Date: 2023-01-19 19:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -130,12 +130,17 @@ msgstr "கோப்பை சேமித்தல்"
 msgid "Full Workspace"
 msgstr "முழுப் பணிமேடை"
 
-#: src/outputsmodel.cpp:22
+#: src/outputsmodel.cpp:23
 #, kde-format
 msgid "New Virtual Output"
 msgstr "புதிய மெய்நிகர் வெளியீடு"
 
-#: src/outputsmodel.cpp:28
+#: src/outputsmodel.cpp:27
+#, kde-format
+msgid "Rectangular Region"
+msgstr ""
+
+#: src/outputsmodel.cpp:34
 #, kde-format
 msgid "Laptop screen"
 msgstr "மடிக்கணினித் திரை"
@@ -178,7 +183,7 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - உள்ளீட்டு சாதனங்கள்\n"
 
-#: src/screencast.cpp:316
+#: src/screencast.cpp:321
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
@@ -202,77 +207,77 @@ msgstr ""
 "தயாரிப்பாளர்: %1\n"
 "மாடல்: %2"
 
-#: src/screenchooserdialog.cpp:138
+#: src/screenchooserdialog.cpp:142
 #, kde-format
 msgid "Screen Sharing"
 msgstr "திரை பகிர்வு"
 
-#: src/screenchooserdialog.cpp:167
+#: src/screenchooserdialog.cpp:172
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr "கோரிக்கையிடும் செயலியுடன் எதை பகிர வேண்டுமென்பதை தேர்வு செய்தல்"
 
-#: src/screenchooserdialog.cpp:169
+#: src/screenchooserdialog.cpp:174
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "%1 உடன் எதை பகிர வேண்டுமென்பதை தேர்வு செய்யுங்கள்:"
 
-#: src/screenchooserdialog.cpp:177
+#: src/screenchooserdialog.cpp:182
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "கோரிக்கையிடும் செயலியுடன் இத்திரையை பகிரலாமா?"
 
-#: src/screenchooserdialog.cpp:179
+#: src/screenchooserdialog.cpp:184
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "%1 உடன் இத்திரையை பகிரலாமா?"
 
-#: src/screenchooserdialog.cpp:184
+#: src/screenchooserdialog.cpp:189
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "கோரிக்கையிடும் செயலியுடன் பகிர வேண்டிய திரைகளை தேர்ந்தெடுங்கள்:"
 
-#: src/screenchooserdialog.cpp:186
+#: src/screenchooserdialog.cpp:191
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "%1 உடன் பகிர வேண்டிய திரைகளை தேர்ந்தெடுங்கள்:"
 
-#: src/screenchooserdialog.cpp:190
+#: src/screenchooserdialog.cpp:195
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr "கோரிக்கையிடும் செயலியுடன் பகிர வேண்டிய திரையை தேர்ந்தெடுங்கள்:"
 
-#: src/screenchooserdialog.cpp:192
+#: src/screenchooserdialog.cpp:197
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "%1 உடன் பகிர வேண்டிய திரைகளை தேர்ந்தெடுங்கள்:"
 
-#: src/screenchooserdialog.cpp:202
+#: src/screenchooserdialog.cpp:207
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "கோரிக்கையிடும் செயலியுடன் இச்சாளரத்தை பகிரலாமா?"
 
-#: src/screenchooserdialog.cpp:204
+#: src/screenchooserdialog.cpp:209
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "%1 உடன் இச்சாளரத்தை பகிரலாமா?"
 
-#: src/screenchooserdialog.cpp:209
+#: src/screenchooserdialog.cpp:214
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "கோரிக்கையிடும் செயலியுடன் பகிர வேண்டிய சாளரங்களை தேர்ந்தெடுங்கள்:"
 
-#: src/screenchooserdialog.cpp:211
+#: src/screenchooserdialog.cpp:216
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "%1 உடன் பகிர வேண்டிய சாளரங்களை தேர்ந்தெடுங்கள்:"
 
-#: src/screenchooserdialog.cpp:215
+#: src/screenchooserdialog.cpp:220
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr "கோரிக்கையிடும் செயலியுடன் பகிர வேண்டிய சாளரத்தை தேர்ந்தெடுங்கள்:"
 
-#: src/screenchooserdialog.cpp:217
+#: src/screenchooserdialog.cpp:222
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "%1 உடன் பகிர வேண்டிய சாளரத்தை தேர்ந்தெடுங்கள்:"
@@ -335,12 +340,12 @@ msgstr "விவரங்களை பகிர்தல்"
 msgid "Share your personal information with the requesting application?"
 msgstr "கோரிக்கையிடும் செயலிக்கு உங்களை பற்றிய விவரங்களை வழங்கலாமா?"
 
-#: src/waylandintegration.cpp:327
+#: src/waylandintegration.cpp:342
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "திரைப்பகிர்வை தொடங்குதல் தோல்வியடைந்தது"
 
-#: src/waylandintegration.cpp:630
+#: src/waylandintegration.cpp:645
 #, kde-format
 msgid "Remote desktop"
 msgstr "பணிமேடை தொலையியக்கி"

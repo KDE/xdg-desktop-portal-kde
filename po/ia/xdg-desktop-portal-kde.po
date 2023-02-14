@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-08 01:01+0000\n"
+"POT-Creation-Date: 2023-02-14 01:00+0000\n"
 "PO-Revision-Date: 2023-02-01 22:08+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -130,12 +130,17 @@ msgstr "Salveguarda file"
 msgid "Full Workspace"
 msgstr "Spatio de labor Plen"
 
-#: src/outputsmodel.cpp:22
+#: src/outputsmodel.cpp:23
 #, kde-format
 msgid "New Virtual Output"
 msgstr "Nove Sortita Virtual"
 
-#: src/outputsmodel.cpp:28
+#: src/outputsmodel.cpp:27
+#, kde-format
+msgid "Rectangular Region"
+msgstr ""
+
+#: src/outputsmodel.cpp:34
 #, kde-format
 msgid "Laptop screen"
 msgstr "Schermo de Laptop"
@@ -178,7 +183,7 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr "- Dispositivos de entrata\n"
 
-#: src/screencast.cpp:316
+#: src/screencast.cpp:321
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
@@ -202,77 +207,77 @@ msgstr ""
 "Fabricante: %1\n"
 "Modello: %2"
 
-#: src/screenchooserdialog.cpp:138
+#: src/screenchooserdialog.cpp:142
 #, kde-format
 msgid "Screen Sharing"
 msgstr "Compartir de schermo"
 
-#: src/screenchooserdialog.cpp:167
+#: src/screenchooserdialog.cpp:172
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr "Selige que compartir con le application requiriente:"
 
-#: src/screenchooserdialog.cpp:169
+#: src/screenchooserdialog.cpp:174
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "Selige que compartir con %1:"
 
-#: src/screenchooserdialog.cpp:177
+#: src/screenchooserdialog.cpp:182
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "Comparti iste schermo con le application requiriente"
 
-#: src/screenchooserdialog.cpp:179
+#: src/screenchooserdialog.cpp:184
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "Comparti iste schermo con %1?"
 
-#: src/screenchooserdialog.cpp:184
+#: src/screenchooserdialog.cpp:189
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "Selige schermo de compartir con le application requiriente"
 
-#: src/screenchooserdialog.cpp:186
+#: src/screenchooserdialog.cpp:191
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "Selige schermos a compartir con %1:"
 
-#: src/screenchooserdialog.cpp:190
+#: src/screenchooserdialog.cpp:195
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr "Selige qual schermo a compartir con le application requiriente:"
 
-#: src/screenchooserdialog.cpp:192
+#: src/screenchooserdialog.cpp:197
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "Selige le schermo con le qual de compartir  %1:"
 
-#: src/screenchooserdialog.cpp:202
+#: src/screenchooserdialog.cpp:207
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "Comparti iste fenestra con le application requiriente"
 
-#: src/screenchooserdialog.cpp:204
+#: src/screenchooserdialog.cpp:209
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "Comparti iste fenestra con %1?"
 
-#: src/screenchooserdialog.cpp:209
+#: src/screenchooserdialog.cpp:214
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "Selige fenestras a compartir con le application requiriente:"
 
-#: src/screenchooserdialog.cpp:211
+#: src/screenchooserdialog.cpp:216
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "Selige fenestras a compartir con %1"
 
-#: src/screenchooserdialog.cpp:215
+#: src/screenchooserdialog.cpp:220
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr "Selige qual fenestra compartir con le application requiriente:"
 
-#: src/screenchooserdialog.cpp:217
+#: src/screenchooserdialog.cpp:222
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "Selige qual fenestra a compartir con %1:"
@@ -335,12 +340,12 @@ msgstr "Comparti information"
 msgid "Share your personal information with the requesting application?"
 msgstr "Compartir tu information personal con le application requiriente?"
 
-#: src/waylandintegration.cpp:327
+#: src/waylandintegration.cpp:342
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Il falleva a initiar screencasting"
 
-#: src/waylandintegration.cpp:630
+#: src/waylandintegration.cpp:645
 #, kde-format
 msgid "Remote desktop"
 msgstr "Scriptorio remote"

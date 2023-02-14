@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-08 01:01+0000\n"
+"POT-Creation-Date: 2023-02-14 01:00+0000\n"
 "PO-Revision-Date: 2021-07-09 11:02+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -134,12 +134,17 @@ msgstr "Αποθήκευση αρχείου"
 msgid "Full Workspace"
 msgstr ""
 
-#: src/outputsmodel.cpp:22
+#: src/outputsmodel.cpp:23
 #, kde-format
 msgid "New Virtual Output"
 msgstr ""
 
-#: src/outputsmodel.cpp:28
+#: src/outputsmodel.cpp:27
+#, kde-format
+msgid "Rectangular Region"
+msgstr ""
+
+#: src/outputsmodel.cpp:34
 #, fuzzy, kde-format
 #| msgid ""
 #| "Laptop screen\n"
@@ -190,7 +195,7 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr ""
 
-#: src/screencast.cpp:316
+#: src/screencast.cpp:321
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
@@ -214,94 +219,94 @@ msgstr ""
 "Κατασκευαστής: %1\n"
 "Μοντέλο: %2"
 
-#: src/screenchooserdialog.cpp:138
+#: src/screenchooserdialog.cpp:142
 #, fuzzy, kde-format
 #| msgctxt "Do not disturb mode is enabled because..."
 #| msgid "Screen sharing in progress"
 msgid "Screen Sharing"
 msgstr "Κοινή χρήση οθόνης σε εξέλιξη"
 
-#: src/screenchooserdialog.cpp:167
+#: src/screenchooserdialog.cpp:172
 #, fuzzy, kde-format
 #| msgid "Select what to share with the requesting application"
 msgid "Choose what to share with the requesting application:"
 msgstr "Επιλέξτε τι θα μοιράζεστε με την εφαρμογή που ζητάει την κοινή χρήση"
 
-#: src/screenchooserdialog.cpp:169
+#: src/screenchooserdialog.cpp:174
 #, fuzzy, kde-format
 #| msgid "Select what to share with %1"
 msgid "Choose what to share with %1:"
 msgstr "Επιλέξτε τι θα μοιράζεστε με την %1"
 
-#: src/screenchooserdialog.cpp:177
+#: src/screenchooserdialog.cpp:182
 #, fuzzy, kde-format
 #| msgid "Select screen to share with the requesting application"
 msgid "Share this screen with the requesting application?"
 msgstr ""
 "Επιλέξτε την οθόνη που θα μοιράζεστε με την εφαρμογή που ζητάει κοινή χρήση"
 
-#: src/screenchooserdialog.cpp:179
+#: src/screenchooserdialog.cpp:184
 #, fuzzy, kde-format
 #| msgid "Select screen to share with %1"
 msgid "Share this screen with %1?"
 msgstr "Επιλέξτε την οθόνη που θα μοιράζεστε με την %1"
 
-#: src/screenchooserdialog.cpp:184
+#: src/screenchooserdialog.cpp:189
 #, fuzzy, kde-format
 #| msgid "Select screen to share with the requesting application"
 msgid "Choose screens to share with the requesting application:"
 msgstr ""
 "Επιλέξτε την οθόνη που θα μοιράζεστε με την εφαρμογή που ζητάει κοινή χρήση"
 
-#: src/screenchooserdialog.cpp:186
+#: src/screenchooserdialog.cpp:191
 #, fuzzy, kde-format
 #| msgid "Select screen to share with %1"
 msgid "Choose screens to share with %1:"
 msgstr "Επιλέξτε την οθόνη που θα μοιράζεστε με την %1"
 
-#: src/screenchooserdialog.cpp:190
+#: src/screenchooserdialog.cpp:195
 #, fuzzy, kde-format
 #| msgid "Select screen to share with the requesting application"
 msgid "Choose which screen to share with the requesting application:"
 msgstr ""
 "Επιλέξτε την οθόνη που θα μοιράζεστε με την εφαρμογή που ζητάει κοινή χρήση"
 
-#: src/screenchooserdialog.cpp:192
+#: src/screenchooserdialog.cpp:197
 #, fuzzy, kde-format
 #| msgid "Select screen to share with %1"
 msgid "Choose which screen to share with %1:"
 msgstr "Επιλέξτε την οθόνη που θα μοιράζεστε με την %1"
 
-#: src/screenchooserdialog.cpp:202
+#: src/screenchooserdialog.cpp:207
 #, fuzzy, kde-format
 #| msgid "Select what to share with the requesting application"
 msgid "Share this window with the requesting application?"
 msgstr "Επιλέξτε τι θα μοιράζεστε με την εφαρμογή που ζητάει την κοινή χρήση"
 
-#: src/screenchooserdialog.cpp:204
+#: src/screenchooserdialog.cpp:209
 #, kde-format
 msgid "Share this window with %1?"
 msgstr ""
 
-#: src/screenchooserdialog.cpp:209
+#: src/screenchooserdialog.cpp:214
 #, fuzzy, kde-format
 #| msgid "Select what to share with the requesting application"
 msgid "Choose windows to share with the requesting application:"
 msgstr "Επιλέξτε τι θα μοιράζεστε με την εφαρμογή που ζητάει την κοινή χρήση"
 
-#: src/screenchooserdialog.cpp:211
+#: src/screenchooserdialog.cpp:216
 #, fuzzy, kde-format
 #| msgid "Select what to share with %1"
 msgid "Choose windows to share with %1:"
 msgstr "Επιλέξτε τι θα μοιράζεστε με την %1"
 
-#: src/screenchooserdialog.cpp:215
+#: src/screenchooserdialog.cpp:220
 #, fuzzy, kde-format
 #| msgid "Select what to share with the requesting application"
 msgid "Choose which window to share with the requesting application:"
 msgstr "Επιλέξτε τι θα μοιράζεστε με την εφαρμογή που ζητάει την κοινή χρήση"
 
-#: src/screenchooserdialog.cpp:217
+#: src/screenchooserdialog.cpp:222
 #, fuzzy, kde-format
 #| msgid "Select what to share with %1"
 msgid "Choose which window to share with %1:"
@@ -370,12 +375,12 @@ msgstr "Κοινή χρήση πληροφοριών"
 msgid "Share your personal information with the requesting application?"
 msgstr "Επιλέξτε τι θα μοιράζεστε με την εφαρμογή που ζητάει την κοινή χρήση"
 
-#: src/waylandintegration.cpp:327
+#: src/waylandintegration.cpp:342
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Αποτυχία έναρξης αποτύπωσης οθόνης"
 
-#: src/waylandintegration.cpp:630
+#: src/waylandintegration.cpp:645
 #, kde-format
 msgid "Remote desktop"
 msgstr "Απομακρυσμένη επιφάνεια εργασίας"
