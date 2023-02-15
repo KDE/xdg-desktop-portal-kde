@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-14 01:00+0000\n"
-"PO-Revision-Date: 2023-01-19 05:26+0100\n"
+"PO-Revision-Date: 2023-02-14 06:52+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -140,7 +140,7 @@ msgstr "ახალი ვირტუალური გამოტანა"
 #: src/outputsmodel.cpp:27
 #, kde-format
 msgid "Rectangular Region"
-msgstr ""
+msgstr "მართკუთხედი რეგიონი"
 
 #: src/outputsmodel.cpp:34
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-14 01:00+0000\n"
-"PO-Revision-Date: 2023-01-18 14:51+0100\n"
+"PO-Revision-Date: 2023-02-14 22:45+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -140,7 +140,7 @@ msgstr "Nueva salida virtual"
 #: src/outputsmodel.cpp:27
 #, kde-format
 msgid "Rectangular Region"
-msgstr ""
+msgstr "Región rectangular"
 
 #: src/outputsmodel.cpp:34
 #, kde-format
