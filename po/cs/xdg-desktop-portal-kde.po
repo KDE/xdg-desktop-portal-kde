@@ -135,7 +135,7 @@ msgstr "Nový virtuální výstup"
 #: src/outputsmodel.cpp:27
 #, kde-format
 msgid "Rectangular Region"
-msgstr ""
+msgstr "Obdélníková oblast"
 
 #: src/outputsmodel.cpp:34
 #, kde-format

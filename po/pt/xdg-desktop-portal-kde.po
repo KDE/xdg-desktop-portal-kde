@@ -133,7 +133,7 @@ msgstr "Nova Saída Virtual"
 #: src/outputsmodel.cpp:27
 #, kde-format
 msgid "Rectangular Region"
-msgstr ""
+msgstr "Região Rectangular"
 
 #: src/outputsmodel.cpp:34
 #, kde-format
