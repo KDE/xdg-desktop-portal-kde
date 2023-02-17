@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-14 01:00+0000\n"
-"PO-Revision-Date: 2023-01-20 22:42+0100\n"
+"PO-Revision-Date: 2023-02-15 18:45+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -140,7 +140,7 @@ msgstr "Nuova uscita virtuale"
 #: src/outputsmodel.cpp:27
 #, kde-format
 msgid "Rectangular Region"
-msgstr ""
+msgstr "Regione rettangolare"
 
 #: src/outputsmodel.cpp:34
 #, kde-format
