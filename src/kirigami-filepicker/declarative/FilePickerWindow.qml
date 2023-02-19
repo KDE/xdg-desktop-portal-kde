@@ -54,7 +54,7 @@ Kirigami.ApplicationWindow {
         contextualActions: [
             Kirigami.Action {
                 icon.name: "folder"
-                text: i18n("Create folder")
+                text: i18n("Create Folder")
                 visible: !root.selectExisting
 
                 onTriggered: filePicker.createDirectorySheet.open()
@@ -63,12 +63,12 @@ Kirigami.ApplicationWindow {
                 id: filterAction
                 icon.name: "view-filter"
                 checkable: true
-                text: i18n("Filter filetype")
+                text: i18n("Filter Filetype")
                 checked: true
             },
             Kirigami.Action {
                 icon.name: "view-hidden"
-                text: i18n("Show hidden files")
+                text: i18n("Show Hidden Files")
                 checkable: true
                 checked: filePicker.showHiddenFiles
 

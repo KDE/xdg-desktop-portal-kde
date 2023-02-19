@@ -14,7 +14,7 @@ Kirigami.OverlaySheet {
     property string parentPath: ""
 
     header: Kirigami.Heading {
-        text: i18n("Create new folder")
+        text: i18n("Create New Folder")
     }
 
     ColumnLayout {
@@ -30,7 +30,7 @@ Kirigami.OverlaySheet {
             id: nameField
             Layout.fillWidth: true
 
-            placeholderText: i18n("folder name")
+            placeholderText: i18n("Folder name")
         }
         RowLayout {
             Layout.fillWidth: true
@@ -38,7 +38,7 @@ Kirigami.OverlaySheet {
                 Layout.alignment: Qt.AlignLeft
                 Layout.fillWidth: true
 
-                text: i18n("Ok")
+                text: i18n("OK")
 
                 onClicked: {
                     DirModelUtils.mkdir(parentPath + "/" + nameField.text)

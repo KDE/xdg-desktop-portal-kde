@@ -18,7 +18,7 @@ PWD.SystemDialog
     property alias screenshotImage: screenshot.source
     property QtObject app
 
-    title: i18n("Request screenshot")
+    title: i18n("Request Screenshot")
     iconName: "preferences-system-windows-effect-screenshot"
     acceptable: screenshot.source !== undefined
 
