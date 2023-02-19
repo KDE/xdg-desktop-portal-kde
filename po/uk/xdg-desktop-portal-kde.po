@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-08 04:20+0000\n"
+"POT-Creation-Date: 2023-02-19 02:57+0000\n"
 "PO-Revision-Date: 2023-01-18 14:31+0200\n"
 "Last-Translator: Fracture dept <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -52,6 +52,49 @@ msgstr "Виберіть програму"
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Виберіть програму для відкриття <filename>%1</filename>"
+
+#: src/AppChooserDialog.qml:31
+#, kde-format
+msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
+msgid "Always open %1 files with the chosen app"
+msgstr ""
+
+#: src/AppChooserDialog.qml:64
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Choose Application"
+msgid "Show All Installed Applications"
+msgstr "Виберіть програму"
+
+#: src/AppChooserDialog.qml:171
+#, kde-format
+msgid "Default app for this file type"
+msgstr ""
+
+#: src/AppChooserDialog.qml:190
+#, kde-format
+msgid "No matches"
+msgstr ""
+
+#: src/AppChooserDialog.qml:190
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid "Choose an application to open <filename>%1</filename>"
+msgctxt "@info"
+msgid "No installed applications can open <filename>%1</filename>"
+msgstr "Виберіть програму для відкриття <filename>%1</filename>"
+
+#: src/AppChooserDialog.qml:194
+#, kde-format
+msgctxt "Find some more apps that can open this content using the Discover app"
+msgid "Find More in Discover"
+msgstr ""
+
+#: src/AppChooserDialog.qml:209
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Don't see the right app? Find more in <link>Discover</link>."
+msgstr ""
 
 #: src/background.cpp:104
 #, kde-format
@@ -108,6 +151,30 @@ msgctxt "@title"
 msgid "Add Application…"
 msgstr "Додати програму…"
 
+#: src/DynamicLauncherDialog.qml:72
+#, kde-format
+msgctxt "@label name of a launcher/application"
+msgid "Name"
+msgstr ""
+
+#: src/DynamicLauncherDialog.qml:91
+#, kde-format
+msgctxt "@action edit launcher name/icon"
+msgid "Edit Info…"
+msgstr ""
+
+#: src/DynamicLauncherDialog.qml:97
+#, kde-format
+msgctxt "@action accept dialog and create launcher"
+msgid "Accept"
+msgstr ""
+
+#: src/DynamicLauncherDialog.qml:102
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr ""
+
 #: src/filechooser.cpp:369
 #, kde-format
 msgid "Open"
@@ -127,6 +194,60 @@ msgstr "Відкрити файл"
 #, kde-format
 msgid "Save File"
 msgstr "Зберегти файл"
+
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
+#, kde-format
+msgid "Create new folder"
+msgstr ""
+
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
+#, kde-format
+msgid "Create new folder in %1"
+msgstr ""
+
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
+#, fuzzy, kde-format
+#| msgctxt "NAME OF TRANSLATORS"
+#| msgid "Your names"
+msgid "folder name"
+msgstr "Юрій Чорноіван"
+
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
+#, kde-format
+msgid "Ok"
+msgstr ""
+
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: src/kirigami-filepicker/declarative/FilePicker.qml:101
+#, kde-format
+msgid "File name"
+msgstr ""
+
+#: src/kirigami-filepicker/declarative/FilePicker.qml:116
+#, fuzzy, kde-format
+#| msgid "Select Folder"
+msgid "Select"
+msgstr "Вибір теки"
+
+#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
+#, fuzzy, kde-format
+#| msgid "Select Folder"
+msgid "Create folder"
+msgstr "Вибір теки"
+
+#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
+#, kde-format
+msgid "Filter filetype"
+msgstr ""
+
+#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
+#, kde-format
+msgid "Show hidden files"
+msgstr ""
 
 #: src/outputsmodel.cpp:18
 #, kde-format
@@ -180,6 +301,12 @@ msgstr " - Екрани\n"
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - Пристрої введення\n"
+
+#: src/RemoteDesktopDialog.qml:26 src/ScreenChooserDialog.qml:135
+#: src/UserInfoDialog.qml:41
+#, kde-format
+msgid "Share"
+msgstr "Оприлюднити"
 
 #: src/screencast.cpp:316
 #, kde-format
@@ -282,6 +409,23 @@ msgstr ""
 msgid "Choose which window to share with %1:"
 msgstr "Виберіть вікно, яким слід поділитися з %1:"
 
+#: src/ScreenChooserDialog.qml:36
+#, fuzzy, kde-format
+#| msgctxt "Will allow the app to see what's on the outputs, in markdown"
+#| msgid " - Screens\n"
+msgid "Screens"
+msgstr " - Екрани\n"
+
+#: src/ScreenChooserDialog.qml:39
+#, kde-format
+msgid "Windows"
+msgstr "Вікна"
+
+#: src/ScreenChooserDialog.qml:129
+#, kde-format
+msgid "Allow restoring on future sessions"
+msgstr ""
+
 #: src/screenshotdialog.cpp:88
 #, kde-format
 msgid "Full Screen"
@@ -296,6 +440,64 @@ msgstr "Поточний екран"
 #, kde-format
 msgid "Active Window"
 msgstr "Активне вікно"
+
+#: src/ScreenshotDialog.qml:21
+#, kde-format
+msgid "Request screenshot"
+msgstr "Запит щодо знімка вікна"
+
+#: src/ScreenshotDialog.qml:28
+#, fuzzy, kde-format
+#| msgid "<b>Capture Mode</b>"
+msgid "Capture Mode"
+msgstr "<b>Режим захоплення</b>"
+
+#: src/ScreenshotDialog.qml:32
+#, kde-format
+msgid "Area:"
+msgstr "Область:"
+
+#: src/ScreenshotDialog.qml:37
+#, kde-format
+msgid "Delay:"
+msgstr "Затримка:"
+
+#: src/ScreenshotDialog.qml:42
+#, kde-format
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: src/ScreenshotDialog.qml:50
+#, fuzzy, kde-format
+#| msgid "<b>Content Options</b>"
+msgid "Content Options"
+msgstr "<b>Параметри вмісту</b>"
+
+#: src/ScreenshotDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Include mouse pointer"
+msgid "Include cursor pointer"
+msgstr "Включити вказівник миші"
+
+#: src/ScreenshotDialog.qml:59
+#, kde-format
+msgid "Include window borders"
+msgstr "Включити рамку вікна"
+
+#: src/ScreenshotDialog.qml:72
+#, fuzzy, kde-format
+#| msgid "Save File"
+msgid "Save"
+msgstr "Зберегти файл"
+
+#: src/ScreenshotDialog.qml:82
+#, kde-format
+msgid "Take"
+msgstr ""
 
 #: src/session.cpp:169
 #, kde-format
@@ -421,38 +623,11 @@ msgstr "Портал"
 #~ msgid "TextLabel"
 #~ msgstr "Текстова мітка"
 
-#~ msgid "Share"
-#~ msgstr "Оприлюднити"
-
-#~ msgid "Windows"
-#~ msgstr "Вікна"
-
-#~ msgid "Request screenshot"
-#~ msgstr "Запит щодо знімка вікна"
-
-#~ msgid "<b>Capture Mode</b>"
-#~ msgstr "<b>Режим захоплення</b>"
-
-#~ msgid "Area:"
-#~ msgstr "Область:"
-
 #~ msgid "Full Screen (All Monitors)"
 #~ msgstr "Увесь екран (усі монітори)"
 
-#~ msgid "Delay:"
-#~ msgstr "Затримка:"
-
 #~ msgid "No Delay"
 #~ msgstr "Без затримки"
-
-#~ msgid "<b>Content Options</b>"
-#~ msgstr "<b>Параметри вмісту</b>"
-
-#~ msgid "Include mouse pointer"
-#~ msgstr "Включити вказівник миші"
-
-#~ msgid "Include window borders"
-#~ msgstr "Включити рамку вікна"
 
 #~ msgid "Take screenshot"
 #~ msgstr "Зробити знімок вікна"

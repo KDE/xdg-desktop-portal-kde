@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-08 04:20+0000\n"
+"POT-Creation-Date: 2023-02-19 02:57+0000\n"
 "PO-Revision-Date: 2022-01-25 10:23+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -51,6 +51,46 @@ msgstr "Alkalmazás kiválasztása"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
+msgstr ""
+
+#: src/AppChooserDialog.qml:31
+#, kde-format
+msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
+msgid "Always open %1 files with the chosen app"
+msgstr ""
+
+#: src/AppChooserDialog.qml:64
+#, fuzzy, kde-format
+#| msgid "Select application"
+msgid "Show All Installed Applications"
+msgstr "Alkalmazás kiválasztása"
+
+#: src/AppChooserDialog.qml:171
+#, kde-format
+msgid "Default app for this file type"
+msgstr ""
+
+#: src/AppChooserDialog.qml:190
+#, kde-format
+msgid "No matches"
+msgstr ""
+
+#: src/AppChooserDialog.qml:190
+#, kde-kuit-format
+msgctxt "@info"
+msgid "No installed applications can open <filename>%1</filename>"
+msgstr ""
+
+#: src/AppChooserDialog.qml:194
+#, kde-format
+msgctxt "Find some more apps that can open this content using the Discover app"
+msgid "Find More in Discover"
+msgstr ""
+
+#: src/AppChooserDialog.qml:209
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
 
 #: src/background.cpp:104
@@ -110,6 +150,30 @@ msgctxt "@title"
 msgid "Add Application…"
 msgstr "Alkalmazás kiválasztása"
 
+#: src/DynamicLauncherDialog.qml:72
+#, kde-format
+msgctxt "@label name of a launcher/application"
+msgid "Name"
+msgstr ""
+
+#: src/DynamicLauncherDialog.qml:91
+#, kde-format
+msgctxt "@action edit launcher name/icon"
+msgid "Edit Info…"
+msgstr ""
+
+#: src/DynamicLauncherDialog.qml:97
+#, kde-format
+msgctxt "@action accept dialog and create launcher"
+msgid "Accept"
+msgstr ""
+
+#: src/DynamicLauncherDialog.qml:102
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr ""
+
 #: src/filechooser.cpp:369
 #, kde-format
 msgid "Open"
@@ -129,6 +193,60 @@ msgstr "Fájl megnyitása"
 #, kde-format
 msgid "Save File"
 msgstr "Fájl mentése"
+
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
+#, kde-format
+msgid "Create new folder"
+msgstr ""
+
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
+#, kde-format
+msgid "Create new folder in %1"
+msgstr ""
+
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
+#, fuzzy, kde-format
+#| msgctxt "NAME OF TRANSLATORS"
+#| msgid "Your names"
+msgid "folder name"
+msgstr "Kiszel Kristóf"
+
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
+#, kde-format
+msgid "Ok"
+msgstr ""
+
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: src/kirigami-filepicker/declarative/FilePicker.qml:101
+#, kde-format
+msgid "File name"
+msgstr ""
+
+#: src/kirigami-filepicker/declarative/FilePicker.qml:116
+#, fuzzy, kde-format
+#| msgid "Select Folder"
+msgid "Select"
+msgstr "Mappa kijelölése"
+
+#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
+#, fuzzy, kde-format
+#| msgid "Select Folder"
+msgid "Create folder"
+msgstr "Mappa kijelölése"
+
+#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
+#, kde-format
+msgid "Filter filetype"
+msgstr ""
+
+#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
+#, kde-format
+msgid "Show hidden files"
+msgstr ""
 
 #: src/outputsmodel.cpp:18
 #, kde-format
@@ -190,6 +308,12 @@ msgstr "Teljes képernyő"
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr ""
+
+#: src/RemoteDesktopDialog.qml:26 src/ScreenChooserDialog.qml:135
+#: src/UserInfoDialog.qml:41
+#, kde-format
+msgid "Share"
+msgstr "Megosztás"
 
 #: src/screencast.cpp:316
 #, kde-format
@@ -290,6 +414,22 @@ msgstr "Válassza ki, melyik ablakot osztja meg a kérő alkalmazással:"
 msgid "Choose which window to share with %1:"
 msgstr "Válassza ki, melyik ablakot osztja meg ezzel: %1:"
 
+#: src/ScreenChooserDialog.qml:36
+#, fuzzy, kde-format
+#| msgid "Full Screen"
+msgid "Screens"
+msgstr "Teljes képernyő"
+
+#: src/ScreenChooserDialog.qml:39
+#, kde-format
+msgid "Windows"
+msgstr "Ablakok"
+
+#: src/ScreenChooserDialog.qml:129
+#, kde-format
+msgid "Allow restoring on future sessions"
+msgstr ""
+
 #: src/screenshotdialog.cpp:88
 #, kde-format
 msgid "Full Screen"
@@ -304,6 +444,62 @@ msgstr "Jelenlegi képernyő"
 #, kde-format
 msgid "Active Window"
 msgstr "Aktív ablak"
+
+#: src/ScreenshotDialog.qml:21
+#, kde-format
+msgid "Request screenshot"
+msgstr "Képernyőkép kérése"
+
+#: src/ScreenshotDialog.qml:28
+#, fuzzy, kde-format
+#| msgid "<b>Capture Mode</b>"
+msgid "Capture Mode"
+msgstr "<b>Rögzítési mód</b>"
+
+#: src/ScreenshotDialog.qml:32
+#, kde-format
+msgid "Area:"
+msgstr "Terület:"
+
+#: src/ScreenshotDialog.qml:37
+#, kde-format
+msgid "Delay:"
+msgstr "Késleltetés:"
+
+#: src/ScreenshotDialog.qml:42
+#, kde-format
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/ScreenshotDialog.qml:50
+#, fuzzy, kde-format
+#| msgid "<b>Content Options</b>"
+msgid "Content Options"
+msgstr "<b>Beállítások</b>"
+
+#: src/ScreenshotDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Include mouse pointer"
+msgid "Include cursor pointer"
+msgstr "Egérmutató belefoglalása"
+
+#: src/ScreenshotDialog.qml:59
+#, kde-format
+msgid "Include window borders"
+msgstr "Ablakszegélyek belefoglalása"
+
+#: src/ScreenshotDialog.qml:72
+#, fuzzy, kde-format
+#| msgid "Save File"
+msgid "Save"
+msgstr "Fájl mentése"
+
+#: src/ScreenshotDialog.qml:82
+#, kde-format
+msgid "Take"
+msgstr ""
 
 #: src/session.cpp:169
 #, kde-format
@@ -425,38 +621,11 @@ msgstr "Portál"
 #~ msgid "TextLabel"
 #~ msgstr "Szövegcímke"
 
-#~ msgid "Share"
-#~ msgstr "Megosztás"
-
-#~ msgid "Windows"
-#~ msgstr "Ablakok"
-
-#~ msgid "Request screenshot"
-#~ msgstr "Képernyőkép kérése"
-
-#~ msgid "<b>Capture Mode</b>"
-#~ msgstr "<b>Rögzítési mód</b>"
-
-#~ msgid "Area:"
-#~ msgstr "Terület:"
-
 #~ msgid "Full Screen (All Monitors)"
 #~ msgstr "Teljes képernyő (minden monitor)"
 
-#~ msgid "Delay:"
-#~ msgstr "Késleltetés:"
-
 #~ msgid "No Delay"
 #~ msgstr "Nincs késleltetés"
-
-#~ msgid "<b>Content Options</b>"
-#~ msgstr "<b>Beállítások</b>"
-
-#~ msgid "Include mouse pointer"
-#~ msgstr "Egérmutató belefoglalása"
-
-#~ msgid "Include window borders"
-#~ msgstr "Ablakszegélyek belefoglalása"
 
 #~ msgid "Take screenshot"
 #~ msgstr "Képernyőkép készítése"
