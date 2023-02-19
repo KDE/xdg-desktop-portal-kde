@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-14 01:00+0000\n"
+"POT-Creation-Date: 2023-02-19 01:00+0000\n"
 "PO-Revision-Date: 2022-11-10 20:37+0100\n"
 "Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -48,6 +48,49 @@ msgstr "Anwendung auswählen"
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Wählen Sie eine Anwendung, um <filename>%1</filename> zu öffnen"
+
+#: src/AppChooserDialog.qml:31
+#, kde-format
+msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
+msgid "Always open %1 files with the chosen app"
+msgstr ""
+
+#: src/AppChooserDialog.qml:64
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Choose Application"
+msgid "Show All Installed Applications"
+msgstr "Anwendung auswählen"
+
+#: src/AppChooserDialog.qml:171
+#, kde-format
+msgid "Default app for this file type"
+msgstr ""
+
+#: src/AppChooserDialog.qml:190
+#, kde-format
+msgid "No matches"
+msgstr ""
+
+#: src/AppChooserDialog.qml:190
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid "Choose an application to open <filename>%1</filename>"
+msgctxt "@info"
+msgid "No installed applications can open <filename>%1</filename>"
+msgstr "Wählen Sie eine Anwendung, um <filename>%1</filename> zu öffnen"
+
+#: src/AppChooserDialog.qml:194
+#, kde-format
+msgctxt "Find some more apps that can open this content using the Discover app"
+msgid "Find More in Discover"
+msgstr ""
+
+#: src/AppChooserDialog.qml:209
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Don't see the right app? Find more in <link>Discover</link>."
+msgstr ""
 
 #: src/background.cpp:104
 #, kde-format
@@ -105,6 +148,30 @@ msgctxt "@title"
 msgid "Add Application…"
 msgstr "Anwendung hinzufügen ..."
 
+#: src/DynamicLauncherDialog.qml:72
+#, kde-format
+msgctxt "@label name of a launcher/application"
+msgid "Name"
+msgstr ""
+
+#: src/DynamicLauncherDialog.qml:91
+#, kde-format
+msgctxt "@action edit launcher name/icon"
+msgid "Edit Info…"
+msgstr ""
+
+#: src/DynamicLauncherDialog.qml:97
+#, kde-format
+msgctxt "@action accept dialog and create launcher"
+msgid "Accept"
+msgstr ""
+
+#: src/DynamicLauncherDialog.qml:102
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr ""
+
 #: src/filechooser.cpp:369
 #, kde-format
 msgid "Open"
@@ -124,6 +191,60 @@ msgstr "Datei öffnen"
 #, kde-format
 msgid "Save File"
 msgstr "Datei speichern"
+
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
+#, kde-format
+msgid "Create new folder"
+msgstr ""
+
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
+#, kde-format
+msgid "Create new folder in %1"
+msgstr ""
+
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
+#, fuzzy, kde-format
+#| msgctxt "NAME OF TRANSLATORS"
+#| msgid "Your names"
+msgid "folder name"
+msgstr "Deutsches KDE-Übersetzerteam"
+
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
+#, kde-format
+msgid "Ok"
+msgstr ""
+
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: src/kirigami-filepicker/declarative/FilePicker.qml:101
+#, kde-format
+msgid "File name"
+msgstr ""
+
+#: src/kirigami-filepicker/declarative/FilePicker.qml:116
+#, fuzzy, kde-format
+#| msgid "Select Folder"
+msgid "Select"
+msgstr "Ordner auswählen"
+
+#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
+#, fuzzy, kde-format
+#| msgid "Select Folder"
+msgid "Create folder"
+msgstr "Ordner auswählen"
+
+#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
+#, kde-format
+msgid "Filter filetype"
+msgstr ""
+
+#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
+#, kde-format
+msgid "Show hidden files"
+msgstr ""
 
 #: src/outputsmodel.cpp:18
 #, kde-format
@@ -149,6 +270,52 @@ msgid "Laptop screen"
 msgstr ""
 "Laptop-Bildschirm\n"
 "Modell: %1"
+
+#: src/region-select/RegionSelectOverlay.qml:142
+#, kde-format
+msgid "Start streaming:"
+msgstr ""
+
+#: src/region-select/RegionSelectOverlay.qml:146
+#, kde-format
+msgid "Clear selection:"
+msgstr ""
+
+#: src/region-select/RegionSelectOverlay.qml:150
+#: src/region-select/RegionSelectOverlay.qml:193
+#, kde-format
+msgid "Cancel:"
+msgstr ""
+
+#: src/region-select/RegionSelectOverlay.qml:156
+#, kde-format
+msgctxt "Mouse action"
+msgid "Release left-click"
+msgstr ""
+
+#: src/region-select/RegionSelectOverlay.qml:160
+#, kde-format
+msgctxt "Mouse action"
+msgid "Right-click"
+msgstr ""
+
+#: src/region-select/RegionSelectOverlay.qml:164
+#: src/region-select/RegionSelectOverlay.qml:203
+#, kde-format
+msgctxt "Keyboard action"
+msgid "Escape"
+msgstr ""
+
+#: src/region-select/RegionSelectOverlay.qml:189
+#, kde-format
+msgid "Create selection:"
+msgstr ""
+
+#: src/region-select/RegionSelectOverlay.qml:199
+#, kde-format
+msgctxt "Mouse action"
+msgid "Left-click and drag"
+msgstr ""
 
 #: src/remotedesktop.cpp:121
 #, kde-format
@@ -190,6 +357,12 @@ msgstr "Vollbild"
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr ""
+
+#: src/RemoteDesktopDialog.qml:26 src/ScreenChooserDialog.qml:135
+#: src/UserInfoDialog.qml:41
+#, kde-format
+msgid "Share"
+msgstr "Teilen"
 
 #: src/screencast.cpp:321
 #, kde-format
@@ -291,6 +464,22 @@ msgstr ""
 msgid "Choose which window to share with %1:"
 msgstr "Wählen Sie, welche Fenster mit %1 geteilt werden:"
 
+#: src/ScreenChooserDialog.qml:36
+#, fuzzy, kde-format
+#| msgid "Full Screen"
+msgid "Screens"
+msgstr "Vollbild"
+
+#: src/ScreenChooserDialog.qml:39
+#, kde-format
+msgid "Windows"
+msgstr "Fenster"
+
+#: src/ScreenChooserDialog.qml:129
+#, kde-format
+msgid "Allow restoring on future sessions"
+msgstr ""
+
 #: src/screenshotdialog.cpp:88
 #, kde-format
 msgid "Full Screen"
@@ -305,6 +494,62 @@ msgstr "Aktueller Bildschirm"
 #, kde-format
 msgid "Active Window"
 msgstr "Aktives Fenster"
+
+#: src/ScreenshotDialog.qml:21
+#, kde-format
+msgid "Request screenshot"
+msgstr "Bildschirmfoto anfordern"
+
+#: src/ScreenshotDialog.qml:28
+#, fuzzy, kde-format
+#| msgid "<b>Capture Mode</b>"
+msgid "Capture Mode"
+msgstr "<b>Aufnahmemodus</b>"
+
+#: src/ScreenshotDialog.qml:32
+#, kde-format
+msgid "Area:"
+msgstr "Bereich:"
+
+#: src/ScreenshotDialog.qml:37
+#, kde-format
+msgid "Delay:"
+msgstr "Verzögerung:"
+
+#: src/ScreenshotDialog.qml:42
+#, kde-format
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/ScreenshotDialog.qml:50
+#, fuzzy, kde-format
+#| msgid "<b>Content Options</b>"
+msgid "Content Options"
+msgstr "<b>Aufnahme-Einstellungen</b>"
+
+#: src/ScreenshotDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Include mouse pointer"
+msgid "Include cursor pointer"
+msgstr "Mauszeiger einbeziehen"
+
+#: src/ScreenshotDialog.qml:59
+#, kde-format
+msgid "Include window borders"
+msgstr "Fensterränder einbeziehen"
+
+#: src/ScreenshotDialog.qml:72
+#, fuzzy, kde-format
+#| msgid "Save File"
+msgid "Save"
+msgstr "Datei speichern"
+
+#: src/ScreenshotDialog.qml:82
+#, kde-format
+msgid "Take"
+msgstr ""
 
 #: src/session.cpp:169
 #, kde-format
@@ -428,38 +673,11 @@ msgstr "Portal"
 #~ msgid "TextLabel"
 #~ msgstr "Textfeld"
 
-#~ msgid "Share"
-#~ msgstr "Teilen"
-
-#~ msgid "Windows"
-#~ msgstr "Fenster"
-
-#~ msgid "Request screenshot"
-#~ msgstr "Bildschirmfoto anfordern"
-
-#~ msgid "<b>Capture Mode</b>"
-#~ msgstr "<b>Aufnahmemodus</b>"
-
-#~ msgid "Area:"
-#~ msgstr "Bereich:"
-
 #~ msgid "Full Screen (All Monitors)"
 #~ msgstr "Vollbild (Alle Monitore)"
 
-#~ msgid "Delay:"
-#~ msgstr "Verzögerung:"
-
 #~ msgid "No Delay"
 #~ msgstr "Keine Verzögerung"
-
-#~ msgid "<b>Content Options</b>"
-#~ msgstr "<b>Aufnahme-Einstellungen</b>"
-
-#~ msgid "Include mouse pointer"
-#~ msgstr "Mauszeiger einbeziehen"
-
-#~ msgid "Include window borders"
-#~ msgstr "Fensterränder einbeziehen"
 
 #~ msgid "Take screenshot"
 #~ msgstr "Bildschirmfoto aufnehmen"
