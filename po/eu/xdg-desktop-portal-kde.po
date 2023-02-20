@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-19 02:57+0000\n"
-"PO-Revision-Date: 2023-01-20 10:35+0100\n"
+"PO-Revision-Date: 2023-02-19 08:47+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -57,44 +57,43 @@ msgstr "Hautatu <filename>%1</filename> irekitzeko aplikazio bat"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr ""
+msgstr "%1 fitxategiak, beti, hautatutako aplikazioarekin ireki"
 
 #: src/AppChooserDialog.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgid "Show All Installed Applications"
-msgstr "Hautatu aplikazioa"
+msgstr "Erakutsi instalatutako aplikazio guztiak"
 
 #: src/AppChooserDialog.qml:171
 #, kde-format
 msgid "Default app for this file type"
-msgstr ""
+msgstr "Fitxategi-mota honetarako aplikazio lehenetsia"
 
 #: src/AppChooserDialog.qml:190
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "Ez dago bat datorrenik"
 
 #: src/AppChooserDialog.qml:190
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Choose an application to open <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
-msgstr "Hautatu <filename>%1</filename> irekitzeko aplikazio bat"
+msgstr ""
+"Ez dago instalatuta <filename>%1</filename> ireki dezakeen aplikaziorik"
 
 #: src/AppChooserDialog.qml:194
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr ""
+msgstr "Aurkitu gehiago «Discover» erabiliz"
 
 #: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
+"Ez duzu aplikazio zuzena aurkitzen? Gehiago aurkitu <link>Discover</link> "
+"erabiliz."
 
 #: src/background.cpp:104
 #, kde-format
@@ -156,25 +155,25 @@ msgstr "Gehitu aplikazioa..."
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
-msgstr ""
+msgstr "Izena"
 
 #: src/DynamicLauncherDialog.qml:91
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr ""
+msgstr "Editatu informazioa..."
 
 #: src/DynamicLauncherDialog.qml:97
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
-msgstr ""
+msgstr "Onartu"
 
 #: src/DynamicLauncherDialog.qml:102
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
-msgstr ""
+msgstr "Utzi"
 
 #: src/filechooser.cpp:369
 #, kde-format
@@ -199,56 +198,52 @@ msgstr "Gorde fitxategia"
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
 msgid "Create new folder"
-msgstr ""
+msgstr "Sortu karpeta berria"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
 msgid "Create new folder in %1"
-msgstr ""
+msgstr "Sortu karpeta berria %1(e)an"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
-#, fuzzy, kde-format
-#| msgctxt "NAME OF TRANSLATORS"
-#| msgid "Your names"
+#, kde-format
 msgid "folder name"
-msgstr "Iñigo Salvador Azurmendi"
+msgstr "Karpetaren izena"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "Ok"
-msgstr ""
+msgstr "Ados"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Utzi"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
 msgid "File name"
-msgstr ""
+msgstr "Fitxategi-izena"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:116
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Select"
-msgstr "Hautatu karpeta"
+msgstr "Hautatu"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create folder"
-msgstr "Hautatu karpeta"
+msgstr "Sortu karpeta"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
 msgid "Filter filetype"
-msgstr ""
+msgstr "Iragazi fitxategi-mota"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Show hidden files"
-msgstr ""
+msgstr "Erakutsi ezkutuko fitxategiak"
 
 #: src/outputsmodel.cpp:18
 #, kde-format
@@ -409,11 +404,9 @@ msgid "Choose which window to share with %1:"
 msgstr "Hautatu %1(r)(e)kin zein leiho partekatu:"
 
 #: src/ScreenChooserDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to see what's on the outputs, in markdown"
-#| msgid " - Screens\n"
+#, kde-format
 msgid "Screens"
-msgstr " - Pantailak\n"
+msgstr "Pantailak"
 
 #: src/ScreenChooserDialog.qml:39
 #, kde-format
@@ -423,7 +416,7 @@ msgstr "Leihoak"
 #: src/ScreenChooserDialog.qml:129
 #, kde-format
 msgid "Allow restoring on future sessions"
-msgstr ""
+msgstr "Etorkizuneko saioetan lehengoratzen uzten du."
 
 #: src/screenshotdialog.cpp:88
 #, kde-format
@@ -446,10 +439,9 @@ msgid "Request screenshot"
 msgstr "Eskatu pantaila-argazkia"
 
 #: src/ScreenshotDialog.qml:28
-#, fuzzy, kde-format
-#| msgid "<b>Capture Mode</b>"
+#, kde-format
 msgid "Capture Mode"
-msgstr "<b>Atzemate modua</b>"
+msgstr "Atzemate modua"
 
 #: src/ScreenshotDialog.qml:32
 #, kde-format
@@ -465,20 +457,18 @@ msgstr "Atzerapena:"
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "segundo %1"
+msgstr[1] "%1 segundo"
 
 #: src/ScreenshotDialog.qml:50
-#, fuzzy, kde-format
-#| msgid "<b>Content Options</b>"
+#, kde-format
 msgid "Content Options"
-msgstr "<b>Edukiaren aukerak</b>"
+msgstr "Eduki-aukerak"
 
 #: src/ScreenshotDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Include mouse pointer"
+#, kde-format
 msgid "Include cursor pointer"
-msgstr "Saguaren erakuslea barne"
+msgstr "Sagu-erakuslea barne"
 
 #: src/ScreenshotDialog.qml:59
 #, kde-format
@@ -486,15 +476,14 @@ msgid "Include window borders"
 msgstr "Leiho-ertzak barne"
 
 #: src/ScreenshotDialog.qml:72
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save"
-msgstr "Gorde fitxategia"
+msgstr "Gorde"
 
 #: src/ScreenshotDialog.qml:82
 #, kde-format
 msgid "Take"
-msgstr ""
+msgstr "Atera"
 
 #: src/session.cpp:169
 #, kde-format
