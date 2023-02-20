@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-19 01:00+0000\n"
+"POT-Creation-Date: 2023-02-20 00:59+0000\n"
 "PO-Revision-Date: 2020-05-02 23:09+0800\n"
 "Last-Translator: Yi-Jyun Pan <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -190,7 +190,7 @@ msgstr ""
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
-msgid "Create new folder"
+msgid "Create New Folder"
 msgstr ""
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
@@ -200,12 +200,12 @@ msgstr ""
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
 #, kde-format
-msgid "folder name"
+msgid "Folder name"
 msgstr ""
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
-msgid "Ok"
+msgid "OK"
 msgstr ""
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
@@ -225,17 +225,17 @@ msgstr ""
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
 #, kde-format
-msgid "Create folder"
+msgid "Create Folder"
 msgstr ""
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
-msgid "Filter filetype"
+msgid "Filter Filetype"
 msgstr ""
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
-msgid "Show hidden files"
+msgid "Show Hidden Files"
 msgstr ""
 
 #: src/outputsmodel.cpp:18
@@ -502,8 +502,9 @@ msgid "Active Window"
 msgstr "使用中視窗"
 
 #: src/ScreenshotDialog.qml:21
-#, kde-format
-msgid "Request screenshot"
+#, fuzzy, kde-format
+#| msgid "Request screenshot"
+msgid "Request Screenshot"
 msgstr "請求螢幕截圖"
 
 #: src/ScreenshotDialog.qml:28

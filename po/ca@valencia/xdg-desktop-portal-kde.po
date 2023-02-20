@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-19 01:00+0000\n"
+"POT-Creation-Date: 2023-02-20 00:59+0000\n"
 "PO-Revision-Date: 2023-02-14 10:34+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -199,9 +199,10 @@ msgid "Save File"
 msgstr "Guarda el fitxer"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
-#, kde-format
-msgid "Create new folder"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Select Folder"
+msgid "Create New Folder"
+msgstr "Selecciona una carpeta"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
@@ -212,12 +213,12 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgctxt "NAME OF TRANSLATORS"
 #| msgid "Your names"
-msgid "folder name"
+msgid "Folder name"
 msgstr "Empar Montoro Martín,Josep M. Ferrer"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
-msgid "Ok"
+msgid "OK"
 msgstr ""
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
@@ -239,17 +240,17 @@ msgstr "Selecciona una carpeta"
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
 #, fuzzy, kde-format
 #| msgid "Select Folder"
-msgid "Create folder"
+msgid "Create Folder"
 msgstr "Selecciona una carpeta"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
-msgid "Filter filetype"
+msgid "Filter Filetype"
 msgstr ""
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
-msgid "Show hidden files"
+msgid "Show Hidden Files"
 msgstr ""
 
 #: src/outputsmodel.cpp:18
@@ -503,7 +504,7 @@ msgstr "Finestra activa"
 #: src/ScreenshotDialog.qml:21
 #, fuzzy, kde-format
 #| msgid "Request device access"
-msgid "Request screenshot"
+msgid "Request Screenshot"
 msgstr "Demana accés al dispositiu"
 
 #: src/ScreenshotDialog.qml:28

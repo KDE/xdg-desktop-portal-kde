@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-19 01:00+0000\n"
+"POT-Creation-Date: 2023-02-20 00:59+0000\n"
 "PO-Revision-Date: 2022-06-11 09:29-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -191,9 +191,10 @@ msgid "Save File"
 msgstr "ਫਾਇਲ ਸੰਭਾਲੋ"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
-#, kde-format
-msgid "Create new folder"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Select Folder"
+msgid "Create New Folder"
+msgstr "ਫੋਲਡਰ ਚੁਣੋ"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
@@ -204,12 +205,12 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgctxt "NAME OF TRANSLATORS"
 #| msgid "Your names"
-msgid "folder name"
+msgid "Folder name"
 msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ ੨੦੨੨"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
-msgid "Ok"
+msgid "OK"
 msgstr ""
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
@@ -231,17 +232,17 @@ msgstr "ਫੋਲਡਰ ਚੁਣੋ"
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
 #, fuzzy, kde-format
 #| msgid "Select Folder"
-msgid "Create folder"
+msgid "Create Folder"
 msgstr "ਫੋਲਡਰ ਚੁਣੋ"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
-msgid "Filter filetype"
+msgid "Filter Filetype"
 msgstr ""
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
-msgid "Show hidden files"
+msgid "Show Hidden Files"
 msgstr ""
 
 #: src/outputsmodel.cpp:18
@@ -502,8 +503,9 @@ msgid "Active Window"
 msgstr "ਸਰਗਰਮ ਵਿੰਡੋ"
 
 #: src/ScreenshotDialog.qml:21
-#, kde-format
-msgid "Request screenshot"
+#, fuzzy, kde-format
+#| msgid "Request screenshot"
+msgid "Request Screenshot"
 msgstr "ਸਕਰੀਨਸ਼ਾਟ ਦੀ ਬੇਨਤੀ"
 
 #: src/ScreenshotDialog.qml:28

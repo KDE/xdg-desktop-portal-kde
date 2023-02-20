@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-19 01:00+0000\n"
-"PO-Revision-Date: 2023-02-14 10:15+0300\n"
+"POT-Creation-Date: 2023-02-20 00:59+0000\n"
+"PO-Revision-Date: 2023-02-19 11:28+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -54,44 +54,41 @@ msgstr "<filename>%1</filename> ögesini açmak için bir uygulama seçin"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr ""
+msgstr "%1 dosyalarını her zaman seçili uygulamayla aç"
 
 #: src/AppChooserDialog.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgid "Show All Installed Applications"
-msgstr "Uygulama Seç"
+msgstr "Tüm Kurulu Uygulamaları Göster"
 
 #: src/AppChooserDialog.qml:171
 #, kde-format
 msgid "Default app for this file type"
-msgstr ""
+msgstr "Bu dosya türü için öntanımlı uygulama"
 
 #: src/AppChooserDialog.qml:190
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "Eşleşme yok"
 
 #: src/AppChooserDialog.qml:190
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Choose an application to open <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
-msgstr "<filename>%1</filename> ögesini açmak için bir uygulama seçin"
+msgstr "<filename>%1</filename> ögesini açabilecek bir kurulu uygulama yok"
 
 #: src/AppChooserDialog.qml:194
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr ""
+msgstr "Keşfet'te Daha Fazlasını Bul"
 
 #: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
+"Uygun uygulamayı bulamıyor musunuz? <link>Keşfet</link>'te başkalarını bulun."
 
 #: src/background.cpp:104
 #, kde-format
@@ -151,25 +148,25 @@ msgstr "Uygulama Ekle…"
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
-msgstr ""
+msgstr "Ad"
 
 #: src/DynamicLauncherDialog.qml:91
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr ""
+msgstr "Bilgiyi Düzenle…"
 
 #: src/DynamicLauncherDialog.qml:97
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
-msgstr ""
+msgstr "Kabul Et"
 
 #: src/DynamicLauncherDialog.qml:102
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
-msgstr ""
+msgstr "İptal"
 
 #: src/filechooser.cpp:369
 #, kde-format
@@ -192,58 +189,59 @@ msgid "Save File"
 msgstr "Dosyayı Kaydet"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
-#, kde-format
-msgid "Create new folder"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Create new folder"
+msgid "Create New Folder"
+msgstr "Yeni Klasör Oluştur"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
 msgid "Create new folder in %1"
-msgstr ""
+msgstr "%1 içinde yeni klasör oluştur"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
 #, fuzzy, kde-format
-#| msgctxt "NAME OF TRANSLATORS"
-#| msgid "Your names"
-msgid "folder name"
-msgstr "Emir SARI"
+#| msgid "folder name"
+msgid "Folder name"
+msgstr "Klasör adı"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
-msgid "Ok"
+msgid "OK"
 msgstr ""
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "İptal"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
 msgid "File name"
-msgstr ""
+msgstr "Dosya adı"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:116
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Select"
-msgstr "Klasör Seç"
+msgstr "Seç"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
 #, fuzzy, kde-format
-#| msgid "Select Folder"
-msgid "Create folder"
-msgstr "Klasör Seç"
+#| msgid "Create folder"
+msgid "Create Folder"
+msgstr "Klasör Oluştur"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
-#, kde-format
-msgid "Filter filetype"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Filter filetype"
+msgid "Filter Filetype"
+msgstr "Dosya türünü süz"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
-#, kde-format
-msgid "Show hidden files"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Show hidden files"
+msgid "Show Hidden Files"
+msgstr "Gizli dosyaları göster"
 
 #: src/outputsmodel.cpp:18
 #, kde-format
@@ -268,48 +266,48 @@ msgstr "Dizüstü ekranı"
 #: src/region-select/RegionSelectOverlay.qml:142
 #, kde-format
 msgid "Start streaming:"
-msgstr ""
+msgstr "Akışı başlat:"
 
 #: src/region-select/RegionSelectOverlay.qml:146
 #, kde-format
 msgid "Clear selection:"
-msgstr ""
+msgstr "Seçimi temizle:"
 
 #: src/region-select/RegionSelectOverlay.qml:150
 #: src/region-select/RegionSelectOverlay.qml:193
 #, kde-format
 msgid "Cancel:"
-msgstr ""
+msgstr "İptal:"
 
 #: src/region-select/RegionSelectOverlay.qml:156
 #, kde-format
 msgctxt "Mouse action"
 msgid "Release left-click"
-msgstr ""
+msgstr "Sol tıklamayı bırak"
 
 #: src/region-select/RegionSelectOverlay.qml:160
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
-msgstr ""
+msgstr "Sağ tıkla"
 
 #: src/region-select/RegionSelectOverlay.qml:164
 #: src/region-select/RegionSelectOverlay.qml:203
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
-msgstr ""
+msgstr "Vazgeç"
 
 #: src/region-select/RegionSelectOverlay.qml:189
 #, kde-format
 msgid "Create selection:"
-msgstr ""
+msgstr "Seçim oluştur:"
 
 #: src/region-select/RegionSelectOverlay.qml:199
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
-msgstr ""
+msgstr "Sol tıkla ve sürükle"
 
 #: src/remotedesktop.cpp:121
 #, kde-format
@@ -353,7 +351,7 @@ msgstr " - Giriş aygıtları\n"
 #: src/UserInfoDialog.qml:41
 #, kde-format
 msgid "Share"
-msgstr ""
+msgstr "Paylaş"
 
 #: src/screencast.cpp:321
 #, kde-format
@@ -455,22 +453,19 @@ msgid "Choose which window to share with %1:"
 msgstr "%1 ile hangi pencerenin paylaşılacağını seçin:"
 
 #: src/ScreenChooserDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to see what's on the outputs, in markdown"
-#| msgid " - Screens\n"
+#, kde-format
 msgid "Screens"
-msgstr " - Ekranlar\n"
+msgstr "Ekranlar"
 
 #: src/ScreenChooserDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Active Window"
+#, kde-format
 msgid "Windows"
-msgstr "Etkin Pencere"
+msgstr "Pencereler"
 
 #: src/ScreenChooserDialog.qml:129
 #, kde-format
 msgid "Allow restoring on future sessions"
-msgstr ""
+msgstr "Gelecekteki oturumları geri yüklemeye izin ver"
 
 #: src/screenshotdialog.cpp:88
 #, kde-format
@@ -489,57 +484,56 @@ msgstr "Etkin Pencere"
 
 #: src/ScreenshotDialog.qml:21
 #, fuzzy, kde-format
-#| msgid "Request device access"
-msgid "Request screenshot"
-msgstr "Aygıta erişim iste"
+#| msgid "Request screenshot"
+msgid "Request Screenshot"
+msgstr "Ekran görüntüsü iste"
 
 #: src/ScreenshotDialog.qml:28
 #, kde-format
 msgid "Capture Mode"
-msgstr ""
+msgstr "Yakalama Kipi"
 
 #: src/ScreenshotDialog.qml:32
 #, kde-format
 msgid "Area:"
-msgstr ""
+msgstr "Alan:"
 
 #: src/ScreenshotDialog.qml:37
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "Gecikme:"
 
 #: src/ScreenshotDialog.qml:42
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 saniye"
+msgstr[1] "%1 saniye"
 
 #: src/ScreenshotDialog.qml:50
 #, kde-format
 msgid "Content Options"
-msgstr ""
+msgstr "İçerik Seçenekleri"
 
 #: src/ScreenshotDialog.qml:54
 #, kde-format
 msgid "Include cursor pointer"
-msgstr ""
+msgstr "İmleci içer"
 
 #: src/ScreenshotDialog.qml:59
 #, kde-format
 msgid "Include window borders"
-msgstr ""
+msgstr "Pencere kenarlıklarını içer"
 
 #: src/ScreenshotDialog.qml:72
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save"
-msgstr "Dosyayı Kaydet"
+msgstr "Kaydet"
 
 #: src/ScreenshotDialog.qml:82
 #, kde-format
 msgid "Take"
-msgstr ""
+msgstr "Çek"
 
 #: src/session.cpp:169
 #, kde-format
@@ -598,6 +592,9 @@ msgstr "Uzak Masaüstü"
 #, kde-format
 msgid "Portal"
 msgstr "Portal"
+
+#~ msgid "Ok"
+#~ msgstr "Tamam"
 
 #~ msgctxt "Will allow the app to see what's on the outputs"
 #~ msgid ""

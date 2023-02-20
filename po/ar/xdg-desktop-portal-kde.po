@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-19 01:00+0000\n"
+"POT-Creation-Date: 2023-02-20 00:59+0000\n"
 "PO-Revision-Date: 2023-01-23 21:14+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -193,9 +193,10 @@ msgid "Save File"
 msgstr "احفظ الملفّ"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
-#, kde-format
-msgid "Create new folder"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Select Folder"
+msgid "Create New Folder"
+msgstr "اختر مجلد"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
@@ -206,12 +207,12 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgctxt "NAME OF TRANSLATORS"
 #| msgid "Your names"
-msgid "folder name"
+msgid "Folder name"
 msgstr "زايد السعيدي"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
-msgid "Ok"
+msgid "OK"
 msgstr ""
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
@@ -233,17 +234,17 @@ msgstr "اختر مجلد"
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
 #, fuzzy, kde-format
 #| msgid "Select Folder"
-msgid "Create folder"
+msgid "Create Folder"
 msgstr "اختر مجلد"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
-msgid "Filter filetype"
+msgid "Filter Filetype"
 msgstr ""
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
-msgid "Show hidden files"
+msgid "Show Hidden Files"
 msgstr ""
 
 #: src/outputsmodel.cpp:18
@@ -491,7 +492,7 @@ msgstr "النّافذة النّشطة"
 #: src/ScreenshotDialog.qml:21
 #, fuzzy, kde-format
 #| msgid "Request device access"
-msgid "Request screenshot"
+msgid "Request Screenshot"
 msgstr "طلب وصول لجهاز"
 
 #: src/ScreenshotDialog.qml:28

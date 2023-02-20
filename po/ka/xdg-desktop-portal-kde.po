@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-19 01:00+0000\n"
+"POT-Creation-Date: 2023-02-20 00:59+0000\n"
 "PO-Revision-Date: 2023-02-14 06:52+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -195,9 +195,10 @@ msgid "Save File"
 msgstr "ფაილის შენახვა"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
-#, kde-format
-msgid "Create new folder"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Select Folder"
+msgid "Create New Folder"
+msgstr "აირჩიეთ საქაღალდე"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
@@ -208,12 +209,12 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgctxt "NAME OF TRANSLATORS"
 #| msgid "Your names"
-msgid "folder name"
+msgid "Folder name"
 msgstr "Temuri Doghonadze"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
-msgid "Ok"
+msgid "OK"
 msgstr ""
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
@@ -235,17 +236,17 @@ msgstr "აირჩიეთ საქაღალდე"
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
 #, fuzzy, kde-format
 #| msgid "Select Folder"
-msgid "Create folder"
+msgid "Create Folder"
 msgstr "აირჩიეთ საქაღალდე"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
-msgid "Filter filetype"
+msgid "Filter Filetype"
 msgstr ""
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
-msgid "Show hidden files"
+msgid "Show Hidden Files"
 msgstr ""
 
 #: src/outputsmodel.cpp:18
@@ -493,7 +494,7 @@ msgstr "აქტიური ფანჯარა"
 #: src/ScreenshotDialog.qml:21
 #, fuzzy, kde-format
 #| msgid "Request device access"
-msgid "Request screenshot"
+msgid "Request Screenshot"
 msgstr "მოწყობილობასთან წვდომის მოთხოვნა"
 
 #: src/ScreenshotDialog.qml:28

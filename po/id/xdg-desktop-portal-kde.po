@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-19 01:00+0000\n"
+"POT-Creation-Date: 2023-02-20 00:59+0000\n"
 "PO-Revision-Date: 2022-09-27 18:12+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -196,9 +196,10 @@ msgid "Save File"
 msgstr "Simpan File"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
-#, kde-format
-msgid "Create new folder"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Select Folder"
+msgid "Create New Folder"
+msgstr "Pilih Folder"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
@@ -207,12 +208,12 @@ msgstr ""
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
 #, kde-format
-msgid "folder name"
+msgid "Folder name"
 msgstr ""
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
-msgid "Ok"
+msgid "OK"
 msgstr ""
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
@@ -234,17 +235,17 @@ msgstr "Pilih Folder"
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
 #, fuzzy, kde-format
 #| msgid "Select Folder"
-msgid "Create folder"
+msgid "Create Folder"
 msgstr "Pilih Folder"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
-msgid "Filter filetype"
+msgid "Filter Filetype"
 msgstr ""
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
-msgid "Show hidden files"
+msgid "Show Hidden Files"
 msgstr ""
 
 #: src/outputsmodel.cpp:18
@@ -497,8 +498,9 @@ msgid "Active Window"
 msgstr "Jendela Aktif"
 
 #: src/ScreenshotDialog.qml:21
-#, kde-format
-msgid "Request screenshot"
+#, fuzzy, kde-format
+#| msgid "Request screenshot"
+msgid "Request Screenshot"
 msgstr "Minta screenshot"
 
 #: src/ScreenshotDialog.qml:28
