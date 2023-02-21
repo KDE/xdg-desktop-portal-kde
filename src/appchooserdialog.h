@@ -15,11 +15,6 @@
 #include <QSortFilterProxyModel>
 #include <qmimetype.h>
 
-namespace Ui
-{
-class AppChooserDialog;
-}
-
 class ApplicationItem
 {
 public:
