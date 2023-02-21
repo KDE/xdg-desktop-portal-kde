@@ -188,7 +188,7 @@ AppFilterModel::~AppFilterModel()
 {
 }
 
-void AppFilterModel::setShowOnlyPrefferedApps(bool show)
+void AppFilterModel::setShowOnlyPreferredApps(bool show)
 {
     m_showOnlyPreferredApps = show;
 

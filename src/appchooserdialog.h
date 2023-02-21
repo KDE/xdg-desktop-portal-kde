@@ -49,14 +49,14 @@ private:
 class AppFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(bool showOnlyPreferredApps READ showOnlyPreferredApps WRITE setShowOnlyPrefferedApps NOTIFY showOnlyPreferredAppsChanged)
+    Q_PROPERTY(bool showOnlyPreferredApps READ showOnlyPreferredApps WRITE setShowOnlyPreferredApps NOTIFY showOnlyPreferredAppsChanged)
     Q_PROPERTY(QString filter READ filter WRITE setFilter NOTIFY filterChanged)
 
 public:
     explicit AppFilterModel(QObject *parent = nullptr);
     ~AppFilterModel() override;
 
-    void setShowOnlyPrefferedApps(bool show);
+    void setShowOnlyPreferredApps(bool show);
     bool showOnlyPreferredApps() const;
 
     void setDefaultApp(const QString &);
