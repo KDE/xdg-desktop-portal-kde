@@ -43,7 +43,7 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &de
         {"mainText", xi18nc("@info", "Choose an application to open <filename>%1</filename>", QUrl::fromLocalFile(fileName).fileName())},
     };
 
-    AppFilterModel *filterModel = new AppFilterModel(this);
+    auto filterModel = new AppFilterModel(this);
     filterModel->setSourceModel(m_model);
 
     m_appChooserData->setFileName(fileName);
@@ -382,7 +382,7 @@ QVariant AppModel::data(const QModelIndex &index, int role) const
         }
     }
 
-    return QVariant();
+    return {};
 }
 
 int AppModel::rowCount(const QModelIndex &parent) const
