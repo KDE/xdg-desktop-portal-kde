@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-19 02:57+0000\n"
-"PO-Revision-Date: 2023-01-19 05:26+0100\n"
+"PO-Revision-Date: 2023-02-20 07:17+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -55,44 +55,42 @@ msgstr "აირჩიეთ <filename>%1</filename>-ის გასახს�
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr ""
+msgstr "%1 ფაილების ყოველთვის არჩეული აპით გახსნა"
 
 #: src/AppChooserDialog.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgid "Show All Installed Applications"
-msgstr "აირჩიეთ აპლიკაცია"
+msgstr "ყველა დაყენებული აპლიკაციის ჩვენება"
 
 #: src/AppChooserDialog.qml:171
 #, kde-format
 msgid "Default app for this file type"
-msgstr ""
+msgstr "ნაგულისხმები აპი ამ ფაილის ტიპისთვის"
 
 #: src/AppChooserDialog.qml:190
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "დათხვევა არ არსებობს"
 
 #: src/AppChooserDialog.qml:190
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Choose an application to open <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
-msgstr "აირჩიეთ <filename>%1</filename>-ის გასახსნელი აპლიკაცია"
+msgstr ""
+"<filename>%1</filename>-ის გახსნა ამჟამად დაყენებულ არც ერთ აპლიკაციას არ "
+"შეუძლია"
 
 #: src/AppChooserDialog.qml:194
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr ""
+msgstr "იპოვეთ მეტი Discover-ში"
 
 #: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr ""
+msgstr "ვერ ხედავთ სწორ აპს? აღმოაჩინეთ მეტი აპი <link>Discover-ში</link>."
 
 #: src/background.cpp:104
 #, kde-format
@@ -154,25 +152,25 @@ msgstr "აპლიკაციის დამატება…"
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
-msgstr ""
+msgstr "სახელი"
 
 #: src/DynamicLauncherDialog.qml:91
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr ""
+msgstr "ინფორმაციის ჩასწორება…"
 
 #: src/DynamicLauncherDialog.qml:97
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
-msgstr ""
+msgstr "დასტური"
 
 #: src/DynamicLauncherDialog.qml:102
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
-msgstr ""
+msgstr "_გაუქმება"
 
 #: src/filechooser.cpp:369
 #, kde-format
@@ -197,56 +195,52 @@ msgstr "ფაილის შენახვა"
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
 msgid "Create new folder"
-msgstr ""
+msgstr "ახალი საქაღალდის შექმნა"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
 msgid "Create new folder in %1"
-msgstr ""
+msgstr "%1-ში ახალი საქაღალდის შექმნა"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
-#, fuzzy, kde-format
-#| msgctxt "NAME OF TRANSLATORS"
-#| msgid "Your names"
+#, kde-format
 msgid "folder name"
-msgstr "Temuri Doghonadze"
+msgstr "საქაღალდის სახელი"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "Ok"
-msgstr ""
+msgstr "დიახ"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "_გაუქმება"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
 msgid "File name"
-msgstr ""
+msgstr "ფაილის სახელი"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:116
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Select"
 msgstr "აირჩიეთ საქაღალდე"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create folder"
-msgstr "აირჩიეთ საქაღალდე"
+msgstr "საქაღალდის შექმნა"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
 msgid "Filter filetype"
-msgstr ""
+msgstr "ფაილის ტიპის გაფილტვრა"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Show hidden files"
-msgstr ""
+msgstr "დამალული ფაილების ჩვენება"
 
 #: src/outputsmodel.cpp:18
 #, kde-format
@@ -305,7 +299,7 @@ msgstr " შეყვანის მოწყობილობები\n"
 #: src/UserInfoDialog.qml:41
 #, kde-format
 msgid "Share"
-msgstr ""
+msgstr "გაზიარება"
 
 #: src/screencast.cpp:316
 #, kde-format
@@ -407,22 +401,19 @@ msgid "Choose which window to share with %1:"
 msgstr "აირჩიეთ, რომელი ფანჯრების გაზიარება გსურთ %1-სთვის:"
 
 #: src/ScreenChooserDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to see what's on the outputs, in markdown"
-#| msgid " - Screens\n"
+#, kde-format
 msgid "Screens"
-msgstr " - ეკრანი\n"
+msgstr "ეკრანები"
 
 #: src/ScreenChooserDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Active Window"
+#, kde-format
 msgid "Windows"
-msgstr "აქტიური ფანჯარა"
+msgstr "Windows"
 
 #: src/ScreenChooserDialog.qml:129
 #, kde-format
 msgid "Allow restoring on future sessions"
-msgstr ""
+msgstr "მომავალ სესიებზე აღდგენის დაშვება"
 
 #: src/screenshotdialog.cpp:88
 #, kde-format
@@ -440,58 +431,56 @@ msgid "Active Window"
 msgstr "აქტიური ფანჯარა"
 
 #: src/ScreenshotDialog.qml:21
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgid "Request screenshot"
 msgstr "მოწყობილობასთან წვდომის მოთხოვნა"
 
 #: src/ScreenshotDialog.qml:28
 #, kde-format
 msgid "Capture Mode"
-msgstr ""
+msgstr "ჩაჭერის რეჟიმი"
 
 #: src/ScreenshotDialog.qml:32
 #, kde-format
 msgid "Area:"
-msgstr ""
+msgstr "ფართობი:"
 
 #: src/ScreenshotDialog.qml:37
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "დაყოვნება:"
 
 #: src/ScreenshotDialog.qml:42
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 წამი"
+msgstr[1] "%1 წამი"
 
 #: src/ScreenshotDialog.qml:50
 #, kde-format
 msgid "Content Options"
-msgstr ""
+msgstr "შემცველობის პარამეტრები"
 
 #: src/ScreenshotDialog.qml:54
 #, kde-format
 msgid "Include cursor pointer"
-msgstr ""
+msgstr "თაგუნას კურსორის ჩათვლით"
 
 #: src/ScreenshotDialog.qml:59
 #, kde-format
 msgid "Include window borders"
-msgstr ""
+msgstr "ფანჯრის საზღვრების ჩათვლით"
 
 #: src/ScreenshotDialog.qml:72
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save"
 msgstr "ფაილის შენახვა"
 
 #: src/ScreenshotDialog.qml:82
 #, kde-format
 msgid "Take"
-msgstr ""
+msgstr "აღება"
 
 #: src/session.cpp:169
 #, kde-format
