@@ -87,7 +87,7 @@ class AppChooserData : public QObject
     Q_PROPERTY(QString mimeDesc READ mimeDesc NOTIFY mimeDescChanged)
 
 public:
-    AppChooserData(QObject *parent = nullptr);
+    explicit AppChooserData(QObject *parent = nullptr);
 
     QString fileName() const;
     void setFileName(const QString &fileName);
