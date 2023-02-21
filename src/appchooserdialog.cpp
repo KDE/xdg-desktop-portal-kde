@@ -195,7 +195,7 @@ void AppFilterModel::setShowOnlyPreferredApps(bool show)
     }
 
     m_showOnlyPreferredApps = show;
-
+    Q_EMIT showOnlyPreferredAppsChanged();
     invalidate();
 }
 
