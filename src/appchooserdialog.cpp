@@ -260,10 +260,8 @@ bool AppFilterModel::lessThan(const QModelIndex &left, const QModelIndex &right)
     QString leftName = sourceModel()->data(left, AppModel::ApplicationNameRole).toString();
     QString rightName = sourceModel()->data(right, AppModel::ApplicationNameRole).toString();
 
-    if (leftCategory < rightCategory) {
-        return false;
-    } else if (leftCategory > rightCategory) {
-        return true;
+    if (int comp = leftCategory - rightCategory; comp != 0) {
+        return comp > 0;
     }
 
     return QString::localeAwareCompare(leftName, rightName) > 0;
