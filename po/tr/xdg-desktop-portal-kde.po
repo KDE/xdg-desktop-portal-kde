@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-20 00:59+0000\n"
-"PO-Revision-Date: 2023-02-19 11:28+0300\n"
+"PO-Revision-Date: 2023-02-20 17:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -189,8 +189,7 @@ msgid "Save File"
 msgstr "Dosyayı Kaydet"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
-#, fuzzy, kde-format
-#| msgid "Create new folder"
+#, kde-format
 msgid "Create New Folder"
 msgstr "Yeni Klasör Oluştur"
 
@@ -200,15 +199,14 @@ msgid "Create new folder in %1"
 msgstr "%1 içinde yeni klasör oluştur"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
-#, fuzzy, kde-format
-#| msgid "folder name"
+#, kde-format
 msgid "Folder name"
 msgstr "Klasör adı"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "Tamam"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
@@ -226,22 +224,19 @@ msgid "Select"
 msgstr "Seç"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
-#, fuzzy, kde-format
-#| msgid "Create folder"
+#, kde-format
 msgid "Create Folder"
 msgstr "Klasör Oluştur"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
-#, fuzzy, kde-format
-#| msgid "Filter filetype"
+#, kde-format
 msgid "Filter Filetype"
-msgstr "Dosya türünü süz"
+msgstr "Dosya Türünü Süz"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
-#, fuzzy, kde-format
-#| msgid "Show hidden files"
+#, kde-format
 msgid "Show Hidden Files"
-msgstr "Gizli dosyaları göster"
+msgstr "Gizli Dosyaları Göster"
 
 #: src/outputsmodel.cpp:18
 #, kde-format
@@ -483,10 +478,9 @@ msgid "Active Window"
 msgstr "Etkin Pencere"
 
 #: src/ScreenshotDialog.qml:21
-#, fuzzy, kde-format
-#| msgid "Request screenshot"
+#, kde-format
 msgid "Request Screenshot"
-msgstr "Ekran görüntüsü iste"
+msgstr "Ekran Görüntüsü İste"
 
 #: src/ScreenshotDialog.qml:28
 #, kde-format

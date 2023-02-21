@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-20 00:59+0000\n"
-"PO-Revision-Date: 2023-02-19 11:40+0100\n"
+"PO-Revision-Date: 2023-02-20 10:38+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -196,8 +196,7 @@ msgid "Save File"
 msgstr "Desa el fitxer"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
-#, fuzzy, kde-format
-#| msgid "Create new folder"
+#, kde-format
 msgid "Create New Folder"
 msgstr "Crea una carpeta nova"
 
@@ -207,15 +206,14 @@ msgid "Create new folder in %1"
 msgstr "Crea una carpeta nova a %1"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
-#, fuzzy, kde-format
-#| msgid "folder name"
+#, kde-format
 msgid "Folder name"
-msgstr "nom de la carpeta"
+msgstr "Nom de la carpeta"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "D'acord"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
@@ -233,20 +231,17 @@ msgid "Select"
 msgstr "Selecciona"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
-#, fuzzy, kde-format
-#| msgid "Create folder"
+#, kde-format
 msgid "Create Folder"
 msgstr "Crea una carpeta"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
-#, fuzzy, kde-format
-#| msgid "Filter filetype"
+#, kde-format
 msgid "Filter Filetype"
 msgstr "Filtre de tipus de fitxer"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
-#, fuzzy, kde-format
-#| msgid "Show hidden files"
+#, kde-format
 msgid "Show Hidden Files"
 msgstr "Mostra els fitxers ocults"
 
@@ -490,8 +485,7 @@ msgid "Active Window"
 msgstr "Finestra activa"
 
 #: src/ScreenshotDialog.qml:21
-#, fuzzy, kde-format
-#| msgid "Request screenshot"
+#, kde-format
 msgid "Request Screenshot"
 msgstr "Sol·licita una captura de pantalla"
 
@@ -600,6 +594,3 @@ msgstr "Escriptori remot"
 #, kde-format
 msgid "Portal"
 msgstr "Portal"
-
-#~ msgid "Ok"
-#~ msgstr "D'acord"

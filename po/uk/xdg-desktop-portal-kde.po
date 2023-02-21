@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-20 00:59+0000\n"
-"PO-Revision-Date: 2023-02-19 09:45+0200\n"
+"PO-Revision-Date: 2023-02-20 09:02+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -193,10 +193,9 @@ msgid "Save File"
 msgstr "Зберегти файл"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
-#, fuzzy, kde-format
-#| msgid "Create new folder"
+#, kde-format
 msgid "Create New Folder"
-msgstr "Створити нову теку"
+msgstr "Створити теку"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
@@ -204,15 +203,14 @@ msgid "Create new folder in %1"
 msgstr "Створити теку у %1"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
-#, fuzzy, kde-format
-#| msgid "folder name"
+#, kde-format
 msgid "Folder name"
-msgstr "назва теки"
+msgstr "Назва теки"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "Гаразд"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
@@ -230,20 +228,17 @@ msgid "Select"
 msgstr "Вибрати"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
-#, fuzzy, kde-format
-#| msgid "Create folder"
+#, kde-format
 msgid "Create Folder"
 msgstr "Створити теку"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
-#, fuzzy, kde-format
-#| msgid "Filter filetype"
+#, kde-format
 msgid "Filter Filetype"
 msgstr "Фільтрувати за типом файлів"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
-#, fuzzy, kde-format
-#| msgid "Show hidden files"
+#, kde-format
 msgid "Show Hidden Files"
 msgstr "Показати приховані файли"
 
@@ -489,8 +484,7 @@ msgid "Active Window"
 msgstr "Активне вікно"
 
 #: src/ScreenshotDialog.qml:21
-#, fuzzy, kde-format
-#| msgid "Request screenshot"
+#, kde-format
 msgid "Request Screenshot"
 msgstr "Запит щодо знімка вікна"
 

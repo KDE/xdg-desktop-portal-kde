@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-20 00:59+0000\n"
-"PO-Revision-Date: 2023-02-19 09:18+0100\n"
+"PO-Revision-Date: 2023-02-20 11:30+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -192,8 +192,7 @@ msgid "Save File"
 msgstr "Guardar archivo"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
-#, fuzzy, kde-format
-#| msgid "Create new folder"
+#, kde-format
 msgid "Create New Folder"
 msgstr "Crear nueva carpeta"
 
@@ -203,15 +202,14 @@ msgid "Create new folder in %1"
 msgstr "Crear nueva carpeta en %1"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
-#, fuzzy, kde-format
-#| msgid "folder name"
+#, kde-format
 msgid "Folder name"
-msgstr "nombre de la carpeta"
+msgstr "Nombre de la carpeta"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "Aceptar"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
@@ -229,20 +227,17 @@ msgid "Select"
 msgstr "Seleccionar"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
-#, fuzzy, kde-format
-#| msgid "Create folder"
+#, kde-format
 msgid "Create Folder"
 msgstr "Crear carpeta"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
-#, fuzzy, kde-format
-#| msgid "Filter filetype"
+#, kde-format
 msgid "Filter Filetype"
 msgstr "Filtrar tipo de archivo"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
-#, fuzzy, kde-format
-#| msgid "Show hidden files"
+#, kde-format
 msgid "Show Hidden Files"
 msgstr "Mostrar archivos ocultos"
 
@@ -493,8 +488,7 @@ msgid "Active Window"
 msgstr "Ventana activa"
 
 #: src/ScreenshotDialog.qml:21
-#, fuzzy, kde-format
-#| msgid "Request screenshot"
+#, kde-format
 msgid "Request Screenshot"
 msgstr "Solicitar captura de pantalla"
 
