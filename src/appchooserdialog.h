@@ -54,7 +54,6 @@ class AppFilterModel : public QSortFilterProxyModel
 
 public:
     explicit AppFilterModel(QObject *parent = nullptr);
-    ~AppFilterModel() override;
 
     void setShowOnlyPreferredApps(bool show);
     bool showOnlyPreferredApps() const;
@@ -128,7 +127,6 @@ public:
     };
 
     explicit AppModel(QObject *parent = nullptr);
-    ~AppModel() override;
 
     void setPreferredApps(const QStringList &list);
 

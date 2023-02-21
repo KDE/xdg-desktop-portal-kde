@@ -184,10 +184,6 @@ AppFilterModel::AppFilterModel(QObject *parent)
     sort(0, Qt::DescendingOrder);
 }
 
-AppFilterModel::~AppFilterModel()
-{
-}
-
 void AppFilterModel::setShowOnlyPreferredApps(bool show)
 {
     if (m_showOnlyPreferredApps == show) {
@@ -323,10 +319,6 @@ AppModel::AppModel(QObject *parent)
     : QAbstractListModel(parent)
 {
     loadApplications();
-}
-
-AppModel::~AppModel()
-{
 }
 
 void AppModel::setPreferredApps(const QStringList &possiblyAliasedList)
