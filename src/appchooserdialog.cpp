@@ -190,6 +190,10 @@ AppFilterModel::~AppFilterModel()
 
 void AppFilterModel::setShowOnlyPreferredApps(bool show)
 {
+    if (m_showOnlyPreferredApps == show) {
+        return;
+    }
+
     m_showOnlyPreferredApps = show;
 
     invalidate();
