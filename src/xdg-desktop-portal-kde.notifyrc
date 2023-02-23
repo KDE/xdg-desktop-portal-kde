@@ -38,6 +38,7 @@ Comment[tr]=Uygulamaları, KDE Plasma masaüstüne tümleştirir
 Comment[uk]=Інтеграція програм до стільниці Плазми KDE
 Comment[x-test]=xxIntegrating applications into the KDE Plasma desktopxx
 Comment[zh_CN]=将应用程序整合到 KDE Plasma 桌面
+Comment[zh_TW]=讓應用程式與 KDE Plasma 桌面整合
 Name=KDE Portal Integration
 Name[ar]=بوابة تكامل كدي
 Name[az]=KDE Portalı İnteqrasiyası
@@ -76,6 +77,7 @@ Name[tr]=KDE Portal Tümleştirmesi
 Name[uk]=Інтеграція через Портал KDE
 Name[x-test]=xxKDE Portal Integrationxx
 Name[zh_CN]=KDE 系统集成
+Name[zh_TW]=KDE Portal 整合
 
 [Context/screencast]
 Name=Screencasting
@@ -115,6 +117,7 @@ Name[tr]=Ekran Yayını
 Name[uk]=Трансляція
 Name[x-test]=xxScreencastingxx
 Name[zh_CN]=投屏
+Name[zh_TW]=螢幕錄製
 
 [Event/screencastfailure]
 Name=Screencasting failed
@@ -154,6 +157,7 @@ Name[tr]=Ekran yayını başarısız
 Name[uk]=Помилка трансляції даних
 Name[x-test]=xxScreencasting failedxx
 Name[zh_CN]=投屏失败
+Name[zh_TW]=螢幕錄製失敗
 Comment=An error was encountered while screencasting
 Comment[ar]=حدث خطأ أثناء تسجيل الشاشة
 Comment[az]=Ekran video çəkilişi zamanı xəta baş verdi
@@ -191,6 +195,7 @@ Comment[tr]=Ekran yayınlarken bir hata oluştu
 Comment[uk]=Сталася помилка під час трансляції даних з екрана
 Comment[x-test]=xxAn error was encountered while screencastingxx
 Comment[zh_CN]=投屏时发生错误
+Comment[zh_TW]=螢幕錄製時發生錯誤
 Contexts=screencast
 Action=Popup
 Urgency=Normal
@@ -220,6 +225,7 @@ Name[tr]=Uzak Masaüstü
 Name[uk]=Віддалена стільниця
 Name[x-test]=xxRemote Desktopxx
 Name[zh_CN]=远程桌面
+Name[zh_TW]=遠端桌面
 
 [Event/remotedesktopstarted]
 Name=Started Remote Desktop
@@ -245,6 +251,7 @@ Name[tr]=Uzak Masaüstü Başlatıldı
 Name[uk]=Запущено віддалену стільницю
 Name[x-test]=xxStarted Remote Desktopxx
 Name[zh_CN]=已启动远程桌面
+Name[zh_TW]=已開始遠端桌面
 Comment=An application gained control over your input and displays
 Comment[ar]=تطبيق امتلك التحكم بأجهزة الإدخال و العرض الخاص بك
 Comment[bg]=Приложение придоби контрол над вашите входни устройства и дисплеи
@@ -267,6 +274,7 @@ Comment[tr]=Bir uygulama, veri girişi ve ekranlarınız üzerinde denetim kazan
 Comment[uk]=Введення та показ зображення на вашому комп'ютері перебрала зовнішня програма
 Comment[x-test]=xxAn application gained control over your input and displaysxx
 Comment[zh_CN]=一个应用程序已获得了对本机输入和显示的控制权
+Comment[zh_TW]=一個應用程式已得到您的輸入裝置與顯示器的控制權
 Contexts=remotedesktop
 Action=Popup
 Urgency=High
