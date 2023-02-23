@@ -2,12 +2,13 @@
 # This file is distributed under the same license as the xdg-desktop-portal-kde package.
 #
 # pan93412 <pan93412@gmail.com>, 2019, 2020.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-20 00:59+0000\n"
-"PO-Revision-Date: 2020-05-02 23:09+0800\n"
+"PO-Revision-Date: 2023-02-23 06:12+0900\n"
 "Last-Translator: Yi-Jyun Pan <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
 "Language: zh_TW\n"
@@ -15,17 +16,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 20.04.0\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Kisaragi Hiu"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "mail@kisaragi-hiu.com"
 
 #: src/accessdialog.cpp:22
 #, kde-format
@@ -36,19 +37,19 @@ msgstr "請求裝置存取權限"
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
-msgstr ""
+msgstr "%1 個檔案"
 
 #: src/appchooserdialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
-msgstr ""
+msgstr "選擇應用程式"
 
 #: src/appchooserdialog.cpp:43
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
-msgstr ""
+msgstr "選擇開啟 <filename>%1</filename> 用的應用程式"
 
 #: src/AppChooserDialog.qml:31
 #, kde-format
@@ -135,13 +136,13 @@ msgstr "允許"
 #, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
-msgstr ""
+msgstr "新增網路應用程式…"
 
 #: src/dynamiclauncher.cpp:81
 #, kde-format
 msgctxt "@title"
 msgid "Add Application…"
-msgstr ""
+msgstr "新增應用程式…"
 
 #: src/DynamicLauncherDialog.qml:72
 #, kde-format
@@ -175,18 +176,17 @@ msgstr "開啟"
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:100
 #, kde-format
 msgid "Select Folder"
-msgstr ""
+msgstr "選擇資料夾"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgid "Open File"
-msgstr "開啟"
+msgstr "開啟檔案"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
 #, kde-format
 msgid "Save File"
-msgstr ""
+msgstr "儲存檔案"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
@@ -241,27 +241,22 @@ msgstr ""
 #: src/outputsmodel.cpp:18
 #, kde-format
 msgid "Full Workspace"
-msgstr ""
+msgstr "完整作業空間"
 
 #: src/outputsmodel.cpp:23
 #, kde-format
 msgid "New Virtual Output"
-msgstr ""
+msgstr "新增虛擬輸出"
 
 #: src/outputsmodel.cpp:27
 #, kde-format
 msgid "Rectangular Region"
-msgstr ""
+msgstr "矩形區域"
 
 #: src/outputsmodel.cpp:34
-#, fuzzy, kde-format
-#| msgid ""
-#| "Laptop screen\n"
-#| "Model: %1"
+#, kde-format
 msgid "Laptop screen"
-msgstr ""
-"筆電螢幕\n"
-"型號：%1"
+msgstr "筆電螢幕"
 
 #: src/region-select/RegionSelectOverlay.qml:142
 #, kde-format
@@ -313,42 +308,39 @@ msgstr ""
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
-msgstr ""
+msgstr "已開始遠端控制工作階段"
 
 #: src/remotedesktopdialog.cpp:23
 #, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
-msgstr ""
+msgstr "請求遠端控制權限"
 
 #: src/remotedesktopdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
-msgstr "請求裝置存取權限"
+msgstr "請求存取：\n"
 
 #: src/remotedesktopdialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr "請求裝置存取權限"
+msgstr "%1 請求存取遠端控制權：\n"
 
 #: src/remotedesktopdialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Current Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr "目前的螢幕"
+msgstr " - 螢幕\n"
 
 #: src/remotedesktopdialog.cpp:40
 #, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
-msgstr ""
+msgstr " - 輸入裝置\n"
 
 #: src/RemoteDesktopDialog.qml:26 src/ScreenChooserDialog.qml:135
 #: src/UserInfoDialog.qml:41
@@ -360,7 +352,7 @@ msgstr "分享"
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
-msgstr ""
+msgstr "正在分享螢幕"
 
 #: src/screencastwidget.cpp:24
 #, kde-format
@@ -383,90 +375,77 @@ msgstr ""
 #: src/screenchooserdialog.cpp:142
 #, kde-format
 msgid "Screen Sharing"
-msgstr ""
+msgstr "螢幕分享"
 
 #: src/screenchooserdialog.cpp:172
-#, fuzzy, kde-format
-#| msgid "Select what to share with the requesting application"
+#, kde-format
 msgid "Choose what to share with the requesting application:"
-msgstr "選擇要與請求應用程式分享的項目"
+msgstr "選擇要與提出請求的應用程式分享的項目："
 
 #: src/screenchooserdialog.cpp:174
-#, fuzzy, kde-format
-#| msgid "Select what to share with %1"
+#, kde-format
 msgid "Choose what to share with %1:"
-msgstr "選擇要與 %1 分享的項目"
+msgstr "選擇要與 %1 分享的項目："
 
 #: src/screenchooserdialog.cpp:182
-#, fuzzy, kde-format
-#| msgid "Select screen to share with the requesting application"
+#, kde-format
 msgid "Share this screen with the requesting application?"
-msgstr "選擇要與請求應用程式分享的螢幕"
+msgstr "要分享這個螢幕給提出請求的應用程式嗎？"
 
 #: src/screenchooserdialog.cpp:184
-#, fuzzy, kde-format
-#| msgid "Select screen to share with %1"
+#, kde-format
 msgid "Share this screen with %1?"
-msgstr "選擇要與 %1 分享的螢幕"
+msgstr "要分享這個螢幕給 %1 嗎？"
 
 #: src/screenchooserdialog.cpp:189
-#, fuzzy, kde-format
-#| msgid "Select screen to share with the requesting application"
+#, kde-format
 msgid "Choose screens to share with the requesting application:"
-msgstr "選擇要與請求應用程式分享的螢幕"
+msgstr "選擇要與提出請求的應用程式分享的螢幕："
 
 #: src/screenchooserdialog.cpp:191
-#, fuzzy, kde-format
-#| msgid "Select screen to share with %1"
+#, kde-format
 msgid "Choose screens to share with %1:"
-msgstr "選擇要與 %1 分享的螢幕"
+msgstr "選擇要與 %1 分享的螢幕："
 
 #: src/screenchooserdialog.cpp:195
-#, fuzzy, kde-format
-#| msgid "Select screen to share with the requesting application"
+#, kde-format
 msgid "Choose which screen to share with the requesting application:"
-msgstr "選擇要與請求應用程式分享的螢幕"
+msgstr "選擇要與提出請求的應用程式分享哪個螢幕："
 
 #: src/screenchooserdialog.cpp:197
-#, fuzzy, kde-format
-#| msgid "Select screen to share with %1"
+#, kde-format
 msgid "Choose which screen to share with %1:"
-msgstr "選擇要與 %1 分享的螢幕"
+msgstr "選擇要與 %1 分享哪個螢幕："
 
 #: src/screenchooserdialog.cpp:207
-#, fuzzy, kde-format
-#| msgid "Select what to share with the requesting application"
+#, kde-format
 msgid "Share this window with the requesting application?"
-msgstr "選擇要與請求應用程式分享的項目"
+msgstr "要分享這個視窗給提出請求的應用程式嗎？"
 
 #: src/screenchooserdialog.cpp:209
 #, kde-format
 msgid "Share this window with %1?"
-msgstr ""
+msgstr "要分享這個視窗給 %1 嗎？"
 
 #: src/screenchooserdialog.cpp:214
-#, fuzzy, kde-format
-#| msgid "Select what to share with the requesting application"
+#, kde-format
 msgid "Choose windows to share with the requesting application:"
-msgstr "選擇要與請求應用程式分享的項目"
+msgstr "選擇要與提出請求的應用程式分享的視窗："
 
 #: src/screenchooserdialog.cpp:216
-#, fuzzy, kde-format
-#| msgid "Select what to share with %1"
+#, kde-format
 msgid "Choose windows to share with %1:"
-msgstr "選擇要與 %1 分享的項目"
+msgstr "選擇要與 %1 分享的視窗："
 
 #: src/screenchooserdialog.cpp:220
-#, fuzzy, kde-format
-#| msgid "Select what to share with the requesting application"
+#, kde-format
 msgid "Choose which window to share with the requesting application:"
-msgstr "選擇要與請求應用程式分享的項目"
+msgstr "選擇要與提出請求的應用程式分享哪個視窗："
 
 #: src/screenchooserdialog.cpp:222
-#, fuzzy, kde-format
-#| msgid "Select what to share with %1"
+#, kde-format
 msgid "Choose which window to share with %1:"
-msgstr "選擇要與 %1 分享的項目"
+msgstr "選擇要與 %1 分享哪個視窗："
 
 #: src/ScreenChooserDialog.qml:36
 #, fuzzy, kde-format
@@ -486,10 +465,9 @@ msgid "Allow restoring on future sessions"
 msgstr ""
 
 #: src/screenshotdialog.cpp:88
-#, fuzzy, kde-format
-#| msgid "Current Screen"
+#, kde-format
 msgid "Full Screen"
-msgstr "目前的螢幕"
+msgstr "整個螢幕"
 
 #: src/screenshotdialog.cpp:89
 #, kde-format
@@ -560,11 +538,10 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
-msgstr ""
+msgstr "結束"
 
 #: src/session.cpp:255
-#, fuzzy, kde-format
-#| msgid "Remote desktop"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
@@ -582,12 +559,12 @@ msgstr[0] ""
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
-msgstr ""
+msgstr "螢幕錄製中"
 
 #: src/session.cpp:445
 #, kde-format
 msgid ", "
-msgstr ""
+msgstr "、"
 
 #: src/userinfodialog.cpp:32
 #, kde-format
@@ -595,10 +572,9 @@ msgid "Share Information"
 msgstr "分享資訊"
 
 #: src/userinfodialog.cpp:33
-#, fuzzy, kde-format
-#| msgid "Select what to share with the requesting application"
+#, kde-format
 msgid "Share your personal information with the requesting application?"
-msgstr "選擇要與請求應用程式分享的項目"
+msgstr "要與提出請求的應用程式分享您的個人資訊嗎？"
 
 #: src/waylandintegration.cpp:342
 #, kde-format
