@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-20 00:59+0000\n"
-"PO-Revision-Date: 2023-02-19 08:47+0100\n"
+"PO-Revision-Date: 2023-02-23 20:09+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -196,8 +196,7 @@ msgid "Save File"
 msgstr "Gorde fitxategia"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
-#, fuzzy, kde-format
-#| msgid "Create new folder"
+#, kde-format
 msgid "Create New Folder"
 msgstr "Sortu karpeta berria"
 
@@ -207,15 +206,14 @@ msgid "Create new folder in %1"
 msgstr "Sortu karpeta berria %1(e)an"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
-#, fuzzy, kde-format
-#| msgid "folder name"
+#, kde-format
 msgid "Folder name"
 msgstr "Karpetaren izena"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "Ados"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
@@ -233,20 +231,17 @@ msgid "Select"
 msgstr "Hautatu"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
-#, fuzzy, kde-format
-#| msgid "Create folder"
+#, kde-format
 msgid "Create Folder"
 msgstr "Sortu karpeta"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
-#, fuzzy, kde-format
-#| msgid "Filter filetype"
+#, kde-format
 msgid "Filter Filetype"
 msgstr "Iragazi fitxategi-mota"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
-#, fuzzy, kde-format
-#| msgid "Show hidden files"
+#, kde-format
 msgid "Show Hidden Files"
 msgstr "Erakutsi ezkutuko fitxategiak"
 
@@ -490,8 +485,7 @@ msgid "Active Window"
 msgstr "Leiho aktiboa"
 
 #: src/ScreenshotDialog.qml:21
-#, fuzzy, kde-format
-#| msgid "Request screenshot"
+#, kde-format
 msgid "Request Screenshot"
 msgstr "Eskatu pantaila-argazkia"
 
