@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-20 00:59+0000\n"
-"PO-Revision-Date: 2023-02-23 06:12+0900\n"
-"Last-Translator: Yi-Jyun Pan <pan93412@gmail.com>\n"
-"Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
+"PO-Revision-Date: 2023-02-24 22:51+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,40 +55,40 @@ msgstr "選擇開啟 <filename>%1</filename> 用的應用程式"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr ""
+msgstr "總是使用選擇的應用程式開啟 %1 檔案"
 
 #: src/AppChooserDialog.qml:64
 #, kde-format
 msgid "Show All Installed Applications"
-msgstr ""
+msgstr "顯示所有已安裝的應用程式"
 
 #: src/AppChooserDialog.qml:171
 #, kde-format
 msgid "Default app for this file type"
-msgstr ""
+msgstr "這個檔案類型的預設應用程式"
 
 #: src/AppChooserDialog.qml:190
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "無相符項目"
 
 #: src/AppChooserDialog.qml:190
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
-msgstr ""
+msgstr "已安裝應用程式中沒有可以開啟 <filename>%1</filename> 的應用程式"
 
 #: src/AppChooserDialog.qml:194
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr ""
+msgstr "在 Discover 中尋找更多"
 
 #: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr ""
+msgstr "沒看到正確的應用程式嗎？在 <link>Discover</link> 尋找更多應用程式。"
 
 #: src/background.cpp:104
 #, kde-format
@@ -148,25 +148,25 @@ msgstr "新增應用程式…"
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
-msgstr ""
+msgstr "名稱"
 
 #: src/DynamicLauncherDialog.qml:91
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr ""
+msgstr "編輯資訊…"
 
 #: src/DynamicLauncherDialog.qml:97
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
-msgstr ""
+msgstr "接受"
 
 #: src/DynamicLauncherDialog.qml:102
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: src/filechooser.cpp:369
 #, kde-format
@@ -191,52 +191,52 @@ msgstr "儲存檔案"
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
 msgid "Create New Folder"
-msgstr ""
+msgstr "建立新資料夾"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
 msgid "Create new folder in %1"
-msgstr ""
+msgstr "在 %1 中建立新資料夾"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
 #, kde-format
 msgid "Folder name"
-msgstr ""
+msgstr "資料夾名稱"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "確定"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
 msgid "File name"
-msgstr ""
+msgstr "檔案名稱"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:116
 #, kde-format
 msgid "Select"
-msgstr ""
+msgstr "選取"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
 #, kde-format
 msgid "Create Folder"
-msgstr ""
+msgstr "建立資料夾"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
 msgid "Filter Filetype"
-msgstr ""
+msgstr "過濾檔案類型"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Show Hidden Files"
-msgstr ""
+msgstr "顯示隱藏檔案"
 
 #: src/outputsmodel.cpp:18
 #, kde-format
@@ -261,48 +261,48 @@ msgstr "筆電螢幕"
 #: src/region-select/RegionSelectOverlay.qml:142
 #, kde-format
 msgid "Start streaming:"
-msgstr ""
+msgstr "開始串流："
 
 #: src/region-select/RegionSelectOverlay.qml:146
 #, kde-format
 msgid "Clear selection:"
-msgstr ""
+msgstr "清除選取區："
 
 #: src/region-select/RegionSelectOverlay.qml:150
 #: src/region-select/RegionSelectOverlay.qml:193
 #, kde-format
 msgid "Cancel:"
-msgstr ""
+msgstr "取消："
 
 #: src/region-select/RegionSelectOverlay.qml:156
 #, kde-format
 msgctxt "Mouse action"
 msgid "Release left-click"
-msgstr ""
+msgstr "放開滑鼠左鍵"
 
 #: src/region-select/RegionSelectOverlay.qml:160
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
-msgstr ""
+msgstr "滑鼠右鍵"
 
 #: src/region-select/RegionSelectOverlay.qml:164
 #: src/region-select/RegionSelectOverlay.qml:203
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
-msgstr ""
+msgstr "Escape"
 
 #: src/region-select/RegionSelectOverlay.qml:189
 #, kde-format
 msgid "Create selection:"
-msgstr ""
+msgstr "建立選取區："
 
 #: src/region-select/RegionSelectOverlay.qml:199
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
-msgstr ""
+msgstr "點擊並拖曳滑鼠左鍵"
 
 #: src/remotedesktop.cpp:121
 #, kde-format
@@ -448,21 +448,19 @@ msgid "Choose which window to share with %1:"
 msgstr "選擇要與 %1 分享哪個視窗："
 
 #: src/ScreenChooserDialog.qml:36
-#, fuzzy, kde-format
-#| msgid "Current Screen"
+#, kde-format
 msgid "Screens"
-msgstr "目前的螢幕"
+msgstr "螢幕"
 
 #: src/ScreenChooserDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Active Window"
+#, kde-format
 msgid "Windows"
-msgstr "使用中視窗"
+msgstr "視窗"
 
 #: src/ScreenChooserDialog.qml:129
 #, kde-format
 msgid "Allow restoring on future sessions"
-msgstr ""
+msgstr "允許在未來工作階段恢復"
 
 #: src/screenshotdialog.cpp:88
 #, kde-format
@@ -480,16 +478,14 @@ msgid "Active Window"
 msgstr "使用中視窗"
 
 #: src/ScreenshotDialog.qml:21
-#, fuzzy, kde-format
-#| msgid "Request screenshot"
+#, kde-format
 msgid "Request Screenshot"
 msgstr "請求螢幕截圖"
 
 #: src/ScreenshotDialog.qml:28
-#, fuzzy, kde-format
-#| msgid "<b>Capture Mode</b>"
+#, kde-format
 msgid "Capture Mode"
-msgstr "<b>擷取模式</b>"
+msgstr "擷取模式"
 
 #: src/ScreenshotDialog.qml:32
 #, kde-format
@@ -505,19 +501,17 @@ msgstr "延遲："
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
+msgstr[0] "%1 秒"
 
 #: src/ScreenshotDialog.qml:50
-#, fuzzy, kde-format
-#| msgid "<b>Content Options</b>"
+#, kde-format
 msgid "Content Options"
-msgstr "<b>內容設定</b>"
+msgstr "內容設定"
 
 #: src/ScreenshotDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Include mouse pointer"
+#, kde-format
 msgid "Include cursor pointer"
-msgstr "包含滑鼠指向裝置"
+msgstr "包含滑鼠游標"
 
 #: src/ScreenshotDialog.qml:59
 #, kde-format
@@ -527,12 +521,12 @@ msgstr "包含視窗邊框"
 #: src/ScreenshotDialog.qml:72
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "儲存"
 
 #: src/ScreenshotDialog.qml:82
 #, kde-format
 msgid "Take"
-msgstr ""
+msgstr "擷取"
 
 #: src/session.cpp:169
 #, kde-format

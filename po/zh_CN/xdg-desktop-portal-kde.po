@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-20 00:59+0000\n"
-"PO-Revision-Date: 2023-02-15 11:05\n"
+"PO-Revision-Date: 2023-02-24 12:44\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -55,44 +55,41 @@ msgstr "选择用于打开 <filename>%1</filename> 的应用程序"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr ""
+msgstr "总是使用所选应用打开 %1 文件"
 
 #: src/AppChooserDialog.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgid "Show All Installed Applications"
-msgstr "选择应用程序"
+msgstr "显示所有已安装的应用"
 
 #: src/AppChooserDialog.qml:171
 #, kde-format
 msgid "Default app for this file type"
-msgstr ""
+msgstr "默认打开此文件类型的应用"
 
 #: src/AppChooserDialog.qml:190
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "没有匹配项目"
 
 #: src/AppChooserDialog.qml:190
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Choose an application to open <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
-msgstr "选择用于打开 <filename>%1</filename> 的应用程序"
+msgstr "没有任何已安装的应用能够打开 <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:194
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr ""
+msgstr "打开 Discover 查找更多应用"
 
 #: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
+"没有找到合适的应用？请打开 <link>Discover 软件管理中心</link> 查找更多应用。"
 
 #: src/background.cpp:104
 #, kde-format
@@ -152,25 +149,25 @@ msgstr "添加应用程序…"
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 #: src/DynamicLauncherDialog.qml:91
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr ""
+msgstr "编辑信息…"
 
 #: src/DynamicLauncherDialog.qml:97
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
-msgstr ""
+msgstr "接受"
 
 #: src/DynamicLauncherDialog.qml:102
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: src/filechooser.cpp:369
 #, kde-format
@@ -193,59 +190,54 @@ msgid "Save File"
 msgstr "保存文件"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create New Folder"
-msgstr "选择文件夹"
+msgstr "创建新文件夹"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
 msgid "Create new folder in %1"
-msgstr ""
+msgstr "创建新文件夹到 %1"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
-#, fuzzy, kde-format
-#| msgctxt "NAME OF TRANSLATORS"
-#| msgid "Your names"
+#, kde-format
 msgid "Folder name"
-msgstr "KDE 中国, Guo Yunhe, Tyson Tan"
+msgstr "文件夹名称"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "确定"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
 msgid "File name"
-msgstr ""
+msgstr "文件名"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:116
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Select"
-msgstr "选择文件夹"
+msgstr "选择"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create Folder"
-msgstr "选择文件夹"
+msgstr "创建目录"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
 msgid "Filter Filetype"
-msgstr ""
+msgstr "过滤文件类型"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Show Hidden Files"
-msgstr ""
+msgstr "显示隐藏文件"
 
 #: src/outputsmodel.cpp:18
 #, kde-format
@@ -270,48 +262,48 @@ msgstr "笔记本屏幕"
 #: src/region-select/RegionSelectOverlay.qml:142
 #, kde-format
 msgid "Start streaming:"
-msgstr ""
+msgstr "开始推流："
 
 #: src/region-select/RegionSelectOverlay.qml:146
 #, kde-format
 msgid "Clear selection:"
-msgstr ""
+msgstr "清除选区："
 
 #: src/region-select/RegionSelectOverlay.qml:150
 #: src/region-select/RegionSelectOverlay.qml:193
 #, kde-format
 msgid "Cancel:"
-msgstr ""
+msgstr "取消："
 
 #: src/region-select/RegionSelectOverlay.qml:156
 #, kde-format
 msgctxt "Mouse action"
 msgid "Release left-click"
-msgstr ""
+msgstr "松开左键"
 
 #: src/region-select/RegionSelectOverlay.qml:160
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
-msgstr ""
+msgstr "右键点击"
 
 #: src/region-select/RegionSelectOverlay.qml:164
 #: src/region-select/RegionSelectOverlay.qml:203
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
-msgstr ""
+msgstr "Esc 键"
 
 #: src/region-select/RegionSelectOverlay.qml:189
 #, kde-format
 msgid "Create selection:"
-msgstr ""
+msgstr "创建选区"
 
 #: src/region-select/RegionSelectOverlay.qml:199
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
-msgstr ""
+msgstr "左键点击并拖动"
 
 #: src/remotedesktop.cpp:121
 #, kde-format
@@ -355,7 +347,7 @@ msgstr " - 输入设备\n"
 #: src/UserInfoDialog.qml:41
 #, kde-format
 msgid "Share"
-msgstr ""
+msgstr "共享"
 
 #: src/screencast.cpp:321
 #, kde-format
@@ -457,22 +449,19 @@ msgid "Choose which window to share with %1:"
 msgstr "选择要与 %1 共享的窗口："
 
 #: src/ScreenChooserDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to see what's on the outputs, in markdown"
-#| msgid " - Screens\n"
+#, kde-format
 msgid "Screens"
-msgstr " - 屏幕\n"
+msgstr "屏幕"
 
 #: src/ScreenChooserDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Active Window"
+#, kde-format
 msgid "Windows"
-msgstr "活动窗口"
+msgstr "窗口"
 
 #: src/ScreenChooserDialog.qml:129
 #, kde-format
 msgid "Allow restoring on future sessions"
-msgstr ""
+msgstr "允许在未来会话中恢复"
 
 #: src/screenshotdialog.cpp:88
 #, kde-format
@@ -490,57 +479,55 @@ msgid "Active Window"
 msgstr "活动窗口"
 
 #: src/ScreenshotDialog.qml:21
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgid "Request Screenshot"
-msgstr "请求设备访问权限"
+msgstr "请求屏幕截图"
 
 #: src/ScreenshotDialog.qml:28
 #, kde-format
 msgid "Capture Mode"
-msgstr ""
+msgstr "截图方式"
 
 #: src/ScreenshotDialog.qml:32
 #, kde-format
 msgid "Area:"
-msgstr ""
+msgstr "区域："
 
 #: src/ScreenshotDialog.qml:37
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "延迟："
 
 #: src/ScreenshotDialog.qml:42
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
+msgstr[0] "%1 秒"
 
 #: src/ScreenshotDialog.qml:50
 #, kde-format
 msgid "Content Options"
-msgstr ""
+msgstr "内容选项"
 
 #: src/ScreenshotDialog.qml:54
 #, kde-format
 msgid "Include cursor pointer"
-msgstr ""
+msgstr "包含光标指针"
 
 #: src/ScreenshotDialog.qml:59
 #, kde-format
 msgid "Include window borders"
-msgstr ""
+msgstr "包含窗口边框"
 
 #: src/ScreenshotDialog.qml:72
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save"
-msgstr "保存文件"
+msgstr "保存"
 
 #: src/ScreenshotDialog.qml:82
 #, kde-format
 msgid "Take"
-msgstr ""
+msgstr "截图"
 
 #: src/session.cpp:169
 #, kde-format
