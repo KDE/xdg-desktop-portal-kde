@@ -10,6 +10,9 @@
 #include "appchooserdialog.h"
 #include "appchooser_debug.h"
 
+#include <algorithm>
+#include <iterator>
+
 #include <QQmlContext>
 #include <QQmlEngine>
 #include <QQuickItem>
@@ -26,10 +29,6 @@
 #include <KIO/MimeTypeFinderJob>
 #include <KLocalizedString>
 #include <KProcess>
-#include <KService>
-#include <algorithm>
-#include <iterator>
-#include <kapplicationtrader.h>
 
 AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, const QString &mimeName, QObject *parent)
     : QuickDialog(parent)
@@ -138,12 +137,19 @@ void AppChooserDialog::updateChoices(const QStringList &choices)
     m_model->setPreferredApps(choices);
 }
 
-ApplicationItem::ApplicationItem(const QString &name, const QString &icon, const QString &desktopFileName)
+ApplicationItem::ApplicationItem(const QString &name, const KService::Ptr &service)
     : m_applicationName(name)
-    , m_applicationIcon(icon)
-    , m_applicationDesktopFile(desktopFileName)
+    , m_applicationService(service)
     , m_applicationCategory(AllApplications)
 {
+    const QStringList names = service->mimeTypes();
+    const QMimeDatabase database;
+    for (const QString &name : names) {
+        QMimeType mime = database.mimeTypeForName(name);
+        if (mime.isValid()) {
+            m_supportedMimeTypes.append(mime);
+        }
+    }
 }
 
 QString ApplicationItem::applicationName() const
@@ -151,14 +157,29 @@ QString ApplicationItem::applicationName() const
     return m_applicationName;
 }
 
+QString ApplicationItem::applicationGenericName() const
+{
+    return m_applicationService->genericName();
+}
+
+QString ApplicationItem::applicationUntranslatedGenericName() const
+{
+    return m_applicationService->untranslatedGenericName();
+}
+
 QString ApplicationItem::applicationIcon() const
 {
-    return m_applicationIcon;
+    return m_applicationService->icon();
 }
 
 QString ApplicationItem::applicationDesktopFile() const
 {
-    return m_applicationDesktopFile;
+    return m_applicationService->desktopEntryName();
+}
+
+QList<QMimeType> ApplicationItem::supportedMimeTypes() const
+{
+    return m_supportedMimeTypes;
 }
 
 void ApplicationItem::setApplicationCategory(ApplicationItem::ApplicationCategory category)
@@ -235,14 +256,55 @@ bool AppFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_
 
     ApplicationItem::ApplicationCategory category =
         static_cast<ApplicationItem::ApplicationCategory>(sourceModel()->data(index, AppModel::ApplicationCategoryRole).toInt());
-    QString appName = sourceModel()->data(index, AppModel::ApplicationNameRole).toString();
 
-    if (m_filter.isEmpty()) {
-        return m_showOnlyPreferredApps ? category == ApplicationItem::PreferredApplication : true;
+    const bool canShowInList = m_showOnlyPreferredApps ? (category == ApplicationItem::PreferredApplication) : true;
+    if (!canShowInList) {
+        return false;
     }
 
-    return m_showOnlyPreferredApps ? category == ApplicationItem::PreferredApplication && appName.contains(m_filter, Qt::CaseInsensitive)
-                                   : appName.contains(m_filter, Qt::CaseInsensitive);
+    if (m_filter.isEmpty()) {
+        return true;
+    }
+
+    const QString appName = index.data(AppModel::ApplicationNameRole).toString();
+    if (appName.contains(m_filter, Qt::CaseInsensitive)) {
+        return true;
+    }
+
+    // Match in GenericName
+    const QString genericName = index.data(AppModel::ApplicationGenericNameRole).toString();
+    if (genericName.contains(m_filter, Qt::CaseInsensitive)) {
+        return true;
+    }
+
+    // Match in untranslated GenericName
+    const QString untranslatedGenericName = index.data(AppModel::ApplicationUntranslatedGenericNameRole).toString();
+    if (untranslatedGenericName.contains(m_filter, Qt::CaseInsensitive)) {
+        return true;
+    }
+
+    // Match in MimeTypes
+    const auto supportedMimeTypes = index.data(AppModel::ApplicationSupportedMimeTypesRole).value<QList<QMimeType>>();
+    return std::any_of(supportedMimeTypes.cbegin(), supportedMimeTypes.cend(), [this, category](const QMimeType &type) {
+        if (type.name().contains(m_filter, Qt::CaseInsensitive)) {
+            return true;
+        }
+
+        const QStringList aliases = type.aliases();
+        const bool aliasesMatched = std::any_of(aliases.cbegin(), aliases.cend(), [this](const QString &name) {
+            return name.contains(m_filter, Qt::CaseInsensitive);
+        });
+        if (aliasesMatched) {
+            return true;
+        }
+
+        const QStringList suffixes = type.suffixes();
+        if (suffixes.contains(m_filter) || suffixes.contains(m_filter.mid(m_filter.lastIndexOf(QLatin1Char('.')) + 1))) {
+            return true;
+        }
+
+        return false;
+    });
 }
 
 bool AppFilterModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
@@ -253,12 +315,25 @@ bool AppFilterModel::lessThan(const QModelIndex &left, const QModelIndex &right)
     if (sourceModel()->data(right, AppModel::ApplicationDesktopFileRole) == m_defaultApp) {
         return true;
     }
+
+    const QString leftName = left.data(AppModel::ApplicationNameRole).toString();
+    const QString rightName = right.data(AppModel::ApplicationNameRole).toString();
+
+    // Prioritize name match when filter is not empty
+    if (!m_filter.isEmpty()) {
+        const bool leftMatched = leftName.contains(m_filter, Qt::CaseInsensitive);
+        const bool rightMatched = rightName.contains(m_filter, Qt::CaseInsensitive);
+        if (leftMatched && !rightMatched) {
+            return false;
+        } else if (!leftMatched && rightMatched) {
+            return true;
+        }
+    }
+
     ApplicationItem::ApplicationCategory leftCategory =
         static_cast<ApplicationItem::ApplicationCategory>(sourceModel()->data(left, AppModel::ApplicationCategoryRole).toInt());
     ApplicationItem::ApplicationCategory rightCategory =
         static_cast<ApplicationItem::ApplicationCategory>(sourceModel()->data(right, AppModel::ApplicationCategoryRole).toInt());
-    QString leftName = sourceModel()->data(left, AppModel::ApplicationNameRole).toString();
-    QString rightName = sourceModel()->data(right, AppModel::ApplicationNameRole).toString();
 
     if (int comp = leftCategory - rightCategory; comp != 0) {
         return comp > 0;
@@ -366,17 +441,23 @@ QVariant AppModel::data(const QModelIndex &index, int role) const
     const int row = index.row();
 
     if (row >= 0 && row < m_list.count()) {
-        ApplicationItem item = m_list.at(row);
+        const ApplicationItem &item = m_list.at(row);
 
         switch (role) {
         case ApplicationNameRole:
             return item.applicationName();
+        case ApplicationGenericNameRole:
+            return item.applicationGenericName();
+        case ApplicationUntranslatedGenericNameRole:
+            return item.applicationUntranslatedGenericName();
         case ApplicationIconRole:
             return item.applicationIcon();
         case ApplicationDesktopFileRole:
             return item.applicationDesktopFile();
         case ApplicationCategoryRole:
             return static_cast<int>(item.applicationCategory());
+        case ApplicationSupportedMimeTypesRole:
+            return QVariant::fromValue(item.supportedMimeTypes());
         default:
             break;
         }
@@ -415,7 +496,7 @@ void AppModel::loadApplications()
 
         const QString fullName = service->property(QStringLiteral("X-GNOME-FullName"), QMetaType::QString).toString();
         const QString name = fullName.isEmpty() ? service->name() : fullName;
-        ApplicationItem appItem(name, service->icon(), service->desktopEntryName());
+        ApplicationItem appItem(name, service);
 
         if (!m_list.contains(appItem)) {
             m_list.append(appItem);

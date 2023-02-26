@@ -15,6 +15,8 @@
 #include <QSortFilterProxyModel>
 #include <qmimetype.h>
 
+#include <KService>
+
 class ApplicationItem
 {
 public:
@@ -23,11 +25,14 @@ public:
         AllApplications,
     };
 
-    explicit ApplicationItem(const QString &name, const QString &icon, const QString &desktopFileName);
+    explicit ApplicationItem(const QString &name, const KService::Ptr &service);
 
     QString applicationName() const;
+    QString applicationGenericName() const;
+    QString applicationUntranslatedGenericName() const;
     QString applicationIcon() const;
     QString applicationDesktopFile() const;
+    QList<QMimeType> supportedMimeTypes() const;
 
     void setApplicationCategory(ApplicationCategory category);
     ApplicationCategory applicationCategory() const;
@@ -36,8 +41,8 @@ public:
 
 private:
     QString m_applicationName;
-    QString m_applicationIcon;
-    QString m_applicationDesktopFile;
+    KService::Ptr m_applicationService;
+    QList<QMimeType> m_supportedMimeTypes;
     ApplicationCategory m_applicationCategory;
 };
 
@@ -116,9 +121,12 @@ class AppModel : public QAbstractListModel
 public:
     enum ItemRoles {
         ApplicationNameRole = Qt::UserRole + 1,
+        ApplicationGenericNameRole,
+        ApplicationUntranslatedGenericNameRole,
         ApplicationIconRole,
         ApplicationDesktopFileRole,
         ApplicationCategoryRole,
+        ApplicationSupportedMimeTypesRole,
     };
 
     explicit AppModel(QObject *parent = nullptr);
