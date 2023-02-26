@@ -67,7 +67,7 @@ msgstr ""
 #: src/AppChooserDialog.qml:190
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "Sem correspondências"
 
 #: src/AppChooserDialog.qml:190
 #, fuzzy, kde-kuit-format
@@ -165,7 +165,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: src/filechooser.cpp:369
 #, kde-format
@@ -208,17 +208,17 @@ msgstr "José Nuno Pires"
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
 msgid "File name"
-msgstr ""
+msgstr "Nome do ficheiro"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:116
 #, fuzzy, kde-format
@@ -227,10 +227,9 @@ msgid "Select"
 msgstr "Seleccionar a Pasta"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create Folder"
-msgstr "Seleccionar a Pasta"
+msgstr "Criar uma Pasta"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
@@ -240,7 +239,7 @@ msgstr ""
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Show Hidden Files"
-msgstr ""
+msgstr "Mostrar os Ficheiros Escondidos"
 
 #: src/outputsmodel.cpp:18
 #, kde-format
@@ -276,26 +275,26 @@ msgstr ""
 #: src/region-select/RegionSelectOverlay.qml:193
 #, kde-format
 msgid "Cancel:"
-msgstr ""
+msgstr "Cancelar:"
 
 #: src/region-select/RegionSelectOverlay.qml:156
 #, kde-format
 msgctxt "Mouse action"
 msgid "Release left-click"
-msgstr ""
+msgstr "Largar o botão esquerdo"
 
 #: src/region-select/RegionSelectOverlay.qml:160
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
-msgstr ""
+msgstr "Botão direito"
 
 #: src/region-select/RegionSelectOverlay.qml:164
 #: src/region-select/RegionSelectOverlay.qml:203
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
-msgstr ""
+msgstr "Escape"
 
 #: src/region-select/RegionSelectOverlay.qml:189
 #, kde-format
@@ -452,11 +451,9 @@ msgid "Choose which window to share with %1:"
 msgstr "Seleccione a janela a partilhar com o %1:"
 
 #: src/ScreenChooserDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to see what's on the outputs, in markdown"
-#| msgid " - Screens\n"
+#, kde-format
 msgid "Screens"
-msgstr " - Ecrãs\n"
+msgstr "Ecrãs"
 
 #: src/ScreenChooserDialog.qml:39
 #, fuzzy, kde-format
@@ -493,24 +490,24 @@ msgstr "Pedir acesso ao dispositivo"
 #: src/ScreenshotDialog.qml:28
 #, kde-format
 msgid "Capture Mode"
-msgstr ""
+msgstr "Modo de Captura"
 
 #: src/ScreenshotDialog.qml:32
 #, kde-format
 msgid "Area:"
-msgstr ""
+msgstr "Área:"
 
 #: src/ScreenshotDialog.qml:37
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "Atraso:"
 
 #: src/ScreenshotDialog.qml:42
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 segundo"
+msgstr[1] "%1 segundos"
 
 #: src/ScreenshotDialog.qml:50
 #, kde-format
@@ -528,10 +525,9 @@ msgid "Include window borders"
 msgstr ""
 
 #: src/ScreenshotDialog.qml:72
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save"
-msgstr "Gravar o Ficheiro"
+msgstr "Gravar"
 
 #: src/ScreenshotDialog.qml:82
 #, kde-format
