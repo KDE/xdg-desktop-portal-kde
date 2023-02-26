@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-19 02:57+0000\n"
-"PO-Revision-Date: 2023-01-28 14:29+0300\n"
+"PO-Revision-Date: 2023-02-25 12:48+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -57,44 +57,44 @@ msgstr "Выберите приложение для открытия <filename>
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr ""
+msgstr "Всегда использовать выбранное приложение для открытия файлов «%1»"
 
 #: src/AppChooserDialog.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgid "Show All Installed Applications"
-msgstr "Выбор приложения"
+msgstr "Показать все установленные приложения"
 
 #: src/AppChooserDialog.qml:171
 #, kde-format
 msgid "Default app for this file type"
-msgstr ""
+msgstr "Приложение по умолчанию"
 
 #: src/AppChooserDialog.qml:190
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "Совпадений не найдено"
 
 #: src/AppChooserDialog.qml:190
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Choose an application to open <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
-msgstr "Выберите приложение для открытия <filename>%1</filename>"
+msgstr ""
+"Ни одно из установленных приложений не может быть использовано для открытия "
+"<filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:194
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr ""
+msgstr "Найти больше приложений в центре программ Discover"
 
 #: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
+"Если нужное приложение отсутствует, загрузите его в центре программ "
+"<link>Discover</link>."
 
 #: src/background.cpp:104
 #, kde-format
@@ -156,25 +156,25 @@ msgstr "Добавить приложение…"
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 #: src/DynamicLauncherDialog.qml:91
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr ""
+msgstr "Изменить…"
 
 #: src/DynamicLauncherDialog.qml:97
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
-msgstr ""
+msgstr "Принять"
 
 #: src/DynamicLauncherDialog.qml:102
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: src/filechooser.cpp:369
 #, kde-format
@@ -204,7 +204,7 @@ msgstr ""
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
 msgid "Create new folder in %1"
-msgstr ""
+msgstr "Создать новую папку в %1"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
 #, fuzzy, kde-format
@@ -221,18 +221,17 @@ msgstr ""
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
 msgid "File name"
-msgstr ""
+msgstr "Имя файла"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:116
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Select"
-msgstr "Выбор папки"
+msgstr "Выбрать"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
 #, fuzzy, kde-format
@@ -409,11 +408,9 @@ msgid "Choose which window to share with %1:"
 msgstr "Выберите, какое окно будет доступно приложению %1:"
 
 #: src/ScreenChooserDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to see what's on the outputs, in markdown"
-#| msgid " - Screens\n"
+#, kde-format
 msgid "Screens"
-msgstr " - Экранам\n"
+msgstr "Экраны"
 
 #: src/ScreenChooserDialog.qml:39
 #, kde-format
@@ -423,7 +420,7 @@ msgstr "Окна"
 #: src/ScreenChooserDialog.qml:129
 #, kde-format
 msgid "Allow restoring on future sessions"
-msgstr ""
+msgstr "Сохранить параметры"
 
 #: src/screenshotdialog.cpp:88
 #, kde-format
@@ -446,10 +443,9 @@ msgid "Request screenshot"
 msgstr "Запрос снимка экрана"
 
 #: src/ScreenshotDialog.qml:28
-#, fuzzy, kde-format
-#| msgid "<b>Capture Mode</b>"
+#, kde-format
 msgid "Capture Mode"
-msgstr "<b>Режим съёмки</b>"
+msgstr "Режим съёмки"
 
 #: src/ScreenshotDialog.qml:32
 #, kde-format
@@ -465,20 +461,18 @@ msgstr "Задержка:"
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 секунда"
+msgstr[1] "%1 секунды"
+msgstr[2] "%1 секунд"
+msgstr[3] "%1 секунда"
 
 #: src/ScreenshotDialog.qml:50
-#, fuzzy, kde-format
-#| msgid "<b>Content Options</b>"
+#, kde-format
 msgid "Content Options"
-msgstr "<b>Параметры содержимого</b>"
+msgstr "Параметры содержимого"
 
 #: src/ScreenshotDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Include mouse pointer"
+#, kde-format
 msgid "Include cursor pointer"
 msgstr "Включая курсор мыши"
 
@@ -488,15 +482,14 @@ msgid "Include window borders"
 msgstr "Включая границы окна"
 
 #: src/ScreenshotDialog.qml:72
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save"
-msgstr "Сохранение файла"
+msgstr "Сохранить"
 
 #: src/ScreenshotDialog.qml:82
 #, kde-format
 msgid "Take"
-msgstr ""
+msgstr "Сделать снимок"
 
 #: src/session.cpp:169
 #, kde-format
@@ -516,10 +509,10 @@ msgstr "Удалённый рабочий стол"
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 поток видео транслируется в %2"
+msgstr[1] "%1 потока видео транслируется в %2"
+msgstr[2] "%1 потоков видео транслируется в %2"
+msgstr[3] "Поток видео транслируется в %2"
 
 #: src/session.cpp:275
 #, kde-format
