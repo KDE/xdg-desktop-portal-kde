@@ -36,7 +36,7 @@ void NotificationPortal::AddNotification(const QString &app_id, const QString &i
     qCDebug(XdgDesktopPortalKdeNotification) << "    notification: " << notification;
 
     // We have to use "notification" as an ID because any other ID will not be configured
-    KNotification *notify = new KNotification(QStringLiteral("notification"), KNotification::CloseOnTimeout | KNotification::DefaultEvent, this);
+    KNotification *notify = new KNotification(QStringLiteral("notification"), KNotification::CloseOnTimeout, this);
     if (notification.contains(QStringLiteral("title"))) {
         notify->setTitle(notification.value(QStringLiteral("title")).toString());
     }

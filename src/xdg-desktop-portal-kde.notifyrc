@@ -79,6 +79,16 @@ Name[x-test]=xxKDE Portal Integrationxx
 Name[zh_CN]=KDE 系统集成
 Name[zh_TW]=KDE Portal 整合
 
+[Context/notification]
+Name=XDG Desktop Portal Notifications
+
+[Event/notification]
+Name=Notification
+Comment=A notification coming from the XDG Desktop Portal
+Contexts=notification
+Action=Popup
+Urgency=Normal
+
 [Context/screencast]
 Name=Screencasting
 Name[ar]=تسجيل الشاشة
