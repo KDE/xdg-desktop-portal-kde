@@ -255,6 +255,9 @@ set_source_files_properties(${kglobalaccel_component_xml} PROPERTIES
 )
 qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS ${kglobalaccel_component_xml} kglobalaccel_component_interface)
 
+qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS org.kde.KWin.TabletModeManager.xml tabletmodemanager_interface)
+qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS org.kde.KWin.VirtualKeyboard.xml virtualkeyboard_interface)
+
 if (QT_MAJOR_VERSION EQUAL "5")
     ecm_add_qtwayland_client_protocol(xdg_desktop_portal_kde_SRCS
         PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/zkde-screencast-unstable-v1.xml

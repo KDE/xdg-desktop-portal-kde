@@ -20,6 +20,8 @@
 #include <KConfigCore/KConfigGroup>
 
 #include "desktopportal.h"
+#include "tabletmodemanager_interface.h"
+#include "virtualkeyboard_interface.h"
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -41,6 +43,130 @@ static bool groupMatches(const QString &group, const QStringList &patterns)
         return false;
     });
 }
+
+class VirtualKeyboardSettings : public SettingsModule
+{
+    Q_OBJECT
+    static constexpr auto KEY_ACTIVE = "active"_L1;
+    static constexpr auto KEY_ACTIVE_CLIENT_SUPPORTS_TEXT_INPUT = "activeClientSupportsTextInput"_L1;
+    static constexpr auto KEY_AVAILABLE = "available"_L1;
+    static constexpr auto KEY_ENABLED = "enabled"_L1;
+    static constexpr auto KEY_VISIBLE = "visible"_L1;
+    static constexpr auto KEY_WILL_SHOW_ON_ACTIVE = "willShowOnActive"_L1;
+    static constexpr auto KEYS = {KEY_ACTIVE, KEY_ACTIVE_CLIENT_SUPPORTS_TEXT_INPUT, KEY_AVAILABLE, KEY_ENABLED, KEY_VISIBLE, KEY_WILL_SHOW_ON_ACTIVE};
+
+public:
+    explicit VirtualKeyboardSettings(QObject *parent = nullptr)
+        : SettingsModule(parent)
+        , m_interface(u"org.kde.KWin"_s, u"/VirtualKeyboard"_s, QDBusConnection::sessionBus())
+    {
+        connect(&m_interface, &OrgKdeKwinVirtualKeyboardInterface::activeChanged, this, [this]() {
+            Q_EMIT settingChanged(group(), KEY_ACTIVE, QDBusVariant(readInternal(KEY_ACTIVE)));
+        });
+        connect(&m_interface, &OrgKdeKwinVirtualKeyboardInterface::activeClientSupportsTextInputChanged, this, [this]() {
+            Q_EMIT settingChanged(group(), KEY_ACTIVE_CLIENT_SUPPORTS_TEXT_INPUT, QDBusVariant(readInternal(KEY_ACTIVE_CLIENT_SUPPORTS_TEXT_INPUT)));
+        });
+        connect(&m_interface, &OrgKdeKwinVirtualKeyboardInterface::availableChanged, this, [this]() {
+            Q_EMIT settingChanged(group(), KEY_AVAILABLE, QDBusVariant(readInternal(KEY_AVAILABLE)));
+        });
+        connect(&m_interface, &OrgKdeKwinVirtualKeyboardInterface::enabledChanged, this, [this]() {
+            Q_EMIT settingChanged(group(), KEY_ENABLED, QDBusVariant(readInternal(KEY_ENABLED)));
+        });
+        connect(&m_interface, &OrgKdeKwinVirtualKeyboardInterface::visibleChanged, this, [this]() {
+            Q_EMIT settingChanged(group(), KEY_VISIBLE, QDBusVariant(readInternal(KEY_VISIBLE)));
+        });
+    }
+
+    inline QString group() final
+    {
+        return u"org.kde.VirtualKeyboard"_s;
+    }
+
+    VariantMapMap readAll(const QStringList &groups) final
+    {
+        Q_UNUSED(groups);
+        VariantMapMap result;
+        QVariantMap map;
+        for (const auto &key : KEYS) {
+            map.insert(key, readInternal(key));
+        }
+        result.insert(group(), map);
+        return result;
+    }
+
+    QVariant read(const QString &group, const QString &key) final
+    {
+        Q_UNUSED(group);
+        for (const auto &keyIt : KEYS) {
+            if (key == keyIt) {
+                return readInternal(key);
+            }
+        }
+        return {};
+    }
+
+private:
+    inline QVariant readInternal(const QString &key)
+    {
+        if (key == KEY_WILL_SHOW_ON_ACTIVE) {
+            return m_interface.willShowOnActive().value();
+        }
+        return m_interface.property(qUtf8Printable(key));
+    }
+
+    OrgKdeKwinVirtualKeyboardInterface m_interface;
+};
+
+// For consistency reasons TabletSettings have their property names changed.
+// org.kde.TabletModel.enabled on our end is called tabletMode on the KWin side.
+// As a consequence of that we do not meta program a mapping but instead manually write out the logic per key.
+class TabletModeSettings : public SettingsModule
+{
+    Q_OBJECT
+    static constexpr auto KEY_ENABLED = "enabled"_L1;
+    static constexpr auto KEY_AVAILABLE = "available"_L1;
+
+public:
+    explicit TabletModeSettings(QObject *parent = nullptr)
+        : SettingsModule(parent)
+        , m_interface(u"org.kde.KWin"_s, u"/org/kde/KWin"_s, QDBusConnection::sessionBus(), this)
+    {
+        connect(&m_interface, &OrgKdeKWinTabletModeManagerInterface::tabletModeAvailableChanged, this, [this](bool available) {
+            Q_EMIT settingChanged(group(), KEY_AVAILABLE, QDBusVariant(available));
+        });
+        connect(&m_interface, &OrgKdeKWinTabletModeManagerInterface::tabletModeChanged, this, [this](bool enabled) {
+            Q_EMIT settingChanged(group(), KEY_ENABLED, QDBusVariant(enabled));
+        });
+    }
+
+    inline QString group() final
+    {
+        return u"org.kde.TabletMode"_s;
+    }
+
+    VariantMapMap readAll(const QStringList &groups) final
+    {
+        Q_UNUSED(groups);
+        VariantMapMap result;
+        result.insert(group(), {{KEY_AVAILABLE, read(group(), KEY_AVAILABLE)}, {KEY_ENABLED, read(group(), KEY_ENABLED)}});
+        return result;
+    }
+
+    QVariant read(const QString &group, const QString &key) final
+    {
+        Q_UNUSED(group);
+        if (key == KEY_AVAILABLE) {
+            return m_interface.tabletModeAvailable();
+        }
+        if (key == KEY_ENABLED) {
+            return m_interface.tabletMode();
+        }
+        return {};
+    }
+
+private:
+    OrgKdeKWinTabletModeManagerInterface m_interface;
+};
 
 class FdoAppearanceSettings : public SettingsModule
 {
@@ -284,6 +410,8 @@ SettingsPortal::SettingsPortal(DesktopPortal *parent)
     , m_parent(parent)
 {
     m_settings.push_back(std::make_unique<FdoAppearanceSettings>(this));
+    m_settings.push_back(std::make_unique<VirtualKeyboardSettings>(this));
+    m_settings.push_back(std::make_unique<TabletModeSettings>(this));
     m_settings.push_back(std::make_unique<KDEGlobalsSettings>(this));
     for (const auto &setting : std::as_const(m_settings)) {
         connect(setting.get(), &SettingsModule::settingChanged, this, &SettingsPortal::SettingChanged);
