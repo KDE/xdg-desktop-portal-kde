@@ -63,10 +63,6 @@ SettingsPortal::SettingsPortal(QObject *parent)
         .connect(QString(), QStringLiteral("/KToolBar"), QStringLiteral("org.kde.KToolBar"), QStringLiteral("styleChanged"), this, SLOT(toolbarStyleChanged()));
 }
 
-SettingsPortal::~SettingsPortal()
-{
-}
-
 void SettingsPortal::ReadAll(const QStringList &groups)
 {
     qCDebug(XdgDesktopPortalKdeSettings) << "ReadAll called with parameters:";

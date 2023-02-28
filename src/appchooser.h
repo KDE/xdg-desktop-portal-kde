@@ -22,7 +22,6 @@ class AppChooserPortal : public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.AppChooser")
 public:
     explicit AppChooserPortal(QObject *parent);
-    ~AppChooserPortal() override;
 
 public Q_SLOTS:
     uint ChooseApplication(const QDBusObjectPath &handle,

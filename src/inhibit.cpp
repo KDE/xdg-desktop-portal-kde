@@ -20,10 +20,6 @@ InhibitPortal::InhibitPortal(QObject *parent)
 {
 }
 
-InhibitPortal::~InhibitPortal()
-{
-}
-
 void InhibitPortal::Inhibit(const QDBusObjectPath &handle, const QString &app_id, const QString &window, uint flags, const QVariantMap &options)
 {
     qCDebug(XdgDesktopPortalKdeInhibit) << "Inhibit called with parameters:";

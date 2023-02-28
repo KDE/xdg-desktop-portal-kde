@@ -18,10 +18,6 @@ EmailPortal::EmailPortal(QObject *parent)
 {
 }
 
-EmailPortal::~EmailPortal()
-{
-}
-
 uint EmailPortal::ComposeEmail(const QDBusObjectPath &handle, const QString &app_id, const QString &window, const QVariantMap &options, QVariantMap &results)
 {
     Q_UNUSED(results)

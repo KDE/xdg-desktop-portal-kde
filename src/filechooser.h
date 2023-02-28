@@ -71,7 +71,6 @@ public:
     typedef QList<Option> OptionList;
 
     explicit FileChooserPortal(QObject *parent);
-    ~FileChooserPortal() override;
 
 public Q_SLOTS:
     uint OpenFile(const QDBusObjectPath &handle,

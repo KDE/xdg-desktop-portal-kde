@@ -20,7 +20,6 @@ class InhibitPortal : public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Inhibit")
 public:
     explicit InhibitPortal(QObject *parent);
-    ~InhibitPortal() override;
 
 public Q_SLOTS:
     void Inhibit(const QDBusObjectPath &handle, const QString &app_id, const QString &window, uint flags, const QVariantMap &options);

@@ -50,7 +50,3 @@ DesktopPortal::DesktopPortal(QObject *parent)
         WaylandIntegration::init();
     }
 }
-
-DesktopPortal::~DesktopPortal()
-{
-}

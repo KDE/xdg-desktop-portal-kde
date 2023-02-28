@@ -205,10 +205,6 @@ PrintPortal::PrintPortal(QObject *parent)
 {
 }
 
-PrintPortal::~PrintPortal()
-{
-}
-
 uint PrintPortal::Print(const QDBusObjectPath &handle,
                         const QString &app_id,
                         const QString &parent_window,

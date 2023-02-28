@@ -53,7 +53,6 @@ public:
     };
 
     explicit SettingsPortal(QObject *parent);
-    ~SettingsPortal() override;
 
     uint version() const
     {

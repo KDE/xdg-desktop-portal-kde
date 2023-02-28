@@ -15,10 +15,6 @@ AccountPortal::AccountPortal(QObject *parent)
 {
 }
 
-AccountPortal::~AccountPortal()
-{
-}
-
 uint AccountPortal::GetUserInformation(const QDBusObjectPath &handle,
                                        const QString &app_id,
                                        const QString &parent_window,

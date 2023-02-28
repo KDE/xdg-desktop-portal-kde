@@ -190,10 +190,6 @@ FileChooserPortal::FileChooserPortal(QObject *parent)
     qDBusRegisterMetaType<OptionList>();
 }
 
-FileChooserPortal::~FileChooserPortal()
-{
-}
-
 static QStringList fuseRedirect(QList<QUrl> urls)
 {
     qCDebug(XdgDesktopPortalKdeFileChooser) << "mounting urls with fuse" << urls;

@@ -33,10 +33,6 @@ Request::Request(const QDBusObjectPath &handle, QObject *parent, const QString &
     }
 }
 
-Request::~Request()
-{
-}
-
 bool Request::handleMessage(const QDBusMessage &message, const QDBusConnection &connection)
 {
     Q_UNUSED(connection);

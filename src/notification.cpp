@@ -24,10 +24,6 @@ NotificationPortal::NotificationPortal(QObject *parent)
     PortalIcon::registerDBusType();
 }
 
-NotificationPortal::~NotificationPortal()
-{
-}
-
 void NotificationPortal::AddNotification(const QString &app_id, const QString &id, const QVariantMap &notification)
 {
     qCDebug(XdgDesktopPortalKdeNotification) << "AddNotification called with parameters:";

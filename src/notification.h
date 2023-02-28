@@ -20,7 +20,6 @@ class NotificationPortal : public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Notification")
 public:
     explicit NotificationPortal(QObject *parent);
-    ~NotificationPortal() override;
 
 public Q_SLOTS:
     void AddNotification(const QString &app_id, const QString &id, const QVariantMap &notification);

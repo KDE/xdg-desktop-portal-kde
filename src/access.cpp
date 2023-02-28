@@ -19,10 +19,6 @@ AccessPortal::AccessPortal(QObject *parent)
 {
 }
 
-AccessPortal::~AccessPortal()
-{
-}
-
 uint AccessPortal::AccessDialog(const QDBusObjectPath &handle,
                                 const QString &app_id,
                                 const QString &parent_window,

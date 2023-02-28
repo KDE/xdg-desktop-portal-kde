@@ -22,10 +22,6 @@ AppChooserPortal::AppChooserPortal(QObject *parent)
 {
 }
 
-AppChooserPortal::~AppChooserPortal()
-{
-}
-
 uint AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
                                          const QString &app_id,
                                          const QString &parent_window,
