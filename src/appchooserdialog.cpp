@@ -22,13 +22,13 @@
 #include <QStandardPaths>
 
 #include <KApplicationTrader>
+#include <KBuildSycocaProgressDialog>
 #include <KIO/MimeTypeFinderJob>
 #include <KLocalizedString>
 #include <KProcess>
 #include <KService>
 #include <algorithm>
 #include <iterator>
-#include <KBuildSycocaProgressDialog>
 #include <kapplicationtrader.h>
 
 AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, const QString &mimeName, QObject *parent)
