@@ -168,7 +168,7 @@ void SettingsPortal::globalSettingChanged(int type, int arg)
                               readProperty(QStringLiteral("org.kde.kdeglobals.KDE"), QStringLiteral("widgetStyle")));
         break;
     case SettingsChanged: {
-        SettingsCategory category = static_cast<SettingsCategory>(arg);
+        auto category = SettingsCategory(arg);
         if (category == SETTINGS_QT || category == SETTINGS_MOUSE) {
             // TODO
         } else if (category == SETTINGS_STYLE) {
@@ -208,14 +208,14 @@ QDBusVariant SettingsPortal::readProperty(const QString &group, const QString &k
 
     if (!m_kdeglobals->hasGroup(groupName)) {
         qCWarning(XdgDesktopPortalKdeSettings) << "Group " << group << " doesn't exist";
-        return QDBusVariant();
+        return {};
     }
 
     KConfigGroup configGroup(m_kdeglobals, groupName);
 
     if (!configGroup.hasKey(key)) {
         qCWarning(XdgDesktopPortalKdeSettings) << "Key " << key << " doesn't exist";
-        return QDBusVariant();
+        return {};
     }
 
     return QDBusVariant(configGroup.readEntry(key));
