@@ -14,7 +14,25 @@
 
 #include <KConfigCore/KSharedConfig>
 
+#include "dbushelpers.h"
+
 class DesktopPortal;
+class FdoAppearanceSettings;
+class KDEGlobalsSettings;
+class SettingsModule;
+
+class SettingsModule : public QObject
+{
+    Q_OBJECT
+public:
+    using QObject::QObject;
+    ~SettingsModule() override = default;
+    Q_DISABLE_COPY_MOVE(SettingsModule);
+    virtual inline QString group() = 0;
+    virtual VariantMapMap readAll(const QStringList &groups) = 0;
+    virtual QVariant read(const QString &group, const QString &key) = 0;
+    Q_SIGNAL void settingChanged(const QString &group, const QString &key, const QDBusVariant &value);
+};
 
 class SettingsPortal : public QDBusAbstractAdaptor
 {
@@ -22,38 +40,6 @@ class SettingsPortal : public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Settings")
     Q_PROPERTY(uint version READ version CONSTANT)
 public:
-    /**
-     * An identifier for change signals.
-     * @note Copied from KGlobalSettings
-     */
-    enum ChangeType {
-        PaletteChanged = 0,
-        FontChanged,
-        StyleChanged,
-        SettingsChanged,
-        IconChanged,
-        CursorChanged,
-        ToolbarStyleChanged,
-        ClipboardConfigChanged,
-        BlockShortcuts,
-        NaturalSortingChanged,
-    };
-
-    /**
-     * Valid values for the settingsChanged signal
-     * @note Copied from KGlobalSettings
-     */
-    enum SettingsCategory {
-        SETTINGS_MOUSE,
-        SETTINGS_COMPLETION,
-        SETTINGS_PATHS,
-        SETTINGS_POPUPMENU,
-        SETTINGS_QT,
-        SETTINGS_SHORTCUTS,
-        SETTINGS_LOCALE,
-        SETTINGS_STYLE,
-    };
-
     explicit SettingsPortal(DesktopPortal *parent);
 
     uint version() const
@@ -68,17 +54,9 @@ public Q_SLOTS:
 Q_SIGNALS:
     void SettingChanged(const QString &group, const QString &key, const QDBusVariant &value);
 
-private Q_SLOTS:
-    void fontChanged();
-    void globalSettingChanged(int type, int arg);
-    void toolbarStyleChanged();
-
 private:
-    QDBusVariant readProperty(const QString &group, const QString &key);
-    QDBusVariant readFdoColorScheme();
-
     DesktopPortal *const m_parent;
-    KSharedConfigPtr m_kdeglobals;
+    std::vector<std::unique_ptr<SettingsModule>> m_settings;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SETTINGS_H
