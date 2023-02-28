@@ -9,8 +9,22 @@
 #include "desktopportal.h"
 #include "desktopportal_debug.h"
 
+#include "access.h"
+#include "account.h"
+#include "appchooser.h"
+#include "background.h"
 #include "dynamiclauncher.h"
+#include "email.h"
+#include "filechooser.h"
 #include "globalshortcuts.h"
+#include "inhibit.h"
+#include "notification.h"
+#include "print.h"
+#include "remotedesktop.h"
+#include "screencast.h"
+#include "screenshot.h"
+#include "settings.h"
+#include "waylandintegration.h"
 
 DesktopPortal::DesktopPortal(QObject *parent)
     : QObject(parent)

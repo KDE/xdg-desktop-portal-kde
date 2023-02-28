@@ -12,22 +12,19 @@
 #include <QDBusContext>
 #include <QObject>
 
-#include "access.h"
-#include "account.h"
-#include "appchooser.h"
-#include "background.h"
-#include "email.h"
-#include "filechooser.h"
-#include "inhibit.h"
-#include "notification.h"
-#include "print.h"
-#include "screenshot.h"
-#include "settings.h"
-#include "waylandintegration.h"
-
-#include "remotedesktop.h"
-#include "screencast.h"
-
+class AccessPortal;
+class AccountPortal;
+class AppChooserPortal;
+class BackgroundPortal;
+class EmailPortal;
+class FileChooserPortal;
+class InhibitPortal;
+class NotificationPortal;
+class PrintPortal;
+class ScreenshotPortal;
+class SettingsPortal;
+class ScreenCastPortal;
+class RemoteDesktopPortal;
 class DynamicLauncherPortal;
 
 class DesktopPortal : public QObject, public QDBusContext

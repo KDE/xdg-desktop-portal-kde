@@ -6,7 +6,7 @@
  * SPDX-FileCopyrightText: 2016 Jan Grulich <jgrulich@redhat.com>
  */
 
-#include "desktopportal.h"
+#include "request.h"
 #include "request_debug.h"
 
 #include <QDBusConnection>
