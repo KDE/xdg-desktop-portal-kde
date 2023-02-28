@@ -60,7 +60,9 @@ SettingsPortal::SettingsPortal(DesktopPortal *parent)
                                           QStringLiteral("org.kde.KGlobalSettings"),
                                           QStringLiteral("notifyChange"),
                                           this,
-                                          SLOT(globalSettingChanged(int, int)));
+                                          // clang-format off
+                                          SLOT(globalSettingChanged(int,int)));
+    // clang-format on
     QDBusConnection::sessionBus()
         .connect(QString(), QStringLiteral("/KToolBar"), QStringLiteral("org.kde.KToolBar"), QStringLiteral("styleChanged"), this, SLOT(toolbarStyleChanged()));
 }
