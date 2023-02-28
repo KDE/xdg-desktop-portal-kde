@@ -14,6 +14,8 @@
 
 #include <KConfigCore/KSharedConfig>
 
+class DesktopPortal;
+
 class SettingsPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
@@ -52,7 +54,7 @@ public:
         SETTINGS_STYLE,
     };
 
-    explicit SettingsPortal(QObject *parent);
+    explicit SettingsPortal(DesktopPortal *parent);
 
     uint version() const
     {
@@ -75,6 +77,7 @@ private:
     QDBusVariant readProperty(const QString &group, const QString &key);
     QDBusVariant readFdoColorScheme();
 
+    DesktopPortal *const m_parent;
     KSharedConfigPtr m_kdeglobals;
 };
 

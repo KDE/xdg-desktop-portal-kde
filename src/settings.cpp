@@ -19,6 +19,7 @@
 #include <QPalette>
 
 #include "dbushelpers.h"
+#include "desktopportal.h"
 #include <KConfigCore/KConfigGroup>
 
 static bool groupMatches(const QString &group, const QStringList &patterns)
@@ -40,8 +41,9 @@ static bool groupMatches(const QString &group, const QStringList &patterns)
     return false;
 }
 
-SettingsPortal::SettingsPortal(QObject *parent)
+SettingsPortal::SettingsPortal(DesktopPortal *parent)
     : QDBusAbstractAdaptor(parent)
+    , m_parent(parent)
 {
     qDBusRegisterMetaType<VariantMapMap>();
 
@@ -67,22 +69,6 @@ void SettingsPortal::ReadAll(const QStringList &groups)
 {
     qCDebug(XdgDesktopPortalKdeSettings) << "ReadAll called with parameters:";
     qCDebug(XdgDesktopPortalKdeSettings) << "    groups: " << groups;
-
-    // FIXME this is super ugly, but I was unable to make it properly return VariantMapMap
-    QObject *obj = QObject::parent();
-
-    if (!obj) {
-        qCWarning(XdgDesktopPortalKdeSettings) << "Failed to get dbus context";
-        return;
-    }
-
-    void *ptr = obj->qt_metacast("QDBusContext");
-    QDBusContext *q_ptr = reinterpret_cast<QDBusContext *>(ptr);
-
-    if (!q_ptr) {
-        qCWarning(XdgDesktopPortalKdeSettings) << "Failed to get dbus context";
-        return;
-    }
 
     VariantMapMap result;
 
@@ -114,7 +100,7 @@ void SettingsPortal::ReadAll(const QStringList &groups)
         result.insert(uniqueGroupName, map);
     }
 
-    QDBusMessage message = q_ptr->message();
+    QDBusMessage message = m_parent->message();
     QDBusMessage reply = message.createReply(QVariant::fromValue(result));
     QDBusConnection::sessionBus().send(reply);
 }
@@ -125,24 +111,8 @@ void SettingsPortal::Read(const QString &group, const QString &key)
     qCDebug(XdgDesktopPortalKdeSettings) << "    group: " << group;
     qCDebug(XdgDesktopPortalKdeSettings) << "    key: " << key;
 
-    // FIXME this is super ugly, but I was unable to make it properly return VariantMapMap
-    QObject *obj = QObject::parent();
-
-    if (!obj) {
-        qCWarning(XdgDesktopPortalKdeSettings) << "Failed to get dbus context";
-        return;
-    }
-
-    void *ptr = obj->qt_metacast("QDBusContext");
-    QDBusContext *q_ptr = reinterpret_cast<QDBusContext *>(ptr);
-
-    if (!q_ptr) {
-        qCWarning(XdgDesktopPortalKdeSettings) << "Failed to get dbus context";
-        return;
-    }
-
     QDBusMessage reply;
-    QDBusMessage message = q_ptr->message();
+    QDBusMessage message = m_parent->message();
 
     if (group == QLatin1String("org.freedesktop.appearance") && key == QLatin1String("color-scheme")) {
         reply = message.createReply(QVariant::fromValue(readFdoColorScheme()));
