@@ -8,14 +8,14 @@ set(PROJECT_VERSION_MAJOR 5)
 project(xdg-desktop-portal-kde VERSION ${PROJECT_VERSION})
 
 set(QT_MIN_VERSION "5.15.2")
-set(KF5_MIN_VERSION "5.102.0")
+set(KF6_MIN_VERSION "5.102.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ################# set KDE specific information #################
 
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
+find_package(ECM ${KF6_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 include(KDEInstallDirs)
@@ -49,7 +49,7 @@ else()
     find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS XkbCommonSupport)
 endif()
 
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
+find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
     CoreAddons
     Config
     I18n

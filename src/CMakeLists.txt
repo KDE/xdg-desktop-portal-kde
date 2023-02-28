@@ -291,20 +291,20 @@ target_link_libraries(xdg-desktop-portal-kde
     Qt::QuickWidgets
     Qt::Widgets
     Qt::WaylandClient
-    KF5::CoreAddons
-    KF5::ConfigCore
-    KF5::ConfigGui
-    KF5::Declarative
-    KF5::GlobalAccel
-    KF5::GuiAddons
-    KF5::I18n
-    KF5::KIOFileWidgets
-    KF5::Notifications
-    KF5::Service
-    KF5::WaylandClient
-    KF5::WidgetsAddons
-    KF5::WindowSystem
-    KF5::IconThemes
+    KF6::CoreAddons
+    KF6::ConfigCore
+    KF6::ConfigGui
+    KF6::Declarative
+    KF6::GlobalAccel
+    KF6::GuiAddons
+    KF6::I18n
+    KF6::KIOFileWidgets
+    KF6::Notifications
+    KF6::Service
+    KF6::WaylandClient
+    KF6::WidgetsAddons
+    KF6::WindowSystem
+    KF6::IconThemes
     KirigamiFilepicker
     Wayland::Client
     PkgConfig::XKB

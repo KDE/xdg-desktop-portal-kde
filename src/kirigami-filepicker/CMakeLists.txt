@@ -22,8 +22,8 @@ target_include_directories(KirigamiFilepicker PRIVATE declarative)
 target_link_libraries(KirigamiFilepicker
     Qt::Quick
     Qt::Qml
-    KF5::I18n
-    KF5::KIOCore
-    KF5::KIOFileWidgets
+    KF6::I18n
+    KF6::KIOCore
+    KF6::KIOFileWidgets
 )
 target_include_directories(KirigamiFilepicker PUBLIC api)
