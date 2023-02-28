@@ -24,7 +24,7 @@
 
 static bool groupMatches(const QString &group, const QStringList &patterns)
 {
-    for (const QString &pattern : patterns) {
+    return std::any_of(patterns.cbegin(), patterns.cend(), [&group](const auto &pattern) {
         if (pattern.isEmpty()) {
             return true;
         }
@@ -36,9 +36,9 @@ static bool groupMatches(const QString &group, const QStringList &patterns)
         if (pattern.endsWith(QLatin1Char('*')) && group.startsWith(pattern.left(pattern.length() - 1))) {
             return true;
         }
-    }
 
-    return false;
+        return false;
+    });
 }
 
 SettingsPortal::SettingsPortal(DesktopPortal *parent)
