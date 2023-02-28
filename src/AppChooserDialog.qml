@@ -68,9 +68,7 @@ PWD.SystemDialog
                 visible: AppModel.sourceModel.hasPreferredApps
                 onVisibleChanged: AppModel.showOnlyPreferredApps = visible
 
-                onClicked: {
-                    AppModel.showOnlyPreferredApps = !AppModel.showOnlyPreferredApps
-                }
+                onToggled: AppModel.showOnlyPreferredApps = !AppModel.showOnlyPreferredApps
             }
         }
 
