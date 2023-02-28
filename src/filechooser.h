@@ -29,6 +29,7 @@ public:
 
     explicit FileDialog(QDialog *parent = nullptr, Qt::WindowFlags flags = {});
     ~FileDialog() override;
+    Q_DISABLE_COPY_MOVE(FileDialog)
 
 private:
     QDialogButtonBox *m_buttons;
