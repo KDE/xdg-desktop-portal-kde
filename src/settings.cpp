@@ -120,7 +120,7 @@ void SettingsPortal::Read(const QString &group, const QString &key)
         return;
     }
     // All other namespaces start with this prefix
-    else if (!group.startsWith(QStringLiteral("org.kde.kdeglobals"))) {
+    if (!group.startsWith(QStringLiteral("org.kde.kdeglobals"))) {
         qCWarning(XdgDesktopPortalKdeSettings) << "Namespace " << group << " is not supported";
         reply = message.createErrorReply(QDBusError::UnknownProperty, QStringLiteral("Namespace is not supported"));
         QDBusConnection::sessionBus().send(reply);
