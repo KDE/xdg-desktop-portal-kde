@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-20 00:59+0000\n"
+"POT-Creation-Date: 2023-03-01 23:30+0000\n"
 "PO-Revision-Date: 2023-02-24 22:51+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -33,7 +33,7 @@ msgstr "mail@kisaragi-hiu.com"
 msgid "Request device access"
 msgstr "請求裝置存取權限"
 
-#: src/appchooser.cpp:96
+#: src/appchooser.cpp:92
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
@@ -168,7 +168,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/filechooser.cpp:369
+#: src/filechooser.cpp:365
 #, kde-format
 msgid "Open"
 msgstr "開啟"

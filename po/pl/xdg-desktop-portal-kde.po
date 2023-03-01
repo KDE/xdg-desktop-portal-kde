@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-20 00:59+0000\n"
+"POT-Creation-Date: 2023-03-01 23:30+0000\n"
 "PO-Revision-Date: 2023-01-21 10:18+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -34,7 +34,7 @@ msgstr "lukasz.wojnilowicz@gmail.com"
 msgid "Request device access"
 msgstr "Zażądano dostępu do urządzenia"
 
-#: src/appchooser.cpp:96
+#: src/appchooser.cpp:92
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
@@ -173,7 +173,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr ""
 
-#: src/filechooser.cpp:369
+#: src/filechooser.cpp:365
 #, kde-format
 msgid "Open"
 msgstr "Otwórz"

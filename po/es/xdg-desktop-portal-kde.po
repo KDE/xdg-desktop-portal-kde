@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-20 00:59+0000\n"
+"POT-Creation-Date: 2023-03-01 23:30+0000\n"
 "PO-Revision-Date: 2023-02-20 11:30+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -34,7 +34,7 @@ msgstr "ecuadra@eloihr.net"
 msgid "Request device access"
 msgstr "Solicitar acceso a dispositivo"
 
-#: src/appchooser.cpp:96
+#: src/appchooser.cpp:92
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
@@ -171,7 +171,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/filechooser.cpp:369
+#: src/filechooser.cpp:365
 #, kde-format
 msgid "Open"
 msgstr "Abrir"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-20 00:59+0000\n"
+"POT-Creation-Date: 2023-03-01 23:30+0000\n"
 "PO-Revision-Date: 2020-10-11 01:46+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Request device access"
 msgstr "Seadmele juurdepääsu nõudmine"
 
-#: src/appchooser.cpp:96
+#: src/appchooser.cpp:92
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
@@ -168,7 +168,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr ""
 
-#: src/filechooser.cpp:369
+#: src/filechooser.cpp:365
 #, kde-format
 msgid "Open"
 msgstr "Ava"
