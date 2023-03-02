@@ -2,31 +2,32 @@
 # This file is distributed under the same license as the xdg-desktop-portal-kde package.
 # Wantoyo <wantoyek@gmail.com>, 2018, 2019, 2021, 2022.
 # Aziz Adam Adrian <4.adam.adrian@gmail.com>, 2022.
+# Linerly <linerly@protonmail.com>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-19 02:57+0000\n"
-"PO-Revision-Date: 2022-09-27 18:12+0700\n"
-"Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
+"PO-Revision-Date: 2023-02-21 20:18+0700\n"
+"Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Linerly"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "linerly@protonmail.com"
 
 #: src/accessdialog.cpp:22
 #, kde-format
@@ -37,84 +38,81 @@ msgstr "Minta akses peranti"
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
-msgstr ""
+msgstr "Berkas %1"
 
 #: src/appchooserdialog.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Add Application…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
-msgstr "Tambahkan Aplikasi..."
+msgstr "Pilih Aplikasi"
 
 #: src/appchooserdialog.cpp:43
-#, fuzzy, kde-kuit-format
-#| msgid "Select an application to open '%1'"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
-msgstr "Pilih sebuah aplikasi untuk membuka '%1'"
+msgstr "Pilih sebuah aplikasi untuk membuka <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:31
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr ""
+msgstr "Selalu buka berkas %1 dengan aplikasi yang dipilih"
 
 #: src/AppChooserDialog.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Add Application…"
+#, kde-format
 msgid "Show All Installed Applications"
-msgstr "Tambahkan Aplikasi..."
+msgstr "Tampilkan Semua Aplikasi Terpasang"
 
 #: src/AppChooserDialog.qml:171
 #, kde-format
 msgid "Default app for this file type"
-msgstr ""
+msgstr "Aplikasi bawaan untuk jenis berkas ini"
 
 #: src/AppChooserDialog.qml:190
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "Tidak ada yang cocok"
 
 #: src/AppChooserDialog.qml:190
-#, fuzzy, kde-kuit-format
-#| msgid "Select an application to open '%1'"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
-msgstr "Pilih sebuah aplikasi untuk membuka '%1'"
+msgstr ""
+"Tidak ada aplikasi terpasang yang dapat membuka <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:194
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr ""
+msgstr "Cari Lebih Banyak di Discover"
 
 #: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
+"Tidak melihat aplikasi yang sesuai? Cari lebih banyak di <link>Discover</"
+"link>."
 
 #: src/background.cpp:104
 #, kde-format
 msgid "Background activity"
-msgstr "Aktivitas latarbelakang"
+msgstr "Aktivitas latar belakang"
 
 #: src/background.cpp:105
 #, kde-format
 msgid "%1 is running in the background."
-msgstr "%1 berjalan di latarbelakang."
+msgstr "%1 sedang berjalan di latar belakang."
 
 #: src/background.cpp:106
 #, kde-format
 msgid "Find out more"
-msgstr "Temukan selebihnya"
+msgstr "Lihat lebih lengkap"
 
 #: src/background.cpp:117
 #, kde-format
 msgid "%1 is running in the background"
-msgstr "%1 berjalan di latarbelakang"
+msgstr "%1 sedang berjalan di latar belakang"
 
 #: src/background.cpp:119
 #, kde-format
@@ -155,25 +153,25 @@ msgstr "Tambahkan Aplikasi..."
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
-msgstr ""
+msgstr "Nama"
 
 #: src/DynamicLauncherDialog.qml:91
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr ""
+msgstr "Sunting info..."
 
 #: src/DynamicLauncherDialog.qml:97
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
-msgstr ""
+msgstr "Terima"
 
 #: src/DynamicLauncherDialog.qml:102
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
-msgstr ""
+msgstr "Batal"
 
 #: src/filechooser.cpp:369
 #, kde-format
@@ -188,137 +186,127 @@ msgstr "Pilih Folder"
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
 #, kde-format
 msgid "Open File"
-msgstr "Buka File"
+msgstr "Buka Berkas"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
 #, kde-format
 msgid "Save File"
-msgstr "Simpan File"
+msgstr "Simpan Berkas"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
 msgid "Create new folder"
-msgstr ""
+msgstr "Buat folder baru"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
 msgid "Create new folder in %1"
-msgstr ""
+msgstr "Buat folder baru di %1"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
 #, kde-format
 msgid "folder name"
-msgstr ""
+msgstr "nama folder"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "Ok"
-msgstr ""
+msgstr "Oke"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Batal"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
 msgid "File name"
-msgstr ""
+msgstr "Nama berkas"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:116
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Select"
-msgstr "Pilih Folder"
+msgstr "Pilih"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create folder"
-msgstr "Pilih Folder"
+msgstr "Buat folder"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
 msgid "Filter filetype"
-msgstr ""
+msgstr "Saring jenis berkas"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Show hidden files"
-msgstr ""
+msgstr "Tampilkan berkas tersembunyi"
 
 #: src/outputsmodel.cpp:18
 #, kde-format
 msgid "Full Workspace"
-msgstr "Workspace Penuh"
+msgstr "Ruang Kerja Penuh"
 
 #: src/outputsmodel.cpp:22
 #, kde-format
 msgid "New Virtual Output"
-msgstr "Output Virtual Baru"
+msgstr "Keluaran Virtual Baru"
 
 #: src/outputsmodel.cpp:28
-#, fuzzy, kde-format
-#| msgid ""
-#| "Laptop screen\n"
-#| "Model: %1"
+#, kde-format
 msgid "Laptop screen"
-msgstr ""
-"Layar laptop\n"
-"Model: %1"
+msgstr "Layar laptop"
 
 #: src/remotedesktop.cpp:121
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
-msgstr ""
+msgstr "Sesi kontrol jarak jauh dimulai"
 
 #: src/remotedesktopdialog.cpp:23
 #, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
-msgstr ""
+msgstr "Kontrol jarak jauh diminta"
 
 #: src/remotedesktopdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
-msgstr "Minta akses peranti"
+msgstr "Akses diminta kepada:\n"
 
 #: src/remotedesktopdialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr "Minta akses peranti"
+msgstr "%1 meminta akses untuk mengontrol secara jarak jauh:\n"
 
 #: src/remotedesktopdialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr "Layar Penuh"
+msgstr "- Layar\n"
 
 #: src/remotedesktopdialog.cpp:40
 #, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
-msgstr ""
+msgstr "- Perangkat masukan\n"
 
 #: src/RemoteDesktopDialog.qml:26 src/ScreenChooserDialog.qml:135
 #: src/UserInfoDialog.qml:41
 #, kde-format
 msgid "Share"
-msgstr "Berbagi"
+msgstr "Bagikan"
 
 #: src/screencast.cpp:316
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
-msgstr "Berbagi layar dalam proses"
+msgstr "Pembagian layar sedang dilakukan"
 
 #: src/screencastwidget.cpp:24
 #, kde-format
@@ -341,52 +329,52 @@ msgstr ""
 #: src/screenchooserdialog.cpp:138
 #, kde-format
 msgid "Screen Sharing"
-msgstr "Screen Sharing"
+msgstr "Pembagian Layar"
 
 #: src/screenchooserdialog.cpp:167
 #, kde-format
 msgid "Choose what to share with the requesting application:"
-msgstr "Pilih apa untuk berbagi dengan aplikasi yang meminta:"
+msgstr "Pilih apa untuk dibagikan dengan aplikasi yang meminta:"
 
 #: src/screenchooserdialog.cpp:169
 #, kde-format
 msgid "Choose what to share with %1:"
-msgstr "Pilih apa untuk berbagi dengan %1:"
+msgstr "Pilih apa untuk dibagikan dengan %1:"
 
 #: src/screenchooserdialog.cpp:177
 #, kde-format
 msgid "Share this screen with the requesting application?"
-msgstr "Pilih layar untuk berbagi dengan aplikasi yang meminta:"
+msgstr "Bagikan layar ini dengan aplikasi yang meminta?"
 
 #: src/screenchooserdialog.cpp:179
 #, kde-format
 msgid "Share this screen with %1?"
-msgstr "Pilih layar untuk berbagi dengan %1:"
+msgstr "Bagikan layar ini dengan %1?"
 
 #: src/screenchooserdialog.cpp:184
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
-msgstr "Pilih layar untuk berbagi dengan aplikasi yang meminta:"
+msgstr "Pilih layar untuk dibagikan dengan aplikasi yang meminta:"
 
 #: src/screenchooserdialog.cpp:186
 #, kde-format
 msgid "Choose screens to share with %1:"
-msgstr "Pilih layar untuk berbagi dengan %1:"
+msgstr "Pilih layar untuk dibagikan dengan %1:"
 
 #: src/screenchooserdialog.cpp:190
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
-msgstr "Pilih layar untuk berbagi dengan aplikasi yang meminta:"
+msgstr "Pilih layar untuk dibagikan dengan aplikasi yang meminta:"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
 msgid "Choose which screen to share with %1:"
-msgstr "Pilih layar untuk berbagi dengan %1:"
+msgstr "Pilih layar untuk dibagikan dengan %1:"
 
 #: src/screenchooserdialog.cpp:202
 #, kde-format
 msgid "Share this window with the requesting application?"
-msgstr "Pilih apa untuk berbagi dengan aplikasi yang meminta:"
+msgstr "Bagikan jendela ini dengan aplikasi yang meminta?"
 
 #: src/screenchooserdialog.cpp:204
 #, kde-format
@@ -396,39 +384,37 @@ msgstr "Bagikan jendela ini dengan %1?"
 #: src/screenchooserdialog.cpp:209
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
-msgstr "Pilih apa untuk berbagi dengan aplikasi yang meminta:"
+msgstr "Pilih jendela untuk dibagikan dengan aplikasi yang meminta:"
 
 #: src/screenchooserdialog.cpp:211
 #, kde-format
 msgid "Choose windows to share with %1:"
-msgstr "Pilih apa untuk berbagi dengan %1:"
+msgstr "Pilih jendela untuk dibagikan dengan %1:"
 
 #: src/screenchooserdialog.cpp:215
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
-msgstr "Pilih apa untuk berbagi dengan aplikasi yang meminta:"
+msgstr "Pilih jendela apa untuk berbagi dengan aplikasi yang meminta:"
 
 #: src/screenchooserdialog.cpp:217
 #, kde-format
 msgid "Choose which window to share with %1:"
-msgstr "Pilih apa untuk berbagi dengan %1:"
+msgstr "Pilih jendela apa untuk berbagi dengan %1:"
 
 #: src/ScreenChooserDialog.qml:36
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgid "Screens"
-msgstr "Layar Penuh"
+msgstr "Layar"
 
 #: src/ScreenChooserDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Active Window"
+#, kde-format
 msgid "Windows"
-msgstr "Window Aktif"
+msgstr "Jendela"
 
 #: src/ScreenChooserDialog.qml:129
 #, kde-format
 msgid "Allow restoring on future sessions"
-msgstr ""
+msgstr "Perbolehkan memulihkan di sesi masa mendatang"
 
 #: src/screenshotdialog.cpp:88
 #, kde-format
@@ -448,13 +434,12 @@ msgstr "Jendela Aktif"
 #: src/ScreenshotDialog.qml:21
 #, kde-format
 msgid "Request screenshot"
-msgstr "Minta screenshot"
+msgstr "Minta tangkapan layar"
 
 #: src/ScreenshotDialog.qml:28
-#, fuzzy, kde-format
-#| msgid "<b>Capture Mode</b>"
+#, kde-format
 msgid "Capture Mode"
-msgstr "<b>Mode Tangkap</b>"
+msgstr "Mode Tangkap"
 
 #: src/ScreenshotDialog.qml:32
 #, kde-format
@@ -470,71 +455,66 @@ msgstr "Tunda:"
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 detik"
+msgstr[1] "%1 detik"
 
 #: src/ScreenshotDialog.qml:50
-#, fuzzy, kde-format
-#| msgid "<b>Content Options</b>"
+#, kde-format
 msgid "Content Options"
-msgstr "<b>Opsi Konten</b>"
+msgstr "Opsi Konten"
 
 #: src/ScreenshotDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Include mouse pointer"
+#, kde-format
 msgid "Include cursor pointer"
-msgstr "Sertakan titik mouse"
+msgstr "Sertakan penunjuk kursor"
 
 #: src/ScreenshotDialog.qml:59
 #, kde-format
 msgid "Include window borders"
-msgstr "Sertakan bingkai window"
+msgstr "Sertakan bingkai jendela"
 
 #: src/ScreenshotDialog.qml:72
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save"
-msgstr "Simpan File"
+msgstr "Simpan"
 
 #: src/ScreenshotDialog.qml:82
 #, kde-format
 msgid "Take"
-msgstr ""
+msgstr "Ambil"
 
 #: src/session.cpp:169
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
-msgstr ""
+msgstr "Akhiri"
 
 #: src/session.cpp:255
-#, fuzzy, kde-format
-#| msgid "Remote desktop"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
-msgstr "Desktop jarak jauh"
+msgstr "Desktop Jarak Jauh"
 
 #: src/session.cpp:271
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Membagikan konten ke %2"
+msgstr[1] "%1 saluran video ke %2"
 
 #: src/session.cpp:275
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
-msgstr "Screen Sharing"
+msgstr "Penggandaan layar"
 
 #: src/session.cpp:445
 #, kde-format
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/userinfodialog.cpp:32
 #, kde-format
@@ -549,7 +529,7 @@ msgstr "Bagikan informasi pribadi Anda dengan aplikasi yang meminta?"
 #: src/waylandintegration.cpp:327
 #, kde-format
 msgid "Failed to start screencasting"
-msgstr "Gagal memulai screencasting"
+msgstr "Gagal memulai penggandaan layar"
 
 #: src/waylandintegration.cpp:630
 #, kde-format
