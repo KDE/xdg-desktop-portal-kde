@@ -12,9 +12,9 @@
 #include <QPushButton>
 
 #include <KLocalizedString>
-#include <QDBusInterface>
-#include <QDBusPendingCall>
-#include <QDBusPendingReply>
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusReply>
 #include <QDBusUnixFileDescriptor>
 #include <QFutureWatcher>
 #include <QStandardItemModel>
@@ -67,7 +67,29 @@ static int readData(int fd, QByteArray &data)
     Q_UNREACHABLE();
 }
 
-static QImage readImage(int pipeFd)
+static QImage allocateImage(const QVariantMap &metadata)
+{
+    bool ok;
+
+    const uint width = metadata.value(QStringLiteral("width")).toUInt(&ok);
+    if (!ok) {
+        return QImage();
+    }
+
+    const uint height = metadata.value(QStringLiteral("height")).toUInt(&ok);
+    if (!ok) {
+        return QImage();
+    }
+
+    const uint format = metadata.value(QStringLiteral("format")).toUInt(&ok);
+    if (!ok) {
+        return QImage();
+    }
+
+    return QImage(width, height, QImage::Format(format));
+}
+
+static QImage readImage(int pipeFd, const QVariantMap &metadata)
 {
     QByteArray content;
     if (readData(pipeFd, content) != 0) {
@@ -75,10 +97,15 @@ static QImage readImage(int pipeFd)
         return QImage();
     }
     close(pipeFd);
+
+    QImage result = allocateImage(metadata);
+    if (result.isNull()) {
+        return QImage();
+    }
+
     QDataStream ds(content);
-    QImage image;
-    ds >> image;
-    return image;
+    ds.readRawData(reinterpret_cast<char *>(result.bits()), result.sizeInBytes());
+    return result;
 }
 
 ScreenshotDialog::ScreenshotDialog(QObject *parent)
@@ -136,26 +163,44 @@ QFuture<QImage> ScreenshotDialog::takeScreenshot()
         return {};
     }
 
-    const bool withBorders = m_theDialog->property("withBorders").toBool();
-    const bool withCursor = m_theDialog->property("withCursor").toBool();
-
-    QDBusInterface interface(QStringLiteral("org.kde.KWin"), QStringLiteral("/Screenshot"), QStringLiteral("org.kde.kwin.Screenshot"));
-    auto types = ScreenshotType(m_theDialog->property("screenshotType").toInt());
-    if (types == ActiveWindow) {
-        int mask = 0;
-        if (withBorders) {
-            mask = Borders;
-        }
-        if (withCursor) {
-            mask |= Cursor;
-        }
-        interface.asyncCall(QStringLiteral("interactive"), QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])), mask);
-    } else {
-        interface.asyncCall(types ? QStringLiteral("screenshotScreen") : QStringLiteral("screenshotFullscreen"),
-                            QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])),
-                            withCursor);
+    QVariantMap options;
+    if (m_theDialog->property("withCursor").toBool()) {
+        options.insert(QStringLiteral("include-cursor"), true);
     }
-    ::close(pipeFds[1]);
+    if (m_theDialog->property("withBorders").toBool()) {
+        options.insert(QStringLiteral("include-decoration"), true);
+    }
 
-    return QtConcurrent::run(readImage, pipeFds[0]);
+    QString method;
+    switch (ScreenshotType(m_theDialog->property("screenshotType").toInt())) {
+    case FullScreen:
+        method = QStringLiteral("CaptureWorkspace");
+        break;
+    case CurrentScreen:
+        method = QStringLiteral("CaptureActiveScreen");
+        break;
+    case ActiveWindow:
+        method = QStringLiteral("CaptureActiveWindow");
+        break;
+    }
+
+    QVariantList arguments;
+    arguments.append(options);
+    arguments.append(QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])));
+
+    QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.KWin.ScreenShot2"),
+                                                          QStringLiteral("/org/kde/KWin/ScreenShot2"),
+                                                          QStringLiteral("org.kde.KWin.ScreenShot2"),
+                                                          method);
+    message.setArguments(arguments);
+
+    QDBusReply<QVariantMap> reply = QDBusConnection::sessionBus().call(message);
+    ::close(pipeFds[1]);
+    if (!reply.isValid()) {
+        qCWarning(XdgDesktopPortalKdeScreenshotDialog) << method << "failed:" << reply.error();
+        close(pipeFds[0]);
+        return QFuture<QImage>();
+    }
+
+    return QtConcurrent::run(readImage, pipeFds[0], reply);
 }
