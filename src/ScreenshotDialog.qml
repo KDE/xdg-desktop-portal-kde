@@ -16,6 +16,8 @@ PWD.SystemDialog
     property alias screenshotType: areaCombo.currentIndex
     property alias screenshotTypesModel: areaCombo.model
     property alias screenshotImage: screenshot.source
+    property alias withCursor: hasCursor.checked
+    property alias withBorders: hasWindowBorders.checked
     property QtObject app
 
     title: i18n("Request screenshot")
