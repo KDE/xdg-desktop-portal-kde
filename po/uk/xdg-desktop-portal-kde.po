@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 23:30+0000\n"
+"POT-Creation-Date: 2023-03-04 02:13+0000\n"
 "PO-Revision-Date: 2023-02-20 09:02+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -64,29 +64,29 @@ msgstr "Завжди відкривати файли %1 за допомогою 
 msgid "Show All Installed Applications"
 msgstr "Показати усі встановлені програми"
 
-#: src/AppChooserDialog.qml:171
+#: src/AppChooserDialog.qml:169
 #, kde-format
 msgid "Default app for this file type"
 msgstr "Типова програма для цього типу файлів"
 
-#: src/AppChooserDialog.qml:190
+#: src/AppChooserDialog.qml:188
 #, kde-format
 msgid "No matches"
 msgstr "Немає відповідників"
 
-#: src/AppChooserDialog.qml:190
+#: src/AppChooserDialog.qml:188
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Жодна з встановлених програм не може відкрити <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:194
+#: src/AppChooserDialog.qml:192
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
 msgstr "Знайти ще у Discover"
 
-#: src/AppChooserDialog.qml:209
+#: src/AppChooserDialog.qml:207
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."

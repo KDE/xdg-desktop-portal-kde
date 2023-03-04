@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-01 23:30+0000\n"
+"POT-Creation-Date: 2023-03-04 02:13+0000\n"
 "PO-Revision-Date: 2023-01-22 17:01+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -63,17 +63,17 @@ msgstr ""
 msgid "Show All Installed Applications"
 msgstr "Vybrať aplikáciu"
 
-#: src/AppChooserDialog.qml:171
+#: src/AppChooserDialog.qml:169
 #, kde-format
 msgid "Default app for this file type"
 msgstr ""
 
-#: src/AppChooserDialog.qml:190
+#: src/AppChooserDialog.qml:188
 #, kde-format
 msgid "No matches"
 msgstr ""
 
-#: src/AppChooserDialog.qml:190
+#: src/AppChooserDialog.qml:188
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Choose an application to open <filename>%1</filename>"
@@ -81,13 +81,13 @@ msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Výber aplikácie na otvorenie <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:194
+#: src/AppChooserDialog.qml:192
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
 msgstr ""
 
-#: src/AppChooserDialog.qml:209
+#: src/AppChooserDialog.qml:207
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
