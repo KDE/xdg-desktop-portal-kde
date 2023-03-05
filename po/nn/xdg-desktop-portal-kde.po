@@ -1,13 +1,13 @@
 # Translation of xdg-desktop-portal-kde to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2018, 2019, 2020, 2022.
+# Karl Ove Hufthammer <karl@huftis.org>, 2018, 2019, 2020, 2022, 2023.
 # Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail.com>, 2018, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-04 02:13+0000\n"
-"PO-Revision-Date: 2022-10-30 09:32+0100\n"
+"PO-Revision-Date: 2023-03-04 16:08+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.12.2\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -23,12 +23,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Øystein Steffensen-Alværvik"
+msgstr "Øystein Steffensen-Alværvik,Karl Ove Hufthammer"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "oysteins.omsetting@protonmail.com"
+msgstr "oysteins.omsetting@protonmail.com,karl@huftis.org"
 
 #: src/accessdialog.cpp:22
 #, kde-format
@@ -57,40 +57,42 @@ msgstr "Vel eit program for å opna <filename>%1</filename>"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr ""
+msgstr "Opna alltid %1-filer i valt program"
 
 #: src/AppChooserDialog.qml:64
 #, kde-format
 msgid "Show All Installed Applications"
-msgstr ""
+msgstr "Vis alle installerte program"
 
 #: src/AppChooserDialog.qml:169
 #, kde-format
 msgid "Default app for this file type"
-msgstr ""
+msgstr "Standardprogram for denne filtypen"
 
 #: src/AppChooserDialog.qml:188
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "Ingen treff"
 
 #: src/AppChooserDialog.qml:188
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
-msgstr ""
+msgstr "Ingen installerte program kan opna <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:192
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr ""
+msgstr "Finn fleire i Discover"
 
 #: src/AppChooserDialog.qml:207
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
+"Finn du ikkje rett program? Du finn fleire i appbutikken <link>Discover</"
+"link>."
 
 #: src/background.cpp:104
 #, kde-format
@@ -120,8 +122,8 @@ msgid ""
 "\n"
 "Note that forcing an application to quit might cause data loss."
 msgstr ""
-"Dette kan vera av legitime grunnar, men programmet har ikkje oppgjeve ein "
-"slik grunn.\n"
+"Dette kan vera av gode grunnar, men programmet har ikkje oppgjeve ein slik "
+"grunn.\n"
 "\n"
 "Merk at tvangsavslutting av program kan føra til datatap."
 
@@ -151,25 +153,25 @@ msgstr "Legg til program …"
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
-msgstr ""
+msgstr "Namn"
 
 #: src/DynamicLauncherDialog.qml:91
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr ""
+msgstr "Rediger informasjon …"
 
 #: src/DynamicLauncherDialog.qml:97
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
-msgstr ""
+msgstr "Godta"
 
 #: src/DynamicLauncherDialog.qml:102
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: src/filechooser.cpp:365
 #, kde-format
@@ -194,32 +196,32 @@ msgstr "Lagra fil"
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
 msgid "Create New Folder"
-msgstr ""
+msgstr "Lag ny mappe"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
 msgid "Create new folder in %1"
-msgstr ""
+msgstr "Lag ny mappe i %1"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
 #, kde-format
 msgid "Folder name"
-msgstr ""
+msgstr "Mappenamn"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
 msgid "File name"
-msgstr ""
+msgstr "Filnamn"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:116
 #, kde-format
@@ -229,17 +231,17 @@ msgstr "Vel"
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
 #, kde-format
 msgid "Create Folder"
-msgstr ""
+msgstr "Lag mappe"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
 msgid "Filter Filetype"
-msgstr ""
+msgstr "Filtrer etter filtype"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Show Hidden Files"
-msgstr ""
+msgstr "Vis gøymde filer"
 
 #: src/outputsmodel.cpp:18
 #, kde-format
@@ -254,76 +256,76 @@ msgstr "Ny virtuell uteining"
 #: src/outputsmodel.cpp:27
 #, kde-format
 msgid "Rectangular Region"
-msgstr ""
+msgstr "Skjermutsnitt"
 
 #: src/outputsmodel.cpp:34
 #, kde-format
 msgid "Laptop screen"
-msgstr ""
+msgstr "Skjerm på berbar"
 
 #: src/region-select/RegionSelectOverlay.qml:142
 #, kde-format
 msgid "Start streaming:"
-msgstr ""
+msgstr "Start strøyming:"
 
 #: src/region-select/RegionSelectOverlay.qml:146
 #, kde-format
 msgid "Clear selection:"
-msgstr ""
+msgstr "Tøm utval:"
 
 #: src/region-select/RegionSelectOverlay.qml:150
 #: src/region-select/RegionSelectOverlay.qml:193
 #, kde-format
 msgid "Cancel:"
-msgstr ""
+msgstr "Avbryt:"
 
 #: src/region-select/RegionSelectOverlay.qml:156
 #, kde-format
 msgctxt "Mouse action"
 msgid "Release left-click"
-msgstr ""
+msgstr "Slepp venstre museknapp"
 
 #: src/region-select/RegionSelectOverlay.qml:160
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
-msgstr ""
+msgstr "Høgreklikk"
 
 #: src/region-select/RegionSelectOverlay.qml:164
 #: src/region-select/RegionSelectOverlay.qml:203
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
-msgstr ""
+msgstr "Escape"
 
 #: src/region-select/RegionSelectOverlay.qml:189
 #, kde-format
 msgid "Create selection:"
-msgstr ""
+msgstr "Lag tekstutval:"
 
 #: src/region-select/RegionSelectOverlay.qml:199
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
-msgstr ""
+msgstr "Venstreklikk og dra"
 
 #: src/remotedesktop.cpp:121
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
-msgstr ""
+msgstr "Starta fjernstyringsøkt"
 
 #: src/remotedesktopdialog.cpp:23
 #, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
-msgstr ""
+msgstr "Bedt om fjernstyring"
 
 #: src/remotedesktopdialog.cpp:32
 #, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
-msgstr ""
+msgstr "Bedt om tilgang til:\n"
 
 #: src/remotedesktopdialog.cpp:34
 #, kde-format
@@ -331,19 +333,19 @@ msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr ""
+msgstr "%1 har bedst om tilgang til å fjernstyra:\n"
 
 #: src/remotedesktopdialog.cpp:37
 #, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr ""
+msgstr " – skjermar\n"
 
 #: src/remotedesktopdialog.cpp:40
 #, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
-msgstr ""
+msgstr " – inneiningar\n"
 
 #: src/RemoteDesktopDialog.qml:26 src/ScreenChooserDialog.qml:135
 #: src/UserInfoDialog.qml:41
@@ -388,7 +390,7 @@ msgstr "Vel kva du vil dela med førespurnadsprogrammet:"
 #: src/screenchooserdialog.cpp:174
 #, kde-format
 msgid "Choose what to share with %1:"
-msgstr "Vel kva du vil dela med: %1"
+msgstr "Vel kva du vil dela med %1:"
 
 #: src/screenchooserdialog.cpp:182
 #, kde-format
@@ -453,7 +455,7 @@ msgstr "Vel kva vindauge du vil dela med %1:"
 #: src/ScreenChooserDialog.qml:36
 #, kde-format
 msgid "Screens"
-msgstr ""
+msgstr "Skjermar"
 
 #: src/ScreenChooserDialog.qml:39
 #, kde-format
@@ -463,7 +465,7 @@ msgstr "Vindauge"
 #: src/ScreenChooserDialog.qml:129
 #, kde-format
 msgid "Allow restoring on future sessions"
-msgstr ""
+msgstr "Tillat gjenoppretting ved framtidige økter"
 
 #: src/screenshotdialog.cpp:88
 #, kde-format
@@ -483,12 +485,12 @@ msgstr "Aktivt vindauge"
 #: src/ScreenshotDialog.qml:21
 #, kde-format
 msgid "Request Screenshot"
-msgstr ""
+msgstr "Be om skjermbilete"
 
 #: src/ScreenshotDialog.qml:28
 #, kde-format
 msgid "Capture Mode"
-msgstr ""
+msgstr "Opptaksmodus"
 
 #: src/ScreenshotDialog.qml:32
 #, kde-format
@@ -504,18 +506,18 @@ msgstr "Forseinking:"
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 sekund"
+msgstr[1] "%1 sekund"
 
 #: src/ScreenshotDialog.qml:50
 #, kde-format
 msgid "Content Options"
-msgstr ""
+msgstr "Innhaldsval"
 
 #: src/ScreenshotDialog.qml:54
 #, kde-format
 msgid "Include cursor pointer"
-msgstr ""
+msgstr "Ta med musepeikaren"
 
 #: src/ScreenshotDialog.qml:59
 #, kde-format
@@ -525,45 +527,45 @@ msgstr "Ta med vindaugsramme"
 #: src/ScreenshotDialog.qml:72
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Lagra"
 
 #: src/ScreenshotDialog.qml:82
 #, kde-format
 msgid "Take"
-msgstr ""
+msgstr "Ta"
 
 #: src/session.cpp:169
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
-msgstr ""
+msgstr "Slutt"
 
 #: src/session.cpp:255
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
-msgstr ""
+msgstr "Eksternt skrivebord"
 
 #: src/session.cpp:271
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Deler innhald til %2"
+msgstr[1] "%1 videostrumar til %2"
 
 #: src/session.cpp:275
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
-msgstr ""
+msgstr "Skjermdeling"
 
 #: src/session.cpp:445
 #, kde-format
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/userinfodialog.cpp:32
 #, kde-format
@@ -583,7 +585,7 @@ msgstr "Klarte ikkje starta skjermdeling"
 #: src/waylandintegration.cpp:645
 #, kde-format
 msgid "Remote desktop"
-msgstr "Nettverksskrivebord"
+msgstr "Eksternt skrivebord"
 
 #: src/xdg-desktop-portal-kde.cpp:28
 #, kde-format

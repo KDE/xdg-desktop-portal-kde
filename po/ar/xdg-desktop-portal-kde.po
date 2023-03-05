@@ -659,7 +659,7 @@ msgstr "البوابة"
 #~ msgstr "اضغط للإلغاء"
 
 #~ msgid "xdg-desktop-portals-kde"
-#~ msgstr "بوابة كدي لسطح المكتب"
+#~ msgstr "بوابة كِيدِي لسطح المكتب"
 
 #~ msgid "Open with..."
 #~ msgstr "افتح في..."
