@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-19 02:57+0000\n"
+"POT-Creation-Date: 2023-03-07 03:06+0000\n"
 "PO-Revision-Date: 2022-11-10 20:37+0100\n"
 "Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -444,58 +444,58 @@ msgstr "Aktueller Bildschirm"
 msgid "Active Window"
 msgstr "Aktives Fenster"
 
-#: src/ScreenshotDialog.qml:21
+#: src/ScreenshotDialog.qml:23
 #, kde-format
 msgid "Request screenshot"
 msgstr "Bildschirmfoto anfordern"
 
-#: src/ScreenshotDialog.qml:28
+#: src/ScreenshotDialog.qml:30
 #, fuzzy, kde-format
 #| msgid "<b>Capture Mode</b>"
 msgid "Capture Mode"
 msgstr "<b>Aufnahmemodus</b>"
 
-#: src/ScreenshotDialog.qml:32
+#: src/ScreenshotDialog.qml:34
 #, kde-format
 msgid "Area:"
 msgstr "Bereich:"
 
-#: src/ScreenshotDialog.qml:37
+#: src/ScreenshotDialog.qml:39
 #, kde-format
 msgid "Delay:"
 msgstr "Verzögerung:"
 
-#: src/ScreenshotDialog.qml:42
+#: src/ScreenshotDialog.qml:44
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/ScreenshotDialog.qml:50
+#: src/ScreenshotDialog.qml:52
 #, fuzzy, kde-format
 #| msgid "<b>Content Options</b>"
 msgid "Content Options"
 msgstr "<b>Aufnahme-Einstellungen</b>"
 
-#: src/ScreenshotDialog.qml:54
+#: src/ScreenshotDialog.qml:56
 #, fuzzy, kde-format
 #| msgid "Include mouse pointer"
 msgid "Include cursor pointer"
 msgstr "Mauszeiger einbeziehen"
 
-#: src/ScreenshotDialog.qml:59
+#: src/ScreenshotDialog.qml:61
 #, kde-format
 msgid "Include window borders"
 msgstr "Fensterränder einbeziehen"
 
-#: src/ScreenshotDialog.qml:72
+#: src/ScreenshotDialog.qml:74
 #, fuzzy, kde-format
 #| msgid "Save File"
 msgid "Save"
 msgstr "Datei speichern"
 
-#: src/ScreenshotDialog.qml:82
+#: src/ScreenshotDialog.qml:84
 #, kde-format
 msgid "Take"
 msgstr ""
