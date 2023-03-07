@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-04 02:13+0000\n"
+"POT-Creation-Date: 2023-03-07 02:22+0000\n"
 "PO-Revision-Date: 2023-02-16 11:10+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -474,43 +474,43 @@ msgstr "النّافذة النّشطة"
 msgid "Allow restoring on future sessions"
 msgstr ""
 
-#: src/screenshotdialog.cpp:88
+#: src/screenshotdialog.cpp:115
 #, kde-format
 msgid "Full Screen"
 msgstr "ملء الشاشة"
 
-#: src/screenshotdialog.cpp:89
+#: src/screenshotdialog.cpp:116
 #, kde-format
 msgid "Current Screen"
 msgstr "الشّاشة الحاليّة"
 
-#: src/screenshotdialog.cpp:90
+#: src/screenshotdialog.cpp:117
 #, kde-format
 msgid "Active Window"
 msgstr "النّافذة النّشطة"
 
-#: src/ScreenshotDialog.qml:21
+#: src/ScreenshotDialog.qml:23
 #, fuzzy, kde-format
 #| msgid "Request device access"
 msgid "Request Screenshot"
 msgstr "طلب وصول لجهاز"
 
-#: src/ScreenshotDialog.qml:28
+#: src/ScreenshotDialog.qml:30
 #, kde-format
 msgid "Capture Mode"
 msgstr ""
 
-#: src/ScreenshotDialog.qml:32
+#: src/ScreenshotDialog.qml:34
 #, kde-format
 msgid "Area:"
 msgstr ""
 
-#: src/ScreenshotDialog.qml:37
+#: src/ScreenshotDialog.qml:39
 #, kde-format
 msgid "Delay:"
 msgstr ""
 
-#: src/ScreenshotDialog.qml:42
+#: src/ScreenshotDialog.qml:44
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
@@ -521,28 +521,28 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
 
-#: src/ScreenshotDialog.qml:50
+#: src/ScreenshotDialog.qml:52
 #, kde-format
 msgid "Content Options"
 msgstr ""
 
-#: src/ScreenshotDialog.qml:54
+#: src/ScreenshotDialog.qml:56
 #, kde-format
 msgid "Include cursor pointer"
 msgstr ""
 
-#: src/ScreenshotDialog.qml:59
+#: src/ScreenshotDialog.qml:61
 #, kde-format
 msgid "Include window borders"
 msgstr ""
 
-#: src/ScreenshotDialog.qml:72
+#: src/ScreenshotDialog.qml:74
 #, fuzzy, kde-format
 #| msgid "Save File"
 msgid "Save"
 msgstr "احفظ الملفّ"
 
-#: src/ScreenshotDialog.qml:82
+#: src/ScreenshotDialog.qml:84
 #, kde-format
 msgid "Take"
 msgstr ""

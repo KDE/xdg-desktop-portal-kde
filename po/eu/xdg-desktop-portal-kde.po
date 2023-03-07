@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-04 02:13+0000\n"
+"POT-Creation-Date: 2023-03-07 02:22+0000\n"
 "PO-Revision-Date: 2023-02-23 20:09+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -469,69 +469,69 @@ msgstr "Leihoak"
 msgid "Allow restoring on future sessions"
 msgstr "Etorkizuneko saioetan lehengoratzen uzten du."
 
-#: src/screenshotdialog.cpp:88
+#: src/screenshotdialog.cpp:115
 #, kde-format
 msgid "Full Screen"
 msgstr "Pantaila-betea"
 
-#: src/screenshotdialog.cpp:89
+#: src/screenshotdialog.cpp:116
 #, kde-format
 msgid "Current Screen"
 msgstr "Uneko pantaila"
 
-#: src/screenshotdialog.cpp:90
+#: src/screenshotdialog.cpp:117
 #, kde-format
 msgid "Active Window"
 msgstr "Leiho aktiboa"
 
-#: src/ScreenshotDialog.qml:21
+#: src/ScreenshotDialog.qml:23
 #, kde-format
 msgid "Request Screenshot"
 msgstr "Eskatu pantaila-argazkia"
 
-#: src/ScreenshotDialog.qml:28
+#: src/ScreenshotDialog.qml:30
 #, kde-format
 msgid "Capture Mode"
 msgstr "Atzemate modua"
 
-#: src/ScreenshotDialog.qml:32
+#: src/ScreenshotDialog.qml:34
 #, kde-format
 msgid "Area:"
 msgstr "Azalera:"
 
-#: src/ScreenshotDialog.qml:37
+#: src/ScreenshotDialog.qml:39
 #, kde-format
 msgid "Delay:"
 msgstr "Atzerapena:"
 
-#: src/ScreenshotDialog.qml:42
+#: src/ScreenshotDialog.qml:44
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "segundo %1"
 msgstr[1] "%1 segundo"
 
-#: src/ScreenshotDialog.qml:50
+#: src/ScreenshotDialog.qml:52
 #, kde-format
 msgid "Content Options"
 msgstr "Eduki-aukerak"
 
-#: src/ScreenshotDialog.qml:54
+#: src/ScreenshotDialog.qml:56
 #, kde-format
 msgid "Include cursor pointer"
 msgstr "Sagu-erakuslea barne"
 
-#: src/ScreenshotDialog.qml:59
+#: src/ScreenshotDialog.qml:61
 #, kde-format
 msgid "Include window borders"
 msgstr "Leiho-ertzak barne"
 
-#: src/ScreenshotDialog.qml:72
+#: src/ScreenshotDialog.qml:74
 #, kde-format
 msgid "Save"
 msgstr "Gorde"
 
-#: src/ScreenshotDialog.qml:82
+#: src/ScreenshotDialog.qml:84
 #, kde-format
 msgid "Take"
 msgstr "Atera"

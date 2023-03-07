@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-04 02:13+0000\n"
+"POT-Creation-Date: 2023-03-07 02:22+0000\n"
 "PO-Revision-Date: 2023-02-21 20:18+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -467,69 +467,69 @@ msgstr "Jendela"
 msgid "Allow restoring on future sessions"
 msgstr "Perbolehkan memulihkan di sesi masa mendatang"
 
-#: src/screenshotdialog.cpp:88
+#: src/screenshotdialog.cpp:115
 #, kde-format
 msgid "Full Screen"
 msgstr "Layar Penuh"
 
-#: src/screenshotdialog.cpp:89
+#: src/screenshotdialog.cpp:116
 #, kde-format
 msgid "Current Screen"
 msgstr "Layar Saat Ini"
 
-#: src/screenshotdialog.cpp:90
+#: src/screenshotdialog.cpp:117
 #, kde-format
 msgid "Active Window"
 msgstr "Jendela Aktif"
 
-#: src/ScreenshotDialog.qml:21
+#: src/ScreenshotDialog.qml:23
 #, kde-format
 msgid "Request Screenshot"
 msgstr "Minta Tangkapan Layar"
 
-#: src/ScreenshotDialog.qml:28
+#: src/ScreenshotDialog.qml:30
 #, kde-format
 msgid "Capture Mode"
 msgstr "Mode Tangkap"
 
-#: src/ScreenshotDialog.qml:32
+#: src/ScreenshotDialog.qml:34
 #, kde-format
 msgid "Area:"
 msgstr "Area:"
 
-#: src/ScreenshotDialog.qml:37
+#: src/ScreenshotDialog.qml:39
 #, kde-format
 msgid "Delay:"
 msgstr "Tunda:"
 
-#: src/ScreenshotDialog.qml:42
+#: src/ScreenshotDialog.qml:44
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 detik"
 msgstr[1] "%1 detik"
 
-#: src/ScreenshotDialog.qml:50
+#: src/ScreenshotDialog.qml:52
 #, kde-format
 msgid "Content Options"
 msgstr "Opsi Konten"
 
-#: src/ScreenshotDialog.qml:54
+#: src/ScreenshotDialog.qml:56
 #, kde-format
 msgid "Include cursor pointer"
 msgstr "Sertakan penunjuk kursor"
 
-#: src/ScreenshotDialog.qml:59
+#: src/ScreenshotDialog.qml:61
 #, kde-format
 msgid "Include window borders"
 msgstr "Sertakan bingkai jendela"
 
-#: src/ScreenshotDialog.qml:72
+#: src/ScreenshotDialog.qml:74
 #, kde-format
 msgid "Save"
 msgstr "Simpan"
 
-#: src/ScreenshotDialog.qml:82
+#: src/ScreenshotDialog.qml:84
 #, kde-format
 msgid "Take"
 msgstr "Ambil"

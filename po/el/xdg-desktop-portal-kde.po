@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-04 02:13+0000\n"
+"POT-Creation-Date: 2023-03-07 02:22+0000\n"
 "PO-Revision-Date: 2021-07-09 11:02+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -497,75 +497,75 @@ msgstr "Παράθυρα"
 msgid "Allow restoring on future sessions"
 msgstr ""
 
-#: src/screenshotdialog.cpp:88
+#: src/screenshotdialog.cpp:115
 #, fuzzy, kde-format
 #| msgid "Screens"
 msgid "Full Screen"
 msgstr "Οθόνες"
 
-#: src/screenshotdialog.cpp:89
+#: src/screenshotdialog.cpp:116
 #, kde-format
 msgid "Current Screen"
 msgstr "Τρέχουσα οθόνη"
 
-#: src/screenshotdialog.cpp:90
+#: src/screenshotdialog.cpp:117
 #, kde-format
 msgid "Active Window"
 msgstr "Ενεργό παράθυρο"
 
-#: src/ScreenshotDialog.qml:21
+#: src/ScreenshotDialog.qml:23
 #, fuzzy, kde-format
 #| msgid "Request screenshot"
 msgid "Request Screenshot"
 msgstr "Αίτημα στιγμιοτύπου οθόνης"
 
-#: src/ScreenshotDialog.qml:28
+#: src/ScreenshotDialog.qml:30
 #, fuzzy, kde-format
 #| msgid "<b>Capture Mode</b>"
 msgid "Capture Mode"
 msgstr "<b>Λειτουργία σύλληψης</b>"
 
-#: src/ScreenshotDialog.qml:32
+#: src/ScreenshotDialog.qml:34
 #, kde-format
 msgid "Area:"
 msgstr "Περιοχή:"
 
-#: src/ScreenshotDialog.qml:37
+#: src/ScreenshotDialog.qml:39
 #, kde-format
 msgid "Delay:"
 msgstr "Καθυστέρηση:"
 
-#: src/ScreenshotDialog.qml:42
+#: src/ScreenshotDialog.qml:44
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/ScreenshotDialog.qml:50
+#: src/ScreenshotDialog.qml:52
 #, fuzzy, kde-format
 #| msgid "<b>Content Options</b>"
 msgid "Content Options"
 msgstr "<b>Τρέχουσες επιλογές</b>"
 
-#: src/ScreenshotDialog.qml:54
+#: src/ScreenshotDialog.qml:56
 #, fuzzy, kde-format
 #| msgid "Include mouse pointer"
 msgid "Include cursor pointer"
 msgstr "Να συμπεριλαμβάνεται ο δείτης του ποντικιού"
 
-#: src/ScreenshotDialog.qml:59
+#: src/ScreenshotDialog.qml:61
 #, kde-format
 msgid "Include window borders"
 msgstr "Να συμπεριλαμβάνονται τα περιγράμματα των παραθύρων"
 
-#: src/ScreenshotDialog.qml:72
+#: src/ScreenshotDialog.qml:74
 #, fuzzy, kde-format
 #| msgid "Save File"
 msgid "Save"
 msgstr "Αποθήκευση αρχείου"
 
-#: src/ScreenshotDialog.qml:82
+#: src/ScreenshotDialog.qml:84
 #, kde-format
 msgid "Take"
 msgstr ""
