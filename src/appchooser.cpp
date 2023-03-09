@@ -91,7 +91,7 @@ uint AppChooserPortal::ChooseApplicationPrivate(const QString &parent_window,
 
     const QString itemName = urls.size() == 1 ? urls.at(0) : i18nc("count of files to open", "%1 files", urls.size());
 
-    AppChooserDialog appDialog({}, {}, itemName, options.value(QStringLiteral("content_type")).toString());
+    AppChooserDialog appDialog({}, options.value(QStringLiteral("last_choice")).toString(), itemName, options.value(QStringLiteral("content_type")).toString());
     Utils::setParentWindow(appDialog.windowHandle(), parent_window);
 
     QDBusServiceWatcher watcher(msg.service(), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForUnregistration);

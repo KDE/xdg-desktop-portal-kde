@@ -163,10 +163,12 @@ PWD.SystemDialog
                             Layout.fillWidth: true
                             Layout.alignment: Qt.AlignTop
                             horizontalAlignment: Text.AlignHCenter
-                            visible: model.applicationDesktopFile === AppChooserData.defaultApp
+                            visible: model.applicationDesktopFile === AppChooserData.defaultApp || model.applicationDesktopFile === AppChooserData.lastUsedApp
                             font.bold: true
                             opacity: 0.7
-                            text: i18n("Default app for this file type")
+                            text: model.applicationDesktopFile === AppChooserData.defaultApp ?
+                                i18n("Default app for this file type")
+                                : i18nc("@info:whatsthis", "Last used app for this file type")
                             elide: Text.ElideRight
                             maximumLineCount: 2
                             wrapMode: Text.WordWrap

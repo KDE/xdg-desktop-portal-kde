@@ -30,7 +30,7 @@
 #include <KLocalizedString>
 #include <KProcess>
 
-AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &defaultApp, const QString &fileName, const QString &mimeName, QObject *parent)
+AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &lastUsedApp, const QString &fileName, const QString &mimeName, QObject *parent)
     : QuickDialog(parent)
     , m_model(new AppModel(this))
     , m_appChooserData(new AppChooserData(this))
@@ -46,13 +46,10 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &de
     filterModel->setSourceModel(m_model);
 
     m_appChooserData->setFileName(fileName);
-    m_appChooserData->setDefaultApp(defaultApp);
-    filterModel->setDefaultApp(defaultApp);
+    m_appChooserData->setLastUsedApp(lastUsedApp);
+    filterModel->setLastUsedApp(lastUsedApp);
 
-    auto findDefaultApp = [this, defaultApp, filterModel]() {
-        if (!defaultApp.isEmpty()) {
-            return;
-        }
+    auto findDefaultApp = [this, filterModel]() {
         KService::Ptr defaultService = KApplicationTrader::preferredService(m_appChooserData->mimeName());
         if (defaultService && defaultService->isValid()) {
             QString id = defaultService->desktopEntryName();
@@ -233,6 +230,21 @@ QString AppFilterModel::defaultApp() const
     return m_defaultApp;
 }
 
+void AppFilterModel::setLastUsedApp(const QString &lastUsedApp)
+{
+    if (m_lastUsedApp == lastUsedApp) {
+        return;
+    }
+
+    m_lastUsedApp = lastUsedApp;
+    invalidate();
+}
+
+QString AppFilterModel::lastUsedApp() const
+{
+    return m_lastUsedApp;
+}
+
 void AppFilterModel::setFilter(const QString &text)
 {
     m_filter = text;
@@ -330,6 +342,12 @@ bool AppFilterModel::lessThan(const QModelIndex &left, const QModelIndex &right)
         }
     }
 
+    if (sourceModel()->data(left, AppModel::ApplicationDesktopFileRole) == m_lastUsedApp) {
+        return false;
+    }
+    if (sourceModel()->data(right, AppModel::ApplicationDesktopFileRole) == m_lastUsedApp) {
+        return true;
+    }
     ApplicationItem::ApplicationCategory leftCategory =
         static_cast<ApplicationItem::ApplicationCategory>(sourceModel()->data(left, AppModel::ApplicationCategoryRole).toInt());
     ApplicationItem::ApplicationCategory rightCategory =
@@ -351,6 +369,21 @@ void AppChooserData::setDefaultApp(const QString &defaultApp)
 {
     m_defaultApp = defaultApp;
     Q_EMIT defaultAppChanged();
+}
+
+QString AppChooserData::lastUsedApp() const
+{
+    return m_lastUsedApp;
+}
+
+void AppChooserData::setLastUsedApp(const QString &lastUsedApp)
+{
+    if (m_lastUsedApp == lastUsedApp) {
+        return;
+    }
+
+    m_lastUsedApp = lastUsedApp;
+    Q_EMIT lastUsedAppChanged();
 }
 
 AppChooserData::AppChooserData(QObject *parent)

@@ -61,6 +61,9 @@ public:
     void setDefaultApp(const QString &);
     QString defaultApp() const;
 
+    void setLastUsedApp(const QString &);
+    QString lastUsedApp() const;
+
     void setFilter(const QString &text);
     QString filter() const;
 
@@ -76,6 +79,7 @@ private:
     bool m_showOnlyPreferredApps = true;
     QString m_filter;
     QString m_defaultApp;
+    QString m_lastUsedApp;
 };
 
 class AppChooserData : public QObject
@@ -83,6 +87,7 @@ class AppChooserData : public QObject
     Q_OBJECT
     Q_PROPERTY(QString fileName READ fileName WRITE setFileName NOTIFY fileNameChanged)
     Q_PROPERTY(QString defaultApp READ defaultApp WRITE setDefaultApp NOTIFY defaultAppChanged)
+    Q_PROPERTY(QString lastUsedApp READ lastUsedApp WRITE setLastUsedApp NOTIFY lastUsedAppChanged)
     Q_PROPERTY(QString mimeName READ mimeName WRITE setMimeName NOTIFY mimeNameChanged)
     Q_PROPERTY(QString mimeDesc READ mimeDesc NOTIFY mimeDescChanged)
 
@@ -97,6 +102,10 @@ public:
     void setDefaultApp(const QString &defaultApp);
     Q_SIGNAL void defaultAppChanged();
 
+    QString lastUsedApp() const;
+    void setLastUsedApp(const QString &lastUsedApp);
+    Q_SIGNAL void lastUsedAppChanged();
+
     QString mimeName() const;
     void setMimeName(const QString &mimeName);
     Q_SIGNAL void mimeNameChanged();
@@ -110,6 +119,7 @@ public:
 
 private:
     QString m_defaultApp;
+    QString m_lastUsedApp;
     QString m_fileName;
     QString m_mimeName;
 };
@@ -153,7 +163,7 @@ class AppChooserDialog : public QuickDialog
     Q_OBJECT
 public:
     explicit AppChooserDialog(const QStringList &choices,
-                              const QString &defaultApp,
+                              const QString &lastUsedApp,
                               const QString &fileName,
                               const QString &mimeName = QString(),
                               QObject *parent = nullptr);
