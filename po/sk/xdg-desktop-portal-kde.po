@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-07 03:06+0000\n"
-"PO-Revision-Date: 2023-01-22 16:48+0100\n"
+"PO-Revision-Date: 2023-03-08 17:15+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -54,44 +54,42 @@ msgstr "Výber aplikácie na otvorenie <filename>%1</filename>"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr ""
+msgstr "Vždy otvárať súbory %1 pomocou vybranej aplikácie"
 
 #: src/AppChooserDialog.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgid "Show All Installed Applications"
-msgstr "Vybrať aplikáciu"
+msgstr "Zobraziť všetky nainštalované aplikácie"
 
 #: src/AppChooserDialog.qml:171
 #, kde-format
 msgid "Default app for this file type"
-msgstr ""
+msgstr "Predvolená aplikácia pre tento typ súborov"
 
 #: src/AppChooserDialog.qml:190
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "Žiadne zhody"
 
 #: src/AppChooserDialog.qml:190
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Choose an application to open <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
-msgstr "Výber aplikácie na otvorenie <filename>%1</filename>"
+msgstr ""
+"Žiadne nainštalované aplikácie nedokážu otvoriť <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:194
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr ""
+msgstr "Nájsť viac v Discover"
 
 #: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
+"Nenašli ste tú správnu aplikáciu? Viac nájdete v <link>Discover</link>."
 
 #: src/background.cpp:104
 #, kde-format
@@ -151,25 +149,25 @@ msgstr "Vybrať aplikáciu"
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
-msgstr ""
+msgstr "Názov"
 
 #: src/DynamicLauncherDialog.qml:91
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr ""
+msgstr "Upraviť informácie..."
 
 #: src/DynamicLauncherDialog.qml:97
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
-msgstr ""
+msgstr "Prijať"
 
 #: src/DynamicLauncherDialog.qml:102
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušiť"
 
 #: src/filechooser.cpp:369
 #, kde-format
@@ -194,56 +192,52 @@ msgstr "Uložiť súbor"
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
 msgid "Create new folder"
-msgstr ""
+msgstr "Vytvoriť nový priečinok "
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
 msgid "Create new folder in %1"
-msgstr ""
+msgstr "Vytvoriť nový priečinok v %1"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
-#, fuzzy, kde-format
-#| msgctxt "NAME OF TRANSLATORS"
-#| msgid "Your names"
+#, kde-format
 msgid "folder name"
-msgstr "Roman Paholík"
+msgstr "názov priečinka"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušiť"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
 msgid "File name"
-msgstr ""
+msgstr "Názov súboru"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:116
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Select"
-msgstr "Vybrať priečinok"
+msgstr "Vybrať"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create folder"
-msgstr "Vybrať priečinok"
+msgstr "Vytvoriť priečinok"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
 msgid "Filter filetype"
-msgstr ""
+msgstr "Typ súboru"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Show hidden files"
-msgstr ""
+msgstr "Zobrazovať skryté súbory"
 
 #: src/outputsmodel.cpp:18
 #, kde-format
@@ -404,11 +398,9 @@ msgid "Choose which window to share with %1:"
 msgstr "Vybrať čo sa má zdieľať s %1"
 
 #: src/ScreenChooserDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to see what's on the outputs, in markdown"
-#| msgid " - Screens\n"
+#, kde-format
 msgid "Screens"
-msgstr " - Obrazovky\n"
+msgstr "Obrazovky"
 
 #: src/ScreenChooserDialog.qml:39
 #, kde-format
@@ -418,7 +410,7 @@ msgstr "Okná"
 #: src/ScreenChooserDialog.qml:129
 #, kde-format
 msgid "Allow restoring on future sessions"
-msgstr ""
+msgstr "Povoliť obnovenie v budúcich sedeniach"
 
 #: src/screenshotdialog.cpp:88
 #, kde-format
@@ -441,10 +433,9 @@ msgid "Request screenshot"
 msgstr "Vyžiadať snímku obrazovky"
 
 #: src/ScreenshotDialog.qml:30
-#, fuzzy, kde-format
-#| msgid "<b>Capture Mode</b>"
+#, kde-format
 msgid "Capture Mode"
-msgstr "<b>Režim Zaznamenavánia</b>"
+msgstr "Režim záznamu"
 
 #: src/ScreenshotDialog.qml:34
 #, kde-format
@@ -460,19 +451,17 @@ msgstr "Oneskorenie:"
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 sekunda"
+msgstr[1] "%1 sekundy"
+msgstr[2] "%1 sekúnd"
 
 #: src/ScreenshotDialog.qml:52
-#, fuzzy, kde-format
-#| msgid "<b>Content Options</b>"
+#, kde-format
 msgid "Content Options"
-msgstr "<b>Nastavenia obsahu</b>"
+msgstr "Nastavenia obsahu"
 
 #: src/ScreenshotDialog.qml:56
-#, fuzzy, kde-format
-#| msgid "Include mouse pointer"
+#, kde-format
 msgid "Include cursor pointer"
 msgstr "Zahrnúť ukazovateľ myši"
 
@@ -482,15 +471,14 @@ msgid "Include window borders"
 msgstr "Zahrnúť okraje okna"
 
 #: src/ScreenshotDialog.qml:74
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save"
-msgstr "Uložiť súbor"
+msgstr "Uložiť"
 
 #: src/ScreenshotDialog.qml:84
 #, kde-format
 msgid "Take"
-msgstr ""
+msgstr "Zosnímať"
 
 #: src/session.cpp:169
 #, kde-format
