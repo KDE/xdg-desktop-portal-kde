@@ -414,10 +414,9 @@ msgid "Choose which window to share with %1:"
 msgstr "Valitse, mikä ikkuna käyttäjälle %1 jaetaan:"
 
 #: src/ScreenChooserDialog.qml:36
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgid "Screens"
-msgstr "Koko näyttö"
+msgstr "Näytöt"
 
 #: src/ScreenChooserDialog.qml:39
 #, kde-format
