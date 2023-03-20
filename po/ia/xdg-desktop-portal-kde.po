@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-07 02:22+0000\n"
-"PO-Revision-Date: 2023-03-16 09:18+0100\n"
+"PO-Revision-Date: 2023-03-19 21:43+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -157,13 +157,13 @@ msgid "Edit Info…"
 msgstr "Modifica Info..."
 
 #: src/DynamicLauncherDialog.qml:97
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
 msgstr "Accepta"
 
 #: src/DynamicLauncherDialog.qml:102
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Cancel"
 msgstr "Cancella"
@@ -189,8 +189,7 @@ msgid "Save File"
 msgstr "Salveguarda file"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create New Folder"
 msgstr "Crea nove dossier"
 
@@ -200,11 +199,9 @@ msgid "Create new folder in %1"
 msgstr "Crea nove dossier in %1"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
-#, fuzzy, kde-format
-#| msgctxt "NAME OF TRANSLATORS"
-#| msgid "Your names"
+#, kde-format
 msgid "Folder name"
-msgstr "Nomine de dossier:"
+msgstr "Nomine de dossier"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
@@ -212,7 +209,7 @@ msgid "OK"
 msgstr "OK"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cancel"
 msgstr "Cancella"
 
@@ -222,24 +219,22 @@ msgid "File name"
 msgstr "Nomine de file"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:116
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Select"
 msgstr "Selige"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create Folder"
 msgstr "Crea dossier"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
-#, fuzzy, kde-format
+#, kde-format
 msgid "Filter Filetype"
 msgstr "Filtra typo de file"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
-#, fuzzy, kde-format
+#, kde-format
 msgid "Show Hidden Files"
 msgstr "Monstra files celate"
 
@@ -266,12 +261,12 @@ msgstr "Schermo de Laptop"
 #: src/region-select/RegionSelectOverlay.qml:142
 #, kde-format
 msgid "Start streaming:"
-msgstr ""
+msgstr "Initia streaming:"
 
 #: src/region-select/RegionSelectOverlay.qml:146
-#, fuzzy, kde-format
+#, kde-format
 msgid "Clear selection:"
-msgstr "Netta selection"
+msgstr "Netta selection:"
 
 #: src/region-select/RegionSelectOverlay.qml:150
 #: src/region-select/RegionSelectOverlay.qml:193
@@ -301,13 +296,13 @@ msgstr "Escape"
 #: src/region-select/RegionSelectOverlay.qml:189
 #, kde-format
 msgid "Create selection:"
-msgstr ""
+msgstr "Crea selection:"
 
 #: src/region-select/RegionSelectOverlay.qml:199
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
-msgstr ""
+msgstr "Clicca a sinistra e trahe"
 
 #: src/remotedesktop.cpp:121
 #, kde-format
@@ -453,9 +448,7 @@ msgid "Choose which window to share with %1:"
 msgstr "Selige qual fenestra a compartir con %1:"
 
 #: src/ScreenChooserDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to see what's on the outputs, in markdown"
-#| msgid " - Screens\n"
+#, kde-format
 msgid "Screens"
 msgstr "Schermos"
 
@@ -485,8 +478,7 @@ msgid "Active Window"
 msgstr "Fenestra active"
 
 #: src/ScreenshotDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "Request screenshot"
+#, kde-format
 msgid "Request Screenshot"
 msgstr "Instantanee de schermo de requesta"
 
@@ -506,7 +498,7 @@ msgid "Delay:"
 msgstr "Retardo:"
 
 #: src/ScreenshotDialog.qml:44
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 secunda"
@@ -528,8 +520,7 @@ msgid "Include window borders"
 msgstr "Include bordos de fenestra"
 
 #: src/ScreenshotDialog.qml:74
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save"
 msgstr "Salveguarda"
 
