@@ -12,7 +12,6 @@ Dependencies:
     'frameworks/kconfig': '@latest-kf6'
     'frameworks/kconfigwidgets': '@latest-kf6'
     'frameworks/kcoreaddons': '@latest-kf6'
-    'frameworks/kdeclarative': '@latest-kf6'
     'frameworks/ki18n': '@latest-kf6'
     'frameworks/kio': '@latest-kf6'
     'frameworks/kitemviews': '@latest-kf6'
@@ -27,5 +26,7 @@ Dependencies:
     'frameworks/solid': '@latest-kf6'
     'frameworks/kirigami': '@latest-kf6'
     'frameworks/plasma-framework': '@latest-kf6'
+runtime-dependencies:
+    'frameworks/kiconthemes': '@latest-kf6' # IconDialog
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']

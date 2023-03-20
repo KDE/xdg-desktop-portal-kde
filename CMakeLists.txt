@@ -27,6 +27,7 @@ include(ECMSetupVersion)
 include(ECMConfiguredInstall)
 include(ECMQtDeclareLoggingCategory)
 include(ECMAddTests)
+include(ECMFindQmlModule)
 
 include(FeatureSummary)
 
@@ -53,7 +54,6 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
     CoreAddons
     Config
     I18n
-    Declarative
     GuiAddons
     GlobalAccel
     KIO
@@ -65,6 +65,7 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
     WindowSystem
     IconThemes
 )
+ecm_find_qmlmodule(org.kde.iconthemes 1.0)
 find_package(Wayland 1.15 REQUIRED COMPONENTS Client)
 find_package(PlasmaWaylandProtocols 1.7.0 REQUIRED)
 if (QT_MAJOR_VERSION EQUAL "5")

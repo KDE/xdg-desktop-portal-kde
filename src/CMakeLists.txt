@@ -297,7 +297,6 @@ target_link_libraries(xdg-desktop-portal-kde
     KF6::CoreAddons
     KF6::ConfigCore
     KF6::ConfigGui
-    KF6::Declarative
     KF6::GlobalAccel
     KF6::GuiAddons
     KF6::I18n

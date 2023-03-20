@@ -6,7 +6,7 @@ import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as QQC2
 import org.kde.kirigami 2.14 as Kirigami
 import org.kde.plasma.workspace.dialogs 1.0 as PWD
-import org.kde.kquickcontrolsaddons 2.0 as KQuickAddons
+import org.kde.iconthemes as KIconThemes
 
 PWD.SystemDialog
 {
@@ -57,7 +57,7 @@ PWD.SystemDialog
                     implicitWidth: Kirigami.Units.iconSizes.enormous
                     source: dialog.icon
 
-                    KQuickAddons.IconDialog {
+                    KIconThemes.IconDialog {
                         id: iconDialog
                         onIconNameChanged: dialog.icon = iconName
                     }
