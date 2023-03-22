@@ -9,9 +9,9 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-07 03:06+0000\n"
-"PO-Revision-Date: 2023-02-24 16:19-0300\n"
+"PO-Revision-Date: 2023-03-21 09:32-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
-"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -258,29 +258,27 @@ msgstr "Tela do laptop"
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
-msgstr ""
+msgstr "Sessão de controle remoto iniciada"
 
 #: src/remotedesktopdialog.cpp:23
 #, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
-msgstr ""
+msgstr "Controle remoto solicitado"
 
 #: src/remotedesktopdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Requested access to:\n"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
-msgstr "Solicitar acesso para:\n"
+msgstr "Solicitado acesso para:\n"
 
 #: src/remotedesktopdialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "Requested access to:\n"
+#, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr "Solicitar acesso para:\n"
+msgstr "%1 solicitou acesso para controlar remotamente:\n"
 
 #: src/remotedesktopdialog.cpp:37
 #, kde-format
@@ -499,16 +497,15 @@ msgstr "Área de trabalho remota"
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Compartilhar conteúdos com %2"
+msgstr[1] "%1 fluxos de vídeo para %2"
 
 #: src/session.cpp:275
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
-msgstr "Compartilhamento de tela"
+msgstr "Transmissão de tela"
 
 #: src/session.cpp:445
 #, kde-format
