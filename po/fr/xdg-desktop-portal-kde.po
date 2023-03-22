@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-07 02:22+0000\n"
+"POT-Creation-Date: 2023-03-22 02:45+0000\n"
 "PO-Revision-Date: 2023-02-20 21:34+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -595,10 +595,8 @@ msgstr "Impossible de lancer la capture vidéo de l'écran"
 msgid "Remote desktop"
 msgstr "Bureau distant"
 
-#: src/xdg-desktop-portal-kde.cpp:28
-#, kde-format
-msgid "Portal"
-msgstr "Portail"
+#~ msgid "Portal"
+#~ msgstr "Portail"
 
 #~ msgctxt "Will allow the app to see what's on the outputs"
 #~ msgid ""

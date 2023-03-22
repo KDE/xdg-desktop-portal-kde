@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-07 02:22+0000\n"
+"POT-Creation-Date: 2023-03-22 02:45+0000\n"
 "PO-Revision-Date: 2023-02-21 20:18+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -587,10 +587,8 @@ msgstr "Gagal memulai penggandaan layar"
 msgid "Remote desktop"
 msgstr "Desktop jarak jauh"
 
-#: src/xdg-desktop-portal-kde.cpp:28
-#, kde-format
-msgid "Portal"
-msgstr "Portal"
+#~ msgid "Portal"
+#~ msgstr "Portal"
 
 #, fuzzy
 #~| msgid "Full Screen"

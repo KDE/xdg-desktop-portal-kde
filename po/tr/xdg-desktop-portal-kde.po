@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-07 02:22+0000\n"
+"POT-Creation-Date: 2023-03-22 02:45+0000\n"
 "PO-Revision-Date: 2023-02-20 17:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -582,10 +582,8 @@ msgstr "Ekran yayını başlatılamadı"
 msgid "Remote desktop"
 msgstr "Uzak Masaüstü"
 
-#: src/xdg-desktop-portal-kde.cpp:28
-#, kde-format
-msgid "Portal"
-msgstr "Portal"
+#~ msgid "Portal"
+#~ msgstr "Portal"
 
 #~ msgid "Ok"
 #~ msgstr "Tamam"

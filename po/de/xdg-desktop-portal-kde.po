@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-07 02:22+0000\n"
+"POT-Creation-Date: 2023-03-22 02:45+0000\n"
 "PO-Revision-Date: 2022-11-10 20:37+0100\n"
 "Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -610,10 +610,8 @@ msgstr "Das Bildschirmvideo kann nicht gestartet werden"
 msgid "Remote desktop"
 msgstr "Arbeitsfläche des Fremdgeräts"
 
-#: src/xdg-desktop-portal-kde.cpp:28
-#, kde-format
-msgid "Portal"
-msgstr "Portal"
+#~ msgid "Portal"
+#~ msgstr "Portal"
 
 #, fuzzy
 #~| msgid "Full Screen"

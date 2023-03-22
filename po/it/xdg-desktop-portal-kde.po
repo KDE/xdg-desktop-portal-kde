@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-07 02:22+0000\n"
+"POT-Creation-Date: 2023-03-22 02:45+0000\n"
 "PO-Revision-Date: 2023-02-24 22:10+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -586,10 +586,8 @@ msgstr "Connessione alla registrazione dello schermo non riuscita"
 msgid "Remote desktop"
 msgstr "Desktop remoto"
 
-#: src/xdg-desktop-portal-kde.cpp:28
-#, kde-format
-msgid "Portal"
-msgstr "Portale"
+#~ msgid "Portal"
+#~ msgstr "Portale"
 
 #~ msgctxt "Will allow the app to see what's on the outputs"
 #~ msgid ""

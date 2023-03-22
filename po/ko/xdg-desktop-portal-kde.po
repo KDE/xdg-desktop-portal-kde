@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-07 02:22+0000\n"
+"POT-Creation-Date: 2023-03-22 02:45+0000\n"
 "PO-Revision-Date: 2022-10-03 15:09+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-i18n-doc@kde.org>\n"
@@ -607,10 +607,8 @@ msgstr "스크린캐스팅을 시작할 수 없음"
 msgid "Remote desktop"
 msgstr "원격 데스크톱"
 
-#: src/xdg-desktop-portal-kde.cpp:28
-#, kde-format
-msgid "Portal"
-msgstr "포털"
+#~ msgid "Portal"
+#~ msgstr "포털"
 
 #, fuzzy
 #~| msgid "Full Screen"

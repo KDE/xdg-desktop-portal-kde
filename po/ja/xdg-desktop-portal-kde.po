@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-07 02:22+0000\n"
+"POT-Creation-Date: 2023-03-22 02:45+0000\n"
 "PO-Revision-Date: 2017-04-27 19:03-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -569,9 +569,4 @@ msgstr ""
 #: src/waylandintegration.cpp:645
 #, kde-format
 msgid "Remote desktop"
-msgstr ""
-
-#: src/xdg-desktop-portal-kde.cpp:28
-#, kde-format
-msgid "Portal"
 msgstr ""

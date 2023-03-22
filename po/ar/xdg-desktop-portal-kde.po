@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-07 02:22+0000\n"
+"POT-Creation-Date: 2023-03-22 02:45+0000\n"
 "PO-Revision-Date: 2023-03-16 12:51+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -590,10 +590,8 @@ msgstr "فشل في بدء التسجيل"
 msgid "Remote desktop"
 msgstr "سطح المكتب البعيد"
 
-#: src/xdg-desktop-portal-kde.cpp:28
-#, kde-format
-msgid "Portal"
-msgstr "البوابة"
+#~ msgid "Portal"
+#~ msgstr "البوابة"
 
 #, fuzzy
 #~| msgctxt "Will allow the app to see what's on the outputs"

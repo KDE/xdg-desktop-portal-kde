@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-07 02:22+0000\n"
+"POT-Creation-Date: 2023-03-22 02:45+0000\n"
 "PO-Revision-Date: 2023-01-22 17:01+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -599,10 +599,8 @@ msgstr "Spustenie zdieľania obrazovky zlyhalo"
 msgid "Remote desktop"
 msgstr "Vzdialená pracovná plocha"
 
-#: src/xdg-desktop-portal-kde.cpp:28
-#, kde-format
-msgid "Portal"
-msgstr "Portál"
+#~ msgid "Portal"
+#~ msgstr "Portál"
 
 #, fuzzy
 #~| msgctxt "Will allow the app to see what's on the outputs"
