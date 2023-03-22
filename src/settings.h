@@ -74,6 +74,13 @@ private Q_SLOTS:
 
 private:
     QDBusVariant readProperty(const QString &group, const QString &key);
+
+    /**
+     * Returns a list that contains redF, blueF and greenF and represents
+     * the current accent color.
+     * Format: (ddd)
+     */
+    QDBusVariant readAccentColor() const;
     QDBusVariant readFdoColorScheme();
 
     KSharedConfigPtr m_kdeglobals;

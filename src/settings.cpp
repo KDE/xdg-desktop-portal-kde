@@ -93,6 +93,7 @@ void SettingsPortal::ReadAll(const QStringList &groups)
     if (groupMatches(QStringLiteral("org.freedesktop.appearance"), groups)) {
         QVariantMap appearanceSettings;
         appearanceSettings.insert(QStringLiteral("color-scheme"), readFdoColorScheme().variant());
+        appearanceSettings.insert(QStringLiteral("accent-color"), readAccentColor().variant());
 
         result.insert(QStringLiteral("org.freedesktop.appearance"), appearanceSettings);
     }
@@ -148,10 +149,16 @@ void SettingsPortal::Read(const QString &group, const QString &key)
     QDBusMessage reply;
     QDBusMessage message = q_ptr->message();
 
-    if (group == QLatin1String("org.freedesktop.appearance") && key == QLatin1String("color-scheme")) {
-        reply = message.createReply(QVariant::fromValue(readFdoColorScheme()));
-        QDBusConnection::sessionBus().send(reply);
-        return;
+    if (group == QLatin1String("org.freedesktop.appearance")) {
+        if (key == QLatin1String("color-scheme")) {
+            reply = message.createReply(QVariant::fromValue(readFdoColorScheme()));
+            QDBusConnection::sessionBus().send(reply);
+            return;
+        } else if (key == QLatin1String("accent-color")) {
+            reply = message.createReply(QVariant::fromValue(readAccentColor()));
+            QDBusConnection::sessionBus().send(reply);
+            return;
+        }
     }
     // All other namespaces start with this prefix
     else if (!group.startsWith(QStringLiteral("org.kde.kdeglobals"))) {
@@ -192,6 +199,9 @@ void SettingsPortal::globalSettingChanged(int type, int arg)
                               readProperty(QStringLiteral("org.kde.kdeglobals.General"), QStringLiteral("ColorScheme")));
 
         Q_EMIT SettingChanged(QStringLiteral("org.freedesktop.appearance"), QStringLiteral("color-scheme"), readFdoColorScheme());
+
+        // https://github.com/flatpak/xdg-desktop-portal/pull/815
+        Q_EMIT SettingChanged(QStringLiteral("org.freedesktop.appearance"), QStringLiteral("accent-color"), readAccentColor());
         break;
     case FontChanged:
         fontChanged();
@@ -269,4 +279,10 @@ QDBusVariant SettingsPortal::readFdoColorScheme()
     }
 
     return QDBusVariant(result);
+}
+
+QDBusVariant SettingsPortal::readAccentColor() const
+{
+    const QColor accentColor = qGuiApp->palette().highlight().color();
+    return QDBusVariant(QVariantList{accentColor.redF(), accentColor.greenF(), accentColor.blueF()});
 }
