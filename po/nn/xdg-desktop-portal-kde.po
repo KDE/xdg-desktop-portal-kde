@@ -586,6 +586,3 @@ msgstr "Klarte ikkje starta skjermdeling"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Eksternt skrivebord"
-
-#~ msgid "Portal"
-#~ msgstr "Portal"
