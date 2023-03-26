@@ -17,7 +17,7 @@
 #include <QDBusMetaType>
 #include <QPalette>
 
-#include <KConfigCore/KConfigGroup>
+#include <KConfigGroup>
 
 #include "desktopportal.h"
 #include "tabletmodemanager_interface.h"

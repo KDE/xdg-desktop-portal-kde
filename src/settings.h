@@ -12,7 +12,7 @@
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
-#include <KConfigCore/KSharedConfig>
+#include <KSharedConfig>
 
 #include "dbushelpers.h"
 
