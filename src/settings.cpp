@@ -136,7 +136,9 @@ public:
         });
         connect(&m_interface, &OrgKdeKWinTabletModeManagerInterface::tabletModeChanged, this, [this](bool enabled) {
             Q_EMIT settingChanged(group(), KEY_ENABLED, QDBusVariant(enabled));
+            qputenv("BREEZE_IS_TABLET_MODE", enabled ? QByteArrayLiteral("1") : QByteArrayLiteral("0"));
         });
+        qputenv("BREEZE_IS_TABLET_MODE", m_interface.tabletMode() ? QByteArrayLiteral("1") : QByteArrayLiteral("0"));
     }
 
     inline QString group() final
