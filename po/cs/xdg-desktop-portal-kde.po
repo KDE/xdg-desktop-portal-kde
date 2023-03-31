@@ -581,6 +581,3 @@ msgstr ""
 #, kde-format
 msgid "Remote desktop"
 msgstr "Vzdálená plocha"
-
-#~ msgid "Portal"
-#~ msgstr "Portál"
