@@ -1,26 +1,26 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# A S Alam <aalam@users.sf.net>, 2017, 2018, 2019, 2020, 2022.
+# A S Alam <aalam@users.sf.net>, 2017, 2018, 2019, 2020, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-30 02:10+0000\n"
-"PO-Revision-Date: 2022-06-11 09:29-0700\n"
+"PO-Revision-Date: 2023-04-01 14:53-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
-"Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
+"Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ ੨੦੨੨"
+msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ ੨੦੨੩"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -39,42 +39,37 @@ msgid "%1 files"
 msgstr ""
 
 #: src/appchooserdialog.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Add Application…"
+#, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
-msgstr "…ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
+msgstr "ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
 
 #: src/appchooserdialog.cpp:42
-#, fuzzy, kde-kuit-format
-#| msgid "Select an application to open '%1'"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
-msgstr "'%1' ਖੋਲ੍ਹਣ ਲਈ ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
+msgstr "<filename>%1</filename> ਖੋਲ੍ਹਣ ਲਈ ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
 
 #: src/AppChooserDialog.qml:31
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr ""
+msgstr "%1 ਫ਼ਾਇਲਾਂ ਨੂੰ ਹਮੇਸ਼ਾਂ ਚੁਣੀ ਐਪ ਨਾਲ ਖੋਲ੍ਹੋ"
 
 #: src/AppChooserDialog.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Add Application…"
+#, kde-format
 msgid "Show All Installed Applications"
-msgstr "…ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
+msgstr "ਸਭ ਇੰਸਟਾਲ ਹੋਈਆਂ ਐਪਲੀਕੇਸ਼ਨ ਵੇਖੋ"
 
 #: src/AppChooserDialog.qml:169
 #, kde-format
 msgid "Default app for this file type"
-msgstr ""
+msgstr "ਇਸ ਫ਼ਾਇਲ ਕਿਸਮ ਲਈ ਮੂਲ ਐਪ"
 
 #: src/AppChooserDialog.qml:188
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "ਕੋਈ ਮੇਲ ਨਹੀਂ ਹੈ"
 
 #: src/AppChooserDialog.qml:188
 #, fuzzy, kde-kuit-format
@@ -87,7 +82,7 @@ msgstr "'%1' ਖੋਲ੍ਹਣ ਲਈ ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr ""
+msgstr "ਡਿਸਕਵਰ ਵਿੱਚ ਹੋਰ ਲੱਭੋ"
 
 #: src/AppChooserDialog.qml:207
 #, kde-kuit-format
@@ -191,49 +186,44 @@ msgid "Save File"
 msgstr "ਫਾਇਲ ਸੰਭਾਲੋ"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create New Folder"
-msgstr "ਫੋਲਡਰ ਚੁਣੋ"
+msgstr "ਨਵਾਂ ਫੋਲਡਰ ਬਣਾਓ"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
 msgid "Create new folder in %1"
-msgstr ""
+msgstr "'%1' ਵਿੱਚ ਨਵਾਂ ਫ਼ੋਲਡਰ ਬਣਾਓ"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
-#, fuzzy, kde-format
-#| msgctxt "NAME OF TRANSLATORS"
-#| msgid "Your names"
+#, kde-format
 msgid "Folder name"
-msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ ੨੦੨੨"
+msgstr "ਫ਼ੋਲਡਰ ਦਾ ਨਾਂ"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "ਠੀਕ ਹੈ"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "ਰੱਦ ਕਰੋ"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
 msgid "File name"
-msgstr ""
+msgstr "ਫ਼ਾਇਲ ਨਾਂ"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:116
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Select"
-msgstr "ਫੋਲਡਰ ਚੁਣੋ"
+msgstr "ਚੁਣੋ"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create Folder"
-msgstr "ਫੋਲਡਰ ਚੁਣੋ"
+msgstr "ਫੋਲਡਰ ਬਣਾਓ"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
@@ -243,7 +233,7 @@ msgstr ""
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Show Hidden Files"
-msgstr ""
+msgstr "ਲੁਕਵੀਆਂ ਫ਼ਾਇਲਾਂ ਵੇਖਾਓ"
 
 #: src/outputsmodel.cpp:18
 #, kde-format
@@ -261,14 +251,9 @@ msgid "Rectangular Region"
 msgstr ""
 
 #: src/outputsmodel.cpp:34
-#, fuzzy, kde-format
-#| msgid ""
-#| "Laptop screen\n"
-#| "Model: %1"
+#, kde-format
 msgid "Laptop screen"
-msgstr ""
-"ਲੈਪਟਾਪ ਸਕਰੀਨ\n"
-"ਮਾਡਲ: %1"
+msgstr "ਲੈਪਟਾਪ ਸਕਰੀਨ"
 
 #: src/region-select/RegionSelectOverlay.qml:142
 #, kde-format
@@ -284,7 +269,7 @@ msgstr ""
 #: src/region-select/RegionSelectOverlay.qml:193
 #, kde-format
 msgid "Cancel:"
-msgstr ""
+msgstr "ਰੱਦ ਕਰੋ:"
 
 #: src/region-select/RegionSelectOverlay.qml:156
 #, kde-format
@@ -345,17 +330,16 @@ msgid "%1 requested access to remotely control:\n"
 msgstr "ਜੰਤਰ ਲਈ ਪਹੁੰਚ ਬੇਨਤੀ"
 
 #: src/remotedesktopdialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr "ਪੂਰੀ ਸਕਰੀਨ"
+msgstr " - ਸਕਰੀਨਾਂ\n"
 
 #: src/remotedesktopdialog.cpp:40
 #, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
-msgstr ""
+msgstr " - ਇਨਪੁਟ ਡਿਵਾਈਸ\n"
 
 #: src/RemoteDesktopDialog.qml:26 src/ScreenChooserDialog.qml:135
 #: src/UserInfoDialog.qml:41
@@ -472,10 +456,9 @@ msgid "Choose which window to share with %1:"
 msgstr "ਚੁਣੋ ਕਿ %1 ਨਾਲ ਕੀ ਸਾਂਝਾ ਕਰਨਾ ਹੈ"
 
 #: src/ScreenChooserDialog.qml:36
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgid "Screens"
-msgstr "ਪੂਰੀ ਸਕਰੀਨ"
+msgstr "ਸਕਰੀਨ"
 
 #: src/ScreenChooserDialog.qml:39
 #, kde-format
@@ -509,10 +492,9 @@ msgid "Request Screenshot"
 msgstr "ਸਕਰੀਨਸ਼ਾਟ ਦੀ ਬੇਨਤੀ"
 
 #: src/ScreenshotDialog.qml:30
-#, fuzzy, kde-format
-#| msgid "<b>Capture Mode</b>"
+#, kde-format
 msgid "Capture Mode"
-msgstr "<b>ਕੈਪਚਰ ਢੰਗ</b>"
+msgstr "ਕੈਪਚਰ ਢੰਗ"
 
 #: src/ScreenshotDialog.qml:34
 #, kde-format
@@ -528,14 +510,13 @@ msgstr "ਦੇਰੀ:"
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 ਸਕਿੰਟ"
+msgstr[1] "%1 ਸਕਿੰਟ"
 
 #: src/ScreenshotDialog.qml:52
-#, fuzzy, kde-format
-#| msgid "<b>Content Options</b>"
+#, kde-format
 msgid "Content Options"
-msgstr "<b>ਸਮੱਗਰੀ ਚੋਣਾਂ</b>"
+msgstr "ਸਮੱਗਰੀ ਚੋਣਾਂ"
 
 #: src/ScreenshotDialog.qml:56
 #, fuzzy, kde-format
@@ -549,10 +530,9 @@ msgid "Include window borders"
 msgstr "ਵਿੰਡੋ ਹਾਸ਼ੀਏ ਦੇ ਸਮੇਤ"
 
 #: src/ScreenshotDialog.qml:74
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save"
-msgstr "ਫਾਇਲ ਸੰਭਾਲੋ"
+msgstr "ਸੰਭਾਲੋ"
 
 #: src/ScreenshotDialog.qml:84
 #, kde-format
@@ -566,8 +546,7 @@ msgid "End"
 msgstr ""
 
 #: src/session.cpp:255
-#, fuzzy, kde-format
-#| msgid "Remote desktop"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
@@ -582,17 +561,16 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/session.cpp:275
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
-msgstr "ਸਕਰੀਨ ਸਾਂਝਾ ਕਰਨਾ"
+msgstr "ਸਕਰੀਨ ਕਾਸਟਿੰਗ"
 
 #: src/session.cpp:445
 #, kde-format
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/userinfodialog.cpp:32
 #, kde-format
