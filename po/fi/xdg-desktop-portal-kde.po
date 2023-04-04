@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Tommi Nieminen <translator@legisign.org>, 2017, 2018, 2019, 2020, 2021, 2022.
+# Tommi Nieminen <translator@legisign.org>, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 # Lasse Liehu <lasse.liehu@iki.fi>, 2022.
 #
 msgid ""
@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-30 02:10+0000\n"
-"PO-Revision-Date: 2022-10-28 22:11+0300\n"
-"Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
+"PO-Revision-Date: 2023-03-29 09:53+0300\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -55,44 +55,41 @@ msgstr "Valitse sovellus, johon <filename>%1</filename> avataan"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr ""
+msgstr "Avaa tyypin ”%1” tiedostot aina valittuun sovellukseen"
 
 #: src/AppChooserDialog.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgid "Show All Installed Applications"
-msgstr "Valitse sovellus"
+msgstr "Näytä kaikki asennetut sovellukset"
 
 #: src/AppChooserDialog.qml:169
 #, kde-format
 msgid "Default app for this file type"
-msgstr ""
+msgstr "Tämän tiedostotyypin oletussovellus"
 
 #: src/AppChooserDialog.qml:188
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "Ei osumia"
 
 #: src/AppChooserDialog.qml:188
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Choose an application to open <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
-msgstr "Valitse sovellus, johon <filename>%1</filename> avataan"
+msgstr ""
+"Yksikään asennettu sovellus ei voi avata tiedostoa <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:192
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr ""
+msgstr "Etsi Discoverista lisää"
 
 #: src/AppChooserDialog.qml:207
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr ""
+msgstr "Eikö oikeaa sovellusta löydy? Etsi <link>Discover</link>ista lisää."
 
 #: src/background.cpp:104
 #, kde-format
@@ -153,25 +150,25 @@ msgstr "Lisää sovellus…"
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
-msgstr ""
+msgstr "Nimi"
 
 #: src/DynamicLauncherDialog.qml:91
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr ""
+msgstr "Muokkaa tietoja…"
 
 #: src/DynamicLauncherDialog.qml:97
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
-msgstr ""
+msgstr "Hyväksy"
 
 #: src/DynamicLauncherDialog.qml:102
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
-msgstr ""
+msgstr "Peru"
 
 #: src/filechooser.cpp:365
 #, kde-format
@@ -194,59 +191,54 @@ msgid "Save File"
 msgstr "Tallenna tiedosto"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create New Folder"
-msgstr "Valitse kansio"
+msgstr "Luo uusi kansio"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
 msgid "Create new folder in %1"
-msgstr ""
+msgstr "Luo kohteeseen %1 uusi kansio"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
-#, fuzzy, kde-format
-#| msgctxt "NAME OF TRANSLATORS"
-#| msgid "Your names"
+#, kde-format
 msgid "Folder name"
-msgstr "Tommi Nieminen"
+msgstr "Kansionimi"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Peru"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
 msgid "File name"
-msgstr ""
+msgstr "Tiedostonimi"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:116
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Select"
-msgstr "Valitse kansio"
+msgstr "Valitse"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create Folder"
-msgstr "Valitse kansio"
+msgstr "Luo kansio"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
 msgid "Filter Filetype"
-msgstr ""
+msgstr "Suodata tiedostotyyppejä"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Show Hidden Files"
-msgstr ""
+msgstr "Näytä piilotiedostot"
 
 #: src/outputsmodel.cpp:18
 #, kde-format
@@ -261,75 +253,70 @@ msgstr "Seuraava virtuaaliulostulo"
 #: src/outputsmodel.cpp:27
 #, kde-format
 msgid "Rectangular Region"
-msgstr ""
+msgstr "Nelikulmainen alue"
 
 #: src/outputsmodel.cpp:34
-#, fuzzy, kde-format
-#| msgid ""
-#| "Laptop screen\n"
-#| "Model: %1"
+#, kde-format
 msgid "Laptop screen"
-msgstr ""
-"Kannettavan näyttö\n"
-"Malli: %1"
+msgstr "Kannettavan näyttö"
 
 #: src/region-select/RegionSelectOverlay.qml:142
 #, kde-format
 msgid "Start streaming:"
-msgstr ""
+msgstr "Aloita suoratoisto:"
 
 #: src/region-select/RegionSelectOverlay.qml:146
 #, kde-format
 msgid "Clear selection:"
-msgstr ""
+msgstr "Tyhjennä valinta:"
 
 #: src/region-select/RegionSelectOverlay.qml:150
 #: src/region-select/RegionSelectOverlay.qml:193
 #, kde-format
 msgid "Cancel:"
-msgstr ""
+msgstr "Peru:"
 
 #: src/region-select/RegionSelectOverlay.qml:156
 #, kde-format
 msgctxt "Mouse action"
 msgid "Release left-click"
-msgstr ""
+msgstr "Vapauta vasen napsautus"
 
 #: src/region-select/RegionSelectOverlay.qml:160
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
-msgstr ""
+msgstr "Oikea napsautus"
 
 #: src/region-select/RegionSelectOverlay.qml:164
 #: src/region-select/RegionSelectOverlay.qml:203
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
-msgstr ""
+msgstr "Esc"
 
 #: src/region-select/RegionSelectOverlay.qml:189
 #, kde-format
 msgid "Create selection:"
-msgstr ""
+msgstr "Luo valinta:"
 
 #: src/region-select/RegionSelectOverlay.qml:199
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
-msgstr ""
+msgstr "Napsauta vasemmalla ja vedä"
 
 #: src/remotedesktop.cpp:121
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
-msgstr ""
+msgstr "Etähallintaistunto aloitettu"
 
 #: src/remotedesktopdialog.cpp:23
 #, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
-msgstr ""
+msgstr "Etähallintaa pyydetty"
 
 #: src/remotedesktopdialog.cpp:32
 #, fuzzy, kde-format
@@ -339,26 +326,24 @@ msgid "Requested access to:\n"
 msgstr "Pyydä laiteyhteyttä"
 
 #: src/remotedesktopdialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr "Pyydä laiteyhteyttä"
+msgstr "%1 pyysi etähallintalupaa:\n"
 
 #: src/remotedesktopdialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr "Koko näyttö"
+msgstr " – näytöt\n"
 
 #: src/remotedesktopdialog.cpp:40
 #, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
-msgstr ""
+msgstr " – syötelaitteet\n"
 
 #: src/RemoteDesktopDialog.qml:26 src/ScreenChooserDialog.qml:135
 #: src/UserInfoDialog.qml:41
@@ -478,7 +463,7 @@ msgstr "Ikkunat"
 #: src/ScreenChooserDialog.qml:129
 #, kde-format
 msgid "Allow restoring on future sessions"
-msgstr ""
+msgstr "Salli palauttaminen myöhemmissä istunnoissa"
 
 #: src/screenshotdialog.cpp:115
 #, kde-format
@@ -496,16 +481,14 @@ msgid "Active Window"
 msgstr "Aktiivinen ikkuna"
 
 #: src/ScreenshotDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "Request screenshot"
+#, kde-format
 msgid "Request Screenshot"
 msgstr "Pyydä kuvakaappausta"
 
 #: src/ScreenshotDialog.qml:30
-#, fuzzy, kde-format
-#| msgid "<b>Capture Mode</b>"
+#, kde-format
 msgid "Capture Mode"
-msgstr "<b>Kaappaustapa</b>"
+msgstr "Kaappaustapa"
 
 #: src/ScreenshotDialog.qml:34
 #, kde-format
@@ -521,20 +504,18 @@ msgstr "Viive:"
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 sekunti"
+msgstr[1] "%1 sekuntia"
 
 #: src/ScreenshotDialog.qml:52
-#, fuzzy, kde-format
-#| msgid "<b>Content Options</b>"
+#, kde-format
 msgid "Content Options"
-msgstr "<b>Sisältövalinnat</b>"
+msgstr "Sisältövalinnat"
 
 #: src/ScreenshotDialog.qml:56
-#, fuzzy, kde-format
-#| msgid "Include mouse pointer"
+#, kde-format
 msgid "Include cursor pointer"
-msgstr "Ota hiirikohdistin mukaan"
+msgstr "Sisällytä hiiriosoitin"
 
 #: src/ScreenshotDialog.qml:61
 #, kde-format
@@ -542,10 +523,9 @@ msgid "Include window borders"
 msgstr "Ota ikkunareunat mukaan"
 
 #: src/ScreenshotDialog.qml:74
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save"
-msgstr "Tallenna tiedosto"
+msgstr "Tallenna"
 
 #: src/ScreenshotDialog.qml:84
 #, kde-format
@@ -556,11 +536,10 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
-msgstr ""
+msgstr "Lopeta"
 
 #: src/session.cpp:255
-#, fuzzy, kde-format
-#| msgid "Remote desktop"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
@@ -571,8 +550,8 @@ msgstr "Etätyöpöytä"
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Jaetaan sisältöä sovellukseen %2"
+msgstr[1] "%1 videovirtaa sovellukseen %2"
 
 #: src/session.cpp:275
 #, fuzzy, kde-format
@@ -585,7 +564,7 @@ msgstr "Näytönjako"
 #: src/session.cpp:445
 #, kde-format
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/userinfodialog.cpp:32
 #, kde-format
