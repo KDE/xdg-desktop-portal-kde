@@ -282,6 +282,14 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
 WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode)
 {
     auto output = m_outputMap.value(outputName).output();
+    if (!output) {
+        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Cannot stream, output not found" << outputName << m_outputMap.keys();
+        auto notification = new KNotification(QStringLiteral("screencastfailure"), KNotification::CloseOnTimeout);
+        notification->setTitle(i18n("Failed to start screencasting"));
+        notification->setIconName(QStringLiteral("dialog-error"));
+        notification->sendEvent();
+        return {};
+    }
     m_streamedScreenPosition = output->globalPosition();
     return startStreaming(m_screencasting->createOutputStream(output.data(), mode),
                           {
