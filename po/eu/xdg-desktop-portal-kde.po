@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-30 02:10+0000\n"
+"POT-Creation-Date: 2023-04-06 02:04+0000\n"
 "PO-Revision-Date: 2023-02-23 20:09+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -580,12 +580,12 @@ msgid "Share your personal information with the requesting application?"
 msgstr ""
 "Zure informazio pertsonala eskatzen duen aplikazioarekin partekatu nahi duzu?"
 
-#: src/waylandintegration.cpp:342
+#: src/waylandintegration.cpp:293 src/waylandintegration.cpp:350
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Huts egin du pantaila-grabatzea abiatzea"
 
-#: src/waylandintegration.cpp:645
+#: src/waylandintegration.cpp:653
 #, kde-format
 msgid "Remote desktop"
 msgstr "Urruneko mahaigaina"

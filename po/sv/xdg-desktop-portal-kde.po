@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-30 02:10+0000\n"
+"POT-Creation-Date: 2023-04-06 02:04+0000\n"
 "PO-Revision-Date: 2022-09-24 15:05+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -599,12 +599,12 @@ msgstr "Dela information"
 msgid "Share your personal information with the requesting application?"
 msgstr "Dela din personliga information med programmet som begär det?"
 
-#: src/waylandintegration.cpp:342
+#: src/waylandintegration.cpp:293 src/waylandintegration.cpp:350
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Misslyckades starta skärmutsändning"
 
-#: src/waylandintegration.cpp:645
+#: src/waylandintegration.cpp:653
 #, kde-format
 msgid "Remote desktop"
 msgstr "Fjärrskrivbord"
