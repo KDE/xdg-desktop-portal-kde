@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-07 03:06+0000\n"
+"POT-Creation-Date: 2023-04-06 02:35+0000\n"
 "PO-Revision-Date: 2022-11-10 20:37+0100\n"
 "Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -547,12 +547,12 @@ msgstr ""
 "Möchten Sie Ihre persönlichen Informationen für die anfragende Anwendung "
 "freigeben?"
 
-#: src/waylandintegration.cpp:327
+#: src/waylandintegration.cpp:288 src/waylandintegration.cpp:335
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Das Bildschirmvideo kann nicht gestartet werden"
 
-#: src/waylandintegration.cpp:630
+#: src/waylandintegration.cpp:638
 #, kde-format
 msgid "Remote desktop"
 msgstr "Arbeitsfläche des Fremdgeräts"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-07 03:06+0000\n"
+"POT-Creation-Date: 2023-04-06 02:35+0000\n"
 "PO-Revision-Date: 2023-03-27 12:02\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -520,12 +520,12 @@ msgstr "分享信息"
 msgid "Share your personal information with the requesting application?"
 msgstr "要与发出请求的应用程序分享您的个人信息吗？"
 
-#: src/waylandintegration.cpp:327
+#: src/waylandintegration.cpp:288 src/waylandintegration.cpp:335
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "启动投屏失败"
 
-#: src/waylandintegration.cpp:630
+#: src/waylandintegration.cpp:638
 #, kde-format
 msgid "Remote desktop"
 msgstr "远程桌面"
