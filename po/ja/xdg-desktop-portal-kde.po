@@ -1,10 +1,12 @@
+# Ryuichi Yamada <ryuichi_ya220@outlook.jp>, 2023.
+# Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-06 02:35+0000\n"
-"PO-Revision-Date: 2017-04-27 19:03-0700\n"
-"Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
+"PO-Revision-Date: 2023-04-07 23:28-0700\n"
+"Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -13,98 +15,101 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Ryuichi Yamada"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "ryuichi_ya220@outlook.jp"
 
 #: src/accessdialog.cpp:22
 #, kde-format
 msgid "Request device access"
-msgstr ""
+msgstr "デバイスへのアクセスを要求"
 
 #: src/appchooser.cpp:96
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
-msgstr ""
+msgstr "%1 ファイル"
 
 #: src/appchooserdialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
-msgstr ""
+msgstr "アプリケーションを選択してください"
 
 #: src/appchooserdialog.cpp:43
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
-msgstr ""
+msgstr "<filename>%1</filename> を開くためのアプリケーションを選択してください"
 
 #: src/AppChooserDialog.qml:31
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr ""
+msgstr "常に選択したアプリケーションで %1 を開く"
 
 #: src/AppChooserDialog.qml:64
 #, kde-format
 msgid "Show All Installed Applications"
-msgstr ""
+msgstr "すべてのインストールされたアプリケーションを表示"
 
 #: src/AppChooserDialog.qml:171
 #, kde-format
 msgid "Default app for this file type"
-msgstr ""
+msgstr "このファイルタイプのためのデフォルトのアプリケーション"
 
 #: src/AppChooserDialog.qml:190
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "一致なし"
 
 #: src/AppChooserDialog.qml:190
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
+"<filename>%1</filename> を開けるアプリケーションはインストールされていません"
 
 #: src/AppChooserDialog.qml:194
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr ""
+msgstr "Discover でアプリケーションを探す"
 
 #: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
+"適切なアプリケーションがない場合は、<link>Discover</link> で探してください。"
 
 #: src/background.cpp:104
 #, kde-format
 msgid "Background activity"
-msgstr ""
+msgstr "バックグラウンドアクティビティ"
 
 #: src/background.cpp:105
 #, kde-format
 msgid "%1 is running in the background."
-msgstr ""
+msgstr "%1 がバックグラウンドで動作中です。"
 
 #: src/background.cpp:106
 #, kde-format
 msgid "Find out more"
-msgstr ""
+msgstr "詳細"
 
 #: src/background.cpp:117
 #, kde-format
 msgid "%1 is running in the background"
-msgstr ""
+msgstr "%1 がバックグラウンドで動作中です"
 
 #: src/background.cpp:119
 #, kde-format
@@ -114,122 +119,126 @@ msgid ""
 "\n"
 "Note that forcing an application to quit might cause data loss."
 msgstr ""
+"適切な理由により動作している可能性もありますが、アプリケーションは理由を示し"
+"ていません。\n"
+"\n"
+"強制的にアプリケーションを終了させると、データが失われる可能性があります。"
 
 #: src/background.cpp:122
 #, kde-format
 msgid "Force quit"
-msgstr ""
+msgstr "強制的に終了"
 
 #: src/background.cpp:123
 #, kde-format
 msgid "Allow"
-msgstr ""
+msgstr "許可"
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
-msgstr ""
+msgstr "ウェブアプリケーションを追加..."
 
 #: src/dynamiclauncher.cpp:81
 #, kde-format
 msgctxt "@title"
 msgid "Add Application…"
-msgstr ""
+msgstr "アプリケーションを追加..."
 
 #: src/DynamicLauncherDialog.qml:72
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 #: src/DynamicLauncherDialog.qml:91
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr ""
+msgstr "情報を編集..."
 
 #: src/DynamicLauncherDialog.qml:97
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
-msgstr ""
+msgstr "許可"
 
 #: src/DynamicLauncherDialog.qml:102
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #: src/filechooser.cpp:369
 #, kde-format
 msgid "Open"
-msgstr ""
+msgstr "開く"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:100
 #, kde-format
 msgid "Select Folder"
-msgstr ""
+msgstr "フォルダを選択"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
 #, kde-format
 msgid "Open File"
-msgstr ""
+msgstr "ファイルを開く"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
 #, kde-format
 msgid "Save File"
-msgstr ""
+msgstr "ファイルを保存"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
 msgid "Create new folder"
-msgstr ""
+msgstr "新しいフォルダを作成"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
 msgid "Create new folder in %1"
-msgstr ""
+msgstr "%1 に新しいフォルダを作成する"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
 #, kde-format
 msgid "folder name"
-msgstr ""
+msgstr "フォルダ名"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "Ok"
-msgstr ""
+msgstr "OK"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
 msgid "File name"
-msgstr ""
+msgstr "ファイル名"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:116
 #, kde-format
 msgid "Select"
-msgstr ""
+msgstr "選択"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
 #, kde-format
 msgid "Create folder"
-msgstr ""
+msgstr "フォルダを作成"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
 msgid "Filter filetype"
-msgstr ""
+msgstr "ファイルタイプをフィルタリング"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Show hidden files"
-msgstr ""
+msgstr "隠しファイルを表示"
 
 #: src/outputsmodel.cpp:18
 #, kde-format
