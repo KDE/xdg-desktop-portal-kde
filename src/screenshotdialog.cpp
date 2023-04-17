@@ -153,7 +153,8 @@ QFuture<QImage> ScreenshotDialog::takeScreenshot()
     } else {
         interface.asyncCall(types ? QStringLiteral("screenshotScreen") : QStringLiteral("screenshotFullscreen"),
                             QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])),
-                            withCursor);
+                            withCursor,
+                            true);
     }
     ::close(pipeFds[1]);
 
