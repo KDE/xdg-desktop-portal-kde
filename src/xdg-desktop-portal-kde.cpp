@@ -18,6 +18,9 @@
 
 int main(int argc, char *argv[])
 {
+    // Don't use itself from KdePlatformTheme
+    qunsetenv("PLASMA_INTEGRATION_USE_PORTAL");
+
     QCoreApplication::setAttribute(Qt::AA_DisableSessionManager);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
