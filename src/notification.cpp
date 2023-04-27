@@ -93,6 +93,7 @@ void NotificationPortal::AddNotification(const QString &app_id, const QString &i
         }
     }
     notify->setHint(QStringLiteral("desktop-entry"), app_id);
+    notify->setHint(QStringLiteral("x-kde-xdgTokenAppId"), app_id);
 
     notify->setProperty("actionValues", QVariant::fromValue<QList<Action>>(actionValues));
     notify->setProperty("app_id", app_id);
