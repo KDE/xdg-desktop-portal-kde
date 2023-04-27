@@ -89,18 +89,18 @@ PWD.SystemDialog
     actions: [
         Kirigami.Action {
             text: i18nc("@action edit launcher name/icon", "Edit Info…")
-            iconName: "document-edit"
+            icon.name: "document-edit"
             onCheckedChanged: root.edit = checked
             checkable: true
         },
         Kirigami.Action {
             text: i18nc("@action accept dialog and create launcher", "Accept")
-            iconName: "dialog-ok"
+            icon.name: "dialog-ok"
             onTriggered: accept()
         },
         Kirigami.Action {
             text: i18nc("@action", "Cancel")
-            iconName: "dialog-cancel"
+            icon.name: "dialog-cancel"
             onTriggered: reject()
         }
     ]

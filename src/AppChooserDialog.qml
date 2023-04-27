@@ -188,7 +188,7 @@ PWD.SystemDialog
                         text: searchField.text.length > 0 ? i18n("No matches") : xi18nc("@info", "No installed applications can open <filename>%1</filename>", AppChooserData.fileName)
 
                         helpfulAction: Kirigami.Action {
-                            iconName: "plasmadiscover"
+                            icon.name: "plasmadiscover"
                             text: i18nc("Find some more apps that can open this content using the Discover app", "Find More in Discover")
                             onTriggered: AppChooserData.openDiscover()
                         }
