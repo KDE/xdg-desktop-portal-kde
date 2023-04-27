@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-06 02:35+0000\n"
-"PO-Revision-Date: 2023-04-03 17:27+0200\n"
+"PO-Revision-Date: 2023-04-26 18:55+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 22.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -53,7 +53,7 @@ msgstr "Wählen Sie eine Anwendung, um <filename>%1</filename> zu öffnen"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr ""
+msgstr "%1-Dateien immer in der ausgewählen Anwendung öffnen"
 
 #: src/AppChooserDialog.qml:64
 #, kde-format
@@ -71,18 +71,16 @@ msgid "No matches"
 msgstr "Keine Übereinstimmungen"
 
 #: src/AppChooserDialog.qml:190
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Choose an application to open <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
-msgstr "Wählen Sie eine Anwendung, um <filename>%1</filename> zu öffnen"
+msgstr "Keine der installierten Anwendung kann <filename>%1</filename> öffnen"
 
 #: src/AppChooserDialog.qml:194
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr ""
+msgstr "Weitere in Discover suchen"
 
 #: src/AppChooserDialog.qml:209
 #, kde-kuit-format
@@ -233,7 +231,7 @@ msgstr "Ordner erstellen"
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
 msgid "Filter filetype"
-msgstr ""
+msgstr "Dateityp filtern"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
