@@ -662,7 +662,7 @@ KWayland::Client::PlasmaWindowManagement *WaylandIntegration::WaylandIntegration
 
 void WaylandIntegration::WaylandIntegrationPrivate::addOutput(quint32 name, quint32 version)
 {
-    QSharedPointer<KWayland::Client::Output> output(new KWayland::Client::Output(this));
+    QSharedPointer<KWayland::Client::Output> output(new KWayland::Client::Output());
     output->setup(m_registry->bindOutput(name, version));
 
     connect(output.data(), &KWayland::Client::Output::changed, this, [this, name, version, output]() {
