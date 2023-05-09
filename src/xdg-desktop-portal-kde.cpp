@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
 #endif
     QApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(false);
+    a.setQuitLockEnabled(false);
 
     KAboutData about(QStringLiteral("xdg-desktop-portal-kde"), QString(), QStringLiteral(XDPK_VERSION_STRING));
     about.setDesktopFileName(QStringLiteral("org.freedesktop.impl.portal.desktop.kde"));
