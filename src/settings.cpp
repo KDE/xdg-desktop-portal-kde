@@ -88,7 +88,9 @@ public:
         VariantMapMap result;
         QVariantMap map;
         for (const auto &key : KEYS) {
-            map.insert(key, readInternal(key));
+            if (const auto value = readInternal(key); value.isValid()) {
+                map.insert(key, value);
+            }
         }
         result.insert(group(), map);
         return result;
