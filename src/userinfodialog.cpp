@@ -54,10 +54,10 @@ QString UserInfoDialog::id() const
 
 QString UserInfoDialog::image() const
 {
-    return m_userInterface->realName();
+    return QUrl::fromLocalFile(m_userInterface->iconFile()).toString();
 }
 
 QString UserInfoDialog::name() const
 {
-    return m_userInterface->iconFile();
+    return m_userInterface->realName();
 }
