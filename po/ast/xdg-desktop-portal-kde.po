@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-06 02:04+0000\n"
-"PO-Revision-Date: 2023-05-03 21:31+0200\n"
+"PO-Revision-Date: 2023-05-14 17:38+0200\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
 "Language: ast\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -92,12 +92,12 @@ msgstr ""
 #: src/background.cpp:104
 #, kde-format
 msgid "Background activity"
-msgstr ""
+msgstr "Actividá en segundu planu"
 
 #: src/background.cpp:105
 #, kde-format
 msgid "%1 is running in the background."
-msgstr ""
+msgstr "«%1» ta executándose en segundu planu."
 
 #: src/background.cpp:106
 #, kde-format
@@ -363,6 +363,8 @@ msgid ""
 "Manufacturer: %1\n"
 "Model: %2"
 msgstr ""
+"Fabricante: %1\n"
+"Modelu: %2"
 
 #: src/screenchooserdialog.cpp:142
 #, kde-format
@@ -482,7 +484,7 @@ msgstr ""
 #: src/ScreenshotDialog.qml:34
 #, kde-format
 msgid "Area:"
-msgstr ""
+msgstr "Área:"
 
 #: src/ScreenshotDialog.qml:39
 #, kde-format
@@ -493,8 +495,8 @@ msgstr ""
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 segundu"
+msgstr[1] "%1 segundos"
 
 #: src/ScreenshotDialog.qml:52
 #, kde-format
