@@ -35,7 +35,7 @@ BackgroundPortal::BackgroundPortal(QObject *parent, QDBusContext *context)
     : QDBusAbstractAdaptor(parent)
     , m_context(context)
 {
-    connect(WaylandIntegration::waylandIntegration(), &WaylandIntegration::WaylandIntegration::plasmaWindowManagementInitialized, this, [=]() {
+    connect(WaylandIntegration::waylandIntegration(), &WaylandIntegration::WaylandIntegration::plasmaWindowManagementInitialized, this, [this]() {
         connect(WaylandIntegration::plasmaWindowManagement(),
                 &KWayland::Client::PlasmaWindowManagement::windowCreated,
                 this,
@@ -108,7 +108,7 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
 
     message.setDelayedReply(true);
 
-    connect(notify, QOverload<uint>::of(&KNotification::activated), this, [=](uint action) {
+    connect(notify, QOverload<uint>::of(&KNotification::activated), this, [this, appName, notify, message](uint action) {
         if (action != 1) {
             return;
         }
@@ -141,7 +141,7 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
             messageBox->deleteLater();
         });
     });
-    connect(notify, &KNotification::closed, this, [=]() {
+    connect(notify, &KNotification::closed, this, [notify, message]() {
         if (notify->property("activated").toBool()) {
             return;
         }
