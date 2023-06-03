@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-06 02:04+0000\n"
+"POT-Creation-Date: 2023-06-03 02:04+0000\n"
 "PO-Revision-Date: 2023-02-24 22:10+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -91,49 +91,57 @@ msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
 "Non vedi l'applicazione giusta? Trovane altre in <link>Discover</link>."
 
-#: src/background.cpp:104
+#: src/background.cpp:103
 #, kde-format
 msgid "Background activity"
 msgstr "Attività in sottofondo"
 
-#: src/background.cpp:105
+#: src/background.cpp:104
 #, kde-format
-msgid "%1 is running in the background."
-msgstr "%1 è in esecuzione in sottofondo."
-
-#: src/background.cpp:106
-#, kde-format
-msgid "Find out more"
-msgstr "Scopri di più"
-
-#: src/background.cpp:117
-#, kde-format
-msgid "%1 is running in the background"
-msgstr "%1 è in esecuzione in sottofondo"
-
-#: src/background.cpp:119
-#, kde-format
+msgctxt "@info %1 is the name of an application"
 msgid ""
-"This might be for a legitimate reason, but the application has not provided "
-"one.\n"
-"\n"
-"Note that forcing an application to quit might cause data loss."
+"%1 wants to remain running when it has no visible windows. If you forbid "
+"this, the application will quit when its last window is closed."
 msgstr ""
-"Questo potrebbe succedere per un motivo valido, ma l'applicazione non ha "
-"spiegato quale sia.\n"
-"\n"
-"Nota come forzare la chiusura dell'applicazione potrebbe causare una perdita "
-"di dati."
 
-#: src/background.cpp:122
-#, kde-format
-msgid "Force quit"
-msgstr "Chiudi forzatamente"
-
-#: src/background.cpp:123
-#, kde-format
+#: src/background.cpp:106 src/background.cpp:147
+#, fuzzy, kde-format
+#| msgid "Allow"
+msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Permetti"
+
+#: src/background.cpp:107
+#, kde-format
+msgctxt ""
+"@action:button Don't allow the app to keep running without any open windows"
+msgid "Forbid"
+msgstr ""
+
+#: src/background.cpp:141
+#, fuzzy, kde-format
+#| msgid "Background activity"
+msgctxt ""
+"@title title of a dialog to confirm whether to allow an app to remain "
+"running with no visible windows"
+msgid "Background app usage"
+msgstr "Attività in sottofondo"
+
+#: src/background.cpp:143
+#, kde-format
+msgctxt "%1 is the name of an application"
+msgid ""
+"Note that this will force %1 to quit when its last window is closed. This "
+"could cause data loss if the application has any unsaved changes when it "
+"happens."
+msgstr ""
+
+#: src/background.cpp:148
+#, kde-format
+msgctxt ""
+"@action:button Don't allow the app to keep running without any open windows"
+msgid "Forbid anyway"
+msgstr ""
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format
@@ -585,6 +593,30 @@ msgstr "Connessione alla registrazione dello schermo non riuscita"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Desktop remoto"
+
+#~ msgid "%1 is running in the background."
+#~ msgstr "%1 è in esecuzione in sottofondo."
+
+#~ msgid "Find out more"
+#~ msgstr "Scopri di più"
+
+#~ msgid "%1 is running in the background"
+#~ msgstr "%1 è in esecuzione in sottofondo"
+
+#~ msgid ""
+#~ "This might be for a legitimate reason, but the application has not "
+#~ "provided one.\n"
+#~ "\n"
+#~ "Note that forcing an application to quit might cause data loss."
+#~ msgstr ""
+#~ "Questo potrebbe succedere per un motivo valido, ma l'applicazione non ha "
+#~ "spiegato quale sia.\n"
+#~ "\n"
+#~ "Nota come forzare la chiusura dell'applicazione potrebbe causare una "
+#~ "perdita di dati."
+
+#~ msgid "Force quit"
+#~ msgstr "Chiudi forzatamente"
 
 #~ msgid "Portal"
 #~ msgstr "Portale"

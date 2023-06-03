@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-06 02:04+0000\n"
+"POT-Creation-Date: 2023-06-03 02:04+0000\n"
 "PO-Revision-Date: 2023-02-20 10:57+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -91,49 +91,57 @@ msgstr ""
 "Niet de juiste toepassing te vinden? Zoek naar meer in <link>Ontdekken</"
 "link>."
 
-#: src/background.cpp:104
+#: src/background.cpp:103
 #, kde-format
 msgid "Background activity"
 msgstr "Achtergrondactiviteit"
 
-#: src/background.cpp:105
+#: src/background.cpp:104
 #, kde-format
-msgid "%1 is running in the background."
-msgstr "%1 is actief in de achtergrond."
-
-#: src/background.cpp:106
-#, kde-format
-msgid "Find out more"
-msgstr "Probeer meer te weten te komen"
-
-#: src/background.cpp:117
-#, kde-format
-msgid "%1 is running in the background"
-msgstr "%1 is actief in de achtergrond"
-
-#: src/background.cpp:119
-#, kde-format
+msgctxt "@info %1 is the name of an application"
 msgid ""
-"This might be for a legitimate reason, but the application has not provided "
-"one.\n"
-"\n"
-"Note that forcing an application to quit might cause data loss."
+"%1 wants to remain running when it has no visible windows. If you forbid "
+"this, the application will quit when its last window is closed."
 msgstr ""
-"Dit kan zijn voor een legitieme reden, maar de toepassing heeft er geen "
-"rekening mee gehouden.\n"
-"\n"
-"Merk op dat een toepassing te dwingen tot stoppen, verlies van gegevens kan "
-"betekenen."
 
-#: src/background.cpp:122
-#, kde-format
-msgid "Force quit"
-msgstr "Afsluiten afdwingen"
-
-#: src/background.cpp:123
-#, kde-format
+#: src/background.cpp:106 src/background.cpp:147
+#, fuzzy, kde-format
+#| msgid "Allow"
+msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Toestaan"
+
+#: src/background.cpp:107
+#, kde-format
+msgctxt ""
+"@action:button Don't allow the app to keep running without any open windows"
+msgid "Forbid"
+msgstr ""
+
+#: src/background.cpp:141
+#, fuzzy, kde-format
+#| msgid "Background activity"
+msgctxt ""
+"@title title of a dialog to confirm whether to allow an app to remain "
+"running with no visible windows"
+msgid "Background app usage"
+msgstr "Achtergrondactiviteit"
+
+#: src/background.cpp:143
+#, kde-format
+msgctxt "%1 is the name of an application"
+msgid ""
+"Note that this will force %1 to quit when its last window is closed. This "
+"could cause data loss if the application has any unsaved changes when it "
+"happens."
+msgstr ""
+
+#: src/background.cpp:148
+#, kde-format
+msgctxt ""
+"@action:button Don't allow the app to keep running without any open windows"
+msgid "Forbid anyway"
+msgstr ""
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format
@@ -584,6 +592,30 @@ msgstr "Beginnen van screencasting is mislukt"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Bureaublad op afstand"
+
+#~ msgid "%1 is running in the background."
+#~ msgstr "%1 is actief in de achtergrond."
+
+#~ msgid "Find out more"
+#~ msgstr "Probeer meer te weten te komen"
+
+#~ msgid "%1 is running in the background"
+#~ msgstr "%1 is actief in de achtergrond"
+
+#~ msgid ""
+#~ "This might be for a legitimate reason, but the application has not "
+#~ "provided one.\n"
+#~ "\n"
+#~ "Note that forcing an application to quit might cause data loss."
+#~ msgstr ""
+#~ "Dit kan zijn voor een legitieme reden, maar de toepassing heeft er geen "
+#~ "rekening mee gehouden.\n"
+#~ "\n"
+#~ "Merk op dat een toepassing te dwingen tot stoppen, verlies van gegevens "
+#~ "kan betekenen."
+
+#~ msgid "Force quit"
+#~ msgstr "Afsluiten afdwingen"
 
 #~ msgid "Portal"
 #~ msgstr "Portaal"

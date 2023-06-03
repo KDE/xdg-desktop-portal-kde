@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-06 02:04+0000\n"
+"POT-Creation-Date: 2023-06-03 02:04+0000\n"
 "PO-Revision-Date: 2022-01-25 10:23+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -93,48 +93,57 @@ msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
 
-#: src/background.cpp:104
+#: src/background.cpp:103
 #, kde-format
 msgid "Background activity"
 msgstr "Háttéraktivitás"
 
-#: src/background.cpp:105
+#: src/background.cpp:104
 #, kde-format
-msgid "%1 is running in the background."
-msgstr "A(z) %1 a háttérben fut."
-
-#: src/background.cpp:106
-#, kde-format
-msgid "Find out more"
-msgstr "Tudjon meg többet"
-
-#: src/background.cpp:117
-#, kde-format
-msgid "%1 is running in the background"
-msgstr "A(z) %1 a háttérben fut"
-
-#: src/background.cpp:119
-#, kde-format
+msgctxt "@info %1 is the name of an application"
 msgid ""
-"This might be for a legitimate reason, but the application has not provided "
-"one.\n"
-"\n"
-"Note that forcing an application to quit might cause data loss."
+"%1 wants to remain running when it has no visible windows. If you forbid "
+"this, the application will quit when its last window is closed."
 msgstr ""
-"Az alkalmazás valószínűleg joggal tagadja meg ezt, de nem részletezte az "
-"okot.\n"
-"\n"
-"Az alkalmazás kényszerített bezárása adatvesztéssel járhat."
 
-#: src/background.cpp:122
-#, kde-format
-msgid "Force quit"
-msgstr "Kényszerített kilépés"
-
-#: src/background.cpp:123
-#, kde-format
+#: src/background.cpp:106 src/background.cpp:147
+#, fuzzy, kde-format
+#| msgid "Allow"
+msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Engedélyezés"
+
+#: src/background.cpp:107
+#, kde-format
+msgctxt ""
+"@action:button Don't allow the app to keep running without any open windows"
+msgid "Forbid"
+msgstr ""
+
+#: src/background.cpp:141
+#, fuzzy, kde-format
+#| msgid "Background activity"
+msgctxt ""
+"@title title of a dialog to confirm whether to allow an app to remain "
+"running with no visible windows"
+msgid "Background app usage"
+msgstr "Háttéraktivitás"
+
+#: src/background.cpp:143
+#, kde-format
+msgctxt "%1 is the name of an application"
+msgid ""
+"Note that this will force %1 to quit when its last window is closed. This "
+"could cause data loss if the application has any unsaved changes when it "
+"happens."
+msgstr ""
+
+#: src/background.cpp:148
+#, kde-format
+msgctxt ""
+"@action:button Don't allow the app to keep running without any open windows"
+msgid "Forbid anyway"
+msgstr ""
 
 #: src/dynamiclauncher.cpp:76
 #, fuzzy, kde-format
@@ -608,6 +617,29 @@ msgstr "Nem sikerült elindítani a képernyőfelvételt"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Távoli asztal"
+
+#~ msgid "%1 is running in the background."
+#~ msgstr "A(z) %1 a háttérben fut."
+
+#~ msgid "Find out more"
+#~ msgstr "Tudjon meg többet"
+
+#~ msgid "%1 is running in the background"
+#~ msgstr "A(z) %1 a háttérben fut"
+
+#~ msgid ""
+#~ "This might be for a legitimate reason, but the application has not "
+#~ "provided one.\n"
+#~ "\n"
+#~ "Note that forcing an application to quit might cause data loss."
+#~ msgstr ""
+#~ "Az alkalmazás valószínűleg joggal tagadja meg ezt, de nem részletezte az "
+#~ "okot.\n"
+#~ "\n"
+#~ "Az alkalmazás kényszerített bezárása adatvesztéssel járhat."
+
+#~ msgid "Force quit"
+#~ msgstr "Kényszerített kilépés"
 
 #~ msgid "Portal"
 #~ msgstr "Portál"

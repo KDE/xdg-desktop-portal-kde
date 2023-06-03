@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-06 02:04+0000\n"
+"POT-Creation-Date: 2023-06-03 02:04+0000\n"
 "PO-Revision-Date: 2020-10-11 01:46+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -90,47 +90,57 @@ msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
 
-#: src/background.cpp:104
+#: src/background.cpp:103
 #, kde-format
 msgid "Background activity"
 msgstr "Taustategevus"
 
-#: src/background.cpp:105
+#: src/background.cpp:104
 #, kde-format
-msgid "%1 is running in the background."
-msgstr "%1 töötab taustal."
-
-#: src/background.cpp:106
-#, kde-format
-msgid "Find out more"
-msgstr "Leia rohkem"
-
-#: src/background.cpp:117
-#, kde-format
-msgid "%1 is running in the background"
-msgstr "%1 töötab taustal"
-
-#: src/background.cpp:119
-#, kde-format
+msgctxt "@info %1 is the name of an application"
 msgid ""
-"This might be for a legitimate reason, but the application has not provided "
-"one.\n"
-"\n"
-"Note that forcing an application to quit might cause data loss."
+"%1 wants to remain running when it has no visible windows. If you forbid "
+"this, the application will quit when its last window is closed."
 msgstr ""
-"Selleks võib olla õigustatud põhjus, aga rakendus ei ole seda teatanud.\n"
-"\n"
-"Pane tähele, et rakenduse jõuga sulgemine võib kaasa tuua andmekao."
 
-#: src/background.cpp:122
-#, kde-format
-msgid "Force quit"
-msgstr "Jõuga töö lõpetamine"
-
-#: src/background.cpp:123
-#, kde-format
+#: src/background.cpp:106 src/background.cpp:147
+#, fuzzy, kde-format
+#| msgid "Allow"
+msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Lubamine"
+
+#: src/background.cpp:107
+#, kde-format
+msgctxt ""
+"@action:button Don't allow the app to keep running without any open windows"
+msgid "Forbid"
+msgstr ""
+
+#: src/background.cpp:141
+#, fuzzy, kde-format
+#| msgid "Background activity"
+msgctxt ""
+"@title title of a dialog to confirm whether to allow an app to remain "
+"running with no visible windows"
+msgid "Background app usage"
+msgstr "Taustategevus"
+
+#: src/background.cpp:143
+#, kde-format
+msgctxt "%1 is the name of an application"
+msgid ""
+"Note that this will force %1 to quit when its last window is closed. This "
+"could cause data loss if the application has any unsaved changes when it "
+"happens."
+msgstr ""
+
+#: src/background.cpp:148
+#, kde-format
+msgctxt ""
+"@action:button Don't allow the app to keep running without any open windows"
+msgid "Forbid anyway"
+msgstr ""
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format
@@ -614,6 +624,28 @@ msgstr "Ekraanivideo tegemise alustamine nurjus"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Kaugtöölaud"
+
+#~ msgid "%1 is running in the background."
+#~ msgstr "%1 töötab taustal."
+
+#~ msgid "Find out more"
+#~ msgstr "Leia rohkem"
+
+#~ msgid "%1 is running in the background"
+#~ msgstr "%1 töötab taustal"
+
+#~ msgid ""
+#~ "This might be for a legitimate reason, but the application has not "
+#~ "provided one.\n"
+#~ "\n"
+#~ "Note that forcing an application to quit might cause data loss."
+#~ msgstr ""
+#~ "Selleks võib olla õigustatud põhjus, aga rakendus ei ole seda teatanud.\n"
+#~ "\n"
+#~ "Pane tähele, et rakenduse jõuga sulgemine võib kaasa tuua andmekao."
+
+#~ msgid "Force quit"
+#~ msgstr "Jõuga töö lõpetamine"
 
 #, fuzzy
 #~| msgid "Screens"
