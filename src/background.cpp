@@ -100,7 +100,7 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
     }
 
     KNotification *notify = new KNotification(QStringLiteral("notification"), KNotification::Persistent | KNotification::DefaultEvent, this);
-    notify->setTitle(i18n("Background activity"));
+    notify->setTitle(i18n("Background Activity"));
     notify->setText(i18nc("@info %1 is the name of an application", "%1 wants to remain running when it has no visible windows. If you forbid this, the application will quit when its last window is closed.", appName));
     notify->setActions({
         i18nc("@action:button Allow the app to keep running with no open windows", "Allow"),
@@ -138,14 +138,14 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
         if (action == 1) {
             allow();
         } else if (action == 2) {
-            const QString title = i18nc("@title title of a dialog to confirm whether to allow an app to remain running with no visible windows", "Background app usage");
+            const QString title = i18nc("@title title of a dialog to confirm whether to allow an app to remain running with no visible windows", "Background App Usage");
             const QString text = i18nc("%1 is the name of an application",
                                        "Note that this will force %1 to quit when its last window is closed. This could cause data loss if the application has "
                                        "any unsaved changes when it happens.",
                                        appName);
             auto messageBox = new QMessageBox(QMessageBox::Question, title, text);
             messageBox->addButton(i18nc("@action:button Allow the app to keep running with no open windows", "Allow"), QMessageBox::AcceptRole);
-            messageBox->addButton(i18nc("@action:button Don't allow the app to keep running without any open windows", "Forbid anyway"),
+            messageBox->addButton(i18nc("@action:button Don't allow the app to keep running without any open windows", "Forbid Anyway"),
                                   QMessageBox::RejectRole);
             messageBox->show();
 
