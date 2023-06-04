@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 02:04+0000\n"
-"PO-Revision-Date: 2023-02-20 17:02+0300\n"
+"POT-Creation-Date: 2023-06-04 02:17+0000\n"
+"PO-Revision-Date: 2023-06-03 12:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 23.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -91,9 +91,10 @@ msgstr ""
 "Uygun uygulamayı bulamıyor musunuz? <link>Keşfet</link>'te başkalarını bulun."
 
 #: src/background.cpp:103
-#, kde-format
-msgid "Background activity"
-msgstr "Arka plan etkinliği"
+#, fuzzy, kde-format
+#| msgid "Background activity"
+msgid "Background Activity"
+msgstr "Arka Plan Etkinliği"
 
 #: src/background.cpp:104
 #, kde-format
@@ -102,10 +103,11 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
+"%1, görünür penceresi yokken dahi çalışır kalmak istiyor. Buna izin "
+"vermezseniz uygulama, son penceresi kapatıldığında tümüyle çıkış yapacak."
 
 #: src/background.cpp:106 src/background.cpp:147
-#, fuzzy, kde-format
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "İzin Ver"
@@ -115,16 +117,19 @@ msgstr "İzin Ver"
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
-msgstr ""
+msgstr "İzin Verme"
 
 #: src/background.cpp:141
 #, fuzzy, kde-format
-#| msgid "Background activity"
+#| msgctxt ""
+#| "@title title of a dialog to confirm whether to allow an app to remain "
+#| "running with no visible windows"
+#| msgid "Background app usage"
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
-msgid "Background app usage"
-msgstr "Arka plan etkinliği"
+msgid "Background App Usage"
+msgstr "Arka Plan Uygulama Kullanımı"
 
 #: src/background.cpp:143
 #, kde-format
@@ -134,13 +139,20 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
+"Bunun, son penceresi kapatıldığında %1 uygulamasını çıkmaya zorlayacağını "
+"unutmayın. Bu, uygulamada kaydedilmemiş herhangi bir değişiklik olduğunda "
+"veri kaybına neden olabilir."
 
 #: src/background.cpp:148
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button Don't allow the app to keep running without any open "
+#| "windows"
+#| msgid "Forbid anyway"
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
-msgid "Forbid anyway"
-msgstr ""
+msgid "Forbid Anyway"
+msgstr "Yine de İzin Verme"
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format

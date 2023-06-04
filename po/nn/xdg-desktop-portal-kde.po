@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 02:04+0000\n"
+"POT-Creation-Date: 2023-06-04 02:17+0000\n"
 "PO-Revision-Date: 2023-03-04 16:08+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -95,8 +95,9 @@ msgstr ""
 "link>."
 
 #: src/background.cpp:103
-#, kde-format
-msgid "Background activity"
+#, fuzzy, kde-format
+#| msgid "Background activity"
+msgid "Background Activity"
 msgstr "Bakgrunnsaktivitet"
 
 #: src/background.cpp:104
@@ -127,7 +128,7 @@ msgstr ""
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
-msgid "Background app usage"
+msgid "Background App Usage"
 msgstr "Bakgrunnsaktivitet"
 
 #: src/background.cpp:143
@@ -143,7 +144,7 @@ msgstr ""
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
-msgid "Forbid anyway"
+msgid "Forbid Anyway"
 msgstr ""
 
 #: src/dynamiclauncher.cpp:76
@@ -595,26 +596,3 @@ msgstr "Klarte ikkje starta skjermdeling"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Eksternt skrivebord"
-
-#~ msgid "%1 is running in the background."
-#~ msgstr "%1 køyrer i bakgrunnen."
-
-#~ msgid "Find out more"
-#~ msgstr "Lær meir"
-
-#~ msgid "%1 is running in the background"
-#~ msgstr "%1 køyrer i bakgrunnen"
-
-#~ msgid ""
-#~ "This might be for a legitimate reason, but the application has not "
-#~ "provided one.\n"
-#~ "\n"
-#~ "Note that forcing an application to quit might cause data loss."
-#~ msgstr ""
-#~ "Dette kan vera av gode grunnar, men programmet har ikkje oppgjeve ein "
-#~ "slik grunn.\n"
-#~ "\n"
-#~ "Merk at tvangsavslutting av program kan føra til datatap."
-
-#~ msgid "Force quit"
-#~ msgstr "Tvangsavslutt"

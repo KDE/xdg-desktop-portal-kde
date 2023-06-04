@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 02:04+0000\n"
+"POT-Creation-Date: 2023-06-04 02:17+0000\n"
 "PO-Revision-Date: 2023-02-23 20:09+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -96,8 +96,9 @@ msgstr ""
 "erabiliz."
 
 #: src/background.cpp:103
-#, kde-format
-msgid "Background activity"
+#, fuzzy, kde-format
+#| msgid "Background activity"
+msgid "Background Activity"
 msgstr "Atzeko planoko jarduera"
 
 #: src/background.cpp:104
@@ -128,7 +129,7 @@ msgstr ""
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
-msgid "Background app usage"
+msgid "Background App Usage"
 msgstr "Atzeko planoko jarduera"
 
 #: src/background.cpp:143
@@ -144,7 +145,7 @@ msgstr ""
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
-msgid "Forbid anyway"
+msgid "Forbid Anyway"
 msgstr ""
 
 #: src/dynamiclauncher.cpp:76

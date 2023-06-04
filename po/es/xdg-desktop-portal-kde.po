@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 02:04+0000\n"
-"PO-Revision-Date: 2023-02-20 11:30+0100\n"
+"POT-Creation-Date: 2023-06-04 02:17+0000\n"
+"PO-Revision-Date: 2023-06-04 02:02+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -93,8 +93,9 @@ msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr "¿No ve la aplicación correcta? Encuentre más en <link>Discover</link>."
 
 #: src/background.cpp:103
-#, kde-format
-msgid "Background activity"
+#, fuzzy, kde-format
+#| msgid "Background activity"
+msgid "Background Activity"
 msgstr "Actividad en segundo plano"
 
 #: src/background.cpp:104
@@ -104,10 +105,11 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
+"%1 quiere permanecer en ejecución cuando no tenga ventanas visibles. Si "
+"prohíbe esto, la aplicación terminará cuando se cierre su última ventana."
 
 #: src/background.cpp:106 src/background.cpp:147
-#, fuzzy, kde-format
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Permitir"
@@ -117,16 +119,19 @@ msgstr "Permitir"
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
-msgstr ""
+msgstr "Prohibir"
 
 #: src/background.cpp:141
 #, fuzzy, kde-format
-#| msgid "Background activity"
+#| msgctxt ""
+#| "@title title of a dialog to confirm whether to allow an app to remain "
+#| "running with no visible windows"
+#| msgid "Background app usage"
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
-msgid "Background app usage"
-msgstr "Actividad en segundo plano"
+msgid "Background App Usage"
+msgstr "Uso de de aplicación en segundo plano"
 
 #: src/background.cpp:143
 #, kde-format
@@ -136,13 +141,20 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
+"Tenga en cuenta que esto forzará que se termine %1 cuando se cierre su "
+"última ventana. Esto podría causar pérdida de datos si la aplicación "
+"contiene cambios sin guardar cuando se dé esta situación."
 
 #: src/background.cpp:148
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button Don't allow the app to keep running without any open "
+#| "windows"
+#| msgid "Forbid anyway"
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
-msgid "Forbid anyway"
-msgstr ""
+msgid "Forbid Anyway"
+msgstr "Prohibir de todas formas"
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format

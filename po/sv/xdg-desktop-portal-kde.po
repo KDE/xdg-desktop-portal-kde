@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 02:04+0000\n"
+"POT-Creation-Date: 2023-06-04 02:17+0000\n"
 "PO-Revision-Date: 2022-09-24 15:05+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -96,8 +96,9 @@ msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
 
 #: src/background.cpp:103
-#, kde-format
-msgid "Background activity"
+#, fuzzy, kde-format
+#| msgid "Background activity"
+msgid "Background Activity"
 msgstr "Bakgrundsaktivitet"
 
 #: src/background.cpp:104
@@ -128,7 +129,7 @@ msgstr ""
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
-msgid "Background app usage"
+msgid "Background App Usage"
 msgstr "Bakgrundsaktivitet"
 
 #: src/background.cpp:143
@@ -144,7 +145,7 @@ msgstr ""
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
-msgid "Forbid anyway"
+msgid "Forbid Anyway"
 msgstr ""
 
 #: src/dynamiclauncher.cpp:76

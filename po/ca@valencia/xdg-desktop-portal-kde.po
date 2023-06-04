@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 02:04+0000\n"
-"PO-Revision-Date: 2023-02-20 10:38+0100\n"
+"POT-Creation-Date: 2023-06-04 02:17+0000\n"
+"PO-Revision-Date: 2023-06-03 11:54+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -95,8 +95,9 @@ msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr "No veeu l'aplicació correcta? Busqueu-ne més en <link>Discover</link>."
 
 #: src/background.cpp:103
-#, kde-format
-msgid "Background activity"
+#, fuzzy, kde-format
+#| msgid "Background activity"
+msgid "Background Activity"
 msgstr "Activitat del segon pla"
 
 #: src/background.cpp:104
@@ -106,10 +107,11 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
+"L'aplicació %1 vol romandre en execució quan no tinga finestres visibles. Si "
+"ho prohibiu, l'aplicació es tancarà quan es tanque l'última finestra."
 
 #: src/background.cpp:106 src/background.cpp:147
-#, fuzzy, kde-format
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Permet"
@@ -119,16 +121,19 @@ msgstr "Permet"
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
-msgstr ""
+msgstr "Prohibix"
 
 #: src/background.cpp:141
 #, fuzzy, kde-format
-#| msgid "Background activity"
+#| msgctxt ""
+#| "@title title of a dialog to confirm whether to allow an app to remain "
+#| "running with no visible windows"
+#| msgid "Background app usage"
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
-msgid "Background app usage"
-msgstr "Activitat del segon pla"
+msgid "Background App Usage"
+msgstr "Ús de l'aplicació en segon pla"
 
 #: src/background.cpp:143
 #, kde-format
@@ -138,13 +143,20 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
+"Cal tindre en compte que açò obligarà a %1 a eixir quan es tanque la seua "
+"última finestra. Açò podria causar la pèrdua de dades si quan esdevinga "
+"l'aplicació té canvis sense guardar."
 
 #: src/background.cpp:148
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button Don't allow the app to keep running without any open "
+#| "windows"
+#| msgid "Forbid anyway"
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
-msgid "Forbid anyway"
-msgstr ""
+msgid "Forbid Anyway"
+msgstr "Prohibix igualment"
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format
@@ -602,30 +614,3 @@ msgstr "No s'ha pogut iniciar el vídeo de captura de pantalla"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Escriptori remot"
-
-#~ msgid "%1 is running in the background."
-#~ msgstr "%1 està executant-se en segon pla."
-
-#~ msgid "Find out more"
-#~ msgstr "Trobar-ne més"
-
-#~ msgid "%1 is running in the background"
-#~ msgstr "%1 està executant-se en segon pla"
-
-#~ msgid ""
-#~ "This might be for a legitimate reason, but the application has not "
-#~ "provided one.\n"
-#~ "\n"
-#~ "Note that forcing an application to quit might cause data loss."
-#~ msgstr ""
-#~ "Açò podria ser per un motiu legítim, però l'aplicació no n'ha "
-#~ "proporcionat cap.\n"
-#~ "\n"
-#~ "Cal tindre en compte que forçar l'eixida d'una aplicació pot comportar la "
-#~ "pèrdua de dades."
-
-#~ msgid "Force quit"
-#~ msgstr "Força l'eixida"
-
-#~ msgid "Portal"
-#~ msgstr "Portal"
