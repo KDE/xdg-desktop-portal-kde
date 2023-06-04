@@ -44,11 +44,7 @@ find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Qml
     Test
 )
-if (QT_MAJOR_VERSION EQUAL "6")
-    find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS WaylandClient)
-else()
-    find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS XkbCommonSupport)
-endif()
+find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS WaylandClient)
 
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
     CoreAddons
@@ -68,9 +64,6 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
 ecm_find_qmlmodule(org.kde.iconthemes 1.0)
 find_package(Wayland 1.15 REQUIRED COMPONENTS Client)
 find_package(PlasmaWaylandProtocols 1.7.0 REQUIRED)
-if (QT_MAJOR_VERSION EQUAL "5")
-    find_package(QtWaylandScanner REQUIRED)
-endif()
 
 find_package(WaylandProtocols 1.25)
 set_package_properties(WaylandProtocols PROPERTIES

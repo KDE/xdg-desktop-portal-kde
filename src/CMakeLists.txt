@@ -2,8 +2,6 @@ add_subdirectory(kirigami-filepicker)
 
 add_definitions(-DTRANSLATION_DOMAIN="xdg-desktop-portal-kde")
 
-include_directories(${Qt5PrintSupport_PRIVATE_INCLUDE_DIRS})
-
 add_executable(xdg-desktop-portal-kde)
 
 set(xdg_desktop_portal_kde_SRCS
@@ -258,19 +256,8 @@ qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS ${kglobalaccel_component_xml} 
 qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS org.kde.KWin.TabletModeManager.xml tabletmodemanager_interface)
 qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS org.kde.KWin.VirtualKeyboard.xml virtualkeyboard_interface)
 
-if (QT_MAJOR_VERSION EQUAL "5")
-    ecm_add_qtwayland_client_protocol(xdg_desktop_portal_kde_SRCS
-        PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/zkde-screencast-unstable-v1.xml
-        BASENAME zkde-screencast-unstable-v1
-    )
-    ecm_add_qtwayland_client_protocol(xdg_desktop_portal_kde_SRCS
-        PROTOCOL ${Wayland_DATADIR}/wayland.xml
-        BASENAME wayland
-    )
-else()
-    qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde FILES ${PLASMA_WAYLAND_PROTOCOLS_DIR}/zkde-screencast-unstable-v1.xml)
-    qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde FILES ${Wayland_DATADIR}/wayland.xml)
-endif()
+qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde FILES ${PLASMA_WAYLAND_PROTOCOLS_DIR}/zkde-screencast-unstable-v1.xml)
+qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde FILES ${Wayland_DATADIR}/wayland.xml)
 
 
 set_source_files_properties(../data/org.freedesktop.Accounts.User.xml PROPERTIES NO_NAMESPACE TRUE)
@@ -311,11 +298,7 @@ target_link_libraries(xdg-desktop-portal-kde
     Wayland::Client
     PkgConfig::XKB
 )
-if (QT_MAJOR_VERSION EQUAL "6")
-    target_link_libraries(xdg-desktop-portal-kde Qt::PrintSupportPrivate Qt::GuiPrivate)
-elseif (QT_MAJOR_VERSION EQUAL "5")
-    target_link_libraries(xdg-desktop-portal-kde Qt::XkbCommonSupportPrivate)
-endif()
+target_link_libraries(xdg-desktop-portal-kde Qt::PrintSupportPrivate Qt::GuiPrivate)
 
 install(TARGETS xdg-desktop-portal-kde DESTINATION ${KDE_INSTALL_LIBEXECDIR})
 
