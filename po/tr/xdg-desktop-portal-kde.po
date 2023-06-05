@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-04 02:17+0000\n"
-"PO-Revision-Date: 2023-06-03 12:52+0300\n"
+"PO-Revision-Date: 2023-06-04 12:46+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -91,8 +91,7 @@ msgstr ""
 "Uygun uygulamayı bulamıyor musunuz? <link>Keşfet</link>'te başkalarını bulun."
 
 #: src/background.cpp:103
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgid "Background Activity"
 msgstr "Arka Plan Etkinliği"
 
@@ -120,11 +119,7 @@ msgid "Forbid"
 msgstr "İzin Verme"
 
 #: src/background.cpp:141
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title title of a dialog to confirm whether to allow an app to remain "
-#| "running with no visible windows"
-#| msgid "Background app usage"
+#, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
@@ -144,11 +139,7 @@ msgstr ""
 "veri kaybına neden olabilir."
 
 #: src/background.cpp:148
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button Don't allow the app to keep running without any open "
-#| "windows"
-#| msgid "Forbid anyway"
+#, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid Anyway"

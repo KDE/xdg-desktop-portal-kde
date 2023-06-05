@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-04 02:17+0000\n"
-"PO-Revision-Date: 2023-02-20 07:08+0100\n"
+"PO-Revision-Date: 2023-06-04 05:03+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -93,8 +93,7 @@ msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr "ვერ ხედავთ სწორ აპს? აღმოაჩინეთ მეტი აპი <link>Discover-ში</link>."
 
 #: src/background.cpp:103
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgid "Background Activity"
 msgstr "ფონური აქტივობა"
 
@@ -105,10 +104,11 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
+"%1 უნდა, გაშვებულად დარჩეს მაშინ, როცა მას ხილული ფანჯრები არ გააჩნია. თუ "
+"ამას აკრძალავთ, ბოლო ფანჯრის დახურვის შემდეგ აპლიკაცია მუშაობას დაასრულებს."
 
 #: src/background.cpp:106 src/background.cpp:147
-#, fuzzy, kde-format
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "დაშვება"
@@ -118,16 +118,15 @@ msgstr "დაშვება"
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
-msgstr ""
+msgstr "აკრძალვა"
 
 #: src/background.cpp:141
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
 msgid "Background App Usage"
-msgstr "ფონური აქტივობა"
+msgstr "აპის ფონური აქტივობა"
 
 #: src/background.cpp:143
 #, kde-format
@@ -137,13 +136,15 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
+"გაითვალისწინეთ, რომ ეს გათიშავს %1-ს, როცა ბოლო ფანჯარას დახურავთ. ამან, თუ "
+"ცვლილებებს არ შეინახავთ, შეიძლება თქვენი ცვლილებების კარგვა გამოიწვიოს."
 
 #: src/background.cpp:148
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid Anyway"
-msgstr ""
+msgstr "მაინც აკრძალვა"
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format
