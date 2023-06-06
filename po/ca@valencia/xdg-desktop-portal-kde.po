@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-04 02:17+0000\n"
-"PO-Revision-Date: 2023-06-03 11:54+0200\n"
+"PO-Revision-Date: 2023-06-04 09:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -95,8 +95,7 @@ msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr "No veeu l'aplicació correcta? Busqueu-ne més en <link>Discover</link>."
 
 #: src/background.cpp:103
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgid "Background Activity"
 msgstr "Activitat del segon pla"
 
@@ -124,11 +123,7 @@ msgid "Forbid"
 msgstr "Prohibix"
 
 #: src/background.cpp:141
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title title of a dialog to confirm whether to allow an app to remain "
-#| "running with no visible windows"
-#| msgid "Background app usage"
+#, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
@@ -148,11 +143,7 @@ msgstr ""
 "l'aplicació té canvis sense guardar."
 
 #: src/background.cpp:148
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button Don't allow the app to keep running without any open "
-#| "windows"
-#| msgid "Forbid anyway"
+#, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid Anyway"
