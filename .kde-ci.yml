@@ -29,7 +29,10 @@ Dependencies:
     'third-party/wayland': '@latest'
     'third-party/wayland-protocols': '@latest'
 
-runtime-dependencies:
+RuntimeDependencies:
+- 'on': ['@all']
+  'require':
     'frameworks/kiconthemes': '@latest-kf6' # IconDialog
+
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']
