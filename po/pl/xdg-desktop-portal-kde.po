@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-04 02:17+0000\n"
-"PO-Revision-Date: 2023-04-10 10:51+0200\n"
+"PO-Revision-Date: 2023-06-10 09:25+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -93,8 +93,7 @@ msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr "Nie widzisz właściwej aplikacji? Poszukaj jej w <link>Odkrywcy</link>"
 
 #: src/background.cpp:103
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgid "Background Activity"
 msgstr "Aktywność w tle"
 
@@ -105,10 +104,11 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
+"%1 chce działać w tle, tzn. gdy żadne z jego okien nie jest widoczne. Jeśli "
+"zabronisz tego, to zostanie zamknięty z zamknięciem ostatniego okna."
 
 #: src/background.cpp:106 src/background.cpp:147
-#, fuzzy, kde-format
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Zezwól"
@@ -118,16 +118,15 @@ msgstr "Zezwól"
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
-msgstr ""
+msgstr "Zabroń"
 
 #: src/background.cpp:141
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
 msgid "Background App Usage"
-msgstr "Aktywność w tle"
+msgstr "Użycie aplikacji w tle"
 
 #: src/background.cpp:143
 #, kde-format
@@ -137,13 +136,16 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
+"Pamiętaj, że to wymusi zamknięcie %1, gdy zamknięte zostanie jego ostanie "
+"okno. Może to spowodować utratę danych, gdy aplikacja ich nie zapisała, "
+"zanim to nastąpi."
 
 #: src/background.cpp:148
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid Anyway"
-msgstr ""
+msgstr "Zabroń mimo tego"
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format

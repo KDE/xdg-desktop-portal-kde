@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-04 02:17+0000\n"
-"PO-Revision-Date: 2023-02-24 22:10+0100\n"
+"PO-Revision-Date: 2023-06-06 02:03+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -92,8 +92,7 @@ msgstr ""
 "Non vedi l'applicazione giusta? Trovane altre in <link>Discover</link>."
 
 #: src/background.cpp:103
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgid "Background Activity"
 msgstr "Attività in sottofondo"
 
@@ -104,10 +103,12 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
+"%1 vuole rimanere in esecuzione quando non ha alcuna finestra visibile. Se "
+"proibisci questo, l'applicazione terminerà quando la sua ultima finestra "
+"viene chiusa."
 
 #: src/background.cpp:106 src/background.cpp:147
-#, fuzzy, kde-format
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Permetti"
@@ -117,16 +118,15 @@ msgstr "Permetti"
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
-msgstr ""
+msgstr "Proibisci"
 
 #: src/background.cpp:141
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
 msgid "Background App Usage"
-msgstr "Attività in sottofondo"
+msgstr "Utilizzo applicazione in sottofondo"
 
 #: src/background.cpp:143
 #, kde-format
@@ -136,13 +136,16 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
+"Nota come questo forzerà la chiusura di %1 quando la sua ultima finestra "
+"viene chiusa. Questo potrebbe causare una perdita di dati se l'applicazione "
+"ha dei dati non salvati quando succede questo."
 
 #: src/background.cpp:148
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid Anyway"
-msgstr ""
+msgstr "Proibisci comunque"
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format
