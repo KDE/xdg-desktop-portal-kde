@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-04 02:17+0000\n"
-"PO-Revision-Date: 2023-02-14 21:44+0530\n"
+"PO-Revision-Date: 2023-06-11 18:51+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -54,50 +54,47 @@ msgstr "<filename>%1</filename> என்பதை திறப்பதற்�
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr ""
+msgstr "%1 கோப்புகளை இந்த செயலியில் எப்போதும் திற"
 
 #: src/AppChooserDialog.qml:64
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgid "Show All Installed Applications"
-msgstr "செயலியை தேர்வு செய்வது"
+msgstr "நிறுவியுள்ள அனைத்து செயலிகளையும் காட்டு"
 
 #: src/AppChooserDialog.qml:169
 #, kde-format
 msgid "Default app for this file type"
-msgstr ""
+msgstr "இக்கோப்புவகைக்கான இயல்பிருப்பு செயலி"
 
 #: src/AppChooserDialog.qml:188
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "பொருத்தங்கள் இல்லை"
 
 #: src/AppChooserDialog.qml:188
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Choose an application to open <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
-msgstr "<filename>%1</filename> என்பதை திறப்பதற்கான செயலியைத் தேர்ந்தெடுங்கள்"
+msgstr "<filename>%1</filename> என்பதை எந்த நிறுவியுள்ள செயலியாலும் திறக்க முடியாது"
 
 #: src/AppChooserDialog.qml:192
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr ""
+msgstr "டிஸ்கவரில் இன்னும் காட்டு"
 
 #: src/AppChooserDialog.qml:207
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
+"நீங்கள் தேடும் செயலி கிடைக்கவில்லையா? <link>டிஸ்கவரில்</link> மேலும் செயலிகளை "
+"நிறுவலாம்."
 
 #: src/background.cpp:103
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgid "Background Activity"
-msgstr "பின்னணி செயல்பாடு"
+msgstr "பின்னணி செயல்பாட்டு"
 
 #: src/background.cpp:104
 #, kde-format
@@ -106,10 +103,11 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
+"%1, அதன் சாளரங்கள் இல்லாதபோதும் செயல்பட விரும்புகிறது. இதை நீங்கள் மறுத்தால், கடைசி "
+"சாளரம் மூடப்படும்போது அச்செயலி மூடப்படும்."
 
 #: src/background.cpp:106 src/background.cpp:147
-#, fuzzy, kde-format
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "அனுமதி"
@@ -119,16 +117,15 @@ msgstr "அனுமதி"
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
-msgstr ""
+msgstr "மறு"
 
 #: src/background.cpp:141
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
 msgid "Background App Usage"
-msgstr "பின்னணி செயல்பாடு"
+msgstr "பின்னணி செயல்பாட்டு"
 
 #: src/background.cpp:143
 #, kde-format
@@ -138,13 +135,15 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
+"கடைசி சாளரம் மூடப்படும்போது %1 தனை வேளியேற இது கட்டாயப்படுத்தும். இது நடக்கும்போது "
+"சேமிக்கப்படா மாற்றங்கள் இருந்தால் தரவு இழப்பு நேரிடலாம்."
 
 #: src/background.cpp:148
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid Anyway"
-msgstr ""
+msgstr "இருப்பினும் மறு"
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format
@@ -162,25 +161,25 @@ msgstr "செயலியைச் சேர்…"
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
-msgstr ""
+msgstr "பெயர்"
 
 #: src/DynamicLauncherDialog.qml:91
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr ""
+msgstr "விவரங்களை திருத்து…"
 
 #: src/DynamicLauncherDialog.qml:97
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
-msgstr ""
+msgstr "ஏற்றுக்கொள்"
 
 #: src/DynamicLauncherDialog.qml:102
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
-msgstr ""
+msgstr "ரத்து செய்"
 
 #: src/filechooser.cpp:365
 #, kde-format
@@ -203,59 +202,54 @@ msgid "Save File"
 msgstr "கோப்பை சேமித்தல்"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create New Folder"
-msgstr "அடைவை தேர்வு செய்தல்"
+msgstr "புதிய அடைவை உருவாக்கு"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
 msgid "Create new folder in %1"
-msgstr ""
+msgstr "%1 தனில் புதிய அடைவை உருவாக்கு"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
-#, fuzzy, kde-format
-#| msgctxt "NAME OF TRANSLATORS"
-#| msgid "Your names"
+#, kde-format
 msgid "Folder name"
-msgstr "கோ. கிஷோர்"
+msgstr "அடைவின் பெயர்"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "சரி"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "ரத்து செய்"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
 msgid "File name"
-msgstr ""
+msgstr "கோப்புப்பெயர்"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:116
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Select"
-msgstr "அடைவை தேர்வு செய்தல்"
+msgstr "தேர்ந்தெடு"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create Folder"
-msgstr "அடைவை தேர்வு செய்தல்"
+msgstr "அடைவை உருவாக்கு"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
 msgid "Filter Filetype"
-msgstr ""
+msgstr "கோப்புவகையால் வடிகட்டு"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Show Hidden Files"
-msgstr ""
+msgstr "மறைந்துள்ள கோப்புகளைக் காட்டு"
 
 #: src/outputsmodel.cpp:18
 #, kde-format
@@ -280,48 +274,48 @@ msgstr "மடிக்கணினித் திரை"
 #: src/region-select/RegionSelectOverlay.qml:142
 #, kde-format
 msgid "Start streaming:"
-msgstr ""
+msgstr "பகிர்வதைத் துவக்க:"
 
 #: src/region-select/RegionSelectOverlay.qml:146
 #, kde-format
 msgid "Clear selection:"
-msgstr ""
+msgstr "தேர்வை காலியாக்க:"
 
 #: src/region-select/RegionSelectOverlay.qml:150
 #: src/region-select/RegionSelectOverlay.qml:193
 #, kde-format
 msgid "Cancel:"
-msgstr ""
+msgstr "ரத்து செய்ய:"
 
 #: src/region-select/RegionSelectOverlay.qml:156
 #, kde-format
 msgctxt "Mouse action"
 msgid "Release left-click"
-msgstr ""
+msgstr "இடது க்ளிக்கை விடுவிக்கவும்"
 
 #: src/region-select/RegionSelectOverlay.qml:160
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
-msgstr ""
+msgstr "வலது க்ளிக்"
 
 #: src/region-select/RegionSelectOverlay.qml:164
 #: src/region-select/RegionSelectOverlay.qml:203
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
-msgstr ""
+msgstr "Escape"
 
 #: src/region-select/RegionSelectOverlay.qml:189
 #, kde-format
 msgid "Create selection:"
-msgstr ""
+msgstr "தேர்வை உருவாக்க:"
 
 #: src/region-select/RegionSelectOverlay.qml:199
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
-msgstr ""
+msgstr "இடது கிளிக் செய்து இழுக்கவும்"
 
 #: src/remotedesktop.cpp:121
 #, kde-format
@@ -467,11 +461,9 @@ msgid "Choose which window to share with %1:"
 msgstr "%1 உடன் பகிர வேண்டிய சாளரத்தை தேர்ந்தெடுங்கள்:"
 
 #: src/ScreenChooserDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to see what's on the outputs, in markdown"
-#| msgid " - Screens\n"
+#, kde-format
 msgid "Screens"
-msgstr " - திரைகள்\n"
+msgstr "திரைகள்"
 
 #: src/ScreenChooserDialog.qml:39
 #, kde-format
@@ -481,7 +473,7 @@ msgstr "சாளரங்கள்"
 #: src/ScreenChooserDialog.qml:129
 #, kde-format
 msgid "Allow restoring on future sessions"
-msgstr ""
+msgstr "வருங்கால அமர்வுகளில் மீட்டமைக்கவிடு"
 
 #: src/screenshotdialog.cpp:115
 #, kde-format
@@ -499,16 +491,14 @@ msgid "Active Window"
 msgstr "செயலில் உள்ள சாளரம்"
 
 #: src/ScreenshotDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "Request screenshot"
+#, kde-format
 msgid "Request Screenshot"
-msgstr "திரைப்பிடிப்பு கோரிக்கை"
+msgstr "திரைப்பிடிப்ப கோரு"
 
 #: src/ScreenshotDialog.qml:30
-#, fuzzy, kde-format
-#| msgid "<b>Capture Mode</b>"
+#, kde-format
 msgid "Capture Mode"
-msgstr "<b>பிடிப்பு முறை</b>"
+msgstr "பிடிப்பு முறை"
 
 #: src/ScreenshotDialog.qml:34
 #, kde-format
@@ -524,18 +514,16 @@ msgstr "தாமதம்:"
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 நொடி"
+msgstr[1] "%1 நொடிகள்"
 
 #: src/ScreenshotDialog.qml:52
-#, fuzzy, kde-format
-#| msgid "<b>Content Options</b>"
+#, kde-format
 msgid "Content Options"
-msgstr "<b>உள்ளடக்க விருப்பத்தேர்வுகள்</b>"
+msgstr "உள்ளடக்க விருப்பத்தேர்வுகள்"
 
 #: src/ScreenshotDialog.qml:56
-#, fuzzy, kde-format
-#| msgid "Include mouse pointer"
+#, kde-format
 msgid "Include cursor pointer"
 msgstr "சுட்டிக்குறியை உட்படுத்து"
 
@@ -545,15 +533,14 @@ msgid "Include window borders"
 msgstr "சாளர விளிம்புகளை உட்படுத்து"
 
 #: src/ScreenshotDialog.qml:74
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save"
-msgstr "கோப்பை சேமித்தல்"
+msgstr "சேமி"
 
 #: src/ScreenshotDialog.qml:84
 #, kde-format
 msgid "Take"
-msgstr ""
+msgstr "எடு"
 
 #: src/session.cpp:169
 #, kde-format
