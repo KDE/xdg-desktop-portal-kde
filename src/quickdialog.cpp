@@ -37,7 +37,11 @@ void QuickDialog::create(const QString &file, const QVariantMap &props)
         }
     });
 
-    m_theDialog = qobject_cast<QQuickWindow *>(engine->rootObjects().constFirst());
+    const QList<QObject *> rootObjects = engine->rootObjects();
+    if (rootObjects.isEmpty()) {
+        return;
+    }
+    m_theDialog = qobject_cast<QQuickWindow *>(rootObjects.constFirst());
     connect(m_theDialog, SIGNAL(accept()), this, SLOT(accept()));
     connect(m_theDialog, SIGNAL(reject()), this, SLOT(reject()));
 
