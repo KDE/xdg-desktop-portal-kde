@@ -58,64 +58,61 @@ PWD.SystemDialog
                 currentIndex: tabView.currentIndex
 
                 QQC2.ScrollView {
-                    Kirigami.CardsGridView {
-                        id: outputsView
-                        model: null
-                        cellHeight: Kirigami.Units.gridUnit * 15
-                        delegate: PipeWireDelegate {
-                            height: outputsView.cellHeight - Kirigami.Units.largeSpacing
-
-                            banner {
-                                title: model.display
-                                titleIcon: model.decoration
-                                titleLevel: 3
-                            }
-                            checkable: true
-                            checked: model.checked === Qt.Checked
-                            nodeId: waylandItem.nodeId
-                            TaskManager.ScreencastingRequest {
-                                id: waylandItem
-                                outputName: model.name
-                            }
-
-                            onToggled: {
-                                var to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
-                                if (!root.multiple && to === Qt.Checked) {
-                                    root.clearSelection()
+                    Kirigami.CardsLayout {
+                        Repeater {
+                            id: outputsView
+                            model: null
+                            PipeWireDelegate {
+                                banner {
+                                    title: model.display
+                                    titleIcon: model.decoration
+                                    titleLevel: 3
                                 }
-                                outputsView.model.setData(outputsView.model.index(model.row, 0), to, Qt.CheckStateRole)
+                                checkable: true
+                                checked: model.checked === Qt.Checked
+                                nodeId: waylandItem.nodeId
+                                TaskManager.ScreencastingRequest {
+                                    id: waylandItem
+                                    outputName: model.name
+                                }
+
+                                onToggled: {
+                                    var to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
+                                    if (!root.multiple && to === Qt.Checked) {
+                                        root.clearSelection()
+                                    }
+                                    outputsView.model.setData(outputsView.model.index(model.row, 0), to, Qt.CheckStateRole)
+                                }
                             }
                         }
                     }
                 }
                 QQC2.ScrollView {
-                    Kirigami.CardsGridView {
-                        id: windowsView
-                        model: null
-                        clip: true
-                        cellHeight: Kirigami.Units.gridUnit * 15
-
-                        delegate: PipeWireDelegate {
-                            height: windowsView.cellHeight - Kirigami.Units.smallSpacing
-                            banner {
-                                title: model.DisplayRole || ""
-                                titleIcon: model.DecorationRole || ""
-                                titleLevel: 3
-                            }
-                            checkable: true
-                            checked: model.checked === Qt.Checked
-                            nodeId: waylandItem.nodeId
-                            TaskManager.ScreencastingRequest {
-                                id: waylandItem
-                                uuid: model.Uuid
-                            }
-
-                            onToggled: {
-                                var to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
-                                if (!root.multiple && to === Qt.Checked) {
-                                    root.clearSelection()
+                    Kirigami.CardsLayout {
+                        Repeater {
+                            id: windowsView
+                            model: null
+                            PipeWireDelegate {
+                                banner {
+                                    title: model.DisplayRole || ""
+                                    titleIcon: model.DecorationRole || ""
+                                    titleLevel: 3
                                 }
-                                windowsView.model.setData(windowsView.model.index(model.row, 0), to, Qt.CheckStateRole)
+                                checkable: true
+                                checked: model.checked === Qt.Checked
+                                nodeId: waylandItem.nodeId
+                                TaskManager.ScreencastingRequest {
+                                    id: waylandItem
+                                    uuid: model.Uuid
+                                }
+
+                                onToggled: {
+                                    var to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
+                                    if (!root.multiple && to === Qt.Checked) {
+                                        root.clearSelection()
+                                    }
+                                    windowsView.model.setData(windowsView.model.index(model.row, 0), to, Qt.CheckStateRole)
+                                }
                             }
                         }
                     }
