@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-04 02:17+0000\n"
+"POT-Creation-Date: 2023-06-14 02:07+0000\n"
 "PO-Revision-Date: 2022-12-28 02:03+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
@@ -368,7 +368,7 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr "- Įvesties įrenginiai\n"
 
-#: src/RemoteDesktopDialog.qml:26 src/ScreenChooserDialog.qml:135
+#: src/RemoteDesktopDialog.qml:26 src/ScreenChooserDialog.qml:132
 #: src/UserInfoDialog.qml:41
 #, kde-format
 msgid "Share"
@@ -485,7 +485,7 @@ msgstr "Visas ekranas"
 msgid "Windows"
 msgstr "Langai"
 
-#: src/ScreenChooserDialog.qml:129
+#: src/ScreenChooserDialog.qml:126
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr ""

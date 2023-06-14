@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-04 02:17+0000\n"
+"POT-Creation-Date: 2023-06-14 02:07+0000\n"
 "PO-Revision-Date: 2023-02-24 17:20-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -356,7 +356,7 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - Dispositivos de entrada\n"
 
-#: src/RemoteDesktopDialog.qml:26 src/ScreenChooserDialog.qml:135
+#: src/RemoteDesktopDialog.qml:26 src/ScreenChooserDialog.qml:132
 #: src/UserInfoDialog.qml:41
 #, kde-format
 msgid "Share"
@@ -471,7 +471,7 @@ msgstr "Telas"
 msgid "Windows"
 msgstr "Janelas"
 
-#: src/ScreenChooserDialog.qml:129
+#: src/ScreenChooserDialog.qml:126
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Permite restaurar em sessões futuras"

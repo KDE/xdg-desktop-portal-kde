@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-04 02:17+0000\n"
+"POT-Creation-Date: 2023-06-14 02:07+0000\n"
 "PO-Revision-Date: 2023-06-05 11:17+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -351,7 +351,7 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - Vstupní zařízení\n"
 
-#: src/RemoteDesktopDialog.qml:26 src/ScreenChooserDialog.qml:135
+#: src/RemoteDesktopDialog.qml:26 src/ScreenChooserDialog.qml:132
 #: src/UserInfoDialog.qml:41
 #, kde-format
 msgid "Share"
@@ -466,7 +466,7 @@ msgstr "Obrazovky"
 msgid "Windows"
 msgstr "Okna"
 
-#: src/ScreenChooserDialog.qml:129
+#: src/ScreenChooserDialog.qml:126
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Umožnit návrat k předchozím verzím"
