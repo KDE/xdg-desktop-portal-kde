@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-14 02:07+0000\n"
-"PO-Revision-Date: 2023-06-04 20:56+0200\n"
+"PO-Revision-Date: 2023-06-15 13:49+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -87,6 +87,8 @@ msgstr "Weitere in Discover suchen"
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
+"Wird keine passende Anwendung angezeigt? Sichen Sie weitere in "
+"<link>Discover</link>."
 
 #: src/background.cpp:103
 #, kde-format
@@ -115,13 +117,12 @@ msgid "Forbid"
 msgstr "Verbieten"
 
 #: src/background.cpp:141
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
 msgid "Background App Usage"
-msgstr "Hintergrundaktivität"
+msgstr "Hintergrundaktivität der Anwendung"
 
 #: src/background.cpp:143
 #, kde-format
@@ -137,7 +138,7 @@ msgstr ""
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid Anyway"
-msgstr ""
+msgstr "Dennoch verbieten"
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format
@@ -315,13 +316,13 @@ msgstr "Linksklick und ziehen"
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
-msgstr ""
+msgstr "Ferngesteuerte Sitzung gestartet"
 
 #: src/remotedesktopdialog.cpp:23
 #, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
-msgstr ""
+msgstr "Fernsteuerung angefordert"
 
 #: src/remotedesktopdialog.cpp:32
 #, fuzzy, kde-format
