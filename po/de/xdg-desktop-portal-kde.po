@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-06 02:35+0000\n"
-"PO-Revision-Date: 2023-06-04 20:56+0200\n"
+"PO-Revision-Date: 2023-06-15 13:49+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -87,6 +87,8 @@ msgstr "Weitere in Discover suchen"
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
+"Wird keine passende Anwendung angezeigt? Sichen Sie weitere in "
+"<link>Discover</link>."
 
 #: src/background.cpp:104
 #, kde-format
@@ -257,13 +259,13 @@ msgstr "Laptop-Bildschirm"
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
-msgstr ""
+msgstr "Ferngesteuerte Sitzung gestartet"
 
 #: src/remotedesktopdialog.cpp:23
 #, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
-msgstr ""
+msgstr "Fernsteuerung angefordert"
 
 #: src/remotedesktopdialog.cpp:32
 #, fuzzy, kde-format
