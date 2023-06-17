@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-06 02:35+0000\n"
-"PO-Revision-Date: 2023-06-15 13:49+0200\n"
+"PO-Revision-Date: 2023-06-16 20:39+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -268,11 +268,10 @@ msgid "Remote control requested"
 msgstr "Fernsteuerung angefordert"
 
 #: src/remotedesktopdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
-msgstr "Gerätezugriff anfordern"
+msgstr "Zugriff anfordern für:\n"
 
 #: src/remotedesktopdialog.cpp:34
 #, fuzzy, kde-format
