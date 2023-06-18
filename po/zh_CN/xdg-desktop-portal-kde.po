@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-14 02:07+0000\n"
-"PO-Revision-Date: 2023-05-22 13:58\n"
+"PO-Revision-Date: 2023-06-17 04:09\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -92,8 +92,7 @@ msgstr ""
 "没有找到合适的应用？请打开 <link>Discover 软件管理中心</link> 查找更多应用。"
 
 #: src/background.cpp:103
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgid "Background Activity"
 msgstr "后台活动"
 
@@ -104,10 +103,11 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
+"%1 请求在不显示可见窗口的情况下继续运行。如果您禁止此请求，该应用程序将在它的"
+"最后一个窗口关闭时退出。"
 
 #: src/background.cpp:106 src/background.cpp:147
-#, fuzzy, kde-format
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "允许"
@@ -117,16 +117,15 @@ msgstr "允许"
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
-msgstr ""
+msgstr "禁止"
 
 #: src/background.cpp:141
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
 msgid "Background App Usage"
-msgstr "后台活动"
+msgstr "应用程序后台运行请求"
 
 #: src/background.cpp:143
 #, kde-format
@@ -136,13 +135,15 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
+"请注意：这将强制 %1 在它的最后一个窗口关闭时退出。如果该应用程序被强制退出时"
+"有未保存的更改，这可能会造成数据丢失。"
 
 #: src/background.cpp:148
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid Anyway"
-msgstr ""
+msgstr "依然禁止"
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format
@@ -591,25 +592,3 @@ msgstr "启动投屏失败"
 #, kde-format
 msgid "Remote desktop"
 msgstr "远程桌面"
-
-#~ msgid "%1 is running in the background."
-#~ msgstr "%1 正在后台运行。"
-
-#~ msgid "Find out more"
-#~ msgstr "了解详情"
-
-#~ msgid "%1 is running in the background"
-#~ msgstr "%1 正在后台运行"
-
-#~ msgid ""
-#~ "This might be for a legitimate reason, but the application has not "
-#~ "provided one.\n"
-#~ "\n"
-#~ "Note that forcing an application to quit might cause data loss."
-#~ msgstr ""
-#~ "这可能是基于正当理由，但是该应用程序并未提供任何理由。\n"
-#~ "\n"
-#~ "提示：强制退出应用程序可能导致数据丢失。"
-
-#~ msgid "Force quit"
-#~ msgstr "强制退出"
