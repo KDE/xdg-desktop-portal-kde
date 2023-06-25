@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-14 02:07+0000\n"
-"PO-Revision-Date: 2023-03-29 09:53+0300\n"
+"PO-Revision-Date: 2023-06-02 19:41+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -329,11 +329,10 @@ msgid "Remote control requested"
 msgstr "Etähallintaa pyydetty"
 
 #: src/remotedesktopdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
-msgstr "Pyydä laiteyhteyttä"
+msgstr "Pyysi pääsyä kohteisiin:\n"
 
 #: src/remotedesktopdialog.cpp:34
 #, kde-format
