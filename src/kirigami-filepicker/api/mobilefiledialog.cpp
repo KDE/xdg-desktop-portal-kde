@@ -46,6 +46,7 @@ MobileFileDialog::MobileFileDialog(QObject *parent)
 
     // Connect everything to callback
     connect(m_callback, &FileChooserQmlCallback::accepted, this, &MobileFileDialog::accepted);
+    connect(m_callback, &FileChooserQmlCallback::cancel, this, &MobileFileDialog::cancel);
     connect(m_callback, &FileChooserQmlCallback::titleChanged, this, &MobileFileDialog::titleChanged);
     connect(m_callback, &FileChooserQmlCallback::selectMultipleChanged, this, &MobileFileDialog::selectMultipleChanged);
     connect(m_callback, &FileChooserQmlCallback::selectExistingChanged, this, &MobileFileDialog::selectExistingChanged);
@@ -179,24 +180,24 @@ uint MobileFileDialog::exec()
     // Reset old data
     m_results.clear();
 
-    // Wait for it to exit
-    bool handled = false;
     uint exitCode = 0;
 
-    const auto acceptedConn = connect(m_callback, &FileChooserQmlCallback::accepted, this, [this, &exitCode, &handled](const QList<QUrl> &urls) {
+    const auto acceptedConn = connect(m_callback, &FileChooserQmlCallback::accepted, this, [this, &exitCode](const QList<QUrl> &urls) {
         m_results = urls;
-        handled = true;
         exitCode = 0;
         qDebug(KirigamiFilepicker) << "Got results" << m_results;
     });
-    const auto cancelConn = connect(m_callback, &FileChooserQmlCallback::cancel, this, [&exitCode, &handled] {
+    const auto cancelConn = connect(m_callback, &FileChooserQmlCallback::cancel, this, [&exitCode] {
         qDebug(KirigamiFilepicker) << "Quit without results";
-        handled = true;
         exitCode = 1;
     });
 
-    while (!handled)
-        QGuiApplication::processEvents();
+    QEventLoop loop;
+
+    connect(this, &MobileFileDialog::accepted, &loop, &QEventLoop::quit);
+    connect(this, &MobileFileDialog::cancel, &loop, &QEventLoop::quit);
+
+    loop.exec();
 
     qDebug(KirigamiFilepicker) << "exiting file dialog";
 

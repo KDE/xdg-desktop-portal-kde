@@ -61,6 +61,7 @@ Q_SIGNALS:
     void currentFileChanged();
     void acceptLabelChanged();
     void selectFolderChanged();
+    void cancel();
 
 private:
     QQmlApplicationEngine *m_engine;
