@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
+#include <QStandardPaths>
 #include <QTest>
-#include <QtTest>
 
 #include "../src/xdgshortcut.h"
 
