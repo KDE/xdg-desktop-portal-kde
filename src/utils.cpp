@@ -32,11 +32,7 @@ void Utils::setParentWindow(QWidget *w, const QString &parent_window)
 void Utils::setParentWindow(QWindow *w, const QString &parent_window)
 {
     if (parent_window.startsWith(QLatin1String("x11:"))) {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        KWindowSystem::setMainWindow(w, parent_window.midRef(4).toULongLong(nullptr, 16));
-#else
         KWindowSystem::setMainWindow(w, QStringView(parent_window).mid(4).toULongLong(nullptr, 16));
-#endif
     }
     if (parent_window.startsWith((QLatin1String("wayland:")))) {
         WaylandIntegration::setParentWindow(w, parent_window.mid(strlen("wayland:")));

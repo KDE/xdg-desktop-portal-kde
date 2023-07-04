@@ -363,11 +363,7 @@ void GlobalShortcutsSession::restoreActions(const QVariant &shortcutsVariant)
 {
     auto arg = shortcutsVariant.value<QDBusArgument>();
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    static const auto ShortcutsSignature = QDBusMetaType::typeToSignature(qMetaTypeId<Shortcuts>());
-#else
     static const auto ShortcutsSignature = QDBusMetaType::typeToSignature(QMetaType(qMetaTypeId<Shortcuts>()));
-#endif
     if (arg.currentSignature() != QLatin1String(ShortcutsSignature)) {
         qCWarning(XdgSessionKdeSession) << "Wrong global shortcuts type, should be " << ShortcutsSignature << "instead of " << arg.currentSignature();
         return;

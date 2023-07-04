@@ -27,11 +27,7 @@ GlobalShortcutsPortal::GlobalShortcutsPortal(QObject *parent)
     qDBusRegisterMetaType<Shortcut>();
     qDBusRegisterMetaType<Shortcuts>();
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    Q_ASSERT(QLatin1String(QDBusMetaType::typeToSignature(qMetaTypeId<Shortcuts>())) == QLatin1String("a(sa{sv})"));
-#else
     Q_ASSERT(QLatin1String(QDBusMetaType::typeToSignature(QMetaType(qMetaTypeId<Shortcuts>()))) == QLatin1String("a(sa{sv})"));
-#endif
 }
 
 GlobalShortcutsPortal::~GlobalShortcutsPortal() = default;
