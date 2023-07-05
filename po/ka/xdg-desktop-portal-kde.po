@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-14 02:07+0000\n"
+"POT-Creation-Date: 2023-07-05 02:52+0000\n"
 "PO-Revision-Date: 2023-06-04 05:03+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -571,7 +571,7 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "ეკრანის გაზიარება"
 
-#: src/session.cpp:445
+#: src/session.cpp:441
 #, kde-format
 msgid ", "
 msgstr ", "

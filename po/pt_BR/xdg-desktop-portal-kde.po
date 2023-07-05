@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-14 02:07+0000\n"
+"POT-Creation-Date: 2023-07-05 02:52+0000\n"
 "PO-Revision-Date: 2023-06-26 17:14-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -567,7 +567,7 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "Transmissão de tela"
 
-#: src/session.cpp:445
+#: src/session.cpp:441
 #, kde-format
 msgid ", "
 msgstr ", "

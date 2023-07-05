@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-14 02:07+0000\n"
+"POT-Creation-Date: 2023-07-05 02:52+0000\n"
 "PO-Revision-Date: 2023-06-04 21:09+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -572,7 +572,7 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "Delen van schermen"
 
-#: src/session.cpp:445
+#: src/session.cpp:441
 #, kde-format
 msgid ", "
 msgstr ", "
