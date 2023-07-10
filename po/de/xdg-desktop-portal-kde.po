@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-06 02:35+0000\n"
-"PO-Revision-Date: 2023-06-16 20:39+0200\n"
+"PO-Revision-Date: 2023-07-09 00:52+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -487,7 +487,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
-msgstr ""
+msgstr "Beenden"
 
 #: src/session.cpp:255
 #, kde-format
