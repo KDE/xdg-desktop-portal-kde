@@ -49,6 +49,7 @@ public:
     }
 
     uint m_nodeid = 0;
+    QRect m_geometry;
     QPointer<ScreencastingStream> q;
 };
 
@@ -63,6 +64,11 @@ ScreencastingStream::~ScreencastingStream() = default;
 quint32 ScreencastingStream::nodeid() const
 {
     return d->m_nodeid;
+}
+
+QRect ScreencastingStream::geometry() const
+{
+    return d->m_geometry;
 }
 
 class ScreencastingPrivate : public QtWayland::zkde_screencast_unstable_v1
@@ -106,6 +112,7 @@ ScreencastingStream *Screencasting::createOutputStream(Output *output, CursorMod
     auto stream = new ScreencastingStream(this);
     stream->setObjectName(output->model());
     stream->d->init(d->stream_output(*output, mode));
+    stream->d->m_geometry = output->geometry();
     return stream;
 }
 
@@ -122,6 +129,7 @@ ScreencastingStream *Screencasting::createOutputStream(QScreen *screen, CursorMo
     }
 
     stream->d->init(d->stream_output(output, mode));
+    stream->d->m_geometry = screen->geometry();
     return stream;
 }
 
@@ -136,6 +144,7 @@ ScreencastingStream *Screencasting::createRegionStream(const QRect &g, qreal sca
 {
     auto stream = new ScreencastingStream(this);
     stream->d->init(d->stream_region(g.x(), g.y(), g.width(), g.height(), wl_fixed_from_double(scale), mode));
+    stream->d->m_geometry = g;
     return stream;
 }
 
@@ -143,6 +152,7 @@ ScreencastingStream *Screencasting::createVirtualOutputStream(const QString &nam
 {
     auto stream = new ScreencastingStream(this);
     stream->d->init(d->stream_virtual_output(name, s.width(), s.height(), wl_fixed_from_double(scale), mode));
+    stream->d->m_geometry = QRect(QPoint(0, 0), s);
     return stream;
 }
 

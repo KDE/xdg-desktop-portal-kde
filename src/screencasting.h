@@ -35,6 +35,7 @@ public:
     ~ScreencastingStream() override;
 
     quint32 nodeid() const;
+    QRect geometry() const;
 
 Q_SIGNALS:
     void created(quint32 nodeid);

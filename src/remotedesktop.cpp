@@ -196,7 +196,7 @@ void RemoteDesktopPortal::NotifyPointerMotionAbsolute(const QDBusObjectPath &ses
         return;
     }
 
-    WaylandIntegration::requestPointerMotionAbsolute(QPointF(x, y));
+    WaylandIntegration::requestPointerMotionAbsolute(stream, QPointF(x, y));
 }
 
 void RemoteDesktopPortal::NotifyPointerButton(const QDBusObjectPath &session_handle, const QVariantMap &options, int button, uint state)
