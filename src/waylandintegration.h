@@ -12,6 +12,7 @@
 #include <QDBusArgument>
 #include <QObject>
 #include <QPoint>
+#include <QScreen>
 #include <QSize>
 #include <QVariant>
 
@@ -128,6 +129,7 @@ bool isStreamingAvailable();
 
 void acquireStreamingInput(bool acquire);
 Stream startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
+Stream startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode);
 Stream startStreamingWorkspace(Screencasting::CursorMode mode);
 Stream startStreamingVirtual(const QString &name, const QSize &size, Screencasting::CursorMode mode);
 Stream startStreamingWindow(const QMap<int, QVariant> &win, Screencasting::CursorMode mode);
