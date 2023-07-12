@@ -275,6 +275,7 @@ target_sources(xdg-desktop-portal-kde PRIVATE ${xdg_desktop_portal_kde_SRCS})
 
 target_link_libraries(xdg-desktop-portal-kde
     Qt::Core
+    Qt::GuiPrivate
     Qt::DBus
     Qt::Concurrent
     Qt::PrintSupport

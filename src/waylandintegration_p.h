@@ -65,6 +65,7 @@ public:
     void acquireStreamingInput(bool acquire);
 
     Stream startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
+    Stream startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode);
     Stream startStreamingWindow(const QMap<int, QVariant> &win, Screencasting::CursorMode mode);
     Stream startStreamingWorkspace(Screencasting::CursorMode mode);
     Stream startStreamingRegion(const QRect region, Screencasting::CursorMode mode);

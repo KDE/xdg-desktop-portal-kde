@@ -6,11 +6,16 @@
 
 #include "screencasting.h"
 #include "qwayland-zkde-screencast-unstable-v1.h"
+#include "screencast_debug.h"
+
 #include <KWayland/Client/output.h>
 #include <KWayland/Client/plasmawindowmanagement.h>
 #include <KWayland/Client/registry.h>
 #include <QDebug>
 #include <QRect>
+
+#include <QGuiApplication>
+#include <qpa/qplatformnativeinterface.h>
 
 using namespace KWayland::Client;
 
@@ -101,6 +106,22 @@ ScreencastingStream *Screencasting::createOutputStream(Output *output, CursorMod
     auto stream = new ScreencastingStream(this);
     stream->setObjectName(output->model());
     stream->d->init(d->stream_output(*output, mode));
+    return stream;
+}
+
+ScreencastingStream *Screencasting::createOutputStream(QScreen *screen, CursorMode mode)
+{
+    auto stream = new ScreencastingStream(this);
+    stream->setObjectName(screen->name());
+
+    auto native = qGuiApp->platformNativeInterface();
+    auto *output = reinterpret_cast<wl_output *>(native->nativeResourceForScreen(QByteArrayLiteral("output"), screen));
+    if (!output) {
+        qCWarning(XdgDesktopPortalKdeScreenCast) << "Could not find a matching Wayland output for screen" << screen->name();
+        return nullptr;
+    }
+
+    stream->d->init(d->stream_output(output, mode));
     return stream;
 }
 

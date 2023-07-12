@@ -115,6 +115,10 @@ WaylandIntegration::Stream WaylandIntegration::startStreamingOutput(quint32 outp
     return globalWaylandIntegration->startStreamingOutput(outputName, mode);
 }
 
+WaylandIntegration::Stream WaylandIntegration::startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode)
+{
+    return globalWaylandIntegration->startStreamingOutput(screen, mode);
+}
 WaylandIntegration::Stream WaylandIntegration::startStreamingWorkspace(Screencasting::CursorMode mode)
 {
     return globalWaylandIntegration->startStreamingWorkspace(mode);
@@ -299,6 +303,25 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
     return startStreaming(m_screencasting->createOutputStream(output.data(), mode),
                           {
                               {QLatin1String("size"), output->pixelSize()},
+                              {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
+                          });
+}
+
+WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode)
+{
+    auto stream = m_screencasting->createOutputStream(screen, mode);
+    if (!stream) {
+        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Cannot stream, output not found" << screen->name();
+        auto notification = new KNotification(QStringLiteral("screencastfailure"), KNotification::CloseOnTimeout);
+        notification->setTitle(i18n("Failed to start screencasting"));
+        notification->setIconName(QStringLiteral("dialog-error"));
+        notification->sendEvent();
+        return {};
+    }
+
+    return startStreaming(stream,
+                          {
+                              {QLatin1String("size"), screen->size()},
                               {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
                           });
 }
