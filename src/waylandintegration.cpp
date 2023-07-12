@@ -119,6 +119,7 @@ WaylandIntegration::Stream WaylandIntegration::startStreamingOutput(QScreen *scr
 {
     return globalWaylandIntegration->startStreamingOutput(screen, mode);
 }
+
 WaylandIntegration::Stream WaylandIntegration::startStreamingWorkspace(Screencasting::CursorMode mode)
 {
     return globalWaylandIntegration->startStreamingWorkspace(mode);
@@ -154,9 +155,9 @@ void WaylandIntegration::requestPointerMotion(const QSizeF &delta)
     globalWaylandIntegration->requestPointerMotion(delta);
 }
 
-void WaylandIntegration::requestPointerMotionAbsolute(const QPointF &pos)
+void WaylandIntegration::requestPointerMotionAbsolute(uint stream, const QPointF &pos)
 {
-    globalWaylandIntegration->requestPointerMotionAbsolute(pos);
+    globalWaylandIntegration->requestPointerMotionAbsolute(stream, pos);
 }
 
 void WaylandIntegration::requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta)
@@ -294,10 +295,9 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
         notification->sendEvent();
         return {};
     }
-    m_streamedScreenPosition = output->globalPosition();
     return startStreaming(m_screencasting->createOutputStream(output.data(), mode),
                           {
-                              {QLatin1String("size"), output->pixelSize()},
+                              {QLatin1String("size"), output->geometry().size()},
                               {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
                           });
 }
@@ -328,7 +328,6 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
     for (QScreen *screen : screens) {
         workspace |= screen->geometry();
     }
-    m_streamedScreenPosition = workspace.topLeft();
     return startStreaming(m_screencasting->createRegionStream(workspace, 1, mode),
                           {
                               {QLatin1String("size"), workspace.size()},
@@ -372,7 +371,6 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
             stopStreaming(nodeid);
         });
         Q_ASSERT(ret.isValid());
-        qDebug() << "start streaming" << ret << m_streamedScreenPosition;
 
         loop.quit();
     });
@@ -418,10 +416,17 @@ void WaylandIntegration::WaylandIntegrationPrivate::requestPointerMotion(const Q
     }
 }
 
-void WaylandIntegration::WaylandIntegrationPrivate::requestPointerMotionAbsolute(const QPointF &pos)
+void WaylandIntegration::WaylandIntegrationPrivate::requestPointerMotionAbsolute(uint streamNodeId, const QPointF &pos)
 {
     if (m_streamInput && m_fakeInput) {
-        m_fakeInput->requestPointerMoveAbsolute(pos + m_streamedScreenPosition);
+        for (auto stream : std::as_const(m_streams)) {
+            if (stream.nodeId == streamNodeId) {
+                m_fakeInput->requestPointerMoveAbsolute(pos + stream.stream->geometry().topLeft());
+                return;
+            }
+        }
+        // If no stream is found, just send it as absolute coordinates relative to the workspace.
+        m_fakeInput->requestPointerMoveAbsolute(pos);
     }
 }
 

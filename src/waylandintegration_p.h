@@ -74,7 +74,7 @@ public:
     void requestPointerButtonPress(quint32 linuxButton);
     void requestPointerButtonRelease(quint32 linuxButton);
     void requestPointerMotion(const QSizeF &delta);
-    void requestPointerMotionAbsolute(const QPointF &pos);
+    void requestPointerMotionAbsolute(uint stream, const QPointF &pos);
     void requestPointerAxis(qreal x, qreal y);
     void requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta);
     void requestKeyboardKeycode(int keycode, bool state);
@@ -101,8 +101,6 @@ private:
     quint32 m_output;
     QDateTime m_lastFrameTime;
     QVector<Stream> m_streams;
-
-    QPoint m_streamedScreenPosition;
 
     QMap<quint32, WaylandOutput> m_outputMap;
 

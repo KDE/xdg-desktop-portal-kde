@@ -138,7 +138,7 @@ void stopStreaming(uint node);
 void requestPointerButtonPress(quint32 linuxButton);
 void requestPointerButtonRelease(quint32 linuxButton);
 void requestPointerMotion(const QSizeF &delta);
-void requestPointerMotionAbsolute(const QPointF &pos);
+void requestPointerMotionAbsolute(uint stream, const QPointF &pos);
 void requestPointerAxis(qreal x, qreal y);
 void requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta);
 
