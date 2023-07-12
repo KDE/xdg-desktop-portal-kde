@@ -136,10 +136,10 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
 
     if (session->screenSharingEnabled()) {
         WaylandIntegration::Streams streams;
-        if (session->multipleSources() || WaylandIntegration::screens().count() == 1) {
-            const auto outputs = WaylandIntegration::screens().values();
-            for (const auto &output : outputs) {
-                auto stream = WaylandIntegration::startStreamingOutput(output.waylandOutputName(), Screencasting::Metadata);
+        const auto screens = qGuiApp->screens();
+        if (session->multipleSources() || screens.count() == 1) {
+            for (const auto &screen : screens) {
+                auto stream = WaylandIntegration::startStreamingOutput(screen, Screencasting::Metadata);
                 if (!stream.isValid()) {
                     return 2;
                 }
