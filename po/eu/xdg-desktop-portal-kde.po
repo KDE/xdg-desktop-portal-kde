@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-05 02:52+0000\n"
-"PO-Revision-Date: 2023-02-23 20:09+0100\n"
+"POT-Creation-Date: 2023-07-16 02:12+0000\n"
+"PO-Revision-Date: 2023-07-15 21:01+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -96,8 +96,7 @@ msgstr ""
 "erabiliz."
 
 #: src/background.cpp:103
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgid "Background Activity"
 msgstr "Atzeko planoko jarduera"
 
@@ -108,10 +107,11 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
+"%1(e)k martxan jarraitu nahi du leiho ikusgairik ez duenean. Hori debekatzen "
+"baduzu, aplikazioa itxi egingo da bere azken leihoa ixten denean."
 
 #: src/background.cpp:106 src/background.cpp:147
-#, fuzzy, kde-format
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Baimendu"
@@ -121,16 +121,15 @@ msgstr "Baimendu"
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
-msgstr ""
+msgstr "Debekatu"
 
 #: src/background.cpp:141
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
 msgid "Background App Usage"
-msgstr "Atzeko planoko jarduera"
+msgstr "Atzeko planoko aplikazio erabilera"
 
 #: src/background.cpp:143
 #, kde-format
@@ -140,13 +139,16 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
+"Jakizu horrek, bere azken leihoa ixten denean, %1 irtetera behartuko duela. "
+"Horrek datu galera eragin dezake, gertatzen denean gorde gabeko aldaketak "
+"daudenean."
 
 #: src/background.cpp:148
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid Anyway"
-msgstr ""
+msgstr "Debekatu edonola ere"
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format
@@ -184,7 +186,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Utzi"
 
-#: src/filechooser.cpp:365
+#: src/filechooser.cpp:432
 #, kde-format
 msgid "Open"
 msgstr "Ireki"

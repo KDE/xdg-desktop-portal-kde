@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-05 02:52+0000\n"
+"POT-Creation-Date: 2023-07-16 02:12+0000\n"
 "PO-Revision-Date: 2017-05-22 04:55-0400\n"
 "Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
 "Language-Team: Hebrew\n"
@@ -176,7 +176,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr ""
 
-#: src/filechooser.cpp:365
+#: src/filechooser.cpp:432
 #, kde-format
 msgid "Open"
 msgstr "פתח"
