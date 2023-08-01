@@ -164,6 +164,7 @@ QFuture<QImage> ScreenshotDialog::takeScreenshot()
     }
 
     QVariantMap options;
+    options.insert(QStringLiteral("native-resolution"), true); // match xdg-desktop-portal-gnome, and fixes flameshot!3164
     if (m_theDialog->property("withCursor").toBool()) {
         options.insert(QStringLiteral("include-cursor"), true);
     }
