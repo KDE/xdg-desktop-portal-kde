@@ -56,7 +56,7 @@ QHash<int, QByteArray> OutputsModel::roleNames() const
         {Qt::DisplayRole, "display"},
         {Qt::DecorationRole, "decoration"},
         {Qt::CheckStateRole, "checked"},
-        {OutputNameRole, "outputName"},
+        {ScreenRole, "screen"},
         {NameRole, "name"},
     };
 }
@@ -69,8 +69,9 @@ QVariant OutputsModel::data(const QModelIndex &index, int role) const
 
     const auto &output = m_outputs[index.row()];
     switch (role) {
-    case OutputNameRole:
-        return output.waylandOutputName();
+    case ScreenRole:
+        return QVariant::fromValue(output.screen());
+        return 0;
     case NameRole:
         return output.name();
     case Qt::DecorationRole:

@@ -129,7 +129,6 @@ bool isStreamingEnabled();
 bool isStreamingAvailable();
 
 void acquireStreamingInput(bool acquire);
-Stream startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
 Stream startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode);
 Stream startStreamingWorkspace(Screencasting::CursorMode mode);
 Stream startStreamingVirtual(const QString &name, const QSize &size, Screencasting::CursorMode mode);
@@ -150,8 +149,6 @@ void requestKeyboardKeysym(int keysym, bool state);
 void requestTouchDown(quint32 touchPoint, const QPointF &pos);
 void requestTouchMotion(quint32 touchPoint, const QPointF &pos);
 void requestTouchUp(quint32 touchPoint);
-
-QMap<quint32, WaylandOutput> screens();
 
 void setParentWindow(QWindow *window, const QString &parentWindow);
 

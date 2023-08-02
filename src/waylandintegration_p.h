@@ -29,7 +29,6 @@ class PlasmaWindow;
 class PlasmaWindowManagement;
 class FakeInput;
 class RemoteBuffer;
-class Output;
 class XdgImporter;
 }
 }
@@ -64,7 +63,6 @@ public:
 
     void acquireStreamingInput(bool acquire);
 
-    Stream startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode);
     Stream startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode);
     Stream startStreamingWindow(const QMap<int, QVariant> &win, Screencasting::CursorMode mode);
     Stream startStreamingWorkspace(Screencasting::CursorMode mode);
@@ -88,10 +86,6 @@ public:
 
     void setParentWindow(QWindow *window, const QString &parentHandle);
 
-protected Q_SLOTS:
-    void addOutput(quint32 name, quint32 version);
-    void removeOutput(quint32 name);
-
 private:
     Stream startStreaming(ScreencastingStream *stream, const QVariantMap &streamOptions);
     bool eventFilter(QObject *watched, QEvent *event) override;
@@ -99,7 +93,6 @@ private:
     uint m_streamInput = 0;
     bool m_waylandAuthenticationRequested = false;
 
-    quint32 m_output;
     QDateTime m_lastFrameTime;
     QVector<Stream> m_streams;
 

@@ -8,6 +8,7 @@
 
 #include "waylandintegration.h"
 #include <QAbstractListModel>
+#include <QScreen>
 #include <QSet>
 
 class Output
@@ -18,17 +19,18 @@ public:
            const QString &display,
            const QString &uniqueId,
            const QString &name)
+    Output(OutputType outputType, QScreen *screen, const QString &display, const QString &uniqueId, const QString &name)
         : m_outputType(outputType)
-        , m_waylandOutputName(waylandOutputName)
+        , m_screen(screen)
         , m_display(display)
         , m_uniqueId(uniqueId)
         , m_name(name)
     {
     }
 
-    int waylandOutputName() const
+    QScreen *screen() const
     {
-        return m_waylandOutputName;
+        return m_screen;
     }
 
     QString name() const
@@ -66,7 +68,7 @@ public:
 
 private:
     WaylandIntegration::WaylandOutput::OutputType m_outputType;
-    int m_waylandOutputName;
+    QScreen *m_screen = nullptr;
     QString m_display;
     QString m_uniqueId;
     QString m_name;
@@ -87,7 +89,7 @@ public:
     Q_DECLARE_FLAGS(Options, Option)
 
     enum Roles {
-        OutputNameRole = Qt::UserRole,
+        ScreenRole = Qt::UserRole,
         NameRole,
     };
 

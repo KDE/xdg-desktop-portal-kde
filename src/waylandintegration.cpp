@@ -110,11 +110,6 @@ void WaylandIntegration::acquireStreamingInput(bool acquire)
     globalWaylandIntegration->acquireStreamingInput(acquire);
 }
 
-WaylandIntegration::Stream WaylandIntegration::startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode)
-{
-    return globalWaylandIntegration->startStreamingOutput(outputName, mode);
-}
-
 WaylandIntegration::Stream WaylandIntegration::startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode)
 {
     return globalWaylandIntegration->startStreamingOutput(screen, mode);
@@ -287,24 +282,6 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
 {
     auto uuid = win[KWayland::Client::PlasmaWindowModel::Uuid].toString();
     return startStreaming(m_screencasting->createWindowStream(uuid, cursorMode), {{QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Window)}});
-}
-
-WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingOutput(quint32 outputName, Screencasting::CursorMode mode)
-{
-    auto output = m_outputMap.value(outputName).output();
-    if (!output) {
-        qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Cannot stream, output not found" << outputName << m_outputMap.keys();
-        auto notification = new KNotification(QStringLiteral("screencastfailure"), KNotification::CloseOnTimeout);
-        notification->setTitle(i18n("Failed to start screencasting"));
-        notification->setIconName(QStringLiteral("dialog-error"));
-        notification->sendEvent();
-        return {};
-    }
-    return startStreaming(m_screencasting->createOutputStream(output.data(), mode),
-                          {
-                              {QLatin1String("size"), output->geometry().size()},
-                              {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
-                          });
 }
 
 WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode)
@@ -687,33 +664,6 @@ KWayland::Client::PlasmaWindowManagement *WaylandIntegration::WaylandIntegration
     return m_windowManagement;
 }
 
-void WaylandIntegration::WaylandIntegrationPrivate::addOutput(quint32 name, quint32 version)
-{
-    QSharedPointer<KWayland::Client::Output> output(m_registry->createOutput(name, version));
-
-    connect(output.data(), &KWayland::Client::Output::changed, this, [this, name, version, output]() {
-        qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "Adding output:";
-        qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "    manufacturer: " << output->manufacturer();
-        qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "    model: " << output->model();
-        qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "    resolution: " << output->pixelSize();
-
-        WaylandOutput portalOutput;
-        portalOutput.setOutput(output);
-        portalOutput.setWaylandOutputName(name);
-        portalOutput.setWaylandOutputVersion(version);
-
-        m_outputMap.insert(name, portalOutput);
-    });
-}
-
-void WaylandIntegration::WaylandIntegrationPrivate::removeOutput(quint32 name)
-{
-    WaylandOutput output = m_outputMap.take(name);
-    qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "Removing output:";
-    qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "    manufacturer: " << output.manufacturer();
-    qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "    model: " << output.model();
-}
-
 void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
 {
     auto connection = KWayland::Client::ConnectionThread::fromApplication(QGuiApplication::instance());
@@ -727,8 +677,6 @@ void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
     connect(m_registry, &KWayland::Client::Registry::fakeInputAnnounced, this, [this](quint32 name, quint32 version) {
         m_fakeInput = m_registry->createFakeInput(name, version, this);
     });
-    connect(m_registry, &KWayland::Client::Registry::outputAnnounced, this, &WaylandIntegrationPrivate::addOutput);
-    connect(m_registry, &KWayland::Client::Registry::outputRemoved, this, &WaylandIntegrationPrivate::removeOutput);
 
     connect(m_registry, &KWayland::Client::Registry::interfaceAnnounced, this, [this](const QByteArray &interfaceName, quint32 name, quint32 version) {
         if (interfaceName != "zkde_screencast_unstable_v1")

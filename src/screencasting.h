@@ -62,7 +62,6 @@ public:
     };
     Q_ENUM(CursorMode)
 
-    ScreencastingStream *createOutputStream(KWayland::Client::Output *output, CursorMode mode);
     ScreencastingStream *createOutputStream(QScreen *screen, CursorMode mode);
     ScreencastingStream *createWindowStream(const QString &uuid, CursorMode mode);
     ScreencastingStream *createRegionStream(const QRect &geometry, qreal scale, CursorMode mode);

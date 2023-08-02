@@ -107,15 +107,6 @@ Screencasting::Screencasting(Registry *registry, int id, int version, QObject *p
 
 Screencasting::~Screencasting() = default;
 
-ScreencastingStream *Screencasting::createOutputStream(Output *output, CursorMode mode)
-{
-    auto stream = new ScreencastingStream(this);
-    stream->setObjectName(output->model());
-    stream->d->init(d->stream_output(*output, mode));
-    stream->d->m_geometry = output->geometry();
-    return stream;
-}
-
 ScreencastingStream *Screencasting::createOutputStream(QScreen *screen, CursorMode mode)
 {
     auto stream = new ScreencastingStream(this);
