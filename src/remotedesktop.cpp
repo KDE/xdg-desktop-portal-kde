@@ -108,7 +108,7 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
         return 2;
     }
 
-    if (WaylandIntegration::screens().isEmpty()) {
+    if (QGuiApplication::screens().isEmpty()) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Failed to show dialog as there is no screen to select";
         return 2;
     }

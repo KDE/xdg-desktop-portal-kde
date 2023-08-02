@@ -82,8 +82,6 @@ public:
     void requestTouchMotion(quint32 touchPoint, const QPointF &pos);
     void requestTouchUp(quint32 touchPoint);
 
-    QMap<quint32, WaylandOutput> screens();
-
     void setParentWindow(QWindow *window, const QString &parentHandle);
 
 private:
@@ -95,8 +93,6 @@ private:
 
     QDateTime m_lastFrameTime;
     QVector<Stream> m_streams;
-
-    QMap<quint32, WaylandOutput> m_outputMap;
 
     KWayland::Client::FakeInput *m_fakeInput = nullptr;
     Screencasting *m_screencasting = nullptr;

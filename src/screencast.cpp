@@ -24,6 +24,7 @@
 #include <QDBusArgument>
 #include <QDBusMetaType>
 #include <QDataStream>
+#include <QGuiApplication>
 #include <QIODevice>
 
 struct RestoreData {
@@ -191,7 +192,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         return 2;
     }
 
-    if (WaylandIntegration::screens().isEmpty()) {
+    if (QGuiApplication::screens().isEmpty()) {
         qCWarning(XdgDesktopPortalKdeScreenCast) << "Failed to show dialog as there is no screen to select";
         return 2;
     }
@@ -260,17 +261,17 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         for (const auto &output : qAsConst(selectedOutputs)) {
             WaylandIntegration::Stream stream;
             switch (output.outputType()) {
-            case WaylandIntegration::WaylandOutput::Region:
+            case Output::Region:
                 stream = WaylandIntegration::startStreamingRegion(selectedRegion, cursorMode);
                 break;
-            case WaylandIntegration::WaylandOutput::Workspace:
+            case Output::Workspace:
                 stream = WaylandIntegration::startStreamingWorkspace(cursorMode);
                 break;
-            case WaylandIntegration::WaylandOutput::Virtual:
+            case Output::Virtual:
                 stream = WaylandIntegration::startStreamingVirtual(output.uniqueId(), {1920, 1080}, cursorMode);
                 break;
             default:
-                stream = WaylandIntegration::startStreamingOutput(output.waylandOutputName(), cursorMode);
+                stream = WaylandIntegration::startStreamingOutput(output.screen(), cursorMode);
                 break;
             }
 

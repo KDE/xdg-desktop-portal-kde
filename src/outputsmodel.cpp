@@ -6,40 +6,57 @@
 
 #include "outputsmodel.h"
 #include <KLocalizedString>
+#include <QGuiApplication>
 #include <QIcon>
 
 OutputsModel::OutputsModel(Options o, QObject *parent)
     : QAbstractListModel(parent)
 {
-    const auto outputs = WaylandIntegration::screens().values();
+    const auto screens = qGuiApp->screens();
 
     // Only show the full workspace if there's several outputs
-    if (outputs.count() > 1 && (o & WorkspaceIncluded)) {
-        m_outputs << Output{WaylandIntegration::WaylandOutput::Workspace, 0, i18n("Full Workspace"), "Workspace", {}};
+    if (screens.count() > 1 && (o & WorkspaceIncluded)) {
+        m_outputs << Output{Output::Workspace, nullptr, i18n("Full Workspace"), "Workspace", {}};
     }
 
     if (o & VirtualIncluded) {
         static quint64 i = 0;
-        m_outputs << Output{WaylandIntegration::WaylandOutput::Virtual, 0, i18n("New Virtual Output"), QStringLiteral("Virtual%1").arg(i++), {}};
+        m_outputs << Output{Output::Virtual, nullptr, i18n("New Virtual Output"), QStringLiteral("Virtual%1").arg(i++), {}};
     }
 
     if (o & RegionIncluded) {
-        m_outputs << Output{WaylandIntegration::WaylandOutput::Region, 0, i18n("Rectangular Region"), "Region", {}};
+        m_outputs << Output{Output::Region, nullptr, i18n("Rectangular Region"), "Region", {}};
     }
 
-    for (auto output : outputs) {
-        QString display;
-        switch (output.outputType()) {
-        case WaylandIntegration::WaylandOutput::Laptop:
-            display = i18n("Laptop screen");
-            break;
-        default:
-            display = output.model();
-            break;
+    for (const auto screen : screens) {
+        auto model = screen->model();
+        Output::OutputType type = Output::Unknown;
+
+        static const auto embedded = {
+            QLatin1String("LVDS"),
+            QLatin1String("IDP"),
+            QLatin1String("EDP"),
+            QLatin1String("LCD"),
+        };
+
+        for (const auto &prefix : embedded) {
+            if (model.startsWith(prefix, Qt::CaseInsensitive)) {
+                type = Output::OutputType::Laptop;
+                model = i18n("Laptop screen");
+                break;
+            }
         }
-        const QPoint pos = output.globalPosition();
-        m_outputs
-            << Output(output.outputType(), output.waylandOutputName(), display, QStringLiteral("%1x%2").arg(pos.x()).arg(pos.y()), output.output()->name());
+
+        if (type == Output::OutputType::Unknown) {
+            if (model.contains(QLatin1String("TV"))) {
+                type = Output::OutputType::Television;
+            } else {
+                type = Output::OutputType::Monitor;
+            }
+        }
+
+        const QPoint pos = screen->geometry().topLeft();
+        m_outputs << Output(type, screen, model, QStringLiteral("%1x%2").arg(pos.x()).arg(pos.y()), screen->name());
     }
 }
 

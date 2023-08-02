@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include "waylandintegration.h"
 #include <QAbstractListModel>
 #include <QScreen>
 #include <QSet>
@@ -14,11 +13,16 @@
 class Output
 {
 public:
-    Output(WaylandIntegration::WaylandOutput::OutputType outputType,
-           int waylandOutputName,
-           const QString &display,
-           const QString &uniqueId,
-           const QString &name)
+    enum OutputType {
+        Unknown,
+        Laptop,
+        Monitor,
+        Television,
+        Workspace,
+        Virtual,
+        Region,
+    };
+
     Output(OutputType outputType, QScreen *screen, const QString &display, const QString &uniqueId, const QString &name)
         : m_outputType(outputType)
         , m_screen(screen)
@@ -41,12 +45,11 @@ public:
     QString iconName() const
     {
         switch (m_outputType) {
-        case WaylandIntegration::WaylandOutput::Laptop:
+        case Laptop:
             return QStringLiteral("computer-laptop");
-        case WaylandIntegration::WaylandOutput::Television:
+        case Television:
             return QStringLiteral("video-television");
         default:
-        case WaylandIntegration::WaylandOutput::Monitor:
             return QStringLiteral("video-display");
         }
     }
@@ -61,13 +64,13 @@ public:
         return m_uniqueId;
     }
 
-    WaylandIntegration::WaylandOutput::OutputType outputType() const
+    OutputType outputType() const
     {
         return m_outputType;
     }
 
 private:
-    WaylandIntegration::WaylandOutput::OutputType m_outputType;
+    OutputType m_outputType;
     QScreen *m_screen = nullptr;
     QString m_display;
     QString m_uniqueId;

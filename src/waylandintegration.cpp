@@ -195,42 +195,9 @@ void WaylandIntegration::requestTouchUp(quint32 touchPoint)
     globalWaylandIntegration->requestTouchUp(touchPoint);
 }
 
-QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::screens()
-{
-    return globalWaylandIntegration->screens();
-}
-
 void WaylandIntegration::setParentWindow(QWindow *window, const QString &parentWindow)
 {
     globalWaylandIntegration->setParentWindow(window, parentWindow);
-}
-
-// Thank you kscreen
-void WaylandIntegration::WaylandOutput::setOutputType(const QString &type)
-{
-    const auto embedded = {
-        QLatin1String("LVDS"),
-        QLatin1String("IDP"),
-        QLatin1String("EDP"),
-        QLatin1String("LCD"),
-    };
-
-    for (const QLatin1String &pre : embedded) {
-        if (type.startsWith(pre, Qt::CaseInsensitive)) {
-            m_outputType = OutputType::Laptop;
-            return;
-        }
-    }
-
-    if (type.contains(QLatin1String("VGA")) || type.contains(QLatin1String("DVI")) || type.contains(QLatin1String("HDMI"))
-        || type.contains(QLatin1String("Panel")) || type.contains(QLatin1String("DisplayPort")) || type.startsWith(QLatin1String("DP"))
-        || type.contains(QLatin1String("unknown"))) {
-        m_outputType = OutputType::Monitor;
-    } else if (type.contains(QLatin1String("TV"))) {
-        m_outputType = OutputType::Television;
-    } else {
-        m_outputType = OutputType::Monitor;
-    }
 }
 
 KWayland::Client::PlasmaWindowManagement *WaylandIntegration::plasmaWindowManagement()
@@ -615,11 +582,6 @@ void WaylandIntegration::WaylandIntegrationPrivate::requestTouchUp(quint32 touch
     if (m_streamInput && m_fakeInput) {
         m_fakeInput->requestTouchUp(touchPoint);
     }
-}
-
-QMap<quint32, WaylandIntegration::WaylandOutput> WaylandIntegration::WaylandIntegrationPrivate::screens()
-{
-    return m_outputMap;
 }
 
 static const char *windowParentHandlePropertyName = "waylandintegration-parentHandle";

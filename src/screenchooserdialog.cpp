@@ -8,6 +8,7 @@
 
 #include "screenchooserdialog.h"
 #include "utils.h"
+#include "waylandintegration.h"
 
 #include "region-select/SelectionEditor.h"
 
@@ -270,7 +271,7 @@ void ScreenChooserDialog::accept()
     bool valid = true;
 
     for (const auto &output : selectedOutputs()) {
-        if (output.outputType() == WaylandIntegration::WaylandOutput::OutputType::Region) {
+        if (output.outputType() == Output::OutputType::Region) {
             QScopedPointer<SelectionEditor, QScopedPointerDeleteLater> selectionEditor(new SelectionEditor(this));
 
             valid = selectionEditor->exec();
