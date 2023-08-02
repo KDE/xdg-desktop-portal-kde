@@ -45,8 +45,6 @@ set(xdg_desktop_portal_kde_SRCS
     screencast.h
     screencasting.cpp
     screencasting.h
-    screencastwidget.cpp
-    screencastwidget.h
     screenchooserdialog.cpp
     screenchooserdialog.h
     screenshot.cpp
