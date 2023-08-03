@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-06 02:35+0000\n"
+"POT-Creation-Date: 2023-08-03 03:13+0000\n"
 "PO-Revision-Date: 2023-02-24 22:10+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -525,12 +525,13 @@ msgid "Share your personal information with the requesting application?"
 msgstr ""
 "Condividere le informazioni personali con l'applicazione che li richiede?"
 
-#: src/waylandintegration.cpp:288 src/waylandintegration.cpp:335
+#: src/waylandintegration.cpp:293 src/waylandintegration.cpp:311
+#: src/waylandintegration.cpp:357
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Connessione alla registrazione dello schermo non riuscita"
 
-#: src/waylandintegration.cpp:638
+#: src/waylandintegration.cpp:666
 #, kde-format
 msgid "Remote desktop"
 msgstr "Desktop remoto"

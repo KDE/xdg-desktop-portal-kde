@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-06 02:35+0000\n"
+"POT-Creation-Date: 2023-08-03 03:13+0000\n"
 "PO-Revision-Date: 2023-04-24 10:20+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -531,12 +531,13 @@ msgstr "Deli informacije"
 msgid "Share your personal information with the requesting application?"
 msgstr "Naj delim osebne podatke s programom, ki pošilja zahtevek?"
 
-#: src/waylandintegration.cpp:288 src/waylandintegration.cpp:335
+#: src/waylandintegration.cpp:293 src/waylandintegration.cpp:311
+#: src/waylandintegration.cpp:357
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Začetek predvajanja zaslona ni uspel"
 
-#: src/waylandintegration.cpp:638
+#: src/waylandintegration.cpp:666
 #, kde-format
 msgid "Remote desktop"
 msgstr "Oddaljeni zaslon"
