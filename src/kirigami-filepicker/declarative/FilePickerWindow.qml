@@ -31,7 +31,7 @@ Kirigami.ApplicationWindow {
         // File picker was opened
         if (root.visible) {
             // reset old data
-            filePicker.fileUrls = []
+            filePicker.selectedFiles = []
         }
     }
 
