@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 02:11+0000\n"
+"POT-Creation-Date: 2023-08-07 02:24+0000\n"
 "PO-Revision-Date: 2023-02-25 12:48+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -190,17 +190,17 @@ msgstr "Отмена"
 msgid "Open"
 msgstr "Открыть"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:100
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:101
 #, kde-format
 msgid "Select Folder"
 msgstr "Выбор папки"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:104
 #, kde-format
 msgid "Open File"
 msgstr "Открытие файла"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:106
 #, kde-format
 msgid "Save File"
 msgstr "Сохранение файла"

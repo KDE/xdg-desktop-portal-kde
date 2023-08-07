@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 02:11+0000\n"
+"POT-Creation-Date: 2023-08-07 02:24+0000\n"
 "PO-Revision-Date: 2023-06-11 18:51+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -186,17 +186,17 @@ msgstr "ரத்து செய்"
 msgid "Open"
 msgstr "திற"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:100
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:101
 #, kde-format
 msgid "Select Folder"
 msgstr "அடைவை தேர்வு செய்தல்"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:104
 #, kde-format
 msgid "Open File"
 msgstr "கோப்பை திறத்தல்"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:106
 #, kde-format
 msgid "Save File"
 msgstr "கோப்பை சேமித்தல்"

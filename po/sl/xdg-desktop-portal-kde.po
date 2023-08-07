@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 02:11+0000\n"
+"POT-Creation-Date: 2023-08-07 02:24+0000\n"
 "PO-Revision-Date: 2023-06-04 08:20+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -190,17 +190,17 @@ msgstr "Prekliči"
 msgid "Open"
 msgstr "Odpri"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:100
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:101
 #, kde-format
 msgid "Select Folder"
 msgstr "Izberi mapo"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:104
 #, kde-format
 msgid "Open File"
 msgstr "Odpri datoteko"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:106
 #, kde-format
 msgid "Save File"
 msgstr "Shrani datoteko"

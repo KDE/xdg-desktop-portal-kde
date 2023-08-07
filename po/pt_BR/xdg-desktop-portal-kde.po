@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 02:11+0000\n"
+"POT-Creation-Date: 2023-08-07 02:24+0000\n"
 "PO-Revision-Date: 2023-06-26 17:14-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -183,17 +183,17 @@ msgstr "Cancelar"
 msgid "Open"
 msgstr "Abrir"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:100
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:101
 #, kde-format
 msgid "Select Folder"
 msgstr "Selecionar pasta"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:104
 #, kde-format
 msgid "Open File"
 msgstr "Abrir arquivo"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:106
 #, kde-format
 msgid "Save File"
 msgstr "Salvar arquivo"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 02:11+0000\n"
+"POT-Creation-Date: 2023-08-07 02:24+0000\n"
 "PO-Revision-Date: 2022-05-05 13:11+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -190,17 +190,17 @@ msgstr ""
 msgid "Open"
 msgstr "Deschide"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:100
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:101
 #, kde-format
 msgid "Select Folder"
 msgstr "Alege dosarul"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:104
 #, kde-format
 msgid "Open File"
 msgstr "Deschide fișierul"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:106
 #, kde-format
 msgid "Save File"
 msgstr "Salvează fișierul"
