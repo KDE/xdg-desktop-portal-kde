@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-07 02:24+0000\n"
+"POT-Creation-Date: 2023-08-08 02:05+0000\n"
 "PO-Revision-Date: 2023-06-04 19:03+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -255,22 +255,22 @@ msgstr "Фільтрувати за типом файлів"
 msgid "Show Hidden Files"
 msgstr "Показати приховані файли"
 
-#: src/outputsmodel.cpp:18
+#: src/outputsmodel.cpp:19
 #, kde-format
 msgid "Full Workspace"
 msgstr "Увесь робочий простір"
 
-#: src/outputsmodel.cpp:23
+#: src/outputsmodel.cpp:24
 #, kde-format
 msgid "New Virtual Output"
 msgstr "Нове віртуальне виведення"
 
-#: src/outputsmodel.cpp:27
+#: src/outputsmodel.cpp:28
 #, kde-format
 msgid "Rectangular Region"
 msgstr "Прямокутна ділянка"
 
-#: src/outputsmodel.cpp:34
+#: src/outputsmodel.cpp:45
 #, kde-format
 msgid "Laptop screen"
 msgstr "Екран ноутбука"
@@ -365,103 +365,85 @@ msgstr " - Пристрої введення\n"
 msgid "Share"
 msgstr "Оприлюднити"
 
-#: src/screencast.cpp:321
+#: src/screencast.cpp:322
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Надається доступ до екрана"
 
-#: src/screencastwidget.cpp:24
-#, kde-format
-msgid ""
-"Laptop screen\n"
-"Model: %1"
-msgstr ""
-"Екран ноутбука\n"
-"Модель: %1"
-
-#: src/screencastwidget.cpp:27 src/screencastwidget.cpp:30
-#, kde-format
-msgid ""
-"Manufacturer: %1\n"
-"Model: %2"
-msgstr ""
-"Виробник: %1\n"
-"Модель: %2"
-
-#: src/screenchooserdialog.cpp:142
+#: src/screenchooserdialog.cpp:143
 #, kde-format
 msgid "Screen Sharing"
 msgstr "Оприлюднення екрана"
 
-#: src/screenchooserdialog.cpp:172
+#: src/screenchooserdialog.cpp:173
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr "Виберіть, що слід оприлюднити за допомогою відповідної програми:"
 
-#: src/screenchooserdialog.cpp:174
+#: src/screenchooserdialog.cpp:175
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "Виберіть, що слід оприлюднити для %1:"
 
-#: src/screenchooserdialog.cpp:182
+#: src/screenchooserdialog.cpp:183
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "Поділитися цим екраном із програмою, яка надіслала запит?"
 
-#: src/screenchooserdialog.cpp:184
+#: src/screenchooserdialog.cpp:185
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "Поділитися цим екраном з %1?"
 
-#: src/screenchooserdialog.cpp:189
+#: src/screenchooserdialog.cpp:190
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "Виберіть екрани, доступ до яких слід відкрити для відповідної програми"
 
-#: src/screenchooserdialog.cpp:191
+#: src/screenchooserdialog.cpp:192
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "Виберіть екрани, якими слід поділитися з %1:"
 
-#: src/screenchooserdialog.cpp:195
+#: src/screenchooserdialog.cpp:196
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr ""
 "Виберіть екран, доступ до якого слід відкрити для відповідної програми:"
 
-#: src/screenchooserdialog.cpp:197
+#: src/screenchooserdialog.cpp:198
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "Виберіть екран, яким слід поділитися з %1:"
 
-#: src/screenchooserdialog.cpp:207
+#: src/screenchooserdialog.cpp:208
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "Поділитися цим вікном з програмою, яка про це просить?"
 
-#: src/screenchooserdialog.cpp:209
+#: src/screenchooserdialog.cpp:210
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "Поділитися цим вікном з %1?"
 
-#: src/screenchooserdialog.cpp:214
+#: src/screenchooserdialog.cpp:215
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "Виберіть вікна, якими слід поділитися з відповідною програмою:"
 
-#: src/screenchooserdialog.cpp:216
+#: src/screenchooserdialog.cpp:217
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "Виберіть вікна, якими слід поділитися з %1:"
 
-#: src/screenchooserdialog.cpp:220
+#: src/screenchooserdialog.cpp:221
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr ""
 "Виберіть вікно, доступ до якого слід відкрити для відповідної програми:"
 
-#: src/screenchooserdialog.cpp:222
+#: src/screenchooserdialog.cpp:223
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "Виберіть вікно, яким слід поділитися з %1:"
@@ -595,16 +577,29 @@ msgstr "Оприлюднити відомості"
 msgid "Share your personal information with the requesting application?"
 msgstr "Поділитися вашими особистими даними з програмою, яка про це просить?"
 
-#: src/waylandintegration.cpp:298 src/waylandintegration.cpp:316
-#: src/waylandintegration.cpp:371
+#: src/waylandintegration.cpp:260 src/waylandintegration.cpp:315
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Не вдалося розпочати трансляцію з екрана"
 
-#: src/waylandintegration.cpp:680
+#: src/waylandintegration.cpp:619
 #, kde-format
 msgid "Remote desktop"
 msgstr "Віддалена стільниця"
+
+#~ msgid ""
+#~ "Laptop screen\n"
+#~ "Model: %1"
+#~ msgstr ""
+#~ "Екран ноутбука\n"
+#~ "Модель: %1"
+
+#~ msgid ""
+#~ "Manufacturer: %1\n"
+#~ "Model: %2"
+#~ msgstr ""
+#~ "Виробник: %1\n"
+#~ "Модель: %2"
 
 #~ msgid "%1 is running in the background."
 #~ msgstr "%1 працює у фоновому режимі."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-07 02:24+0000\n"
+"POT-Creation-Date: 2023-08-08 02:05+0000\n"
 "PO-Revision-Date: 2023-07-09 00:52+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -246,22 +246,22 @@ msgstr "Dateityp filtern"
 msgid "Show Hidden Files"
 msgstr "Versteckte Dateien anzeigen"
 
-#: src/outputsmodel.cpp:18
+#: src/outputsmodel.cpp:19
 #, kde-format
 msgid "Full Workspace"
 msgstr "Vollständiger Arbeitsbereich"
 
-#: src/outputsmodel.cpp:23
+#: src/outputsmodel.cpp:24
 #, kde-format
 msgid "New Virtual Output"
 msgstr "Neue virtualle Ausgaben"
 
-#: src/outputsmodel.cpp:27
+#: src/outputsmodel.cpp:28
 #, kde-format
 msgid "Rectangular Region"
 msgstr "Rechteckiger Bereich"
 
-#: src/outputsmodel.cpp:34
+#: src/outputsmodel.cpp:45
 #, kde-format
 msgid "Laptop screen"
 msgstr "Laptop-Bildschirm"
@@ -358,102 +358,84 @@ msgstr " - Eingabegeräte\n"
 msgid "Share"
 msgstr "Teilen"
 
-#: src/screencast.cpp:321
+#: src/screencast.cpp:322
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Bildschirmübertragung erfolgt"
 
-#: src/screencastwidget.cpp:24
-#, kde-format
-msgid ""
-"Laptop screen\n"
-"Model: %1"
-msgstr ""
-"Laptop-Bildschirm\n"
-"Modell: %1"
-
-#: src/screencastwidget.cpp:27 src/screencastwidget.cpp:30
-#, kde-format
-msgid ""
-"Manufacturer: %1\n"
-"Model: %2"
-msgstr ""
-"Hersteller: %1\n"
-"Model: %2"
-
-#: src/screenchooserdialog.cpp:142
+#: src/screenchooserdialog.cpp:143
 #, kde-format
 msgid "Screen Sharing"
 msgstr "Bildschirmübertragung"
 
-#: src/screenchooserdialog.cpp:172
+#: src/screenchooserdialog.cpp:173
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr "Wählen Sie, was mit der anfragenden Anwendung geteilt wird:"
 
-#: src/screenchooserdialog.cpp:174
+#: src/screenchooserdialog.cpp:175
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "Wählen Sie, was mit %1 geteilt wird:"
 
-#: src/screenchooserdialog.cpp:182
+#: src/screenchooserdialog.cpp:183
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "Diesen Bildschirm mit der anfragenden Anwendung teilen?"
 
-#: src/screenchooserdialog.cpp:184
+#: src/screenchooserdialog.cpp:185
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "Diesen Bildschirm mit %1 teilen?"
 
-#: src/screenchooserdialog.cpp:189
+#: src/screenchooserdialog.cpp:190
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "Bildschirm zum Teilen mit der anfragenden Anwendung auswählen:"
 
-#: src/screenchooserdialog.cpp:191
+#: src/screenchooserdialog.cpp:192
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "Bildschirm zum Teilen mit %1 auswählen:"
 
-#: src/screenchooserdialog.cpp:195
+#: src/screenchooserdialog.cpp:196
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr "Bildschirm zum Teilen mit der anfragenden Anwendung auswählen:"
 
-#: src/screenchooserdialog.cpp:197
+#: src/screenchooserdialog.cpp:198
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "Bildschirm zum Teilen mit %1 auswählen:"
 
-#: src/screenchooserdialog.cpp:207
+#: src/screenchooserdialog.cpp:208
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "Dieses Fenster mit der anfragenden Anwendung teilen?"
 
-#: src/screenchooserdialog.cpp:209
+#: src/screenchooserdialog.cpp:210
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "Dieses Fenster mit %1 teilen?"
 
-#: src/screenchooserdialog.cpp:214
+#: src/screenchooserdialog.cpp:215
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "Wählen Sie Fenster, die mit der anfragenden Anwendung geteilt werden:"
 
-#: src/screenchooserdialog.cpp:216
+#: src/screenchooserdialog.cpp:217
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "Wählen Sie Fenster, die mit %1 geteilt werden:"
 
-#: src/screenchooserdialog.cpp:220
+#: src/screenchooserdialog.cpp:221
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr ""
 "Wählen Sie, welche Fenster mit der anfragenden Anwendung geteilt werden:"
 
-#: src/screenchooserdialog.cpp:222
+#: src/screenchooserdialog.cpp:223
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "Wählen Sie, welche Fenster mit %1 geteilt werden:"
@@ -585,16 +567,29 @@ msgstr ""
 "Möchten Sie Ihre persönlichen Informationen für die anfragende Anwendung "
 "freigeben?"
 
-#: src/waylandintegration.cpp:298 src/waylandintegration.cpp:316
-#: src/waylandintegration.cpp:371
+#: src/waylandintegration.cpp:260 src/waylandintegration.cpp:315
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Das Bildschirmvideo kann nicht gestartet werden"
 
-#: src/waylandintegration.cpp:680
+#: src/waylandintegration.cpp:619
 #, kde-format
 msgid "Remote desktop"
 msgstr "Arbeitsfläche des Fremdgeräts"
+
+#~ msgid ""
+#~ "Laptop screen\n"
+#~ "Model: %1"
+#~ msgstr ""
+#~ "Laptop-Bildschirm\n"
+#~ "Modell: %1"
+
+#~ msgid ""
+#~ "Manufacturer: %1\n"
+#~ "Model: %2"
+#~ msgstr ""
+#~ "Hersteller: %1\n"
+#~ "Model: %2"
 
 #~ msgid "%1 is running in the background."
 #~ msgstr "%1 wird im Hintergrund ausgeführt."

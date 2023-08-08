@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-07 02:24+0000\n"
+"POT-Creation-Date: 2023-08-08 02:05+0000\n"
 "PO-Revision-Date: 2023-04-01 14:53-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -249,22 +249,22 @@ msgstr ""
 msgid "Show Hidden Files"
 msgstr "ਲੁਕਵੀਆਂ ਫ਼ਾਇਲਾਂ ਵੇਖਾਓ"
 
-#: src/outputsmodel.cpp:18
+#: src/outputsmodel.cpp:19
 #, kde-format
 msgid "Full Workspace"
 msgstr "ਪੂਰਾ ਵਰਕਸਪੇਸ"
 
-#: src/outputsmodel.cpp:23
+#: src/outputsmodel.cpp:24
 #, kde-format
 msgid "New Virtual Output"
 msgstr "ਨਵਾਂ ਵਰਚੁਅਲ ਆਉਟਪੁੱਟ"
 
-#: src/outputsmodel.cpp:27
+#: src/outputsmodel.cpp:28
 #, kde-format
 msgid "Rectangular Region"
 msgstr ""
 
-#: src/outputsmodel.cpp:34
+#: src/outputsmodel.cpp:45
 #, kde-format
 msgid "Laptop screen"
 msgstr "ਲੈਪਟਾਪ ਸਕਰੀਨ"
@@ -361,109 +361,91 @@ msgstr " - ਇਨਪੁਟ ਡਿਵਾਈਸ\n"
 msgid "Share"
 msgstr "ਸਾਂਝਾ ਕਰੋ"
 
-#: src/screencast.cpp:321
+#: src/screencast.cpp:322
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "ਸ਼ੇਅਰ ਸਾਂਝਾ ਕਰਨਾ ਜਾਰੀ ਹੈ"
 
-#: src/screencastwidget.cpp:24
-#, kde-format
-msgid ""
-"Laptop screen\n"
-"Model: %1"
-msgstr ""
-"ਲੈਪਟਾਪ ਸਕਰੀਨ\n"
-"ਮਾਡਲ: %1"
-
-#: src/screencastwidget.cpp:27 src/screencastwidget.cpp:30
-#, kde-format
-msgid ""
-"Manufacturer: %1\n"
-"Model: %2"
-msgstr ""
-"ਨਿਰਮਾਤਾ: %1\n"
-"ਮਾਡਲ: %2"
-
-#: src/screenchooserdialog.cpp:142
+#: src/screenchooserdialog.cpp:143
 #, kde-format
 msgid "Screen Sharing"
 msgstr "ਸਕਰੀਨ ਸਾਂਝਾ ਕਰਨਾ"
 
-#: src/screenchooserdialog.cpp:172
+#: src/screenchooserdialog.cpp:173
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੁਣੋ:"
 
-#: src/screenchooserdialog.cpp:174
+#: src/screenchooserdialog.cpp:175
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "ਚੁਣੋ ਕਿ %1 ਨਾਲ ਕੀ ਸਾਂਝਾ ਕਰਨਾ ਹੈ:"
 
-#: src/screenchooserdialog.cpp:182
+#: src/screenchooserdialog.cpp:183
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਇਹ ਸਕਰੀਨ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
 
-#: src/screenchooserdialog.cpp:184
+#: src/screenchooserdialog.cpp:185
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "ਇਹ ਸਕਰੀਨ %1 ਨਾਲ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
 
-#: src/screenchooserdialog.cpp:189
+#: src/screenchooserdialog.cpp:190
 #, fuzzy, kde-format
 #| msgid "Select screen to share with the requesting application"
 msgid "Choose screens to share with the requesting application:"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ"
 
-#: src/screenchooserdialog.cpp:191
+#: src/screenchooserdialog.cpp:192
 #, fuzzy, kde-format
 #| msgid "Select screen to share with %1"
 msgid "Choose screens to share with %1:"
 msgstr "%1 ਨਾਲ ਸਾਂਝੀ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ"
 
-#: src/screenchooserdialog.cpp:195
+#: src/screenchooserdialog.cpp:196
 #, fuzzy, kde-format
 #| msgid "Select screen to share with the requesting application"
 msgid "Choose which screen to share with the requesting application:"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ"
 
-#: src/screenchooserdialog.cpp:197
+#: src/screenchooserdialog.cpp:198
 #, fuzzy, kde-format
 #| msgid "Select screen to share with %1"
 msgid "Choose which screen to share with %1:"
 msgstr "%1 ਨਾਲ ਸਾਂਝੀ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ"
 
-#: src/screenchooserdialog.cpp:207
+#: src/screenchooserdialog.cpp:208
 #, fuzzy, kde-format
 #| msgid "Select what to share with the requesting application"
 msgid "Share this window with the requesting application?"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੋਣ ਕਰੋ"
 
-#: src/screenchooserdialog.cpp:209
+#: src/screenchooserdialog.cpp:210
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "ਇਹ ਵਿੰਡੋ %1 ਨਾਲ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
 
-#: src/screenchooserdialog.cpp:214
+#: src/screenchooserdialog.cpp:215
 #, fuzzy, kde-format
 #| msgid "Select what to share with the requesting application"
 msgid "Choose windows to share with the requesting application:"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੋਣ ਕਰੋ"
 
-#: src/screenchooserdialog.cpp:216
+#: src/screenchooserdialog.cpp:217
 #, fuzzy, kde-format
 #| msgid "Select what to share with %1"
 msgid "Choose windows to share with %1:"
 msgstr "ਚੁਣੋ ਕਿ %1 ਨਾਲ ਕੀ ਸਾਂਝਾ ਕਰਨਾ ਹੈ"
 
-#: src/screenchooserdialog.cpp:220
+#: src/screenchooserdialog.cpp:221
 #, fuzzy, kde-format
 #| msgid "Select what to share with the requesting application"
 msgid "Choose which window to share with the requesting application:"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੋਣ ਕਰੋ"
 
-#: src/screenchooserdialog.cpp:222
+#: src/screenchooserdialog.cpp:223
 #, fuzzy, kde-format
 #| msgid "Select what to share with %1"
 msgid "Choose which window to share with %1:"
@@ -597,16 +579,29 @@ msgstr "ਜਾਣਕਾਰੀ ਸਾਂਝੀ ਕਰੋ"
 msgid "Share your personal information with the requesting application?"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੋਣ ਕਰੋ"
 
-#: src/waylandintegration.cpp:298 src/waylandintegration.cpp:316
-#: src/waylandintegration.cpp:371
+#: src/waylandintegration.cpp:260 src/waylandintegration.cpp:315
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "ਸਕਰੀਨ-ਕਾਸਟ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਅਸਫ਼ਲ"
 
-#: src/waylandintegration.cpp:680
+#: src/waylandintegration.cpp:619
 #, kde-format
 msgid "Remote desktop"
 msgstr "ਰਿਮੋਟ ਡੈਸਕਟਾਪ"
+
+#~ msgid ""
+#~ "Laptop screen\n"
+#~ "Model: %1"
+#~ msgstr ""
+#~ "ਲੈਪਟਾਪ ਸਕਰੀਨ\n"
+#~ "ਮਾਡਲ: %1"
+
+#~ msgid ""
+#~ "Manufacturer: %1\n"
+#~ "Model: %2"
+#~ msgstr ""
+#~ "ਨਿਰਮਾਤਾ: %1\n"
+#~ "ਮਾਡਲ: %2"
 
 #~ msgid "%1 is running in the background."
 #~ msgstr "%1 ਬੈਕਗਰਾਊਂਡ 'ਚ ਚੱਲ ਰਹੀ ਹੈ।"
