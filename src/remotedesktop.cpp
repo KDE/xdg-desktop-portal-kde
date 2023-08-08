@@ -53,6 +53,14 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
         return 2;
     }
 
+    connect(session, &Session::closed, [session] {
+        auto remoteDesktopSession = qobject_cast<RemoteDesktopSession *>(session);
+        const auto streams = remoteDesktopSession->streams();
+        for (const WaylandIntegration::Stream &stream : streams) {
+            WaylandIntegration::stopStreaming(stream.nodeId);
+        }
+    });
+
     return 0;
 }
 
