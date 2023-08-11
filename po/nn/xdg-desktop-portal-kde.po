@@ -581,17 +581,3 @@ msgstr "Klarte ikkje starta skjermdeling"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Eksternt skrivebord"
-
-#~ msgid ""
-#~ "Laptop screen\n"
-#~ "Model: %1"
-#~ msgstr ""
-#~ "Skjerm på berbar\n"
-#~ "Modell: %1"
-
-#~ msgid ""
-#~ "Manufacturer: %1\n"
-#~ "Model: %2"
-#~ msgstr ""
-#~ "Produsent: %1\n"
-#~ "Modell: %2"
