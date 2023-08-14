@@ -4,7 +4,6 @@
 
 import QtQuick 2.12
 import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.12 as Controls
 import org.kde.kirigami 2.8 as Kirigami
 import org.kde.kirigamifilepicker 0.1
 
