@@ -39,6 +39,8 @@ set(xdg_desktop_portal_kde_SRCS
     remotedesktopdialog.cpp
     remotedesktopdialog.h
     remotedesktop.h
+    restoredata.h
+    restoredata.cpp
     request.cpp
     request.h
     screencast.cpp

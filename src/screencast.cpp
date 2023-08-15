@@ -10,6 +10,7 @@
 #include "screencast.h"
 #include "notificationinhibition.h"
 #include "request.h"
+#include "restoredata.h"
 #include "screencast_debug.h"
 #include "screenchooserdialog.h"
 #include "session.h"
@@ -26,58 +27,6 @@
 #include <QDataStream>
 #include <QGuiApplication>
 #include <QIODevice>
-
-struct RestoreData {
-    static uint currentRestoreDataVersion()
-    {
-        return 1;
-    }
-
-    QString session;
-    quint32 version = 0;
-    QVariantMap payload;
-};
-
-const QDBusArgument &operator<<(QDBusArgument &arg, const RestoreData &data)
-{
-    arg.beginStructure();
-    arg << data.session;
-    arg << data.version;
-
-    QByteArray payloadSerialised;
-    {
-        QDataStream ds(&payloadSerialised, QIODevice::WriteOnly);
-        ds << data.payload;
-    }
-
-    arg << QDBusVariant(payloadSerialised);
-    arg.endStructure();
-    return arg;
-}
-const QDBusArgument &operator>>(const QDBusArgument &arg, RestoreData &data)
-{
-    arg.beginStructure();
-    arg >> data.session;
-    arg >> data.version;
-
-    QDBusVariant payloadVariant;
-    arg >> payloadVariant;
-    {
-        QByteArray payloadSerialised = payloadVariant.variant().toByteArray();
-        QDataStream ds(&payloadSerialised, QIODevice::ReadOnly);
-        ds >> data.payload;
-    }
-    arg.endStructure();
-    return arg;
-}
-
-QDebug operator<<(QDebug dbg, const RestoreData &c)
-{
-    dbg.nospace() << "RestoreData(" << c.session << ", " << c.version << ", " << c.payload << ")";
-    return dbg.space();
-}
-
-Q_DECLARE_METATYPE(RestoreData)
 
 ScreenCastPortal::ScreenCastPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
