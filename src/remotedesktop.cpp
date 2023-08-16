@@ -11,6 +11,7 @@
 #include "remotedesktop_debug.h"
 #include "remotedesktopdialog.h"
 #include "request.h"
+#include "restoredata.h"
 #include "session.h"
 #include "utils.h"
 #include "waylandintegration.h"
@@ -91,6 +92,8 @@ uint RemoteDesktopPortal::SelectDevices(const QDBusObjectPath &handle,
     }
 
     session->setDeviceTypes(types);
+    session->setPersistMode(ScreenCastPortal::PersistMode(options.value(QStringLiteral("persist_mode")).toUInt()));
+    session->setRestoreData(options.value(QStringLiteral("restore_data")));
 
     return 0;
 }
@@ -121,10 +124,28 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
         return 2;
     }
 
-    if (app_id.isEmpty()) {
-        // non-sandboxed local applications are generally able to take over the system already without much hassle.
-        // Instead of making users interact with the dialog (which they probably can't because this is for remote access), just
-        // show a notification so they are aware of it.
+    const ScreenCastPortal::PersistMode persist = session->persistMode();
+    QList<Output> selectedOutputs;
+
+    bool restored = false;
+
+    if (persist != ScreenCastPortal::NoPersist && session->restoreData().isValid()) {
+        const RestoreData restoreData = qdbus_cast<RestoreData>(session->restoreData().value<QDBusArgument>());
+        if (restoreData.session == QLatin1String("KDE") && restoreData.version == RestoreData::currentRestoreDataVersion()) {
+            // check we asked for the same key content both times; if not, don't restore
+            // some settings (like ScreenCast multipleSources or cursorMode) don't involve user prompts so use whatever was explicitly
+            // requested this time
+            if (session->deviceTypes() != restoreData.payload["devices"].value<RemoteDesktopPortal::DeviceTypes>()) {
+                qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "Not restoring session as requested devices don't match";
+            } else if (session->screenSharingEnabled() != restoreData.payload["screenShareEnabled"].toBool()) {
+                qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "Not restoring session as requested screen sharing doesn't match";
+            } else {
+                restored = true;
+            }
+        }
+    }
+
+    if (restored) {
         auto notification = new KNotification(QStringLiteral("remotedesktopstarted"), KNotification::CloseOnTimeout);
         notification->setTitle(i18nc("title of notification about input systems taken over", "Remote control session started"));
         notification->setText(RemoteDesktopDialog::buildDescription(app_id, session->deviceTypes(), session->screenSharingEnabled()));
@@ -159,6 +180,17 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
 
         session->setStreams(streams);
         results.insert(QStringLiteral("streams"), QVariant::fromValue<WaylandIntegration::Streams>(streams));
+        results.insert(QStringLiteral("clipboard_enabled"), false);
+        if (session->persistMode() != ScreenCastPortal::NoPersist) {
+            results.insert("persist_mode", quint32(persist));
+            if (persist != ScreenCastPortal::NoPersist) {
+                const RestoreData restoreData = {
+                    "KDE",
+                    RestoreData::currentRestoreDataVersion(),
+                    QVariantMap{{"screenShareEnabled", session->screenSharingEnabled()}, {"devices", QVariant::fromValue(session->deviceTypes())}}};
+                results.insert("restore_data", QVariant::fromValue<RestoreData>(restoreData));
+            }
+        }
     } else {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop()) << "Only stream input";
         session->refreshDescription();

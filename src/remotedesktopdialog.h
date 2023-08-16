@@ -24,6 +24,9 @@ class RemoteDesktopDialog : public QuickDialog
 public:
     RemoteDesktopDialog(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled, QObject *parent = nullptr);
 
+    QList<Output> selectedOutputs() const;
+    bool allowRestore() const;
+
     static QString buildDescription(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled);
 };
 

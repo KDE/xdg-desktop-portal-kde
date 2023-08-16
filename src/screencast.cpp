@@ -108,13 +108,15 @@ uint ScreenCastPortal::SelectSources(const QDBusObjectPath &handle,
     }
 
     session->setOptions(options);
-
     // Might be also a RemoteDesktopSession
     if (session->type() == Session::RemoteDesktop) {
         RemoteDesktopSession *remoteDesktopSession = qobject_cast<RemoteDesktopSession *>(session);
         if (remoteDesktopSession) {
             remoteDesktopSession->setScreenSharingEnabled(true);
         }
+    } else {
+        session->setPersistMode(ScreenCastPortal::PersistMode(options.value(QStringLiteral("persist_mode")).toUInt()));
+        session->setRestoreData(options.value(QStringLiteral("restore_data")));
     }
 
     return 0;

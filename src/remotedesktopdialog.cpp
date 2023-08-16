@@ -26,6 +26,11 @@ RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName, RemoteDesktopPo
     create(QStringLiteral("qrc:/RemoteDesktopDialog.qml"), props);
 }
 
+bool RemoteDesktopDialog::allowRestore() const
+{
+    return m_theDialog->property("allowRestore").toBool();
+}
+
 QString RemoteDesktopDialog::buildDescription(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled)
 {
     const QString applicationName = Utils::applicationName(appName);

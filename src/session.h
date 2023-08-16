@@ -77,10 +77,19 @@ public:
     {
         return SessionType::ScreenCast;
     }
+
+    void setRestoreData(const QVariant &restoreData)
+    {
+        m_restoreData = restoreData;
+    }
+
     QVariant restoreData() const
     {
         return m_restoreData;
     }
+
+    void setPersistMode(ScreenCastPortal::PersistMode persistMode);
+
     ScreenCastPortal::PersistMode persistMode() const
     {
         return m_persistMode;
@@ -104,10 +113,11 @@ private:
     ScreenCastPortal::CursorModes m_cursorMode = ScreenCastPortal::Hidden;
     ScreenCastPortal::SourceType m_types = ScreenCastPortal::Any;
     ScreenCastPortal::PersistMode m_persistMode = ScreenCastPortal::NoPersist;
+    QVariant m_restoreData;
+
     void streamClosed();
 
     WaylandIntegration::Streams m_streams;
-    QVariant m_restoreData;
     friend class RemoteDesktopPortal;
 };
 
@@ -117,6 +127,8 @@ class RemoteDesktopSession : public ScreenCastSession
 public:
     explicit RemoteDesktopSession(QObject *parent, const QString &appId, const QString &path);
     ~RemoteDesktopSession() override;
+
+    void setOptions(const QVariantMap &options);
 
     RemoteDesktopPortal::DeviceTypes deviceTypes() const;
     void setDeviceTypes(RemoteDesktopPortal::DeviceTypes deviceTypes);
