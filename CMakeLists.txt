@@ -60,6 +60,7 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
     WidgetsAddons
     WindowSystem
     IconThemes
+    StatusNotifierItem
 )
 ecm_find_qmlmodule(org.kde.iconthemes 1.0)
 find_package(Wayland 1.15 REQUIRED COMPONENTS Client)
