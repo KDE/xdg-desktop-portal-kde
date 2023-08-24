@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-15 02:00+0000\n"
+"POT-Creation-Date: 2023-08-24 01:57+0000\n"
 "PO-Revision-Date: 2023-06-04 05:03+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -62,17 +62,24 @@ msgstr "%1 ფაილების ყოველთვის არჩეუ�
 msgid "Show All Installed Applications"
 msgstr "ყველა დაყენებული აპლიკაციის ჩვენება"
 
-#: src/AppChooserDialog.qml:169
+#: src/AppChooserDialog.qml:170
 #, kde-format
 msgid "Default app for this file type"
 msgstr "ნაგულისხმები აპი ამ ფაილის ტიპისთვის"
 
-#: src/AppChooserDialog.qml:188
+#: src/AppChooserDialog.qml:171
+#, fuzzy, kde-format
+#| msgid "Default app for this file type"
+msgctxt "@info:whatsthis"
+msgid "Last used app for this file type"
+msgstr "ნაგულისხმები აპი ამ ფაილის ტიპისთვის"
+
+#: src/AppChooserDialog.qml:190
 #, kde-format
 msgid "No matches"
 msgstr "დათხვევა არ არსებობს"
 
-#: src/AppChooserDialog.qml:188
+#: src/AppChooserDialog.qml:190
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
@@ -80,13 +87,13 @@ msgstr ""
 "<filename>%1</filename>-ის გახსნა ამჟამად დაყენებულ არც ერთ აპლიკაციას არ "
 "შეუძლია"
 
-#: src/AppChooserDialog.qml:192
+#: src/AppChooserDialog.qml:194
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
 msgstr "იპოვეთ მეტი Discover-ში"
 
-#: src/AppChooserDialog.qml:207
+#: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."

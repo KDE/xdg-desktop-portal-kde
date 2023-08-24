@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-15 02:00+0000\n"
+"POT-Creation-Date: 2023-08-24 01:57+0000\n"
 "PO-Revision-Date: 2023-06-04 09:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -66,29 +66,36 @@ msgstr "Obre sempre els fitxers %1 amb l'aplicació triada"
 msgid "Show All Installed Applications"
 msgstr "Mostra totes les aplicacions instal·lades"
 
-#: src/AppChooserDialog.qml:169
+#: src/AppChooserDialog.qml:170
 #, kde-format
 msgid "Default app for this file type"
 msgstr "Aplicació predeterminada per a aquest tipus de fitxer"
 
-#: src/AppChooserDialog.qml:188
+#: src/AppChooserDialog.qml:171
+#, fuzzy, kde-format
+#| msgid "Default app for this file type"
+msgctxt "@info:whatsthis"
+msgid "Last used app for this file type"
+msgstr "Aplicació predeterminada per a aquest tipus de fitxer"
+
+#: src/AppChooserDialog.qml:190
 #, kde-format
 msgid "No matches"
 msgstr "Sense coincidències"
 
-#: src/AppChooserDialog.qml:188
+#: src/AppChooserDialog.qml:190
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Cap aplicació instal·lada pot obrir <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:192
+#: src/AppChooserDialog.qml:194
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
 msgstr "Cerqueu-ne més al Discover"
 
-#: src/AppChooserDialog.qml:207
+#: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-15 02:00+0000\n"
+"POT-Creation-Date: 2023-08-24 01:57+0000\n"
 "PO-Revision-Date: 2023-07-26 14:48+0300\n"
 "Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -62,30 +62,37 @@ msgstr "Ανοίγετε πάντα τα αρχεία %1 με την επιλε�
 msgid "Show All Installed Applications"
 msgstr "Εμφάνιση όλων των εγκατεστημένων εφαρμογών"
 
-#: src/AppChooserDialog.qml:169
+#: src/AppChooserDialog.qml:170
 #, kde-format
 msgid "Default app for this file type"
 msgstr "Προεπιλεγμένη εφαρμογή γι' αυτόν τον τύπο αρχείου"
 
-#: src/AppChooserDialog.qml:188
+#: src/AppChooserDialog.qml:171
+#, fuzzy, kde-format
+#| msgid "Default app for this file type"
+msgctxt "@info:whatsthis"
+msgid "Last used app for this file type"
+msgstr "Προεπιλεγμένη εφαρμογή γι' αυτόν τον τύπο αρχείου"
+
+#: src/AppChooserDialog.qml:190
 #, kde-format
 msgid "No matches"
 msgstr "Καμιά αντιστοιχία"
 
-#: src/AppChooserDialog.qml:188
+#: src/AppChooserDialog.qml:190
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
 "Καμία εγκατεστημένη εφαρμογή δεν μπορεί να ανοίξει το <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:192
+#: src/AppChooserDialog.qml:194
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
 msgstr "Βρείτε περισσότερα στο Discover"
 
-#: src/AppChooserDialog.qml:207
+#: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
