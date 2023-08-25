@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-24 01:57+0000\n"
-"PO-Revision-Date: 2023-06-06 02:03+0200\n"
+"PO-Revision-Date: 2023-08-24 21:30+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -68,11 +68,10 @@ msgid "Default app for this file type"
 msgstr "Applicazione predefinita per questo tipo di file"
 
 #: src/AppChooserDialog.qml:171
-#, fuzzy, kde-format
-#| msgid "Default app for this file type"
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
-msgstr "Applicazione predefinita per questo tipo di file"
+msgstr "Ultima applicazione usata per questo tipo di file"
 
 #: src/AppChooserDialog.qml:190
 #, kde-format
