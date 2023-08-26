@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-24 01:57+0000\n"
-"PO-Revision-Date: 2023-08-06 23:11+0200\n"
+"PO-Revision-Date: 2023-08-25 23:22+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -67,11 +67,10 @@ msgid "Default app for this file type"
 msgstr "이 파일 형식의 기본 앱"
 
 #: src/AppChooserDialog.qml:171
-#, fuzzy, kde-format
-#| msgid "Default app for this file type"
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
-msgstr "이 파일 형식의 기본 앱"
+msgstr "이 파일 형식의 마지막으로 사용한 앱"
 
 #: src/AppChooserDialog.qml:190
 #, kde-format
