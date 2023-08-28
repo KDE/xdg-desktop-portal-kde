@@ -71,7 +71,6 @@ msgstr "Standardprogram for denne filtypen"
 
 #: src/AppChooserDialog.qml:171
 #, fuzzy, kde-format
-#| msgid "Default app for this file type"
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
 msgstr "Standardprogram for denne filtypen"

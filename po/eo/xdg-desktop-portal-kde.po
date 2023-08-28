@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-24 01:57+0000\n"
-"PO-Revision-Date: 2023-06-07 20:59+0100\n"
+"PO-Revision-Date: 2023-08-26 14:21+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -71,11 +71,10 @@ msgid "Default app for this file type"
 msgstr "Defaŭlta aplikaĵo por ĉi tiu dosiertipo"
 
 #: src/AppChooserDialog.qml:171
-#, fuzzy, kde-format
-#| msgid "Default app for this file type"
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
-msgstr "Defaŭlta aplikaĵo por ĉi tiu dosiertipo"
+msgstr "Laste uzita apo por ĉi tiu dosiertipo"
 
 #: src/AppChooserDialog.qml:190
 #, kde-format
@@ -586,17 +585,3 @@ msgstr "Malsukcesis komenci ekranelsendon"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Fora labortablo"
-
-#~ msgid ""
-#~ "Laptop screen\n"
-#~ "Model: %1"
-#~ msgstr ""
-#~ "Portebla ekrano\n"
-#~ "Modelo: %1"
-
-#~ msgid ""
-#~ "Manufacturer: %1\n"
-#~ "Model: %2"
-#~ msgstr ""
-#~ "Fabrikisto: %1\n"
-#~ "Modelo: %2"
