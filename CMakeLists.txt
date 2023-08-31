@@ -55,7 +55,6 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
     KIO
     Kirigami2
     Notifications
-    Plasma
     Wayland
     WidgetsAddons
     WindowSystem
@@ -63,6 +62,7 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
     StatusNotifierItem
 )
 ecm_find_qmlmodule(org.kde.iconthemes 1.0)
+ecm_find_qmlmodule(org.kde.plasma.workspace.dialogs 1.0)
 find_package(Wayland 1.15 REQUIRED COMPONENTS Client)
 find_package(PlasmaWaylandProtocols 1.7.0 REQUIRED)
 
