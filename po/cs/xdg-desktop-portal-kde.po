@@ -68,11 +68,10 @@ msgid "Default app for this file type"
 msgstr "Výchozí aplikace pro tento typ souborů"
 
 #: src/AppChooserDialog.qml:171
-#, fuzzy, kde-format
-#| msgid "Default app for this file type"
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
-msgstr "Výchozí aplikace pro tento typ souborů"
+msgstr ""
 
 #: src/AppChooserDialog.qml:190
 #, kde-format
@@ -581,17 +580,3 @@ msgstr ""
 #, kde-format
 msgid "Remote desktop"
 msgstr "Vzdálená plocha"
-
-#~ msgid ""
-#~ "Laptop screen\n"
-#~ "Model: %1"
-#~ msgstr ""
-#~ "Obrazovka notebooku\n"
-#~ "Model: %1"
-
-#~ msgid ""
-#~ "Manufacturer: %1\n"
-#~ "Model: %2"
-#~ msgstr ""
-#~ "Výrobce: %1\n"
-#~ "Model: %2"
