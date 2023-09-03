@@ -176,14 +176,13 @@ class FdoAppearanceSettings : public SettingsModule
 {
     Q_OBJECT
     static constexpr auto colorScheme = "color-scheme"_L1;
+    static constexpr auto accentColor = "accent-color"_L1;
 
 public:
     explicit FdoAppearanceSettings(QObject *parent = nullptr)
         : SettingsModule(parent)
     {
-        connect(qGuiApp, &QGuiApplication::paletteChanged, this, [this] {
-            Q_EMIT settingChanged(group(), colorScheme, readFdoColorScheme());
-        });
+        connect(qGuiApp, &QGuiApplication::paletteChanged, this, &FdoAppearanceSettings::onPaletteChanged);
     }
 
     inline QString group() final
@@ -197,14 +196,20 @@ public:
         VariantMapMap result;
         QVariantMap appearanceSettings;
         appearanceSettings.insert(colorScheme, readFdoColorScheme().variant());
+        appearanceSettings.insert(accentColor, readAccentColor().variant());
         result.insert(group(), appearanceSettings);
         return result;
     }
 
     QVariant read(const QString &group, const QString &key) final
     {
-        if (group == this->group() && key == colorScheme) {
+        if (group != this->group()) {
+            return {};
+        }
+        if (key == colorScheme) {
             return QVariant::fromValue(readFdoColorScheme());
+        } else if (key == accentColor) {
+            return QVariant::fromValue(readAccentColor());
         }
         return {};
     }
@@ -224,6 +229,24 @@ private:
         }
 
         return QDBusVariant(result);
+    }
+
+    /**
+     * Returns a list that contains redF, blueF and greenF and represents
+     * the current accent color.
+     * Format: (ddd)
+     */
+    QDBusVariant readAccentColor() const
+    {
+        const QColor accentColor = qGuiApp->palette().highlight().color();
+        return QDBusVariant(QVariantList{double(accentColor.redF()), double(accentColor.greenF()), double(accentColor.blueF())});
+    }
+
+private Q_SLOTS:
+    void onPaletteChanged()
+    {
+        Q_EMIT settingChanged(group(), colorScheme, readFdoColorScheme());
+        Q_EMIT settingChanged(group(), accentColor, readAccentColor());
     }
 };
 
