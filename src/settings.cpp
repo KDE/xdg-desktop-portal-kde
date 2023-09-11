@@ -172,6 +172,35 @@ private:
     OrgKdeKWinTabletModeManagerInterface m_interface;
 };
 
+/* accent-color */
+struct AccentColorArray {
+    double r = 0.0; // 0-1
+    double g = 0.0; // 0-1
+    double b = 0.0; // 0-1
+
+    operator QVariant() const
+    {
+        return QVariant::fromValue(*this);
+    }
+};
+Q_DECLARE_METATYPE(AccentColorArray)
+
+QDBusArgument &operator<<(QDBusArgument &argument, const AccentColorArray &item)
+{
+    argument.beginStructure();
+    argument << item.r << item.g << item.b;
+    argument.endStructure();
+    return argument;
+}
+
+const QDBusArgument &operator>>(const QDBusArgument &argument, AccentColorArray &item)
+{
+    argument.beginStructure();
+    argument >> item.r >> item.g >> item.b;
+    argument.endStructure();
+    return argument;
+}
+
 class FdoAppearanceSettings : public SettingsModule
 {
     Q_OBJECT
@@ -182,6 +211,7 @@ public:
     explicit FdoAppearanceSettings(QObject *parent = nullptr)
         : SettingsModule(parent)
     {
+        qDBusRegisterMetaType<AccentColorArray>();
         connect(qGuiApp, &QGuiApplication::paletteChanged, this, &FdoAppearanceSettings::onPaletteChanged);
     }
 
@@ -239,7 +269,7 @@ private:
     QDBusVariant readAccentColor() const
     {
         const QColor accentColor = qGuiApp->palette().highlight().color();
-        return QDBusVariant(QVariantList{double(accentColor.redF()), double(accentColor.greenF()), double(accentColor.blueF())});
+        return QDBusVariant(AccentColorArray{accentColor.redF(), accentColor.greenF(), accentColor.blueF()});
     }
 
 private Q_SLOTS:
