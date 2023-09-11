@@ -21,6 +21,35 @@
 #include "dbushelpers.h"
 #include <KConfigCore/KConfigGroup>
 
+/* accent-color */
+struct AccentColorArray {
+    double r = 0.0; // 0-1
+    double g = 0.0; // 0-1
+    double b = 0.0; // 0-1
+
+    operator QVariant() const
+    {
+        return QVariant::fromValue(*this);
+    }
+};
+Q_DECLARE_METATYPE(AccentColorArray)
+
+QDBusArgument &operator<<(QDBusArgument &argument, const AccentColorArray &item)
+{
+    argument.beginStructure();
+    argument << item.r << item.g << item.b;
+    argument.endStructure();
+    return argument;
+}
+
+const QDBusArgument &operator>>(const QDBusArgument &argument, AccentColorArray &item)
+{
+    argument.beginStructure();
+    argument >> item.r >> item.g >> item.b;
+    argument.endStructure();
+    return argument;
+}
+
 static bool groupMatches(const QString &group, const QStringList &patterns)
 {
     for (const QString &pattern : patterns) {
@@ -44,6 +73,7 @@ SettingsPortal::SettingsPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
 {
     qDBusRegisterMetaType<VariantMapMap>();
+    qDBusRegisterMetaType<AccentColorArray>();
 
     m_kdeglobals = KSharedConfig::openConfig();
 
@@ -284,5 +314,5 @@ QDBusVariant SettingsPortal::readFdoColorScheme()
 QDBusVariant SettingsPortal::readAccentColor() const
 {
     const QColor accentColor = qGuiApp->palette().highlight().color();
-    return QDBusVariant(QVariantList{accentColor.redF(), accentColor.greenF(), accentColor.blueF()});
+    return QDBusVariant(AccentColorArray{accentColor.redF(), accentColor.greenF(), accentColor.blueF()});
 }
