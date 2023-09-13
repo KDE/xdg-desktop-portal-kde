@@ -55,6 +55,7 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
     KIO
     Kirigami2
     Notifications
+    Service
     Wayland
     WidgetsAddons
     WindowSystem
