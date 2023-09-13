@@ -141,6 +141,17 @@ static bool isKIOFuseAvailable()
     return available;
 }
 
+// The portal might send us null terminated strings, make sure to strip the extranous \0 in favor of the implicit \0.
+// QByteArrays are implicitly terminated already.
+static QString decodeFileName(const QByteArray &name)
+{
+    QByteArray decodedName = name;
+    while (decodedName.endsWith('\0')) {
+        decodedName.chop(1);
+    }
+    return QFile::decodeName(decodedName);
+}
+
 FileDialog::FileDialog(QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)
     , m_fileWidget(new KFileWidget(QUrl(), this))
@@ -324,7 +335,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     }
 
     if (options.contains(QStringLiteral("current_folder"))) {
-        currentFolder = QFile::decodeName(options.value(QStringLiteral("current_folder")).toByteArray());
+        currentFolder = decodeFileName(options.value(QStringLiteral("current_folder")).toByteArray());
     }
 
     ExtractFilters(options, nameFilters, mimeTypeFilters, allFilters, selectedMimeTypeFilter);
@@ -515,11 +526,11 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     }
 
     if (options.contains(QStringLiteral("current_folder"))) {
-        currentFolder = QFile::decodeName(options.value(QStringLiteral("current_folder")).toByteArray());
+        currentFolder = decodeFileName(options.value(QStringLiteral("current_folder")).toByteArray());
     }
 
     if (options.contains(QStringLiteral("current_file"))) {
-        currentFile = QFile::decodeName(options.value(QStringLiteral("current_file")).toByteArray());
+        currentFile = decodeFileName(options.value(QStringLiteral("current_file")).toByteArray());
     }
 
     ExtractFilters(options, nameFilters, mimeTypeFilters, allFilters, selectedMimeTypeFilter);
