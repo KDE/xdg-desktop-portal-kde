@@ -57,6 +57,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     Kirigami2
     Notifications
     Plasma
+    Service
     Wayland
     WidgetsAddons
     WindowSystem
