@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-03 03:13+0000\n"
-"PO-Revision-Date: 2023-06-02 19:41+0300\n"
+"PO-Revision-Date: 2023-08-28 17:59+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -475,10 +475,11 @@ msgstr "Ota ikkunareunat mukaan"
 msgid "Save"
 msgstr "Tallenna"
 
+# *** TARKISTA: Veikkaus on ruutukaappaus?
 #: src/ScreenshotDialog.qml:84
 #, kde-format
 msgid "Take"
-msgstr ""
+msgstr "Kaappaa"
 
 #: src/session.cpp:169
 #, kde-format
@@ -502,8 +503,7 @@ msgstr[0] "Jaetaan sisältöä sovellukseen %2"
 msgstr[1] "%1 videovirtaa sovellukseen %2"
 
 #: src/session.cpp:275
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
