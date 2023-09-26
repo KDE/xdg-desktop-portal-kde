@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-24 01:57+0000\n"
-"PO-Revision-Date: 2023-06-02 19:41+0300\n"
+"PO-Revision-Date: 2023-08-28 17:59+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -99,8 +99,7 @@ msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr "Eikö oikeaa sovellusta löydy? Etsi <link>Discover</link>ista lisää."
 
 #: src/background.cpp:103
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgid "Background Activity"
 msgstr "Taustatoiminta"
 
@@ -111,10 +110,11 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
+"%1 haluaa pysyä käynnissä, vaikkei sillä ole näkyviä ikkunoita. Jos kiellät "
+"tämän, sovellus lopetetaan sen viimeisen ikkunan sulkeuduttua."
 
 #: src/background.cpp:106 src/background.cpp:147
-#, fuzzy, kde-format
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Salli"
@@ -124,16 +124,15 @@ msgstr "Salli"
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
-msgstr ""
+msgstr "Kiellä"
 
 #: src/background.cpp:141
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
 msgid "Background App Usage"
-msgstr "Taustatoiminta"
+msgstr "Taustasovelluskäyttö"
 
 #: src/background.cpp:143
 #, kde-format
@@ -143,13 +142,16 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
+"Huomaa, että %1 pakotetaan lopettamaan viimeisen ikkunansa sulkeuduttua, "
+"mikä voi johtaa tiedon menetykseen, jos sovelluksessa on tallentamattomia "
+"muutoksia."
 
 #: src/background.cpp:148
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid Anyway"
-msgstr ""
+msgstr "Kiellä joka tapauksessa"
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format
@@ -525,10 +527,11 @@ msgstr "Ota ikkunareunat mukaan"
 msgid "Save"
 msgstr "Tallenna"
 
+# *** TARKISTA: Veikkaus on ruutukaappaus?
 #: src/ScreenshotDialog.qml:84
 #, kde-format
 msgid "Take"
-msgstr ""
+msgstr "Kaappaa"
 
 #: src/session.cpp:169
 #, kde-format
@@ -552,8 +555,7 @@ msgstr[0] "Jaetaan sisältöä sovellukseen %2"
 msgstr[1] "%1 videovirtaa sovellukseen %2"
 
 #: src/session.cpp:275
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
