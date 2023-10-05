@@ -527,7 +527,7 @@ void AppModel::loadApplications()
             continue; // no display after all
         }
 
-        const QString fullName = service->property(QStringLiteral("X-GNOME-FullName"), QMetaType::QString).toString();
+        const QString fullName = service->property<QString>(QStringLiteral("X-GNOME-FullName"));
         const QString name = fullName.isEmpty() ? service->name() : fullName;
         ApplicationItem appItem(name, service);
 
