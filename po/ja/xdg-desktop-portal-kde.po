@@ -580,26 +580,3 @@ msgstr ""
 #, kde-format
 msgid "Remote desktop"
 msgstr ""
-
-#~ msgid "%1 is running in the background."
-#~ msgstr "%1 がバックグラウンドで動作中です。"
-
-#~ msgid "Find out more"
-#~ msgstr "詳細"
-
-#~ msgid "%1 is running in the background"
-#~ msgstr "%1 がバックグラウンドで動作中です"
-
-#~ msgid ""
-#~ "This might be for a legitimate reason, but the application has not "
-#~ "provided one.\n"
-#~ "\n"
-#~ "Note that forcing an application to quit might cause data loss."
-#~ msgstr ""
-#~ "適切な理由により動作している可能性もありますが、アプリケーションは理由を示"
-#~ "していません。\n"
-#~ "\n"
-#~ "強制的にアプリケーションを終了させると、データが失われる可能性があります。"
-
-#~ msgid "Force quit"
-#~ msgstr "強制的に終了"
