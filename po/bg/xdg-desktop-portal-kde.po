@@ -538,37 +538,3 @@ msgstr "Отдалечен работен плот"
 #, kde-format
 msgid "Portal"
 msgstr "Портал"
-
-#~ msgctxt "Will allow the app to see what's on the outputs"
-#~ msgid ""
-#~ " <li>Screens\n"
-#~ "</li>"
-#~ msgstr ""
-#~ "<li>Екрани\n"
-#~ "</li>"
-
-#~ msgctxt "@action:inmenu stops screen/window sharing"
-#~ msgid "Terminate"
-#~ msgstr "Прекратяване"
-
-#~ msgid "Select what to share with the requesting application"
-#~ msgstr "Изберете какво да споделите със заявяващото приложение"
-
-#~ msgid "Select what to share with %1"
-#~ msgstr "Изберете какво да споделяте с %1"
-
-#~ msgid "Recording window \"%1\"..."
-#~ msgstr "Записване на прозорец \"%1\"..."
-
-#~ msgid "Recording screen \"%1\"..."
-#~ msgstr "Записване на екран \"%1\"..."
-
-#~ msgid "Recording workspace..."
-#~ msgstr "Записване на работно пространство.."
-
-#~ msgid "Recording virtual output '%1'..."
-#~ msgstr "Записване на виртуален изход \"%1\"..."
-
-#~ msgctxt "@action:inmenu stops screen/window recording"
-#~ msgid "Stop Recording"
-#~ msgstr "Спиране на записа"
