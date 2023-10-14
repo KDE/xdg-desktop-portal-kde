@@ -4,30 +4,32 @@
 #
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2018, 2019, 2020.
+# SPDX-FileCopyrightText: 2023 Geraldo Simiao <geraldosimiao@fedoraproject.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-29 01:40+0000\n"
-"PO-Revision-Date: 2023-09-18 11:45-0300\n"
-"Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
+"PO-Revision-Date: 2023-10-13 21:20-0300\n"
+"Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Luiz Fernando Ranghetti, André Marcelo Alvarenga"
+msgstr "Luiz Fernando Ranghetti, André Marcelo Alvarenga, Geraldo Simião"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "elchevive@opensuse.org, alvarenga@kde.org"
+msgstr ""
+"elchevive@opensuse.org, alvarenga@kde.org, geraldosimiao@fedoraproject.org"
 
 #: src/accessdialog.cpp:22
 #, kde-format
@@ -109,6 +111,9 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
+"%1 deseja permanecer em execução mesmo quando não possui janelas visíveis. "
+"Se você proibir isso, o aplicativo será encerrado quando sua última janela "
+"for fechada."
 
 #: src/background.cpp:106 src/background.cpp:147
 #, kde-format
@@ -124,8 +129,7 @@ msgid "Forbid"
 msgstr "Proibir"
 
 #: src/background.cpp:141
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
@@ -140,13 +144,16 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
+"Observe que isso forçará %1 a ser encerrado quando sua última janela for "
+"fechada. Isso pode causar perda de dados se o aplicativo tiver alterações "
+"não salvas quando isso ocorrer."
 
 #: src/background.cpp:148
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid Anyway"
-msgstr ""
+msgstr "Proibir de qualquer jeito"
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format
@@ -277,7 +284,7 @@ msgstr "Tela do laptop"
 #: src/region-select/RegionSelectOverlay.qml:142
 #, kde-format
 msgid "Start streaming:"
-msgstr ""
+msgstr "Iniciar a transmissão"
 
 #: src/region-select/RegionSelectOverlay.qml:146
 #, kde-format
@@ -318,7 +325,7 @@ msgstr "Criar seleção:"
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
-msgstr ""
+msgstr "Clique esquerdo e arrastar"
 
 #: src/remotedesktop.cpp:129
 #, kde-format
