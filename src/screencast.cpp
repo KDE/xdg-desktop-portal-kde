@@ -258,7 +258,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         QStringList windows;
         WaylandIntegration::Streams streams;
         Screencasting::CursorMode cursorMode = Screencasting::CursorMode(session->cursorMode());
-        for (const auto &output : qAsConst(selectedOutputs)) {
+        for (const auto &output : std::as_const(selectedOutputs)) {
             WaylandIntegration::Stream stream;
             switch (output.outputType()) {
             case Output::Region:
@@ -285,7 +285,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             }
             streams << stream;
         }
-        for (const auto &win : qAsConst(selectedWindows)) {
+        for (const auto &win : std::as_const(selectedWindows)) {
             WaylandIntegration::Stream stream = WaylandIntegration::startStreamingWindow(win, cursorMode);
             if (!stream.isValid()) {
                 qCWarning(XdgDesktopPortalKdeScreenCast) << "Invalid window!" << win;

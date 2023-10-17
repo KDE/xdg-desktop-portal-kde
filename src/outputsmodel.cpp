@@ -148,7 +148,7 @@ QList<Output> OutputsModel::selectedOutputs() const
 {
     QList<Output> ret;
     ret.reserve(m_selectedRows.count());
-    for (auto x : qAsConst(m_selectedRows)) {
+    for (auto x : std::as_const(m_selectedRows)) {
         ret << m_outputs[x];
     }
     return ret;

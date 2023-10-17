@@ -82,7 +82,7 @@ void NotificationPortal::AddNotification(const QString &app_id, const QString &i
 
         QStringList actions;
         actions.reserve(buttons.count());
-        for (const QVariantMap &button : qAsConst(buttons)) {
+        for (const QVariantMap &button : std::as_const(buttons)) {
             actions << button.value(QStringLiteral("label")).toString();
 
             actionValues.append({button.value(QStringLiteral("action")).toString(), button.value(QStringLiteral("target"))});

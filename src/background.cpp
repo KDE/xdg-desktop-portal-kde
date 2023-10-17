@@ -43,7 +43,7 @@ BackgroundPortal::BackgroundPortal(QObject *parent, QDBusContext *context)
                 });
 
         m_windows = WaylandIntegration::plasmaWindowManagement()->windows();
-        for (KWayland::Client::PlasmaWindow *window : qAsConst(m_windows)) {
+        for (KWayland::Client::PlasmaWindow *window : std::as_const(m_windows)) {
             addWindow(window);
         }
     });
