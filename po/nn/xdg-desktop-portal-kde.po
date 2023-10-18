@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-03 03:13+0000\n"
+"POT-Creation-Date: 2023-10-13 02:30+0000\n"
 "PO-Revision-Date: 2023-03-04 16:08+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -258,7 +258,7 @@ msgstr "Ny virtuell uteining"
 msgid "Laptop screen"
 msgstr "Skjerm på berbar"
 
-#: src/remotedesktop.cpp:121
+#: src/remotedesktop.cpp:129
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
