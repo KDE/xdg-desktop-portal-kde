@@ -6,18 +6,16 @@
 
 #include "screencasting.h"
 #include "qwayland-zkde-screencast-unstable-v1.h"
-#include "screencast_debug.h"
-
-#include <KWayland/Client/output.h>
-#include <KWayland/Client/plasmawindowmanagement.h>
-#include <KWayland/Client/registry.h>
 #include <QDebug>
-#include <QRect>
-
 #include <QGuiApplication>
+#include <QPointer>
+#include <QRect>
+#include <QScreen>
+#include <QtWaylandClient/QWaylandClientExtensionTemplate>
+#include <QtWaylandClient/qtwaylandclientversion.h>
 #include <qpa/qplatformnativeinterface.h>
 
-using namespace KWayland::Client;
+using namespace Qt::StringLiterals;
 
 class ScreencastingStreamPrivate : public QtWayland::zkde_screencast_stream_unstable_v1
 {
@@ -26,15 +24,17 @@ public:
         : q(q)
     {
     }
-    ~ScreencastingStreamPrivate() override
+    ~ScreencastingStreamPrivate()
     {
-        close();
+        if (isInitialized()) {
+            close();
+        }
         q->deleteLater();
     }
 
     void zkde_screencast_stream_unstable_v1_created(uint32_t node) override
     {
-        m_nodeid = node;
+        m_nodeId = node;
         Q_EMIT q->created(node);
     }
 
@@ -48,7 +48,7 @@ public:
         Q_EMIT q->failed(error);
     }
 
-    uint m_nodeid = 0;
+    std::optional<uint> m_nodeId;
     QRect m_geometry;
     QPointer<ScreencastingStream> q;
 };
@@ -61,9 +61,9 @@ ScreencastingStream::ScreencastingStream(QObject *parent)
 
 ScreencastingStream::~ScreencastingStream() = default;
 
-quint32 ScreencastingStream::nodeid() const
+quint32 ScreencastingStream::nodeId() const
 {
-    return d->m_nodeid;
+    return *d->m_nodeId;
 }
 
 QRect ScreencastingStream::geometry() const
@@ -71,24 +71,24 @@ QRect ScreencastingStream::geometry() const
     return d->m_geometry;
 }
 
-class ScreencastingPrivate : public QtWayland::zkde_screencast_unstable_v1
+class ScreencastingPrivate : public QWaylandClientExtensionTemplate<ScreencastingPrivate>, public QtWayland::zkde_screencast_unstable_v1
 {
 public:
-    ScreencastingPrivate(Registry *registry, int id, int version, Screencasting *q)
-        : QtWayland::zkde_screencast_unstable_v1(*registry, id, version)
+    ScreencastingPrivate(Screencasting *q)
+        : QWaylandClientExtensionTemplate<ScreencastingPrivate>(ZKDE_SCREENCAST_UNSTABLE_V1_STREAM_REGION_SINCE_VERSION)
         , q(q)
     {
+        initialize();
+        if (!isInitialized()) {
+            qWarning() << "Remember requesting the interface on your desktop file: X-KDE-Wayland-Interfaces=zkde_screencast_unstable_v1";
+        }
     }
 
-    ScreencastingPrivate(::zkde_screencast_unstable_v1 *screencasting, Screencasting *q)
-        : QtWayland::zkde_screencast_unstable_v1(screencasting)
-        , q(q)
+    ~ScreencastingPrivate()
     {
-    }
-
-    ~ScreencastingPrivate() override
-    {
-        destroy();
+        if (isInitialized()) {
+            destroy();
+        }
     }
 
     Screencasting *const q;
@@ -96,31 +96,33 @@ public:
 
 Screencasting::Screencasting(QObject *parent)
     : QObject(parent)
-{
-}
-
-Screencasting::Screencasting(Registry *registry, int id, int version, QObject *parent)
-    : QObject(parent)
-    , d(new ScreencastingPrivate(registry, id, version, this))
+    , d(new ScreencastingPrivate(this))
 {
 }
 
 Screencasting::~Screencasting() = default;
 
-ScreencastingStream *Screencasting::createOutputStream(QScreen *screen, CursorMode mode)
+ScreencastingStream *Screencasting::createOutputStream(QScreen *screen, Screencasting::CursorMode mode)
 {
-    auto stream = new ScreencastingStream(this);
-    stream->setObjectName(screen->name());
-
-    auto native = qGuiApp->platformNativeInterface();
-    auto *output = reinterpret_cast<wl_output *>(native->nativeResourceForScreen(QByteArrayLiteral("output"), screen));
+    wl_output *output = (wl_output *)QGuiApplication::platformNativeInterface()->nativeResourceForScreen("output", screen);
     if (!output) {
-        qCWarning(XdgDesktopPortalKdeScreenCast) << "Could not find a matching Wayland output for screen" << screen->name();
         return nullptr;
     }
 
+    auto stream = new ScreencastingStream(this);
+    stream->setObjectName(screen->name());
     stream->d->init(d->stream_output(output, mode));
     stream->d->m_geometry = screen->geometry();
+    return stream;
+}
+
+ScreencastingStream *Screencasting::createRegionStream(const QRect &geometry, qreal scaling, CursorMode mode)
+{
+    Q_ASSERT(d->QWaylandClientExtension::version() >= ZKDE_SCREENCAST_UNSTABLE_V1_STREAM_REGION_SINCE_VERSION);
+    auto stream = new ScreencastingStream(this);
+    stream->setObjectName(u"region-%1,%2 (%3x%4)"_s.arg(geometry.x()).arg(geometry.y()).arg(geometry.width()).arg(geometry.height()));
+    stream->d->init(d->stream_region(geometry.x(), geometry.y(), geometry.width(), geometry.height(), wl_fixed_from_double(scaling), mode));
+    stream->d->m_geometry = geometry;
     return stream;
 }
 
@@ -131,28 +133,22 @@ ScreencastingStream *Screencasting::createWindowStream(const QString &uuid, Curs
     return stream;
 }
 
-ScreencastingStream *Screencasting::createRegionStream(const QRect &g, qreal scale, CursorMode mode)
+ScreencastingStream *Screencasting::createVirtualMonitorStream(const QString &name, const QSize &size, qreal scale, CursorMode mode)
 {
     auto stream = new ScreencastingStream(this);
-    stream->d->init(d->stream_region(g.x(), g.y(), g.width(), g.height(), wl_fixed_from_double(scale), mode));
-    stream->d->m_geometry = g;
+    stream->d->init(d->stream_virtual_output(name, size.width(), size.height(), wl_fixed_from_double(scale), mode));
+    stream->d->m_geometry = QRect(QPoint(0, 0), size);
     return stream;
 }
 
-ScreencastingStream *Screencasting::createVirtualOutputStream(const QString &name, const QSize &s, qreal scale, Screencasting::CursorMode mode)
+bool Screencasting::isAvailable() const
 {
-    auto stream = new ScreencastingStream(this);
-    stream->d->init(d->stream_virtual_output(name, s.width(), s.height(), wl_fixed_from_double(scale), mode));
-    stream->d->m_geometry = QRect(QPoint(0, 0), s);
-    return stream;
-}
-
-void Screencasting::setup(::zkde_screencast_unstable_v1 *screencasting)
-{
-    d.reset(new ScreencastingPrivate(screencasting, this));
+    return d->isInitialized();
 }
 
 void Screencasting::destroy()
 {
     d.reset(nullptr);
 }
+
+#include "moc_screencasting.cpp"

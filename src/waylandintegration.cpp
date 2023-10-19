@@ -230,7 +230,7 @@ bool WaylandIntegration::WaylandIntegrationPrivate::isStreamingEnabled() const
 
 bool WaylandIntegration::WaylandIntegrationPrivate::isStreamingAvailable() const
 {
-    return m_screencasting;
+    return m_screencasting && m_screencasting->isAvailable();
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::acquireStreamingInput(bool acquire)
@@ -296,7 +296,7 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
 WaylandIntegration::Stream
 WaylandIntegration::WaylandIntegrationPrivate::startStreamingVirtualOutput(const QString &name, const QSize &size, Screencasting::CursorMode mode)
 {
-    return startStreaming(m_screencasting->createVirtualOutputStream(name, size, 1, mode),
+    return startStreaming(m_screencasting->createVirtualMonitorStream(name, size, 1, mode),
                           {
                               {QLatin1String("size"), size},
                               {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Virtual)},
@@ -640,11 +640,8 @@ void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
         m_fakeInput = m_registry->createFakeInput(name, version, this);
     });
 
-    connect(m_registry, &KWayland::Client::Registry::interfaceAnnounced, this, [this](const QByteArray &interfaceName, quint32 name, quint32 version) {
-        if (interfaceName != "zkde_screencast_unstable_v1")
-            return;
-        m_screencasting = new Screencasting(m_registry, name, version, this);
-    });
+    m_screencasting = new Screencasting();
+
     connect(m_registry, &KWayland::Client::Registry::plasmaWindowManagementAnnounced, this, [this](quint32 name, quint32 version) {
         m_windowManagement = m_registry->createPlasmaWindowManagement(name, version, this);
         Q_EMIT waylandIntegration()->plasmaWindowManagementInitialized();
