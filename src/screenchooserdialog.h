@@ -23,7 +23,7 @@ public:
     ~ScreenChooserDialog() override;
 
     QList<Output> selectedOutputs() const;
-    QVector<QMap<int, QVariant>> selectedWindows() const;
+    QList<QMap<int, QVariant>> selectedWindows() const;
     bool allowRestore() const;
     QRect selectedRegion() const;
 

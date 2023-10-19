@@ -211,7 +211,7 @@ static QStringList fuseRedirect(QList<QUrl> urls)
         int urlIndex;
         QString basename;
     };
-    QVector<MountRequest> requests;
+    QList<MountRequest> requests;
     requests.reserve(urls.count());
     for (int i = 0; i < urls.count(); ++i) {
         QUrl url = urls.at(i);

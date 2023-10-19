@@ -6,10 +6,10 @@
 
 #pragma once
 
+#include <QList>
 #include <QObject>
 #include <QScreen>
 #include <QSharedPointer>
-#include <QVector>
 #include <optional>
 
 struct zkde_screencast_unstable_v1;

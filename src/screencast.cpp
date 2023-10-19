@@ -200,7 +200,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     const PersistMode persist = session->persistMode();
     bool valid = false;
     QList<Output> selectedOutputs;
-    QVector<QMap<int, QVariant>> selectedWindows;
+    QList<QMap<int, QVariant>> selectedWindows;
     QRect selectedRegion;
     if (persist != NoPersist && session->restoreData().isValid()) {
         const RestoreData restoreData = qdbus_cast<RestoreData>(session->restoreData().value<QDBusArgument>());

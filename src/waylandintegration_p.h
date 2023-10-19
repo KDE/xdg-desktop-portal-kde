@@ -12,8 +12,8 @@
 #include "waylandintegration.h"
 
 #include <QDateTime>
+#include <QList>
 #include <QMap>
-#include <QVector>
 
 class Screencasting;
 class ScreencastingStream;
@@ -92,7 +92,7 @@ private:
     bool m_waylandAuthenticationRequested = false;
 
     QDateTime m_lastFrameTime;
-    QVector<Stream> m_streams;
+    QList<Stream> m_streams;
 
     KWayland::Client::FakeInput *m_fakeInput = nullptr;
     Screencasting *m_screencasting = nullptr;

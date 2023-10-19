@@ -77,9 +77,9 @@ public:
         return true;
     }
 
-    QVector<QMap<int, QVariant>> selectedWindows() const
+    QList<QMap<int, QVariant>> selectedWindows() const
     {
-        QVector<QMap<int, QVariant>> ret;
+        QList<QMap<int, QVariant>> ret;
         ret.reserve(m_selected.size());
         for (const auto &index : m_selected) {
             if (index.isValid())
@@ -242,7 +242,7 @@ QList<Output> ScreenChooserDialog::selectedOutputs() const
     return model->selectedOutputs();
 }
 
-QVector<QMap<int, QVariant>> ScreenChooserDialog::selectedWindows() const
+QList<QMap<int, QVariant>> ScreenChooserDialog::selectedWindows() const
 {
     FilteredWindowModel *model = dynamic_cast<FilteredWindowModel *>(m_theDialog->property("windowsModel").value<QObject *>());
     if (!model) {

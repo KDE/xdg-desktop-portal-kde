@@ -44,7 +44,7 @@ struct Stream {
 
     void close();
 };
-typedef QVector<Stream> Streams;
+typedef QList<Stream> Streams;
 
 class WaylandIntegration : public QObject
 {
