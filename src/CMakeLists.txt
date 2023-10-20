@@ -64,6 +64,7 @@ set(xdg_desktop_portal_kde_SRCS
     wayland/waylandintegration.cpp
     wayland/waylandintegration.h
     wayland/waylandintegration_p.h
+    wayland/xdgimporter.cpp
     xdg-desktop-portal-kde.cpp
     resources.qrc
     portalicon.cpp portalicon.h
@@ -259,6 +260,7 @@ qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS org.kde.KWin.VirtualKeyboard.x
 qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde FILES ${PLASMA_WAYLAND_PROTOCOLS_DIR}/zkde-screencast-unstable-v1.xml)
 qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde FILES ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml)
 qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde FILES ${Wayland_DATADIR}/wayland.xml)
+qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde FILES ${WaylandProtocols_DATADIR}/unstable/xdg-foreign/xdg-foreign-unstable-v2.xml)
 
 
 set_source_files_properties(../data/org.freedesktop.Accounts.User.xml PROPERTIES NO_NAMESPACE TRUE)

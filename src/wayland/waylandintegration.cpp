@@ -13,6 +13,7 @@
 #include "screencasting.h"
 #include "waylandintegration_debug.h"
 #include "waylandintegration_p.h"
+#include "xdgimporter.h"
 
 #include <QDBusMetaType>
 #include <QGuiApplication>
@@ -24,7 +25,7 @@
 #include <QScreen>
 #include <QThread>
 #include <QTimer>
-#include <QWaylandClientExtensionTemplate>
+#include <qpa/qplatformwindow_p.h>
 
 #include <KLocalizedString>
 
@@ -614,33 +615,22 @@ void WaylandIntegration::WaylandIntegrationPrivate::requestTouchUp(quint32 touch
     }
 }
 
-static const char *windowParentHandlePropertyName = "waylandintegration-parentHandle";
 void WaylandIntegration::WaylandIntegrationPrivate::setParentWindow(QWindow *window, const QString &parentHandle)
 {
     if (!m_xdgImporter) {
         return;
     }
 
-    if (window->isVisible()) {
-        auto importedParent = m_xdgImporter->importTopLevel(parentHandle, window);
-        auto surface = KWayland::Client::Surface::fromWindow(window);
-        importedParent->setParentOf(surface);
+    if (auto waylandWindow = window->nativeInterface<QNativeInterface::Private::QWaylandWindow>()) {
+        std::unique_ptr<XdgImported> importedParent(m_xdgImporter->import(parentHandle));
+        if (auto surface = waylandWindow->surface()) {
+            importedParent->set_parent_of(surface);
+        }
+        // When the waylandWindow is destroyed the connection follows and the imported is not leaked.
+        connect(waylandWindow, &QNativeInterface::Private::QWaylandWindow::surfaceCreated, [importedParent = std::move(importedParent), waylandWindow] {
+            importedParent->set_parent_of(waylandWindow->surface());
+        });
     }
-
-    window->setProperty(windowParentHandlePropertyName, parentHandle);
-    window->installEventFilter(this);
-}
-
-bool WaylandIntegration::WaylandIntegrationPrivate::eventFilter(QObject *watched, QEvent *event)
-{
-    const bool ret = WaylandIntegration::WaylandIntegration::eventFilter(watched, event);
-    QWindow *window = static_cast<QWindow *>(watched);
-    if (event->type() == QEvent::Expose && window->isExposed()) {
-        const QString parentHandle = window->property(windowParentHandlePropertyName).toString();
-        auto importedParent = m_xdgImporter->importTopLevel(parentHandle, window);
-        importedParent->setParentOf(KWayland::Client::Surface::fromWindow(window));
-    }
-    return ret;
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::authenticate()
@@ -666,6 +656,8 @@ void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
 
     m_registry = new KWayland::Client::Registry(this);
 
+    m_xdgImporter = std::make_unique<XdgImporter>();
+
     connect(m_registry, &KWayland::Client::Registry::interfaceAnnounced, this, [this](const QByteArray &interfaceName, quint32 name, quint32 version) {
         if (interfaceName != "zkde_screencast_unstable_v1")
             return;
@@ -675,9 +667,7 @@ void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
         m_windowManagement = m_registry->createPlasmaWindowManagement(name, version, this);
         Q_EMIT waylandIntegration()->plasmaWindowManagementInitialized();
     });
-    connect(m_registry, &KWayland::Client::Registry::importerUnstableV2Announced, this, [this](quint32 name, quint32 version) {
-        m_xdgImporter = m_registry->createXdgImporter(name, std::min(version, quint32(1)), this);
-    });
+
     connect(m_registry, &KWayland::Client::Registry::interfacesAnnounced, this, [this] {
         m_registryInitialized = true;
         qCDebug(XdgDesktopPortalKdeWaylandIntegration) << "Registry initialized";
