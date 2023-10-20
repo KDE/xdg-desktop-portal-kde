@@ -8,7 +8,7 @@
 
 #include "screenchooserdialog.h"
 #include "utils.h"
-#include "waylandintegration.h"
+#include "wayland/waylandintegration.h"
 
 #include "region-select/SelectionEditor.h"
 

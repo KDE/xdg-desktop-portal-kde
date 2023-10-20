@@ -16,8 +16,8 @@
 #include <QSize>
 #include <QVariant>
 
+#include "screencasting.h"
 #include <KWayland/Client/output.h>
-#include <screencasting.h>
 
 namespace KWayland
 {

@@ -9,7 +9,7 @@
 #include "quickdialog.h"
 #include "session.h"
 #include "utils.h"
-#include "waylandintegration.h"
+#include "wayland/waylandintegration.h"
 
 #include <KGlobalAccel>
 #include <QAction>

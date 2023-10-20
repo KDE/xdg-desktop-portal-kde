@@ -6,7 +6,7 @@
 
 #include "utils.h"
 
-#include "waylandintegration.h"
+#include "wayland/waylandintegration.h"
 
 #include <KWindowSystem>
 

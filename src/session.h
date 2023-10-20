@@ -17,7 +17,7 @@
 #include "globalshortcuts.h"
 #include "remotedesktop.h"
 #include "screencast.h"
-#include "waylandintegration.h"
+#include "wayland/waylandintegration.h"
 
 class KStatusNotifierItem;
 class KGlobalAccelInterface;

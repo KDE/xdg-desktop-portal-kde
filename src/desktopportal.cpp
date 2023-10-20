@@ -24,7 +24,7 @@
 #include "screencast.h"
 #include "screenshot.h"
 #include "settings.h"
-#include "waylandintegration.h"
+#include "wayland/waylandintegration.h"
 
 DesktopPortal::DesktopPortal(QObject *parent)
     : QObject(parent)

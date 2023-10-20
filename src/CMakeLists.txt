@@ -45,8 +45,6 @@ set(xdg_desktop_portal_kde_SRCS
     request.h
     screencast.cpp
     screencast.h
-    screencasting.cpp
-    screencasting.h
     screenchooserdialog.cpp
     screenchooserdialog.h
     screenshot.cpp
@@ -61,9 +59,11 @@ set(xdg_desktop_portal_kde_SRCS
     userinfodialog.h
     utils.cpp
     utils.h
-    waylandintegration.cpp
-    waylandintegration.h
-    waylandintegration_p.h
+    wayland/screencasting.cpp
+    wayland/screencasting.h
+    wayland/waylandintegration.cpp
+    wayland/waylandintegration.h
+    wayland/waylandintegration_p.h
     xdg-desktop-portal-kde.cpp
     resources.qrc
     portalicon.cpp portalicon.h
