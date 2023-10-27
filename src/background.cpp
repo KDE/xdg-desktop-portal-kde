@@ -101,14 +101,15 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
 
     KNotification *notify = new KNotification(QStringLiteral("notification"), KNotification::Persistent | KNotification::DefaultEvent, this);
     notify->setTitle(i18n("Background Activity"));
-    notify->setText(i18nc("@info %1 is the name of an application", "%1 wants to remain running when it has no visible windows. If you forbid this, the application will quit when its last window is closed.", appName));
-    notify->setActions({
-        i18nc("@action:button Allow the app to keep running with no open windows", "Allow"),
-        i18nc("@action:button Don't allow the app to keep running without any open windows", "Forbid"),
-    });
+    notify->setText(
+        i18nc("@info %1 is the name of an application",
+              "%1 wants to remain running when it has no visible windows. If you forbid this, the application will quit when its last window is closed.",
+              appName));
     notify->setProperty("activated", false);
 
     message.setDelayedReply(true);
+
+    auto allowAction = notify->addAction(i18nc("@action:button Allow the app to keep running with no open windows", "Allow"));
 
     auto allow = [message]() {
         const QVariantMap map = {{QStringLiteral("result"), static_cast<uint>(BackgroundPortal::Allow)}};
@@ -118,6 +119,13 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
         }
     };
 
+    connect(allowAction, &KNotificationAction::activated, this, [allow, notify] {
+        allow();
+        notify->setProperty("activated", true);
+    });
+
+    auto forbidAction = notify->addAction(i18nc("@action:button Don't allow the app to keep running without any open windows", "Forbid"));
+
     auto forbid = [message]() {
         const QVariantMap map = {{QStringLiteral("result"), static_cast<uint>(BackgroundPortal::Forbid)}};
         QDBusMessage reply = message.createReply({static_cast<uint>(0), map});
@@ -125,6 +133,30 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
             qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
         }
     };
+
+    connect(forbidAction, &KNotificationAction::activated, this, [this, appName, allow, forbid, notify] {
+        const QString title =
+            i18nc("@title title of a dialog to confirm whether to allow an app to remain running with no visible windows", "Background App Usage");
+        const QString text = i18nc("%1 is the name of an application",
+                                   "Note that this will force %1 to quit when its last window is closed. This could cause data loss if the application has "
+                                   "any unsaved changes when it happens.",
+                                   appName);
+        auto messageBox = new QMessageBox(QMessageBox::Question, title, text);
+        messageBox->addButton(i18nc("@action:button Allow the app to keep running with no open windows", "Allow"), QMessageBox::AcceptRole);
+        messageBox->addButton(i18nc("@action:button Don't allow the app to keep running without any open windows", "Forbid Anyway"), QMessageBox::RejectRole);
+        messageBox->show();
+
+        connect(messageBox, &QMessageBox::accepted, this, [messageBox, allow]() {
+            allow();
+            messageBox->deleteLater();
+        });
+        connect(messageBox, &QMessageBox::rejected, this, [messageBox, forbid]() {
+            forbid();
+            messageBox->deleteLater();
+        });
+
+        notify->setProperty("activated", true);
+    });
 
     auto allowOnce = [message]() {
         const QVariantMap map = {{QStringLiteral("result"), static_cast<uint>(BackgroundPortal::AllowOnce)}};
@@ -134,35 +166,6 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
         }
     };
 
-    connect(notify, QOverload<uint>::of(&KNotification::activated), this, [this, appName, notify, allow, forbid](uint action) {
-        if (action == 1) {
-            allow();
-        } else if (action == 2) {
-            const QString title = i18nc("@title title of a dialog to confirm whether to allow an app to remain running with no visible windows", "Background App Usage");
-            const QString text = i18nc("%1 is the name of an application",
-                                       "Note that this will force %1 to quit when its last window is closed. This could cause data loss if the application has "
-                                       "any unsaved changes when it happens.",
-                                       appName);
-            auto messageBox = new QMessageBox(QMessageBox::Question, title, text);
-            messageBox->addButton(i18nc("@action:button Allow the app to keep running with no open windows", "Allow"), QMessageBox::AcceptRole);
-            messageBox->addButton(i18nc("@action:button Don't allow the app to keep running without any open windows", "Forbid Anyway"),
-                                  QMessageBox::RejectRole);
-            messageBox->show();
-
-            connect(messageBox, &QMessageBox::accepted, this, [messageBox, allow]() {
-                allow();
-                messageBox->deleteLater();
-            });
-            connect(messageBox, &QMessageBox::rejected, this, [messageBox, forbid]() {
-                forbid();
-                messageBox->deleteLater();
-            });
-        } else {
-            qCWarning(XdgDesktopPortalKdeBackground) << "unexpected action" << action << "has been invoked";
-            return;
-        }
-        notify->setProperty("activated", true);
-    });
     connect(notify, &KNotification::closed, this, [notify, allowOnce]() {
         if (notify->property("activated").toBool()) {
             return;
