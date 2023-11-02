@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-29 01:40+0000\n"
-"PO-Revision-Date: 2023-07-26 14:48+0300\n"
+"PO-Revision-Date: 2023-10-25 23:12+0300\n"
 "Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -68,11 +68,10 @@ msgid "Default app for this file type"
 msgstr "Προεπιλεγμένη εφαρμογή γι' αυτόν τον τύπο αρχείου"
 
 #: src/AppChooserDialog.qml:171
-#, fuzzy, kde-format
-#| msgid "Default app for this file type"
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
-msgstr "Προεπιλεγμένη εφαρμογή γι' αυτόν τον τύπο αρχείου"
+msgstr "Τελευταία χρησιμοποιούμενη εφαρμογή για αυτόν τον τύπο αρχείου"
 
 #: src/AppChooserDialog.qml:190
 #, kde-format
