@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:40+0000\n"
+"POT-Creation-Date: 2023-11-05 01:09+0000\n"
 "PO-Revision-Date: 2021-09-09 21:54+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -103,7 +103,7 @@ msgstr ""
 msgid "Background Activity"
 msgstr "Baggrundsaktivitet"
 
-#: src/background.cpp:104
+#: src/background.cpp:106
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -111,21 +111,21 @@ msgid ""
 "this, the application will quit when its last window is closed."
 msgstr ""
 
-#: src/background.cpp:106 src/background.cpp:147
+#: src/background.cpp:112 src/background.cpp:145
 #, fuzzy, kde-format
 #| msgid "Allow"
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Tillad"
 
-#: src/background.cpp:107
+#: src/background.cpp:127
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr ""
 
-#: src/background.cpp:141
+#: src/background.cpp:139
 #, fuzzy, kde-format
 #| msgid "Background activity"
 msgctxt ""
@@ -134,7 +134,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Baggrundsaktivitet"
 
-#: src/background.cpp:143
+#: src/background.cpp:141
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -143,7 +143,7 @@ msgid ""
 "happens."
 msgstr ""
 
-#: src/background.cpp:148
+#: src/background.cpp:146
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:40+0000\n"
+"POT-Creation-Date: 2023-11-05 01:09+0000\n"
 "PO-Revision-Date: 2023-09-10 19:02+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -102,7 +102,7 @@ msgstr ""
 msgid "Background Activity"
 msgstr "பின்னணி செயல்பாட்டு"
 
-#: src/background.cpp:104
+#: src/background.cpp:106
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -112,20 +112,20 @@ msgstr ""
 "%1, அதன் சாளரங்கள் இல்லாதபோதும் செயல்பட விரும்புகிறது. இதை நீங்கள் மறுத்தால், கடைசி "
 "சாளரம் மூடப்படும்போது அச்செயலி மூடப்படும்."
 
-#: src/background.cpp:106 src/background.cpp:147
+#: src/background.cpp:112 src/background.cpp:145
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "அனுமதி"
 
-#: src/background.cpp:107
+#: src/background.cpp:127
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "மறு"
 
-#: src/background.cpp:141
+#: src/background.cpp:139
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -133,7 +133,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "பின்னணி செயல்பாட்டு"
 
-#: src/background.cpp:143
+#: src/background.cpp:141
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -144,7 +144,7 @@ msgstr ""
 "கடைசி சாளரம் மூடப்படும்போது %1 தனை வேளியேற இது கட்டாயப்படுத்தும். இது நடக்கும்போது "
 "சேமிக்கப்படா மாற்றங்கள் இருந்தால் தரவு இழப்பு நேரிடலாம்."
 
-#: src/background.cpp:148
+#: src/background.cpp:146
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"

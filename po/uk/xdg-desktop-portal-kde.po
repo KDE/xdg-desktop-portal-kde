@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:40+0000\n"
+"POT-Creation-Date: 2023-11-05 01:09+0000\n"
 "PO-Revision-Date: 2023-08-24 21:19+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -104,7 +104,7 @@ msgstr ""
 msgid "Background Activity"
 msgstr "Фонова робота"
 
-#: src/background.cpp:104
+#: src/background.cpp:106
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -115,20 +115,20 @@ msgstr ""
 "продовження роботи, роботу програми буде припинено, щойно буде закрито її "
 "останнє вікно."
 
-#: src/background.cpp:106 src/background.cpp:147
+#: src/background.cpp:112 src/background.cpp:145
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Дозволити"
 
-#: src/background.cpp:107
+#: src/background.cpp:127
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "Заборонити"
 
-#: src/background.cpp:141
+#: src/background.cpp:139
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -136,7 +136,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Використання фонової роботи"
 
-#: src/background.cpp:143
+#: src/background.cpp:141
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -148,7 +148,7 @@ msgstr ""
 "останнього вікна програми. Це може призвести до втрати даних, якщо у "
 "програмі лишаються незбережені дані на момент завершення роботи."
 
-#: src/background.cpp:148
+#: src/background.cpp:146
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"

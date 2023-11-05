@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the xdg-desktop-portal-kde package.
 #
-# Enol P. <enolp@softastur.org>, 2023.
+# SPDX-FileCopyrightText: 2023 Enol P. <enolp@softastur.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:40+0000\n"
-"PO-Revision-Date: 2023-06-27 23:38+0200\n"
+"POT-Creation-Date: 2023-11-05 01:09+0000\n"
+"PO-Revision-Date: 2023-11-04 23:17+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
 "Language: ast\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -36,7 +36,7 @@ msgstr ""
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
-msgstr ""
+msgstr "%1 ficheros"
 
 #: src/appchooserdialog.cpp:39
 #, kde-format
@@ -75,7 +75,7 @@ msgstr ""
 #: src/AppChooserDialog.qml:190
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "Nun hai nenguna coincidencia"
 
 #: src/AppChooserDialog.qml:190
 #, kde-kuit-format
@@ -87,20 +87,20 @@ msgstr ""
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr ""
+msgstr "Atopar más en Discover"
 
 #: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr ""
+msgstr "¿Nun ves l'aplicación correuta? Atopa más en <link>Discover</link>."
 
 #: src/background.cpp:103
 #, kde-format
 msgid "Background Activity"
 msgstr "Actividá en segundu planu"
 
-#: src/background.cpp:104
+#: src/background.cpp:106
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -108,20 +108,20 @@ msgid ""
 "this, the application will quit when its last window is closed."
 msgstr ""
 
-#: src/background.cpp:106 src/background.cpp:147
+#: src/background.cpp:112 src/background.cpp:145
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr ""
 
-#: src/background.cpp:107
+#: src/background.cpp:127
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr ""
 
-#: src/background.cpp:141
+#: src/background.cpp:139
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -129,7 +129,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Usu d'aplicaciones en segundu planu"
 
-#: src/background.cpp:143
+#: src/background.cpp:141
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -138,7 +138,7 @@ msgid ""
 "happens."
 msgstr ""
 
-#: src/background.cpp:148
+#: src/background.cpp:146
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -161,7 +161,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: src/DynamicLauncherDialog.qml:91
 #, kde-format
@@ -173,7 +173,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
-msgstr ""
+msgstr "Aceptar"
 
 #: src/DynamicLauncherDialog.qml:102
 #, kde-format
@@ -264,7 +264,7 @@ msgstr ""
 #: src/outputsmodel.cpp:28
 #, kde-format
 msgid "Rectangular Region"
-msgstr ""
+msgstr "Rexón rectangular"
 
 #: src/outputsmodel.cpp:45
 #, kde-format
@@ -445,12 +445,12 @@ msgstr ""
 #: src/ScreenChooserDialog.qml:36
 #, kde-format
 msgid "Screens"
-msgstr ""
+msgstr "Pantalles"
 
 #: src/ScreenChooserDialog.qml:39
 #, kde-format
 msgid "Windows"
-msgstr ""
+msgstr "Ventanes"
 
 #: src/ScreenChooserDialog.qml:126
 #, kde-format
@@ -465,12 +465,12 @@ msgstr ""
 #: src/screenshotdialog.cpp:116
 #, kde-format
 msgid "Current Screen"
-msgstr ""
+msgstr "Pantalla actual"
 
 #: src/screenshotdialog.cpp:117
 #, kde-format
 msgid "Active Window"
-msgstr ""
+msgstr "Ventana activa"
 
 #: src/ScreenshotDialog.qml:23
 #, kde-format

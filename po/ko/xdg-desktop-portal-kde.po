@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:40+0000\n"
+"POT-Creation-Date: 2023-11-05 01:09+0000\n"
 "PO-Revision-Date: 2023-08-25 23:22+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -100,7 +100,7 @@ msgstr "앱이 없습니까? <link>Discover</link>에서 설치하십시오."
 msgid "Background Activity"
 msgstr "백그라운드 활동"
 
-#: src/background.cpp:104
+#: src/background.cpp:106
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -110,20 +110,20 @@ msgstr ""
 "%1에서 표시되는 창이 없을 때에도 계속 실행되기를 요청하고 있습니다. 이를 금지"
 "하면 마지막 창을 닫을 때 앱을 끝냅니다."
 
-#: src/background.cpp:106 src/background.cpp:147
+#: src/background.cpp:112 src/background.cpp:145
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "허용"
 
-#: src/background.cpp:107
+#: src/background.cpp:127
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "금지"
 
-#: src/background.cpp:141
+#: src/background.cpp:139
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -131,7 +131,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "백그라운드 앱 사용"
 
-#: src/background.cpp:143
+#: src/background.cpp:141
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -142,7 +142,7 @@ msgstr ""
 "마지막 창을 닫았을 때 %1을(를) 강제로 종료합니다. 앱에 저장되지 않은 데이터"
 "가 있는 경우 손실됩니다."
 
-#: src/background.cpp:148
+#: src/background.cpp:146
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"

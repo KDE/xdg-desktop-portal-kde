@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-29 01:40+0000\n"
+"POT-Creation-Date: 2023-11-05 01:09+0000\n"
 "PO-Revision-Date: 2023-10-24 20:42+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -105,7 +105,7 @@ msgstr ""
 msgid "Background Activity"
 msgstr "Activité en arrière-plan"
 
-#: src/background.cpp:104
+#: src/background.cpp:106
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -116,20 +116,20 @@ msgstr ""
 "visible. Si vous interdisez cela, l'application se fermera lorsque sa "
 "dernière fenêtre sera fermée."
 
-#: src/background.cpp:106 src/background.cpp:147
+#: src/background.cpp:112 src/background.cpp:145
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Autoriser"
 
-#: src/background.cpp:107
+#: src/background.cpp:127
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "Interdire"
 
-#: src/background.cpp:141
+#: src/background.cpp:139
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -137,7 +137,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Utilisation de l'application en arrière-plan"
 
-#: src/background.cpp:143
+#: src/background.cpp:141
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -149,7 +149,7 @@ msgstr ""
 "sera fermée. Cela pourrait entraîner une perte de données si l'application "
 "possède des changements non enregistrés lorsque la dernière fenêtre se ferme."
 
-#: src/background.cpp:148
+#: src/background.cpp:146
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
