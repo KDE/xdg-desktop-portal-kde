@@ -26,6 +26,6 @@ Dependencies:
     'frameworks/kxmlgui': '@latest'
     'frameworks/solid': '@latest'
     'frameworks/kirigami': '@latest'
-    'frameworks/plasma-framework': '@latest'
+    'plasma/plasma-framework': 'kf5'
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']
