@@ -56,12 +56,14 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
     Kirigami2
     Notifications
     Service
-    Wayland
     WidgetsAddons
     WindowSystem
     IconThemes
     StatusNotifierItem
 )
+
+find_package(KF6Wayland ${PROJECT_VERSION} REQUIRED)
+
 ecm_find_qmlmodule(org.kde.iconthemes 1.0)
 ecm_find_qmlmodule(org.kde.plasma.workspace.dialogs 1.0)
 find_package(Wayland 1.15 REQUIRED COMPONENTS Client)
