@@ -111,19 +111,21 @@ Kirigami.ScrollablePage {
         }
     }
 
-    mainAction: Kirigami.Action {
-        visible: (root.selectMultiple || root.selectFolder) && root.selectExisting
-        text: root.acceptLabel ? root.acceptLabel : i18n("Select")
-        icon.name: "dialog-ok"
+    actions: [
+        Kirigami.Action {
+            visible: (root.selectMultiple || root.selectFolder) && root.selectExisting
+            text: root.acceptLabel ? root.acceptLabel : i18n("Select")
+            icon.name: "dialog-ok"
 
-        onTriggered: {
-            if (root.selectFolder) {
-                root.accepted([dirModel.folder])
-            } else {
-                root.accepted(root.fileUrls)
+            onTriggered: {
+                if (root.selectFolder) {
+                    root.accepted([dirModel.folder])
+                } else {
+                    root.accepted(root.fileUrls)
+                }
             }
         }
-    }
+    ]
 
     DirModel {
         id: dirModel

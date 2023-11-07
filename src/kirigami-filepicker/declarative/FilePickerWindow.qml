@@ -51,7 +51,7 @@ Kirigami.ApplicationWindow {
     }
 
     pageStack.initialPage: FilePicker {
-        contextualActions: [
+        actions: [
             Kirigami.Action {
                 icon.name: "folder"
                 text: i18n("Create Folder")

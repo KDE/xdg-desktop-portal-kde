@@ -36,7 +36,7 @@ Kirigami.OverlayDrawer {
         }
 
         delegate: Kirigami.BasicListItem {
-            required property string display
+            // required property string display
             required property string iconName
             required property bool hidden
             required property url url
