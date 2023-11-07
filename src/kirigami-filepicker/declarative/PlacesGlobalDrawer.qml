@@ -36,17 +36,16 @@ Kirigami.OverlayDrawer {
             text: section
         }
 
-        delegate: Kirigami.BasicListItem {
-            // required property string display
+        delegate: Controls.ItemDelegate {
+            required property string displayRole
             required property string iconName
             required property bool hidden
             required property url url
 
             visible: !hidden
-            width: parent.width
-            text: display
-            icon: iconName
-            separatorVisible: false
+            width: ListView.view.width
+            text: displayRole
+            icon.name: iconName
             onClicked: {
                 root.placeOpenRequested(url)
             }

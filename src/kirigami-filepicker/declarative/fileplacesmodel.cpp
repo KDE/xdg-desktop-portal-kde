@@ -12,7 +12,7 @@ FilePlacesModel::FilePlacesModel(QObject *parent)
 QHash<int, QByteArray> FilePlacesModel::roleNames() const
 {
     return {
-        {Qt::DisplayRole, QByteArrayLiteral("display")},
+        {Qt::DisplayRole, QByteArrayLiteral("displayRole")},
         {KFilePlacesModel::UrlRole, QByteArrayLiteral("url")},
         {KFilePlacesModel::HiddenRole, QByteArrayLiteral("hidden")},
         {KFilePlacesModel::SetupNeededRole, QByteArrayLiteral("setupNeeded")},

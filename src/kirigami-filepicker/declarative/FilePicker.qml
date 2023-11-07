@@ -148,17 +148,18 @@ Kirigami.ScrollablePage {
         model: dirModel
         clip: true
 
-        delegate: Kirigami.BasicListItem {
+        delegate: Controls.ItemDelegate {
             required property string name
             required property string iconName
             required property url url
             required property bool isDir
 
             text: name
-            icon: checked ? "emblem-checked" : iconName
+            icon.name: checked ? "emblem-checked" : iconName
             checkable: root.selectExisting && root.selectMultiple
             checked: root.fileUrls.includes(url)
             highlighted: false
+            width: ListView.view.width
 
             onClicked: {
                 // open
