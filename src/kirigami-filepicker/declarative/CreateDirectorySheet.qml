@@ -2,12 +2,12 @@
 //
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
-import QtQuick 2.0
-import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.2 as Controls
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as Controls
 
-import org.kde.kirigami 2.5 as Kirigami
-import org.kde.kirigamifilepicker 0.1
+import org.kde.kirigami as Kirigami
+import org.kde.kirigamifilepicker
 
 Kirigami.OverlaySheet {
     id: sheet
