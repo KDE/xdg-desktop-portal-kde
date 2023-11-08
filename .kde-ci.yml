@@ -20,12 +20,12 @@ Dependencies:
     'frameworks/knotifications': '@latest'
     'frameworks/kpackage': '@latest'
     'frameworks/kservice': '@latest'
-    'frameworks/kwayland': '@latest'
     'frameworks/kwidgetsaddons': '@latest'
     'frameworks/kwindowsystem': '@latest'
     'frameworks/kxmlgui': '@latest'
     'frameworks/solid': '@latest'
     'frameworks/kirigami': '@latest'
+    'plasma/kwayland': 'kf5'
     'plasma/plasma-framework': 'kf5'
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']
