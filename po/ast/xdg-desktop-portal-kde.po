@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 01:09+0000\n"
-"PO-Revision-Date: 2023-11-04 23:17+0100\n"
+"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"PO-Revision-Date: 2023-11-07 12:15+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
 "Language: ast\n"
@@ -42,7 +42,7 @@ msgstr "%1 ficheros"
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
-msgstr ""
+msgstr "Seleición d'una aplicación"
 
 #: src/appchooserdialog.cpp:42
 #, kde-kuit-format
@@ -59,7 +59,7 @@ msgstr ""
 #: src/AppChooserDialog.qml:64
 #, kde-format
 msgid "Show All Installed Applications"
-msgstr ""
+msgstr "Amosar toles aplicaciones instalaes"
 
 #: src/AppChooserDialog.qml:170
 #, kde-format
@@ -181,7 +181,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr ""
 
-#: src/filechooser.cpp:443
+#: src/filechooser.cpp:477
 #, kde-format
 msgid "Open"
 msgstr ""
