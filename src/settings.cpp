@@ -237,9 +237,9 @@ public:
             return {};
         }
         if (key == colorScheme) {
-            return QVariant::fromValue(readFdoColorScheme());
+            return readFdoColorScheme().variant();
         } else if (key == accentColor) {
-            return QVariant::fromValue(readAccentColor());
+            return readAccentColor().variant();
         }
         return {};
     }
