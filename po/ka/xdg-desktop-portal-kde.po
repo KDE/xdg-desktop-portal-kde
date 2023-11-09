@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"POT-Creation-Date: 2023-11-09 01:39+0000\n"
 "PO-Revision-Date: 2023-08-25 07:13+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -238,7 +238,7 @@ msgstr "შეწყვეტა"
 msgid "File name"
 msgstr "ფაილის სახელი"
 
-#: src/kirigami-filepicker/declarative/FilePicker.qml:116
+#: src/kirigami-filepicker/declarative/FilePicker.qml:117
 #, kde-format
 msgid "Select"
 msgstr "აირჩიეთ"

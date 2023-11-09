@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"POT-Creation-Date: 2023-11-09 01:39+0000\n"
 "PO-Revision-Date: 2022-12-28 02:03+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
@@ -243,7 +243,7 @@ msgstr ""
 msgid "File name"
 msgstr ""
 
-#: src/kirigami-filepicker/declarative/FilePicker.qml:116
+#: src/kirigami-filepicker/declarative/FilePicker.qml:117
 #, fuzzy, kde-format
 #| msgid "Select Folder"
 msgid "Select"

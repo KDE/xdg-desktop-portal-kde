@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"POT-Creation-Date: 2023-11-09 01:39+0000\n"
 "PO-Revision-Date: 2023-06-08 12:13+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -237,7 +237,7 @@ msgstr "ألغِ"
 msgid "File name"
 msgstr "اسم الملفّ"
 
-#: src/kirigami-filepicker/declarative/FilePicker.qml:116
+#: src/kirigami-filepicker/declarative/FilePicker.qml:117
 #, kde-format
 msgid "Select"
 msgstr "اختر "

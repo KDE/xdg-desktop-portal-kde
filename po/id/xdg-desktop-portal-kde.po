@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"POT-Creation-Date: 2023-11-09 01:39+0000\n"
 "PO-Revision-Date: 2023-02-21 20:18+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -240,7 +240,7 @@ msgstr "Batal"
 msgid "File name"
 msgstr "Nama berkas"
 
-#: src/kirigami-filepicker/declarative/FilePicker.qml:116
+#: src/kirigami-filepicker/declarative/FilePicker.qml:117
 #, kde-format
 msgid "Select"
 msgstr "Pilih"
