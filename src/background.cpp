@@ -7,6 +7,7 @@
 
 #include "background.h"
 #include "background_debug.h"
+#include "ksharedconfig.h"
 #include "waylandintegration.h"
 
 #include <QDBusConnection>
@@ -75,6 +76,36 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
         return 0;
     }
 
+    QDBusMessage message = m_context->message();
+    auto allow = [message]() {
+        const QVariantMap map = {{QStringLiteral("result"), static_cast<uint>(BackgroundPortal::Allow)}};
+        QDBusMessage reply = message.createReply({static_cast<uint>(0), map});
+        if (!QDBusConnection::sessionBus().send(reply)) {
+            qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
+        }
+    };
+
+    auto allowOnce = [message]() {
+        const QVariantMap map = {{QStringLiteral("result"), static_cast<uint>(BackgroundPortal::AllowOnce)}};
+        QDBusMessage reply = message.createReply({static_cast<uint>(0), map});
+        if (!QDBusConnection::sessionBus().send(reply)) {
+            qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
+        }
+    };
+
+    auto forbid = [message]() {
+        const QVariantMap map = {{QStringLiteral("result"), static_cast<uint>(BackgroundPortal::Forbid)}};
+        QDBusMessage reply = message.createReply({static_cast<uint>(0), map});
+        if (!QDBusConnection::sessionBus().send(reply)) {
+            qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
+        }
+    };
+
+    if (KSharedConfig::openConfig()->group("Background").readEntry("NotifyBackgroundApps", true)) {
+        allowOnce();
+        return 0;
+    }
+
     const KService::Ptr app = KService::serviceByDesktopName(app_id);
 
     QObject *obj = QObject::parent();
@@ -83,8 +114,6 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
         qCWarning(XdgDesktopPortalKdeBackground) << "Failed to get dbus context";
         return 2;
     }
-
-    QDBusMessage message = m_context->message();
 
     const QString appName = app ? app->name() : app_id;
     if (m_backgroundAppWarned.contains(app_id)) {
@@ -111,28 +140,12 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
 
     auto allowAction = notify->addAction(i18nc("@action:button Allow the app to keep running with no open windows", "Allow"));
 
-    auto allow = [message]() {
-        const QVariantMap map = {{QStringLiteral("result"), static_cast<uint>(BackgroundPortal::Allow)}};
-        QDBusMessage reply = message.createReply({static_cast<uint>(0), map});
-        if (!QDBusConnection::sessionBus().send(reply)) {
-            qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
-        }
-    };
-
     connect(allowAction, &KNotificationAction::activated, this, [allow, notify] {
         allow();
         notify->setProperty("activated", true);
     });
 
     auto forbidAction = notify->addAction(i18nc("@action:button Don't allow the app to keep running without any open windows", "Forbid"));
-
-    auto forbid = [message]() {
-        const QVariantMap map = {{QStringLiteral("result"), static_cast<uint>(BackgroundPortal::Forbid)}};
-        QDBusMessage reply = message.createReply({static_cast<uint>(0), map});
-        if (!QDBusConnection::sessionBus().send(reply)) {
-            qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
-        }
-    };
 
     connect(forbidAction, &KNotificationAction::activated, this, [this, appName, allow, forbid, notify] {
         const QString title =
@@ -157,14 +170,6 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
 
         notify->setProperty("activated", true);
     });
-
-    auto allowOnce = [message]() {
-        const QVariantMap map = {{QStringLiteral("result"), static_cast<uint>(BackgroundPortal::AllowOnce)}};
-        QDBusMessage reply = message.createReply({static_cast<uint>(0), map});
-        if (!QDBusConnection::sessionBus().send(reply)) {
-            qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
-        }
-    };
 
     connect(notify, &KNotification::closed, this, [notify, allowOnce]() {
         if (notify->property("activated").toBool()) {
