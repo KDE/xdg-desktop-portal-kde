@@ -75,8 +75,7 @@ PWD.SystemDialog
     }
     actions: [
         Kirigami.Action {
-            Timer {
-                id: takeTimer
+            readonly property Timer takeTimer: Timer {
                 repeat: false
                 interval: delayTime.value
                 onTriggered: root.app.takeScreenshotInteractive()
