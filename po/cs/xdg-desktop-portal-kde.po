@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-09 01:39+0000\n"
+"POT-Creation-Date: 2023-11-11 01:44+0000\n"
 "PO-Revision-Date: 2023-10-12 16:41+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -96,12 +96,12 @@ msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
 
-#: src/background.cpp:103
+#: src/background.cpp:132
 #, kde-format
 msgid "Background Activity"
 msgstr "Aktivita na pozadí"
 
-#: src/background.cpp:106
+#: src/background.cpp:135
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -109,20 +109,20 @@ msgid ""
 "this, the application will quit when its last window is closed."
 msgstr ""
 
-#: src/background.cpp:112 src/background.cpp:145
+#: src/background.cpp:141 src/background.cpp:158
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Povolit"
 
-#: src/background.cpp:127
+#: src/background.cpp:148
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "Zakázat"
 
-#: src/background.cpp:139
+#: src/background.cpp:152
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -130,7 +130,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Použití aplikace na pozadí"
 
-#: src/background.cpp:141
+#: src/background.cpp:154
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -139,7 +139,7 @@ msgid ""
 "happens."
 msgstr ""
 
-#: src/background.cpp:146
+#: src/background.cpp:159
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -319,7 +319,7 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Klikněte levým tlačítkem a táhněte"
 
-#: src/remotedesktop.cpp:129
+#: src/remotedesktop.cpp:150
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -331,13 +331,13 @@ msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
 msgstr ""
 
-#: src/remotedesktopdialog.cpp:32
+#: src/remotedesktopdialog.cpp:37
 #, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
 msgstr "Vyžádal přístup k zařízení:\n"
 
-#: src/remotedesktopdialog.cpp:34
+#: src/remotedesktopdialog.cpp:39
 #, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
@@ -345,25 +345,30 @@ msgctxt ""
 msgid "%1 requested access to remotely control:\n"
 msgstr "%1 žádá o přístup k vzdálenému ovládání:\n"
 
-#: src/remotedesktopdialog.cpp:37
+#: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
 msgstr " - Obrazovky\n"
 
-#: src/remotedesktopdialog.cpp:40
+#: src/remotedesktopdialog.cpp:45
 #, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - Vstupní zařízení\n"
 
-#: src/RemoteDesktopDialog.qml:25 src/ScreenChooserDialog.qml:132
+#: src/RemoteDesktopDialog.qml:28 src/ScreenChooserDialog.qml:126
+#, kde-format
+msgid "Allow restoring on future sessions"
+msgstr "Umožnit návrat k předchozím verzím"
+
+#: src/RemoteDesktopDialog.qml:34 src/ScreenChooserDialog.qml:132
 #: src/UserInfoDialog.qml:41
 #, kde-format
 msgid "Share"
 msgstr "Sdílet"
 
-#: src/screencast.cpp:322
+#: src/screencast.cpp:273
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
@@ -454,11 +459,6 @@ msgstr "Obrazovky"
 msgid "Windows"
 msgstr "Okna"
 
-#: src/ScreenChooserDialog.qml:126
-#, kde-format
-msgid "Allow restoring on future sessions"
-msgstr "Umožnit návrat k předchozím verzím"
-
 #: src/screenshotdialog.cpp:115
 #, kde-format
 msgid "Full Screen"
@@ -533,14 +533,14 @@ msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Konec"
 
-#: src/session.cpp:255
+#: src/session.cpp:262
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
 msgstr "Vzdálená plocha"
 
-#: src/session.cpp:271
+#: src/session.cpp:278
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -549,14 +549,14 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/session.cpp:275
+#: src/session.cpp:282
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
 msgstr "Sdílení obrazovky"
 
-#: src/session.cpp:441
+#: src/session.cpp:448
 #, kde-format
 msgid ", "
 msgstr ", "
