@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 01:44+0000\n"
-"PO-Revision-Date: 2023-11-07 12:15+0100\n"
+"POT-Creation-Date: 2023-11-12 01:39+0000\n"
+"PO-Revision-Date: 2023-11-11 21:18+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
 "Language: ast\n"
@@ -48,7 +48,7 @@ msgstr "Seleición d'una aplicación"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
-msgstr ""
+msgstr "Escueyi una aplicación p'abrir <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:31
 #, kde-format
@@ -259,7 +259,7 @@ msgstr ""
 #: src/outputsmodel.cpp:24
 #, kde-format
 msgid "New Virtual Output"
-msgstr ""
+msgstr "Salida virtual nueva"
 
 #: src/outputsmodel.cpp:28
 #, kde-format
@@ -519,7 +519,7 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: src/ScreenshotDialog.qml:84
+#: src/ScreenshotDialog.qml:83
 #, kde-format
 msgid "Take"
 msgstr ""
@@ -575,7 +575,7 @@ msgstr ""
 #: src/waylandintegration.cpp:619
 #, kde-format
 msgid "Remote desktop"
-msgstr ""
+msgstr "Escritoriu remotu"
 
 #~ msgid ""
 #~ "Manufacturer: %1\n"

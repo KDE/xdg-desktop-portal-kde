@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 01:44+0000\n"
+"POT-Creation-Date: 2023-11-12 01:39+0000\n"
 "PO-Revision-Date: 2023-09-25 12:19+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -535,7 +535,7 @@ msgstr "Inclou les vores de la finestra"
 msgid "Save"
 msgstr "Guarda"
 
-#: src/ScreenshotDialog.qml:84
+#: src/ScreenshotDialog.qml:83
 #, kde-format
 msgid "Take"
 msgstr "Fes"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 01:44+0000\n"
+"POT-Creation-Date: 2023-11-12 01:39+0000\n"
 "PO-Revision-Date: 2023-08-24 10:30+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -524,7 +524,7 @@ msgstr "Include bordos de fenestra"
 msgid "Save"
 msgstr "Salveguarda"
 
-#: src/ScreenshotDialog.qml:84
+#: src/ScreenshotDialog.qml:83
 #, kde-format
 msgid "Take"
 msgstr "Prende"

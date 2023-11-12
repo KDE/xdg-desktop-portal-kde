@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 01:44+0000\n"
+"POT-Creation-Date: 2023-11-12 01:39+0000\n"
 "PO-Revision-Date: 2023-10-24 20:42+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -536,7 +536,7 @@ msgstr "Inclure les bordures de la fenêtre"
 msgid "Save"
 msgstr "Enregistrer"
 
-#: src/ScreenshotDialog.qml:84
+#: src/ScreenshotDialog.qml:83
 #, kde-format
 msgid "Take"
 msgstr "Prendre"

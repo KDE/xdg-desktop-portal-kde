@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 01:44+0000\n"
+"POT-Creation-Date: 2023-11-12 01:39+0000\n"
 "PO-Revision-Date: 2022-05-05 13:11+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -549,7 +549,7 @@ msgstr "Include muchiile ferestrei"
 msgid "Save"
 msgstr "Salvează fișierul"
 
-#: src/ScreenshotDialog.qml:84
+#: src/ScreenshotDialog.qml:83
 #, kde-format
 msgid "Take"
 msgstr ""

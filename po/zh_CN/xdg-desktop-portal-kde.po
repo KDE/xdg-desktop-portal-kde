@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 01:44+0000\n"
-"PO-Revision-Date: 2023-10-21 13:51\n"
+"POT-Creation-Date: 2023-11-12 01:39+0000\n"
+"PO-Revision-Date: 2023-11-11 07:19\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -524,7 +524,7 @@ msgstr "包含窗口边框"
 msgid "Save"
 msgstr "保存"
 
-#: src/ScreenshotDialog.qml:84
+#: src/ScreenshotDialog.qml:83
 #, kde-format
 msgid "Take"
 msgstr "截图"

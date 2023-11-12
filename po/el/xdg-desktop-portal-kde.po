@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 01:44+0000\n"
+"POT-Creation-Date: 2023-11-12 01:39+0000\n"
 "PO-Revision-Date: 2023-10-25 23:12+0300\n"
 "Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -528,7 +528,7 @@ msgstr "Να συμπεριλαμβάνονται τα περιγράμματα 
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: src/ScreenshotDialog.qml:84
+#: src/ScreenshotDialog.qml:83
 #, kde-format
 msgid "Take"
 msgstr "Λήψη"
