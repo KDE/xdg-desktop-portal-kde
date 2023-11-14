@@ -53,7 +53,7 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
     GuiAddons
     GlobalAccel
     KIO
-    Kirigami2
+    Kirigami
     Notifications
     Service
     WidgetsAddons
