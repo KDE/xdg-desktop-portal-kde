@@ -291,7 +291,7 @@ target_link_libraries(xdg-desktop-portal-kde
     KF6::KIOFileWidgets
     KF6::Notifications
     KF6::Service
-    KF6::WaylandClient
+    Plasma::KWaylandClient
     KF6::WidgetsAddons
     KF6::WindowSystem
     KF6::IconThemes
