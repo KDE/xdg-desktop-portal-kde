@@ -40,7 +40,7 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
         };
 
         for (const auto &prefix : embedded) {
-            if (model.startsWith(prefix, Qt::CaseInsensitive)) {
+            if (screen->name().startsWith(prefix, Qt::CaseInsensitive)) {
                 type = Output::OutputType::Laptop;
                 model = i18n("Laptop screen");
                 break;
@@ -48,7 +48,7 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
         }
 
         if (type == Output::OutputType::Unknown) {
-            if (model.contains(QLatin1String("TV"))) {
+            if (screen->name().contains(QLatin1String("TV"))) {
                 type = Output::OutputType::Television;
             } else {
                 type = Output::OutputType::Monitor;
