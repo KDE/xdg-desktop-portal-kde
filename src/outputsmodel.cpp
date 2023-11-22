@@ -29,7 +29,6 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
     }
 
     for (const auto screen : screens) {
-        auto model = screen->model();
         Output::OutputType type = Output::Unknown;
 
         static const auto embedded = {
@@ -42,7 +41,6 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
         for (const auto &prefix : embedded) {
             if (screen->name().startsWith(prefix, Qt::CaseInsensitive)) {
                 type = Output::OutputType::Laptop;
-                model = i18n("Laptop screen");
                 break;
             }
         }
@@ -55,8 +53,34 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
             }
         }
 
+        QString displayText;
+        if (type == Output::OutputType::Laptop) {
+            displayText = i18n("Laptop screen");
+        } else {
+            QStringList parts;
+            if (!screen->manufacturer().isEmpty()) {
+                parts.append(screen->manufacturer());
+
+                if (!screen->model().isEmpty()) {
+                    QString part = screen->model();
+                    if (!screen->serialNumber().isEmpty()) {
+                        part += QLatin1Char('/') + screen->serialNumber();
+                    }
+                    parts.append(part);
+                } else if (!screen->serialNumber().isEmpty()) {
+                    parts.append(screen->serialNumber());
+                }
+
+                parts.append(QLatin1Char('(') + screen->name() + QLatin1Char(')'));
+            } else {
+                parts.append(screen->name());
+            }
+
+            displayText = parts.join(QLatin1Char(' '));
+        }
+
         const QPoint pos = screen->geometry().topLeft();
-        m_outputs << Output(type, screen, model, QStringLiteral("%1x%2").arg(pos.x()).arg(pos.y()), screen->name());
+        m_outputs << Output(type, screen, displayText, QStringLiteral("%1x%2").arg(pos.x()).arg(pos.y()), screen->name());
     }
 }
 
