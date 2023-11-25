@@ -26,6 +26,6 @@ Dependencies:
     'frameworks/solid': '@latest'
     'frameworks/kirigami': '@latest'
     'plasma/kwayland': 'kf5'
-    'plasma/plasma-framework': 'kf5'
+    'plasma/libplasma': 'kf5'
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']
