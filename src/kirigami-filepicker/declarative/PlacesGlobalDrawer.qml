@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 import QtQuick
-import QtQuick.Controls as Controls
+import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamifilepicker
@@ -36,7 +36,7 @@ Kirigami.OverlayDrawer {
             text: section
         }
 
-        delegate: Controls.ItemDelegate {
+        delegate: QQC2.ItemDelegate {
             required property string displayRole
             required property string iconName
             required property bool hidden

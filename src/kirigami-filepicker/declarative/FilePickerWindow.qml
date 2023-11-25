@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 import QtQuick
+import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamifilepicker
@@ -15,6 +16,7 @@ import org.kde.kirigamifilepicker
  */
 Kirigami.ApplicationWindow {
     id: root
+
     title: callback.title
     visible: false
 
@@ -35,7 +37,7 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    onClosing: (close) => {
+    onClosing: close => {
         close.accepted = false
 
         // Always make sure to exit the while loop in the filechooser portal
@@ -51,6 +53,8 @@ Kirigami.ApplicationWindow {
     }
 
     pageStack.initialPage: FilePicker {
+        id: filePicker
+
         actions: [
             Kirigami.Action {
                 icon.name: "folder"
@@ -63,8 +67,8 @@ Kirigami.ApplicationWindow {
                 id: filterAction
                 icon.name: "view-filter"
                 checkable: true
-                text: i18n("Filter Filetype")
                 checked: true
+                text: i18n("Filter Filetype")
             },
             Kirigami.Action {
                 icon.name: "view-hidden"
@@ -76,11 +80,10 @@ Kirigami.ApplicationWindow {
             }
         ]
 
-        onAccepted: (urls) => {
+        onAccepted: urls => {
             callback.accepted(urls)
         }
 
-        id: filePicker
         selectMultiple: callback.selectMultiple
         selectExisting: callback.selectExisting
         nameFilters: callback.nameFilters

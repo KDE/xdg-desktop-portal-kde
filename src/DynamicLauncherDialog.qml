@@ -1,23 +1,22 @@
 // SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 // SPDX-FileCopyrightText: 2022 Harald Sitter <sitter@kde.org>
 
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
-import QtQuick.Controls 2.15 as QQC2
-import org.kde.kirigami 2.14 as Kirigami
-import org.kde.plasma.workspace.dialogs 1.0 as PWD
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as QQC2
+import org.kde.kirigami as Kirigami
+import org.kde.plasma.workspace.dialogs as PWD
 import org.kde.iconthemes as KIconThemes
 
-PWD.SystemDialog
-{
+PWD.SystemDialog {
     id: root
 
     property var dialog
     property string appID
-    property var launcherURL: ""
+    property url launcherURL: ""
     property bool edit: false
 
-    readonly property var displayComponent: Component {
+    readonly property Component displayComponent: Component {
         ColumnLayout {
             Kirigami.Icon {
                 id: icon
@@ -47,7 +46,7 @@ PWD.SystemDialog
         }
     }
 
-    readonly property var editComponent: Component {
+    readonly property Component editComponent: Component {
         ColumnLayout {
             QQC2.Button {
                 Layout.alignment: Qt.AlignHCenter
@@ -70,6 +69,7 @@ PWD.SystemDialog
 
             QQC2.Label {
                 text: i18nc("@label name of a launcher/application", "Name")
+                Layout.fillWidth: true
             }
             QQC2.TextField {
                 verticalAlignment: Qt.AlignTop
@@ -82,7 +82,6 @@ PWD.SystemDialog
     }
 
     Loader {
-        id: contentLoader
         sourceComponent: root.edit ? editComponent : displayComponent
     }
 

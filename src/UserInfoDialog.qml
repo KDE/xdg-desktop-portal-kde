@@ -6,15 +6,15 @@
  * SPDX-FileCopyrightText: 2021 Aleix Pol Gonzalez <aleixpol@kde.org>
  */
 
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
-import QtQuick.Controls 2.15 as QQC2
-import org.kde.kirigami 2.14 as Kirigami
-import org.kde.plasma.workspace.dialogs 1.0 as PWD
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as QQC2
+import org.kde.kirigami as Kirigami
+import org.kde.plasma.workspace.dialogs as PWD
 
-PWD.SystemDialog
-{
+PWD.SystemDialog {
     id: root
+
     property alias reason: reasonLabel.text
     property alias userName: idText.text
     property alias realName: nameText.text
@@ -36,7 +36,9 @@ PWD.SystemDialog
             wrapMode: Text.WordWrap
         }
     }
+
     standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
+
     Component.onCompleted: {
         dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18n("Share")
     }

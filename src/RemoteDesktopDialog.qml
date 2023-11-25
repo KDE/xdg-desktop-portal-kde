@@ -4,17 +4,18 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
-import QtQuick.Controls 2.15 as QQC2
-import org.kde.plasma.workspace.dialogs 1.0 as PWD
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as QQC2
+import org.kde.plasma.workspace.dialogs as PWD
 
-PWD.SystemDialog
-{
+PWD.SystemDialog {
     id: root
-    iconName: "krfb"
+
     property alias description: desc.text
     property alias allowRestore: allowRestoreItem.checked
+
+    iconName: "krfb"
 
     ColumnLayout {
         QQC2.Label {
@@ -30,6 +31,7 @@ PWD.SystemDialog
     }
 
     standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
+
     Component.onCompleted: {
         dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18n("Share")
     }

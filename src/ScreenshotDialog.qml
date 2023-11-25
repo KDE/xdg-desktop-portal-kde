@@ -4,15 +4,15 @@
  * SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
-import QtQuick.Controls 2.15 as QQC2
-import org.kde.kirigami 2.14 as Kirigami
-import org.kde.plasma.workspace.dialogs 1.0 as PWD
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as QQC2
+import org.kde.kirigami as Kirigami
+import org.kde.plasma.workspace.dialogs as PWD
 
-PWD.SystemDialog
-{
+PWD.SystemDialog {
     id: root
+
     property alias screenshotType: areaCombo.currentIndex
     property alias screenshotTypesModel: areaCombo.model
     property alias screenshotImage: screenshot.source
@@ -22,8 +22,7 @@ PWD.SystemDialog
 
     title: i18n("Request Screenshot")
     iconName: "preferences-system-windows-effect-screenshot"
-    acceptable: screenshot.source !== undefined
-
+    acceptable: screenshot.valid
 
     Kirigami.FormLayout {
         Kirigami.Heading {
@@ -40,12 +39,8 @@ PWD.SystemDialog
             from: 0
             to: 60
             stepSize: 1
-            textFromValue: function(value, locale) {
-                return i18np("%1 second", "%1 seconds", value)
-            }
-            valueFromText: function(text, locale) {
-                return parseInt(text);
-            }
+            textFromValue: (value, locale) => i18np("%1 second", "%1 seconds", value)
+            valueFromText: (text, locale) => parseInt(text);
         }
 
         Kirigami.Heading {
@@ -69,12 +64,15 @@ PWD.SystemDialog
             Layout.fillHeight: true
         }
     }
+
     standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
+
     Component.onCompleted: {
         dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18n("Save")
     }
+
     actions: [
-        Kirigami.Action {
+        QQC2.Action {
             readonly property Timer takeTimer: Timer {
                 repeat: false
                 interval: delayTime.value

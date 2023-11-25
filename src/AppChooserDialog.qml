@@ -6,31 +6,34 @@
  * SPDX-FileCopyrightText: 2022 Nate Graham <nate@kde.org>
  */
 
+pragma ComponentBehavior: Bound
 
-import QtQuick 2.15
-import Qt.labs.platform 1.1
-import QtQuick.Controls 2.15
-import QtQuick.Layouts 1.12
-import org.kde.kirigami 2.19 as Kirigami
-import org.kde.plasma.workspace.dialogs 1.0 as PWD
+import QtQuick
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts
+import Qt.labs.platform
+import org.kde.kirigami as Kirigami
+import org.kde.plasma.workspace.dialogs as PWD
 
-import org.kde.xdgdesktopportal 1.0
+import org.kde.xdgdesktopportal
 
-PWD.SystemDialog
-{
+PWD.SystemDialog {
     id: root
+
     iconName: "applications-all"
 
     property bool remember: false
 
-
     ColumnLayout {
         spacing: Kirigami.Units.smallSpacing
 
-        CheckBox {
+        QQC2.CheckBox {
+            Layout.fillWidth: true
             text: i18nc("@option:check %1 is description of a file type, like 'PNG image'", "Always open %1 files with the chosen app", AppChooserData.mimeDesc)
             checked: root.remember
-            onToggled: { root.remember = checked }
+            onToggled: {
+                root.remember = checked;
+            }
         }
 
         RowLayout {
@@ -59,7 +62,7 @@ PWD.SystemDialog
                 onAccepted: grid.currentItem.activate();
             }
 
-            Button {
+            QQC2.Button {
                 icon.name: "view-more-symbolic"
                 text: i18n("Show All Installed Applications")
 
@@ -73,16 +76,18 @@ PWD.SystemDialog
         }
 
 
-        ScrollView {
+        QQC2.ScrollView {
             id: scrollView
-
-            readonly property int viewWidth: width - (ScrollBar.vertical.visible ? ScrollBar.vertical.width : 0)
 
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.preferredHeight: grid.cellHeight * 3
 
-            Component.onCompleted: background.visible = true
+            Component.onCompleted: {
+                if (background) {
+                    background.visible = true;
+                }
+            }
 
             GridView {
                 id: grid
@@ -97,14 +102,17 @@ PWD.SystemDialog
                 currentIndex: -1 // Don't pre-select anything as that doesn't make sense here
 
                 cellWidth: {
-                    let columns = Math.max(Math.floor(scrollView.viewWidth / gridDelegateSize), 2);
-                    return Math.floor(scrollView.viewWidth / columns) - 1;
+                    const columns = Math.max(Math.floor(scrollView.availableWidth / gridDelegateSize), 2);
+                    return Math.floor(scrollView.availableWidth / columns) - 1;
                 }
                 cellHeight: gridDelegateSize
 
                 model: AppModel
                 delegate: Item {
                     id: delegate
+
+                    required property int index
+                    required property var model
 
                     height: grid.cellHeight
                     width: grid.cellWidth
@@ -116,19 +124,18 @@ PWD.SystemDialog
                     HoverHandler {
                         id: hoverhandler
                     }
+
                     TapHandler {
                         id: taphandler
                         onTapped: delegate.activate()
                     }
 
                     Rectangle {
-                        readonly property color theColor: Kirigami.Theme.highlightColor
                         anchors.fill: parent
-                        visible: hoverhandler.hovered || delegate == grid.currentItem
-                        border.color: theColor
+                        visible: hoverhandler.hovered || delegate.GridView.isCurrentItem
+                        border.color: Kirigami.Theme.highlightColor
                         border.width: 1
-                        color: taphandler.pressed ? theColor
-                                                  : Qt.rgba(theColor.r, theColor.g, theColor.b, 0.3)
+                        color: taphandler.pressed ? Kirigami.Theme.highlightColor : Qt.alpha(Kirigami.Theme.highlightColor, 0.3)
                         radius: Kirigami.Units.smallSpacing
                     }
 
@@ -146,30 +153,30 @@ PWD.SystemDialog
                             Layout.preferredHeight: Kirigami.Units.iconSizes.huge
                             Layout.bottomMargin: Kirigami.Units.largeSpacing
                             Layout.alignment: Qt.AlignHCenter
-                            source: model.applicationIcon
+                            source: delegate.model.applicationIcon
                             smooth: true
                         }
 
-                        Label {
+                        QQC2.Label {
                             Layout.fillWidth: true
                             Layout.alignment: Qt.AlignTop
                             horizontalAlignment: Text.AlignHCenter
-                            text: model.applicationName
-                            font.bold: model.applicationDesktopFile === AppChooserData.defaultApp
+                            text: delegate.model.applicationName
+                            font.bold: delegate.model.applicationDesktopFile === AppChooserData.defaultApp
                             elide: Text.ElideRight
                             maximumLineCount: 2
                             wrapMode: Text.WordWrap
                         }
 
-                        Label {
+                        QQC2.Label {
                             Layout.fillWidth: true
                             Layout.alignment: Qt.AlignTop
                             horizontalAlignment: Text.AlignHCenter
-                            visible: model.applicationDesktopFile === AppChooserData.defaultApp || model.applicationDesktopFile === AppChooserData.lastUsedApp
+                            visible: delegate.model.applicationDesktopFile === AppChooserData.defaultApp || delegate.model.applicationDesktopFile === AppChooserData.lastUsedApp
                             font.bold: true
                             opacity: 0.7
-                            text: model.applicationDesktopFile === AppChooserData.defaultApp ?
-                                i18n("Default app for this file type")
+                            text: delegate.model.applicationDesktopFile === AppChooserData.defaultApp
+                                ? i18n("Default app for this file type")
                                 : i18nc("@info:whatsthis", "Last used app for this file type")
                             elide: Text.ElideRight
                             maximumLineCount: 2
@@ -182,16 +189,16 @@ PWD.SystemDialog
                     id: placeholderLoader
 
                     anchors.centerIn: parent
-                    width: parent.width -(Kirigami.Units.gridUnit - 8)
+                    width: parent.width - Kirigami.Units.gridUnit * 4
 
                     active: grid.count === 0
-                    sourceComponent:Kirigami.PlaceholderMessage {
+                    sourceComponent: Kirigami.PlaceholderMessage {
                         anchors.centerIn: parent
 
                         icon.name: "edit-none"
                         text: searchField.text.length > 0 ? i18n("No matches") : xi18nc("@info", "No installed applications can open <filename>%1</filename>", AppChooserData.fileName)
 
-                        helpfulAction: Kirigami.Action {
+                        helpfulAction: QQC2.Action {
                             icon.name: "plasmadiscover"
                             text: i18nc("Find some more apps that can open this content using the Discover app", "Find More in Discover")
                             onTriggered: AppChooserData.openDiscover()
@@ -206,7 +213,7 @@ PWD.SystemDialog
         // cursor shape for it.
 
         TextEdit {
-            visible: !placeholderLoader.active && StandardPaths.findExecutable("plasma-discover") != ""
+            visible: !placeholderLoader.active && StandardPaths.findExecutable("plasma-discover").toString() !== ""
             Layout.fillWidth: true
             text: xi18nc("@info", "Don't see the right app? Find more in <link>Discover</link>.")
             textFormat: Text.RichText

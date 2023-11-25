@@ -4,16 +4,17 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtQuick.Layouts 1.15
-import org.kde.kirigami 2.15 as Kirigami
+import QtQuick
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
 import org.kde.pipewire 0.1 as PipeWire
 
-Kirigami.Card
-{
+Kirigami.Card {
     id: card
+
     property alias nodeId: pipeWireSourceItem.nodeId
+
+    // TODO: Card is an ItemDelegate, why it needs a toggled signal??
     signal toggled()
 
     contentItem: PipeWire.PipeWireSourceItem {
@@ -28,8 +29,8 @@ Kirigami.Card
             visible: pipeWireSourceItem.nodeId === 0
             source: card.banner.titleIcon
         }
-
     }
+
     onClicked: {
         toggled()
     }
