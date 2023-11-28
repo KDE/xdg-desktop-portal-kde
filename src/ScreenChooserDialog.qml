@@ -94,8 +94,8 @@ PWD.SystemDialog
                             model: null
                             PipeWireDelegate {
                                 banner {
-                                    title: model.DisplayRole || ""
-                                    titleIcon: model.DecorationRole || ""
+                                    title: model.display ?? ""
+                                    titleIcon: model.decoration ?? ""
                                     titleLevel: 3
                                 }
                                 checkable: true
