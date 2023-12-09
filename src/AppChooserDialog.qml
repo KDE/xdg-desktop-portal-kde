@@ -89,6 +89,8 @@ PWD.SystemDialog
 
                 readonly property int gridDelegateSize: Kirigami.Units.iconSizes.huge + (Kirigami.Units.gridUnit * 4)
 
+                clip: true
+
                 Keys.onReturnPressed: currentItem.activate();
                 Keys.onEnterPressed: currentItem.activate();
 
