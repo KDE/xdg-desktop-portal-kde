@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-12 01:39+0000\n"
-"PO-Revision-Date: 2023-11-25 02:26\n"
+"POT-Creation-Date: 2023-12-10 01:59+0000\n"
+"PO-Revision-Date: 2023-12-09 09:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -62,35 +62,35 @@ msgstr "总是使用所选应用打开 %1 文件"
 msgid "Show All Installed Applications"
 msgstr "显示所有已安装的应用"
 
-#: src/AppChooserDialog.qml:170
+#: src/AppChooserDialog.qml:172
 #, kde-format
 msgid "Default app for this file type"
 msgstr "默认打开此文件类型的应用"
 
-#: src/AppChooserDialog.qml:171
+#: src/AppChooserDialog.qml:173
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
 msgstr "上次打开此文件类型的应用"
 
-#: src/AppChooserDialog.qml:190
+#: src/AppChooserDialog.qml:192
 #, kde-format
 msgid "No matches"
 msgstr "没有匹配项目"
 
-#: src/AppChooserDialog.qml:190
+#: src/AppChooserDialog.qml:192
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "没有任何已安装的应用能够打开 <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:194
+#: src/AppChooserDialog.qml:196
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
 msgstr "打开 Discover 查找更多应用"
 
-#: src/AppChooserDialog.qml:209
+#: src/AppChooserDialog.qml:211
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."

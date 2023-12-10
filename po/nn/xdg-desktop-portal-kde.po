@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-12 01:39+0000\n"
+"POT-Creation-Date: 2023-12-10 01:59+0000\n"
 "PO-Revision-Date: 2023-07-15 14:27+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -64,35 +64,35 @@ msgstr "Opna alltid %1-filer i valt program"
 msgid "Show All Installed Applications"
 msgstr "Vis alle installerte program"
 
-#: src/AppChooserDialog.qml:170
+#: src/AppChooserDialog.qml:172
 #, kde-format
 msgid "Default app for this file type"
 msgstr "Standardprogram for denne filtypen"
 
-#: src/AppChooserDialog.qml:171
+#: src/AppChooserDialog.qml:173
 #, fuzzy, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
 msgstr "Standardprogram for denne filtypen"
 
-#: src/AppChooserDialog.qml:190
+#: src/AppChooserDialog.qml:192
 #, kde-format
 msgid "No matches"
 msgstr "Ingen treff"
 
-#: src/AppChooserDialog.qml:190
+#: src/AppChooserDialog.qml:192
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Ingen installerte program kan opna <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:194
+#: src/AppChooserDialog.qml:196
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
 msgstr "Finn fleire i Discover"
 
-#: src/AppChooserDialog.qml:209
+#: src/AppChooserDialog.qml:211
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."

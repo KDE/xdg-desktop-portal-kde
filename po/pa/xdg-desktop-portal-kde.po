@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-12 01:39+0000\n"
+"POT-Creation-Date: 2023-12-10 01:59+0000\n"
 "PO-Revision-Date: 2023-04-01 14:53-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -61,37 +61,37 @@ msgstr "%1 ਫ਼ਾਇਲਾਂ ਨੂੰ ਹਮੇਸ਼ਾਂ ਚੁਣੀ ਐਪ �
 msgid "Show All Installed Applications"
 msgstr "ਸਭ ਇੰਸਟਾਲ ਹੋਈਆਂ ਐਪਲੀਕੇਸ਼ਨ ਵੇਖੋ"
 
-#: src/AppChooserDialog.qml:170
+#: src/AppChooserDialog.qml:172
 #, kde-format
 msgid "Default app for this file type"
 msgstr "ਇਸ ਫ਼ਾਇਲ ਕਿਸਮ ਲਈ ਮੂਲ ਐਪ"
 
-#: src/AppChooserDialog.qml:171
+#: src/AppChooserDialog.qml:173
 #, fuzzy, kde-format
 #| msgid "Default app for this file type"
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
 msgstr "ਇਸ ਫ਼ਾਇਲ ਕਿਸਮ ਲਈ ਮੂਲ ਐਪ"
 
-#: src/AppChooserDialog.qml:190
+#: src/AppChooserDialog.qml:192
 #, kde-format
 msgid "No matches"
 msgstr "ਕੋਈ ਮੇਲ ਨਹੀਂ ਹੈ"
 
-#: src/AppChooserDialog.qml:190
+#: src/AppChooserDialog.qml:192
 #, fuzzy, kde-kuit-format
 #| msgid "Select an application to open '%1'"
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "'%1' ਖੋਲ੍ਹਣ ਲਈ ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
 
-#: src/AppChooserDialog.qml:194
+#: src/AppChooserDialog.qml:196
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
 msgstr "ਡਿਸਕਵਰ ਵਿੱਚ ਹੋਰ ਲੱਭੋ"
 
-#: src/AppChooserDialog.qml:209
+#: src/AppChooserDialog.qml:211
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
