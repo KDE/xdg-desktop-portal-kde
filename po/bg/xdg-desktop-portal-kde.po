@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-10 01:59+0000\n"
+"POT-Creation-Date: 2023-12-13 01:36+0000\n"
 "PO-Revision-Date: 2023-08-29 14:47+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: \n"
@@ -50,46 +50,46 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Изберете приложение за отваряне на <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:31
+#: src/AppChooserDialog.qml:32
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
 msgstr "Файлове  от тип %1 винаги да се отварят с избраното приложение"
 
-#: src/AppChooserDialog.qml:64
+#: src/AppChooserDialog.qml:67
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "Показване на всички инсталирани приложения"
 
-#: src/AppChooserDialog.qml:172
+#: src/AppChooserDialog.qml:179
 #, kde-format
 msgid "Default app for this file type"
 msgstr "Стандартно приложение за този тип файлове"
 
-#: src/AppChooserDialog.qml:173
+#: src/AppChooserDialog.qml:180
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
 msgstr "Последно използвано приложение за този тип файлове"
 
-#: src/AppChooserDialog.qml:192
+#: src/AppChooserDialog.qml:199
 #, kde-format
 msgid "No matches"
 msgstr "Няма съвпадения"
 
-#: src/AppChooserDialog.qml:192
+#: src/AppChooserDialog.qml:199
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Няма инсталирано приложение за отваряне на <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:196
+#: src/AppChooserDialog.qml:203
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
 msgstr "Търсене на още приложения в Discover"
 
-#: src/AppChooserDialog.qml:211
+#: src/AppChooserDialog.qml:218
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
@@ -165,25 +165,25 @@ msgctxt "@title"
 msgid "Add Application…"
 msgstr "Добавяне на приложение…"
 
-#: src/DynamicLauncherDialog.qml:72
+#: src/DynamicLauncherDialog.qml:71
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
 msgstr "Име"
 
-#: src/DynamicLauncherDialog.qml:91
+#: src/DynamicLauncherDialog.qml:90
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
 msgstr "Редактиране на информация…"
 
-#: src/DynamicLauncherDialog.qml:97
+#: src/DynamicLauncherDialog.qml:96
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
 msgstr "Приемане"
 
-#: src/DynamicLauncherDialog.qml:102
+#: src/DynamicLauncherDialog.qml:101
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
@@ -209,27 +209,27 @@ msgstr "Отваряне на файл"
 msgid "Save File"
 msgstr "Запазване на файл"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:18
 #, kde-format
 msgid "Create New Folder"
 msgstr "Създаване на нова папка"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:28
 #, kde-format
 msgid "Create new folder in %1"
 msgstr "Създаване на нова папка в %1"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:35
 #, kde-format
 msgid "Folder name"
 msgstr "Име на папка"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:46
 #, kde-format
 msgid "OK"
 msgstr "Добре"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:57
 #, kde-format
 msgid "Cancel"
 msgstr "Отказ"
@@ -244,17 +244,17 @@ msgstr "Име на файл"
 msgid "Select"
 msgstr "Избиране"
 
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
+#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:61
 #, kde-format
 msgid "Create Folder"
 msgstr "Създаване на папка"
 
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
+#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Filter Filetype"
 msgstr "Филтриране на файлов тип"
 
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
+#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:75
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Показване на скритите файлове"
@@ -279,47 +279,47 @@ msgstr "Правоъгълна област"
 msgid "Laptop screen"
 msgstr "Екран на лаптоп"
 
-#: src/region-select/RegionSelectOverlay.qml:142
+#: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
 msgid "Start streaming:"
 msgstr "Стрийминг:"
 
-#: src/region-select/RegionSelectOverlay.qml:146
+#: src/region-select/RegionSelectOverlay.qml:151
 #, kde-format
 msgid "Clear selection:"
 msgstr "Изчистване на избора:"
 
-#: src/region-select/RegionSelectOverlay.qml:150
-#: src/region-select/RegionSelectOverlay.qml:193
+#: src/region-select/RegionSelectOverlay.qml:155
+#: src/region-select/RegionSelectOverlay.qml:199
 #, kde-format
 msgid "Cancel:"
 msgstr "Отказ:"
 
-#: src/region-select/RegionSelectOverlay.qml:156
+#: src/region-select/RegionSelectOverlay.qml:161
 #, kde-format
 msgctxt "Mouse action"
 msgid "Release left-click"
 msgstr "Освободете с щракване с левия бутон на мишката"
 
-#: src/region-select/RegionSelectOverlay.qml:160
+#: src/region-select/RegionSelectOverlay.qml:165
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
 msgstr "Кликване с десен бутон"
 
-#: src/region-select/RegionSelectOverlay.qml:164
-#: src/region-select/RegionSelectOverlay.qml:203
+#: src/region-select/RegionSelectOverlay.qml:169
+#: src/region-select/RegionSelectOverlay.qml:209
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
 msgstr "Напускане"
 
-#: src/region-select/RegionSelectOverlay.qml:189
+#: src/region-select/RegionSelectOverlay.qml:195
 #, kde-format
 msgid "Create selection:"
 msgstr "Създаване на селекция:"
 
-#: src/region-select/RegionSelectOverlay.qml:199
+#: src/region-select/RegionSelectOverlay.qml:205
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
@@ -363,13 +363,13 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - Входни устройства\n"
 
-#: src/RemoteDesktopDialog.qml:28 src/ScreenChooserDialog.qml:126
+#: src/RemoteDesktopDialog.qml:29 src/ScreenChooserDialog.qml:143
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Позволяване на възстановяване на бъдещи сесии"
 
-#: src/RemoteDesktopDialog.qml:34 src/ScreenChooserDialog.qml:132
-#: src/UserInfoDialog.qml:41
+#: src/RemoteDesktopDialog.qml:36 src/ScreenChooserDialog.qml:150
+#: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"
 msgstr "Споделяне"
@@ -455,12 +455,12 @@ msgstr "Избиране на прозорец за споделяне със з
 msgid "Choose which window to share with %1:"
 msgstr "Избиране на прозорец за споделяне с %1:"
 
-#: src/ScreenChooserDialog.qml:36
+#: src/ScreenChooserDialog.qml:39
 #, kde-format
 msgid "Screens"
 msgstr "Екрани"
 
-#: src/ScreenChooserDialog.qml:39
+#: src/ScreenChooserDialog.qml:42
 #, kde-format
 msgid "Windows"
 msgstr "Прозорци"
@@ -485,49 +485,49 @@ msgstr "Текущ прозорец"
 msgid "Request Screenshot"
 msgstr "Заявяване на снимка на екрана"
 
-#: src/ScreenshotDialog.qml:30
+#: src/ScreenshotDialog.qml:29
 #, kde-format
 msgid "Capture Mode"
 msgstr "Режим на прихващане"
 
-#: src/ScreenshotDialog.qml:34
+#: src/ScreenshotDialog.qml:33
 #, kde-format
 msgid "Area:"
 msgstr "Област:"
 
-#: src/ScreenshotDialog.qml:39
+#: src/ScreenshotDialog.qml:38
 #, kde-format
 msgid "Delay:"
 msgstr "Изчакване:"
 
-#: src/ScreenshotDialog.qml:44
+#: src/ScreenshotDialog.qml:42
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 секунда"
 msgstr[1] "%1 секунди"
 
-#: src/ScreenshotDialog.qml:52
+#: src/ScreenshotDialog.qml:47
 #, kde-format
 msgid "Content Options"
 msgstr "Настройки на съдържанието"
 
-#: src/ScreenshotDialog.qml:56
+#: src/ScreenshotDialog.qml:51
 #, kde-format
 msgid "Include cursor pointer"
 msgstr "Включване курсора на мишката"
 
-#: src/ScreenshotDialog.qml:61
+#: src/ScreenshotDialog.qml:56
 #, kde-format
 msgid "Include window borders"
 msgstr "Включване на рамката на прозореца"
 
-#: src/ScreenshotDialog.qml:74
+#: src/ScreenshotDialog.qml:71
 #, kde-format
 msgid "Save"
 msgstr "Запазване"
 
-#: src/ScreenshotDialog.qml:83
+#: src/ScreenshotDialog.qml:81
 #, kde-format
 msgid "Take"
 msgstr "Поемане на контрол"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-10 01:59+0000\n"
+"POT-Creation-Date: 2023-12-13 01:36+0000\n"
 "PO-Revision-Date: 2023-04-01 14:53-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -50,48 +50,48 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "<filename>%1</filename> ਖੋਲ੍ਹਣ ਲਈ ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
 
-#: src/AppChooserDialog.qml:31
+#: src/AppChooserDialog.qml:32
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
 msgstr "%1 ਫ਼ਾਇਲਾਂ ਨੂੰ ਹਮੇਸ਼ਾਂ ਚੁਣੀ ਐਪ ਨਾਲ ਖੋਲ੍ਹੋ"
 
-#: src/AppChooserDialog.qml:64
+#: src/AppChooserDialog.qml:67
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "ਸਭ ਇੰਸਟਾਲ ਹੋਈਆਂ ਐਪਲੀਕੇਸ਼ਨ ਵੇਖੋ"
 
-#: src/AppChooserDialog.qml:172
+#: src/AppChooserDialog.qml:179
 #, kde-format
 msgid "Default app for this file type"
 msgstr "ਇਸ ਫ਼ਾਇਲ ਕਿਸਮ ਲਈ ਮੂਲ ਐਪ"
 
-#: src/AppChooserDialog.qml:173
+#: src/AppChooserDialog.qml:180
 #, fuzzy, kde-format
 #| msgid "Default app for this file type"
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
 msgstr "ਇਸ ਫ਼ਾਇਲ ਕਿਸਮ ਲਈ ਮੂਲ ਐਪ"
 
-#: src/AppChooserDialog.qml:192
+#: src/AppChooserDialog.qml:199
 #, kde-format
 msgid "No matches"
 msgstr "ਕੋਈ ਮੇਲ ਨਹੀਂ ਹੈ"
 
-#: src/AppChooserDialog.qml:192
+#: src/AppChooserDialog.qml:199
 #, fuzzy, kde-kuit-format
 #| msgid "Select an application to open '%1'"
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "'%1' ਖੋਲ੍ਹਣ ਲਈ ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
 
-#: src/AppChooserDialog.qml:196
+#: src/AppChooserDialog.qml:203
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
 msgstr "ਡਿਸਕਵਰ ਵਿੱਚ ਹੋਰ ਲੱਭੋ"
 
-#: src/AppChooserDialog.qml:211
+#: src/AppChooserDialog.qml:218
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
@@ -162,25 +162,25 @@ msgctxt "@title"
 msgid "Add Application…"
 msgstr "…ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
 
-#: src/DynamicLauncherDialog.qml:72
+#: src/DynamicLauncherDialog.qml:71
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
 msgstr ""
 
-#: src/DynamicLauncherDialog.qml:91
+#: src/DynamicLauncherDialog.qml:90
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
 msgstr ""
 
-#: src/DynamicLauncherDialog.qml:97
+#: src/DynamicLauncherDialog.qml:96
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
 msgstr ""
 
-#: src/DynamicLauncherDialog.qml:102
+#: src/DynamicLauncherDialog.qml:101
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
@@ -206,27 +206,27 @@ msgstr "ਫ਼ਾਇਲ ਖੋਲ੍ਹੋ"
 msgid "Save File"
 msgstr "ਫਾਇਲ ਸੰਭਾਲੋ"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:18
 #, kde-format
 msgid "Create New Folder"
 msgstr "ਨਵਾਂ ਫੋਲਡਰ ਬਣਾਓ"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:28
 #, kde-format
 msgid "Create new folder in %1"
 msgstr "'%1' ਵਿੱਚ ਨਵਾਂ ਫ਼ੋਲਡਰ ਬਣਾਓ"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:35
 #, kde-format
 msgid "Folder name"
 msgstr "ਫ਼ੋਲਡਰ ਦਾ ਨਾਂ"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:46
 #, kde-format
 msgid "OK"
 msgstr "ਠੀਕ ਹੈ"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:57
 #, kde-format
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
@@ -241,17 +241,17 @@ msgstr "ਫ਼ਾਇਲ ਨਾਂ"
 msgid "Select"
 msgstr "ਚੁਣੋ"
 
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
+#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:61
 #, kde-format
 msgid "Create Folder"
 msgstr "ਫੋਲਡਰ ਬਣਾਓ"
 
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
+#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Filter Filetype"
 msgstr ""
 
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
+#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:75
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "ਲੁਕਵੀਆਂ ਫ਼ਾਇਲਾਂ ਵੇਖਾਓ"
@@ -276,47 +276,47 @@ msgstr ""
 msgid "Laptop screen"
 msgstr "ਲੈਪਟਾਪ ਸਕਰੀਨ"
 
-#: src/region-select/RegionSelectOverlay.qml:142
+#: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
 msgid "Start streaming:"
 msgstr ""
 
-#: src/region-select/RegionSelectOverlay.qml:146
+#: src/region-select/RegionSelectOverlay.qml:151
 #, kde-format
 msgid "Clear selection:"
 msgstr ""
 
-#: src/region-select/RegionSelectOverlay.qml:150
-#: src/region-select/RegionSelectOverlay.qml:193
+#: src/region-select/RegionSelectOverlay.qml:155
+#: src/region-select/RegionSelectOverlay.qml:199
 #, kde-format
 msgid "Cancel:"
 msgstr "ਰੱਦ ਕਰੋ:"
 
-#: src/region-select/RegionSelectOverlay.qml:156
+#: src/region-select/RegionSelectOverlay.qml:161
 #, kde-format
 msgctxt "Mouse action"
 msgid "Release left-click"
 msgstr ""
 
-#: src/region-select/RegionSelectOverlay.qml:160
+#: src/region-select/RegionSelectOverlay.qml:165
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
 msgstr ""
 
-#: src/region-select/RegionSelectOverlay.qml:164
-#: src/region-select/RegionSelectOverlay.qml:203
+#: src/region-select/RegionSelectOverlay.qml:169
+#: src/region-select/RegionSelectOverlay.qml:209
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
 msgstr ""
 
-#: src/region-select/RegionSelectOverlay.qml:189
+#: src/region-select/RegionSelectOverlay.qml:195
 #, kde-format
 msgid "Create selection:"
 msgstr ""
 
-#: src/region-select/RegionSelectOverlay.qml:199
+#: src/region-select/RegionSelectOverlay.qml:205
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
@@ -362,13 +362,13 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - ਇਨਪੁਟ ਡਿਵਾਈਸ\n"
 
-#: src/RemoteDesktopDialog.qml:28 src/ScreenChooserDialog.qml:126
+#: src/RemoteDesktopDialog.qml:29 src/ScreenChooserDialog.qml:143
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr ""
 
-#: src/RemoteDesktopDialog.qml:34 src/ScreenChooserDialog.qml:132
-#: src/UserInfoDialog.qml:41
+#: src/RemoteDesktopDialog.qml:36 src/ScreenChooserDialog.qml:150
+#: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"
 msgstr "ਸਾਂਝਾ ਕਰੋ"
@@ -463,12 +463,12 @@ msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾ�
 msgid "Choose which window to share with %1:"
 msgstr "ਚੁਣੋ ਕਿ %1 ਨਾਲ ਕੀ ਸਾਂਝਾ ਕਰਨਾ ਹੈ"
 
-#: src/ScreenChooserDialog.qml:36
+#: src/ScreenChooserDialog.qml:39
 #, kde-format
 msgid "Screens"
 msgstr "ਸਕਰੀਨ"
 
-#: src/ScreenChooserDialog.qml:39
+#: src/ScreenChooserDialog.qml:42
 #, kde-format
 msgid "Windows"
 msgstr "ਵਿੰਡੋ"
@@ -494,50 +494,50 @@ msgstr "ਸਰਗਰਮ ਵਿੰਡੋ"
 msgid "Request Screenshot"
 msgstr "ਸਕਰੀਨਸ਼ਾਟ ਦੀ ਬੇਨਤੀ"
 
-#: src/ScreenshotDialog.qml:30
+#: src/ScreenshotDialog.qml:29
 #, kde-format
 msgid "Capture Mode"
 msgstr "ਕੈਪਚਰ ਢੰਗ"
 
-#: src/ScreenshotDialog.qml:34
+#: src/ScreenshotDialog.qml:33
 #, kde-format
 msgid "Area:"
 msgstr "ਖੇਤਰ:"
 
-#: src/ScreenshotDialog.qml:39
+#: src/ScreenshotDialog.qml:38
 #, kde-format
 msgid "Delay:"
 msgstr "ਦੇਰੀ:"
 
-#: src/ScreenshotDialog.qml:44
+#: src/ScreenshotDialog.qml:42
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 ਸਕਿੰਟ"
 msgstr[1] "%1 ਸਕਿੰਟ"
 
-#: src/ScreenshotDialog.qml:52
+#: src/ScreenshotDialog.qml:47
 #, kde-format
 msgid "Content Options"
 msgstr "ਸਮੱਗਰੀ ਚੋਣਾਂ"
 
-#: src/ScreenshotDialog.qml:56
+#: src/ScreenshotDialog.qml:51
 #, fuzzy, kde-format
 #| msgid "Include mouse pointer"
 msgid "Include cursor pointer"
 msgstr "ਮਾਊਸ ਪੁਆਇੰਟਰ ਸਮੇਤ"
 
-#: src/ScreenshotDialog.qml:61
+#: src/ScreenshotDialog.qml:56
 #, kde-format
 msgid "Include window borders"
 msgstr "ਵਿੰਡੋ ਹਾਸ਼ੀਏ ਦੇ ਸਮੇਤ"
 
-#: src/ScreenshotDialog.qml:74
+#: src/ScreenshotDialog.qml:71
 #, kde-format
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
 
-#: src/ScreenshotDialog.qml:83
+#: src/ScreenshotDialog.qml:81
 #, kde-format
 msgid "Take"
 msgstr ""
