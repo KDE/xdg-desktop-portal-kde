@@ -36,6 +36,10 @@ static bool groupMatches(const QString &group, const QStringList &patterns)
             return true;
         }
 
+        if (pattern.startsWith(group)) {
+            return true;
+        }
+
         if (pattern.endsWith(QLatin1Char('*')) && group.startsWith(pattern.left(pattern.length() - 1))) {
             return true;
         }
@@ -346,7 +350,7 @@ public:
 
     inline QString group() final
     {
-        return u"org.kde.TabletMode"_s;
+        return u"org.kde.kdeglobals"_s;
     }
 
     VariantMapMap readAll(const QStringList &groups) final
