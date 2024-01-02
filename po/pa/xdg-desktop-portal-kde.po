@@ -1,42 +1,42 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# A S Alam <aalam@users.sf.net>, 2017, 2018, 2019, 2020, 2022, 2023.
+# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2022, 2023, 2024 A S Alam <aalam@users.sf.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-13 01:36+0000\n"
-"PO-Revision-Date: 2023-04-01 14:53-0700\n"
-"Last-Translator: A S Alam <aalam@satluj.org>\n"
+"PO-Revision-Date: 2024-01-01 07:55-0600\n"
+"Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ ੨੦੨੩"
+msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ ੨੦੨੩-੨੦੨੪"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "alam.yellow@gmail.com"
+msgstr "aalam@punlinux.org"
 
 #: src/accessdialog.cpp:22
 #, kde-format
 msgid "Request device access"
-msgstr "ਜੰਤਰ ਲਈ ਪਹੁੰਚ ਬੇਨਤੀ"
+msgstr "ਡਿਵਾਈਸ ਲਈ ਪਹੁੰਚ ਬੇਨਤੀ"
 
 #: src/appchooser.cpp:92
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
-msgstr ""
+msgstr "%1 ਫਾਇਲਾਂ"
 
 #: src/appchooserdialog.cpp:39
 #, kde-format
@@ -54,7 +54,7 @@ msgstr "<filename>%1</filename> ਖੋਲ੍ਹਣ ਲਈ ਐਪਲੀਕੇਸ਼�
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr "%1 ਫ਼ਾਇਲਾਂ ਨੂੰ ਹਮੇਸ਼ਾਂ ਚੁਣੀ ਐਪ ਨਾਲ ਖੋਲ੍ਹੋ"
+msgstr "%1 ਫਾਇਲਾਂ ਨੂੰ ਹਮੇਸ਼ਾਂ ਚੁਣੀ ਐਪ ਨਾਲ ਖੋਲ੍ਹੋ"
 
 #: src/AppChooserDialog.qml:67
 #, kde-format
@@ -67,11 +67,10 @@ msgid "Default app for this file type"
 msgstr "ਇਸ ਫ਼ਾਇਲ ਕਿਸਮ ਲਈ ਮੂਲ ਐਪ"
 
 #: src/AppChooserDialog.qml:180
-#, fuzzy, kde-format
-#| msgid "Default app for this file type"
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
-msgstr "ਇਸ ਫ਼ਾਇਲ ਕਿਸਮ ਲਈ ਮੂਲ ਐਪ"
+msgstr "ਇਸ ਫਾਇਲ ਕਿਸਮ ਲਈ ਪਿਛਲੀ ਵਾਰ ਵਰਤੀ ਗਈ ਐਪ"
 
 #: src/AppChooserDialog.qml:199
 #, kde-format
@@ -79,11 +78,10 @@ msgid "No matches"
 msgstr "ਕੋਈ ਮੇਲ ਨਹੀਂ ਹੈ"
 
 #: src/AppChooserDialog.qml:199
-#, fuzzy, kde-kuit-format
-#| msgid "Select an application to open '%1'"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
-msgstr "'%1' ਖੋਲ੍ਹਣ ਲਈ ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
+msgstr "<filename>%1</filename> ਨੂੰ ਖੋਲ੍ਹਣ ਲਈ ਕੋਈ ਐਪਲੀਕੇਸ਼ਨ ਇੰਸਟਾਲ ਨਹੀਂ ਹੈ"
 
 #: src/AppChooserDialog.qml:203
 #, kde-format
@@ -95,11 +93,10 @@ msgstr "ਡਿਸਕਵਰ ਵਿੱਚ ਹੋਰ ਲੱਭੋ"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr ""
+msgstr "ਸਹੀ ਐਪ ਨਹੀਂ ਦਿਸੀ ਹੈ? <link>ਡਿਸਕਵਰ</link> ਵਿੱਚ ਹੋਰ ਲੱਭੋ।"
 
 #: src/background.cpp:132
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgid "Background Activity"
 msgstr "ਬੈਕਗਰਾਊਂਡ ਸਰਗਰਮੀ"
 
@@ -110,10 +107,11 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
+"ਜਦੋਂ ਕੋਈ ਵੀ ਵਿੰਡੋ ਦਸਦੀ ਨਾ ਹੋਵੇ ਤਾਂ %1 ਚੱਲਦਾ ਰਹਿਣਾ ਚਾਹੁੰਦੀ ਹੈ। ਜੇ ਤੁਸੀਂ ਇਸ ਲਈ ਇਨਕਾਰ ਕੀਤਾ ਤਾਂ "
+"ਐਪਲੀਕੇਸ਼ਨ ਆਖਰੀ ਵਿੰਡੋ ਬੰਦ ਹੋਣ ਉੱਤੇ ਬੰਦ ਹੋ ਜਾਵੇਗੀ।"
 
 #: src/background.cpp:141 src/background.cpp:158
-#, fuzzy, kde-format
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "ਮਨਜ਼ੂਰ"
@@ -123,16 +121,15 @@ msgstr "ਮਨਜ਼ੂਰ"
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
-msgstr ""
+msgstr "ਇਨਕਾਰ"
 
 #: src/background.cpp:152
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
 msgid "Background App Usage"
-msgstr "ਬੈਕਗਰਾਊਂਡ ਸਰਗਰਮੀ"
+msgstr "ਬੈਕਗਰਾਊਂਡ ਐਪ ਵਰਤੋਂ"
 
 #: src/background.cpp:154
 #, kde-format
@@ -142,13 +139,15 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
+"ਯਾਦ ਰੱਖੋ ਕਿ ਇਸ ਨਾਲ ਆਖਰੀ ਵਿੰਡੋ ਬੰਦ ਹੋਣ ਉੱਤੇ %1 ਨੂੰ ਬੰਦ ਹੋਣ ਲਈ ਮਜ਼ਬੂਰ ਕੀਤਾ ਜਾਵੇਗਾ। ਇਸ ਨਾਲ ਜੇ "
+"ਐਪਲੀਕੇਸ਼ਨ ਵਿੱਚ ਕੋਈ ਵੀ ਨਾ ਸੰਭਾਲਿਆ ਡਾਟਾ ਹੋਇਆ ਤਾਂ ਉਹ ਗੁੰਮ ਹੋ ਜਾਵੇਗਾ।"
 
 #: src/background.cpp:159
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid Anyway"
-msgstr ""
+msgstr "ਕਿਵੇਂ ਵੀ ਇਨਕਾਰ"
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format
@@ -160,31 +159,31 @@ msgstr "…ਵੈੱਬ ਐਪਲੀਕੇਸ਼ਨ ਜੋੜੋ"
 #, kde-format
 msgctxt "@title"
 msgid "Add Application…"
-msgstr "…ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
+msgstr "…ਐਪਲੀਕੇਸ਼ਨ ਜੋੜੋ"
 
 #: src/DynamicLauncherDialog.qml:71
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
-msgstr ""
+msgstr "ਨਾਂ"
 
 #: src/DynamicLauncherDialog.qml:90
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr ""
+msgstr "…ਜਾਣਕਾਰੀ ਨੂੰ ਸੋਧੋ"
 
 #: src/DynamicLauncherDialog.qml:96
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
-msgstr ""
+msgstr "ਮਨਜ਼ੂਰ"
 
 #: src/DynamicLauncherDialog.qml:101
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
-msgstr ""
+msgstr "ਰੱਦ ਕਰੋ"
 
 #: src/filechooser.cpp:477
 #, kde-format
@@ -199,7 +198,7 @@ msgstr "ਫੋਲਡਰ ਚੁਣੋ"
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:104
 #, kde-format
 msgid "Open File"
-msgstr "ਫ਼ਾਇਲ ਖੋਲ੍ਹੋ"
+msgstr "ਫਾਇਲ ਖੋਲ੍ਹੋ"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:106
 #, kde-format
@@ -249,12 +248,12 @@ msgstr "ਫੋਲਡਰ ਬਣਾਓ"
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Filter Filetype"
-msgstr ""
+msgstr "ਫਾਇਲ-ਕਿਸਮ ਨੂੰ ਫਿਲਟਰ ਕਰੋ"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:75
 #, kde-format
 msgid "Show Hidden Files"
-msgstr "ਲੁਕਵੀਆਂ ਫ਼ਾਇਲਾਂ ਵੇਖਾਓ"
+msgstr "ਲੁਕਵੀਆਂ ਫਾਇਲਾਂ ਨੂੰ ਵੇਖਾਓ"
 
 #: src/outputsmodel.cpp:19
 #, kde-format
@@ -269,22 +268,22 @@ msgstr "ਨਵਾਂ ਵਰਚੁਅਲ ਆਉਟਪੁੱਟ"
 #: src/outputsmodel.cpp:28
 #, kde-format
 msgid "Rectangular Region"
-msgstr ""
+msgstr "ਆਇਤਾਕਾਰ ਖੇਤਰ"
 
 #: src/outputsmodel.cpp:45
 #, kde-format
 msgid "Laptop screen"
-msgstr "ਲੈਪਟਾਪ ਸਕਰੀਨ"
+msgstr "ਲੈਪਟਾਪ ਦੀ ਸਕਰੀਨ"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
 msgid "Start streaming:"
-msgstr ""
+msgstr "ਸਟਰੀਮ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰੋ:"
 
 #: src/region-select/RegionSelectOverlay.qml:151
 #, kde-format
 msgid "Clear selection:"
-msgstr ""
+msgstr "ਚੋਣ ਨੂੰ ਮਿਟਾਓ:"
 
 #: src/region-select/RegionSelectOverlay.qml:155
 #: src/region-select/RegionSelectOverlay.qml:199
@@ -296,59 +295,57 @@ msgstr "ਰੱਦ ਕਰੋ:"
 #, kde-format
 msgctxt "Mouse action"
 msgid "Release left-click"
-msgstr ""
+msgstr "ਖੱਬਾ-ਕਲਿੱਕ ਛੱਡੋ"
 
 #: src/region-select/RegionSelectOverlay.qml:165
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
-msgstr ""
+msgstr "ਸੱਜਾ-ਕਲਿੱਕ"
 
 #: src/region-select/RegionSelectOverlay.qml:169
 #: src/region-select/RegionSelectOverlay.qml:209
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
-msgstr ""
+msgstr "Escape"
 
 #: src/region-select/RegionSelectOverlay.qml:195
 #, kde-format
 msgid "Create selection:"
-msgstr ""
+msgstr "ਚੋਣ ਕਰੋ:"
 
 #: src/region-select/RegionSelectOverlay.qml:205
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
-msgstr ""
+msgstr "ਖੱਬਾ-ਕਲਿੱਕ ਅਤੇ ਖਿੱਚੋ"
 
 #: src/remotedesktop.cpp:150
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
-msgstr ""
+msgstr "ਰਿਮੋਟ ਕੰਟਰੋਲ ਸ਼ੈਸ਼ਨ ਸ਼ੁਰੂ ਹੋਇਆ"
 
 #: src/remotedesktopdialog.cpp:23
 #, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
-msgstr ""
+msgstr "ਰਿਮੋਟ ਕੰਟਰੋਲ ਦੀ ਬੇਨਤੀ ਕੀਤੀ"
 
 #: src/remotedesktopdialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
-msgstr "ਜੰਤਰ ਲਈ ਪਹੁੰਚ ਬੇਨਤੀ"
+msgstr "ਇਸ ਲਈ ਪਹੁੰਚ ਬੇਨਤੀ:\n"
 
 #: src/remotedesktopdialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr "ਜੰਤਰ ਲਈ ਪਹੁੰਚ ਬੇਨਤੀ"
+msgstr "%1 ਨੇ ਰਿਮੋਟ ਕੰਟਰੋਲ ਕਰਨ ਲਈ ਬੇਨਤੀ ਕੀਤੀ ਹੈ:\n"
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
@@ -365,7 +362,7 @@ msgstr " - ਇਨਪੁਟ ਡਿਵਾਈਸ\n"
 #: src/RemoteDesktopDialog.qml:29 src/ScreenChooserDialog.qml:143
 #, kde-format
 msgid "Allow restoring on future sessions"
-msgstr ""
+msgstr "ਭਵਿੱਖ ਦੇ ਸ਼ੈਸ਼ਨਾਂ ਲਈ ਬਹਾਲ ਕਰਨ ਦੀ ਮਨਜ਼ੂਰੀ ਦਿਓ"
 
 #: src/RemoteDesktopDialog.qml:36 src/ScreenChooserDialog.qml:150
 #: src/UserInfoDialog.qml:43
@@ -405,34 +402,29 @@ msgid "Share this screen with %1?"
 msgstr "ਇਹ ਸਕਰੀਨ %1 ਨਾਲ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
 
 #: src/screenchooserdialog.cpp:190
-#, fuzzy, kde-format
-#| msgid "Select screen to share with the requesting application"
+#, kde-format
 msgid "Choose screens to share with the requesting application:"
-msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ"
+msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ:"
 
 #: src/screenchooserdialog.cpp:192
-#, fuzzy, kde-format
-#| msgid "Select screen to share with %1"
+#, kde-format
 msgid "Choose screens to share with %1:"
-msgstr "%1 ਨਾਲ ਸਾਂਝੀ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ"
+msgstr "%1 ਨਾਲ ਸਾਂਝੀ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ:"
 
 #: src/screenchooserdialog.cpp:196
-#, fuzzy, kde-format
-#| msgid "Select screen to share with the requesting application"
+#, kde-format
 msgid "Choose which screen to share with the requesting application:"
-msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ"
+msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ:"
 
 #: src/screenchooserdialog.cpp:198
-#, fuzzy, kde-format
-#| msgid "Select screen to share with %1"
+#, kde-format
 msgid "Choose which screen to share with %1:"
-msgstr "%1 ਨਾਲ ਸਾਂਝੀ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ"
+msgstr "%1 ਨਾਲ ਸਾਂਝੀ ਕਰਨ ਲਈ ਸਕਰੀਨ ਨੂੰ ਚੁਣੋ:"
 
 #: src/screenchooserdialog.cpp:208
-#, fuzzy, kde-format
-#| msgid "Select what to share with the requesting application"
+#, kde-format
 msgid "Share this window with the requesting application?"
-msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੋਣ ਕਰੋ"
+msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਇਹ ਵਿੰਡੋ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
 
 #: src/screenchooserdialog.cpp:210
 #, kde-format
@@ -440,38 +432,34 @@ msgid "Share this window with %1?"
 msgstr "ਇਹ ਵਿੰਡੋ %1 ਨਾਲ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
 
 #: src/screenchooserdialog.cpp:215
-#, fuzzy, kde-format
-#| msgid "Select what to share with the requesting application"
+#, kde-format
 msgid "Choose windows to share with the requesting application:"
-msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੋਣ ਕਰੋ"
+msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਵਿੰਡੋਆਂ ਚੁਣੋ:"
 
 #: src/screenchooserdialog.cpp:217
-#, fuzzy, kde-format
-#| msgid "Select what to share with %1"
+#, kde-format
 msgid "Choose windows to share with %1:"
-msgstr "ਚੁਣੋ ਕਿ %1 ਨਾਲ ਕੀ ਸਾਂਝਾ ਕਰਨਾ ਹੈ"
+msgstr "%1 ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਵਿੰਡੋਆਂ ਚੁਣੋ:"
 
 #: src/screenchooserdialog.cpp:221
-#, fuzzy, kde-format
-#| msgid "Select what to share with the requesting application"
+#, kde-format
 msgid "Choose which window to share with the requesting application:"
-msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੋਣ ਕਰੋ"
+msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਵਿੰਡੋ ਦੀ ਚੋਣ ਕਰੋ:"
 
 #: src/screenchooserdialog.cpp:223
-#, fuzzy, kde-format
-#| msgid "Select what to share with %1"
+#, kde-format
 msgid "Choose which window to share with %1:"
-msgstr "ਚੁਣੋ ਕਿ %1 ਨਾਲ ਕੀ ਸਾਂਝਾ ਕਰਨਾ ਹੈ"
+msgstr "%1 ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਵਿੰਡੋ ਚੁਣੋ:"
 
 #: src/ScreenChooserDialog.qml:39
 #, kde-format
 msgid "Screens"
-msgstr "ਸਕਰੀਨ"
+msgstr "ਸਕਰੀਨਾਂ"
 
 #: src/ScreenChooserDialog.qml:42
 #, kde-format
 msgid "Windows"
-msgstr "ਵਿੰਡੋ"
+msgstr "ਵਿੰਡੋਆਂ"
 
 #: src/screenshotdialog.cpp:115
 #, kde-format
@@ -489,8 +477,7 @@ msgid "Active Window"
 msgstr "ਸਰਗਰਮ ਵਿੰਡੋ"
 
 #: src/ScreenshotDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "Request screenshot"
+#, kde-format
 msgid "Request Screenshot"
 msgstr "ਸਕਰੀਨਸ਼ਾਟ ਦੀ ਬੇਨਤੀ"
 
@@ -522,8 +509,7 @@ msgid "Content Options"
 msgstr "ਸਮੱਗਰੀ ਚੋਣਾਂ"
 
 #: src/ScreenshotDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Include mouse pointer"
+#, kde-format
 msgid "Include cursor pointer"
 msgstr "ਮਾਊਸ ਪੁਆਇੰਟਰ ਸਮੇਤ"
 
@@ -540,13 +526,13 @@ msgstr "ਸੰਭਾਲੋ"
 #: src/ScreenshotDialog.qml:81
 #, kde-format
 msgid "Take"
-msgstr ""
+msgstr "ਲਵੋ"
 
 #: src/session.cpp:169
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
-msgstr ""
+msgstr "ਖਤਮ"
 
 #: src/session.cpp:262
 #, kde-format
@@ -560,8 +546,8 @@ msgstr "ਰਿਮੋਟ ਡੈਸਕਟਾਪ"
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ਸਮੱਗਰੀਆਂ %2 ਨਾਲ ਸਾਂਝੀਆਂ ਕੀਤੀਆਂ ਜਾ ਰਹੀਆਂ ਹਨ"
+msgstr[1] "%1 ਵੀਡੀਓ ਸਟਰੀਮ %2 ਨਾਲ ਸਾਂਝੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ"
 
 #: src/session.cpp:282
 #, kde-format
@@ -581,10 +567,9 @@ msgid "Share Information"
 msgstr "ਜਾਣਕਾਰੀ ਸਾਂਝੀ ਕਰੋ"
 
 #: src/userinfodialog.cpp:33
-#, fuzzy, kde-format
-#| msgid "Select what to share with the requesting application"
+#, kde-format
 msgid "Share your personal information with the requesting application?"
-msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੋਣ ਕਰੋ"
+msgstr "ਤੁਹਾਡੀ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਮੰਗ ਕਰ ਰਹੀ ਐਪਲੀਕੇਸ਼ਨ ਨਾਲ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
 
 #: src/waylandintegration.cpp:260 src/waylandintegration.cpp:315
 #, kde-format
