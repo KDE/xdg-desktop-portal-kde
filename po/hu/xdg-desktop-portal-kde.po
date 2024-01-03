@@ -1,7 +1,7 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Kiszel Kristóf <kiszel.kristof@gmail.com>, 2017, 2018.
+# SPDX-FileCopyrightText: 2017, 2018, 2024 Kiszel Kristóf <kiszel.kristof@gmail.com>
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2019, 2020, 2021.
 # SPDX-FileCopyrightText: 2021, 2022, 2023 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-13 01:36+0000\n"
-"PO-Revision-Date: 2024-01-01 22:18+0100\n"
-"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
+"PO-Revision-Date: 2024-01-02 09:44+0100\n"
+"Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
@@ -144,20 +144,22 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
+"Vegye figyelembe, hogy ezzel a(z) %1 kilépésre kényszerül az utolsó ablaka "
+"bezárásakor. Ez adatvesztést okozhat, ha az alkalmazásnak nem mentett "
+"változtatásai vannak a kilépés pillanatában."
 
 #: src/background.cpp:159
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid Anyway"
-msgstr ""
+msgstr "Tiltás mindenképp"
 
 #: src/dynamiclauncher.cpp:76
-#, fuzzy, kde-format
-#| msgid "Select application"
+#, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
-msgstr "Alkalmazás kiválasztása"
+msgstr "Webalkalmazás hozzáadása…"
 
 #: src/dynamiclauncher.cpp:81
 #, kde-format
@@ -175,7 +177,7 @@ msgstr "Név"
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr ""
+msgstr "Szerkesztés…"
 
 #: src/DynamicLauncherDialog.qml:96
 #, kde-format
@@ -217,7 +219,7 @@ msgstr "Új mappa létrehozása"
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:28
 #, kde-format
 msgid "Create new folder in %1"
-msgstr ""
+msgstr "Új mappa létrehozása itt: %1"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:35
 #, kde-format
@@ -252,129 +254,121 @@ msgstr "Mappa létrehozása"
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Filter Filetype"
-msgstr ""
+msgstr "Fájltípus szűrése"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:75
 #, kde-format
 msgid "Show Hidden Files"
-msgstr ""
+msgstr "Rejtett fájlok megjelenítése"
 
 #: src/outputsmodel.cpp:19
 #, kde-format
 msgid "Full Workspace"
-msgstr ""
+msgstr "Teljes munkaterület"
 
 #: src/outputsmodel.cpp:24
 #, kde-format
 msgid "New Virtual Output"
-msgstr ""
+msgstr "Új virtuális kimenet"
 
 #: src/outputsmodel.cpp:28
 #, kde-format
 msgid "Rectangular Region"
-msgstr ""
+msgstr "Téglalap alakú terület"
 
 #: src/outputsmodel.cpp:45
-#, fuzzy, kde-format
-#| msgid ""
-#| "Laptop screen\n"
-#| "Model: %1"
+#, kde-format
 msgid "Laptop screen"
-msgstr ""
-"Laptop képernyő:\n"
-"Modell: %1"
+msgstr "Laptop képernyő"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
 msgid "Start streaming:"
-msgstr ""
+msgstr "Közvetítés indítása:"
 
 #: src/region-select/RegionSelectOverlay.qml:151
 #, kde-format
 msgid "Clear selection:"
-msgstr ""
+msgstr "Kijelölés megszüntetése:"
 
 #: src/region-select/RegionSelectOverlay.qml:155
 #: src/region-select/RegionSelectOverlay.qml:199
 #, kde-format
 msgid "Cancel:"
-msgstr ""
+msgstr "Mégse:"
 
 #: src/region-select/RegionSelectOverlay.qml:161
 #, kde-format
 msgctxt "Mouse action"
 msgid "Release left-click"
-msgstr ""
+msgstr "Bal egérgombbal kattintásra"
 
 #: src/region-select/RegionSelectOverlay.qml:165
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
-msgstr ""
+msgstr "Jobb gombbal kattintásra"
 
 #: src/region-select/RegionSelectOverlay.qml:169
 #: src/region-select/RegionSelectOverlay.qml:209
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
-msgstr ""
+msgstr "Escape"
 
 #: src/region-select/RegionSelectOverlay.qml:195
 #, kde-format
 msgid "Create selection:"
-msgstr ""
+msgstr "Kijelölés módja:"
 
 #: src/region-select/RegionSelectOverlay.qml:205
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
-msgstr ""
+msgstr "Balkattintás és húzás"
 
 #: src/remotedesktop.cpp:150
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
-msgstr ""
+msgstr "Távvezérelt munkamenet elindítva"
 
 #: src/remotedesktopdialog.cpp:23
 #, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
-msgstr ""
+msgstr "Távvezérlési kérés"
 
 #: src/remotedesktopdialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
-msgstr "Eszközhozzáférés kérése"
+msgstr "Hozzáférési kérés a következőkhöz:\n"
 
 #: src/remotedesktopdialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr "Eszközhozzáférés kérése"
+msgstr "A(z) %1 hozzáférést kért a távvezérléshez:\n"
 
 #: src/remotedesktopdialog.cpp:42
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr "Teljes képernyő"
+msgstr " - Képernyők\n"
 
 #: src/remotedesktopdialog.cpp:45
 #, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
-msgstr ""
+msgstr " - Beviteli eszközök\n"
 
 #: src/RemoteDesktopDialog.qml:29 src/ScreenChooserDialog.qml:143
 #, kde-format
 msgid "Allow restoring on future sessions"
-msgstr ""
+msgstr "Visszaállíthatóság engedélyezése a jövőbeli munkamenetekben"
 
 #: src/RemoteDesktopDialog.qml:36 src/ScreenChooserDialog.qml:150
 #: src/UserInfoDialog.qml:43
@@ -464,10 +458,9 @@ msgid "Choose which window to share with %1:"
 msgstr "Válassza ki, melyik ablakot osztja meg ezzel: %1:"
 
 #: src/ScreenChooserDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgid "Screens"
-msgstr "Teljes képernyő"
+msgstr "Képernyők"
 
 #: src/ScreenChooserDialog.qml:42
 #, kde-format
@@ -490,16 +483,14 @@ msgid "Active Window"
 msgstr "Aktív ablak"
 
 #: src/ScreenshotDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "Request screenshot"
+#, kde-format
 msgid "Request Screenshot"
 msgstr "Képernyőkép kérése"
 
 #: src/ScreenshotDialog.qml:29
-#, fuzzy, kde-format
-#| msgid "<b>Capture Mode</b>"
+#, kde-format
 msgid "Capture Mode"
-msgstr "<b>Rögzítési mód</b>"
+msgstr "Rögzítési mód"
 
 #: src/ScreenshotDialog.qml:33
 #, kde-format
@@ -515,20 +506,18 @@ msgstr "Késleltetés:"
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 másodperc"
+msgstr[1] "%1 másodperc"
 
 #: src/ScreenshotDialog.qml:47
-#, fuzzy, kde-format
-#| msgid "<b>Content Options</b>"
+#, kde-format
 msgid "Content Options"
-msgstr "<b>Beállítások</b>"
+msgstr "Tartalombeállítások"
 
 #: src/ScreenshotDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Include mouse pointer"
+#, kde-format
 msgid "Include cursor pointer"
-msgstr "Egérmutató belefoglalása"
+msgstr "Mutató belefoglalása"
 
 #: src/ScreenshotDialog.qml:56
 #, kde-format
@@ -543,13 +532,13 @@ msgstr "Mentés"
 #: src/ScreenshotDialog.qml:81
 #, kde-format
 msgid "Take"
-msgstr ""
+msgstr "Készítés"
 
 #: src/session.cpp:169
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
-msgstr ""
+msgstr "Befejezés"
 
 #: src/session.cpp:262
 #, kde-format
@@ -563,8 +552,8 @@ msgstr "Távoli asztal"
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tartalom megosztása ezzel: %2"
+msgstr[1] "%1 videó közvetítve ide: %2"
 
 #: src/session.cpp:282
 #, kde-format
