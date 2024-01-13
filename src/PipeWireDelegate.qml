@@ -27,4 +27,6 @@ Kirigami.Card {
             source: card.banner.titleIcon
         }
     }
+
+    Layout.preferredHeight: contentItem.Layout.preferredHeight
 }
