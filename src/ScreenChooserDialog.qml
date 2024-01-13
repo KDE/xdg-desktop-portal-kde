@@ -63,7 +63,14 @@ PWD.SystemDialog {
                 currentIndex: tabView.currentIndex
 
                 QQC2.ScrollView {
+                    contentWidth: availableWidth
+                    contentHeight: outputsLayout.height
                     Kirigami.CardsLayout {
+                        id: outputsLayout
+                        anchors {
+                            left: parent.left;
+                            right: parent.right;
+                        }
                         Repeater {
                             id: outputsView
                             model: null
@@ -99,7 +106,14 @@ PWD.SystemDialog {
                     }
                 }
                 QQC2.ScrollView {
+                    contentWidth: availableWidth
+                    contentHeight: windowsLayout.height
                     Kirigami.CardsLayout {
+                        id: windowsLayout
+                        anchors {
+                            left: parent.left;
+                            right: parent.right;
+                        }
                         Repeater {
                             id: windowsView
                             model: null
