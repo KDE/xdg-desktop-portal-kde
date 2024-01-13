@@ -14,9 +14,6 @@ Kirigami.Card {
 
     property alias nodeId: pipeWireSourceItem.nodeId
 
-    // TODO: Card is an ItemDelegate, why it needs a toggled signal??
-    signal toggled()
-
     contentItem: PipeWire.PipeWireSourceItem {
         id: pipeWireSourceItem
         Layout.preferredHeight: Kirigami.Units.gridUnit * 7
