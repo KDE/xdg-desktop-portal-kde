@@ -27,8 +27,4 @@ Kirigami.Card {
             source: card.banner.titleIcon
         }
     }
-
-    onClicked: {
-        toggled()
-    }
 }
