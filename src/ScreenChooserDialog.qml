@@ -101,6 +101,13 @@ PWD.SystemDialog {
                                     }
                                     outputsView.model.setData(outputsView.model.index(model.row, 0), to, Qt.CheckStateRole)
                                 }
+
+                                // double clicking always means selecting only the clicked item and confirming
+                                onDoubleClicked: {
+                                    root.clearSelection()
+                                    outputsView.model.setData(outputsView.model.index(model.row, 0), Qt.Checked, Qt.CheckStateRole)
+                                    dialogButtonBox.accepted()
+                                }
                             }
                         }
                     }
@@ -143,6 +150,13 @@ PWD.SystemDialog {
                                         root.clearSelection()
                                     }
                                     windowsView.model.setData(windowsView.model.index(model.row, 0), to, Qt.CheckStateRole)
+                                }
+
+                                // double clicking always means selecting only the clicked item and confirming
+                                onDoubleClicked: {
+                                    root.clearSelection()
+                                    windowsView.model.setData(windowsView.model.index(model.row, 0), Qt.Checked, Qt.CheckStateRole)
+                                    dialogButtonBox.accepted()
                                 }
                             }
                         }
