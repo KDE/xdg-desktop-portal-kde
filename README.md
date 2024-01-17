@@ -17,3 +17,7 @@ $ cmake .. [your_options]
 $ make -j5
 $ make install
 ```
+
+## Testing xdg-desktop-portal-kde
+
+The repository [xdg-portal-test-kde](https://invent.kde.org/libraries/xdg-portal-test-kde) contains a simple test application.
