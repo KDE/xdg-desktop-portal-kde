@@ -14,6 +14,8 @@ Kirigami.Card {
 
     property alias nodeId: pipeWireSourceItem.nodeId
 
+    showClickFeedback: true
+
     contentItem: PipeWire.PipeWireSourceItem {
         id: pipeWireSourceItem
         Layout.preferredHeight: Kirigami.Units.gridUnit * 7

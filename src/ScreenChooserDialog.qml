@@ -80,12 +80,18 @@ PWD.SystemDialog {
                                 required property int index
                                 required property var model
 
+                                function selectAndAccept(): void {
+                                    root.clearSelection()
+                                    outputsView.model.setData(outputsView.model.index(model.row, 0), Qt.Checked, Qt.CheckStateRole)
+                                    dialogButtonBox.accepted()
+                                }
+
                                 banner {
                                     title: model.display
                                     titleIcon: model.decoration
                                     titleLevel: 3
                                 }
-                                checkable: true
+                                checkable: root.multiple
                                 checked: model.checked === Qt.Checked
                                 nodeId: waylandItem.nodeId
 
@@ -94,19 +100,26 @@ PWD.SystemDialog {
                                     outputName: delegate.model.name
                                 }
 
+                                // Only active if this is a multi-select dialog
                                 onToggled: {
                                     const to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
-                                    if (!root.multiple && to === Qt.Checked) {
-                                        root.clearSelection()
-                                    }
                                     outputsView.model.setData(outputsView.model.index(model.row, 0), to, Qt.CheckStateRole)
                                 }
 
-                                // double clicking always means selecting only the clicked item and confirming
+                                // If this is isn't a multi-select dialog, accept on click
+                                // since the cards are functioning as buttons
+                                onClicked: {
+                                    if (!root.multiple) {
+                                        selectAndAccept()
+                                    }
+                                }
+
+                                // If this is a multi-select dialog, let people choose just
+                                // one thing quickly by double-clicking
                                 onDoubleClicked: {
-                                    root.clearSelection()
-                                    outputsView.model.setData(outputsView.model.index(model.row, 0), Qt.Checked, Qt.CheckStateRole)
-                                    dialogButtonBox.accepted()
+                                    if (root.multiple) {
+                                        selectAndAccept()
+                                    }
                                 }
                             }
                         }
@@ -130,12 +143,18 @@ PWD.SystemDialog {
                                 required property int index
                                 required property var model
 
+                                function selectAndAccept(): void {
+                                    root.clearSelection()
+                                    windowsView.model.setData(windowsView.model.index(model.row, 0), Qt.Checked, Qt.CheckStateRole)
+                                    dialogButtonBox.accepted()
+                                }
+
                                 banner {
                                     title: model.display ?? ""
                                     titleIcon: model.decoration ?? ""
                                     titleLevel: 3
                                 }
-                                checkable: true
+                                checkable: root.multiple
                                 checked: model.checked === Qt.Checked
                                 nodeId: waylandItem.nodeId
 
@@ -144,19 +163,26 @@ PWD.SystemDialog {
                                     uuid: delegate.model.Uuid
                                 }
 
+                                // Only active if this is a multi-select dialog
                                 onToggled: {
                                     const to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
-                                    if (!root.multiple && to === Qt.Checked) {
-                                        root.clearSelection()
-                                    }
                                     windowsView.model.setData(windowsView.model.index(model.row, 0), to, Qt.CheckStateRole)
                                 }
 
-                                // double clicking always means selecting only the clicked item and confirming
+                                // If this is isn't a multi-select dialog, accept on click
+                                // since the cards are functioning as buttons
+                                onClicked: {
+                                    if (!root.multiple) {
+                                        selectAndAccept()
+                                    }
+                                }
+
+                                // If this is a multi-select dialog, let people choose just
+                                // one thing quickly by double-clicking
                                 onDoubleClicked: {
-                                    root.clearSelection()
-                                    windowsView.model.setData(windowsView.model.index(model.row, 0), Qt.Checked, Qt.CheckStateRole)
-                                    dialogButtonBox.accepted()
+                                    if (root.multiple) {
+                                        selectAndAccept()
+                                    }
                                 }
                             }
                         }
@@ -172,10 +198,12 @@ PWD.SystemDialog {
         }
     }
 
-    standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
+    standardButtons: root.multiple ? QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel: null
 
     Component.onCompleted: {
-        dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18n("Share")
+        if (root.multiple) {
+            dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18n("Share")
+        }
 
         // If there's only one thing in the list, pre-select it to save the user a click
         if (outputsView.count === 1 && windowsView.count === 0) {
