@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 00:38+0000\n"
+"POT-Creation-Date: 2024-01-19 00:38+0000\n"
 "PO-Revision-Date: 2023-08-29 14:47+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: \n"
@@ -363,12 +363,12 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - Входни устройства\n"
 
-#: src/RemoteDesktopDialog.qml:29 src/ScreenChooserDialog.qml:171
+#: src/RemoteDesktopDialog.qml:29 src/ScreenChooserDialog.qml:197
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Позволяване на възстановяване на бъдещи сесии"
 
-#: src/RemoteDesktopDialog.qml:36 src/ScreenChooserDialog.qml:178
+#: src/RemoteDesktopDialog.qml:36 src/ScreenChooserDialog.qml:205
 #: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"
@@ -584,17 +584,3 @@ msgstr "Неуспешно стартиране на видеозапис на �
 #, kde-format
 msgid "Remote desktop"
 msgstr "Отдалечен работен плот"
-
-#~ msgid ""
-#~ "Laptop screen\n"
-#~ "Model: %1"
-#~ msgstr ""
-#~ "Екран на лаптоп\n"
-#~ "Модел: %1"
-
-#~ msgid ""
-#~ "Manufacturer: %1\n"
-#~ "Model: %2"
-#~ msgstr ""
-#~ "Производител: %1\n"
-#~ "Модел: %2"
