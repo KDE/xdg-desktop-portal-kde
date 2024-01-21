@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-18 02:24+0000\n"
-"PO-Revision-Date: 2022-12-28 02:03+0200\n"
+"PO-Revision-Date: 2024-01-21 00:48+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -56,54 +56,51 @@ msgstr "Pasirinkite programą, skirtą atverti <filename>%1</filename>"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr ""
+msgstr "Visada atverti %1 failus naudojant pasirinktą programą"
 
 #: src/AppChooserDialog.qml:67
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgid "Show All Installed Applications"
-msgstr "Pasirinkti programą"
+msgstr "Rodyti visas įdiegtas programas"
 
 #: src/AppChooserDialog.qml:179
 #, kde-format
 msgid "Default app for this file type"
-msgstr ""
+msgstr "Numatytoji programa šiam failo tipui"
 
 #: src/AppChooserDialog.qml:180
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
-msgstr ""
+msgstr "Paskutinė naudota programa šiam failo tipui"
 
 #: src/AppChooserDialog.qml:199
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "Nėra atitikmenų"
 
 #: src/AppChooserDialog.qml:199
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Choose an application to open <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
-msgstr "Pasirinkite programą, skirtą atverti <filename>%1</filename>"
+msgstr "Jokia įdiegta programa negali atverti <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:203
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr ""
+msgstr "Rasti daugiau programoje Discover"
 
 #: src/AppChooserDialog.qml:218
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
+"Nematote tinkamos programos? Raskite daugiau programoje <link>Discover</"
+"link>."
 
 #: src/background.cpp:132
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgid "Background Activity"
 msgstr "Foninė veikla"
 
@@ -114,10 +111,11 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
+"%1 neturėdama matomų langų nori ir toliau veikti fone. Jeigu tai uždrausite, "
+"programa užbaigs savo darbą, kai užvėrsite paskutinį jos langą."
 
 #: src/background.cpp:141 src/background.cpp:158
-#, fuzzy, kde-format
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Leisti"
@@ -127,16 +125,15 @@ msgstr "Leisti"
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
-msgstr ""
+msgstr "Uždrausti"
 
 #: src/background.cpp:152
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
 msgid "Background App Usage"
-msgstr "Foninė veikla"
+msgstr "Foninė programos veikla"
 
 #: src/background.cpp:154
 #, kde-format
@@ -146,13 +143,16 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
+"Turėkite omenyje, jog tai privers programą %1 baigti darbą, kai bus užvertas "
+"paskutinis jos langas. Tai gali sukelti tam tikrų duomenų praradimą tuo "
+"atveju, jei kai taip nutiks, programoje bus neįrašytų pakeitimų."
 
 #: src/background.cpp:159
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid Anyway"
-msgstr ""
+msgstr "Vis tiek uždrausti"
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format
@@ -170,25 +170,25 @@ msgstr "Pridėti programą…"
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
-msgstr ""
+msgstr "Pavadinimas"
 
 #: src/DynamicLauncherDialog.qml:90
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr ""
+msgstr "Taisyti informaciją…"
 
 #: src/DynamicLauncherDialog.qml:96
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
-msgstr ""
+msgstr "Priimti"
 
 #: src/DynamicLauncherDialog.qml:101
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
-msgstr ""
+msgstr "Atsisakyti"
 
 #: src/filechooser.cpp:477
 #, kde-format
@@ -211,59 +211,54 @@ msgid "Save File"
 msgstr "Įrašyti failą"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:18
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create New Folder"
-msgstr "Pasirinkti aplanką"
+msgstr "Sukurti naują aplanką"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:28
 #, kde-format
 msgid "Create new folder in %1"
-msgstr ""
+msgstr "Sukurti naują aplanką ties %1"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:35
-#, fuzzy, kde-format
-#| msgctxt "NAME OF TRANSLATORS"
-#| msgid "Your names"
+#, kde-format
 msgid "Folder name"
-msgstr "Moo"
+msgstr "Aplanko pavadinimas"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:46
 #, kde-format
 msgid "OK"
-msgstr ""
+msgstr "Gerai"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:57
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Atsisakyti"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
 msgid "File name"
-msgstr ""
+msgstr "Failo pavadinimas"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:117
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Select"
-msgstr "Pasirinkti aplanką"
+msgstr "Žymėti"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:61
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create Folder"
-msgstr "Pasirinkti aplanką"
+msgstr "Sukurti aplanką"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Filter Filetype"
-msgstr ""
+msgstr "Filtruoti failo tipą"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:75
 #, kde-format
 msgid "Show Hidden Files"
-msgstr ""
+msgstr "Rodyti paslėptus failus"
 
 #: src/outputsmodel.cpp:19
 #, kde-format
@@ -278,7 +273,7 @@ msgstr "Nauja virtualioji išvestis"
 #: src/outputsmodel.cpp:28
 #, kde-format
 msgid "Rectangular Region"
-msgstr ""
+msgstr "Stačiakampė sritis"
 
 #: src/outputsmodel.cpp:45
 #, kde-format
@@ -288,96 +283,91 @@ msgstr "Nešiojamasis kompiuteris"
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
 msgid "Start streaming:"
-msgstr ""
+msgstr "Pradėti transliavimą:"
 
 #: src/region-select/RegionSelectOverlay.qml:151
 #, kde-format
 msgid "Clear selection:"
-msgstr ""
+msgstr "Išvalyti žymėjimą:"
 
 #: src/region-select/RegionSelectOverlay.qml:155
 #: src/region-select/RegionSelectOverlay.qml:199
 #, kde-format
 msgid "Cancel:"
-msgstr ""
+msgstr "Atsisakyti:"
 
 #: src/region-select/RegionSelectOverlay.qml:161
 #, kde-format
 msgctxt "Mouse action"
 msgid "Release left-click"
-msgstr ""
+msgstr "Kairiojo mygtuko atleidimas"
 
 #: src/region-select/RegionSelectOverlay.qml:165
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
-msgstr ""
+msgstr "Dešinysis spustelėjimas"
 
 #: src/region-select/RegionSelectOverlay.qml:169
 #: src/region-select/RegionSelectOverlay.qml:209
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
-msgstr ""
+msgstr "Grįžimo (Esc) klavišas"
 
 #: src/region-select/RegionSelectOverlay.qml:195
 #, kde-format
 msgid "Create selection:"
-msgstr ""
+msgstr "Sukurti žymėjimą:"
 
 #: src/region-select/RegionSelectOverlay.qml:205
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
-msgstr ""
+msgstr "Kairysis pelės mygtukas ir tempti"
 
 #: src/remotedesktop.cpp:150
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
-msgstr ""
+msgstr "Pradėtas nuotolinio valdymo seansas"
 
 #: src/remotedesktopdialog.cpp:23
 #, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
-msgstr ""
+msgstr "Paprašyta nuotolinio valdymo"
 
 #: src/remotedesktopdialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Requested access to:\n"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
 msgstr "Paprašyta prieigos prie:\n"
 
 #: src/remotedesktopdialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Requested access to:\n"
+#, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr "Paprašyta prieigos prie:\n"
+msgstr "%1 paprašė prieigos, kad galėtų nuotoliniu būdu valdyti:\n"
 
 #: src/remotedesktopdialog.cpp:42
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr "Visas ekranas"
+msgstr " - Ekranai\n"
 
 #: src/remotedesktopdialog.cpp:45
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events"
-#| msgid "- Input devices\n"
+#, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
-msgstr "- Įvesties įrenginiai\n"
+msgstr " - Įvedimo įrenginiai\n"
 
 #: src/RemoteDesktopDialog.qml:29 src/ScreenChooserDialog.qml:171
 #, kde-format
 msgid "Allow restoring on future sessions"
-msgstr ""
+msgstr "Leisti būsimuosiuose seansuose atkurti"
 
 #: src/RemoteDesktopDialog.qml:36 src/ScreenChooserDialog.qml:178
 #: src/UserInfoDialog.qml:43
@@ -468,10 +458,9 @@ msgid "Choose which window to share with %1:"
 msgstr "Pasirinkite, kurį langą bendrinti su %1:"
 
 #: src/ScreenChooserDialog.qml:39
-#, fuzzy, kde-format
-#| msgid "Full Screen"
+#, kde-format
 msgid "Screens"
-msgstr "Visas ekranas"
+msgstr "Ekranai"
 
 #: src/ScreenChooserDialog.qml:42
 #, kde-format
@@ -494,16 +483,14 @@ msgid "Active Window"
 msgstr "Aktyvus langas"
 
 #: src/ScreenshotDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "Request screenshot"
+#, kde-format
 msgid "Request Screenshot"
-msgstr "Užklausti ekrano kopiją"
+msgstr "Prašyti ekrano kopijos"
 
 #: src/ScreenshotDialog.qml:29
-#, fuzzy, kde-format
-#| msgid "<b>Capture Mode</b>"
+#, kde-format
 msgid "Capture Mode"
-msgstr "<b>Fotografavimo veiksena</b>"
+msgstr "Fotografavimo veiksena"
 
 #: src/ScreenshotDialog.qml:33
 #, kde-format
@@ -519,20 +506,18 @@ msgstr "Delsa:"
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 sekundė"
+msgstr[1] "%1 sekundės"
+msgstr[2] "%1 sekundžių"
+msgstr[3] "%1 sekundė"
 
 #: src/ScreenshotDialog.qml:47
-#, fuzzy, kde-format
-#| msgid "<b>Content Options</b>"
+#, kde-format
 msgid "Content Options"
-msgstr "<b>Turinio parinktys</b>"
+msgstr "Turinio parinktys"
 
 #: src/ScreenshotDialog.qml:51
-#, fuzzy, kde-format
-#| msgid "Include mouse pointer"
+#, kde-format
 msgid "Include cursor pointer"
 msgstr "Įtraukti pelės rodyklę"
 
@@ -542,25 +527,23 @@ msgid "Include window borders"
 msgstr "Įtraukti lango rėmelius"
 
 #: src/ScreenshotDialog.qml:71
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save"
-msgstr "Įrašyti failą"
+msgstr "Įrašyti"
 
 #: src/ScreenshotDialog.qml:81
 #, kde-format
 msgid "Take"
-msgstr ""
+msgstr "Padaryti"
 
 #: src/session.cpp:169
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
-msgstr ""
+msgstr "Užbaigti"
 
 #: src/session.cpp:262
-#, fuzzy, kde-format
-#| msgid "Remote desktop"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
@@ -571,14 +554,13 @@ msgstr "Nuotolinis darbalaukis"
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Bendrinamas turinys į %2"
+msgstr[1] "%1 vaizdo srautai į %2"
+msgstr[2] "%1 vaizdo srautų į %2"
+msgstr[3] "%1 vaizdo srautas į %2"
 
 #: src/session.cpp:282
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
