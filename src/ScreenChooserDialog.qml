@@ -210,6 +210,7 @@ PWD.SystemDialog {
             id: allowRestoreItem
             checked: true
             text: i18n("Allow restoring on future sessions")
+            Layout.topMargin: Kirigami.Units.smallSpacing
         }
     }
 
