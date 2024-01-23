@@ -17,23 +17,11 @@ Kirigami.Card {
 
     showClickFeedback: true
 
-    header: RowLayout {
-        Kirigami.Icon {
-            source: model.decoration
-            Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
-            Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
-        }
-        QQC2.Label {
-            text: model.display
-            elide: Text.ElideRight
-            Layout.fillWidth: true
-        }
-
-        QQC2.CheckBox {
-            visible: card.checkable
-            checked: card.checked
-            onToggled: card.checked = checked
-        }
+    banner {
+        title: model.display
+        titleIcon: model.decoration
+        titleLevel: 6
+        titleIconSize: Kirigami.Units.iconSizes.smallMedium
     }
 
     contentItem: PipeWire.PipeWireSourceItem {
