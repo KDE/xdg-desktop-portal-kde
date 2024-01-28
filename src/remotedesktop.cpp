@@ -180,17 +180,6 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
 
         session->setStreams(streams);
         results.insert(QStringLiteral("streams"), QVariant::fromValue<WaylandIntegration::Streams>(streams));
-        results.insert(QStringLiteral("clipboard_enabled"), false);
-        if (session->persistMode() != ScreenCastPortal::NoPersist) {
-            results.insert("persist_mode", quint32(persist));
-            if (persist != ScreenCastPortal::NoPersist) {
-                const RestoreData restoreData = {
-                    "KDE",
-                    RestoreData::currentRestoreDataVersion(),
-                    QVariantMap{{"screenShareEnabled", session->screenSharingEnabled()}, {"devices", QVariant::fromValue(session->deviceTypes())}}};
-                results.insert("restore_data", QVariant::fromValue<RestoreData>(restoreData));
-            }
-        }
     } else {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop()) << "Only stream input";
         session->refreshDescription();
@@ -198,6 +187,17 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
     session->acquireStreamingInput();
 
     results.insert(QStringLiteral("devices"), QVariant::fromValue<uint>(session->deviceTypes()));
+    results.insert(QStringLiteral("clipboard_enabled"), false);
+    if (session->persistMode() != ScreenCastPortal::NoPersist) {
+        results.insert("persist_mode", quint32(persist));
+        if (persist != ScreenCastPortal::NoPersist) {
+            const RestoreData restoreData = {
+                "KDE",
+                RestoreData::currentRestoreDataVersion(),
+                QVariantMap{{"screenShareEnabled", session->screenSharingEnabled()}, {"devices", QVariant::fromValue(session->deviceTypes())}}};
+            results.insert("restore_data", QVariant::fromValue<RestoreData>(restoreData));
+        }
+    }
 
     return 0;
 }
