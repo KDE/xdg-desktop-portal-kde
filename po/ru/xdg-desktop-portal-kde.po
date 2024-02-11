@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Alexander Potashev <aspotashev@gmail.com>, 2017, 2018.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024 Alexander Yavorsky <kekcuha@gmail.com>
 # Мария Шикунова <translation-team@basealt.ru>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-18 02:24+0000\n"
-"PO-Revision-Date: 2023-02-25 12:48+0300\n"
+"PO-Revision-Date: 2024-02-10 13:13+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 24.01.95\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -70,11 +70,10 @@ msgid "Default app for this file type"
 msgstr "Приложение по умолчанию"
 
 #: src/AppChooserDialog.qml:180
-#, fuzzy, kde-format
-#| msgid "Default app for this file type"
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
-msgstr "Приложение по умолчанию"
+msgstr "Последнее использованное приложение для открытия этого типа файлов"
 
 #: src/AppChooserDialog.qml:199
 #, kde-format
@@ -104,8 +103,7 @@ msgstr ""
 "<link>Discover</link>."
 
 #: src/background.cpp:132
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgid "Background Activity"
 msgstr "Фоновая активность"
 
@@ -116,10 +114,12 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
+"Приложение %1 хочет продолжать работу, даже если у него нет видимых окон. "
+"Если такое поведение будет запрещено, то приложение будет закрыто при "
+"закрытии его последнего окна."
 
 #: src/background.cpp:141 src/background.cpp:158
-#, fuzzy, kde-format
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Разрешить"
@@ -129,16 +129,15 @@ msgstr "Разрешить"
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
-msgstr ""
+msgstr "Запретить"
 
 #: src/background.cpp:152
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
 msgid "Background App Usage"
-msgstr "Фоновая активность"
+msgstr "Фоновая активность приложения"
 
 #: src/background.cpp:154
 #, kde-format
@@ -148,13 +147,16 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
+"Обратите внимание, что это действие приведёт к принудительному завершению "
+"приложения «%1», когда его последнее окно будет закрыто. Это может привести "
+"к потере данных, если в приложении есть несохраненные изменения."
 
 #: src/background.cpp:159
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid Anyway"
-msgstr ""
+msgstr "Всё равно запретить"
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format
