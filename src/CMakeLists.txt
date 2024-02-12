@@ -257,6 +257,7 @@ qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS org.kde.KWin.TabletModeManager
 qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS org.kde.KWin.VirtualKeyboard.xml virtualkeyboard_interface)
 
 qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde FILES ${PLASMA_WAYLAND_PROTOCOLS_DIR}/zkde-screencast-unstable-v1.xml)
+qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde FILES ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml)
 qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde FILES ${Wayland_DATADIR}/wayland.xml)
 
 

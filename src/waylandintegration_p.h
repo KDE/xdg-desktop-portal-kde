@@ -14,6 +14,9 @@
 #include <QDateTime>
 #include <QList>
 #include <QMap>
+#include <QWaylandClientExtension>
+
+#include "qwayland-fake-input.h"
 
 class Screencasting;
 class ScreencastingStream;
@@ -27,7 +30,6 @@ class EventQueue;
 class Registry;
 class PlasmaWindow;
 class PlasmaWindowManagement;
-class FakeInput;
 class RemoteBuffer;
 class XdgImporter;
 }
@@ -37,6 +39,14 @@ class QWindow;
 
 namespace WaylandIntegration
 {
+
+class FakeInput : public QWaylandClientExtensionTemplate<FakeInput>, public QtWayland::org_kde_kwin_fake_input
+{
+public:
+    FakeInput();
+    ~FakeInput() override;
+};
+
 class WaylandIntegrationPrivate : public WaylandIntegration::WaylandIntegration
 {
     Q_OBJECT
@@ -94,7 +104,7 @@ private:
     QDateTime m_lastFrameTime;
     QList<Stream> m_streams;
 
-    KWayland::Client::FakeInput *m_fakeInput = nullptr;
+    std::unique_ptr<FakeInput> m_fakeInput;
     Screencasting *m_screencasting = nullptr;
 };
 
