@@ -44,7 +44,6 @@
 #include <unistd.h>
 #include <xkbcommon/xkbcommon.h>
 
-#include <KWayland/Client/fakeinput.h>
 #include <qpa/qplatformnativeinterface.h>
 #include <waylandintegration_debug.h>
 
@@ -52,6 +51,19 @@ Q_GLOBAL_STATIC(WaylandIntegration::WaylandIntegrationPrivate, globalWaylandInte
 
 namespace WaylandIntegration
 {
+FakeInput::FakeInput()
+    : QWaylandClientExtensionTemplate<FakeInput>(5)
+{
+    initialize();
+}
+
+FakeInput::~FakeInput()
+{
+    if (isActive()) {
+        destroy();
+    }
+}
+
 QDebug operator<<(QDebug dbg, const Stream &c)
 {
     dbg.nospace() << "Stream(" << c.map << ", " << c.nodeId << ")";
@@ -236,11 +248,21 @@ bool WaylandIntegration::WaylandIntegrationPrivate::isStreamingAvailable() const
 void WaylandIntegration::WaylandIntegrationPrivate::acquireStreamingInput(bool acquire)
 {
     if (acquire) {
-        authenticate();
+        if (!m_fakeInput) {
+            m_fakeInput = std::make_unique<FakeInput>();
+            if (!m_fakeInput->isActive()) {
+                qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "org_kde_kwin_fake_input protocol is unsupported by the compositor";
+            } else {
+                m_fakeInput->authenticate(QCoreApplication::applicationName(), QStringLiteral("Remote desktop session input"));
+            }
+        }
         ++m_streamInput;
     } else {
         Q_ASSERT(m_streamInput > 0);
         --m_streamInput;
+        if (m_streamInput == 0) {
+            m_fakeInput.reset();
+        }
     }
 }
 
@@ -355,64 +377,72 @@ void WaylandIntegration::WaylandIntegrationPrivate::stopStreaming(uint32_t nodei
 
 void WaylandIntegration::WaylandIntegrationPrivate::requestPointerButtonPress(quint32 linuxButton)
 {
-    if (m_streamInput && m_fakeInput) {
-        m_fakeInput->requestPointerButtonPress(linuxButton);
+    if (m_fakeInput && m_fakeInput->isActive()) {
+        m_fakeInput->button(linuxButton, WL_POINTER_BUTTON_STATE_PRESSED);
     }
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::requestPointerButtonRelease(quint32 linuxButton)
 {
-    if (m_streamInput && m_fakeInput) {
-        m_fakeInput->requestPointerButtonRelease(linuxButton);
+    if (m_fakeInput && m_fakeInput->isActive()) {
+        m_fakeInput->button(linuxButton, WL_POINTER_BUTTON_STATE_RELEASED);
     }
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::requestPointerMotion(const QSizeF &delta)
 {
-    if (m_streamInput && m_fakeInput) {
-        m_fakeInput->requestPointerMove(delta);
+    if (m_fakeInput && m_fakeInput->isActive()) {
+        m_fakeInput->pointer_motion(wl_fixed_from_double(delta.width()), wl_fixed_from_double(delta.height()));
     }
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::requestPointerMotionAbsolute(uint streamNodeId, const QPointF &pos)
 {
-    if (m_streamInput && m_fakeInput) {
+    if (m_fakeInput && m_fakeInput->isActive()) {
         for (auto stream : std::as_const(m_streams)) {
             if (stream.nodeId == streamNodeId) {
-                m_fakeInput->requestPointerMoveAbsolute(pos + stream.stream->geometry().topLeft());
+                m_fakeInput->pointer_motion_absolute(wl_fixed_from_double(pos.x() + stream.stream->geometry().x()),
+                                                     wl_fixed_from_double(pos.y() + stream.stream->geometry().y()));
                 return;
             }
         }
         // If no stream is found, just send it as absolute coordinates relative to the workspace.
-        m_fakeInput->requestPointerMoveAbsolute(pos);
+        m_fakeInput->pointer_motion_absolute(wl_fixed_from_double(pos.x()), wl_fixed_from_double(pos.y()));
     }
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta)
 {
-    if (m_streamInput && m_fakeInput) {
-        m_fakeInput->requestPointerAxis(axis, delta);
+    if (m_fakeInput && m_fakeInput->isActive()) {
+        switch (axis) {
+        case Qt::Horizontal:
+            m_fakeInput->axis(WL_POINTER_AXIS_HORIZONTAL_SCROLL, wl_fixed_from_double(delta));
+            break;
+        case Qt::Vertical:
+            m_fakeInput->axis(WL_POINTER_AXIS_VERTICAL_SCROLL, wl_fixed_from_double(delta));
+            break;
+        }
     }
 }
 void WaylandIntegration::WaylandIntegrationPrivate::requestPointerAxis(qreal x, qreal y)
 {
-    if (m_streamInput && m_fakeInput) {
+    if (m_fakeInput && m_fakeInput->isActive()) {
         if (x != 0) {
-            m_fakeInput->requestPointerAxis(Qt::Horizontal, x);
+            m_fakeInput->axis(WL_POINTER_AXIS_HORIZONTAL_SCROLL, wl_fixed_from_double(x));
         }
         if (y != 0) {
-            m_fakeInput->requestPointerAxis(Qt::Vertical, -y);
+            m_fakeInput->axis(WL_POINTER_AXIS_VERTICAL_SCROLL, wl_fixed_from_double(-y));
         }
     }
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::requestKeyboardKeycode(int keycode, bool state)
 {
-    if (m_streamInput && m_fakeInput) {
+    if (m_fakeInput && m_fakeInput->isActive()) {
         if (state) {
-            m_fakeInput->requestKeyboardKeyPress(keycode);
+            m_fakeInput->keyboard_key(keycode, WL_KEYBOARD_KEY_STATE_PRESSED);
         } else {
-            m_fakeInput->requestKeyboardKeyRelease(keycode);
+            m_fakeInput->keyboard_key(keycode, WL_KEYBOARD_KEY_STATE_RELEASED);
         }
     }
 }
@@ -532,7 +562,7 @@ private:
 
 void WaylandIntegration::WaylandIntegrationPrivate::requestKeyboardKeysym(int keysym, bool state)
 {
-    if (m_streamInput && m_fakeInput) {
+    if (m_fakeInput && m_fakeInput->isActive()) {
         auto keycode = Xkb::self()->keycodeFromKeysym(keysym);
         if (!keycode) {
             qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "Failed to convert keysym into keycode" << keysym;
@@ -541,9 +571,9 @@ void WaylandIntegration::WaylandIntegrationPrivate::requestKeyboardKeysym(int ke
 
         auto sendKey = [this, state](int keycode) {
             if (state) {
-                m_fakeInput->requestKeyboardKeyPress(keycode);
+                m_fakeInput->keyboard_key(keycode, WL_KEYBOARD_KEY_STATE_PRESSED);
             } else {
-                m_fakeInput->requestKeyboardKeyRelease(keycode);
+                m_fakeInput->keyboard_key(keycode, WL_KEYBOARD_KEY_STATE_RELEASED);
             }
         };
         switch (keycode->level) {
@@ -565,22 +595,22 @@ void WaylandIntegration::WaylandIntegrationPrivate::requestKeyboardKeysym(int ke
 
 void WaylandIntegration::WaylandIntegrationPrivate::requestTouchDown(quint32 touchPoint, const QPointF &pos)
 {
-    if (m_streamInput && m_fakeInput) {
-        m_fakeInput->requestTouchDown(touchPoint, pos);
+    if (m_fakeInput && m_fakeInput->isActive()) {
+        m_fakeInput->touch_down(touchPoint, wl_fixed_from_double(pos.x()), wl_fixed_from_double(pos.y()));
     }
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::requestTouchMotion(quint32 touchPoint, const QPointF &pos)
 {
-    if (m_streamInput && m_fakeInput) {
-        m_fakeInput->requestTouchMotion(touchPoint, pos);
+    if (m_fakeInput && m_fakeInput->isActive()) {
+        m_fakeInput->touch_motion(touchPoint, wl_fixed_from_double(pos.x()), wl_fixed_from_double(pos.y()));
     }
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::requestTouchUp(quint32 touchPoint)
 {
-    if (m_streamInput && m_fakeInput) {
-        m_fakeInput->requestTouchUp(touchPoint);
+    if (m_fakeInput && m_fakeInput->isActive()) {
+        m_fakeInput->touch_up(touchPoint);
     }
 }
 
@@ -635,10 +665,6 @@ void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
     }
 
     m_registry = new KWayland::Client::Registry(this);
-
-    connect(m_registry, &KWayland::Client::Registry::fakeInputAnnounced, this, [this](quint32 name, quint32 version) {
-        m_fakeInput = m_registry->createFakeInput(name, version, this);
-    });
 
     connect(m_registry, &KWayland::Client::Registry::interfaceAnnounced, this, [this](const QByteArray &interfaceName, quint32 name, quint32 version) {
         if (interfaceName != "zkde_screencast_unstable_v1")
