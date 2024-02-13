@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-19 00:38+0000\n"
+"POT-Creation-Date: 2024-02-13 00:39+0000\n"
 "PO-Revision-Date: 2023-09-17 13:05+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -577,12 +577,12 @@ msgstr "Udostępnij informacje"
 msgid "Share your personal information with the requesting application?"
 msgstr "Udostępnić dane osobiste z żądającą tego aplikacją?"
 
-#: src/waylandintegration.cpp:260 src/waylandintegration.cpp:315
+#: src/waylandintegration.cpp:282 src/waylandintegration.cpp:337
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Nie udało się rozpocząć przesyłania ekranu"
 
-#: src/waylandintegration.cpp:619
+#: src/waylandintegration.cpp:649
 #, kde-format
 msgid "Remote desktop"
 msgstr "Pulpit zdalny"
