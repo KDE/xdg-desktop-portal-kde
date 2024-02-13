@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 02:24+0000\n"
+"POT-Creation-Date: 2024-02-13 02:29+0000\n"
 "PO-Revision-Date: 2023-12-01 22:22+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew\n"
@@ -573,12 +573,12 @@ msgstr "שיתוף מידע"
 msgid "Share your personal information with the requesting application?"
 msgstr "לשתף את המידע האישי שלך עם היישום שביקש?"
 
-#: src/waylandintegration.cpp:260 src/waylandintegration.cpp:315
+#: src/waylandintegration.cpp:282 src/waylandintegration.cpp:337
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "התחלת הסרטת מסך נכשלה"
 
-#: src/waylandintegration.cpp:619
+#: src/waylandintegration.cpp:649
 #, kde-format
 msgid "Remote desktop"
 msgstr "שולחן עבודה מרוחק"

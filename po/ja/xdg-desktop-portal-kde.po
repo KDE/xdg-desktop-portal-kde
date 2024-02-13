@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-18 02:24+0000\n"
+"POT-Creation-Date: 2024-02-13 02:29+0000\n"
 "PO-Revision-Date: 2023-04-07 23:28-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -571,12 +571,12 @@ msgstr ""
 msgid "Share your personal information with the requesting application?"
 msgstr ""
 
-#: src/waylandintegration.cpp:260 src/waylandintegration.cpp:315
+#: src/waylandintegration.cpp:282 src/waylandintegration.cpp:337
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr ""
 
-#: src/waylandintegration.cpp:619
+#: src/waylandintegration.cpp:649
 #, kde-format
 msgid "Remote desktop"
 msgstr ""
