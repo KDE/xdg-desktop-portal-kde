@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-13 02:29+0000\n"
+"POT-Creation-Date: 2024-02-14 02:29+0000\n"
 "PO-Revision-Date: 2023-08-28 17:59+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -274,7 +274,7 @@ msgstr "Seuraava virtuaaliulostulo"
 msgid "Rectangular Region"
 msgstr "Nelikulmainen alue"
 
-#: src/outputsmodel.cpp:45
+#: src/outputsmodel.cpp:58
 #, kde-format
 msgid "Laptop screen"
 msgstr "Kannettavan näyttö"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-13 02:29+0000\n"
+"POT-Creation-Date: 2024-02-14 02:29+0000\n"
 "PO-Revision-Date: 2023-08-29 14:47+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: \n"
@@ -274,7 +274,7 @@ msgstr "Нов виртуален изход"
 msgid "Rectangular Region"
 msgstr "Правоъгълна област"
 
-#: src/outputsmodel.cpp:45
+#: src/outputsmodel.cpp:58
 #, kde-format
 msgid "Laptop screen"
 msgstr "Екран на лаптоп"

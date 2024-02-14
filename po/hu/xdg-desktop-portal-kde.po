@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-13 02:29+0000\n"
+"POT-Creation-Date: 2024-02-14 02:29+0000\n"
 "PO-Revision-Date: 2024-01-02 09:44+0100\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -276,7 +276,7 @@ msgstr "Új virtuális kimenet"
 msgid "Rectangular Region"
 msgstr "Téglalap alakú terület"
 
-#: src/outputsmodel.cpp:45
+#: src/outputsmodel.cpp:58
 #, kde-format
 msgid "Laptop screen"
 msgstr "Laptop képernyő"

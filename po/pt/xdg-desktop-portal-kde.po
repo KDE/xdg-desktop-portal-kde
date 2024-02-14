@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-13 02:29+0000\n"
+"POT-Creation-Date: 2024-02-14 02:29+0000\n"
 "PO-Revision-Date: 2023-01-19 03:02+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -273,7 +273,7 @@ msgstr "Nova Saída Virtual"
 msgid "Rectangular Region"
 msgstr "Região Rectangular"
 
-#: src/outputsmodel.cpp:45
+#: src/outputsmodel.cpp:58
 #, kde-format
 msgid "Laptop screen"
 msgstr "Ecrã do portátil"

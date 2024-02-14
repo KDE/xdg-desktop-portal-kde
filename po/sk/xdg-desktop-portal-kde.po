@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-13 02:29+0000\n"
+"POT-Creation-Date: 2024-02-14 02:29+0000\n"
 "PO-Revision-Date: 2024-02-12 15:05+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -269,7 +269,7 @@ msgstr "Nový virtuálny výstup"
 msgid "Rectangular Region"
 msgstr "Pravouhlá oblasť"
 
-#: src/outputsmodel.cpp:45
+#: src/outputsmodel.cpp:58
 #, kde-format
 msgid "Laptop screen"
 msgstr "Obrazovka notebooku"
