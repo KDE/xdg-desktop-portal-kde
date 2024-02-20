@@ -40,7 +40,7 @@ PWD.SystemDialog {
             to: 60
             stepSize: 1
             textFromValue: (value, locale) => i18np("%1 second", "%1 seconds", value)
-            valueFromText: (text, locale) => parseInt(text);
+            valueFromText: (text, locale) => parseInt(text)
         }
 
         Kirigami.Heading {
