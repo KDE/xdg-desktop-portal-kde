@@ -119,7 +119,7 @@ MouseArea {
         fontMetrics: fontMetrics
         visible: selectionRectangle.visible && dragSizeBox.height < selectionRectangle.height && dragSizeBox.width < selectionRectangle.width
         opacity: 1
-        contents: QQC2.Label {
+        contentItem: QQC2.Label {
             text: `${SelectionEditor.rect.width}x${SelectionEditor.rect.height}`
         }
 
@@ -141,7 +141,7 @@ MouseArea {
         fontMetrics: fontMetrics
         visible: SelectionEditor.isDragging && selectionRectangle.y + selectionRectangle.height < dragBox.y
         opacity: 1
-        contents: RowLayout {
+        contentItem: RowLayout {
             ColumnLayout {
                 QQC2.Label {
                     text: i18n("Start streaming:")
@@ -189,7 +189,7 @@ MouseArea {
         visible: !SelectionEditor.isDragging
         opacity: 1
 
-        contents: RowLayout {
+        contentItem: RowLayout {
             ColumnLayout {
                 QQC2.Label {
                     text: i18n("Create selection:")
