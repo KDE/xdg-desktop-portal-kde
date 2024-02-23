@@ -162,11 +162,8 @@ public:
         return SessionType::GlobalShortcuts;
     }
 
-    void restoreActions(const Shortcuts &shortcuts);
-    QHash<QString, QAction *> shortcuts() const
-    {
-        return m_shortcuts;
-    }
+    void setActions(const Shortcuts &shortcuts);
+    void loadActions();
 
     QVariant shortcutDescriptionsVariant() const;
     Shortcuts shortcutDescriptions() const;
@@ -186,7 +183,7 @@ Q_SIGNALS:
 
 private:
     const QString m_token;
-    QHash<QString, QAction *> m_shortcuts;
+    std::unordered_map<QString, std::unique_ptr<QAction>> m_shortcuts;
     KGlobalAccelInterface *const m_globalAccelInterface;
     KGlobalAccelComponentInterface *const m_component;
 };
