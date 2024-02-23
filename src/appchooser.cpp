@@ -12,10 +12,13 @@
 #include "request.h"
 #include "utils.h"
 
+#include <KAuthorized>
 #include <KLocalizedString>
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusServiceWatcher>
+
+using namespace Qt::StringLiterals;
 
 AppChooserPortal::AppChooserPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
@@ -46,7 +49,7 @@ uint AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
     if (!itemName.isValid()) {
         itemName = options.value(QStringLiteral("content_type"));
     }
-    AppChooserDialog *appDialog = new AppChooserDialog(choices, latestChoice, itemName.toString(), options.value(QStringLiteral("content_type")).toString());
+    auto appDialog = new AppChooserDialog(choices, latestChoice, itemName.toString(), options.value(QStringLiteral("content_type")).toString());
     m_appChooserDialogs.insert(handle.path(), appDialog);
     Utils::setParentWindow(appDialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequest(handle, appDialog);
@@ -94,6 +97,9 @@ uint AppChooserPortal::ChooseApplicationPrivate(const QString &parent_window,
     AppChooserDialog appDialog({}, options.value(QStringLiteral("last_choice")).toString(), itemName, options.value(QStringLiteral("content_type")).toString());
     Utils::setParentWindow(appDialog.windowHandle(), parent_window);
 
+    appDialog.m_appChooserData->setHistory(options.value("history"_L1).toStringList());
+    appDialog.m_appChooserData->setShellAccess(KAuthorized::authorize(KAuthorized::SHELL_ACCESS));
+
     QDBusServiceWatcher watcher(msg.service(), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForUnregistration);
     connect(&watcher, &QDBusServiceWatcher::serviceUnregistered, &appDialog, [&appDialog] {
         appDialog.reject();
@@ -102,6 +108,9 @@ uint AppChooserPortal::ChooseApplicationPrivate(const QString &parent_window,
     const bool result = appDialog.exec();
     if (result) {
         results.insert(QStringLiteral("choice"), appDialog.selectedApplication());
+        results.insert(QStringLiteral("remember"), appDialog.m_appChooserData->m_remember);
+        results.insert(QStringLiteral("openInTerminal"), appDialog.m_appChooserData->m_openInTerminal);
+        results.insert(QStringLiteral("lingerTerminal"), appDialog.m_appChooserData->m_lingerTerminal);
     }
     return result ? 0 : 1;
 }
