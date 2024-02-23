@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: LGPL-2.0-or-later
  *
  * SPDX-FileCopyrightText: 2016-2018 Jan Grulich <jgrulich@redhat.com>
+ * SPDX-FileCopyrightText: 2023 Harald Sitter <sitter@kde.org>
  */
 
 #ifndef XDG_DESKTOP_PORTAL_KDE_APPCHOOSER_DIALOG_H
@@ -15,7 +16,16 @@
 #include <QSortFilterProxyModel>
 #include <qmimetype.h>
 
+#include <KCompletion>
+#include <KConfigGroup>
 #include <KService>
+#include <KSharedConfig>
+
+#include "filechooser.h"
+#include <KFileFilterCombo>
+#include <KFileWidget>
+#include <KProcess>
+#include <QUrl>
 
 class ApplicationItem
 {
@@ -85,12 +95,19 @@ private:
 class AppChooserData : public QObject
 {
     Q_OBJECT
+    // Outgoing to QML
     Q_PROPERTY(QString fileName READ fileName WRITE setFileName NOTIFY fileNameChanged)
     Q_PROPERTY(QString defaultApp READ defaultApp WRITE setDefaultApp NOTIFY defaultAppChanged)
     Q_PROPERTY(QString lastUsedApp READ lastUsedApp WRITE setLastUsedApp NOTIFY lastUsedAppChanged)
     Q_PROPERTY(QString mimeName READ mimeName WRITE setMimeName NOTIFY mimeNameChanged)
     Q_PROPERTY(QString mimeDesc READ mimeDesc NOTIFY mimeDescChanged)
+    Q_PROPERTY(QStringList history MEMBER m_history NOTIFY historyChanged)
+    Q_PROPERTY(bool shellAccess MEMBER m_shellAccess NOTIFY shellAccessChanged)
 
+    // Incoming from QML
+    Q_PROPERTY(bool remember MEMBER m_remember NOTIFY rememberChanged)
+    Q_PROPERTY(bool openInTerminal MEMBER m_openInTerminal NOTIFY openInTerminalChanged)
+    Q_PROPERTY(bool lingerTerminal MEMBER m_lingerTerminal NOTIFY lingerTerminalChanged)
 public:
     explicit AppChooserData(QObject *parent = nullptr);
 
@@ -114,14 +131,44 @@ public:
     void setMimeDesc(const QString &mimeDesc);
     Q_SIGNAL void mimeDescChanged();
 
+    void setHistory(const QStringList &history);
+    Q_SIGNAL void historyChanged();
+
+    void setShellAccess(bool enable);
+    Q_SIGNAL void shellAccessChanged();
+
+    bool m_remember = false;
+    Q_SIGNAL void rememberChanged();
+
+    bool m_openInTerminal = false;
+    Q_SIGNAL void openInTerminalChanged();
+
+    bool m_lingerTerminal = false;
+    Q_SIGNAL void lingerTerminalChanged();
+
     Q_SIGNAL void applicationSelected(const QString &desktopFile, bool remember = false);
     Q_SIGNAL void openDiscover();
+
+public Q_SLOTS:
+    QString openFileDialog()
+    {
+        FileDialog fileDialog(nullptr);
+        fileDialog.m_fileWidget->setMode(KFile::Mode::File | KFile::Mode::ExistingOnly);
+        fileDialog.m_fileWidget->setSupportedSchemes({QStringLiteral("file")});
+        if (fileDialog.exec() != QDialog::Accepted) {
+            return {};
+        }
+        const auto urls = fileDialog.m_fileWidget->selectedUrls();
+        return urls.at(0).toLocalFile();
+    }
 
 private:
     QString m_defaultApp;
     QString m_lastUsedApp;
     QString m_fileName;
     QString m_mimeName;
+    QStringList m_history;
+    bool m_shellAccess = false;
 };
 
 class AppModel : public QAbstractListModel
@@ -167,18 +214,20 @@ public:
                               const QString &lastUsedApp,
                               const QString &fileName,
                               const QString &mimeName = QString(),
+                              bool autoRemember = false,
                               QObject *parent = nullptr);
     void updateChoices(const QStringList &choices);
 
     QString selectedApplication() const;
-private Q_SLOTS:
+public Q_SLOTS:
     void onApplicationSelected(const QString &desktopFile, const bool remember = false);
     void onOpenDiscover();
 
-private:
+public:
     AppModel *const m_model;
     QString m_selectedApplication;
     AppChooserData *const m_appChooserData;
+    bool m_autoRemember;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_APPCHOOSER_DIALOG_H

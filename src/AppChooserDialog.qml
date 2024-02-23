@@ -4,10 +4,10 @@
  *
  * SPDX-FileCopyrightText: 2019 Jan Grulich <jgrulich@redhat.com>
  * SPDX-FileCopyrightText: 2022 Nate Graham <nate@kde.org>
+ * SPDX-FileCopyrightText: 2023 Harald Sitter <sitter@kde.org>
  */
 
 pragma ComponentBehavior: Bound
-
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -23,12 +23,14 @@ PWD.SystemDialog {
     iconName: "applications-all"
 
     property bool remember: false
+    onRememberChanged: AppChooserData.remember = remember
 
     ColumnLayout {
         spacing: Kirigami.Units.smallSpacing
 
         QQC2.CheckBox {
             Layout.fillWidth: true
+            visible: AppChooserData.mimeName !== ""
             text: i18nc("@option:check %1 is description of a file type, like 'PNG image'", "Always open %1 files with the chosen app", AppChooserData.mimeDesc)
             checked: root.remember
             onToggled: {
@@ -39,23 +41,31 @@ PWD.SystemDialog {
         RowLayout {
             spacing: Kirigami.Units.smallSpacing
 
-            Kirigami.SearchField {
+            QQC2.ComboBox {
                 id: searchField
+                property bool ready: false
+                property string text: editText
+
                 implicitWidth: Kirigami.Units.gridUnit * 20
                 Layout.fillWidth: true
                 focus: true
-                // We don't want auto-accept here because it would cause the
-                // selected app in the grid view to be immediately launched
-                // without user input
-                autoAccept: false
+                editable: true
 
                 Keys.onDownPressed: {
                     grid.forceActiveFocus();
                     grid.currentIndex = 0;
                 }
-                onTextChanged: {
-                    AppModel.filter = text;
-                    if (text.length > 0 && grid.count === 1) {
+                model: AppChooserData.history
+                onModelChanged: {
+                    editText = ""
+                    ready = true
+                }
+                onEditTextChanged: {
+                    if (!ready) {
+                        return
+                    }
+                    AppModel.filter = editText;
+                    if (editText.length > 0 && grid.count === 1) {
                         grid.currentIndex = 0;
                     }
                 }
@@ -73,8 +83,22 @@ PWD.SystemDialog {
 
                 onToggled: AppModel.showOnlyPreferredApps = !AppModel.showOnlyPreferredApps
             }
-        }
 
+            QQC2.Button {
+                visible: AppChooserData.shellAccess
+                icon.name: "document-open-symbolic"
+                text: i18nc("@action:button", "Choose Other…")
+                onClicked: {
+                    const text = AppChooserData.openFileDialog()
+                    if (text !== "") {
+                        searchField.editText = text
+                    }
+                }
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: Kirigami.Settings.tabletMode ? pressed : hovered
+                QQC2.ToolTip.delay: Kirigami.Settings.tabletMode ? Qt.styleHints.mousePressAndHoldInterval : Kirigami.Units.toolTipDelay
+            }
+        }
 
         QQC2.ScrollView {
             id: scrollView
@@ -196,7 +220,7 @@ PWD.SystemDialog {
                         anchors.centerIn: parent
 
                         icon.name: "edit-none"
-                        text: searchField.text.length > 0 ? i18n("No matches") : xi18nc("@info", "No installed applications can open <filename>%1</filename>", AppChooserData.fileName)
+                        text: searchField.editText.length > 0 ? i18n("No matches") : xi18nc("@info", "No installed applications can open <filename>%1</filename>", AppChooserData.fileName)
 
                         helpfulAction: QQC2.Action {
                             icon.name: "plasmadiscover"
@@ -208,11 +232,79 @@ PWD.SystemDialog {
             }
         }
 
+        ColumnLayout {
+            visible: AppChooserData.shellAccess
+
+            RowLayout {
+                id: rowLayout
+                spacing: Kirigami.Units.largeSpacing
+                property bool expanded: false
+                onExpandedChanged: containerItem.visibleHeight = expanded ? -1 : 0
+
+                Kirigami.Heading {
+                    Layout.fillWidth: rowLayout.children.length === 1
+                    Layout.alignment: Qt.AlignVCenter
+
+                    opacity: 0.7
+                    level: 5
+                    type: Kirigami.Heading.Primary
+                    text: i18nc("@title:group", "Terminal Options")
+                    elide: Text.ElideRight
+
+                    // we override the Primary type's font weight (DemiBold) for Bold for contrast with small text
+                    font.weight: Font.Bold
+                }
+
+                Kirigami.Separator {
+                    Layout.fillWidth: true
+                    Layout.alignment: Qt.AlignVCenter
+                }
+            }
+
+            QQC2.CheckBox {
+                id: openInTerminal
+                onCheckedChanged: AppChooserData.openInTerminal = checked
+                text: i18nc("@option:check", "Run in terminal")
+            }
+
+            QQC2.CheckBox {
+                // NOTE: this only ever works for konsole and xterm as per KTerminalLauncherJob. Trouble is this
+                // information is not exposed through API, so we have no way of hiding this when not supported.
+                Layout.leftMargin: Kirigami.Units.gridUnit
+                enabled: openInTerminal.checked
+                onCheckedChanged: AppChooserData.lingerTerminal = checked
+                text: i18nc("@option:check", "Do not close when command exits")
+            }
+        }
+
+        RowLayout {
+            visible: discoverMoreEdit.visible
+            Kirigami.Heading {
+                Layout.fillWidth: rowLayout.children.length === 1
+                Layout.alignment: Qt.AlignVCenter
+
+                opacity: 0.7
+                level: 5
+                type: Kirigami.Heading.Primary
+                text: i18nc("@title:group", "Discover More Applications")
+                elide: Text.ElideRight
+
+                // we override the Primary type's font weight (DemiBold) for Bold for contrast with small text
+                font.weight: Font.Bold
+            }
+
+            Kirigami.Separator {
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignVCenter
+            }
+        }
+
         // Using a TextEdit here instead of a Label because it can know when any
         // links are hovered, which is needed for us to be able to use the correct
         // cursor shape for it.
 
         TextEdit {
+            id: discoverMoreEdit
             visible: !placeholderLoader.active && StandardPaths.findExecutable("plasma-discover").toString() !== ""
             Layout.fillWidth: true
             text: xi18nc("@info", "Don't see the right app? Find more in <link>Discover</link>.")
