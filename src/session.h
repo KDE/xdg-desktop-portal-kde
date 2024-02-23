@@ -162,7 +162,7 @@ public:
         return SessionType::GlobalShortcuts;
     }
 
-    void restoreActions(const QVariant &shortcurts);
+    void restoreActions(const Shortcuts &shortcuts);
     QHash<QString, QAction *> shortcuts() const
     {
         return m_shortcuts;
