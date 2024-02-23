@@ -338,8 +338,10 @@ GlobalShortcutsSession::GlobalShortcutsSession(QObject *parent, const QString &a
             [this](const QStringList &actionId, const QList<QKeySequence> &newKeys) {
                 Q_UNUSED(newKeys);
                 if (actionId[KGlobalAccel::ComponentUnique] == componentName()) {
-                    m_shortcuts[actionId[KGlobalAccel::ActionUnique]]->setShortcuts(newKeys);
-                    Q_EMIT shortcutsChanged();
+                    if (auto it = m_shortcuts.find(actionId[KGlobalAccel::ActionUnique]); it != m_shortcuts.end()) {
+                        it->second->setShortcuts(newKeys);
+                        Q_EMIT shortcutsChanged();
+                    }
                 }
             });
     connect(m_component,
@@ -366,8 +368,10 @@ GlobalShortcutsSession::GlobalShortcutsSession(QObject *parent, const QString &a
 
 GlobalShortcutsSession::~GlobalShortcutsSession() = default;
 
-void GlobalShortcutsSession::restoreActions(const Shortcuts &shortcuts)
+void GlobalShortcutsSession::setActions(const Shortcuts &shortcuts)
 {
+    m_shortcuts.clear();
+
     const QList<KGlobalShortcutInfo> shortcutInfos = m_component->allShortcutInfos();
     QHash<QString, KGlobalShortcutInfo> shortcutInfosByName;
     shortcutInfosByName.reserve(shortcutInfos.size());
@@ -382,9 +386,9 @@ void GlobalShortcutsSession::restoreActions(const Shortcuts &shortcuts)
             continue;
         }
 
-        QAction *&action = m_shortcuts[shortcut.first];
+        std::unique_ptr<QAction> &action = m_shortcuts[shortcut.first];
         if (!action) {
-            action = new QAction(this);
+            action = std::make_unique<QAction>();
         }
         action->setProperty("componentName", componentName());
         action->setProperty("componentDisplayName", componentName());
@@ -399,7 +403,7 @@ void GlobalShortcutsSession::restoreActions(const Shortcuts &shortcuts)
                 action->setShortcut(preferredShortcut.value());
             }
         }
-        KGlobalAccel::self()->setGlobalShortcut(action, action->shortcuts());
+        KGlobalAccel::self()->setGlobalShortcut(action.get(), action->shortcuts());
 
         shortcutInfosByName.remove(shortcut.first);
     }
@@ -407,12 +411,39 @@ void GlobalShortcutsSession::restoreActions(const Shortcuts &shortcuts)
     // We can forget the shortcuts that aren't around anymore
     while (!shortcutInfosByName.isEmpty()) {
         const QString shortcutName = shortcutInfosByName.begin().key();
-        auto action = m_shortcuts.take(shortcutName);
-        KGlobalAccel::self()->removeAllShortcuts(action);
+        auto it = m_shortcuts.find(shortcutName);
+        if (it != m_shortcuts.end()) {
+            KGlobalAccel::self()->removeAllShortcuts(it->second.get());
+            m_shortcuts.erase(it);
+        }
         shortcutInfosByName.erase(shortcutInfosByName.begin());
     }
 
-    Q_ASSERT(m_shortcuts.size() == shortcuts.size());
+    Q_ASSERT(static_cast<qsizetype>(m_shortcuts.size()) == shortcuts.size());
+}
+
+void GlobalShortcutsSession::loadActions()
+{
+    m_shortcuts.clear();
+
+    const QList<KGlobalShortcutInfo> shortcutInfos = m_component->allShortcutInfos();
+    QHash<QString, KGlobalShortcutInfo> shortcutInfosByName;
+    shortcutInfosByName.reserve(shortcutInfos.size());
+    for (const auto &shortcutInfo : shortcutInfos) {
+        shortcutInfosByName[shortcutInfo.uniqueName()] = shortcutInfo;
+    }
+
+    for (const auto &[name, info] : shortcutInfosByName.asKeyValueRange()) {
+        std::unique_ptr<QAction> &action = m_shortcuts[name];
+        if (!action) {
+            action = std::make_unique<QAction>();
+        }
+        action->setProperty("componentName", componentName());
+        action->setProperty("componentDisplayName", componentName());
+        action->setObjectName(name);
+        action->setText(info.friendlyName());
+        action->setShortcuts(info.keys());
+    }
 }
 
 QVariant GlobalShortcutsSession::shortcutDescriptionsVariant() const
@@ -425,20 +456,20 @@ QVariant GlobalShortcutsSession::shortcutDescriptionsVariant() const
 Shortcuts GlobalShortcutsSession::shortcutDescriptions() const
 {
     Shortcuts ret;
-    for (auto it = m_shortcuts.cbegin(), itEnd = m_shortcuts.cend(); it != itEnd; ++it) {
+    for (const auto &[key, action] : m_shortcuts) {
         QStringList triggers;
-        triggers.reserve((*it)->shortcuts().size());
-        const auto shortcuts = (*it)->shortcuts();
+        triggers.reserve(action->shortcuts().size());
+        const auto shortcuts = action->shortcuts();
         for (const auto &shortcut : shortcuts) {
             triggers += shortcut.toString(QKeySequence::NativeText);
         }
 
-        ret.append({it.key(),
+        ret.append({key,
                     QVariantMap{
-                        {QStringLiteral("description"), (*it)->text()},
+                        {QStringLiteral("description"), action->text()},
                         {QStringLiteral("trigger_description"), triggers.join(i18n(", "))},
                     }});
     }
-    Q_ASSERT(ret.size() == m_shortcuts.size());
+    Q_ASSERT(ret.size() == static_cast<qsizetype>(m_shortcuts.size()));
     return ret;
 }
