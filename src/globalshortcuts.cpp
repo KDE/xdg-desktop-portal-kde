@@ -54,7 +54,6 @@ uint GlobalShortcutsPortal::CreateSession(const QDBusObjectPath &handle,
         return 2;
     }
 
-    session->restoreActions(options["shortcuts"]);
     connect(session, &GlobalShortcutsSession::shortcutsChanged, this, [this, session, session_handle] {
         Q_EMIT ShortcutsChanged(session_handle, session->shortcutDescriptions());
     });
@@ -66,9 +65,6 @@ uint GlobalShortcutsPortal::CreateSession(const QDBusObjectPath &handle,
         Q_EMIT Deactivated(QDBusObjectPath(session->handle()), shortcutName, timestamp);
     });
 
-    results = {
-        {"shortcuts", session->shortcutDescriptionsVariant()},
-    };
     return 0;
 }
 
@@ -106,6 +102,7 @@ uint GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
     if (!session) {
         return 2;
     }
+    session->restoreActions(shortcuts);
     QDesktopServices::openUrl(QUrl(QStringLiteral("systemsettings://kcm_keys/") + session->componentName()));
 
     results = {

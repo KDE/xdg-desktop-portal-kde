@@ -366,17 +366,8 @@ GlobalShortcutsSession::GlobalShortcutsSession(QObject *parent, const QString &a
 
 GlobalShortcutsSession::~GlobalShortcutsSession() = default;
 
-void GlobalShortcutsSession::restoreActions(const QVariant &shortcutsVariant)
+void GlobalShortcutsSession::restoreActions(const Shortcuts &shortcuts)
 {
-    auto arg = shortcutsVariant.value<QDBusArgument>();
-
-    static const auto ShortcutsSignature = QDBusMetaType::typeToSignature(QMetaType(qMetaTypeId<Shortcuts>()));
-    if (arg.currentSignature() != QLatin1String(ShortcutsSignature)) {
-        qCWarning(XdgSessionKdeSession) << "Wrong global shortcuts type, should be " << ShortcutsSignature << "instead of " << arg.currentSignature();
-        return;
-    }
-
-    const Shortcuts shortcuts = qdbus_cast<Shortcuts>(arg);
     const QList<KGlobalShortcutInfo> shortcutInfos = m_component->allShortcutInfos();
     QHash<QString, KGlobalShortcutInfo> shortcutInfosByName;
     shortcutInfosByName.reserve(shortcutInfos.size());
