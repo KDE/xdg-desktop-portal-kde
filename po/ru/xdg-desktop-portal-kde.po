@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Alexander Potashev <aspotashev@gmail.com>, 2017, 2018.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2022, 2023.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2022, 2023, 2024.
 # Мария Шикунова <translation-team@basealt.ru>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-13 02:30+0000\n"
-"PO-Revision-Date: 2023-02-25 12:48+0300\n"
+"PO-Revision-Date: 2024-02-20 16:43+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -197,9 +197,9 @@ msgid "Save File"
 msgstr "Сохранение файла"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
-#, kde-format
+#, fuzzy, kde-format
 msgid "Create new folder"
-msgstr ""
+msgstr "Создание папки"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
@@ -207,16 +207,14 @@ msgid "Create new folder in %1"
 msgstr "Создать новую папку в %1"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
-#, fuzzy, kde-format
-#| msgctxt "NAME OF TRANSLATORS"
-#| msgid "Your names"
+#, kde-format
 msgid "folder name"
-msgstr "Мария Шикунова,Олеся Герасименко"
+msgstr "Имя папки"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "Ok"
-msgstr ""
+msgstr "ОK"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
@@ -242,12 +240,12 @@ msgstr "Выбор папки"
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
 msgid "Filter filetype"
-msgstr ""
+msgstr "Фильтр типов файлов"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Show hidden files"
-msgstr ""
+msgstr "Показывать скрытые файлы"
 
 #: src/outputsmodel.cpp:18
 #, kde-format
