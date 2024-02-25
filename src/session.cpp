@@ -443,6 +443,8 @@ void GlobalShortcutsSession::loadActions()
         action->setObjectName(name);
         action->setText(info.friendlyName());
         action->setShortcuts(info.keys());
+        // Explicitly load existing global shortcut setting
+        KGlobalAccel::self()->setShortcut(action.get(), action->shortcuts(), KGlobalAccel::Autoloading);
     }
 }
 
