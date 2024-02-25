@@ -67,6 +67,7 @@ uint GlobalShortcutsPortal::CreateSession(const QDBusObjectPath &handle,
         Q_EMIT Deactivated(QDBusObjectPath(session->handle()), shortcutName, timestamp);
     });
 
+    Q_UNUSED(results);
     return 0;
 }
 
