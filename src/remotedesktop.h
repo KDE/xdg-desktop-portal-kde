@@ -11,6 +11,9 @@
 
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
+#include <QDBusUnixFileDescriptor>
+
+class QDBusMessage;
 
 class RemoteDesktopPortal : public QDBusAbstractAdaptor
 {
@@ -79,6 +82,8 @@ public Q_SLOTS:
     void NotifyTouchMotion(const QDBusObjectPath &session_handle, const QVariantMap &options, uint stream, uint slot, int x, int y);
 
     void NotifyTouchUp(const QDBusObjectPath &session_handle, const QVariantMap &options, uint slot);
+
+    QDBusUnixFileDescriptor ConnectToEIS(const QDBusObjectPath &session_handle, const QString &app_id, const QVariantMap &options, const QDBusMessage &message);
 };
 Q_DECLARE_OPERATORS_FOR_FLAGS(RemoteDesktopPortal::DeviceTypes)
 

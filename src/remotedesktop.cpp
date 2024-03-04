@@ -17,9 +17,29 @@
 #include "waylandintegration.h"
 #include <KLocalizedString>
 #include <KNotification>
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusReply>
 #include <QGuiApplication>
 #include <QRegion>
 #include <QScreen>
+
+using namespace Qt::StringLiterals;
+
+static QString kwinService()
+{
+    return QStringLiteral("org.kde.KWin");
+}
+
+static QString kwinRemoteDesktopPath()
+{
+    return QStringLiteral("/org/kde/KWin/EIS/RemoteDesktop");
+}
+
+static QString kwinRemoteDesktopInterface()
+{
+    return QStringLiteral("org.kde.KWin.EIS.RemoteDesktop");
+}
 
 RemoteDesktopPortal::RemoteDesktopPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
@@ -59,6 +79,11 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
         const auto streams = remoteDesktopSession->streams();
         for (const WaylandIntegration::Stream &stream : streams) {
             WaylandIntegration::stopStreaming(stream.nodeId);
+        }
+        if (remoteDesktopSession->eisCookie()) {
+            auto msg = QDBusMessage::createMethodCall(kwinService(), kwinRemoteDesktopPath(), kwinRemoteDesktopInterface(), QStringLiteral("disconnect"));
+            msg.setArguments({remoteDesktopSession->eisCookie()});
+            QDBusConnection::sessionBus().send(msg);
         }
     });
 
@@ -366,4 +391,31 @@ void RemoteDesktopPortal::NotifyTouchUp(const QDBusObjectPath &session_handle, c
     }
 
     WaylandIntegration::requestTouchUp(slot);
+}
+
+QDBusUnixFileDescriptor
+RemoteDesktopPortal::ConnectToEIS(const QDBusObjectPath &session_handle, const QString &app_id, const QVariantMap &options, const QDBusMessage &message)
+{
+    Q_UNUSED(options)
+    Q_UNUSED(app_id)
+
+    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
+    if (!session) {
+        qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call ConnectToEis on non-existing session " << session_handle.path();
+        return QDBusUnixFileDescriptor();
+    }
+
+    auto msg = QDBusMessage::createMethodCall(kwinService(), kwinRemoteDesktopPath(), kwinRemoteDesktopInterface(), QStringLiteral("connectToEIS"));
+    msg.setArguments({static_cast<int>(session->deviceTypes())});
+    // Using pending reply for multiple return values
+    QDBusPendingReply<QDBusUnixFileDescriptor, int> reply = QDBusConnection::sessionBus().call(msg);
+    reply.waitForFinished();
+    if (reply.isError()) {
+        qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Failed to connect to EIS:" << reply.error();
+        auto error = message.createErrorReply(QDBusError::Failed, QStringLiteral("Failed to connect to to EIS"));
+        QDBusConnection::sessionBus().send(error);
+        return QDBusUnixFileDescriptor();
+    }
+    session->setEisCookie(reply.argumentAt<1>());
+    return reply.argumentAt<0>();
 }
