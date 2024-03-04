@@ -251,6 +251,16 @@ void RemoteDesktopSession::setScreenSharingEnabled(bool enabled)
     m_screenSharingEnabled = enabled;
 }
 
+void RemoteDesktopSession::setEisCookie(int cookie)
+{
+    m_cookie = cookie;
+}
+
+int RemoteDesktopSession::eisCookie() const
+{
+    return m_cookie;
+}
+
 void RemoteDesktopSession::acquireStreamingInput()
 {
     WaylandIntegration::acquireStreamingInput(true);

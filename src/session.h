@@ -139,6 +139,9 @@ public:
     void acquireStreamingInput();
     void refreshDescription() override;
 
+    void setEisCookie(int cookie);
+    int eisCookie() const;
+
     SessionType type() const override
     {
         return SessionType::RemoteDesktop;
@@ -148,6 +151,7 @@ private:
     bool m_screenSharingEnabled;
     RemoteDesktopPortal::DeviceTypes m_deviceTypes;
     bool m_acquired = false;
+    int m_cookie = 0;
 };
 
 class GlobalShortcutsSession : public Session
