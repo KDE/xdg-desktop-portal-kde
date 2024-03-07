@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-14 00:39+0000\n"
+"POT-Creation-Date: 2024-03-07 00:39+0000\n"
 "PO-Revision-Date: 2023-08-24 06:40+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -566,7 +566,7 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "Deljenje zaslonov"
 
-#: src/session.cpp:448
+#: src/session.cpp:472
 #, kde-format
 msgid ", "
 msgstr ", "

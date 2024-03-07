@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-14 00:39+0000\n"
+"POT-Creation-Date: 2024-03-07 00:39+0000\n"
 "PO-Revision-Date: 2023-12-01 22:22+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew\n"
@@ -558,7 +558,7 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "שידור המסך"
 
-#: src/session.cpp:448
+#: src/session.cpp:472
 #, kde-format
 msgid ", "
 msgstr ", "
