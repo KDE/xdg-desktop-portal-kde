@@ -14,12 +14,14 @@
 #include "utils.h"
 
 #include <QDBusArgument>
+#include <QDBusConnection>
+#include <QDBusMetaType>
 #include <QDBusReply>
 #include <QDateTime>
 #include <QPointer>
 #include <QStandardPaths>
+#include <QUrl>
 #include <QWindow>
-#include <QtDBus>
 
 // Keep in sync with qflatpakcolordialog from Qt flatpak platform theme
 Q_DECLARE_METATYPE(ScreenshotPortal::ColorRGB)
