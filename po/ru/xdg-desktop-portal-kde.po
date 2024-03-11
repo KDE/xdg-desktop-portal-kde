@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-14 02:29+0000\n"
+"POT-Creation-Date: 2024-03-11 02:21+0000\n"
 "PO-Revision-Date: 2024-02-10 13:13+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -569,7 +569,7 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "Демонстрация экрана"
 
-#: src/session.cpp:448
+#: src/session.cpp:472
 #, kde-format
 msgid ", "
 msgstr ", "

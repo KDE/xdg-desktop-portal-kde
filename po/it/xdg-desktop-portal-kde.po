@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-14 02:29+0000\n"
+"POT-Creation-Date: 2024-03-11 02:21+0000\n"
 "PO-Revision-Date: 2023-08-24 21:30+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -560,7 +560,7 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "Trasmissione dello schermo"
 
-#: src/session.cpp:448
+#: src/session.cpp:472
 #, kde-format
 msgid ", "
 msgstr ", "
