@@ -29,6 +29,7 @@
 #include <KIO/MimeTypeFinderJob>
 #include <KLocalizedString>
 #include <KProcess>
+#include <KSycoca>
 
 AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &lastUsedApp, const QString &fileName, const QString &mimeName, QObject *parent)
     : QuickDialog(parent)
@@ -99,6 +100,12 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &la
 
     connect(m_appChooserData, &AppChooserData::openDiscover, this, &AppChooserDialog::onOpenDiscover);
     connect(m_appChooserData, &AppChooserData::applicationSelected, this, &AppChooserDialog::onApplicationSelected);
+
+    connect(KSycoca::self(), &KSycoca::databaseChanged, this, [this, findDefaultApp, findPreferredApps] {
+        m_model->loadApplications();
+        findDefaultApp();
+        findPreferredApps();
+    });
 }
 
 QString AppChooserDialog::selectedApplication() const
@@ -516,6 +523,10 @@ QHash<int, QByteArray> AppModel::roleNames() const
 
 void AppModel::loadApplications()
 {
+    beginResetModel();
+    m_list.clear();
+    m_noDisplayAliasesFor.clear();
+
     const KService::List appServices = KApplicationTrader::query([](const KService::Ptr &service) -> bool {
         return service->isValid();
     });
@@ -535,4 +546,6 @@ void AppModel::loadApplications()
             m_list.append(appItem);
         }
     }
+
+    endResetModel();
 }
