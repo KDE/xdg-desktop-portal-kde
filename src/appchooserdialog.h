@@ -141,6 +141,9 @@ public:
 
     explicit AppModel(QObject *parent = nullptr);
 
+    // NOTE This invalidates preferred apps, call setPreferredApps aftetwards!
+    void loadApplications();
+
     void setPreferredApps(const QStringList &list);
 
     QVariant data(const QModelIndex &index, int role) const override;
@@ -151,8 +154,6 @@ Q_SIGNALS:
     void hasPreferredAppsChanged();
 
 private:
-    void loadApplications();
-
     QList<ApplicationItem> m_list;
     QHash<QString, QString> m_noDisplayAliasesFor;
     bool m_hasPreferredApps = false;
