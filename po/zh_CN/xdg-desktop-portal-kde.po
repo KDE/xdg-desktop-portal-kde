@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:39+0000\n"
-"PO-Revision-Date: 2024-03-09 04:45\n"
+"POT-Creation-Date: 2024-03-14 00:39+0000\n"
+"PO-Revision-Date: 2024-03-13 20:04\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -39,13 +39,13 @@ msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "%1 个文件"
 
-#: src/appchooserdialog.cpp:39
+#: src/appchooserdialog.cpp:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "选择应用程序"
 
-#: src/appchooserdialog.cpp:42
+#: src/appchooserdialog.cpp:43
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
