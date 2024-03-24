@@ -1,13 +1,12 @@
 # Translation of xdg-desktop-portal-kde to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2018, 2019, 2020, 2022, 2023.
 # Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail.com>, 2018, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-14 03:06+0000\n"
-"PO-Revision-Date: 2023-07-15 14:27+0200\n"
+"PO-Revision-Date: 2024-03-23 13:02+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -15,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 24.02.0\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -70,10 +69,10 @@ msgid "Default app for this file type"
 msgstr "Standardprogram for denne filtypen"
 
 #: src/AppChooserDialog.qml:180
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
-msgstr "Standardprogram for denne filtypen"
+msgstr "Siste brukte program for denne filtypen"
 
 #: src/AppChooserDialog.qml:199
 #, kde-format
