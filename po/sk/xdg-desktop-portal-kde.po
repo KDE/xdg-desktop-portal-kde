@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-14 03:06+0000\n"
-"PO-Revision-Date: 2024-02-12 15:05+0100\n"
+"PO-Revision-Date: 2024-03-24 11:10+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.01.95\n"
+"X-Generator: Lokalize 24.02.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -70,7 +70,7 @@ msgstr "Predvolená aplikácia pre tento typ súborov"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
-msgstr ""
+msgstr "Naposledy použitá aplikácia pre tento typ súboru"
 
 #: src/AppChooserDialog.qml:199
 #, kde-format
@@ -109,6 +109,8 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
+"Program %1 chce zostať spustený, aj keď nemá žiadne viditeľné okná. Ak toto "
+"zakážete, program sa ukončí, keď sa zatvorí jej posledné okno."
 
 #: src/background.cpp:141 src/background.cpp:158
 #, kde-format
@@ -121,16 +123,15 @@ msgstr "Povoliť"
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
-msgstr ""
+msgstr "Zakázať"
 
 #: src/background.cpp:152
-#, fuzzy, kde-format
-#| msgid "Background activity"
+#, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
 msgid "Background App Usage"
-msgstr "Aktivita na pozadí"
+msgstr "Používanie aplikácie na pozadí"
 
 #: src/background.cpp:154
 #, kde-format
@@ -140,13 +141,16 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
+"Všimnite si, že to vynúti ukončenie %1 po zatvorení jeho posledného okna. To "
+"by mohlo spôsobiť stratu údajov, ak má aplikácia v čase, keď sa to stane, "
+"nejaké neuložené zmeny."
 
 #: src/background.cpp:159
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid Anyway"
-msgstr ""
+msgstr "Aj tak zakázať"
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format
