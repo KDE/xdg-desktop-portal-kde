@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 00:39+0000\n"
+"POT-Creation-Date: 2024-04-16 00:40+0000\n"
 "PO-Revision-Date: 2023-10-21 17:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -322,7 +322,7 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "點擊並拖曳滑鼠左鍵"
 
-#: src/remotedesktop.cpp:150
+#: src/remotedesktop.cpp:175
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -534,28 +534,28 @@ msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "結束"
 
-#: src/session.cpp:262
+#: src/session.cpp:272
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
 msgstr "遠端桌面"
 
-#: src/session.cpp:278
+#: src/session.cpp:288
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
 msgstr[0] "正在分享 %1 個影像串流給 %2"
 
-#: src/session.cpp:282
+#: src/session.cpp:292
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
 msgstr "螢幕錄製中"
 
-#: src/session.cpp:472
+#: src/session.cpp:482
 #, kde-format
 msgid ", "
 msgstr "、"
