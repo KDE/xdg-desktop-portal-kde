@@ -50,6 +50,8 @@
 
 Q_GLOBAL_STATIC(WaylandIntegration::WaylandIntegrationPrivate, globalWaylandIntegration)
 
+struct xdg_toplevel;
+
 namespace WaylandIntegration
 {
 FakeInput::FakeInput()
@@ -621,6 +623,7 @@ void WaylandIntegration::WaylandIntegrationPrivate::setParentWindow(QWindow *win
         return;
     }
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 8, 0)
     if (auto waylandWindow = window->nativeInterface<QNativeInterface::Private::QWaylandWindow>()) {
         std::unique_ptr<XdgImported> importedParent(m_xdgImporter->import(parentHandle));
         if (auto surface = waylandWindow->surface()) {
@@ -631,6 +634,22 @@ void WaylandIntegration::WaylandIntegrationPrivate::setParentWindow(QWindow *win
             importedParent->set_parent_of(waylandWindow->surface());
         });
     }
+#else
+    if (auto waylandWindow = window->nativeInterface<QNativeInterface::Private::QWaylandWindow>()) {
+        std::unique_ptr<XdgImported> importedParent(m_xdgImporter->import(parentHandle));
+        if (waylandWindow->surfaceRole<::xdg_toplevel *>()) {
+            importedParent->set_parent_of(waylandWindow->surface());
+        }
+        // When the waylandWindow is destroyed the connection follows and the imported is not leaked.
+        connect(waylandWindow, &QNativeInterface::Private::QWaylandWindow::surfaceRoleCreated, [importedParent = std::move(importedParent), window, waylandWindow] {
+            if (waylandWindow->surfaceRole<::xdg_toplevel *>()) {
+                importedParent->set_parent_of(waylandWindow->surface());
+            } else {
+                qCWarning(XdgDesktopPortalKdeWaylandIntegration) << window << "has unknown surface role, xdg_toplevel is expected";
+            }
+        });
+    }
+#endif
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::authenticate()
