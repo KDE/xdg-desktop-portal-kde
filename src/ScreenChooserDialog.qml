@@ -194,7 +194,7 @@ PWD.SystemDialog {
         QQC2.CheckBox {
             id: allowRestoreItem
             checked: true
-            text: i18n("Allow restoring on future sessions")
+            text: i18n("Allow automatically remembering your choice")
         }
     }
 

@@ -16,7 +16,7 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
 
     // Only show the full workspace if there's several outputs
     if (screens.count() > 1 && (o & WorkspaceIncluded)) {
-        m_outputs << Output{Output::Workspace, nullptr, i18n("Full Workspace"), "Workspace", {}};
+        m_outputs << Output{Output::Workspace, nullptr, i18n("All Screens"), "Workspace", {}};
     }
 
     if (o & VirtualIncluded) {
