@@ -198,7 +198,7 @@ PWD.SystemDialog {
         }
     }
 
-    standardButtons: root.multiple ? QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel: null
+    standardButtons: root.multiple ? QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel : QQC2.DialogButtonBox.NoButton
 
     Component.onCompleted: {
         if (root.multiple) {
