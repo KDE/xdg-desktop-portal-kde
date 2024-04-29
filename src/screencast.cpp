@@ -272,8 +272,10 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         if (inhibitionsEnabled()) {
             new NotificationInhibition(app_id, i18nc("Do not disturb mode is enabled because...", "Screen sharing in progress"), session);
         }
+        qCDebug(XdgDesktopPortalKdeScreenCast) << "Screencast started successfully";
         return 0;
     }
 
+    qCWarning(XdgDesktopPortalKdeScreenCast) << "Aborting screencast";
     return 1;
 }
