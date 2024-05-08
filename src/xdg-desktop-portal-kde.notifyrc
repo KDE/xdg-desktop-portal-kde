@@ -127,7 +127,7 @@ Name[ta]=திரைப்பகிர்வு
 Name[tr]=Ekran Yayını
 Name[uk]=Трансляція
 Name[x-test]=xxScreencastingxx
-Name[zh_CN]=投屏
+Name[zh_CN]=屏幕录像
 Name[zh_TW]=螢幕錄製
 
 [Event/screencastfailure]
@@ -171,7 +171,7 @@ Name[ta]=திரைப்பகிர்வு தோல்வியடைந�
 Name[tr]=Ekran Yayını Başarısız
 Name[uk]=Помилка трансляції даних
 Name[x-test]=xxScreencasting failedxx
-Name[zh_CN]=投屏失败
+Name[zh_CN]=屏幕录像失败
 Name[zh_TW]=螢幕錄製失敗
 Comment=An error was encountered while screencasting
 Comment[ar]=حدث خطأ أثناء تسجيل الشاشة
@@ -213,7 +213,7 @@ Comment[ta]=திரையை பகிரும்போது சிக்க
 Comment[tr]=Ekran yayınlarken bir hata oluştu
 Comment[uk]=Сталася помилка під час трансляції даних з екрана
 Comment[x-test]=xxAn error was encountered while screencastingxx
-Comment[zh_CN]=投屏时发生错误
+Comment[zh_CN]=屏幕录像时发生错误
 Comment[zh_TW]=螢幕錄製時發生錯誤
 Contexts=screencast
 Action=Popup
