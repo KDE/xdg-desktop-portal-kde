@@ -554,7 +554,7 @@ msgstr[0] "%1 视频推流到 %2"
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
-msgstr "屏幕投射"
+msgstr "屏幕录像"
 
 #: src/session.cpp:482
 #, kde-format
@@ -574,7 +574,7 @@ msgstr "要与发出请求的应用程序分享您的个人信息吗？"
 #: src/waylandintegration.cpp:282 src/waylandintegration.cpp:337
 #, kde-format
 msgid "Failed to start screencasting"
-msgstr "启动投屏失败"
+msgstr "启动屏幕录像失败"
 
 #: src/waylandintegration.cpp:649
 #, kde-format
