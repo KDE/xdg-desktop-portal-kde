@@ -307,7 +307,7 @@ msgstr "Compartix"
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
-msgstr "Compartició de pantalla en curs"
+msgstr "Compartiu la pantalla en curs"
 
 #: src/screencastwidget.cpp:24
 #, kde-format
@@ -330,7 +330,7 @@ msgstr ""
 #: src/screenchooserdialog.cpp:138
 #, kde-format
 msgid "Screen Sharing"
-msgstr "Compartició de pantalla"
+msgstr "Compartiu la pantalla"
 
 #: src/screenchooserdialog.cpp:167
 #, kde-format
