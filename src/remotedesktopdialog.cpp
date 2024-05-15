@@ -34,10 +34,11 @@ bool RemoteDesktopDialog::allowRestore() const
 QString RemoteDesktopDialog::buildDescription(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled)
 {
     const QString applicationName = Utils::applicationName(appName);
-    QString description = applicationName.isEmpty() ? i18nc("Unordered list with privileges granted to an external process", "Requested access to:\n")
-                                                    : i18nc("Unordered list with privileges granted to an external process, included the app's name",
-                                                            "%1 requested access to remotely control:\n",
-                                                            applicationName);
+    QString description = applicationName.isEmpty()
+        ? i18nc("Unordered list with privileges granted to an external process", "An application requested access to:\n")
+        : i18nc("Unordered list with privileges granted to an external process, included the app's name",
+                "%1 requested access to remotely control:\n",
+                applicationName);
     if (screenSharingEnabled) {
         description += i18nc("Will allow the app to see what's on the outputs, in markdown", " - Screens\n");
     }
