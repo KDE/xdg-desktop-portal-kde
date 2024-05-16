@@ -10,11 +10,13 @@
 #define XDG_DESKTOP_PORTAL_KDE_SESSION_H
 
 #include <QAction>
+#include <QDBusPendingReply>
 #include <QDBusVirtualObject>
 #include <QObject>
 #include <QShortcut>
 
 #include "globalshortcuts.h"
+#include "inputcapture.h"
 #include "remotedesktop.h"
 #include "screencast.h"
 #include "waylandintegration.h"
@@ -36,6 +38,7 @@ public:
         ScreenCast = 0,
         RemoteDesktop = 1,
         GlobalShortcuts = 2,
+        InputCapture = 3,
     };
 
     bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) override;
@@ -190,6 +193,42 @@ private:
     std::unordered_map<QString, std::unique_ptr<QAction>> m_shortcuts;
     KGlobalAccelInterface *const m_globalAccelInterface;
     KGlobalAccelComponentInterface *const m_component;
+};
+
+class InputCaptureSession : public Session
+{
+    Q_OBJECT
+public:
+    explicit InputCaptureSession(QObject *parent, const QString &appId, const QString &path);
+    ~InputCaptureSession() override;
+
+    SessionType type() const override
+    {
+        return SessionType::InputCapture;
+    }
+
+    InputCapturePortal::State state;
+
+    void connect(const QDBusObjectPath &path);
+    QDBusObjectPath kwinInputCapture() const;
+
+    QDBusPendingReply<void> enable();
+    QDBusPendingReply<void> disable();
+    QDBusPendingReply<void> release(const QPointF &cusorPosition, bool applyPosition);
+
+    QDBusPendingReply<QDBusUnixFileDescriptor> connectToEIS();
+
+    void addBarrier(const QPair<QPoint, QPoint> &barriers);
+    void clearBarriers();
+
+Q_SIGNALS:
+    void disabled();
+    void activated(int activationId, const QPointF &cursorPosition);
+    void deactivated(int activationId);
+
+private:
+    QDBusObjectPath m_kwinInputCapture;
+    QList<QPair<QPoint, QPoint>> m_barriers;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SESSION_H

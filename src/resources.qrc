@@ -9,6 +9,7 @@
     <file>ScreenshotDialog.qml</file>
     <file>DynamicLauncherDialog.qml</file>
     <file>PipeWireDelegate.qml</file>
+    <file>InputCaptureDialog.qml</file>
     <file>region-select/RegionSelectOverlay.qml</file>
     <file>region-select/FloatingTextBox.qml</file>
     <file>region-select/FloatingBackground.qml</file>

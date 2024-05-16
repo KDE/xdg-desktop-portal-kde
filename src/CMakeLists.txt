@@ -27,6 +27,8 @@ set(xdg_desktop_portal_kde_SRCS
     globalshortcuts.cpp globalshortcuts.h
     inhibit.cpp
     inhibit.h
+    inputcapture.cpp
+    inputcapturedialog.cpp
     notification.cpp
     notification.h
     notificationinhibition.cpp
@@ -234,6 +236,14 @@ ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     CATEGORY_NAME "xdp-kde-access-dialog"
     HEADER accessdialog_debug.h
     DESCRIPTION "XDG Desktop Portal KDE Access Dialog"
+    EXPORT XDPKDE
+)
+
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeInputCapture"
+    CATEGORY_NAME "xdp-kde-inputcapture"
+    HEADER inputcapture_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Input Capture"
     EXPORT XDPKDE
 )
 

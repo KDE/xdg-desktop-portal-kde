@@ -18,6 +18,7 @@
 #include "filechooser.h"
 #include "globalshortcuts.h"
 #include "inhibit.h"
+#include "inputcapture.h"
 #include "notification.h"
 #include "print.h"
 #include "remotedesktop.h"
@@ -47,6 +48,7 @@ DesktopPortal::DesktopPortal(QObject *parent)
         m_screenCast = new ScreenCastPortal(this);
         m_remoteDesktop = new RemoteDesktopPortal(this);
         m_screenshot = new ScreenshotPortal(this);
+        new InputCapturePortal(this);
         WaylandIntegration::init();
     }
 }

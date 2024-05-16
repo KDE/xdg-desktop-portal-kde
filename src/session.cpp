@@ -30,6 +30,8 @@
 
 static QMap<QString, Session *> sessionList;
 
+using namespace Qt::StringLiterals;
+
 Session::Session(QObject *parent, const QString &appId, const QString &path)
     : QDBusVirtualObject(parent)
     , m_appId(appId)
@@ -134,6 +136,9 @@ Session *Session::createSession(QObject *parent, SessionType type, const QString
         break;
     case GlobalShortcuts:
         session = new GlobalShortcutsSession(parent, appId, path);
+        break;
+    case InputCapture:
+        session = new InputCaptureSession(parent, appId, path);
         break;
     }
 
@@ -484,4 +489,74 @@ Shortcuts GlobalShortcutsSession::shortcutDescriptions() const
     }
     Q_ASSERT(ret.size() == static_cast<qsizetype>(m_shortcuts.size()));
     return ret;
+}
+
+
+static QString kwinService()
+{
+    return u"org.kde.KWin"_s;
+}
+
+static QString kwinInputCaptureInterface()
+{
+    return u"org.kde.KWin.EIS.InputCapture"_s;
+}
+
+InputCaptureSession::InputCaptureSession(QObject *parent, const QString &appId, const QString &path)
+    : Session(parent, appId, path)
+{
+}
+
+InputCaptureSession::~InputCaptureSession() = default;
+
+void InputCaptureSession::addBarrier(const QPair<QPoint, QPoint> &barrier)
+{
+    m_barriers.push_back(barrier);
+}
+
+void InputCaptureSession::clearBarriers()
+{
+    m_barriers.clear();
+}
+
+QDBusObjectPath InputCaptureSession::kwinInputCapture() const
+{
+    return m_kwinInputCapture;
+}
+
+void InputCaptureSession::connect(const QDBusObjectPath &path)
+{
+    m_kwinInputCapture = path;
+    auto connectSignal = [this](const QString &signalName, const char *slot) {
+        QDBusConnection::sessionBus().connect(kwinService(), m_kwinInputCapture.path(), kwinInputCaptureInterface(), signalName, this, slot);
+    };
+    connectSignal("disabled", SIGNAL(disabled()));
+    connectSignal("activated", SIGNAL(activated(int, QPointF)));
+    connectSignal("decativated", SIGNAL(deactivated(int)));
+}
+
+QDBusPendingReply<void> InputCaptureSession::enable()
+{
+    auto msg = QDBusMessage::createMethodCall(kwinService(), m_kwinInputCapture.path(), kwinInputCaptureInterface(), u"enable"_s);
+    msg << QVariant::fromValue(m_barriers);
+    return QDBusConnection::sessionBus().asyncCall(msg);
+}
+
+QDBusPendingReply<void> InputCaptureSession::disable()
+{
+    auto msg = QDBusMessage::createMethodCall(kwinService(), m_kwinInputCapture.path(), kwinInputCaptureInterface(), u"disable"_s);
+    return QDBusConnection::sessionBus().asyncCall(msg);
+}
+
+QDBusPendingReply<void> InputCaptureSession::release(const QPointF &cusorPosition, bool applyPosition)
+{
+    auto msg = QDBusMessage::createMethodCall(kwinService(), m_kwinInputCapture.path(), kwinInputCaptureInterface(), u"release"_s);
+    msg << cusorPosition << applyPosition;
+    return QDBusConnection::sessionBus().asyncCall(msg);
+}
+
+QDBusPendingReply<QDBusUnixFileDescriptor> InputCaptureSession::connectToEIS()
+{
+    auto msg = QDBusMessage::createMethodCall(kwinService(), m_kwinInputCapture.path(), kwinInputCaptureInterface(), u"connectToEIS"_s);
+    return QDBusConnection::sessionBus().asyncCall(msg);
 }
