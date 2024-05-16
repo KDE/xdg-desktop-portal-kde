@@ -1,7 +1,7 @@
 # translation of xdg-desktop-portal-kde.pot to Esperanto
 # Copyright (C) 2017 Free Software Foundation, Inc.
 # This file is distributed under the same license as the xdg-desktop-portal-kde package.
-# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
+# Oliver Kellogg <olivermkellogg@gmail.com>, 2023.
 #
 # Minuskloj: ĉ ĝ ĵ ĥ ŝ ŭ   Majuskloj: Ĉ Ĝ Ĵ Ĥ Ŝ Ŭ
 #
@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-16 00:40+0000\n"
+"POT-Creation-Date: 2024-05-16 00:40+0000\n"
 "PO-Revision-Date: 2023-08-26 14:21+0100\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgstr "Oliver Kellogg"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "okellogg@users.sourceforge.net"
+msgstr "olivermkellogg@gmail.com"
 
 #: src/accessdialog.cpp:22
 #, kde-format
@@ -338,13 +338,15 @@ msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
 msgstr "Teleregilo petita"
 
-#: src/remotedesktopdialog.cpp:37
-#, kde-format
+#: src/remotedesktopdialog.cpp:38
+#, fuzzy, kde-format
+#| msgctxt "Unordered list with privileges granted to an external process"
+#| msgid "Requested access to:\n"
 msgctxt "Unordered list with privileges granted to an external process"
-msgid "Requested access to:\n"
+msgid "An application requested access to:\n"
 msgstr "Petis aliron al:\n"
 
-#: src/remotedesktopdialog.cpp:39
+#: src/remotedesktopdialog.cpp:40
 #, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
@@ -352,13 +354,13 @@ msgctxt ""
 msgid "%1 requested access to remotely control:\n"
 msgstr "%1 petis aliron al fora kontrolo:\n"
 
-#: src/remotedesktopdialog.cpp:42
+#: src/remotedesktopdialog.cpp:43
 #, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
 msgstr "- Ekranoj\n"
 
-#: src/remotedesktopdialog.cpp:45
+#: src/remotedesktopdialog.cpp:46
 #, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"

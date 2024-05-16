@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-16 00:40+0000\n"
+"POT-Creation-Date: 2024-05-16 00:40+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -335,13 +335,15 @@ msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
 msgstr "已请求远程控制"
 
-#: src/remotedesktopdialog.cpp:37
-#, kde-format
+#: src/remotedesktopdialog.cpp:38
+#, fuzzy, kde-format
+#| msgctxt "Unordered list with privileges granted to an external process"
+#| msgid "Requested access to:\n"
 msgctxt "Unordered list with privileges granted to an external process"
-msgid "Requested access to:\n"
+msgid "An application requested access to:\n"
 msgstr "请求的访问权限：\n"
 
-#: src/remotedesktopdialog.cpp:39
+#: src/remotedesktopdialog.cpp:40
 #, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
@@ -349,13 +351,13 @@ msgctxt ""
 msgid "%1 requested access to remotely control:\n"
 msgstr "%1 请求了远程控制访问权限：\n"
 
-#: src/remotedesktopdialog.cpp:42
+#: src/remotedesktopdialog.cpp:43
 #, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
 msgstr " - 屏幕\n"
 
-#: src/remotedesktopdialog.cpp:45
+#: src/remotedesktopdialog.cpp:46
 #, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
