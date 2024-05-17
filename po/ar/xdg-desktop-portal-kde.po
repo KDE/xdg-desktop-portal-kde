@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-16 00:40+0000\n"
-"PO-Revision-Date: 2024-01-17 19:16+0400\n"
+"PO-Revision-Date: 2024-05-16 11:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -335,12 +335,10 @@ msgid "Remote control requested"
 msgstr "طلب التحكم عن بعد"
 
 #: src/remotedesktopdialog.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "Requested access to:\n"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to:\n"
-msgstr "طُلب أذن الوصول إلى: \n"
+msgstr "طلب برنامج أذن الوصول إلى: \n"
 
 #: src/remotedesktopdialog.cpp:40
 #, kde-format

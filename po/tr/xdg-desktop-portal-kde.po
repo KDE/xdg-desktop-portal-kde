@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-16 00:40+0000\n"
-"PO-Revision-Date: 2024-03-23 16:09+0300\n"
+"PO-Revision-Date: 2024-05-17 01:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -48,7 +48,7 @@ msgstr "Uygulama Seç"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
-msgstr "<filename>%1</filename> ögesini açmak için bir uygulama seçin"
+msgstr "<filename>%1</filename> ögesini açmak için bir uygulama seç"
 
 #: src/AppChooserDialog.qml:32
 #, kde-format
@@ -94,7 +94,7 @@ msgstr "Keşfet’te Daha Fazlasını Bul"
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
-"Uygun uygulamayı bulamıyor musunuz? <link>Keşfet</link>'te başkalarını bulun."
+"Uygun uygulamayı bulamıyor musunuz? <link>Keşfet</link>’te başkalarını bulun."
 
 #: src/background.cpp:132
 #, kde-format
@@ -336,12 +336,10 @@ msgid "Remote control requested"
 msgstr "Uzaktan denetim istendi"
 
 #: src/remotedesktopdialog.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "Requested access to:\n"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to:\n"
-msgstr "Şuna erişim istendi:\n"
+msgstr "Bir uygulama şuna erişim istedi:\n"
 
 #: src/remotedesktopdialog.cpp:40
 #, kde-format
@@ -355,13 +353,13 @@ msgstr "%1, şunu uzaktan denetlemek için erişim istedi:\n"
 #, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr " - Ekranlar\n"
+msgstr " — Ekranlar\n"
 
 #: src/remotedesktopdialog.cpp:46
 #, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
-msgstr " - Giriş aygıtları\n"
+msgstr " — Giriş aygıtları\n"
 
 #: src/RemoteDesktopDialog.qml:29 src/ScreenChooserDialog.qml:197
 #, kde-format
@@ -388,12 +386,12 @@ msgstr "Ekran Paylaşımı"
 #: src/screenchooserdialog.cpp:173
 #, kde-format
 msgid "Choose what to share with the requesting application:"
-msgstr "İsteyen uygulama ile nelerin paylaşılacağını seçin:"
+msgstr "İsteyen uygulama ile nelerin paylaşılacağını seç:"
 
 #: src/screenchooserdialog.cpp:175
 #, kde-format
 msgid "Choose what to share with %1:"
-msgstr "%1 ile nelerin paylaşılacağını seçin:"
+msgstr "%1 ile nelerin paylaşılacağını seç:"
 
 #: src/screenchooserdialog.cpp:183
 #, kde-format
@@ -408,22 +406,22 @@ msgstr "Bu ekran, %1 ile paylaşılsın mı?"
 #: src/screenchooserdialog.cpp:190
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
-msgstr "İsteyen uygulama ile paylaşılacak ekranları seçin:"
+msgstr "İsteyen uygulama ile paylaşılacak ekranları seç:"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
 msgid "Choose screens to share with %1:"
-msgstr "%1 ile paylaşılacak ekranları seçin:"
+msgstr "%1 ile paylaşılacak ekranları seç:"
 
 #: src/screenchooserdialog.cpp:196
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
-msgstr "İsteyen uygulama ile hangi ekranın paylaşılacağını seçin:"
+msgstr "İsteyen uygulama ile hangi ekranın paylaşılacağını seç:"
 
 #: src/screenchooserdialog.cpp:198
 #, kde-format
 msgid "Choose which screen to share with %1:"
-msgstr "%1 ile hangi ekranın paylaşılacağını seçin:"
+msgstr "%1 ile hangi ekranın paylaşılacağını seç:"
 
 #: src/screenchooserdialog.cpp:208
 #, kde-format
@@ -438,22 +436,22 @@ msgstr "Bu pencere, %1 ile paylaşılsın mı?"
 #: src/screenchooserdialog.cpp:215
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
-msgstr "İsteyen uygulama ile hangi pencerelerin paylaşılacağını seçin:"
+msgstr "İsteyen uygulama ile hangi pencerelerin paylaşılacağını seç:"
 
 #: src/screenchooserdialog.cpp:217
 #, kde-format
 msgid "Choose windows to share with %1:"
-msgstr "%1 ile paylaşılacak pencereleri seçin:"
+msgstr "%1 ile paylaşılacak pencereleri seç:"
 
 #: src/screenchooserdialog.cpp:221
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
-msgstr "İsteyen uygulama ile hangi pencerenin paylaşılacağını seçin:"
+msgstr "İsteyen uygulama ile hangi pencerenin paylaşılacağını seç:"
 
 #: src/screenchooserdialog.cpp:223
 #, kde-format
 msgid "Choose which window to share with %1:"
-msgstr "%1 ile hangi pencerenin paylaşılacağını seçin:"
+msgstr "%1 ile hangi pencerenin paylaşılacağını seç:"
 
 #: src/ScreenChooserDialog.qml:39
 #, kde-format
