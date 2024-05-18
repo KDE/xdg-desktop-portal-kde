@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Steve Allewell <steve.allewell@gmail.com>, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Steve Allewell <steve.allewell@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-16 00:40+0000\n"
-"PO-Revision-Date: 2023-06-17 12:05+0100\n"
+"PO-Revision-Date: 2024-05-17 19:42+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -67,11 +67,10 @@ msgid "Default app for this file type"
 msgstr "Default app for this file type"
 
 #: src/AppChooserDialog.qml:180
-#, fuzzy, kde-format
-#| msgid "Default app for this file type"
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
-msgstr "Default app for this file type"
+msgstr "Last used app for this file type"
 
 #: src/AppChooserDialog.qml:199
 #, kde-format
@@ -336,12 +335,10 @@ msgid "Remote control requested"
 msgstr "Remote control requested"
 
 #: src/remotedesktopdialog.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "Requested access to:\n"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to:\n"
-msgstr "Requested access to:\n"
+msgstr "An application requested access to:\n"
 
 #: src/remotedesktopdialog.cpp:40
 #, kde-format

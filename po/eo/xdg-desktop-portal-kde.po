@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-16 00:40+0000\n"
-"PO-Revision-Date: 2023-08-26 14:21+0100\n"
+"PO-Revision-Date: 2024-05-17 06:24+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -339,12 +339,10 @@ msgid "Remote control requested"
 msgstr "Teleregilo petita"
 
 #: src/remotedesktopdialog.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "Requested access to:\n"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to:\n"
-msgstr "Petis aliron al:\n"
+msgstr "Aplikaĵo petis aliron al:\n"
 
 #: src/remotedesktopdialog.cpp:40
 #, kde-format
@@ -352,13 +350,13 @@ msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr "%1 petis aliron al fora kontrolo:\n"
+msgstr "%1 petis aliron por elfore stiri:\n"
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr "- Ekranoj\n"
+msgstr " - Ekranoj\n"
 
 #: src/remotedesktopdialog.cpp:46
 #, kde-format
@@ -513,7 +511,7 @@ msgstr[1] "%1 sekundoj"
 #: src/ScreenshotDialog.qml:47
 #, kde-format
 msgid "Content Options"
-msgstr "Enhavaj Opcioj"
+msgstr "Elektebloj pri Enhavo"
 
 #: src/ScreenshotDialog.qml:51
 #, kde-format
