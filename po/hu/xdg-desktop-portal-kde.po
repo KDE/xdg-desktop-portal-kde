@@ -3,21 +3,21 @@
 #
 # SPDX-FileCopyrightText: 2017, 2018, 2024 Kiszel Kristóf <kiszel.kristof@gmail.com>
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2019, 2020, 2021.
-# SPDX-FileCopyrightText: 2021, 2022, 2023 Kristof Kiszel <ulysses@fsf.hu>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-16 00:40+0000\n"
-"PO-Revision-Date: 2024-01-02 09:44+0100\n"
-"Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
+"PO-Revision-Date: 2024-05-16 11:10+0200\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -340,12 +340,10 @@ msgid "Remote control requested"
 msgstr "Távvezérlési kérés"
 
 #: src/remotedesktopdialog.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "Requested access to:\n"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to:\n"
-msgstr "Hozzáférési kérés a következőkhöz:\n"
+msgstr "Egy alkalmazás hozzáférést kér a következőkhöz:\n"
 
 #: src/remotedesktopdialog.cpp:40
 #, kde-format
