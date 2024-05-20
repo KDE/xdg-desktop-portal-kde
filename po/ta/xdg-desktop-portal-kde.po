@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the xdg-desktop-portal-kde package.
 #
-# SPDX-FileCopyrightText: 2021, 2022, 2023 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-16 00:40+0000\n"
-"PO-Revision-Date: 2023-09-10 19:02+0530\n"
+"PO-Revision-Date: 2024-05-19 17:27+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.0\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -336,12 +336,10 @@ msgid "Remote control requested"
 msgstr "தொலையியக்கு அனுமதி கோரப்பட்டுள்ளது"
 
 #: src/remotedesktopdialog.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "Requested access to:\n"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to:\n"
-msgstr "இவற்றுக்கான அணுகல் கோரப்பட்டுள்ளது:\n"
+msgstr "ஓர் செயலி இவற்றுக்கான அணுகலை கோரியுள்ளது:\n"
 
 #: src/remotedesktopdialog.cpp:40
 #, kde-format
