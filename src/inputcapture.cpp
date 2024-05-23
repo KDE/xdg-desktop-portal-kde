@@ -193,6 +193,12 @@ std::optional<QPair<QPoint, QPoint>> checkAndMakeBarrier(int x1, int y1, int x2,
     // This function checks and  allows barriers that are
     // - fully on a  edge of a screen
     // - not next to any other screen
+
+    if (x1 != x2 && y1 != y2) {
+        qCWarning(XdgDesktopPortalKdeInputCapture) << "Disallowed Diagonal barrier " << id;
+        return {};
+    }
+
     QScreen *barrierScreen = nullptr;
 
     bool transpose = false;
@@ -299,11 +305,6 @@ uint InputCapturePortal::SetPointerBarriers(const QDBusObjectPath &handle,
 
         if (id == 0) {
             qCWarning(XdgDesktopPortalKdeInputCapture) << "Invalid barrier id " << id;
-            failedBarriers.append(id);
-            continue;
-        }
-        if (x1 != x2 && y1 != y2) {
-            qCWarning(XdgDesktopPortalKdeInputCapture) << "Disallowed Diagonal barrier " << id;
             failedBarriers.append(id);
             continue;
         }
