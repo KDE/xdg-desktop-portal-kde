@@ -28,6 +28,7 @@ set(xdg_desktop_portal_kde_SRCS
     inhibit.cpp
     inhibit.h
     inputcapture.cpp
+    inputcapturebarrier.cpp
     inputcapturedialog.cpp
     notification.cpp
     notification.h
