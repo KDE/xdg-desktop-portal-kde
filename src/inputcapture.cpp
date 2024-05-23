@@ -188,18 +188,23 @@ uint InputCapturePortal::GetZones(const QDBusObjectPath &handle,
     return 0;
 }
 
-std::optional<QPair<QPoint, QPoint>> checkAndMakeBarrier(int x1, int y1, int x2, int y2, uint id)
+enum class BarrierFailureReason {
+    Diagonal,
+    NotOnEdge,
+    BetweenScreensOrDoesNotFill,
+};
+
+std::variant<BarrierFailureReason, QPair<QPoint, QPoint>> checkAndMakeBarrier(int x1, int y1, int x2, int y2)
 {
     // This function checks and  allows barriers that are
     // - fully on a  edge of a screen
     // - not next to any other screen
 
     if (x1 != x2 && y1 != y2) {
-        qCWarning(XdgDesktopPortalKdeInputCapture) << "Disallowed Diagonal barrier " << id;
-        return {};
+        return BarrierFailureReason::Diagonal;
     }
 
-    QScreen *barrierScreen = nullptr;
+    bool foundScreen = false;
 
     bool transpose = false;
     if (x1 != x2) {
@@ -222,21 +227,19 @@ std::optional<QPair<QPoint, QPoint>> checkAndMakeBarrier(int x1, int y1, int x2,
             continue;
         }
         if (x1 == geometry.x() || x1 == geometry.x() + geometry.width()) {
-            if (y1 == geometry.y() && y2 == geometry.bottom() && !barrierScreen) {
-                barrierScreen = screen;
+            if (y1 == geometry.y() && y2 == geometry.bottom() && !foundScreen) {
+                foundScreen = true;
                 onRightEdge = x1 == geometry.x() + geometry.width();
             } else {
                 // the edge one or doesnt fill the edge of this screen or it fills the edge of some other screen
                 // that is next to this screen; either way we dont allow it
-                qCWarning(XdgDesktopPortalKdeInputCapture) << "Barrier" << id << "doesnt fill or on edge to another screen";
-                return {};
+                return BarrierFailureReason::BetweenScreensOrDoesNotFill;
             }
         }
     }
 
-    if (!barrierScreen) {
-        qCWarning(XdgDesktopPortalKdeInputCapture) << "Barrier" << id << "not on any screen edge";
-        return {};
+    if (!foundScreen) {
+        return BarrierFailureReason::NotOnEdge;
     }
     if (onRightEdge) {
         // Barriers on right/top edge will have a coordinate of just past the screen (on 1920 pixel wide screen at 0x0 1920)
@@ -249,8 +252,9 @@ std::optional<QPair<QPoint, QPoint>> checkAndMakeBarrier(int x1, int y1, int x2,
         std::swap(x1, y1);
         std::swap(x2, y2);
     }
-    return {{{x1, y1}, {x2, y2}}};
+    return QPair<QPoint, QPoint>{{x1, y1}, {x2, y2}};
 }
+
 
 uint InputCapturePortal::SetPointerBarriers(const QDBusObjectPath &handle,
                                             const QDBusObjectPath &session_handle,
@@ -309,10 +313,22 @@ uint InputCapturePortal::SetPointerBarriers(const QDBusObjectPath &handle,
             continue;
         }
 
-        if (auto barrier = checkAndMakeBarrier(x1, y1, x2, y2, id)) {
-            session->addBarrier(*barrier);
-        } else {
+        const auto barrierOrFailure = checkAndMakeBarrier(x1, x1, x2, y2);
+        if (auto reason = std::get_if<BarrierFailureReason>(&barrierOrFailure)) {
+            switch (*reason) {
+            case BarrierFailureReason::Diagonal:
+                qCWarning(XdgDesktopPortalKdeInputCapture) << "Disallowed Diagonal barrier " << id;
+                break;
+            case BarrierFailureReason::NotOnEdge:
+                qCWarning(XdgDesktopPortalKdeInputCapture) << "Barrier" << id << "not on any screen edge";
+                break;
+            case BarrierFailureReason::BetweenScreensOrDoesNotFill:
+                qCWarning(XdgDesktopPortalKdeInputCapture) << "Barrier" << id << "doesnt fill or on edge to another screen";
+                break;
+            }
             failedBarriers.append(id);
+        } else {
+            session->addBarrier(std::get<1>(barrierOrFailure));
         }
     }
     results.insert(u"failed_barriers"_s, QVariant::fromValue(failedBarriers));
