@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-16 00:40+0000\n"
+"POT-Creation-Date: 2024-05-24 00:40+0000\n"
 "PO-Revision-Date: 2024-05-19 17:27+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -191,6 +191,34 @@ msgstr "ரத்து செய்"
 #, kde-format
 msgid "Open"
 msgstr "திற"
+
+#: src/InputCaptureDialog.qml:16
+#, kde-format
+msgctxt "@title:window"
+msgid "Input Capture Requested"
+msgstr ""
+
+#: src/InputCaptureDialog.qml:17
+#, fuzzy, kde-format
+#| msgctxt "Unordered list with privileges granted to an external process"
+#| msgid "An application requested access to:\n"
+msgctxt "The application is unknown"
+msgid "An application requested to capture input events"
+msgstr "ஓர் செயலி இவற்றுக்கான அணுகலை கோரியுள்ளது:\n"
+
+#: src/InputCaptureDialog.qml:17
+#, kde-format
+msgctxt "%1 is the name of the application"
+msgid "%1 requested to capture input events"
+msgstr ""
+
+#: src/InputCaptureDialog.qml:21
+#, fuzzy, kde-format
+#| msgctxt "@action:button Allow the app to keep running with no open windows"
+#| msgid "Allow"
+msgctxt "@action:button"
+msgid "Allow"
+msgstr "அனுமதி"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:101
 #, kde-format
@@ -530,20 +558,20 @@ msgstr "சேமி"
 msgid "Take"
 msgstr "எடு"
 
-#: src/session.cpp:169
+#: src/session.cpp:174
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "நிறுத்து"
 
-#: src/session.cpp:272
+#: src/session.cpp:277
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
 msgstr "தொலையியக்கு பணிமேடை"
 
-#: src/session.cpp:288
+#: src/session.cpp:293
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -551,14 +579,14 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "உள்ளடக்கத்தை %2 பெறுகிறது"
 msgstr[1] "%1 காட்சிகளை %2 பெறுகிறது"
 
-#: src/session.cpp:292
+#: src/session.cpp:297
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
 msgstr "திரை பகிர்வு"
 
-#: src/session.cpp:482
+#: src/session.cpp:487
 #, kde-format
 msgid ", "
 msgstr ", "
