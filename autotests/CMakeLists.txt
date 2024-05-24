@@ -11,3 +11,5 @@ add_test(
     COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/colorschemetest.py
 )
 set_tests_properties(colorschemetest PROPERTIES ENVIRONMENT "KDE_INSTALL_FULL_LIBEXECDIR=${KDE_INSTALL_FULL_LIBEXECDIR}")
+
+ecm_add_test(inputcapturebarriertest.cpp ${CMAKE_SOURCE_DIR}/src/inputcapturebarrier.cpp TEST_NAME inputcapturebarriertest LINK_LIBRARIES Qt::Test Qt::Gui)
