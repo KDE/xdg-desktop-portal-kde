@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-24 00:40+0000\n"
-"PO-Revision-Date: 2024-05-17 08:58+0200\n"
+"PO-Revision-Date: 2024-05-25 10:35+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -201,26 +201,22 @@ msgstr "Ouvrir"
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
-msgstr ""
+msgstr "La capture des évènements d'entrée a été demandée."
 
 #: src/InputCaptureDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
-msgstr "Une application a demandé un accès à :\n"
+msgstr "Une application a demandé à capturer les évènements d'entrée"
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
-msgstr ""
+msgstr "%1 a demandé à capturer les évènements d'entrée"
 
 #: src/InputCaptureDialog.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button"
 msgid "Allow"
 msgstr "Autoriser"
