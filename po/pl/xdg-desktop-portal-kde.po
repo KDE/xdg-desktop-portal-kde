@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-24 00:40+0000\n"
-"PO-Revision-Date: 2024-05-25 13:12+0200\n"
+"PO-Revision-Date: 2024-05-26 11:13+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10"
+" || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
@@ -198,24 +198,24 @@ msgstr "Otwórz"
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
-msgstr ""
+msgstr "Zażądano przechwycenia obsługi"
 
 #: src/InputCaptureDialog.qml:17
-#, fuzzy, kde-format
+#, kde-format
 #| msgctxt "Unordered list with privileges granted to an external process"
 #| msgid "Requested access to:\n"
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
-msgstr "Zażądano dostępu do:\n"
+msgstr "Aplikacja zażądała przechwycenia zdarzeń obsługi"
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
-msgstr ""
+msgstr "%1 zażądała przechwycenia zdarzeń obsługi"
 
 #: src/InputCaptureDialog.qml:21
-#, fuzzy, kde-format
+#, kde-format
 #| msgctxt "@action:button Allow the app to keep running with no open windows"
 #| msgid "Allow"
 msgctxt "@action:button"
@@ -734,3 +734,4 @@ msgstr "Pulpit zdalny"
 
 #~ msgid "Search"
 #~ msgstr "Znajdź"
+

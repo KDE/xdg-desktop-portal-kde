@@ -196,26 +196,22 @@ msgstr "打开"
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
-msgstr ""
+msgstr "已请求输入捕获"
 
 #: src/InputCaptureDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
-msgstr "一个应用程序请求访问：\n"
+msgstr "一个应用程序已请求捕获输入事件"
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
-msgstr ""
+msgstr "%1 已请求捕获输入事件"
 
 #: src/InputCaptureDialog.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button"
 msgid "Allow"
 msgstr "允许"
