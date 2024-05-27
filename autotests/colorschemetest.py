@@ -17,7 +17,7 @@ from typing import Final
 
 from gi.repository import Gio, GLib
 
-KDE_INSTALL_FULL_LIBEXECDIR: Final = os.environ.get("KDE_INSTALL_FULL_LIBEXECDIR", "/usr/libexec")
+CMAKE_RUNTIME_OUTPUT_DIRECTORY: Final = os.environ.get("CMAKE_RUNTIME_OUTPUT_DIRECTORY", "/usr/libexec")
 PORTAL_SERVICE_NAME: Final = "org.freedesktop.impl.portal.desktop.kde"
 GROUP: Final = "org.freedesktop.appearance"
 KEYS: Final = ("accent-color", "color-scheme")
@@ -48,7 +48,7 @@ class OrgFreeDesktopAppearanceTests(unittest.TestCase):
         if not portal_launched:
             debug_environ = os.environ.copy()
             debug_environ["QT_LOGGING_RULES"] = "*.debug=true"
-            cls.portal_process = subprocess.Popen([os.path.join(KDE_INSTALL_FULL_LIBEXECDIR, "xdg-desktop-portal-kde")], env=debug_environ, stdout=sys.stderr, stderr=sys.stderr)
+            cls.portal_process = subprocess.Popen([os.path.join(CMAKE_RUNTIME_OUTPUT_DIRECTORY, "xdg-desktop-portal-kde")], env=debug_environ, stdout=sys.stderr, stderr=sys.stderr)
             for _ in range(10):
                 if name_has_owner(session_bus, PORTAL_SERVICE_NAME):
                     portal_launched = True
