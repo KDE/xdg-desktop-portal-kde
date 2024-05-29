@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-24 00:40+0000\n"
-"PO-Revision-Date: 2024-05-25 13:12+0200\n"
+"PO-Revision-Date: 2024-05-26 11:13+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -17,7 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -77,7 +76,7 @@ msgstr "Ostatnio użyty program dla tego rodzaju plików"
 #: src/AppChooserDialog.qml:199
 #, kde-format
 msgid "No matches"
-msgstr "Nic nie odpowiada"
+msgstr "Nie znaleziono żadnego odpowiadającego wyrażenia"
 
 #: src/AppChooserDialog.qml:199
 #, kde-kuit-format
@@ -175,7 +174,7 @@ msgstr "Nazwa"
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr "Edytuj informacje..."
+msgstr "Edytuj szczegóły…"
 
 #: src/DynamicLauncherDialog.qml:96
 #, kde-format
@@ -266,7 +265,7 @@ msgstr "Nazwa pliku"
 #: src/kirigami-filepicker/declarative/FilePicker.qml:117
 #, kde-format
 msgid "Select"
-msgstr "Zaznacz"
+msgstr "Wybierz"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:61
 #, kde-format
@@ -584,7 +583,7 @@ msgstr[2] "%1 strumieni obrazu %2"
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
-msgstr "Rzucanie ekranu"
+msgstr "Przesyłanie ekranu"
 
 #: src/session.cpp:487
 #, kde-format
@@ -609,7 +608,7 @@ msgstr "Nie udało się rozpocząć przesyłania ekranu"
 #: src/waylandintegration.cpp:649
 #, kde-format
 msgid "Remote desktop"
-msgstr "Pulpit zdalny"
+msgstr "Zdalny pulpit"
 
 #~ msgid ""
 #~ "Laptop screen\n"
