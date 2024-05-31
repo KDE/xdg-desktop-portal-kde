@@ -160,7 +160,8 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
             // check we asked for the same key content both times; if not, don't restore
             // some settings (like ScreenCast multipleSources or cursorMode) don't involve user prompts so use whatever was explicitly
             // requested this time
-            if (session->deviceTypes() != restoreData.payload["devices"].value<RemoteDesktopPortal::DeviceTypes>()) {
+            const RemoteDesktopPortal::DeviceTypes devices = static_cast<RemoteDesktopPortal::DeviceTypes>(restoreData.payload["devices"].toUInt());
+            if (session->deviceTypes() != devices) {
                 qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "Not restoring session as requested devices don't match";
             } else if (session->screenSharingEnabled() != restoreData.payload["screenShareEnabled"].toBool()) {
                 qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "Not restoring session as requested screen sharing doesn't match";
@@ -219,7 +220,7 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
             const RestoreData restoreData = {
                 "KDE",
                 RestoreData::currentRestoreDataVersion(),
-                QVariantMap{{"screenShareEnabled", session->screenSharingEnabled()}, {"devices", QVariant::fromValue(session->deviceTypes())}}};
+                QVariantMap{{"screenShareEnabled", session->screenSharingEnabled()}, {"devices", static_cast<quint32>(session->deviceTypes())}}};
             results.insert("restore_data", QVariant::fromValue<RestoreData>(restoreData));
         }
     }
