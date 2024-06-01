@@ -178,7 +178,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
                     for (int i = 0, c = model.rowCount(); i < c; ++i) {
                         const QModelIndex index = model.index(i, 0);
 
-                        if (model.data(index, KWayland::Client::PlasmaWindowModel::Uuid) == windowUuid) {
+                        if (model.data(index, KWayland::Client::PlasmaWindowModel::Uuid).toString() == windowUuid) {
                             selectedWindows << model.itemData(index);
                         }
                     }
