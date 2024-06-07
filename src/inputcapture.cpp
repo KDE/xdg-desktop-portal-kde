@@ -287,16 +287,16 @@ InputCapturePortal::ConnectToEIS(const QDBusObjectPath &session_handle, const QS
 
     if (session->state != State::Disabled) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Tried to call ConnectToEis on enabled session " << session_handle.path();
-        message.createErrorReply(QDBusError::Failed, u"Session is enabled"_s);
-        QDBusConnection::sessionBus().send(message);
+        auto error = message.createErrorReply(QDBusError::Failed, u"Session is enabled"_s);
+        QDBusConnection::sessionBus().send(error);
         return QDBusUnixFileDescriptor();
     }
 
     QDBusReply<QDBusUnixFileDescriptor> reply = session->connectToEIS();
     if (!reply.isValid()) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Failed to connect to eis" << reply.error();
-        message.createErrorReply(QDBusError::Failed, u"Failed to connect to eis"_s);
-        QDBusConnection::sessionBus().send(message);
+        auto error = message.createErrorReply(QDBusError::Failed, u"Failed to connect to eis"_s);
+        QDBusConnection::sessionBus().send(error);
         return QDBusUnixFileDescriptor();
     }
 
