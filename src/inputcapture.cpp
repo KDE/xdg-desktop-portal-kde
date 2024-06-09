@@ -249,7 +249,7 @@ uint InputCapturePortal::SetPointerBarriers(const QDBusObjectPath &handle,
             continue;
         }
 
-        const auto barrierOrFailure = checkAndMakeBarrier(x1, x1, x2, y2, screenGeometries);
+        const auto barrierOrFailure = checkAndMakeBarrier(x1, y1, x2, y2, screenGeometries);
         if (auto reason = std::get_if<BarrierFailureReason>(&barrierOrFailure)) {
             switch (*reason) {
             case BarrierFailureReason::Diagonal:
