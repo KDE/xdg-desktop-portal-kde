@@ -504,6 +504,7 @@ static QString kwinInputCaptureInterface()
 
 InputCaptureSession::InputCaptureSession(QObject *parent, const QString &appId, const QString &path)
     : Session(parent, appId, path)
+    , state(InputCapturePortal::State::Disabled)
 {
 }
 
