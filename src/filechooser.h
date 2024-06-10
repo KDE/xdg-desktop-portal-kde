@@ -32,9 +32,6 @@ public:
     ~FileDialog() override;
     Q_DISABLE_COPY_MOVE(FileDialog)
 
-private:
-    QDialogButtonBox *m_buttons;
-
 protected:
     KFileWidget *const m_fileWidget;
     KConfigGroup m_configGroup;
