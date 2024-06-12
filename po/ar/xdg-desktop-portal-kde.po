@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-13 02:30+0000\n"
-"PO-Revision-Date: 2024-05-25 16:53+0400\n"
+"PO-Revision-Date: 2024-06-08 11:49+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
-"Language-Team: \n"
+"Language-Team: ar\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -191,7 +192,7 @@ msgstr "احفظ الملفّ"
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
 msgid "Create new folder"
-msgstr ""
+msgstr "أنشئ مجلدًّا جديدًا"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
@@ -199,16 +200,14 @@ msgid "Create new folder in %1"
 msgstr "أنشئ مجلدًّا جديدًا في %1"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
-#, fuzzy, kde-format
-#| msgctxt "NAME OF TRANSLATORS"
-#| msgid "Your names"
+#, kde-format
 msgid "folder name"
-msgstr "زايد السعيدي"
+msgstr "اسم المجلد"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "Ok"
-msgstr ""
+msgstr "حسنًا"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
@@ -226,20 +225,19 @@ msgid "Select"
 msgstr "اختر "
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create folder"
-msgstr "اختر مجلد"
+msgstr "أنشئ مجلّدًا"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
 msgid "Filter filetype"
-msgstr ""
+msgstr "رشح نوع الملف"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Show hidden files"
-msgstr ""
+msgstr "أظهر الملفات المخفية"
 
 #: src/outputsmodel.cpp:18
 #, kde-format
@@ -430,10 +428,9 @@ msgid "Active Window"
 msgstr "النّافذة النّشطة"
 
 #: src/ScreenshotDialog.qml:23
-#, fuzzy, kde-format
-#| msgid "Request device access"
+#, kde-format
 msgid "Request screenshot"
-msgstr "طلب وصول لجهاز"
+msgstr "اطلب لقطة شاشة"
 
 #: src/ScreenshotDialog.qml:30
 #, kde-format
