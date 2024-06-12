@@ -17,6 +17,7 @@
 #include "waylandintegration.h"
 #include <KLocalizedString>
 #include <KNotification>
+#include <KService>
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusReply>
@@ -39,6 +40,20 @@ static QString kwinRemoteDesktopPath()
 static QString kwinRemoteDesktopInterface()
 {
     return QStringLiteral("org.kde.KWin.EIS.RemoteDesktop");
+}
+
+static bool isSandboxed(const QString &appId)
+{
+    // Flatpak created application desktop files contain an entry "X-Flatpak"
+    // with the application ID, so if there is such a property consider the
+    // application to be sandboxed.
+    auto service = KService::serviceByDesktopName(appId);
+    auto flatpak = service->property<QString>(u"X-Flatpak"_s);
+    if (!flatpak.isEmpty()) {
+        return true;
+    }
+    // TODO How to detect snaps?
+    return false;
 }
 
 RemoteDesktopPortal::RemoteDesktopPortal(QObject *parent)
@@ -152,9 +167,11 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
     const ScreenCastPortal::PersistMode persist = session->persistMode();
     QList<Output> selectedOutputs;
 
-    bool restored = false;
+    bool notifyOnly = false;
 
-    if (persist != ScreenCastPortal::NoPersist && session->restoreData().isValid()) {
+    if (app_id.isEmpty() || !isSandboxed(app_id)) {
+        notifyOnly = true;
+    } else if (persist != ScreenCastPortal::NoPersist && session->restoreData().isValid()) {
         const RestoreData restoreData = qdbus_cast<RestoreData>(session->restoreData().value<QDBusArgument>());
         if (restoreData.session == QLatin1String("KDE") && restoreData.version == RestoreData::currentRestoreDataVersion()) {
             // check we asked for the same key content both times; if not, don't restore
@@ -165,12 +182,12 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
             } else if (session->screenSharingEnabled() != restoreData.payload["screenShareEnabled"].toBool()) {
                 qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "Not restoring session as requested screen sharing doesn't match";
             } else {
-                restored = true;
+                notifyOnly = true;
             }
         }
     }
 
-    if (restored) {
+    if (notifyOnly) {
         auto notification = new KNotification(QStringLiteral("remotedesktopstarted"), KNotification::CloseOnTimeout);
         notification->setTitle(i18nc("title of notification about input systems taken over", "Remote control session started"));
         notification->setText(RemoteDesktopDialog::buildDescription(app_id, session->deviceTypes(), session->screenSharingEnabled()));
