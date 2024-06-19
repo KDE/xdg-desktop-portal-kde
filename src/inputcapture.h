@@ -77,7 +77,7 @@ Q_SIGNALS:
     void ZonesChanged(const QDBusObjectPath &session_handle, const QVariantMap &options);
 
 private:
-    unsigned int m_zoneId = 0;
+    uint m_zoneId = 0;
 };
 Q_DECLARE_OPERATORS_FOR_FLAGS(InputCapturePortal::Capabilities)
 
