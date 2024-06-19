@@ -120,12 +120,12 @@ uint InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
         qCDebug(XdgDesktopPortalKdeInputCapture) << "Disabled session" << session->handle();
         Q_EMIT Disabled(QDBusObjectPath(session->handle()), {});
     });
-    connect(session, &InputCaptureSession::deactivated, this, [this, session](int activationId) {
+    connect(session, &InputCaptureSession::deactivated, this, [this, session](uint activationId) {
         session->state = State::Deactivated;
         qCDebug(XdgDesktopPortalKdeInputCapture) << "Deactivated session" << session->handle() << "acitvation_id" << activationId;
         Q_EMIT Deactivated(QDBusObjectPath(session->handle()), {{u"activation_id"_s, activationId}});
     });
-    connect(session, &InputCaptureSession::activated, this, [this, session](int activationId, const QPointF &cursorPosition) {
+    connect(session, &InputCaptureSession::activated, this, [this, session](uint activationId, const QPointF &cursorPosition) {
         session->state = State::Activated;
         qCDebug(XdgDesktopPortalKdeInputCapture) << "Activated session" << session->handle() << "acitvation_id" << activationId << "cursor_position"
                                                  << cursorPosition;

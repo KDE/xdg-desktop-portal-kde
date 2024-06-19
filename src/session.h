@@ -223,8 +223,8 @@ public:
 
 Q_SIGNALS:
     void disabled();
-    void activated(int activationId, const QPointF &cursorPosition);
-    void deactivated(int activationId);
+    void activated(uint activationId, const QPointF &cursorPosition);
+    void deactivated(uint activationId);
 
 private:
     QDBusObjectPath m_kwinInputCapture;

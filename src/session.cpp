@@ -532,8 +532,8 @@ void InputCaptureSession::connect(const QDBusObjectPath &path)
         QDBusConnection::sessionBus().connect(kwinService(), m_kwinInputCapture.path(), kwinInputCaptureInterface(), signalName, this, slot);
     };
     connectSignal("disabled", SIGNAL(disabled()));
-    connectSignal("activated", SIGNAL(activated(int, QPointF)));
-    connectSignal("decativated", SIGNAL(deactivated(int)));
+    connectSignal("activated", SIGNAL(activated(uint, QPointF)));
+    connectSignal("decativated", SIGNAL(deactivated(uint)));
 }
 
 QDBusPendingReply<void> InputCaptureSession::enable()
