@@ -381,7 +381,7 @@ uint InputCapturePortal::Release(const QDBusObjectPath &session_handle, const QS
 
     auto it = options.find("cursor_position");
     bool positionSpecified = it != options.end();
-    QPointF cursorPosition = positionSpecified ? it->value<QPointF>() : QPointF(); // (dd)
+    QPointF cursorPosition = positionSpecified ? qdbus_cast<QPointF>(it->value<QDBusArgument>()) : QPointF(); // (dd)
 
     if (positionSpecified) {
         qCDebug(XdgDesktopPortalKdeInputCapture) << "cursor_position" << cursorPosition;
