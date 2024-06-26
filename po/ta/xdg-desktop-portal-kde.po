@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-13 00:40+0000\n"
+"POT-Creation-Date: 2024-06-26 00:41+0000\n"
 "PO-Revision-Date: 2024-06-16 17:10+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -32,64 +32,97 @@ msgstr "Kde-l10n-ta@kde.org"
 msgid "Request device access"
 msgstr "சாதன அணுகலை கோரு"
 
-#: src/appchooser.cpp:92
+#: src/appchooser.cpp:95
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "%1 கோப்புகள்"
 
-#: src/appchooserdialog.cpp:40
+#: src/appchooserdialog.cpp:46
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "செயலியை தேர்வு செய்வது"
 
-#: src/appchooserdialog.cpp:43
+#: src/appchooserdialog.cpp:49
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "<filename>%1</filename> என்பதை திறப்பதற்கான செயலியைத் தேர்ந்தெடுங்கள்"
 
-#: src/AppChooserDialog.qml:32
+#: src/AppChooserDialog.qml:34
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
 msgstr "%1 கோப்புகளை இந்த செயலியில் எப்போதும் திற"
 
-#: src/AppChooserDialog.qml:67
+#: src/AppChooserDialog.qml:77
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "நிறுவியுள்ள அனைத்து செயலிகளையும் காட்டு"
 
-#: src/AppChooserDialog.qml:179
+#: src/AppChooserDialog.qml:90
+#, kde-format
+msgctxt "@action:button"
+msgid "Choose Other…"
+msgstr ""
+
+#: src/AppChooserDialog.qml:203
 #, kde-format
 msgid "Default app for this file type"
 msgstr "இக்கோப்புவகைக்கான இயல்பிருப்பு செயலி"
 
-#: src/AppChooserDialog.qml:180
+#: src/AppChooserDialog.qml:204
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
 msgstr "இக்கோப்புவகைக்கு கடைசியாக பயன்படுத்திய செயலி"
 
-#: src/AppChooserDialog.qml:199
+#: src/AppChooserDialog.qml:223
 #, kde-format
 msgid "No matches"
 msgstr "பொருத்தங்கள் இல்லை"
 
-#: src/AppChooserDialog.qml:199
+#: src/AppChooserDialog.qml:223
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "<filename>%1</filename> என்பதை எந்த நிறுவியுள்ள செயலியாலும் திறக்க முடியாது"
 
-#: src/AppChooserDialog.qml:203
+#: src/AppChooserDialog.qml:227
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
 msgstr "டிஸ்கவரில் இன்னும் காட்டு"
 
-#: src/AppChooserDialog.qml:218
+#: src/AppChooserDialog.qml:251
+#, fuzzy, kde-format
+#| msgid "Content Options"
+msgctxt "@title:group"
+msgid "Terminal Options"
+msgstr "உள்ளடக்க விருப்பத்தேர்வுகள்"
+
+#: src/AppChooserDialog.qml:267
+#, kde-format
+msgctxt "@option:check"
+msgid "Run in terminal"
+msgstr ""
+
+#: src/AppChooserDialog.qml:276
+#, kde-format
+msgctxt "@option:check"
+msgid "Do not close when command exits"
+msgstr ""
+
+#: src/AppChooserDialog.qml:289
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Choose Application"
+msgctxt "@title:group"
+msgid "Discover More Applications"
+msgstr "செயலியை தேர்வு செய்வது"
+
+#: src/AppChooserDialog.qml:310
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
