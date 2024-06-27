@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# giovanni <g.sora@tiscali.it>, 2018, 2020, 2021, 2022, 2023, 2024.
+# SPDX-FileCopyrightText: 2018, 2020, 2021, 2022, 2023, 2024 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-26 00:41+0000\n"
-"PO-Revision-Date: 2024-05-24 12:29+0200\n"
+"PO-Revision-Date: 2024-06-26 10:59+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -65,7 +65,7 @@ msgstr "Monstra omne  applicationes installate "
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
-msgstr ""
+msgstr "Selige altere ..."
 
 #: src/AppChooserDialog.qml:203
 #, kde-format
@@ -96,31 +96,28 @@ msgid "Find More in Discover"
 msgstr "Trova plus in Discover"
 
 #: src/AppChooserDialog.qml:251
-#, fuzzy, kde-format
-#| msgid "Content Options"
+#, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
-msgstr "Optiones de contento"
+msgstr "Optiones de terminal"
 
 #: src/AppChooserDialog.qml:267
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
-msgstr ""
+msgstr "Exeque in Terminal"
 
 #: src/AppChooserDialog.qml:276
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
-msgstr ""
+msgstr "Non claude quando le commando exi"
 
 #: src/AppChooserDialog.qml:289
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
-msgstr "Selige application "
+msgstr "Discoperi altere  applicationes "
 
 #: src/AppChooserDialog.qml:310
 #, kde-kuit-format

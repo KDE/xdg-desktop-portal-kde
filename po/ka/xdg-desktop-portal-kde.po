@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-26 00:41+0000\n"
-"PO-Revision-Date: 2024-05-24 16:53+0200\n"
+"PO-Revision-Date: 2024-06-26 05:48+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -66,7 +66,7 @@ msgstr "ყველა დაყენებული აპლიკაცი�
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
-msgstr ""
+msgstr "სხვის არჩევა…"
 
 #: src/AppChooserDialog.qml:203
 #, kde-format
@@ -99,31 +99,28 @@ msgid "Find More in Discover"
 msgstr "იპოვეთ მეტი Discover-ში"
 
 #: src/AppChooserDialog.qml:251
-#, fuzzy, kde-format
-#| msgid "Content Options"
+#, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
-msgstr "შემცველობის პარამეტრები"
+msgstr "ტერმინალის პარამეტრები"
 
 #: src/AppChooserDialog.qml:267
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
-msgstr ""
+msgstr "ტერმინალში გაშვება"
 
 #: src/AppChooserDialog.qml:276
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
-msgstr ""
+msgstr "არ დახურო ბრძანების დასრულებისას"
 
 #: src/AppChooserDialog.qml:289
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
-msgstr "აირჩიეთ აპლიკაცია"
+msgstr "აღმოაჩინეთ მეტი აპლიკაცია"
 
 #: src/AppChooserDialog.qml:310
 #, kde-kuit-format

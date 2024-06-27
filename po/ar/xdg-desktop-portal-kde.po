@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-26 00:41+0000\n"
-"PO-Revision-Date: 2024-05-25 16:53+0400\n"
+"PO-Revision-Date: 2024-06-26 18:41+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -67,7 +67,7 @@ msgstr "أظهر كل التّطبيقات المثبّتة"
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
-msgstr ""
+msgstr "اختر أخرى…"
 
 #: src/AppChooserDialog.qml:203
 #, kde-format
@@ -98,31 +98,28 @@ msgid "Find More in Discover"
 msgstr "أظهر المزيد في المستكشف"
 
 #: src/AppChooserDialog.qml:251
-#, fuzzy, kde-format
-#| msgid "Content Options"
+#, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
-msgstr "خيارات المحتوى"
+msgstr "خيارات  الطّرفيّة"
 
 #: src/AppChooserDialog.qml:267
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
-msgstr ""
+msgstr "شغّل في الطّرفيّة"
 
 #: src/AppChooserDialog.qml:276
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
-msgstr ""
+msgstr "لا تغلق عندما يخرج الأمر"
 
 #: src/AppChooserDialog.qml:289
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
-msgstr "اختر تطبيقًا"
+msgstr "اكتشف تطبيقات أكثر"
 
 #: src/AppChooserDialog.qml:310
 #, kde-kuit-format

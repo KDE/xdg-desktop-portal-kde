@@ -97,11 +97,10 @@ msgid "Find More in Discover"
 msgstr "打开 Discover 查找更多应用"
 
 #: src/AppChooserDialog.qml:251
-#, fuzzy, kde-format
-#| msgid "Content Options"
+#, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
-msgstr "内容选项"
+msgstr ""
 
 #: src/AppChooserDialog.qml:267
 #, kde-format
@@ -116,12 +115,10 @@ msgid "Do not close when command exits"
 msgstr ""
 
 #: src/AppChooserDialog.qml:289
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
-msgstr "选择应用程序"
+msgstr ""
 
 #: src/AppChooserDialog.qml:310
 #, kde-kuit-format
