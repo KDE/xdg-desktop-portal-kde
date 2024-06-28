@@ -66,7 +66,7 @@ msgstr "显示所有已安装的应用"
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
-msgstr ""
+msgstr "选择其他…"
 
 #: src/AppChooserDialog.qml:203
 #, kde-format
@@ -100,25 +100,25 @@ msgstr "打开 Discover 查找更多应用"
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
-msgstr ""
+msgstr "终端选项"
 
 #: src/AppChooserDialog.qml:267
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
-msgstr ""
+msgstr "在终端中运行"
 
 #: src/AppChooserDialog.qml:276
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
-msgstr ""
+msgstr "命令退出时不关闭终端"
 
 #: src/AppChooserDialog.qml:289
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
-msgstr ""
+msgstr "发现更多应用程序"
 
 #: src/AppChooserDialog.qml:310
 #, kde-kuit-format
