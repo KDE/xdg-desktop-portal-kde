@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-26 00:41+0000\n"
-"PO-Revision-Date: 2024-05-26 16:21+0900\n"
+"PO-Revision-Date: 2024-06-30 11:30+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -66,7 +66,7 @@ msgstr "顯示所有已安裝的應用程式"
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
-msgstr ""
+msgstr "選擇別的…"
 
 #: src/AppChooserDialog.qml:203
 #, kde-format
@@ -97,31 +97,28 @@ msgid "Find More in Discover"
 msgstr "在 Discover 中尋找更多"
 
 #: src/AppChooserDialog.qml:251
-#, fuzzy, kde-format
-#| msgid "Content Options"
+#, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
-msgstr "內容設定"
+msgstr "終端機選項"
 
 #: src/AppChooserDialog.qml:267
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
-msgstr ""
+msgstr "在終端機執行"
 
 #: src/AppChooserDialog.qml:276
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
-msgstr ""
+msgstr "指令離開時不要關閉"
 
 #: src/AppChooserDialog.qml:289
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
-msgstr "選擇應用程式"
+msgstr "探索更多應用程式"
 
 #: src/AppChooserDialog.qml:310
 #, kde-kuit-format
@@ -228,19 +225,19 @@ msgstr "開啟"
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
-msgstr "已請求輸入截取"
+msgstr "已請求輸入擷取"
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
-msgstr "某應用程式請求截取輸入事件"
+msgstr "某應用程式請求擷取\t\t輸入事件"
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
-msgstr "%1 請求截取輸入事件"
+msgstr "%1 請求擷取輸入事件"
 
 #: src/InputCaptureDialog.qml:21
 #, kde-format

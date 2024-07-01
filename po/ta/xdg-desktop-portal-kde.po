@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-26 00:41+0000\n"
-"PO-Revision-Date: 2024-06-16 17:10+0530\n"
+"PO-Revision-Date: 2024-06-30 13:22+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -65,7 +65,7 @@ msgstr "நிறுவியுள்ள அனைத்து செயலி�
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
-msgstr ""
+msgstr "இன்னொன்றை தேர்வு செய்…"
 
 #: src/AppChooserDialog.qml:203
 #, kde-format
@@ -96,31 +96,28 @@ msgid "Find More in Discover"
 msgstr "டிஸ்கவரில் இன்னும் காட்டு"
 
 #: src/AppChooserDialog.qml:251
-#, fuzzy, kde-format
-#| msgid "Content Options"
+#, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
-msgstr "உள்ளடக்க விருப்பத்தேர்வுகள்"
+msgstr "முனைய விருப்பங்கள்"
 
 #: src/AppChooserDialog.qml:267
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
-msgstr ""
+msgstr "முனையத்தில் இயக்கு"
 
 #: src/AppChooserDialog.qml:276
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
-msgstr ""
+msgstr "கட்டளை முடியும் போது மூடு வேண்டாம்"
 
 #: src/AppChooserDialog.qml:289
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
-msgstr "செயலியை தேர்வு செய்வது"
+msgstr "கூடுதல் செயலிகளை நிறுவுவது"
 
 #: src/AppChooserDialog.qml:310
 #, kde-kuit-format
