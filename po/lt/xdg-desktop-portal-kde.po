@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-26 00:41+0000\n"
-"PO-Revision-Date: 2024-05-25 14:29+0300\n"
+"PO-Revision-Date: 2024-07-06 00:39+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -67,7 +67,7 @@ msgstr "Rodyti visas įdiegtas programas"
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
-msgstr ""
+msgstr "Pasirinkti kitą…"
 
 #: src/AppChooserDialog.qml:203
 #, kde-format
@@ -98,31 +98,28 @@ msgid "Find More in Discover"
 msgstr "Rasti daugiau programoje Discover"
 
 #: src/AppChooserDialog.qml:251
-#, fuzzy, kde-format
-#| msgid "Content Options"
+#, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
-msgstr "Turinio parinktys"
+msgstr "Terminalo parinktys"
 
 #: src/AppChooserDialog.qml:267
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
-msgstr ""
+msgstr "Vykdyti terminale"
 
 #: src/AppChooserDialog.qml:276
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
-msgstr ""
+msgstr "Neužverti, kai programa išeina"
 
 #: src/AppChooserDialog.qml:289
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
-msgstr "Pasirinkti programą"
+msgstr "Atrasti daugiau programų"
 
 #: src/AppChooserDialog.qml:310
 #, kde-kuit-format
