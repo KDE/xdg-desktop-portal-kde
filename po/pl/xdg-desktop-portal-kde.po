@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-26 00:41+0000\n"
-"PO-Revision-Date: 2024-05-26 11:13+0200\n"
+"PO-Revision-Date: 2024-07-21 06:57+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -66,7 +67,7 @@ msgstr "Pokaż wszystkie wgrane aplikacje"
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
-msgstr ""
+msgstr "Wybierz inne…"
 
 #: src/AppChooserDialog.qml:203
 #, kde-format
@@ -98,31 +99,28 @@ msgid "Find More in Discover"
 msgstr "Poszukaj więcej w Odkrywcy"
 
 #: src/AppChooserDialog.qml:251
-#, fuzzy, kde-format
-#| msgid "Content Options"
+#, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
-msgstr "Ustawienia treści"
+msgstr "Ustawienia terminala"
 
 #: src/AppChooserDialog.qml:267
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
-msgstr ""
+msgstr "Wykonaj w terminalu"
 
 #: src/AppChooserDialog.qml:276
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
-msgstr ""
+msgstr "Pozostaw otwartym po zakończeniu polecenia"
 
 #: src/AppChooserDialog.qml:289
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
-msgstr "Wybór programu"
+msgstr "Odkryj więcej aplikacji"
 
 #: src/AppChooserDialog.qml:310
 #, kde-kuit-format
