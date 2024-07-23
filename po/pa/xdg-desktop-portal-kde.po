@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-26 00:41+0000\n"
-"PO-Revision-Date: 2024-01-01 07:55-0600\n"
-"Last-Translator: A S Alam <aalam@punlinux.org>\n"
+"PO-Revision-Date: 2024-07-21 21:21-0500\n"
+"Last-Translator: aalam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -65,7 +65,7 @@ msgstr "ਸਭ ਇੰਸਟਾਲ ਹੋਈਆਂ ਐਪਲੀਕੇਸ਼ਨ ਵ�
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
-msgstr ""
+msgstr "…ਹੋਰ ਚੁਣੋ"
 
 #: src/AppChooserDialog.qml:203
 #, kde-format
@@ -96,31 +96,28 @@ msgid "Find More in Discover"
 msgstr "ਡਿਸਕਵਰ ਵਿੱਚ ਹੋਰ ਲੱਭੋ"
 
 #: src/AppChooserDialog.qml:251
-#, fuzzy, kde-format
-#| msgid "Content Options"
+#, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
-msgstr "ਸਮੱਗਰੀ ਚੋਣਾਂ"
+msgstr "ਟਰਮੀਨਲ ਚੋਣਾਂ"
 
 #: src/AppChooserDialog.qml:267
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
-msgstr ""
+msgstr "ਟਰਮੀਨਲ ਵਿੱਚ ਚਲਾਓ"
 
 #: src/AppChooserDialog.qml:276
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
-msgstr ""
+msgstr "ਜਦੋਂ ਕਮਾਂਡ ਖਤਮ ਹੋਵੇ ਤਾਂ ਬੰਦ ਨਾ ਕਰੋ"
 
 #: src/AppChooserDialog.qml:289
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
-msgstr "ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
+msgstr "ਹੋਰ ਐਪਲੀਕੇਸ਼ਨ ਖੋਜੋ"
 
 #: src/AppChooserDialog.qml:310
 #, kde-kuit-format
@@ -227,26 +224,22 @@ msgstr "ਖੋਲ੍ਹੋ"
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
-msgstr ""
+msgstr "ਇਨਪੁੱਟ ਕੈਪਚਰ ਲਈ ਬੇਨਤੀ ਕੀਤੀ"
 
 #: src/InputCaptureDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "Requested access to:\n"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
-msgstr "ਇਸ ਲਈ ਪਹੁੰਚ ਬੇਨਤੀ:\n"
+msgstr "ਐਪਲੀਕਸ਼ਨ ਨੇ ਇਨਪੁੱਟ ਈਵੈਂਟ ਕੈਪਚਰ ਕਰਨ ਦੀ ਬੇਨਤੀ ਕੀਤੀ"
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
-msgstr ""
+msgstr "%1 ਨੇ ਇਨਪੁੱਟ ਈਵੈਂਟ ਕੈਪਚਰ ਕਰਨ ਦੀ ਬੇਨਤੀ ਕੀਤੀ"
 
 #: src/InputCaptureDialog.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button"
 msgid "Allow"
 msgstr "ਮਨਜ਼ੂਰ"
@@ -254,7 +247,7 @@ msgstr "ਮਨਜ਼ੂਰ"
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:101
 #, kde-format
 msgid "Select Folder"
-msgstr "ਫੋਲਡਰ ਚੁਣੋ"
+msgstr "ਫੋਲਡਰ ਨੂੰ ਚੁਣੋ"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:104
 #, kde-format
@@ -264,7 +257,7 @@ msgstr "ਫਾਇਲ ਖੋਲ੍ਹੋ"
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:106
 #, kde-format
 msgid "Save File"
-msgstr "ਫਾਇਲ ਸੰਭਾਲੋ"
+msgstr "ਫਾਇਲ ਨੂੰ ਸੰਭਾਲੋ"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:18
 #, kde-format
@@ -395,12 +388,10 @@ msgid "Remote control requested"
 msgstr "ਰਿਮੋਟ ਕੰਟਰੋਲ ਦੀ ਬੇਨਤੀ ਕੀਤੀ"
 
 #: src/remotedesktopdialog.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "Requested access to:\n"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to:\n"
-msgstr "ਇਸ ਲਈ ਪਹੁੰਚ ਬੇਨਤੀ:\n"
+msgstr "ਐਪਲੀਕੇਸ਼ਨ ਨੇ ਇਸ ਲਈ ਪਹੁੰਚ ਬੇਨਤੀ:\n"
 
 #: src/remotedesktopdialog.cpp:40
 #, kde-format
