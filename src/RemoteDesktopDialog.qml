@@ -14,6 +14,7 @@ PWD.SystemDialog {
 
     property alias description: desc.text
     property alias allowRestore: allowRestoreItem.checked
+    property alias persistenceRequested: allowRestoreItem.visible
 
     iconName: "krfb"
 

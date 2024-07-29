@@ -12,6 +12,7 @@
 #include "outputsmodel.h"
 #include "quickdialog.h"
 #include "remotedesktop.h"
+#include "screencast.h"
 
 namespace Ui
 {
@@ -22,7 +23,7 @@ class RemoteDesktopDialog : public QuickDialog
 {
     Q_OBJECT
 public:
-    RemoteDesktopDialog(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled, QObject *parent = nullptr);
+    RemoteDesktopDialog(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled, ScreenCastPortal::PersistMode persistMode, QObject *parent = nullptr);
 
     QList<Output> selectedOutputs() const;
     bool allowRestore() const;
