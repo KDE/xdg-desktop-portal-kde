@@ -16,12 +16,13 @@
 #include <QStandardPaths>
 #include <QWindow>
 
-RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled, QObject *parent)
+RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled, ScreenCastPortal::PersistMode persistMode, QObject *parent)
     : QuickDialog(parent)
 {
     const QVariantMap props = {
         {QStringLiteral("title"), i18nc("Title of the dialog that requests remote input privileges", "Remote control requested")},
         {QStringLiteral("description"), buildDescription(appName, deviceTypes, screenSharingEnabled)},
+        {QStringLiteral("persistenceRequested"), persistMode != ScreenCastPortal::PersistMode::NoPersist}
     };
     create(QStringLiteral("qrc:/RemoteDesktopDialog.qml"), props);
 }
