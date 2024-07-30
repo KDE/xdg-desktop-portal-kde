@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-26 00:41+0000\n"
+"POT-Creation-Date: 2024-07-30 00:43+0000\n"
 "PO-Revision-Date: 2024-06-27 21:18+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -390,13 +390,13 @@ msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
 msgstr "Pieprasīta attālā kontrole"
 
-#: src/remotedesktopdialog.cpp:38
+#: src/remotedesktopdialog.cpp:39
 #, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to:\n"
 msgstr "Programma pieprasīja piekļuvi pie:\n"
 
-#: src/remotedesktopdialog.cpp:40
+#: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
@@ -404,24 +404,24 @@ msgctxt ""
 msgid "%1 requested access to remotely control:\n"
 msgstr "„%1“ pieprasīja piekļuvi attālinātai kontrolei:\n"
 
-#: src/remotedesktopdialog.cpp:43
+#: src/remotedesktopdialog.cpp:44
 #, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
 msgstr " - Ekrāni\n"
 
-#: src/remotedesktopdialog.cpp:46
+#: src/remotedesktopdialog.cpp:47
 #, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - Ievades ierīces\n"
 
-#: src/RemoteDesktopDialog.qml:29 src/ScreenChooserDialog.qml:197
+#: src/RemoteDesktopDialog.qml:30 src/ScreenChooserDialog.qml:197
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Atļaut atjaunot nākotnes sesijās"
 
-#: src/RemoteDesktopDialog.qml:36 src/ScreenChooserDialog.qml:205
+#: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:205
 #: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"

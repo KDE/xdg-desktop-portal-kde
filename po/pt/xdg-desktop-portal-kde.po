@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-26 00:41+0000\n"
+"POT-Creation-Date: 2024-07-30 00:43+0000\n"
 "PO-Revision-Date: 2023-01-19 03:02+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -395,7 +395,7 @@ msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
 msgstr "Foi pedido o acesso ao comando à distância"
 
-#: src/remotedesktopdialog.cpp:38
+#: src/remotedesktopdialog.cpp:39
 #, fuzzy, kde-format
 #| msgctxt "Unordered list with privileges granted to an external process"
 #| msgid "Requested access to:\n"
@@ -403,7 +403,7 @@ msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to:\n"
 msgstr "Foi pedido o acesso a:\n"
 
-#: src/remotedesktopdialog.cpp:40
+#: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
@@ -411,24 +411,24 @@ msgctxt ""
 msgid "%1 requested access to remotely control:\n"
 msgstr "O %1 pediu o acesso a:\n"
 
-#: src/remotedesktopdialog.cpp:43
+#: src/remotedesktopdialog.cpp:44
 #, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
 msgstr " - Ecrãs\n"
 
-#: src/remotedesktopdialog.cpp:46
+#: src/remotedesktopdialog.cpp:47
 #, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr "- Dispositivos de entrada\n"
 
-#: src/RemoteDesktopDialog.qml:29 src/ScreenChooserDialog.qml:197
+#: src/RemoteDesktopDialog.qml:30 src/ScreenChooserDialog.qml:197
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr ""
 
-#: src/RemoteDesktopDialog.qml:36 src/ScreenChooserDialog.qml:205
+#: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:205
 #: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"
