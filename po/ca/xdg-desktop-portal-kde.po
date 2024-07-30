@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-13 02:28+0000\n"
+"POT-Creation-Date: 2024-07-30 02:35+0000\n"
 "PO-Revision-Date: 2024-05-24 18:49+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -364,13 +364,13 @@ msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
 msgstr "S'ha demanat control remot"
 
-#: src/remotedesktopdialog.cpp:38
+#: src/remotedesktopdialog.cpp:39
 #, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to:\n"
 msgstr "Una aplicació demana accés a:\n"
 
-#: src/remotedesktopdialog.cpp:40
+#: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
@@ -378,24 +378,24 @@ msgctxt ""
 msgid "%1 requested access to remotely control:\n"
 msgstr "%1 ha demanat accés a controlar remotament:\n"
 
-#: src/remotedesktopdialog.cpp:43
+#: src/remotedesktopdialog.cpp:44
 #, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
 msgstr " - Pantalles\n"
 
-#: src/remotedesktopdialog.cpp:46
+#: src/remotedesktopdialog.cpp:47
 #, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - Dispositius d'entrada\n"
 
-#: src/RemoteDesktopDialog.qml:29 src/ScreenChooserDialog.qml:197
+#: src/RemoteDesktopDialog.qml:30 src/ScreenChooserDialog.qml:197
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Permet la restauració en sessions futures"
 
-#: src/RemoteDesktopDialog.qml:36 src/ScreenChooserDialog.qml:205
+#: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:205
 #: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"
