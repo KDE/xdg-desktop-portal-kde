@@ -33,8 +33,18 @@ void InhibitPortal::Inhibit(const QDBusObjectPath &handle, const QString &app_id
                                                           QStringLiteral("/org/kde/Solid/PowerManagement/PolicyAgent"),
                                                           QStringLiteral("org.kde.Solid.PowerManagement.PolicyAgent"),
                                                           QStringLiteral("AddInhibition"));
-    //         interrupt session (1)
-    message << (uint)1 << app_id << options.value(QStringLiteral("reason")).toString();
+    uint policies = 0;
+    if (flags & 4) { // Suspend
+        policies |= 1; // InterruptSession a.k.a. logind "sleep"
+    }
+    if (flags & 8) { // Idle
+        policies |= 4; // ChangeScreenSettings a.k.a. logind "idle"
+    }
+    if (policies == 0) {
+        qCDebug(XdgDesktopPortalKdeInhibit) << "Inhibition error: flags not supported by KDE policy agent:" << flags;
+        return;
+    }
+    message << policies << app_id << options.value(QStringLiteral("reason")).toString();
 
     QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(message);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingCall);
