@@ -31,6 +31,8 @@ static QString kwinService()
     return u"org.kde.KWin"_s;
 }
 
+constexpr int kwinDBusTimeout = 3000;
+
 static QString kwinInputCapturePath()
 {
     return u"/org/kde/KWin/EIS/InputCapture"_s;
@@ -103,7 +105,7 @@ uint InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
 
     auto msg = QDBusMessage::createMethodCall(kwinService(), kwinInputCapturePath(), kwinInputCaptureManagerInterface(), u"addInputCapture"_s);
     msg << static_cast<int>(requestedCapabilities);
-    QDBusReply<QDBusObjectPath> reply = QDBusConnection::sessionBus().call(msg);
+    QDBusReply<QDBusObjectPath> reply = QDBusConnection::sessionBus().call(msg, QDBus::Block, kwinDBusTimeout);
     if (!reply.isValid()) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Failed to create KWin input capture:" << reply.error();
         return 2;
@@ -113,7 +115,7 @@ uint InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
     connect(session, &Session::closed, session, [session] {
         auto msg = QDBusMessage::createMethodCall(kwinService(), kwinInputCapturePath(), kwinInputCaptureManagerInterface(), u"removeInputCapture"_s);
         msg << session->kwinInputCapture();
-        QDBusConnection::sessionBus().send(msg);
+        QDBusConnection::sessionBus().call(msg, QDBus::Block, kwinDBusTimeout);
     });
     connect(session, &InputCaptureSession::disabled, this, [this, session] {
         session->state = State::Disabled;
