@@ -29,7 +29,7 @@ include(ECMConfiguredInstall)
 include(ECMQtDeclareLoggingCategory)
 include(ECMAddTests)
 include(ECMFindQmlModule)
-
+include(ECMDeprecationSettings)
 include(FeatureSummary)
 
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
@@ -86,12 +86,13 @@ set_package_properties(KIOFuse PROPERTIES
 pkg_check_modules(XKB IMPORTED_TARGET xkbcommon REQUIRED)
 add_feature_info(XKB XKB_FOUND "Required for converting keysyms into keycodes")
 
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055B00)
-
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX XDPK
     VERSION_HEADER ${CMAKE_BINARY_DIR}/version.h)
+
+ecm_set_disabled_deprecation_versions(QT 5.15.0
+    KF 6.4.0
+)
 
 add_subdirectory(data)
 add_subdirectory(src)
