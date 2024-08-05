@@ -38,6 +38,7 @@ MobileFileDialog::MobileFileDialog(QObject *parent)
     Q_INIT_RESOURCE(filepicker);
 
     auto *i18nContext = new KLocalizedContext(m_engine);
+    i18nContext->setTranslationDomain(TRANSLATION_DOMAIN);
     m_engine->rootContext()->setContextObject(i18nContext);
 
     m_engine->load(QStringLiteral("qrc:/org.kde.kirigamifilepicker/FilePickerWindow.qml"));
