@@ -1,6 +1,7 @@
-add_subdirectory(kirigami-filepicker)
 
 add_definitions(-DTRANSLATION_DOMAIN="xdg-desktop-portal-kde")
+
+add_subdirectory(kirigami-filepicker)
 
 add_executable(xdg-desktop-portal-kde)
 
