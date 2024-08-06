@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-30 00:43+0000\n"
+"POT-Creation-Date: 2024-08-06 00:41+0000\n"
 "PO-Revision-Date: 2020-10-11 01:46+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -247,17 +247,17 @@ msgctxt "@action:button"
 msgid "Allow"
 msgstr "Lubamine"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:101
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:102
 #, kde-format
 msgid "Select Folder"
 msgstr "Kataloogi valimine"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:104
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
 #, kde-format
 msgid "Open File"
 msgstr "Faili avamine"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:106
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:107
 #, kde-format
 msgid "Save File"
 msgstr "Faili salvestamine"

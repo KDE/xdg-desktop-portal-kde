@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-30 00:43+0000\n"
+"POT-Creation-Date: 2024-08-06 00:41+0000\n"
 "PO-Revision-Date: 2024-06-26 14:24+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -246,17 +246,17 @@ msgctxt "@action:button"
 msgid "Allow"
 msgstr "İzin Ver"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:101
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:102
 #, kde-format
 msgid "Select Folder"
 msgstr "Klasör Seç"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:104
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
 #, kde-format
 msgid "Open File"
 msgstr "Dosya Aç"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:106
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:107
 #, kde-format
 msgid "Save File"
 msgstr "Dosyayı Kaydet"

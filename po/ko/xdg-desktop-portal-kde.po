@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-30 00:43+0000\n"
+"POT-Creation-Date: 2024-08-06 00:41+0000\n"
 "PO-Revision-Date: 2023-08-25 23:22+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -251,17 +251,17 @@ msgctxt "@action:button"
 msgid "Allow"
 msgstr "허용"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:101
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:102
 #, kde-format
 msgid "Select Folder"
 msgstr "폴더 선택"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:104
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
 #, kde-format
 msgid "Open File"
 msgstr "파일 열기"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:106
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:107
 #, kde-format
 msgid "Save File"
 msgstr "파일 저장"
