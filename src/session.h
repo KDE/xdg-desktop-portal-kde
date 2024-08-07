@@ -55,6 +55,11 @@ public:
         return m_path;
     }
 
+    QString appId() const
+    {
+        return m_appId;
+    }
+
 Q_SIGNALS:
     void closed();
 

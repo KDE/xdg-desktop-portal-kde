@@ -18,6 +18,9 @@
 #include "session.h"
 #include "utils.h"
 
+#include <KLocalizedString>
+#include <KNotification>
+
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusMetaType>
@@ -131,6 +134,20 @@ uint InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
         session->state = State::Activated;
         qCDebug(XdgDesktopPortalKdeInputCapture) << "Activated session" << session->handle() << "acitvation_id" << activationId << "cursor_position"
                                                  << cursorPosition;
+
+        auto notification = new KNotification(u"notification"_s, KNotification::CloseOnTimeout | KNotification::DefaultEvent | KNotification::Persistent, this);
+        notification->setTitle(i18nc("@title:notification", "Input Capture started"));
+        if (const QString appName = Utils::applicationName(session->appId()); !appName.isEmpty()) {
+            notification->setText(xi18nc("@info %1 is the name of the application",
+                                         "Input is being managed by %1. Press <shortcut>Ctrl+Shift+Escape</shortcut> to disable.",
+                                         appName));
+        } else {
+            notification->setText(xi18nc("@info", "Input is being managed by an application. Press <shortcut>Ctrl+Shift+Escape</shortcut> to disable."));
+        }
+        notification->setIconName("dialog-input-devices");
+        connect(session, &InputCaptureSession::deactivated, notification, &KNotification::close);
+        notification->sendEvent();
+
         Q_EMIT Activated(QDBusObjectPath(session->handle()), {{u"activation_id"_s, activationId}, {u"cursor_position"_s, cursorPosition}});
     });
 
