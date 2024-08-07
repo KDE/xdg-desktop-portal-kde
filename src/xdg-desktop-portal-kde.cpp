@@ -10,6 +10,7 @@
 #include <QDBusConnection>
 
 #include <KAboutData>
+#include <KCrash>
 #include <KLocalizedString>
 
 #include "../version.h"
@@ -29,6 +30,8 @@ int main(int argc, char *argv[])
     KAboutData about(QStringLiteral("xdg-desktop-portal-kde"), QString(), QStringLiteral(XDPK_VERSION_STRING));
     about.setDesktopFileName(QStringLiteral("org.freedesktop.impl.portal.desktop.kde"));
     KAboutData::setApplicationData(about);
+
+    KCrash::initialize();
 
     QDBusConnection sessionBus = QDBusConnection::sessionBus();
 

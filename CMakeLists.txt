@@ -61,6 +61,7 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
     WindowSystem
     IconThemes
     StatusNotifierItem
+    Crash
 )
 
 find_package(KWayland ${PROJECT_DEP_VERSION} REQUIRED)

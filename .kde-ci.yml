@@ -23,6 +23,7 @@ Dependencies:
     'frameworks/solid': '@latest-kf6'
     'frameworks/kirigami': '@latest-kf6'
     'frameworks/kstatusnotifieritem': '@latest-kf6'
+    'frameworks/kcrash': '@latest-kf6'
     'plasma/kwayland': '@same'
     'third-party/wayland': '@latest'
     'third-party/wayland-protocols': '@latest'

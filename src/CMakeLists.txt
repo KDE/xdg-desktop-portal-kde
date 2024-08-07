@@ -309,6 +309,7 @@ target_link_libraries(xdg-desktop-portal-kde
     KF6::WindowSystem
     KF6::IconThemes
     KF6::StatusNotifierItem
+    KF6::Crash
     KirigamiFilepicker
     Wayland::Client
     PkgConfig::XKB
