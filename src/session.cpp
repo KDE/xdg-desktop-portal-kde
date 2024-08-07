@@ -535,7 +535,7 @@ void InputCaptureSession::connect(const QDBusObjectPath &path)
     };
     connectSignal("disabled", SIGNAL(disabled()));
     connectSignal("activated", SIGNAL(activated(uint, QPointF)));
-    connectSignal("decativated", SIGNAL(deactivated(uint)));
+    connectSignal("deactivated", SIGNAL(deactivated(uint)));
 }
 
 QDBusPendingReply<void> InputCaptureSession::enable()
