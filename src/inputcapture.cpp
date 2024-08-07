@@ -18,6 +18,10 @@
 #include "session.h"
 #include "utils.h"
 
+#include <KGlobalAccel>
+#include <KLocalizedString>
+#include <KNotification>
+
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusMetaType>
@@ -131,6 +135,28 @@ uint InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
         session->state = State::Activated;
         qCDebug(XdgDesktopPortalKdeInputCapture) << "Activated session" << session->handle() << "acitvation_id" << activationId << "cursor_position"
                                                  << cursorPosition;
+
+        const auto disableShortcuts = KGlobalAccel::self()->globalShortcut(u"kwin"_s, u"disableInputCapture"_s);
+        // Even if the user removed all sequences for this, we use the default action to have an escape hatch
+        // Unfortunately KGlobalAccel doesnt have a method to retrieve the default shortcut for another component
+        const QKeySequence disableSequence = disableShortcuts.value(0, QKeySequence(Qt::META | Qt::SHIFT | Qt::Key_Escape));
+
+        auto notification = new KNotification(u"notification"_s, KNotification::CloseOnTimeout | KNotification::DefaultEvent | KNotification::Persistent, this);
+        notification->setTitle(i18nc("@title:notification", "Input Capture started"));
+        if (const QString appName = Utils::applicationName(session->appId()); !appName.isEmpty()) {
+            notification->setText(xi18nc("@info %1 is the name of the application",
+                                         "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable.",
+                                         appName,
+                                         disableSequence.toString(QKeySequence::NativeText)));
+        } else {
+            notification->setText(xi18nc("@info",
+                                         "Input is being managed by an application. Press <shortcut>%1</shortcut> to disable.",
+                                         disableSequence.toString(QKeySequence::NativeText)));
+        }
+        notification->setIconName("dialog-input-devices");
+        connect(session, &InputCaptureSession::deactivated, notification, &KNotification::close);
+        notification->sendEvent();
+
         Q_EMIT Activated(QDBusObjectPath(session->handle()), {{u"activation_id"_s, activationId}, {u"cursor_position"_s, cursorPosition}});
     });
 
