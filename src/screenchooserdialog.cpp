@@ -77,7 +77,7 @@ public:
         return true;
     }
 
-    QList<QMap<int, QVariant>> selectedWindows() const
+    QList<QMap<int, QVariant>> selectedWindowsData() const
     {
         QList<QMap<int, QVariant>> ret;
         ret.reserve(m_selected.size());
@@ -242,13 +242,23 @@ QList<Output> ScreenChooserDialog::selectedOutputs() const
     return model->selectedOutputs();
 }
 
-QList<QMap<int, QVariant>> ScreenChooserDialog::selectedWindows() const
+QList<KWayland::Client::PlasmaWindow *> ScreenChooserDialog::selectedWindows() const
 {
     FilteredWindowModel *model = dynamic_cast<FilteredWindowModel *>(m_theDialog->property("windowsModel").value<QObject *>());
     if (!model) {
         return {};
     }
-    return model->selectedWindows();
+    const auto selectedWindowsData = model->selectedWindowsData();
+    QList<KWayland::Client::PlasmaWindow *> windows;
+    windows.reserve(selectedWindowsData.size());
+    auto allWindows = WaylandIntegration::plasmaWindowManagement()->windows();
+    for (const auto &windowData : selectedWindowsData) {
+        auto it = std::ranges::find(allWindows, windowData[KWayland::Client::PlasmaWindowModel::Uuid], &KWayland::Client::PlasmaWindow::uuid);
+        if (it != std::ranges::end(allWindows)) {
+            windows.append(*it);
+        }
+    }
+    return windows;
 }
 
 QRect ScreenChooserDialog::selectedRegion() const

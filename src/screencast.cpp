@@ -20,6 +20,7 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
+#include <KWayland/Client/plasmawindowmanagement.h>
 #include <KWayland/Client/plasmawindowmodel.h>
 
 #include <QDBusArgument>
@@ -27,6 +28,73 @@
 #include <QDataStream>
 #include <QGuiApplication>
 #include <QIODevice>
+
+struct WindowRestoreInfo {
+    QString appId;
+    QString title;
+};
+
+QDataStream &operator<<(QDataStream &out, const WindowRestoreInfo &info)
+{
+    return out << info.appId << info.title;
+}
+QDataStream &operator>>(QDataStream &in, WindowRestoreInfo &info)
+{
+    return in >> info.appId >> info.title;
+}
+
+Q_DECLARE_METATYPE(WindowRestoreInfo)
+
+int levenshteinDistance(const QString &a, const QString &b)
+{
+    if (a == b) {
+        return 0;
+    }
+
+    auto v0 = std::make_unique_for_overwrite<int[]>(b.size() + 1);
+    auto v1 = std::make_unique_for_overwrite<int[]>(b.size() + 1);
+    std::iota(v0.get(), v0.get() + b.size() - 1, 0);
+
+    for (int i = 0; i < a.size(); ++i) {
+        v1[0] = i + 1;
+        for (int j = 0; j < b.size(); ++j) {
+            const int delCost = v0[j + 1] + 1;
+            const int insertCost = v1[j] + 1;
+            const int subsCost = a.at(i) == b.at(j) ? v0[j] : v0[j] + 1;
+            v1[j + 1] = std::min({delCost, insertCost, subsCost});
+        }
+        std::swap(v0, v1);
+    }
+    return v0[b.size()];
+}
+
+QList<KWayland::Client::PlasmaWindow *> tryMatchWindows(const QList<WindowRestoreInfo> toRestore)
+{
+    QList<KWayland::Client::PlasmaWindow *> matches;
+
+    const auto windows = WaylandIntegration::plasmaWindowManagement()->windows();
+    for (const auto &restoreInfo : toRestore) {
+        int bestDistance = INT_MAX;
+        KWayland::Client::PlasmaWindow *bestMatch = nullptr;
+        for (const auto window : windows) {
+            if (window->appId() != restoreInfo.appId) {
+                continue;
+            }
+            if (const int distance = levenshteinDistance(window->title(), restoreInfo.title); distance == 0) {
+                matches.push_back(window);
+                break;
+            } else if (distance < bestDistance) {
+                bestDistance = distance;
+                bestMatch = window;
+            }
+        }
+        // Arbitrary metric to make sure the best match is at least similar
+        if (bestMatch && bestDistance < restoreInfo.title.size() / 2) {
+            matches.push_back(bestMatch);
+        }
+    }
+    return matches;
+}
 
 ScreenCastPortal::ScreenCastPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
@@ -151,7 +219,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     const PersistMode persist = session->persistMode();
     bool valid = false;
     QList<Output> selectedOutputs;
-    QList<QMap<int, QVariant>> selectedWindows;
+    QList<KWayland::Client::PlasmaWindow *> selectedWindows;
     QRect selectedRegion;
     if (persist != NoPersist && session->restoreData().isValid()) {
         const RestoreData restoreData = qdbus_cast<RestoreData>(session->restoreData().value<QDBusArgument>());
@@ -171,18 +239,9 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
                 valid = selectedOutputs.count() == restoreOutputs.count();
             }
 
-            const QStringList restoreWindows = restoreDataPayload[QStringLiteral("windows")].toStringList();
+            const auto restoreWindows = restoreDataPayload[QStringLiteral("windows")].value<QList<WindowRestoreInfo>>();
             if (!restoreWindows.isEmpty()) {
-                const KWayland::Client::PlasmaWindowModel model(WaylandIntegration::plasmaWindowManagement());
-                for (const QString &windowUuid : restoreWindows) {
-                    for (int i = 0, c = model.rowCount(); i < c; ++i) {
-                        const QModelIndex index = model.index(i, 0);
-
-                        if (model.data(index, KWayland::Client::PlasmaWindowModel::Uuid).toString() == windowUuid) {
-                            selectedWindows << model.itemData(index);
-                        }
-                    }
-                }
+                selectedWindows = tryMatchWindows(restoreWindows);
                 valid = selectedWindows.count() == restoreWindows.count();
             }
         }
@@ -199,14 +258,14 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         if (valid) {
             allowRestore = screenDialog->allowRestore();
             selectedOutputs = screenDialog->selectedOutputs();
-            selectedWindows = screenDialog->selectedWindows();
             selectedRegion = screenDialog->selectedRegion();
+            selectedWindows = screenDialog->selectedWindows();
         }
     }
 
     if (valid && session) {
         QVariantList outputs;
-        QStringList windows;
+        QList<WindowRestoreInfo> windows;
         WaylandIntegration::Streams streams;
         Screencasting::CursorMode cursorMode = Screencasting::CursorMode(session->cursorMode());
         for (const auto &output : std::as_const(selectedOutputs)) {
@@ -236,7 +295,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             }
             streams << stream;
         }
-        for (const auto &win : std::as_const(selectedWindows)) {
+        for (const auto win : std::as_const(selectedWindows)) {
             WaylandIntegration::Stream stream = WaylandIntegration::startStreamingWindow(win, cursorMode);
             if (!stream.isValid()) {
                 qCWarning(XdgDesktopPortalKdeScreenCast) << "Invalid window!" << win;
@@ -244,7 +303,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             }
 
             if (allowRestore) {
-                windows += win[KWayland::Client::PlasmaWindowModel::Uuid].toString();
+                windows += WindowRestoreInfo{.appId = win->appId(), .title = win->title()};
             }
             streams << stream;
         }
@@ -263,7 +322,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
                                                  RestoreData::currentRestoreDataVersion(),
                                                  QVariantMap{
                                                      {"outputs", outputs},
-                                                     {"windows", windows},
+                                                     {"windows", QVariant::fromValue(windows)},
                                                  }};
                 results.insert("restore_data", QVariant::fromValue<RestoreData>(restoreData));
             }

@@ -142,9 +142,9 @@ WaylandIntegration::Stream WaylandIntegration::startStreamingVirtual(const QStri
     return globalWaylandIntegration->startStreamingVirtualOutput(name, size, mode);
 }
 
-WaylandIntegration::Stream WaylandIntegration::startStreamingWindow(const QMap<int, QVariant> &win, Screencasting::CursorMode mode)
+WaylandIntegration::Stream WaylandIntegration::startStreamingWindow(KWayland::Client::PlasmaWindow *window, Screencasting::CursorMode mode)
 {
-    return globalWaylandIntegration->startStreamingWindow(win, mode);
+    return globalWaylandIntegration->startStreamingWindow(window, mode);
 }
 
 void WaylandIntegration::stopStreaming(uint node)
@@ -266,11 +266,11 @@ void WaylandIntegration::WaylandIntegrationPrivate::acquireStreamingInput(bool a
     }
 }
 
-WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingWindow(const QMap<int, QVariant> &win,
+WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingWindow(KWayland::Client::PlasmaWindow *window,
                                                                                                Screencasting::CursorMode cursorMode)
 {
-    auto uuid = win[KWayland::Client::PlasmaWindowModel::Uuid].toString();
-    return startStreaming(m_screencasting->createWindowStream(uuid, cursorMode), {{QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Window)}});
+    return startStreaming(m_screencasting->createWindowStream(window->uuid(), cursorMode),
+                          {{QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Window)}});
 }
 
 WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode)

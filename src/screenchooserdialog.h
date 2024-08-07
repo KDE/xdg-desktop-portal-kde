@@ -15,6 +15,14 @@
 #include <QEventLoop>
 #include <QRect>
 
+namespace KWayland
+{
+namespace Client
+{
+class PlasmaWindow;
+}
+}
+
 class ScreenChooserDialog : public QuickDialog
 {
     Q_OBJECT
@@ -23,7 +31,7 @@ public:
     ~ScreenChooserDialog() override;
 
     QList<Output> selectedOutputs() const;
-    QList<QMap<int, QVariant>> selectedWindows() const;
+    QList<KWayland::Client::PlasmaWindow *> selectedWindows() const;
     bool allowRestore() const;
     QRect selectedRegion() const;
 
