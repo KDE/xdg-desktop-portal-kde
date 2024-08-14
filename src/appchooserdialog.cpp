@@ -30,6 +30,8 @@
 #include <KLocalizedString>
 #include <KProcess>
 #include <KSycoca>
+#include <KWaylandExtras>
+#include <KWindowSystem>
 
 AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &lastUsedApp, const QString &fileName, const QString &mimeName, QObject *parent)
     : QuickDialog(parent)
@@ -113,6 +115,11 @@ QString AppChooserDialog::selectedApplication() const
     return m_selectedApplication;
 }
 
+QString AppChooserDialog::activationToken() const
+{
+    return m_activationToken;
+}
+
 void AppChooserDialog::onApplicationSelected(const QString &desktopFile, const bool remember)
 {
     m_selectedApplication = desktopFile;
@@ -124,7 +131,21 @@ void AppChooserDialog::onApplicationSelected(const QString &desktopFile, const b
         KBuildSycocaProgressDialog::rebuildKSycoca(QApplication::activeWindow());
     }
 
-    accept();
+    if (KWindowSystem::isPlatformWayland()) {
+        KWaylandExtras::requestXdgActivationToken(m_theDialog, KWaylandExtras::lastInputSerial(m_theDialog), m_selectedApplication);
+
+        connect(
+            KWaylandExtras::self(),
+            &KWaylandExtras::xdgActivationTokenArrived,
+            this,
+            [this](int /*serial*/, const QString &token) {
+                m_activationToken = token;
+                accept();
+            },
+            Qt::SingleShotConnection);
+    } else {
+        accept();
+    }
 }
 
 void AppChooserDialog::onOpenDiscover()

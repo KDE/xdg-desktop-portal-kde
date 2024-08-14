@@ -55,6 +55,7 @@ uint AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
 
     if (result) {
         results.insert(QStringLiteral("choice"), appDialog->selectedApplication());
+        results.insert(QStringLiteral("activation_token"), appDialog->activationToken());
     }
 
     m_appChooserDialogs.remove(handle.path());
