@@ -219,6 +219,7 @@ public:
     void updateChoices(const QStringList &choices);
 
     QString selectedApplication() const;
+    QString activationToken() const;
 public Q_SLOTS:
     void onApplicationSelected(const QString &desktopFile, const bool remember = false);
     void onOpenDiscover();
@@ -226,6 +227,7 @@ public Q_SLOTS:
 public:
     AppModel *const m_model;
     QString m_selectedApplication;
+    QString m_activationToken;
     AppChooserData *const m_appChooserData;
     bool m_autoRemember;
 };
