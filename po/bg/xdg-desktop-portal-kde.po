@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-06 02:32+0000\n"
+"POT-Creation-Date: 2024-08-30 02:38+0000\n"
 "PO-Revision-Date: 2024-05-26 12:20+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -32,19 +32,19 @@ msgstr "mkondarev@yahoo.de"
 msgid "Request device access"
 msgstr "Заявяване достъп до устройство"
 
-#: src/appchooser.cpp:92
+#: src/appchooser.cpp:93
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "%1 файла"
 
-#: src/appchooserdialog.cpp:40
+#: src/appchooserdialog.cpp:42
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "Избор на приложение"
 
-#: src/appchooserdialog.cpp:43
+#: src/appchooserdialog.cpp:45
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"

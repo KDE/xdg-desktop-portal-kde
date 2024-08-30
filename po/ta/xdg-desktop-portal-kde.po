@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-06 02:32+0000\n"
+"POT-Creation-Date: 2024-08-30 02:38+0000\n"
 "PO-Revision-Date: 2024-06-16 17:10+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -32,19 +32,19 @@ msgstr "Kde-l10n-ta@kde.org"
 msgid "Request device access"
 msgstr "சாதன அணுகலை கோரு"
 
-#: src/appchooser.cpp:92
+#: src/appchooser.cpp:93
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "%1 கோப்புகள்"
 
-#: src/appchooserdialog.cpp:40
+#: src/appchooserdialog.cpp:42
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "செயலியை தேர்வு செய்வது"
 
-#: src/appchooserdialog.cpp:43
+#: src/appchooserdialog.cpp:45
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"

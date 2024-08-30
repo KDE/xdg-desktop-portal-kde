@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-06 02:32+0000\n"
+"POT-Creation-Date: 2024-08-30 02:38+0000\n"
 "PO-Revision-Date: 2024-05-29 11:34+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -33,19 +33,19 @@ msgstr "vit@pelcak.org"
 msgid "Request device access"
 msgstr "Vyžádat přístup k zařízení"
 
-#: src/appchooser.cpp:92
+#: src/appchooser.cpp:93
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "%1 soubory"
 
-#: src/appchooserdialog.cpp:40
+#: src/appchooserdialog.cpp:42
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "Vyberte aplikaci"
 
-#: src/appchooserdialog.cpp:43
+#: src/appchooserdialog.cpp:45
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
