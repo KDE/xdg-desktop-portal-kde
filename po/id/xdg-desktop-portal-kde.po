@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-06 00:41+0000\n"
+"POT-Creation-Date: 2024-08-30 00:41+0000\n"
 "PO-Revision-Date: 2023-02-21 20:18+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -34,19 +34,19 @@ msgstr "linerly@protonmail.com"
 msgid "Request device access"
 msgstr "Minta akses peranti"
 
-#: src/appchooser.cpp:95
+#: src/appchooser.cpp:96
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "Berkas %1"
 
-#: src/appchooserdialog.cpp:46
+#: src/appchooserdialog.cpp:48
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "Pilih Aplikasi"
 
-#: src/appchooserdialog.cpp:49
+#: src/appchooserdialog.cpp:51
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-06 00:41+0000\n"
+"POT-Creation-Date: 2024-08-30 00:41+0000\n"
 "PO-Revision-Date: 2024-06-26 18:41+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -34,19 +34,19 @@ msgstr "zayed.alsaidi@gmail.com"
 msgid "Request device access"
 msgstr "طلب وصول لجهاز"
 
-#: src/appchooser.cpp:95
+#: src/appchooser.cpp:96
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "%1 ملفّات"
 
-#: src/appchooserdialog.cpp:46
+#: src/appchooserdialog.cpp:48
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "اختر تطبيقًا"
 
-#: src/appchooserdialog.cpp:49
+#: src/appchooserdialog.cpp:51
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"

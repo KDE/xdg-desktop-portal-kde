@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-06 00:41+0000\n"
+"POT-Creation-Date: 2024-08-30 00:41+0000\n"
 "PO-Revision-Date: 2024-06-26 10:27+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -38,19 +38,19 @@ msgstr "montoro_mde@gva.es,txemaq@gmail.com"
 msgid "Request device access"
 msgstr "Demana accés al dispositiu"
 
-#: src/appchooser.cpp:95
+#: src/appchooser.cpp:96
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "%1 fitxers"
 
-#: src/appchooserdialog.cpp:46
+#: src/appchooserdialog.cpp:48
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "Tria d'aplicació"
 
-#: src/appchooserdialog.cpp:49
+#: src/appchooserdialog.cpp:51
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"

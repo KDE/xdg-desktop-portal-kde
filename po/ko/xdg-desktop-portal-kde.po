@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-06 00:41+0000\n"
+"POT-Creation-Date: 2024-08-30 00:41+0000\n"
 "PO-Revision-Date: 2024-08-20 00:50+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -32,19 +32,19 @@ msgstr "kde@peremen.name"
 msgid "Request device access"
 msgstr "장치 접근 요청"
 
-#: src/appchooser.cpp:95
+#: src/appchooser.cpp:96
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "파일 %1개"
 
-#: src/appchooserdialog.cpp:46
+#: src/appchooserdialog.cpp:48
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "앱 선택"
 
-#: src/appchooserdialog.cpp:49
+#: src/appchooserdialog.cpp:51
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
