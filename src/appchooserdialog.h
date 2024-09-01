@@ -214,7 +214,6 @@ public:
                               const QString &lastUsedApp,
                               const QString &fileName,
                               const QString &mimeName = QString(),
-                              bool autoRemember = false,
                               QObject *parent = nullptr);
     void updateChoices(const QStringList &choices);
 
@@ -229,7 +228,6 @@ public:
     QString m_selectedApplication;
     QString m_activationToken;
     AppChooserData *const m_appChooserData;
-    bool m_autoRemember;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_APPCHOOSER_DIALOG_H

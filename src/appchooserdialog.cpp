@@ -33,16 +33,10 @@
 #include <KWaylandExtras>
 #include <KWindowSystem>
 
-AppChooserDialog::AppChooserDialog(const QStringList &choices,
-                                   const QString &lastUsedApp,
-                                   const QString &fileName,
-                                   const QString &mimeName,
-                                   bool autoRemember,
-                                   QObject *parent)
+AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &lastUsedApp, const QString &fileName, const QString &mimeName, QObject *parent)
     : QuickDialog(parent)
     , m_model(new AppModel(this))
     , m_appChooserData(new AppChooserData(this))
-    , m_autoRemember(autoRemember)
 {
     QVariantMap props = {
         {"title", i18nc("@title:window", "Choose Application")},
@@ -132,7 +126,7 @@ void AppChooserDialog::onApplicationSelected(const QString &desktopFile, const b
 
     // When used by the private interface for plasma-integration autoremember is off and plasma-integration takes
     // care of remembering.
-    if (m_autoRemember && remember && !m_appChooserData->mimeName().isEmpty()) {
+    if (remember && !m_appChooserData->mimeName().isEmpty()) {
         KService::Ptr serv = KService::serviceByDesktopName(desktopFile);
         KApplicationTrader::setPreferredService(m_appChooserData->mimeName(), serv);
         // kbuildsycoca is the one reading mimeapps.list, so we need to run it now
