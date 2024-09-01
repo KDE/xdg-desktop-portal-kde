@@ -25,7 +25,6 @@
 #include <QStandardPaths>
 
 #include <KApplicationTrader>
-#include <KBuildSycocaProgressDialog>
 #include <KIO/MimeTypeFinderJob>
 #include <KLocalizedString>
 #include <KProcess>
@@ -136,7 +135,12 @@ void AppChooserDialog::onApplicationSelected(const QString &desktopFile, const b
         KService::Ptr serv = KService::serviceByDesktopName(desktopFile);
         KApplicationTrader::setPreferredService(m_appChooserData->mimeName(), serv);
         // kbuildsycoca is the one reading mimeapps.list, so we need to run it now
-        KBuildSycocaProgressDialog::rebuildKSycoca(QApplication::activeWindow());
+        const QString exec = QStandardPaths::findExecutable(QStringLiteral(KBUILDSYCOCA_EXENAME));
+        if (exec.isEmpty()) {
+            qCWarning(XdgDesktopPortalKdeAppChooser) << "Could not find kbuildsycoca executable:" << KBUILDSYCOCA_EXENAME;
+            return;
+        }
+        QProcess::startDetached(QStringLiteral(KBUILDSYCOCA_EXENAME));
     }
 
     if (KWindowSystem::isPlatformWayland()) {
