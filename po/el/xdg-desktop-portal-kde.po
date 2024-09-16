@@ -249,9 +249,7 @@ msgid "%1 requested to capture input events"
 msgstr ""
 
 #: src/InputCaptureDialog.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button"
 msgid "Allow"
 msgstr "Επιτρέπεται"
