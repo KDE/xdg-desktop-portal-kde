@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-30 00:41+0000\n"
-"PO-Revision-Date: 2024-09-18 12:54+0300\n"
+"PO-Revision-Date: 2024-09-19 16:07+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
@@ -293,7 +293,7 @@ msgstr "Εντάξει"
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:57
 #, kde-format
 msgid "Cancel"
-msgstr "Aκύρωση"
+msgstr "Ακύρωση"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
@@ -546,7 +546,7 @@ msgstr "Ενεργό παράθυρο"
 #: src/ScreenshotDialog.qml:23
 #, kde-format
 msgid "Request Screenshot"
-msgstr "Αίτημα στιγμιοτύπου οθόνης"
+msgstr "Αίτημα στιγμιότυπου οθόνης"
 
 #: src/ScreenshotDialog.qml:29
 #, kde-format
