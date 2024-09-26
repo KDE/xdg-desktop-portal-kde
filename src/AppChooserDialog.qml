@@ -22,8 +22,21 @@ PWD.SystemDialog {
 
     iconName: "applications-all"
 
+    readonly property bool showingTerminalCommand: AppChooserData.shellAccess && searchField.editText.startsWith("/")
+
     property bool remember: false
     onRememberChanged: AppChooserData.remember = remember
+
+    readonly property QQC2.Action discoverAction: QQC2.Action{
+        icon.name: "plasmadiscover"
+        text: i18nc("Find some more apps that can open this content using the Discover app", "Find More in Discover")
+        onTriggered: AppChooserData.openDiscover()
+    }
+    readonly property QQC2.Action openWithTerminalAction: QQC2.Action {
+        icon.name: "system-run"
+        text: i18nc("@action:button", "Open")
+        onTriggered: searchField.acceptResult()
+    }
 
     ColumnLayout {
         spacing: Kirigami.Units.smallSpacing
@@ -45,6 +58,14 @@ PWD.SystemDialog {
                 id: searchField
                 property bool ready: false
                 property string text: editText
+
+                function acceptResult() {
+                    if (showingTerminalCommand) {
+                        AppChooserData.applicationSelected(searchField.text, root.remember)
+                    } else {
+                        grid.currentItem.activate();
+                    }
+                }
 
                 implicitWidth: Kirigami.Units.gridUnit * 20
                 Layout.fillWidth: true
@@ -69,7 +90,7 @@ PWD.SystemDialog {
                         grid.currentIndex = 0;
                     }
                 }
-                onAccepted: grid.currentItem.activate();
+                onAccepted: acceptResult()
             }
 
             QQC2.Button {
@@ -219,14 +240,18 @@ PWD.SystemDialog {
                     sourceComponent: Kirigami.PlaceholderMessage {
                         anchors.centerIn: parent
 
-                        icon.name: "edit-none"
-                        text: searchField.editText.length > 0 ? i18n("No matches") : xi18nc("@info", "No installed applications can open <filename>%1</filename>", AppChooserData.fileName)
-
-                        helpfulAction: QQC2.Action {
-                            icon.name: "plasmadiscover"
-                            text: i18nc("Find some more apps that can open this content using the Discover app", "Find More in Discover")
-                            onTriggered: AppChooserData.openDiscover()
+                        icon.name: root.showingTerminalCommand ? "system-run": "edit-none"
+                        text: {
+                            if (root.showingTerminalCommand) {
+                                return xi18nc("@info", "Open with <command>%1</command>?", searchField.editText)
+                            } else if (searchField.editText.length > 0) {
+                                return i18n("No matches")
+                            } else {
+                                return xi18nc("@info", "No installed applications can open <filename>%1</filename>", AppChooserData.fileName)
+                            }
                         }
+
+                        helpfulAction: root.showingTerminalCommand ? root.openWithTerminalAction : root.discoverAction
                     }
                 }
             }
