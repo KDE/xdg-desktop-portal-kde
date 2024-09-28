@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-30 00:41+0000\n"
+"POT-Creation-Date: 2024-09-28 00:41+0000\n"
 "PO-Revision-Date: 2024-07-06 00:39+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
@@ -52,76 +52,89 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Pasirinkite programą, skirtą atverti <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:34
-#, kde-format
-msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
-msgid "Always open %1 files with the chosen app"
-msgstr "Visada atverti %1 failus naudojant pasirinktą programą"
-
-#: src/AppChooserDialog.qml:77
-#, kde-format
-msgid "Show All Installed Applications"
-msgstr "Rodyti visas įdiegtas programas"
-
-#: src/AppChooserDialog.qml:90
-#, kde-format
-msgctxt "@action:button"
-msgid "Choose Other…"
-msgstr "Pasirinkti kitą…"
-
-#: src/AppChooserDialog.qml:203
-#, kde-format
-msgid "Default app for this file type"
-msgstr "Numatytoji programa šiam failo tipui"
-
-#: src/AppChooserDialog.qml:204
-#, kde-format
-msgctxt "@info:whatsthis"
-msgid "Last used app for this file type"
-msgstr "Paskutinė naudota programa šiam failo tipui"
-
-#: src/AppChooserDialog.qml:223
-#, kde-format
-msgid "No matches"
-msgstr "Nėra atitikmenų"
-
-#: src/AppChooserDialog.qml:223
-#, kde-kuit-format
-msgctxt "@info"
-msgid "No installed applications can open <filename>%1</filename>"
-msgstr "Jokia įdiegta programa negali atverti <filename>%1</filename>"
-
-#: src/AppChooserDialog.qml:227
+#: src/AppChooserDialog.qml:32
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
 msgstr "Rasti daugiau programoje Discover"
 
-#: src/AppChooserDialog.qml:251
+#: src/AppChooserDialog.qml:37
+#, fuzzy, kde-format
+#| msgid "Open"
+msgctxt "@action:button"
+msgid "Open"
+msgstr "Atverti"
+
+#: src/AppChooserDialog.qml:47
+#, kde-format
+msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
+msgid "Always open %1 files with the chosen app"
+msgstr "Visada atverti %1 failus naudojant pasirinktą programą"
+
+#: src/AppChooserDialog.qml:98
+#, kde-format
+msgid "Show All Installed Applications"
+msgstr "Rodyti visas įdiegtas programas"
+
+#: src/AppChooserDialog.qml:111
+#, kde-format
+msgctxt "@action:button"
+msgid "Choose Other…"
+msgstr "Pasirinkti kitą…"
+
+#: src/AppChooserDialog.qml:224
+#, kde-format
+msgid "Default app for this file type"
+msgstr "Numatytoji programa šiam failo tipui"
+
+#: src/AppChooserDialog.qml:225
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Last used app for this file type"
+msgstr "Paskutinė naudota programa šiam failo tipui"
+
+#: src/AppChooserDialog.qml:246
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Open with <command>%1</command>?"
+msgstr ""
+
+#: src/AppChooserDialog.qml:248
+#, kde-format
+msgid "No matches"
+msgstr "Nėra atitikmenų"
+
+#: src/AppChooserDialog.qml:250
+#, kde-kuit-format
+msgctxt "@info"
+msgid "No installed applications can open <filename>%1</filename>"
+msgstr "Jokia įdiegta programa negali atverti <filename>%1</filename>"
+
+#: src/AppChooserDialog.qml:276
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "Terminalo parinktys"
 
-#: src/AppChooserDialog.qml:267
+#: src/AppChooserDialog.qml:292
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Vykdyti terminale"
 
-#: src/AppChooserDialog.qml:276
+#: src/AppChooserDialog.qml:301
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "Neužverti, kai programa išeina"
 
-#: src/AppChooserDialog.qml:289
+#: src/AppChooserDialog.qml:314
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "Atrasti daugiau programų"
 
-#: src/AppChooserDialog.qml:310
+#: src/AppChooserDialog.qml:335
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-30 00:41+0000\n"
+"POT-Creation-Date: 2024-09-28 00:41+0000\n"
 "PO-Revision-Date: 2024-07-21 21:21-0500\n"
 "Last-Translator: aalam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -50,76 +50,89 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "<filename>%1</filename> ਖੋਲ੍ਹਣ ਲਈ ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
 
-#: src/AppChooserDialog.qml:34
-#, kde-format
-msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
-msgid "Always open %1 files with the chosen app"
-msgstr "%1 ਫਾਇਲਾਂ ਨੂੰ ਹਮੇਸ਼ਾਂ ਚੁਣੀ ਐਪ ਨਾਲ ਖੋਲ੍ਹੋ"
-
-#: src/AppChooserDialog.qml:77
-#, kde-format
-msgid "Show All Installed Applications"
-msgstr "ਸਭ ਇੰਸਟਾਲ ਹੋਈਆਂ ਐਪਲੀਕੇਸ਼ਨ ਵੇਖੋ"
-
-#: src/AppChooserDialog.qml:90
-#, kde-format
-msgctxt "@action:button"
-msgid "Choose Other…"
-msgstr "…ਹੋਰ ਚੁਣੋ"
-
-#: src/AppChooserDialog.qml:203
-#, kde-format
-msgid "Default app for this file type"
-msgstr "ਇਸ ਫ਼ਾਇਲ ਕਿਸਮ ਲਈ ਮੂਲ ਐਪ"
-
-#: src/AppChooserDialog.qml:204
-#, kde-format
-msgctxt "@info:whatsthis"
-msgid "Last used app for this file type"
-msgstr "ਇਸ ਫਾਇਲ ਕਿਸਮ ਲਈ ਪਿਛਲੀ ਵਾਰ ਵਰਤੀ ਗਈ ਐਪ"
-
-#: src/AppChooserDialog.qml:223
-#, kde-format
-msgid "No matches"
-msgstr "ਕੋਈ ਮੇਲ ਨਹੀਂ ਹੈ"
-
-#: src/AppChooserDialog.qml:223
-#, kde-kuit-format
-msgctxt "@info"
-msgid "No installed applications can open <filename>%1</filename>"
-msgstr "<filename>%1</filename> ਨੂੰ ਖੋਲ੍ਹਣ ਲਈ ਕੋਈ ਐਪਲੀਕੇਸ਼ਨ ਇੰਸਟਾਲ ਨਹੀਂ ਹੈ"
-
-#: src/AppChooserDialog.qml:227
+#: src/AppChooserDialog.qml:32
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
 msgstr "ਡਿਸਕਵਰ ਵਿੱਚ ਹੋਰ ਲੱਭੋ"
 
-#: src/AppChooserDialog.qml:251
+#: src/AppChooserDialog.qml:37
+#, fuzzy, kde-format
+#| msgid "Open"
+msgctxt "@action:button"
+msgid "Open"
+msgstr "ਖੋਲ੍ਹੋ"
+
+#: src/AppChooserDialog.qml:47
+#, kde-format
+msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
+msgid "Always open %1 files with the chosen app"
+msgstr "%1 ਫਾਇਲਾਂ ਨੂੰ ਹਮੇਸ਼ਾਂ ਚੁਣੀ ਐਪ ਨਾਲ ਖੋਲ੍ਹੋ"
+
+#: src/AppChooserDialog.qml:98
+#, kde-format
+msgid "Show All Installed Applications"
+msgstr "ਸਭ ਇੰਸਟਾਲ ਹੋਈਆਂ ਐਪਲੀਕੇਸ਼ਨ ਵੇਖੋ"
+
+#: src/AppChooserDialog.qml:111
+#, kde-format
+msgctxt "@action:button"
+msgid "Choose Other…"
+msgstr "…ਹੋਰ ਚੁਣੋ"
+
+#: src/AppChooserDialog.qml:224
+#, kde-format
+msgid "Default app for this file type"
+msgstr "ਇਸ ਫ਼ਾਇਲ ਕਿਸਮ ਲਈ ਮੂਲ ਐਪ"
+
+#: src/AppChooserDialog.qml:225
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Last used app for this file type"
+msgstr "ਇਸ ਫਾਇਲ ਕਿਸਮ ਲਈ ਪਿਛਲੀ ਵਾਰ ਵਰਤੀ ਗਈ ਐਪ"
+
+#: src/AppChooserDialog.qml:246
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Open with <command>%1</command>?"
+msgstr ""
+
+#: src/AppChooserDialog.qml:248
+#, kde-format
+msgid "No matches"
+msgstr "ਕੋਈ ਮੇਲ ਨਹੀਂ ਹੈ"
+
+#: src/AppChooserDialog.qml:250
+#, kde-kuit-format
+msgctxt "@info"
+msgid "No installed applications can open <filename>%1</filename>"
+msgstr "<filename>%1</filename> ਨੂੰ ਖੋਲ੍ਹਣ ਲਈ ਕੋਈ ਐਪਲੀਕੇਸ਼ਨ ਇੰਸਟਾਲ ਨਹੀਂ ਹੈ"
+
+#: src/AppChooserDialog.qml:276
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "ਟਰਮੀਨਲ ਚੋਣਾਂ"
 
-#: src/AppChooserDialog.qml:267
+#: src/AppChooserDialog.qml:292
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "ਟਰਮੀਨਲ ਵਿੱਚ ਚਲਾਓ"
 
-#: src/AppChooserDialog.qml:276
+#: src/AppChooserDialog.qml:301
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "ਜਦੋਂ ਕਮਾਂਡ ਖਤਮ ਹੋਵੇ ਤਾਂ ਬੰਦ ਨਾ ਕਰੋ"
 
-#: src/AppChooserDialog.qml:289
+#: src/AppChooserDialog.qml:314
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "ਹੋਰ ਐਪਲੀਕੇਸ਼ਨ ਖੋਜੋ"
 
-#: src/AppChooserDialog.qml:310
+#: src/AppChooserDialog.qml:335
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-30 00:41+0000\n"
+"POT-Creation-Date: 2024-09-28 00:41+0000\n"
 "PO-Revision-Date: 2024-06-26 10:59+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -50,76 +50,89 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Selige un application a aperir <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:34
-#, kde-format
-msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
-msgid "Always open %1 files with the chosen app"
-msgstr "Sempre aperi %1 files con le app seligite"
-
-#: src/AppChooserDialog.qml:77
-#, kde-format
-msgid "Show All Installed Applications"
-msgstr "Monstra omne  applicationes installate "
-
-#: src/AppChooserDialog.qml:90
-#, kde-format
-msgctxt "@action:button"
-msgid "Choose Other…"
-msgstr "Selige altere ..."
-
-#: src/AppChooserDialog.qml:203
-#, kde-format
-msgid "Default app for this file type"
-msgstr "App predefinite per iste typo de file"
-
-#: src/AppChooserDialog.qml:204
-#, kde-format
-msgctxt "@info:whatsthis"
-msgid "Last used app for this file type"
-msgstr "Ultime app usate per iste typo de file"
-
-#: src/AppChooserDialog.qml:223
-#, kde-format
-msgid "No matches"
-msgstr "Nulle correspondentias"
-
-#: src/AppChooserDialog.qml:223
-#, kde-kuit-format
-msgctxt "@info"
-msgid "No installed applications can open <filename>%1</filename>"
-msgstr "Nulle applicationes installate pote aperir <filename>%1</filename>"
-
-#: src/AppChooserDialog.qml:227
+#: src/AppChooserDialog.qml:32
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
 msgstr "Trova plus in Discover"
 
-#: src/AppChooserDialog.qml:251
+#: src/AppChooserDialog.qml:37
+#, fuzzy, kde-format
+#| msgid "Open"
+msgctxt "@action:button"
+msgid "Open"
+msgstr "Aperi"
+
+#: src/AppChooserDialog.qml:47
+#, kde-format
+msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
+msgid "Always open %1 files with the chosen app"
+msgstr "Sempre aperi %1 files con le app seligite"
+
+#: src/AppChooserDialog.qml:98
+#, kde-format
+msgid "Show All Installed Applications"
+msgstr "Monstra omne  applicationes installate "
+
+#: src/AppChooserDialog.qml:111
+#, kde-format
+msgctxt "@action:button"
+msgid "Choose Other…"
+msgstr "Selige altere ..."
+
+#: src/AppChooserDialog.qml:224
+#, kde-format
+msgid "Default app for this file type"
+msgstr "App predefinite per iste typo de file"
+
+#: src/AppChooserDialog.qml:225
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "Last used app for this file type"
+msgstr "Ultime app usate per iste typo de file"
+
+#: src/AppChooserDialog.qml:246
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Open with <command>%1</command>?"
+msgstr ""
+
+#: src/AppChooserDialog.qml:248
+#, kde-format
+msgid "No matches"
+msgstr "Nulle correspondentias"
+
+#: src/AppChooserDialog.qml:250
+#, kde-kuit-format
+msgctxt "@info"
+msgid "No installed applications can open <filename>%1</filename>"
+msgstr "Nulle applicationes installate pote aperir <filename>%1</filename>"
+
+#: src/AppChooserDialog.qml:276
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "Optiones de terminal"
 
-#: src/AppChooserDialog.qml:267
+#: src/AppChooserDialog.qml:292
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Exeque in Terminal"
 
-#: src/AppChooserDialog.qml:276
+#: src/AppChooserDialog.qml:301
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "Non claude quando le commando exi"
 
-#: src/AppChooserDialog.qml:289
+#: src/AppChooserDialog.qml:314
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "Discoperi altere  applicationes "
 
-#: src/AppChooserDialog.qml:310
+#: src/AppChooserDialog.qml:335
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
