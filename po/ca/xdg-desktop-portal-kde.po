@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-28 00:41+0000\n"
-"PO-Revision-Date: 2024-06-26 10:27+0200\n"
+"PO-Revision-Date: 2024-09-28 08:03+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -63,8 +63,7 @@ msgid "Find More in Discover"
 msgstr "Cerqueu-ne més al Discover"
 
 #: src/AppChooserDialog.qml:37
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Obre"
@@ -101,7 +100,7 @@ msgstr "Darrera aplicació utilitzada per a aquest tipus de fitxer"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
-msgstr ""
+msgstr "Obro amb <command>%1</command>?"
 
 #: src/AppChooserDialog.qml:248
 #, kde-format
