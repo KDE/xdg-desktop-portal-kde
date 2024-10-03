@@ -57,8 +57,7 @@ msgid "Find More in Discover"
 msgstr "Keşfet’te Daha Fazlasını Bul"
 
 #: src/AppChooserDialog.qml:37
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Aç"
@@ -95,7 +94,7 @@ msgstr "Bu dosya türü için son kullanılan uygulama"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
-msgstr ""
+msgstr "<command>%1</command> ile açılsın mı?"
 
 #: src/AppChooserDialog.qml:248
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-29 02:30+0000\n"
-"PO-Revision-Date: 2024-06-30 11:30+0900\n"
+"PO-Revision-Date: 2024-10-02 17:24+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -58,8 +58,7 @@ msgid "Find More in Discover"
 msgstr "在 Discover 中尋找更多"
 
 #: src/AppChooserDialog.qml:37
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "開啟"
@@ -96,7 +95,7 @@ msgstr "這個檔案類型上次使用的應用程式"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
-msgstr ""
+msgstr "要使用 <command>%1</command> 開啟嗎？"
 
 #: src/AppChooserDialog.qml:248
 #, kde-format
