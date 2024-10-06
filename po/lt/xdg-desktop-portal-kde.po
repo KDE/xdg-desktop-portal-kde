@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-29 02:30+0000\n"
-"PO-Revision-Date: 2024-07-06 00:39+0300\n"
+"PO-Revision-Date: 2024-10-05 21:58+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -59,8 +59,7 @@ msgid "Find More in Discover"
 msgstr "Rasti daugiau programoje Discover"
 
 #: src/AppChooserDialog.qml:37
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Atverti"
@@ -97,7 +96,7 @@ msgstr "Paskutinė naudota programa šiam failo tipui"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
-msgstr ""
+msgstr "Atverti naudojant <command>%1</command>?"
 
 #: src/AppChooserDialog.qml:248
 #, kde-format
