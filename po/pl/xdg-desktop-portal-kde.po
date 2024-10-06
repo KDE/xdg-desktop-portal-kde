@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-28 00:41+0000\n"
-"PO-Revision-Date: 2024-07-21 06:57+0200\n"
+"PO-Revision-Date: 2024-10-05 12:23+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -59,8 +59,7 @@ msgid "Find More in Discover"
 msgstr "Poszukaj więcej w Odkrywcy"
 
 #: src/AppChooserDialog.qml:37
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Otwórz"
@@ -97,7 +96,7 @@ msgstr "Ostatnio użyty program dla tego rodzaju plików"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
-msgstr ""
+msgstr "Otworzyć w <command>%1</command>?"
 
 #: src/AppChooserDialog.qml:248
 #, kde-format
