@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-29 02:30+0000\n"
-"PO-Revision-Date: 2024-06-26 15:21+0300\n"
+"PO-Revision-Date: 2024-10-07 06:55+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -56,11 +56,10 @@ msgid "Find More in Discover"
 msgstr "איתור של עוד עם Discover"
 
 #: src/AppChooserDialog.qml:37
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
-msgstr "פתח"
+msgstr "פתיחה"
 
 #: src/AppChooserDialog.qml:47
 #, kde-format
@@ -94,7 +93,7 @@ msgstr "היישום האחרון ששימש לפתיחת סוג קובץ זה"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
-msgstr ""
+msgstr "לפתוח עם <command>%1</command>?"
 
 #: src/AppChooserDialog.qml:248
 #, kde-format
