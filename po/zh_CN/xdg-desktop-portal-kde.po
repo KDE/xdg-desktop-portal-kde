@@ -14,9 +14,9 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/xdg-desktop-portal-kde/xdg-desktop-"
+"X-Crowdin-File: /kf6-stable/messages/xdg-desktop-portal-kde/xdg-desktop-"
 "portal-kde.pot\n"
-"X-Crowdin-File-ID: 43565\n"
+"X-Crowdin-File-ID: 52876\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -58,8 +58,7 @@ msgid "Find More in Discover"
 msgstr "打开 Discover 查找更多应用"
 
 #: src/AppChooserDialog.qml:37
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "打开"
@@ -96,7 +95,7 @@ msgstr "上次打开此文件类型的应用"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
-msgstr ""
+msgstr "使用 <command>%1</command> 打开吗？"
 
 #: src/AppChooserDialog.qml:248
 #, kde-format
