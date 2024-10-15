@@ -59,8 +59,7 @@ msgid "Find More in Discover"
 msgstr "Βρείτε περισσότερα στο Discover"
 
 #: src/AppChooserDialog.qml:37
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Άνοιγμα"
