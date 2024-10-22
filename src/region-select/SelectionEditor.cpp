@@ -125,6 +125,7 @@ void SelectionEditor::showViews()
     for (auto *screen : qApp->screens()) {
         auto view = new QQuickView(m_engine, nullptr);
 
+        view->create();
         view->setScreen(screen);
 
         view->setSource(QUrl(QStringLiteral("qrc:/region-select/RegionSelectOverlay.qml")));
