@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-28 00:41+0000\n"
+"POT-Creation-Date: 2024-10-23 00:42+0000\n"
 "PO-Revision-Date: 2024-09-19 16:07+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -449,7 +449,7 @@ msgstr "Να επιτρέπεται η επαναφορά σε μελλοντι�
 msgid "Share"
 msgstr "Διαμοιρασμός"
 
-#: src/screencast.cpp:273
+#: src/screencast.cpp:332
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
