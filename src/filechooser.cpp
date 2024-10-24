@@ -479,7 +479,7 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
         fileDialog->m_fileWidget->setUrl(translatedCurrentFolderUrl);
     }
 
-    fileDialog->m_fileWidget->setFilters(filters);
+    fileDialog->m_fileWidget->setFilters(filters, currentFilter);
 
     if (optionsWidget) {
         fileDialog->m_fileWidget->setCustomWidget({}, optionsWidget.get());
@@ -642,7 +642,7 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
         fileDialog->m_fileWidget->okButton()->setText(acceptLabel);
     }
 
-    fileDialog->m_fileWidget->setFilters(filters);
+    fileDialog->m_fileWidget->setFilters(filters, currentFilter);
 
     if (optionsWidget) {
         fileDialog->m_fileWidget->setCustomWidget(optionsWidget.get());
