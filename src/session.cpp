@@ -491,7 +491,6 @@ Shortcuts GlobalShortcutsSession::shortcutDescriptions() const
     return ret;
 }
 
-
 static QString kwinService()
 {
     return u"org.kde.KWin"_s;

@@ -23,7 +23,11 @@ class RemoteDesktopDialog : public QuickDialog
 {
     Q_OBJECT
 public:
-    RemoteDesktopDialog(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled, ScreenCastPortal::PersistMode persistMode, QObject *parent = nullptr);
+    RemoteDesktopDialog(const QString &appName,
+                        RemoteDesktopPortal::DeviceTypes deviceTypes,
+                        bool screenSharingEnabled,
+                        ScreenCastPortal::PersistMode persistMode,
+                        QObject *parent = nullptr);
 
     QList<Output> selectedOutputs() const;
     bool allowRestore() const;

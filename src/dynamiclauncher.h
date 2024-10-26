@@ -18,7 +18,10 @@ class DynamicLauncherPortal : public QDBusAbstractAdaptor
     const uint m_supportedTypes = uint(Type::Application) | uint(Type::Webapp);
 
 public:
-    enum class Type { Application = 1, Webapp = 2 };
+    enum class Type {
+        Application = 1,
+        Webapp = 2
+    };
 
     explicit DynamicLauncherPortal(QObject *parent = nullptr);
 

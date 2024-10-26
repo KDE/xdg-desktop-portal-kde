@@ -280,7 +280,10 @@ KFileFilter FileChooserPortal::filterListToFileFilter(const FileChooserPortal::F
     return KFileFilter(filterList.userVisibleName, nameFilters, mimeFilters);
 }
 
-enum class Entity { File, Folder };
+enum class Entity {
+    File,
+    Folder
+};
 static QUrl kioUrlFromSandboxPath(const QString &path, Entity entity)
 {
     if (path.isEmpty()) {

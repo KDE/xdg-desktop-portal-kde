@@ -29,7 +29,11 @@ public:
     };
     Q_DECLARE_FLAGS(Capabilities, Capability)
 
-    enum class State { Disabled, Deactivated, Activated };
+    enum class State {
+        Disabled,
+        Deactivated,
+        Activated
+    };
 
     uint version() const
     {
