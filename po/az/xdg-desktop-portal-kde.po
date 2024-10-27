@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-23 00:42+0000\n"
+"POT-Creation-Date: 2024-10-27 00:42+0000\n"
 "PO-Revision-Date: 2022-08-24 17:55+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -236,7 +236,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr ""
 
-#: src/filechooser.cpp:476
+#: src/filechooser.cpp:479
 #, kde-format
 msgid "Open"
 msgstr "Açmaq"
@@ -414,20 +414,20 @@ msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr ""
 
-#: src/remotedesktopdialog.cpp:23
+#: src/remotedesktopdialog.cpp:26
 #, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
 msgstr ""
 
-#: src/remotedesktopdialog.cpp:39
+#: src/remotedesktopdialog.cpp:41
 #, fuzzy, kde-format
 #| msgid "Request device access"
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to:\n"
 msgstr "Cihaza giriş tələb etmək"
 
-#: src/remotedesktopdialog.cpp:41
+#: src/remotedesktopdialog.cpp:43
 #, fuzzy, kde-format
 #| msgid "Request device access"
 msgctxt ""
@@ -436,14 +436,14 @@ msgctxt ""
 msgid "%1 requested access to remotely control:\n"
 msgstr "Cihaza giriş tələb etmək"
 
-#: src/remotedesktopdialog.cpp:44
+#: src/remotedesktopdialog.cpp:46
 #, fuzzy, kde-format
 #| msgid "Full Screen"
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
 msgstr "Tam ekran"
 
-#: src/remotedesktopdialog.cpp:47
+#: src/remotedesktopdialog.cpp:49
 #, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"

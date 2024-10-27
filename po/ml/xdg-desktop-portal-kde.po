@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-23 00:42+0000\n"
+"POT-Creation-Date: 2024-10-27 00:42+0000\n"
 "PO-Revision-Date: 2019-04-17 03:47+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc."
@@ -224,7 +224,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr ""
 
-#: src/filechooser.cpp:476
+#: src/filechooser.cpp:479
 #, kde-format
 msgid "Open"
 msgstr ""
@@ -390,19 +390,19 @@ msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr ""
 
-#: src/remotedesktopdialog.cpp:23
+#: src/remotedesktopdialog.cpp:26
 #, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
 msgstr ""
 
-#: src/remotedesktopdialog.cpp:39
+#: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to:\n"
 msgstr ""
 
-#: src/remotedesktopdialog.cpp:41
+#: src/remotedesktopdialog.cpp:43
 #, kde-format
 msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
@@ -410,13 +410,13 @@ msgctxt ""
 msgid "%1 requested access to remotely control:\n"
 msgstr ""
 
-#: src/remotedesktopdialog.cpp:44
+#: src/remotedesktopdialog.cpp:46
 #, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
 msgstr ""
 
-#: src/remotedesktopdialog.cpp:47
+#: src/remotedesktopdialog.cpp:49
 #, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
