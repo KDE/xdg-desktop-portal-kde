@@ -24,6 +24,8 @@
 #include <QRegion>
 #include <QScreen>
 
+#include "permission_store.h"
+
 using namespace Qt::StringLiterals;
 
 static QString kwinService()
@@ -171,6 +173,37 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
         }
     }
 
+    bool megaAuthorized = [app_id]() {
+        // NOTE: an empty app_id should never occur for flatpak/snap applications and as such is meant to denote a host application
+        //   of which the app_id is not known. In such a case the user may authorize the empty app_id to cover generic host applications.
+        //   Specifically xwayland may request input permissions but has no app_id.
+        //   Note that this is different from giving out an "any" permission. An application that has an app_id will not be covered by the empty rule.
+        qDBusRegisterMetaType<AppIdPermissionsMap>();
+        OrgFreedesktopImplPortalPermissionStoreInterface permissionStore(u"org.freedesktop.impl.portal.PermissionStore"_s,
+                                                                         u"/org/freedesktop/impl/portal/PermissionStore"_s,
+                                                                         QDBusConnection::sessionBus());
+        permissionStore.setTimeout(1000);
+        QDBusVariant data;
+        auto reply = permissionStore.Lookup(u"kde-authorized"_s, u"remote-desktop"_s, data);
+        if (reply.isValid()) {
+            auto appIdPermissions = reply.value();
+            if (!appIdPermissions.contains(app_id)) {
+                qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "Permission not granted for" << app_id;
+                return false;
+            }
+
+            auto permissions = appIdPermissions.value(app_id);
+            if (permissions.contains("yes"_L1)) {
+                qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "Permission granted for" << app_id;
+                return true;
+            }
+        } else {
+            qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Failed to lookup permissions:" << reply.error().message();
+        }
+
+        return false;
+    }();
+
     if (restored) {
         auto notification = new KNotification(QStringLiteral("remotedesktopstarted"), KNotification::CloseOnTimeout);
         notification->setTitle(i18nc("title of notification about input systems taken over", "Remote control session started"));
@@ -178,14 +211,16 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
         notification->setIconName(QStringLiteral("krfb"));
         notification->sendEvent();
     } else {
-        QScopedPointer<RemoteDesktopDialog, QScopedPointerDeleteLater> remoteDesktopDialog(
-            new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled(), session->persistMode()));
-        Utils::setParentWindow(remoteDesktopDialog->windowHandle(), parent_window);
-        Request::makeClosableDialogRequest(handle, remoteDesktopDialog.get());
-        connect(session, &Session::closed, remoteDesktopDialog.data(), &RemoteDesktopDialog::reject);
+        if (!megaAuthorized) { // authorize right away
+            QScopedPointer<RemoteDesktopDialog, QScopedPointerDeleteLater> remoteDesktopDialog(
+                new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled(), session->persistMode()));
+            Utils::setParentWindow(remoteDesktopDialog->windowHandle(), parent_window);
+            Request::makeClosableDialogRequest(handle, remoteDesktopDialog.get());
+            connect(session, &Session::closed, remoteDesktopDialog.data(), &RemoteDesktopDialog::reject);
 
-        if (!remoteDesktopDialog->exec()) {
-            return 1;
+            if (!remoteDesktopDialog->exec()) {
+                return 1;
+            }
         }
     }
 

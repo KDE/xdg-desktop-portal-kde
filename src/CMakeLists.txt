@@ -291,6 +291,9 @@ qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS ../data/org.kde.KIOFuse.VFS.xm
 
 qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS ../data/org.freedesktop.Application.xml fdo_application_interface)
 
+set_source_files_properties(../data/org.freedesktop.impl.portal.PermissionStore.xml PROPERTIES NO_NAMESPACE TRUE INCLUDE "dbushelpers.h")
+qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS ../data/org.freedesktop.impl.portal.PermissionStore.xml permission_store)
+
 target_sources(xdg-desktop-portal-kde PRIVATE ${xdg_desktop_portal_kde_SRCS})
 
 target_link_libraries(xdg-desktop-portal-kde
