@@ -22,5 +22,11 @@ using Shortcut = QPair<QString, QVariantMap>;
 /// a(sa{sv})
 using Shortcuts = QList<Shortcut>;
 
+// as
+using Permissions = QStringList;
+
+// a{sas}
+using AppIdPermissionsMap = QMap<QString, Permissions>;
+
 Q_DECLARE_METATYPE(VariantMapMap)
 Q_DECLARE_METATYPE(Shortcuts)
