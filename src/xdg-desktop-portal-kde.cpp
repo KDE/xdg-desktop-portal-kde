@@ -7,7 +7,9 @@
  */
 
 #include <QApplication>
+#include <QCommandLineParser>
 #include <QDBusConnection>
+#include <QDBusConnectionInterface>
 
 #include <KAboutData>
 #include <KCrash>
@@ -16,6 +18,8 @@
 #include "../version.h"
 #include "debug.h"
 #include "desktopportal.h"
+
+using namespace Qt::StringLiterals;
 
 int main(int argc, char *argv[])
 {
@@ -27,15 +31,24 @@ int main(int argc, char *argv[])
     a.setQuitOnLastWindowClosed(false);
     a.setQuitLockEnabled(false);
 
+    QCommandLineParser parser;
+    QCommandLineOption replaceOption(u"replace"_s, u"Replace running instance"_s);
+    parser.addOption(replaceOption);
+
     KAboutData about(QStringLiteral("xdg-desktop-portal-kde"), QString(), QStringLiteral(XDPK_VERSION_STRING));
     about.setDesktopFileName(QStringLiteral("org.freedesktop.impl.portal.desktop.kde"));
+    about.setupCommandLine(&parser);
     KAboutData::setApplicationData(about);
+
+    parser.process(a);
+    about.processCommandLine(&parser);
 
     KCrash::initialize();
 
-    QDBusConnection sessionBus = QDBusConnection::sessionBus();
+    const auto dbusQueueOption = parser.isSet(replaceOption) ? QDBusConnectionInterface::ReplaceExistingService : QDBusConnectionInterface::DontQueueService;
 
-    if (sessionBus.registerService(QStringLiteral("org.freedesktop.impl.portal.desktop.kde"))) {
+    QDBusConnection sessionBus = QDBusConnection::sessionBus();
+    if (sessionBus.interface()->registerService(u"org.freedesktop.impl.portal.desktop.kde"_s, dbusQueueOption, QDBusConnectionInterface::AllowReplacement)) {
         DesktopPortal *desktopPortal = new DesktopPortal(&a);
         if (sessionBus.registerObject(QStringLiteral("/org/freedesktop/portal/desktop"), desktopPortal, QDBusConnection::ExportAdaptors)) {
             qCDebug(XdgDesktopPortalKde) << "Desktop portal registered successfully";
