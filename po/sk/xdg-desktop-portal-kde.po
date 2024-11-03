@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-29 02:30+0000\n"
-"PO-Revision-Date: 2024-10-06 11:51+0200\n"
+"PO-Revision-Date: 2024-11-02 20:59+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 24.08.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -239,21 +239,19 @@ msgstr "Otvoriť"
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
-msgstr ""
+msgstr "Požadované zachytávanie vstupných udalostí"
 
 #: src/InputCaptureDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "Requested access to:\n"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
-msgstr "Požadovaný prístup k:\n"
+msgstr "Aplikácia požiadala o zachytávanie vstupných udalostí"
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
-msgstr ""
+msgstr "%1 požiadal o zachytávanie vstupných udalostí"
 
 #: src/InputCaptureDialog.qml:21
 #, kde-format
