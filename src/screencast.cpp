@@ -100,6 +100,7 @@ ScreenCastPortal::ScreenCastPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
 {
     qDBusRegisterMetaType<RestoreData>();
+    qRegisterMetaType<QList<WindowRestoreInfo>>();
 }
 
 ScreenCastPortal::~ScreenCastPortal()
