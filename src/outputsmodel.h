@@ -121,3 +121,5 @@ private:
     QList<Output> m_outputs;
     QSet<quint32> m_selectedRows;
 };
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(OutputsModel::Options)

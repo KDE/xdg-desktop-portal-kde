@@ -228,7 +228,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             const QVariantMap restoreDataPayload = restoreData.payload;
             const QVariantList restoreOutputs = restoreDataPayload[QStringLiteral("outputs")].toList();
             if (!restoreOutputs.isEmpty()) {
-                OutputsModel model(OutputsModel::WorkspaceIncluded, this);
+                OutputsModel model(OutputsModel::WorkspaceIncluded | OutputsModel::RegionIncluded, this);
                 for (const auto &outputUniqueId : restoreOutputs) {
                     for (int i = 0, c = model.rowCount(); i < c; ++i) {
                         const Output &iOutput = model.outputAt(i);
@@ -238,6 +238,17 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
                     }
                 }
                 valid = selectedOutputs.count() == restoreOutputs.count();
+            }
+
+            const QRect restoreRegion = restoreDataPayload[QStringLiteral("region")].value<QRect>();
+            if (restoreRegion.isValid()) {
+                selectedRegion = restoreRegion;
+                const auto screens = QGuiApplication::screens();
+                QRegion fullWorkspace;
+                for (const auto screen : screens) {
+                    fullWorkspace += screen->geometry();
+                }
+                valid = fullWorkspace.contains(selectedRegion);
             }
 
             const auto restoreWindows = restoreDataPayload[QStringLiteral("windows")].value<QList<WindowRestoreInfo>>();
@@ -324,6 +335,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
                                                  QVariantMap{
                                                      {"outputs", outputs},
                                                      {"windows", QVariant::fromValue(windows)},
+                                                     {"region", selectedRegion},
                                                  }};
                 results.insert("restore_data", QVariant::fromValue<RestoreData>(restoreData));
             }
