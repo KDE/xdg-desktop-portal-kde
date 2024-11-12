@@ -77,7 +77,7 @@ public:
     Stream startStreamingWindow(KWayland::Client::PlasmaWindow *window, Screencasting::CursorMode mode);
     Stream startStreamingWorkspace(Screencasting::CursorMode mode);
     Stream startStreamingRegion(const QRect region, Screencasting::CursorMode mode);
-    Stream startStreamingVirtualOutput(const QString &name, const QSize &size, Screencasting::CursorMode mode);
+    Stream startStreamingVirtualOutput(const QString &name, const QString &description, const QSize &size, Screencasting::CursorMode mode);
     void stopStreaming(uint32_t nodeid);
 
     void requestPointerButtonPress(quint32 linuxButton);

@@ -29,6 +29,8 @@
 #include <QGuiApplication>
 #include <QIODevice>
 
+#include <ranges>
+
 struct WindowRestoreInfo {
     QString appId;
     QString title;
@@ -289,9 +291,13 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             case Output::Workspace:
                 stream = WaylandIntegration::startStreamingWorkspace(cursorMode);
                 break;
-            case Output::Virtual:
-                stream = WaylandIntegration::startStreamingVirtual(output.uniqueId(), {1920, 1080}, cursorMode);
+            case Output::Virtual: {
+                const QString outputName = app_id.isEmpty()
+                    ? i18n("Virtual Output")
+                    : i18nc("Virtual Output (shared with %1)", "%1 is the application name", Utils::applicationName(app_id));
+                stream = WaylandIntegration::startStreamingVirtual(OutputsModel::virtualScreenIdForApp(app_id), outputName, {1920, 1080}, cursorMode);
                 break;
+            }
             default:
                 stream = WaylandIntegration::startStreamingOutput(output.screen(), cursorMode);
                 break;

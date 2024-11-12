@@ -139,10 +139,15 @@ ScreencastingStream *Screencasting::createRegionStream(const QRect &g, qreal sca
     return stream;
 }
 
-ScreencastingStream *Screencasting::createVirtualOutputStream(const QString &name, const QSize &s, qreal scale, Screencasting::CursorMode mode)
+ScreencastingStream *
+Screencasting::createVirtualOutputStream(const QString &name, const QString &description, const QSize &s, qreal scale, Screencasting::CursorMode mode)
 {
     auto stream = new ScreencastingStream(this);
-    stream->d->init(d->stream_virtual_output(name, s.width(), s.height(), wl_fixed_from_double(scale), mode));
+    if (d->version() >= ZKDE_SCREENCAST_UNSTABLE_V1_STREAM_VIRTUAL_OUTPUT_WITH_DESCRIPTION_SINCE_VERSION) {
+        stream->d->init(d->stream_virtual_output_with_description(name, description, s.width(), s.height(), wl_fixed_from_double(scale), mode));
+    } else {
+        stream->d->init(d->stream_virtual_output(name, s.width(), s.height(), wl_fixed_from_double(scale), mode));
+    }
     stream->d->m_geometry = QRect(QPoint(0, 0), s);
     return stream;
 }

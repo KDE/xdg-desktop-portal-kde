@@ -137,9 +137,10 @@ WaylandIntegration::Stream WaylandIntegration::startStreamingRegion(const QRect 
     return globalWaylandIntegration->startStreamingRegion(region, mode);
 }
 
-WaylandIntegration::Stream WaylandIntegration::startStreamingVirtual(const QString &name, const QSize &size, Screencasting::CursorMode mode)
+WaylandIntegration::Stream
+WaylandIntegration::startStreamingVirtual(const QString &name, const QString &description, const QSize &size, Screencasting::CursorMode mode)
 {
-    return globalWaylandIntegration->startStreamingVirtualOutput(name, size, mode);
+    return globalWaylandIntegration->startStreamingVirtualOutput(name, description, size, mode);
 }
 
 WaylandIntegration::Stream WaylandIntegration::startStreamingWindow(KWayland::Client::PlasmaWindow *window, Screencasting::CursorMode mode)
@@ -315,10 +316,12 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
                           });
 }
 
-WaylandIntegration::Stream
-WaylandIntegration::WaylandIntegrationPrivate::startStreamingVirtualOutput(const QString &name, const QSize &size, Screencasting::CursorMode mode)
+WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingVirtualOutput(const QString &name,
+                                                                                                      const QString &description,
+                                                                                                      const QSize &size,
+                                                                                                      Screencasting::CursorMode mode)
 {
-    return startStreaming(m_screencasting->createVirtualOutputStream(name, size, 1, mode),
+    return startStreaming(m_screencasting->createVirtualOutputStream(name, description, size, 1, mode),
                           {
                               {QLatin1String("size"), size},
                               {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Virtual)},

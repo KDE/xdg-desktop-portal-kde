@@ -21,7 +21,7 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
 
     if (o & VirtualIncluded) {
         static quint64 i = 0;
-        m_outputs << Output{Output::Virtual, nullptr, i18n("New Virtual Output"), QStringLiteral("Virtual%1").arg(i++), {}};
+        m_outputs << Output{Output::Virtual, nullptr, i18n("New Virtual Output"), QStringLiteral("Virtual"), {}};
     }
 
     if (o & RegionIncluded) {
