@@ -111,6 +111,8 @@ public:
         return !m_selectedRows.isEmpty();
     }
 
+    static QString virtualScreenIdForApp(const QString &appId);
+
 public Q_SLOTS:
     void clearSelection();
 

@@ -9,6 +9,8 @@
 #include <QGuiApplication>
 #include <QIcon>
 
+#include <algorithm>
+
 OutputsModel::OutputsModel(Options o, QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -20,7 +22,6 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
     }
 
     if (o & VirtualIncluded) {
-        static quint64 i = 0;
         m_outputs << Output{Output::Virtual, nullptr, i18n("New Virtual Output"), QStringLiteral("Virtual"), {}};
     }
 
@@ -176,4 +177,17 @@ QList<Output> OutputsModel::selectedOutputs() const
         ret << m_outputs[x];
     }
     return ret;
+}
+
+QString OutputsModel::virtualScreenIdForApp(const QString &appId)
+{
+    const QString baseId = QStringLiteral("virtual-xdp-kde-") + appId;
+    QString id = baseId;
+    int i = 1;
+    const auto screens = qApp->screens();
+    while (std::ranges::find(screens, id, &QScreen::name) != std::ranges::end(screens)) {
+        id = baseId + u'-' + QString::number(i);
+        ++i;
+    }
+    return id;
 }
