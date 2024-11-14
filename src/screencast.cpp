@@ -230,7 +230,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             const QVariantMap restoreDataPayload = restoreData.payload;
             const QVariantList restoreOutputs = restoreDataPayload[QStringLiteral("outputs")].toList();
             if (!restoreOutputs.isEmpty()) {
-                OutputsModel model(OutputsModel::WorkspaceIncluded | OutputsModel::RegionIncluded, this);
+                OutputsModel model(OutputsModel::WorkspaceIncluded | OutputsModel::RegionIncluded | OutputsModel::VirtualIncluded, this);
                 for (const auto &outputUniqueId : restoreOutputs) {
                     for (int i = 0, c = model.rowCount(); i < c; ++i) {
                         const Output &iOutput = model.outputAt(i);
