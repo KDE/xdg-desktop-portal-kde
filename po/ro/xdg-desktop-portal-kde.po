@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:42+0000\n"
+"POT-Creation-Date: 2024-11-20 00:42+0000\n"
 "PO-Revision-Date: 2024-06-09 13:00+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -328,22 +328,22 @@ msgstr "Filtrează tipul fișierului"
 msgid "Show Hidden Files"
 msgstr "Arată fișierele ascunse"
 
-#: src/outputsmodel.cpp:19
+#: src/outputsmodel.cpp:21
 #, kde-format
 msgid "Full Workspace"
 msgstr "Spațiu de lucru complet"
 
-#: src/outputsmodel.cpp:24
+#: src/outputsmodel.cpp:25
 #, kde-format
 msgid "New Virtual Output"
 msgstr "Ieșire virtuală nouă"
 
-#: src/outputsmodel.cpp:28
+#: src/outputsmodel.cpp:29
 #, kde-format
 msgid "Rectangular Region"
 msgstr "Regiune dreptunghiulară"
 
-#: src/outputsmodel.cpp:58
+#: src/outputsmodel.cpp:59
 #, kde-format
 msgid "Laptop screen"
 msgstr "Ecranul laptopului"
@@ -443,7 +443,19 @@ msgstr "Permite restabilirea în sesiuni viitoare"
 msgid "Share"
 msgstr "Partajează"
 
-#: src/screencast.cpp:345
+#: src/screencast.cpp:296
+#, fuzzy, kde-format
+#| msgid "New Virtual Output"
+msgid "Virtual Output"
+msgstr "Ieșire virtuală nouă"
+
+#: src/screencast.cpp:297
+#, kde-format
+msgctxt "Virtual Output (shared with %1)"
+msgid "%1 is the application name"
+msgstr ""
+
+#: src/screencast.cpp:351
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
@@ -646,12 +658,12 @@ msgstr "Informații despre partajare"
 msgid "Share your personal information with the requesting application?"
 msgstr "Partajați informații personale cu aplicația solicitantă?"
 
-#: src/waylandintegration.cpp:282 src/waylandintegration.cpp:337
+#: src/waylandintegration.cpp:283 src/waylandintegration.cpp:340
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Pornirea difuzării ecranului a eșuat"
 
-#: src/waylandintegration.cpp:649
+#: src/waylandintegration.cpp:652
 #, kde-format
 msgid "Remote desktop"
 msgstr "Birou distant"

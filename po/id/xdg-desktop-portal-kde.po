@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:42+0000\n"
+"POT-Creation-Date: 2024-11-20 00:42+0000\n"
 "PO-Revision-Date: 2023-02-21 20:18+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -333,22 +333,22 @@ msgstr "Saring Jenis Berkas"
 msgid "Show Hidden Files"
 msgstr "Tampilkan Berkas Tersembunyi"
 
-#: src/outputsmodel.cpp:19
+#: src/outputsmodel.cpp:21
 #, kde-format
 msgid "Full Workspace"
 msgstr "Ruang Kerja Penuh"
 
-#: src/outputsmodel.cpp:24
+#: src/outputsmodel.cpp:25
 #, kde-format
 msgid "New Virtual Output"
 msgstr "Keluaran Virtual Baru"
 
-#: src/outputsmodel.cpp:28
+#: src/outputsmodel.cpp:29
 #, kde-format
 msgid "Rectangular Region"
 msgstr "Area Persegi Panjang"
 
-#: src/outputsmodel.cpp:58
+#: src/outputsmodel.cpp:59
 #, kde-format
 msgid "Laptop screen"
 msgstr "Layar laptop"
@@ -450,7 +450,19 @@ msgstr "Perbolehkan memulihkan di sesi masa mendatang"
 msgid "Share"
 msgstr "Bagikan"
 
-#: src/screencast.cpp:345
+#: src/screencast.cpp:296
+#, fuzzy, kde-format
+#| msgid "New Virtual Output"
+msgid "Virtual Output"
+msgstr "Keluaran Virtual Baru"
+
+#: src/screencast.cpp:297
+#, kde-format
+msgctxt "Virtual Output (shared with %1)"
+msgid "%1 is the application name"
+msgstr ""
+
+#: src/screencast.cpp:351
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
@@ -651,12 +663,12 @@ msgstr "Bagikan Informasi"
 msgid "Share your personal information with the requesting application?"
 msgstr "Bagikan informasi pribadi Anda dengan aplikasi yang meminta?"
 
-#: src/waylandintegration.cpp:282 src/waylandintegration.cpp:337
+#: src/waylandintegration.cpp:283 src/waylandintegration.cpp:340
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Gagal memulai penggandaan layar"
 
-#: src/waylandintegration.cpp:649
+#: src/waylandintegration.cpp:652
 #, kde-format
 msgid "Remote desktop"
 msgstr "Desktop jarak jauh"

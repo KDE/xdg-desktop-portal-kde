@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:42+0000\n"
+"POT-Creation-Date: 2024-11-20 00:42+0000\n"
 "PO-Revision-Date: 2020-10-11 01:46+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -328,22 +328,22 @@ msgstr ""
 msgid "Show Hidden Files"
 msgstr ""
 
-#: src/outputsmodel.cpp:19
+#: src/outputsmodel.cpp:21
 #, kde-format
 msgid "Full Workspace"
 msgstr ""
 
-#: src/outputsmodel.cpp:24
+#: src/outputsmodel.cpp:25
 #, kde-format
 msgid "New Virtual Output"
 msgstr ""
 
-#: src/outputsmodel.cpp:28
+#: src/outputsmodel.cpp:29
 #, kde-format
 msgid "Rectangular Region"
 msgstr ""
 
-#: src/outputsmodel.cpp:58
+#: src/outputsmodel.cpp:59
 #, fuzzy, kde-format
 #| msgid ""
 #| "Laptop screen\n"
@@ -451,7 +451,18 @@ msgstr ""
 msgid "Share"
 msgstr "Jaga"
 
-#: src/screencast.cpp:345
+#: src/screencast.cpp:296
+#, kde-format
+msgid "Virtual Output"
+msgstr ""
+
+#: src/screencast.cpp:297
+#, kde-format
+msgctxt "Virtual Output (shared with %1)"
+msgid "%1 is the application name"
+msgstr ""
+
+#: src/screencast.cpp:351
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
@@ -674,12 +685,12 @@ msgstr "Jaga teavet"
 msgid "Share your personal information with the requesting application?"
 msgstr "Valimine, mida nõutud rakendusega jagada"
 
-#: src/waylandintegration.cpp:282 src/waylandintegration.cpp:337
+#: src/waylandintegration.cpp:283 src/waylandintegration.cpp:340
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Ekraanivideo tegemise alustamine nurjus"
 
-#: src/waylandintegration.cpp:649
+#: src/waylandintegration.cpp:652
 #, kde-format
 msgid "Remote desktop"
 msgstr "Kaugtöölaud"

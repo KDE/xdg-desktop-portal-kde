@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:42+0000\n"
+"POT-Creation-Date: 2024-11-20 00:42+0000\n"
 "PO-Revision-Date: 2024-10-06 14:06+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -327,22 +327,22 @@ msgstr "Filtrer etter filtype"
 msgid "Show Hidden Files"
 msgstr "Vis gøymde filer"
 
-#: src/outputsmodel.cpp:19
+#: src/outputsmodel.cpp:21
 #, kde-format
 msgid "Full Workspace"
 msgstr "Fullt arbeidsområde"
 
-#: src/outputsmodel.cpp:24
+#: src/outputsmodel.cpp:25
 #, kde-format
 msgid "New Virtual Output"
 msgstr "Ny virtuell uteining"
 
-#: src/outputsmodel.cpp:28
+#: src/outputsmodel.cpp:29
 #, kde-format
 msgid "Rectangular Region"
 msgstr "Skjermutsnitt"
 
-#: src/outputsmodel.cpp:58
+#: src/outputsmodel.cpp:59
 #, kde-format
 msgid "Laptop screen"
 msgstr "Skjerm på berbar"
@@ -442,7 +442,19 @@ msgstr "Tillat gjenoppretting ved framtidige økter"
 msgid "Share"
 msgstr "Del"
 
-#: src/screencast.cpp:345
+#: src/screencast.cpp:296
+#, fuzzy, kde-format
+#| msgid "New Virtual Output"
+msgid "Virtual Output"
+msgstr "Ny virtuell uteining"
+
+#: src/screencast.cpp:297
+#, kde-format
+msgctxt "Virtual Output (shared with %1)"
+msgid "%1 is the application name"
+msgstr ""
+
+#: src/screencast.cpp:351
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
@@ -643,12 +655,12 @@ msgstr "Del informasjon"
 msgid "Share your personal information with the requesting application?"
 msgstr "Vil du dela persondata med førespurnadsprogrammet?"
 
-#: src/waylandintegration.cpp:282 src/waylandintegration.cpp:337
+#: src/waylandintegration.cpp:283 src/waylandintegration.cpp:340
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Klarte ikkje starta skjermdeling"
 
-#: src/waylandintegration.cpp:649
+#: src/waylandintegration.cpp:652
 #, kde-format
 msgid "Remote desktop"
 msgstr "Eksternt skrivebord"
