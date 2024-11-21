@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-20 00:42+0000\n"
-"PO-Revision-Date: 2024-09-28 10:40+0200\n"
+"PO-Revision-Date: 2024-11-20 06:45+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -443,16 +443,15 @@ msgid "Share"
 msgstr "Deli"
 
 #: src/screencast.cpp:296
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgid "Virtual Output"
-msgstr "Novi navidezni izhod"
+msgstr "Navidezni izhod"
 
 #: src/screencast.cpp:297
 #, kde-format
 msgctxt "Virtual Output (shared with %1)"
 msgid "%1 is the application name"
-msgstr ""
+msgstr "%1 je ime aplikacije"
 
 #: src/screencast.cpp:351
 #, kde-format

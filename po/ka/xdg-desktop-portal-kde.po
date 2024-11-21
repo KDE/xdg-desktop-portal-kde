@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-20 00:42+0000\n"
-"PO-Revision-Date: 2024-09-28 06:46+0200\n"
+"PO-Revision-Date: 2024-11-20 06:59+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -440,16 +440,15 @@ msgid "Share"
 msgstr "ზიარი"
 
 #: src/screencast.cpp:296
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgid "Virtual Output"
-msgstr "ახალი ვირტუალური გამოტანა"
+msgstr "ვირტუალური გამოტანა"
 
 #: src/screencast.cpp:297
 #, kde-format
 msgctxt "Virtual Output (shared with %1)"
 msgid "%1 is the application name"
-msgstr ""
+msgstr "%1 აპლიკაციის სახელია"
 
 #: src/screencast.cpp:351
 #, kde-format

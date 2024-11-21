@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-20 00:42+0000\n"
-"PO-Revision-Date: 2024-10-07 06:55+0300\n"
+"PO-Revision-Date: 2024-11-20 20:55+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -436,16 +436,15 @@ msgid "Share"
 msgstr "שיתוף"
 
 #: src/screencast.cpp:296
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgid "Virtual Output"
-msgstr "פלט וירטואלי חדש"
+msgstr "פלט וירטואלי"
 
 #: src/screencast.cpp:297
 #, kde-format
 msgctxt "Virtual Output (shared with %1)"
 msgid "%1 is the application name"
-msgstr ""
+msgstr "%1 הוא שם היישום"
 
 #: src/screencast.cpp:351
 #, kde-format
