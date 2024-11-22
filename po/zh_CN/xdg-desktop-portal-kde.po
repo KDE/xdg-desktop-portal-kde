@@ -439,16 +439,15 @@ msgid "Share"
 msgstr "共享"
 
 #: src/screencast.cpp:296
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgid "Virtual Output"
-msgstr "新建虚拟输出"
+msgstr "虚拟输出"
 
 #: src/screencast.cpp:297
 #, kde-format
 msgctxt "Virtual Output (shared with %1)"
 msgid "%1 is the application name"
-msgstr ""
+msgstr "%1 是应用程序名称"
 
 #: src/screencast.cpp:351
 #, kde-format
