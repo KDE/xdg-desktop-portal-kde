@@ -294,7 +294,7 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
             case Output::Virtual: {
                 const QString outputName = app_id.isEmpty()
                     ? i18n("Virtual Output")
-                    : i18nc("Virtual Output (shared with %1)", "%1 is the application name", Utils::applicationName(app_id));
+                    : i18nc("%1 is the application name", "Virtual Output (shared with %1)", Utils::applicationName(app_id));
                 stream = WaylandIntegration::startStreamingVirtual(OutputsModel::virtualScreenIdForApp(app_id), outputName, {1920, 1080}, cursorMode);
                 break;
             }
