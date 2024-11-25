@@ -385,8 +385,6 @@ GlobalShortcutsSession::~GlobalShortcutsSession() = default;
 
 void GlobalShortcutsSession::setActions(const Shortcuts &shortcuts)
 {
-    m_shortcuts.clear();
-
     const QList<KGlobalShortcutInfo> shortcutInfos = m_component->allShortcutInfos();
     QHash<QString, KGlobalShortcutInfo> shortcutInfosByName;
     shortcutInfosByName.reserve(shortcutInfos.size());
