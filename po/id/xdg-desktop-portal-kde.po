@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-20 00:42+0000\n"
+"POT-Creation-Date: 2024-11-25 00:42+0000\n"
 "PO-Revision-Date: 2023-02-21 20:18+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -457,10 +457,11 @@ msgid "Virtual Output"
 msgstr "Keluaran Virtual Baru"
 
 #: src/screencast.cpp:297
-#, kde-format
-msgctxt "Virtual Output (shared with %1)"
-msgid "%1 is the application name"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "New Virtual Output"
+msgctxt "%1 is the application name"
+msgid "Virtual Output (shared with %1)"
+msgstr "Keluaran Virtual Baru"
 
 #: src/screencast.cpp:351
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-20 00:42+0000\n"
+"POT-Creation-Date: 2024-11-25 00:42+0000\n"
 "PO-Revision-Date: 2024-11-23 12:11+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -443,10 +443,11 @@ msgid "Virtual Output"
 msgstr "Virtual Output"
 
 #: src/screencast.cpp:297
-#, kde-format
-msgctxt "Virtual Output (shared with %1)"
-msgid "%1 is the application name"
-msgstr "%1 is the application name"
+#, fuzzy, kde-format
+#| msgid "Virtual Output"
+msgctxt "%1 is the application name"
+msgid "Virtual Output (shared with %1)"
+msgstr "Virtual Output"
 
 #: src/screencast.cpp:351
 #, kde-format
@@ -658,6 +659,10 @@ msgstr "Failed to start screencasting"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Remote desktop"
+
+#~ msgctxt "Virtual Output (shared with %1)"
+#~ msgid "%1 is the application name"
+#~ msgstr "%1 is the application name"
 
 #~ msgid ""
 #~ "Laptop screen\n"

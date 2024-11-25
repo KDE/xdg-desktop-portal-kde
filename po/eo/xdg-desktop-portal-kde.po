@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-20 00:42+0000\n"
+"POT-Creation-Date: 2024-11-25 00:42+0000\n"
 "PO-Revision-Date: 2024-06-28 16:51+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -449,10 +449,11 @@ msgid "Virtual Output"
 msgstr "Nova Virtuala Eligo"
 
 #: src/screencast.cpp:297
-#, kde-format
-msgctxt "Virtual Output (shared with %1)"
-msgid "%1 is the application name"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "New Virtual Output"
+msgctxt "%1 is the application name"
+msgid "Virtual Output (shared with %1)"
+msgstr "Nova Virtuala Eligo"
 
 #: src/screencast.cpp:351
 #, kde-format

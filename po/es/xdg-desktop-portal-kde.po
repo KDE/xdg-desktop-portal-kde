@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-20 00:42+0000\n"
+"POT-Creation-Date: 2024-11-25 00:42+0000\n"
 "PO-Revision-Date: 2024-11-20 19:28+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -446,10 +446,11 @@ msgid "Virtual Output"
 msgstr "Salida virtual"
 
 #: src/screencast.cpp:297
-#, kde-format
-msgctxt "Virtual Output (shared with %1)"
-msgid "%1 is the application name"
-msgstr "%1 es el nombre de la aplicación"
+#, fuzzy, kde-format
+#| msgid "Virtual Output"
+msgctxt "%1 is the application name"
+msgid "Virtual Output (shared with %1)"
+msgstr "Salida virtual"
 
 #: src/screencast.cpp:351
 #, kde-format
@@ -669,6 +670,10 @@ msgstr "No se ha podido iniciar la grabación de la pantalla"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Escritorio remoto"
+
+#~ msgctxt "Virtual Output (shared with %1)"
+#~ msgid "%1 is the application name"
+#~ msgstr "%1 es el nombre de la aplicación"
 
 #~ msgid ""
 #~ "Laptop screen\n"

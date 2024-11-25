@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-20 00:42+0000\n"
+"POT-Creation-Date: 2024-11-25 00:42+0000\n"
 "PO-Revision-Date: 2024-11-20 17:15+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -448,10 +448,11 @@ msgid "Virtual Output"
 msgstr "Віртуальне виведення"
 
 #: src/screencast.cpp:297
-#, kde-format
-msgctxt "Virtual Output (shared with %1)"
-msgid "%1 is the application name"
-msgstr "%1 є назвою програми"
+#, fuzzy, kde-format
+#| msgid "Virtual Output"
+msgctxt "%1 is the application name"
+msgid "Virtual Output (shared with %1)"
+msgstr "Віртуальне виведення"
 
 #: src/screencast.cpp:351
 #, kde-format
@@ -669,6 +670,10 @@ msgstr "Не вдалося розпочати трансляцію з екра�
 #, kde-format
 msgid "Remote desktop"
 msgstr "Віддалена стільниця"
+
+#~ msgctxt "Virtual Output (shared with %1)"
+#~ msgid "%1 is the application name"
+#~ msgstr "%1 є назвою програми"
 
 #~ msgid ""
 #~ "Laptop screen\n"
