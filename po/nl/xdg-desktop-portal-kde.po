@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-25 00:42+0000\n"
-"PO-Revision-Date: 2024-11-21 00:05+0100\n"
+"PO-Revision-Date: 2024-11-25 11:12+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -446,11 +446,10 @@ msgid "Virtual Output"
 msgstr "Virtuele uitvoer"
 
 #: src/screencast.cpp:297
-#, fuzzy, kde-format
-#| msgid "Virtual Output"
+#, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
-msgstr "Virtuele uitvoer"
+msgstr "Virtuele uitvoer (gedeeld met %1)"
 
 #: src/screencast.cpp:351
 #, kde-format

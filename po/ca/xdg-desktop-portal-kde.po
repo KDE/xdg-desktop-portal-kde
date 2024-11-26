@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-25 00:42+0000\n"
-"PO-Revision-Date: 2024-11-20 10:55+0100\n"
+"PO-Revision-Date: 2024-11-25 09:16+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -449,11 +449,10 @@ msgid "Virtual Output"
 msgstr "Sortida virtual"
 
 #: src/screencast.cpp:297
-#, fuzzy, kde-format
-#| msgid "Virtual Output"
+#, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
-msgstr "Sortida virtual"
+msgstr "Sortida virtual (compartida amb %1)"
 
 #: src/screencast.cpp:351
 #, kde-format

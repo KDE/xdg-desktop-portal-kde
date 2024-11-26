@@ -444,11 +444,10 @@ msgid "Virtual Output"
 msgstr "虚拟输出"
 
 #: src/screencast.cpp:297
-#, fuzzy, kde-format
-#| msgid "Virtual Output"
+#, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
-msgstr "虚拟输出"
+msgstr ""
 
 #: src/screencast.cpp:351
 #, kde-format
@@ -658,7 +657,3 @@ msgstr "启动屏幕录像失败"
 #, kde-format
 msgid "Remote desktop"
 msgstr "远程桌面"
-
-#~ msgctxt "Virtual Output (shared with %1)"
-#~ msgid "%1 is the application name"
-#~ msgstr "%1 是应用程序名称"

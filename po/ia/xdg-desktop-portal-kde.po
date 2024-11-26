@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-25 00:42+0000\n"
-"PO-Revision-Date: 2024-11-22 17:22+0100\n"
+"PO-Revision-Date: 2024-11-25 18:02+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -443,11 +443,10 @@ msgid "Virtual Output"
 msgstr "Sortita Virtual"
 
 #: src/screencast.cpp:297
-#, fuzzy, kde-format
-#| msgid "Virtual Output"
+#, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
-msgstr "Sortita Virtual"
+msgstr "Sortita Virtual (compartite con %1)"
 
 #: src/screencast.cpp:351
 #, kde-format
