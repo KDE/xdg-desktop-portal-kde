@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-25 00:42+0000\n"
-"PO-Revision-Date: 2024-10-02 17:24+0900\n"
+"PO-Revision-Date: 2024-11-26 22:03+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.04.70\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -438,17 +438,15 @@ msgid "Share"
 msgstr "分享"
 
 #: src/screencast.cpp:296
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgid "Virtual Output"
-msgstr "新增虛擬輸出"
+msgstr "虛擬輸出"
 
 #: src/screencast.cpp:297
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
-msgstr "新增虛擬輸出"
+msgstr "虛擬輸出（與 %1 共享）"
 
 #: src/screencast.cpp:351
 #, kde-format

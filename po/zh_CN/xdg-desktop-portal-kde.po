@@ -447,7 +447,7 @@ msgstr "虚拟输出"
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
-msgstr ""
+msgstr "虚拟输出 (与 %1 共享)"
 
 #: src/screencast.cpp:351
 #, kde-format
