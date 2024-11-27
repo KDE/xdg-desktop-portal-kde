@@ -99,12 +99,14 @@ void NotificationPortal::AddNotification(const QString &app_id, const QString &i
         }
 
         OrgFreedesktopApplicationInterface iface(app_id, appPathFromId(app_id), QDBusConnection::sessionBus());
-        if (actionId.startsWith("app.") && iface.isValid()) {
+        if (actionId.startsWith("app.")) {
+            // Try to activate the target application and issue the action, assuming it implements
+            // org.freedesktop.Application.
             iface.ActivateAction(actionId.mid(4), params, platformData);
         } else {
-            if (iface.isValid()) {
-                iface.Activate(platformData);
-            }
+            // Try to activate the target application, assuming it implements
+            // org.freedesktop.Application.
+            iface.Activate(platformData);
 
             QDBusMessage message = QDBusMessage::createSignal(QStringLiteral("/org/freedesktop/portal/desktop"),
                                                               QStringLiteral("org.freedesktop.impl.portal.Notification"),
