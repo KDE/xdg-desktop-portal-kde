@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-25 00:42+0000\n"
+"POT-Creation-Date: 2024-11-28 00:41+0000\n"
 "PO-Revision-Date: 2024-11-21 22:12+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -641,7 +641,7 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "Pantaila igortzea"
 
-#: src/session.cpp:487
+#: src/session.cpp:485
 #, kde-format
 msgid ", "
 msgstr ", "

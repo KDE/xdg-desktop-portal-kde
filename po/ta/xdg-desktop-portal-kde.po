@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-25 00:42+0000\n"
+"POT-Creation-Date: 2024-11-28 00:41+0000\n"
 "PO-Revision-Date: 2024-11-24 16:38+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -636,7 +636,7 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "திரை பகிர்வு"
 
-#: src/session.cpp:487
+#: src/session.cpp:485
 #, kde-format
 msgid ", "
 msgstr ", "
