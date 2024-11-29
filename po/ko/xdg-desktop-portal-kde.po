@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-28 00:41+0000\n"
-"PO-Revision-Date: 2024-08-20 00:50+0200\n"
+"PO-Revision-Date: 2024-11-28 21:18+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -57,8 +57,7 @@ msgid "Find More in Discover"
 msgstr "Discover에서 앱 찾기"
 
 #: src/AppChooserDialog.qml:37
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "열기"
@@ -95,7 +94,7 @@ msgstr "이 파일 형식의 마지막으로 사용한 앱"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
-msgstr ""
+msgstr "<command>%1</command>(으)로 여시겠습니까?"
 
 #: src/AppChooserDialog.qml:248
 #, kde-format
@@ -438,17 +437,15 @@ msgid "Share"
 msgstr "공유"
 
 #: src/screencast.cpp:296
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgid "Virtual Output"
-msgstr "새 가상 출력"
+msgstr "가상 출력"
 
 #: src/screencast.cpp:297
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
-msgstr "새 가상 출력"
+msgstr "가상 출력(%1와(과) 공유됨)"
 
 #: src/screencast.cpp:351
 #, kde-format
