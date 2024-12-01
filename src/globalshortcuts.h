@@ -9,8 +9,21 @@
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 #include <QKeySequence>
+#include <QProperty>
+#include <qqmlintegration.h>
 
 #include "dbushelpers.h"
+
+struct ShortcutInfo {
+    Q_GADGET
+    Q_PROPERTY(QString id MEMBER id)
+    Q_PROPERTY(QString description MEMBER description)
+    Q_PROPERTY(QKeySequence keySequence MEMBER keySequence)
+public:
+    QString id;
+    QString description;
+    QKeySequence keySequence;
+};
 
 class GlobalShortcutsPortal : public QDBusAbstractAdaptor
 {
@@ -23,12 +36,6 @@ public:
     ~GlobalShortcutsPortal() override;
 
     uint version() const;
-
-    struct ShortcutInfo {
-        QString id;
-        QString description;
-        QKeySequence preferredKeySequence;
-    };
 
 public Q_SLOTS:
     uint BindShortcuts(const QDBusObjectPath &handle,
