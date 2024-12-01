@@ -394,7 +394,7 @@ GlobalShortcutsSession::GlobalShortcutsSession(QObject *parent, const QString &a
 
 GlobalShortcutsSession::~GlobalShortcutsSession() = default;
 
-void GlobalShortcutsSession::setActions(const QList<GlobalShortcutsPortal::ShortcutInfo> &shortcuts)
+void GlobalShortcutsSession::setActions(const QList<ShortcutInfo> &shortcuts)
 {
     const QList<KGlobalShortcutInfo> shortcutInfos = m_component->allShortcutInfos();
     QHash<QString, KGlobalShortcutInfo> shortcutInfosByName;
@@ -417,15 +417,16 @@ void GlobalShortcutsSession::setActions(const QList<GlobalShortcutsPortal::Short
         if (!action) {
             action = std::make_unique<QAction>();
         }
+        const QString app = Utils::applicationName(m_appId);
         action->setProperty("componentName", componentName());
-        action->setProperty("componentDisplayName", componentName());
+        action->setProperty("componentDisplayName", app.isEmpty() ? componentName() : app);
         action->setObjectName(shortcut.id);
         action->setText(shortcut.description);
         const auto itShortcut = shortcutInfosByName.constFind(shortcut.id);
         if (itShortcut != shortcutInfosByName.constEnd()) {
             action->setShortcuts(itShortcut->keys());
         } else {
-            action->setShortcut(shortcut.preferredKeySequence);
+            action->setShortcut(shortcut.keySequence);
         }
         KGlobalAccel::self()->setGlobalShortcut(action.get(), action->shortcuts());
 
@@ -463,7 +464,7 @@ void GlobalShortcutsSession::loadActions()
             action = std::make_unique<QAction>();
         }
         action->setProperty("componentName", componentName());
-        action->setProperty("componentDisplayName", componentName());
+        action->setProperty("componentDisplayName", Utils::applicationName(m_appId));
         action->setObjectName(name);
         action->setText(info.friendlyName());
         action->setShortcuts(info.keys());
