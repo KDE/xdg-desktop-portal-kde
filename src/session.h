@@ -174,7 +174,7 @@ public:
         return SessionType::GlobalShortcuts;
     }
 
-    void setActions(const QList<GlobalShortcutsPortal::ShortcutInfo> &shortcuts);
+    void setActions(const QList<ShortcutInfo> &shortcuts);
     void loadActions();
 
     QVariant shortcutDescriptionsVariant() const;
@@ -186,6 +186,11 @@ public:
     QString componentName() const
     {
         return m_appId.isEmpty() ? QLatin1String("token_") + m_token : m_appId;
+    }
+
+    QString appId() const
+    {
+        return m_appId;
     }
 
 Q_SIGNALS:
