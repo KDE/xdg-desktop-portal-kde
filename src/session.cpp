@@ -452,7 +452,7 @@ void GlobalShortcutsSession::loadActions()
             action = std::make_unique<QAction>();
         }
         action->setProperty("componentName", componentName());
-        action->setProperty("componentDisplayName", componentName());
+        action->setProperty("componentDisplayName", Utils::applicationName(m_appId));
         action->setObjectName(name);
         action->setText(info.friendlyName());
         action->setShortcuts(info.keys());

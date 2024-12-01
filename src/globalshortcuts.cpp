@@ -19,6 +19,9 @@
 #include <QLoggingCategory>
 #include <QUrl>
 
+#include <iostream>
+#include <ranges>
+
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeGlobalShortcuts, "xdp-kde-GlobalShortcuts")
 
 GlobalShortcutsPortal::GlobalShortcutsPortal(QObject *parent)
@@ -105,8 +108,17 @@ uint GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
     if (!session) {
         return 2;
     }
-    session->setActions(shortcuts);
-    QDesktopServices::openUrl(QUrl(QStringLiteral("systemsettings://kcm_keys/") + session->componentName()));
+
+    auto currentShortcuts = session->shortcutDescriptions();
+    std::ranges::sort(currentShortcuts | std::views::keys);
+    Shortcuts newShortcuts = shortcuts;
+    std::ranges::sort(newShortcuts | std::views::keys);
+
+    Shortcuts newlyAddedShortcuts;
+    std::ranges::set_difference(newShortcuts, currentShortcuts, std::back_inserter(newlyAddedShortcuts), {}, &Shortcut::first, &Shortcut::first);
+    qDebug() << "newlyAddedShortcuts" << newlyAddedShortcuts;
+
+    if (!newlyAddedShortcuts.empty()) { }
 
     results = {
         {"shortcuts", session->shortcutDescriptionsVariant()},
