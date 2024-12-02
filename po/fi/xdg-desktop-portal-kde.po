@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Tommi Nieminen <translator@legisign.org>, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024.
+# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Tommi Nieminen <translator@legisign.org>
 # Lasse Liehu <lasse.liehu@iki.fi>, 2022.
 #
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-29 02:30+0000\n"
-"PO-Revision-Date: 2024-03-20 18:12+0200\n"
+"PO-Revision-Date: 2024-10-22 14:50+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -58,8 +58,7 @@ msgid "Find More in Discover"
 msgstr "Etsi Discoverista lisää"
 
 #: src/AppChooserDialog.qml:37
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Avaa"
@@ -79,7 +78,7 @@ msgstr "Näytä kaikki asennetut sovellukset"
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
-msgstr ""
+msgstr "Valitse muu…"
 
 #: src/AppChooserDialog.qml:224
 #, kde-format
@@ -96,7 +95,7 @@ msgstr "Viimeksi käytetty tämän tiedostotyypin sovellus"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
-msgstr ""
+msgstr "Avataanko ohjelmalla <command>%1</command>?"
 
 #: src/AppChooserDialog.qml:248
 #, kde-format
@@ -111,31 +110,28 @@ msgstr ""
 "Yksikään asennettu sovellus ei voi avata tiedostoa <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:276
-#, fuzzy, kde-format
-#| msgid "Content Options"
+#, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
-msgstr "Sisältövalinnat"
+msgstr "Päätevalinnat"
 
 #: src/AppChooserDialog.qml:292
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
-msgstr ""
+msgstr "Suorita päätteessä"
 
 #: src/AppChooserDialog.qml:301
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
-msgstr ""
+msgstr "Älä sulje komennon päätyttyä"
 
 #: src/AppChooserDialog.qml:314
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
-msgstr "Valitse sovellus"
+msgstr "Etsi lisää sovelluksia"
 
 #: src/AppChooserDialog.qml:335
 #, kde-kuit-format
@@ -243,26 +239,22 @@ msgstr "Avaa"
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
-msgstr ""
+msgstr "Syötekaappausta pyydetty"
 
 #: src/InputCaptureDialog.qml:17
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "Requested access to:\n"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
-msgstr "Pyysi pääsyä kohteisiin:\n"
+msgstr "Sovellus pyytää kaapata syötetapahtumat"
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
-msgstr ""
+msgstr "%1 pyytää kaapata syötetapahtumat"
 
 #: src/InputCaptureDialog.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button"
 msgid "Allow"
 msgstr "Salli"
@@ -411,12 +403,10 @@ msgid "Remote control requested"
 msgstr "Etähallintaa pyydetty"
 
 #: src/remotedesktopdialog.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "Requested access to:\n"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to:\n"
-msgstr "Pyysi pääsyä kohteisiin:\n"
+msgstr "Sovellus pyysi pääsyä kohteisiin:\n"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
