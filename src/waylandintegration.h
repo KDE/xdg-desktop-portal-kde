@@ -79,8 +79,6 @@ void requestTouchDown(quint32 touchPoint, const QPointF &pos);
 void requestTouchMotion(quint32 touchPoint, const QPointF &pos);
 void requestTouchUp(quint32 touchPoint);
 
-void setParentWindow(QWindow *window, const QString &parentWindow);
-
 void init();
 
 KWayland::Client::PlasmaWindowManagement *plasmaWindowManagement();

@@ -35,7 +35,6 @@
 #include <KWayland/Client/plasmawindowmodel.h>
 #include <KWayland/Client/registry.h>
 #include <KWayland/Client/surface.h>
-#include <KWayland/Client/xdgforeign.h>
 
 // system
 #include <fcntl.h>
@@ -206,11 +205,6 @@ void WaylandIntegration::requestTouchMotion(quint32 touchPoint, const QPointF &p
 void WaylandIntegration::requestTouchUp(quint32 touchPoint)
 {
     globalWaylandIntegration->requestTouchUp(touchPoint);
-}
-
-void WaylandIntegration::setParentWindow(QWindow *window, const QString &parentWindow)
-{
-    globalWaylandIntegration->setParentWindow(window, parentWindow);
 }
 
 KWayland::Client::PlasmaWindowManagement *WaylandIntegration::plasmaWindowManagement()
@@ -617,35 +611,6 @@ void WaylandIntegration::WaylandIntegrationPrivate::requestTouchUp(quint32 touch
     }
 }
 
-static const char *windowParentHandlePropertyName = "waylandintegration-parentHandle";
-void WaylandIntegration::WaylandIntegrationPrivate::setParentWindow(QWindow *window, const QString &parentHandle)
-{
-    if (!m_xdgImporter) {
-        return;
-    }
-
-    if (window->isVisible()) {
-        auto importedParent = m_xdgImporter->importTopLevel(parentHandle, window);
-        auto surface = KWayland::Client::Surface::fromWindow(window);
-        importedParent->setParentOf(surface);
-    }
-
-    window->setProperty(windowParentHandlePropertyName, parentHandle);
-    window->installEventFilter(this);
-}
-
-bool WaylandIntegration::WaylandIntegrationPrivate::eventFilter(QObject *watched, QEvent *event)
-{
-    const bool ret = WaylandIntegration::WaylandIntegration::eventFilter(watched, event);
-    QWindow *window = static_cast<QWindow *>(watched);
-    if (event->type() == QEvent::Expose && window->isExposed()) {
-        const QString parentHandle = window->property(windowParentHandlePropertyName).toString();
-        auto importedParent = m_xdgImporter->importTopLevel(parentHandle, window);
-        importedParent->setParentOf(KWayland::Client::Surface::fromWindow(window));
-    }
-    return ret;
-}
-
 void WaylandIntegration::WaylandIntegrationPrivate::authenticate()
 {
     if (!m_waylandAuthenticationRequested) {
@@ -677,9 +642,6 @@ void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
     connect(m_registry, &KWayland::Client::Registry::plasmaWindowManagementAnnounced, this, [this](quint32 name, quint32 version) {
         m_windowManagement = m_registry->createPlasmaWindowManagement(name, version, this);
         Q_EMIT waylandIntegration()->plasmaWindowManagementInitialized();
-    });
-    connect(m_registry, &KWayland::Client::Registry::importerUnstableV2Announced, this, [this](quint32 name, quint32 version) {
-        m_xdgImporter = m_registry->createXdgImporter(name, std::min(version, quint32(1)), this);
     });
     connect(m_registry, &KWayland::Client::Registry::interfacesAnnounced, this, [this] {
         m_registryInitialized = true;

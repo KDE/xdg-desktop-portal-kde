@@ -31,7 +31,6 @@ class Registry;
 class PlasmaWindow;
 class PlasmaWindowManagement;
 class RemoteBuffer;
-class XdgImporter;
 }
 }
 
@@ -63,7 +62,6 @@ private:
 
     KWayland::Client::Registry *m_registry = nullptr;
     KWayland::Client::PlasmaWindowManagement *m_windowManagement = nullptr;
-    KWayland::Client::XdgImporter *m_xdgImporter = nullptr;
 
 public:
     void authenticate();
@@ -96,7 +94,6 @@ public:
 
 private:
     Stream startStreaming(ScreencastingStream *stream, const QVariantMap &streamOptions);
-    bool eventFilter(QObject *watched, QEvent *event) override;
 
     uint m_streamInput = 0;
     bool m_waylandAuthenticationRequested = false;

@@ -35,7 +35,7 @@ void Utils::setParentWindow(QWindow *w, const QString &parent_window)
         KWindowSystem::setMainWindow(w, QStringView(parent_window).mid(4).toULongLong(nullptr, 16));
     }
     if (parent_window.startsWith((QLatin1String("wayland:")))) {
-        WaylandIntegration::setParentWindow(w, parent_window.mid(strlen("wayland:")));
+        KWindowSystem::setMainWindow(w, parent_window.mid(strlen("wayland:")));
     }
 }
 
