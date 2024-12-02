@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-28 00:41+0000\n"
-"PO-Revision-Date: 2024-11-24 16:38+0530\n"
+"PO-Revision-Date: 2024-12-01 18:55+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -444,11 +444,10 @@ msgid "Virtual Output"
 msgstr "மெய்நிகர் வெளியீடு"
 
 #: src/screencast.cpp:297
-#, fuzzy, kde-format
-#| msgid "Virtual Output"
+#, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
-msgstr "மெய்நிகர் வெளியீடு"
+msgstr "மெய்நிகர் வெளியீடு (%1 உடன் பகிரப்பட்டுள்ளது)"
 
 #: src/screencast.cpp:351
 #, kde-format
