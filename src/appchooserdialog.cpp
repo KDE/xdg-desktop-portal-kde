@@ -32,13 +32,8 @@
 #include <KWaylandExtras>
 #include <KWindowSystem>
 
-AppChooserDialog::AppChooserDialog(const QStringList &choices,
-                                   const QString &lastUsedApp,
-                                   const QString &fileName,
-                                   const QString &mimeName,
-                                   bool autoRemember,
-                                   QObject *parent)
-    : QuickDialog(parent)
+AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &lastUsedApp, const QString &fileName, const QString &mimeName, bool autoRemember)
+    : QuickDialog(nullptr)
     , m_model(new AppModel(this))
     , m_appChooserData(new AppChooserData(this))
     , m_autoRemember(autoRemember)

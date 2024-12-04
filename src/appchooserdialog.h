@@ -210,12 +210,7 @@ class AppChooserDialog : public QuickDialog
 {
     Q_OBJECT
 public:
-    explicit AppChooserDialog(const QStringList &choices,
-                              const QString &lastUsedApp,
-                              const QString &fileName,
-                              const QString &mimeName = QString(),
-                              bool autoRemember = false,
-                              QObject *parent = nullptr);
+    explicit AppChooserDialog(const QStringList &choices, const QString &lastUsedApp, const QString &fileName, const QString &mimeName, bool autoRemember);
     void updateChoices(const QStringList &choices);
 
     QString selectedApplication() const;
