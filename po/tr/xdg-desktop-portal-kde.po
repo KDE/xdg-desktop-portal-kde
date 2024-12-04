@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-28 00:41+0000\n"
+"POT-Creation-Date: 2024-12-04 00:42+0000\n"
 "PO-Revision-Date: 2024-11-25 21:09+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -650,12 +650,12 @@ msgstr "Bilgi Paylaş"
 msgid "Share your personal information with the requesting application?"
 msgstr "İsteyen uygulama ile kişisel bilgileriniz paylaşılsın mı?"
 
-#: src/waylandintegration.cpp:283 src/waylandintegration.cpp:340
+#: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Ekran yayını başlatılamadı"
 
-#: src/waylandintegration.cpp:652
+#: src/waylandintegration.cpp:617
 #, kde-format
 msgid "Remote desktop"
 msgstr "Uzak Masaüstü"

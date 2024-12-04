@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-28 00:41+0000\n"
+"POT-Creation-Date: 2024-12-04 00:42+0000\n"
 "PO-Revision-Date: 2024-06-09 13:00+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -659,12 +659,12 @@ msgstr "Informații despre partajare"
 msgid "Share your personal information with the requesting application?"
 msgstr "Partajați informații personale cu aplicația solicitantă?"
 
-#: src/waylandintegration.cpp:283 src/waylandintegration.cpp:340
+#: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Pornirea difuzării ecranului a eșuat"
 
-#: src/waylandintegration.cpp:652
+#: src/waylandintegration.cpp:617
 #, kde-format
 msgid "Remote desktop"
 msgstr "Birou distant"

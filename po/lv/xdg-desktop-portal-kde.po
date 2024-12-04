@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-28 00:41+0000\n"
-"PO-Revision-Date: 2024-11-12 20:03+0200\n"
+"POT-Creation-Date: 2024-12-04 00:42+0000\n"
+"PO-Revision-Date: 2024-12-02 18:36+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -440,17 +440,15 @@ msgid "Share"
 msgstr "Kopīgot"
 
 #: src/screencast.cpp:296
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgid "Virtual Output"
-msgstr "Jauna virtuālā izvade"
+msgstr "Virtuālā izvade"
 
 #: src/screencast.cpp:297
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
-msgstr "Jauna virtuālā izvade"
+msgstr "Virtuālā izvade (dalīta ar „%1“)"
 
 #: src/screencast.cpp:351
 #, kde-format
@@ -655,12 +653,12 @@ msgstr "Kopīgot informāciju"
 msgid "Share your personal information with the requesting application?"
 msgstr "Vai ar pieprasījušo programmu kopīgot personīgo informāciju?"
 
-#: src/waylandintegration.cpp:283 src/waylandintegration.cpp:340
+#: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Neizdevās sākt ekrāna ierakstīšanu"
 
-#: src/waylandintegration.cpp:652
+#: src/waylandintegration.cpp:617
 #, kde-format
 msgid "Remote desktop"
 msgstr "Attālinātā darbvirsma"
