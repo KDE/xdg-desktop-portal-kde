@@ -49,7 +49,7 @@ uint AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
     if (!itemName.isValid()) {
         itemName = options.value(QStringLiteral("content_type"));
     }
-    auto appDialog = new AppChooserDialog(choices, latestChoice, itemName.toString(), options.value(QStringLiteral("content_type")).toString());
+    auto appDialog = new AppChooserDialog(choices, latestChoice, itemName.toString(), options.value(QStringLiteral("content_type")).toString(), true);
     m_appChooserDialogs.insert(handle.path(), appDialog);
     Utils::setParentWindow(appDialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequest(handle, appDialog);
@@ -95,7 +95,11 @@ uint AppChooserPortal::ChooseApplicationPrivate(const QString &parent_window,
 
     const QString itemName = urls.size() == 1 ? urls.at(0) : i18nc("count of files to open", "%1 files", urls.size());
 
-    AppChooserDialog appDialog({}, options.value(QStringLiteral("last_choice")).toString(), itemName, options.value(QStringLiteral("content_type")).toString());
+    AppChooserDialog appDialog({},
+                               options.value(QStringLiteral("last_choice")).toString(),
+                               itemName,
+                               options.value(QStringLiteral("content_type")).toString(),
+                               false);
     Utils::setParentWindow(appDialog.windowHandle(), parent_window);
 
     appDialog.m_appChooserData->setHistory(options.value("history"_L1).toStringList());
