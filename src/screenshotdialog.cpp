@@ -135,6 +135,11 @@ void ScreenshotDialog::takeScreenshotNonInteractive()
     }
 
     future.waitForFinished();
+
+    if (future.isCanceled()) {
+        return;
+    }
+
     m_image = future.result();
 }
 
@@ -148,6 +153,11 @@ void ScreenshotDialog::takeScreenshotInteractive()
     QFutureWatcher<QImage> *watcher = new QFutureWatcher<QImage>(this);
     QObject::connect(watcher, &QFutureWatcher<QImage>::finished, this, [watcher, this] {
         watcher->deleteLater();
+
+        if (watcher->isCanceled()) {
+            return;
+        }
+
         m_image = watcher->result();
         m_theDialog->setProperty("screenshotImage", m_image);
     });
