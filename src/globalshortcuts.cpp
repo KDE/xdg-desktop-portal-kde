@@ -10,6 +10,7 @@
 #include "session.h"
 #include "utils.h"
 #include "waylandintegration.h"
+#include "xdgshortcut.h"
 
 #include <KGlobalAccel>
 #include <QAction>
@@ -18,6 +19,8 @@
 #include <QDesktopServices>
 #include <QLoggingCategory>
 #include <QUrl>
+
+using namespace Qt::StringLiterals;
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeGlobalShortcuts, "xdp-kde-GlobalShortcuts")
 
@@ -107,7 +110,16 @@ uint GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
     if (!session) {
         return PortalResponse::OtherError;
     }
-    session->setActions(shortcuts);
+
+    QList<ShortcutInfo> shortcutInfos;
+    shortcutInfos.reserve(shortcuts.size());
+    for (const auto &shortcut : shortcuts) {
+        shortcutInfos.push_back(
+            {.id = shortcut.first,
+             .description = shortcut.second.value(u"description"_s).toString(),
+             .preferredKeySequence = XdgShortcut::parse(shortcut.second.value(u"preferred_trigger"_s).toString()).value_or(QKeySequence())});
+    }
+    session->setActions(shortcutInfos);
     QDesktopServices::openUrl(QUrl(QStringLiteral("systemsettings://kcm_keys/") + session->componentName()));
 
     results = {

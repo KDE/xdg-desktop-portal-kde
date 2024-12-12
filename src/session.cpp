@@ -394,7 +394,7 @@ GlobalShortcutsSession::GlobalShortcutsSession(QObject *parent, const QString &a
 
 GlobalShortcutsSession::~GlobalShortcutsSession() = default;
 
-void GlobalShortcutsSession::setActions(const Shortcuts &shortcuts)
+void GlobalShortcutsSession::setActions(const QList<GlobalShortcutsPortal::ShortcutInfo> &shortcuts)
 {
     const QList<KGlobalShortcutInfo> shortcutInfos = m_component->allShortcutInfos();
     QHash<QString, KGlobalShortcutInfo> shortcutInfosByName;
@@ -404,33 +404,32 @@ void GlobalShortcutsSession::setActions(const Shortcuts &shortcuts)
     }
 
     for (const auto &shortcut : shortcuts) {
-        const QString description = shortcut.second[u"description"_s].toString();
-        if (description.isEmpty() || shortcut.first.isEmpty()) {
-            qCWarning(XdgSessionKdeSession) << "Shortcut without name or description" << shortcut.first << "for" << componentName();
+        if (shortcut.id.isEmpty()) {
+            qCWarning(XdgSessionKdeSession) << "Shortcut without id" << "for" << componentName();
+            continue;
+        }
+        if (shortcut.description.isEmpty()) {
+            qCWarning(XdgSessionKdeSession) << "Shortcut without name or description" << shortcut.id << "for" << componentName();
             continue;
         }
 
-        std::unique_ptr<QAction> &action = m_shortcuts[shortcut.first];
+        std::unique_ptr<QAction> &action = m_shortcuts[shortcut.id];
         if (!action) {
             action = std::make_unique<QAction>();
         }
         action->setProperty("componentName", componentName());
-        const KService::Ptr kservice = KService::serviceByDesktopName(m_appId);
-        action->setProperty("componentDisplayName", kservice ? kservice->name() : componentName());
-        action->setObjectName(shortcut.first);
-        action->setText(description);
-        const auto itShortcut = shortcutInfosByName.constFind(shortcut.first);
+        action->setProperty("componentDisplayName", componentName());
+        action->setObjectName(shortcut.id);
+        action->setText(shortcut.description);
+        const auto itShortcut = shortcutInfosByName.constFind(shortcut.id);
         if (itShortcut != shortcutInfosByName.constEnd()) {
             action->setShortcuts(itShortcut->keys());
         } else {
-            const auto preferredShortcut = XdgShortcut::parse(shortcut.second[u"preferred_trigger"_s].toString());
-            if (preferredShortcut) {
-                action->setShortcut(preferredShortcut.value());
-            }
+            action->setShortcut(shortcut.preferredKeySequence);
         }
         KGlobalAccel::self()->setGlobalShortcut(action.get(), action->shortcuts());
 
-        shortcutInfosByName.remove(shortcut.first);
+        shortcutInfosByName.remove(shortcut.id);
     }
 
     // We can forget the shortcuts that aren't around anymore
