@@ -174,7 +174,7 @@ public:
         return SessionType::GlobalShortcuts;
     }
 
-    void setActions(const Shortcuts &shortcuts);
+    void setActions(const QList<GlobalShortcutsPortal::ShortcutInfo> &shortcuts);
     void loadActions();
 
     QVariant shortcutDescriptionsVariant() const;

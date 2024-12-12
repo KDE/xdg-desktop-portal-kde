@@ -8,6 +8,7 @@
 
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
+#include <QKeySequence>
 
 #include "dbushelpers.h"
 
@@ -22,6 +23,12 @@ public:
     ~GlobalShortcutsPortal() override;
 
     uint version() const;
+
+    struct ShortcutInfo {
+        QString id;
+        QString description;
+        QKeySequence preferredKeySequence;
+    };
 
 public Q_SLOTS:
     uint BindShortcuts(const QDBusObjectPath &handle,
