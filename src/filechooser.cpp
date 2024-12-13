@@ -766,10 +766,10 @@ FileChooserPortal::FilterExtract FileChooserPortal::ExtractFilters(const QVarian
 
     if (options.contains(QStringLiteral("current_filter"))) {
         FilterList filterList = qdbus_cast<FilterList>(options.value(QStringLiteral("current_filter")));
-        if (filterList.filters.size() == 1) {
+        if (filterList.filters.size() >= 1) {
             result.currentFilter = filterListToFileFilter(filterList);
         } else {
-            qCDebug(XdgDesktopPortalKdeFileChooser) << "Ignoring 'current_filter' parameter with 0 or multiple filters specified.";
+            qCDebug(XdgDesktopPortalKdeFileChooser) << "Ignoring 'current_filter' parameter with no filters specified.";
         }
     }
 
