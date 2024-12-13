@@ -19,6 +19,8 @@
 #include "debug.h"
 #include "desktopportal.h"
 
+#include <signal.h>
+
 using namespace Qt::StringLiterals;
 
 int main(int argc, char *argv[])
@@ -30,6 +32,9 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(false);
     a.setQuitLockEnabled(false);
+
+    // Guard against an app closing the reading end when the clipboard portal writes current clipboard contents
+    signal(SIGPIPE, SIG_IGN);
 
     QCommandLineParser parser;
     QCommandLineOption replaceOption(u"replace"_s, u"Replace running instance"_s);

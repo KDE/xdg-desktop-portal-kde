@@ -211,6 +211,8 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
                 qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "Not restoring session as requested devices don't match";
             } else if (session->screenSharingEnabled() != restoreData.payload[u"screenShareEnabled"_s].toBool()) {
                 qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "Not restoring session as requested screen sharing doesn't match";
+            } else if (session->clipboardEnabled() != restoreData.payload[u"clipboardEnabled"_s].toBool()) {
+                qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "Not restoring session as clipboard enabled doesn't match";
             } else {
                 restored = true;
             }
@@ -260,14 +262,17 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
     session->acquireStreamingInput();
 
     results.insert(QStringLiteral("devices"), QVariant::fromValue<uint>(session->deviceTypes()));
-    results.insert(QStringLiteral("clipboard_enabled"), false);
+    results.insert(QStringLiteral("clipboard_enabled"), session->clipboardEnabled());
     if (session->persistMode() != ScreenCastPortal::NoPersist) {
         results.insert(u"persist_mode"_s, quint32(persist));
         if (persist != ScreenCastPortal::NoPersist) {
-            const RestoreData restoreData = {
-                u"KDE"_s,
-                RestoreData::currentRestoreDataVersion(),
-                QVariantMap{{u"screenShareEnabled"_s, session->screenSharingEnabled()}, {u"devices"_s, static_cast<quint32>(session->deviceTypes())}}};
+            const RestoreData restoreData = {u"KDE"_s,
+                                             RestoreData::currentRestoreDataVersion(),
+                                             QVariantMap{
+                                                 {u"screenShareEnabled"_s, session->screenSharingEnabled()},
+                                                 {u"devices"_s, static_cast<quint32>(session->deviceTypes())},
+                                                 {u"clipboardEnabled"_s, session->clipboardEnabled()},
+                                             }};
             results.insert(u"restore_data"_s, QVariant::fromValue<RestoreData>(restoreData));
         }
     }

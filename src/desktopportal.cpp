@@ -13,6 +13,7 @@
 #include "account.h"
 #include "appchooser.h"
 #include "background.h"
+#include "clipboard.h"
 #include "dynamiclauncher.h"
 #include "email.h"
 #include "filechooser.h"
@@ -49,6 +50,7 @@ DesktopPortal::DesktopPortal(QObject *parent)
         m_remoteDesktop = new RemoteDesktopPortal(this);
         m_screenshot = new ScreenshotPortal(this);
         new InputCapturePortal(this);
+        new ClipboardPortal(this);
         WaylandIntegration::init();
     }
 }

@@ -18,6 +18,8 @@ set(xdg_desktop_portal_kde_SRCS
     appchooser.h
     background.cpp
     background.h
+    clipboard.cpp
+    clipboard.h
     dbushelpers.cpp dbushelpers.h
     desktopportal.cpp
     desktopportal.h
@@ -246,6 +248,13 @@ ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     CATEGORY_NAME "xdp-kde-inputcapture"
     HEADER inputcapture_debug.h
     DESCRIPTION "XDG Desktop Portal KDE Input Capture"
+    EXPORT XDPKDE
+)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeClipboard"
+    CATEGORY_NAME "xdp-kde-clipboard"
+    HEADER clipboard_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Clipboard"
     EXPORT XDPKDE
 )
 

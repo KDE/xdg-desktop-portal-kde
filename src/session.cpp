@@ -217,6 +217,7 @@ void ScreenCastSession::setOptions(const QVariantMap &options)
 RemoteDesktopSession::RemoteDesktopSession(QObject *parent, const QString &appId, const QString &path)
     : ScreenCastSession(parent, appId, path, QStringLiteral("krfb"))
     , m_screenSharingEnabled(false)
+    , m_clipboardEnabled(false)
 {
     connect(this, &RemoteDesktopSession::closed, this, [this] {
         if (m_acquired) {
@@ -255,6 +256,16 @@ void RemoteDesktopSession::setScreenSharingEnabled(bool enabled)
     }
 
     m_screenSharingEnabled = enabled;
+}
+
+bool RemoteDesktopSession::clipboardEnabled() const
+{
+    return m_clipboardEnabled;
+}
+
+void RemoteDesktopSession::setClipboardEnabled(bool enabled)
+{
+    m_clipboardEnabled = enabled;
 }
 
 void RemoteDesktopSession::setEisCookie(int cookie)
