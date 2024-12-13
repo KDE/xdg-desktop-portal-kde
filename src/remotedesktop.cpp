@@ -165,6 +165,8 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
                 qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "Not restoring session as requested devices don't match";
             } else if (session->screenSharingEnabled() != restoreData.payload["screenShareEnabled"].toBool()) {
                 qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "Not restoring session as requested screen sharing doesn't match";
+            } else if (session->clipboardEnabled() != restoreData.payload["clipboardEnabled"].toBool()) {
+                qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "Not restoring session as clipboard enabled doesn't match";
             } else {
                 restored = true;
             }
@@ -213,14 +215,15 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
     session->acquireStreamingInput();
 
     results.insert(QStringLiteral("devices"), QVariant::fromValue<uint>(session->deviceTypes()));
-    results.insert(QStringLiteral("clipboard_enabled"), false);
+    results.insert(QStringLiteral("clipboard_enabled"), session->clipboardEnabled());
     if (session->persistMode() != ScreenCastPortal::NoPersist) {
         results.insert("persist_mode", quint32(persist));
         if (persist != ScreenCastPortal::NoPersist) {
-            const RestoreData restoreData = {
-                "KDE",
-                RestoreData::currentRestoreDataVersion(),
-                QVariantMap{{"screenShareEnabled", session->screenSharingEnabled()}, {"devices", static_cast<quint32>(session->deviceTypes())}}};
+            const RestoreData restoreData = {"KDE",
+                                             RestoreData::currentRestoreDataVersion(),
+                                             QVariantMap{{"screenShareEnabled", session->screenSharingEnabled()},
+                                                         {"clipboardEnabled", session->clipboardEnabled()},
+                                                         {"devices", static_cast<quint32>(session->deviceTypes())}}};
             results.insert("restore_data", QVariant::fromValue<RestoreData>(restoreData));
         }
     }
