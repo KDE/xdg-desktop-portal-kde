@@ -144,6 +144,9 @@ public:
     bool screenSharingEnabled() const;
     void setScreenSharingEnabled(bool enabled);
 
+    bool clipboardEnabled() const;
+    void setClipboardEnabled(bool enabled);
+
     void acquireStreamingInput();
     void refreshDescription() override;
 
@@ -157,6 +160,7 @@ public:
 
 private:
     bool m_screenSharingEnabled;
+    bool m_clipboardEnabled;
     RemoteDesktopPortal::DeviceTypes m_deviceTypes;
     bool m_acquired = false;
     int m_cookie = 0;
