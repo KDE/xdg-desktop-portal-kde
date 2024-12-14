@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-13 02:30+0000\n"
-"PO-Revision-Date: 2023-10-30 19:44+0100\n"
+"PO-Revision-Date: 2024-12-13 23:32+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -110,6 +110,7 @@ msgstr "Descubrir máis"
 msgid "%1 is running in the background"
 msgstr "%1 está executándose en segundo plano"
 
+# skip-rule: trasno-close_reverse
 #: src/background.cpp:119
 #, kde-format
 msgid ""
@@ -123,6 +124,7 @@ msgstr ""
 "Teña en conta que forzar o peche dunha aplicación pode causar a perda de "
 "datos."
 
+# skip-rule: trasno-close_reverse
 #: src/background.cpp:122
 #, kde-format
 msgid "Force quit"
