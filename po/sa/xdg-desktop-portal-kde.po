@@ -3,29 +3,31 @@
 # This file is distributed under the same license as the xdg-desktop-portal-kde package.
 # Kali <EMAIL@ADDRESS>, 2024.
 #
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-04 00:42+0000\n"
-"PO-Revision-Date: 2024-12-13 19:10+0530\n"
-"Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
+"PO-Revision-Date: 2024-12-14 01:12+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: src/accessdialog.cpp:22
 #, kde-format
@@ -36,25 +38,25 @@ msgstr "यन्त्रप्रवेशस्य अनुरोधं क�
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
-msgstr ""
+msgstr "%1 सञ्चिकाः"
 
 #: src/appchooserdialog.cpp:48
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
-msgstr ""
+msgstr "अनुप्रयोगं चिनोतु"
 
 #: src/appchooserdialog.cpp:51
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
-msgstr ""
+msgstr "<filename>%1</filename> उद्घाटयितुं अनुप्रयोगं चिनोतु"
 
 #: src/AppChooserDialog.qml:32
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr ""
+msgstr "Discover इत्यत्र अधिकं अन्वेष्टुम्"
 
 #: src/AppChooserDialog.qml:37
 #, kde-format
@@ -66,7 +68,7 @@ msgstr "उद्घाटित"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr ""
+msgstr "चयनित-अनुप्रयोगेन %1 सञ्चिकाः सर्वदा उद्घाटयन्तु"
 
 #: src/AppChooserDialog.qml:98
 #, kde-format
@@ -77,7 +79,7 @@ msgstr "सर्वाणि संस्थापितानि अनुप�
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
-msgstr ""
+msgstr "अन्यं चिनोतु..."
 
 #: src/AppChooserDialog.qml:224
 #, kde-format
@@ -88,13 +90,13 @@ msgstr "अस्य सञ्चिकाप्रकारस्य पूर�
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
-msgstr ""
+msgstr "अस्य सञ्चिकाप्रकारस्य कृते अन्तिमप्रयुक्तम् एप्"
 
 #: src/AppChooserDialog.qml:246
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
-msgstr ""
+msgstr "<command>%1</command> इत्यनेन उद्घाटयतु?"
 
 #: src/AppChooserDialog.qml:248
 #, kde-format
@@ -105,37 +107,37 @@ msgstr "न मेलनं"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
-msgstr ""
+msgstr "कोऽपि संस्थापितः अनुप्रयोगः <filename>%1</filename> उद्घाटयितुं न शक्नोति"
 
 #: src/AppChooserDialog.qml:276
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
-msgstr ""
+msgstr "टर्मिनल विकल्प"
 
 #: src/AppChooserDialog.qml:292
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
-msgstr ""
+msgstr "टर्मिनल् मध्ये चालयन्तु"
 
 #: src/AppChooserDialog.qml:301
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
-msgstr ""
+msgstr "यदा आदेशः निर्गच्छति तदा न पिधातु"
 
 #: src/AppChooserDialog.qml:314
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
-msgstr ""
+msgstr "अधिकानि अनुप्रयोगाः अन्वेष्टुम्"
 
 #: src/AppChooserDialog.qml:335
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr ""
+msgstr "सम्यक् एप् न पश्यति वा? अधिकं अन्वेष्टुम् in<link> परिनयन</link> ."
 
 #: src/background.cpp:132
 #, kde-format
@@ -149,19 +151,21 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
+"%1 यदा तस्य दृश्यविण्डोः नास्ति तदा चालितं तिष्ठतुम् इच्छति । यदि भवान् एतत् निषिद्धं "
+"करोति तर्हि अनुप्रयोगः यदा तस्य अन्तिमविण्डो पिहितः भवति तदा निर्गमिष्यति ।"
 
 #: src/background.cpp:141 src/background.cpp:158
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
-msgstr ""
+msgstr "अनुमन्यताम्‌"
 
 #: src/background.cpp:148
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
-msgstr ""
+msgstr "निषेधं कुरुत"
 
 #: src/background.cpp:152
 #, kde-format
@@ -169,7 +173,7 @@ msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
 msgid "Background App Usage"
-msgstr ""
+msgstr "पृष्ठभूमि एप्लिकेशन उपयोग"
 
 #: src/background.cpp:154
 #, kde-format
@@ -179,43 +183,46 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
+"ध्यानं कुर्वन्तु यत् एतेन %1 इत्यस्य अन्तिमविण्डो निमीलितसमये निर्गन्तुं बाध्यं भविष्यति । एतेन "
+"दत्तांशहानिः भवितुम् अर्हति यदि अनुप्रयोगे यदा एतत् भवति तदा किमपि अरक्षितं परिवर्तनं "
+"भवति ।"
 
 #: src/background.cpp:159
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid Anyway"
-msgstr ""
+msgstr "निषिद्धं तथापि"
 
 #: src/dynamiclauncher.cpp:76
 #, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
-msgstr ""
+msgstr "जाल अनुप्रयोगं योजयतु..."
 
 #: src/dynamiclauncher.cpp:81
 #, kde-format
 msgctxt "@title"
 msgid "Add Application…"
-msgstr ""
+msgstr "आवेदनम् योजयतु..."
 
 #: src/DynamicLauncherDialog.qml:71
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
-msgstr ""
+msgstr "नामः"
 
 #: src/DynamicLauncherDialog.qml:90
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr ""
+msgstr "सूचना सम्पादयतु..."
 
 #: src/DynamicLauncherDialog.qml:96
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
-msgstr ""
+msgstr "स्वीकरोतु"
 
 #: src/DynamicLauncherDialog.qml:101
 #, kde-format
@@ -232,25 +239,25 @@ msgstr "उद्घाटित"
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
-msgstr ""
+msgstr "इनपुट कैप्चर अनुरोधित"
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
-msgstr ""
+msgstr "निवेशघटनानां ग्रहणार्थं अनुरोधितः एकः अनुप्रयोगः"
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
-msgstr ""
+msgstr "%1 इत्यनेन निवेशघटनानि गृहीतुं अनुरोधः कृतः"
 
 #: src/InputCaptureDialog.qml:21
 #, kde-format
 msgctxt "@action:button"
 msgid "Allow"
-msgstr ""
+msgstr "अनुमन्यताम्‌"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:102
 #, kde-format
@@ -357,20 +364,20 @@ msgstr "निरसयतु:"
 #, kde-format
 msgctxt "Mouse action"
 msgid "Release left-click"
-msgstr ""
+msgstr "वाम-क्लिक् मुक्तं कुर्वन्तु"
 
 #: src/region-select/RegionSelectOverlay.qml:165
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
-msgstr ""
+msgstr "राइट्-क्लिक् कुर्वन्तु"
 
 #: src/region-select/RegionSelectOverlay.qml:169
 #: src/region-select/RegionSelectOverlay.qml:209
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
-msgstr ""
+msgstr "परिभ्रंशति"
 
 #: src/region-select/RegionSelectOverlay.qml:195
 #, kde-format
@@ -381,25 +388,25 @@ msgstr "चयनं रचयन्तु : १."
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
-msgstr ""
+msgstr "वाम-क्लिक् कृत्वा कर्षयन्तु"
 
 #: src/remotedesktop.cpp:176
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
-msgstr ""
+msgstr "दूरनियन्त्रणसत्रं आरब्धम्"
 
 #: src/remotedesktopdialog.cpp:26
 #, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
-msgstr ""
+msgstr "दूरनियन्त्रणं अनुरोधितम्"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to:\n"
-msgstr ""
+msgstr "एकेन अनुप्रयोगेन निम्नलिखितस्य प्रवेशस्य अनुरोधः कृतः:\n"
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
@@ -407,19 +414,19 @@ msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr ""
+msgstr "%1 इत्यनेन दूरनियन्त्रणार्थं अभिगमनस्य अनुरोधः कृतः:\n"
 
 #: src/remotedesktopdialog.cpp:46
 #, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr ""
+msgstr " - स्क्रीन\n"
 
 #: src/remotedesktopdialog.cpp:49
 #, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
-msgstr ""
+msgstr " - इनपुट उपकरण\n"
 
 #: src/RemoteDesktopDialog.qml:30 src/ScreenChooserDialog.qml:197
 #, kde-format
@@ -441,13 +448,13 @@ msgstr "वर्चुअल आउटपुट"
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
-msgstr ""
+msgstr "वर्चुअल् आउटपुट् (%1 इत्यनेन सह साझाः)"
 
 #: src/screencast.cpp:351
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
-msgstr ""
+msgstr "स्क्रीनशेयरिंग् प्रचलति"
 
 #: src/screenchooserdialog.cpp:143
 #, kde-format
@@ -573,8 +580,8 @@ msgstr "विलम्बः:"
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 द्वितीयम्"
+msgstr[1] "%1 सेकण्ड्"
 
 #: src/ScreenshotDialog.qml:47
 #, kde-format
@@ -605,29 +612,29 @@ msgstr "गृह्णातु"
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
-msgstr ""
+msgstr "अंत"
 
 #: src/session.cpp:277
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
-msgstr ""
+msgstr "दूरस्थ डेस्कटॉप"
 
 #: src/session.cpp:293
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2 इत्यस्मै सामग्रीं साझेदारी करणम्"
+msgstr[1] "%1 विडियो %2 मध्ये प्रवाहयति"
 
 #: src/session.cpp:297
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
-msgstr ""
+msgstr "स्क्रीन कास्टिंग"
 
 #: src/session.cpp:485
 #, kde-format
