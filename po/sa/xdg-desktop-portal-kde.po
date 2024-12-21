@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-04 00:42+0000\n"
-"PO-Revision-Date: 2024-12-14 01:12+0530\n"
+"PO-Revision-Date: 2024-12-20 21:54+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -347,12 +347,12 @@ msgstr "लैपटॉप स्क्रीन"
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
 msgid "Start streaming:"
-msgstr "स्ट्रीमिंग् आरभत : १."
+msgstr "स्ट्रीमिंग् आरभत :"
 
 #: src/region-select/RegionSelectOverlay.qml:151
 #, kde-format
 msgid "Clear selection:"
-msgstr "चयनं स्पष्टं कुरुत : १."
+msgstr "चयनं स्पष्टं कुरुत :"
 
 #: src/region-select/RegionSelectOverlay.qml:155
 #: src/region-select/RegionSelectOverlay.qml:199
@@ -382,7 +382,7 @@ msgstr "परिभ्रंशति"
 #: src/region-select/RegionSelectOverlay.qml:195
 #, kde-format
 msgid "Create selection:"
-msgstr "चयनं रचयन्तु : १."
+msgstr "चयनं रचयन्तु :"
 
 #: src/region-select/RegionSelectOverlay.qml:205
 #, kde-format
