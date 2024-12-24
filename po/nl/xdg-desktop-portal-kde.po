@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-04 00:42+0000\n"
+"POT-Creation-Date: 2024-12-24 00:42+0000\n"
 "PO-Revision-Date: 2024-11-25 11:12+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -235,6 +235,28 @@ msgstr "Annuleren"
 #, kde-format
 msgid "Open"
 msgstr "Openen"
+
+#: src/inputcapture.cpp:145
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Input Capture Requested"
+msgctxt "@title:notification"
+msgid "Input Capture started"
+msgstr "Vangen van invoer gevraagd"
+
+#: src/inputcapture.cpp:148
+#, kde-kuit-format
+msgctxt "@info %1 is the name of the application"
+msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
+msgstr ""
+
+#: src/inputcapture.cpp:153
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Input is being managed by an application. Press <shortcut>%1</shortcut> to "
+"disable."
+msgstr ""
 
 #: src/InputCaptureDialog.qml:16
 #, kde-format

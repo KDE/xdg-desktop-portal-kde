@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-04 00:42+0000\n"
-"PO-Revision-Date: 2024-09-03 22:46+0200\n"
+"POT-Creation-Date: 2024-12-24 00:42+0000\n"
+"PO-Revision-Date: 2024-12-23 17:14+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -58,8 +58,7 @@ msgid "Find More in Discover"
 msgstr "Weitere in Discover suchen"
 
 #: src/AppChooserDialog.qml:37
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Öffnen"
@@ -96,7 +95,7 @@ msgstr "Letzte verwendete Anwendung für diesen Dateityp"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
-msgstr ""
+msgstr "Mit <command>%1</command> öffnen?"
 
 #: src/AppChooserDialog.qml:248
 #, kde-format
@@ -237,6 +236,28 @@ msgstr "Abbrechen"
 #, kde-format
 msgid "Open"
 msgstr "Öffnen"
+
+#: src/inputcapture.cpp:145
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Input Capture Requested"
+msgctxt "@title:notification"
+msgid "Input Capture started"
+msgstr "Eingabeaufzeichnung angefordert"
+
+#: src/inputcapture.cpp:148
+#, kde-kuit-format
+msgctxt "@info %1 is the name of the application"
+msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
+msgstr ""
+
+#: src/inputcapture.cpp:153
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Input is being managed by an application. Press <shortcut>%1</shortcut> to "
+"disable."
+msgstr ""
 
 #: src/InputCaptureDialog.qml:16
 #, kde-format
@@ -443,17 +464,15 @@ msgid "Share"
 msgstr "Teilen"
 
 #: src/screencast.cpp:296
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgid "Virtual Output"
-msgstr "Neuer virtueller Bildschirm"
+msgstr "Virtueller Bildschirm"
 
 #: src/screencast.cpp:297
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
-msgstr "Neuer virtueller Bildschirm"
+msgstr "Virtueller Bildschirm (geteilt mit %1)"
 
 #: src/screencast.cpp:351
 #, kde-format
