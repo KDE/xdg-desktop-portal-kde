@@ -235,12 +235,10 @@ msgid "Open"
 msgstr "打开"
 
 #: src/inputcapture.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "已请求输入捕获"
+msgstr ""
 
 #: src/inputcapture.cpp:148
 #, kde-kuit-format

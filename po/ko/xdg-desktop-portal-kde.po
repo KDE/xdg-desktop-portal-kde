@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-24 00:42+0000\n"
-"PO-Revision-Date: 2024-11-28 21:18+0100\n"
+"PO-Revision-Date: 2024-12-24 19:21+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -233,18 +233,18 @@ msgid "Open"
 msgstr "열기"
 
 #: src/inputcapture.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "입력 캡처 요청됨"
+msgstr "입력 캡처 시작됨"
 
 #: src/inputcapture.cpp:148
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr ""
+"%1에서 입력을 관리하고 있습니다. 비활성화하려면 <shortcut>%2</shortcut> 키를 "
+"누르십시오."
 
 #: src/inputcapture.cpp:153
 #, kde-kuit-format
@@ -253,6 +253,8 @@ msgid ""
 "Input is being managed by an application. Press <shortcut>%1</shortcut> to "
 "disable."
 msgstr ""
+"다른 앱에서 입력을 관리하고 있습니다. 비활성화하려면 <shortcut>%1</shortcut> "
+"키를 누르십시오."
 
 #: src/InputCaptureDialog.qml:16
 #, kde-format

@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-24 00:42+0000\n"
-"PO-Revision-Date: 2024-12-20 21:54+0530\n"
-"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"PO-Revision-Date: 2024-12-24 20:39+0530\n"
+"Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
@@ -22,12 +22,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "भवतः नामानि"
+msgstr "श्रीकान्त् कलवार्"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "भवतः ईमेलपत्राणि"
+msgstr "skkalwar999@gmail.com"
 
 #: src/accessdialog.cpp:22
 #, kde-format
@@ -236,18 +236,16 @@ msgid "Open"
 msgstr "उद्घाटित"
 
 #: src/inputcapture.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "इनपुट कैप्चर अनुरोधित"
+msgstr "इनपुटग्रहणं आरब्धम्।"
 
 #: src/inputcapture.cpp:148
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
-msgstr ""
+msgstr "इनपुटं %1 इत्यनेन व्यवस्थाप्यते। <shortcut>%2</shortcut> दबं कुरु निष्क्रियं कर्तुम्।"
 
 #: src/inputcapture.cpp:153
 #, kde-kuit-format
@@ -256,6 +254,7 @@ msgid ""
 "Input is being managed by an application. Press <shortcut>%1</shortcut> to "
 "disable."
 msgstr ""
+"इनपुटं कश्चन अनुप्रयोगः व्यवस्थापयति। <shortcut>%1</shortcut> दबं कुरु निष्क्रियं कर्तुम्।"
 
 #: src/InputCaptureDialog.qml:16
 #, kde-format

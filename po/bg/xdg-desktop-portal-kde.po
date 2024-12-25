@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-24 00:42+0000\n"
-"PO-Revision-Date: 2024-11-28 19:59+0100\n"
+"PO-Revision-Date: 2024-12-24 16:40+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.03.70\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -237,18 +237,18 @@ msgid "Open"
 msgstr "Отваряне"
 
 #: src/inputcapture.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "Заявено е прихващане на входа"
+msgstr "Стартирано е прихващане на входа"
 
 #: src/inputcapture.cpp:148
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr ""
+"Входът се управлява от %1. Натиснете <shortcut>%2</shortcut>, за да го "
+"изключите."
 
 #: src/inputcapture.cpp:153
 #, kde-kuit-format
@@ -257,6 +257,8 @@ msgid ""
 "Input is being managed by an application. Press <shortcut>%1</shortcut> to "
 "disable."
 msgstr ""
+"Входът се управлява от приложение. Натиснете <shortcut>%1</shortcut>, за да "
+"го изключите."
 
 #: src/InputCaptureDialog.qml:16
 #, kde-format
