@@ -238,13 +238,13 @@ msgstr "打开"
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr ""
+msgstr "输入捕获已开始"
 
 #: src/inputcapture.cpp:148
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
-msgstr ""
+msgstr "输入正在由 %1 管理。按 <shortcut>%2</shortcut> 禁用。"
 
 #: src/inputcapture.cpp:153
 #, kde-kuit-format
@@ -252,7 +252,7 @@ msgctxt "@info"
 msgid ""
 "Input is being managed by an application. Press <shortcut>%1</shortcut> to "
 "disable."
-msgstr ""
+msgstr "输入正在由某个应用程序管理。按 <shortcut>%1</shortcut> 禁用。"
 
 #: src/InputCaptureDialog.qml:16
 #, kde-format
