@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-24 00:42+0000\n"
-"PO-Revision-Date: 2024-11-28 12:13+0400\n"
+"PO-Revision-Date: 2024-12-26 09:08+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -235,18 +235,16 @@ msgid "Open"
 msgstr "افتح"
 
 #: src/inputcapture.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "طُلب التقاط الإدخال"
+msgstr "بدأ التقاط الإدخال"
 
 #: src/inputcapture.cpp:148
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
-msgstr ""
+msgstr "يدار الإدخال بواسطة %1. اضغط على <shortcut>%2</shortcut> لتعطيله."
 
 #: src/inputcapture.cpp:153
 #, kde-kuit-format
@@ -254,7 +252,7 @@ msgctxt "@info"
 msgid ""
 "Input is being managed by an application. Press <shortcut>%1</shortcut> to "
 "disable."
-msgstr ""
+msgstr "يدار الإدخال بواسطة تطبيق. اضغط على <shortcut>%1</shortcut> لتعطيله."
 
 #: src/InputCaptureDialog.qml:16
 #, kde-format
