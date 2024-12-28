@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-24 00:42+0000\n"
-"PO-Revision-Date: 2024-06-28 16:51+0200\n"
+"PO-Revision-Date: 2024-12-27 17:40+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -61,8 +61,7 @@ msgid "Find More in Discover"
 msgstr "Trovi Pli en Discover"
 
 #: src/AppChooserDialog.qml:37
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Malfermi"
@@ -239,18 +238,17 @@ msgid "Open"
 msgstr "Malfermi"
 
 #: src/inputcapture.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "Eniga Kaptado Alpetita"
+msgstr "Eniga Kaptado komencita"
 
 #: src/inputcapture.cpp:148
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr ""
+"Enigo estas administrata per %1. Premu <shortcut>%2</shortcut> por malebligi."
 
 #: src/inputcapture.cpp:153
 #, kde-kuit-format
@@ -259,6 +257,8 @@ msgid ""
 "Input is being managed by an application. Press <shortcut>%1</shortcut> to "
 "disable."
 msgstr ""
+"Enigo estas administrata per aplikaĵo. Premu <shortcut>%1</shortcut> por "
+"malebligi."
 
 #: src/InputCaptureDialog.qml:16
 #, kde-format
@@ -465,17 +465,15 @@ msgid "Share"
 msgstr "Kunhavigi"
 
 #: src/screencast.cpp:296
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgid "Virtual Output"
-msgstr "Nova Virtuala Eligo"
+msgstr "Virtuala Eligo"
 
 #: src/screencast.cpp:297
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
-msgstr "Nova Virtuala Eligo"
+msgstr "Virtuala Eligo (kundividita kun %1)"
 
 #: src/screencast.cpp:351
 #, kde-format
