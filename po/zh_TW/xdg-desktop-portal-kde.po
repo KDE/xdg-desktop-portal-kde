@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-24 00:42+0000\n"
-"PO-Revision-Date: 2024-11-26 22:03+0900\n"
+"PO-Revision-Date: 2024-12-29 01:57+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -234,18 +234,16 @@ msgid "Open"
 msgstr "開啟"
 
 #: src/inputcapture.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "已請求輸入擷取"
+msgstr "已開始進行輸入擷取"
 
 #: src/inputcapture.cpp:148
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
-msgstr ""
+msgstr "輸入正被 %1 管理。按下 <shortcut>%2</shortcut> 來停用。"
 
 #: src/inputcapture.cpp:153
 #, kde-kuit-format
@@ -253,7 +251,7 @@ msgctxt "@info"
 msgid ""
 "Input is being managed by an application. Press <shortcut>%1</shortcut> to "
 "disable."
-msgstr ""
+msgstr "輸入正被應用程式管理。按下 <shortcut>%1</shortcut> 來停用。"
 
 #: src/InputCaptureDialog.qml:16
 #, kde-format
