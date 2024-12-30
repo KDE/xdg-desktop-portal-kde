@@ -96,7 +96,9 @@ PWD.SystemDialog {
                                 nodeId: waylandItem.nodeId
 
                                 activeFocusOnTab: true
-                                highlighted: focus
+                                highlighted: activeFocus
+
+                                Accessible.role: root.multiple ? Accessible.CheckBox : Accessible.Button
 
                                 TaskManager.ScreencastingRequest {
                                     id: waylandItem
@@ -162,7 +164,9 @@ PWD.SystemDialog {
                                 nodeId: waylandItem.nodeId
 
                                 activeFocusOnTab: true
-                                highlighted: focus
+                                highlighted: activeFocus
+
+                                Accessible.role: root.multiple ? Accessible.CheckBox : Accessible.Button
 
                                 TaskManager.ScreencastingRequest {
                                     id: waylandItem
