@@ -95,6 +95,9 @@ PWD.SystemDialog {
                                 checked: model.checked === Qt.Checked
                                 nodeId: waylandItem.nodeId
 
+                                activeFocusOnTab: true
+                                highlighted: focus
+
                                 TaskManager.ScreencastingRequest {
                                     id: waylandItem
                                     outputName: delegate.model.name
@@ -157,6 +160,9 @@ PWD.SystemDialog {
                                 checkable: root.multiple
                                 checked: model.checked === Qt.Checked
                                 nodeId: waylandItem.nodeId
+
+                                activeFocusOnTab: true
+                                highlighted: focus
 
                                 TaskManager.ScreencastingRequest {
                                     id: waylandItem
