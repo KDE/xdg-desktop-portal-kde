@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-24 00:42+0000\n"
+"POT-Creation-Date: 2025-01-02 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 10:03+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -452,12 +452,12 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - Vhodne naprave\n"
 
-#: src/RemoteDesktopDialog.qml:30 src/ScreenChooserDialog.qml:197
+#: src/RemoteDesktopDialog.qml:30 src/ScreenChooserDialog.qml:207
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Dovoli obnovo v naslednjih sejah"
 
-#: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:205
+#: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:215
 #: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"
