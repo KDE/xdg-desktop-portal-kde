@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the xdg-desktop-portal-kde package.
 #
-# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2024, 2025 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-02 00:42+0000\n"
-"PO-Revision-Date: 2024-12-02 18:36+0200\n"
+"PO-Revision-Date: 2025-01-04 15:18+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -236,18 +236,16 @@ msgid "Open"
 msgstr "Atvērt"
 
 #: src/inputcapture.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "Nepieciešama ievades uztveršana"
+msgstr "Sākta ievades tveršana"
 
 #: src/inputcapture.cpp:148
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
-msgstr ""
+msgstr "Ievadi pārvalda „%1“. Lai izslēgtu, spiediet <shortcut>%2</shortcut>."
 
 #: src/inputcapture.cpp:153
 #, kde-kuit-format
@@ -256,24 +254,25 @@ msgid ""
 "Input is being managed by an application. Press <shortcut>%1</shortcut> to "
 "disable."
 msgstr ""
+"Ievadi pārvalda programma. Lai izslēgtu, spiediet <shortcut>%1</shortcut>."
 
 #: src/InputCaptureDialog.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
-msgstr "Nepieciešama ievades uztveršana"
+msgstr "Nepieciešama ievades tveršana"
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
-msgstr "Programma pieprasa uztvert ievades notikumus"
+msgstr "Programma pieprasa tvert ievades notikumus"
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
-msgstr "„%1“ pieprasīja uztvert ievades notikumus"
+msgstr "„%1“ pieprasīja tvert ievades notikumus"
 
 #: src/InputCaptureDialog.qml:21
 #, kde-format

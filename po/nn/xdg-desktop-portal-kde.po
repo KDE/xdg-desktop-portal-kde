@@ -240,8 +240,6 @@ msgstr "Opna"
 
 #: src/inputcapture.cpp:145
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
 msgctxt "@title:notification"
 msgid "Input Capture started"
 msgstr "Registrering av inndata førespurd"
@@ -466,13 +464,11 @@ msgstr "Del"
 
 #: src/screencast.cpp:296
 #, fuzzy, kde-format
-#| msgid "New Virtual Output"
 msgid "Virtual Output"
 msgstr "Ny virtuell uteining"
 
 #: src/screencast.cpp:297
 #, fuzzy, kde-format
-#| msgid "New Virtual Output"
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Ny virtuell uteining"
