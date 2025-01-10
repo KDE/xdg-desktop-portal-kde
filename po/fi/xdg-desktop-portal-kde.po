@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-02 00:42+0000\n"
+"POT-Creation-Date: 2025-01-10 09:30+0000\n"
 "PO-Revision-Date: 2024-12-11 21:47+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -413,7 +413,7 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Napsauta vasemmalla ja vedä"
 
-#: src/remotedesktop.cpp:176
+#: src/remotedesktop.cpp:222
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
