@@ -185,7 +185,7 @@ public:
     }
     QString componentName() const
     {
-        return m_appId + m_token;
+        return m_appId.isEmpty() ? QLatin1String("token_") + m_token : m_appId;
     }
 
 Q_SIGNALS:
