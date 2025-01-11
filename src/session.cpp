@@ -20,6 +20,7 @@
 
 #include <KGlobalAccel>
 #include <KLocalizedString>
+#include <KService>
 #include <KStatusNotifierItem>
 
 #include "kglobalaccel_component_interface.h"
@@ -404,7 +405,8 @@ void GlobalShortcutsSession::setActions(const Shortcuts &shortcuts)
             action = std::make_unique<QAction>();
         }
         action->setProperty("componentName", componentName());
-        action->setProperty("componentDisplayName", componentName());
+        const KService::Ptr kservice = KService::serviceByDesktopName(m_appId);
+        action->setProperty("componentDisplayName", kservice ? kservice->name() : componentName());
         action->setObjectName(shortcut.first);
         action->setText(description);
         const auto itShortcut = shortcutInfosByName.constFind(shortcut.first);
