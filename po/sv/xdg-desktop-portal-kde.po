@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2022, 2024 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2022, 2024, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-10 09:30+0000\n"
-"PO-Revision-Date: 2024-11-25 18:32+0100\n"
+"POT-Creation-Date: 2025-01-12 00:43+0000\n"
+"PO-Revision-Date: 2025-01-11 12:38+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -234,18 +234,18 @@ msgid "Open"
 msgstr "Öppna"
 
 #: src/inputcapture.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "Inmatningshämtning begärd"
+msgstr "Inmatningshämtning startad"
 
 #: src/inputcapture.cpp:148
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr ""
+"Inmatning hanteras av %1. Tryck på <shortcut>%2</shortcut> för att "
+"inaktivera."
 
 #: src/inputcapture.cpp:153
 #, kde-kuit-format
@@ -254,6 +254,8 @@ msgid ""
 "Input is being managed by an application. Press <shortcut>%1</shortcut> to "
 "disable."
 msgstr ""
+"Inmatning hanteras av ett program. Tryck på <shortcut>%1</shortcut> för att "
+"inaktivera."
 
 #: src/InputCaptureDialog.qml:16
 #, kde-format
@@ -628,20 +630,20 @@ msgstr "Spara"
 msgid "Take"
 msgstr "Ta"
 
-#: src/session.cpp:174
+#: src/session.cpp:175
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Slut"
 
-#: src/session.cpp:277
+#: src/session.cpp:278
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
 msgstr "Fjärrskrivbord"
 
-#: src/session.cpp:293
+#: src/session.cpp:294
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -649,14 +651,14 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "Delar innehåll med %2"
 msgstr[1] "%1 videoströmmar till %2"
 
-#: src/session.cpp:297
+#: src/session.cpp:298
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
 msgstr "Skärmsändning"
 
-#: src/session.cpp:485
+#: src/session.cpp:487
 #, kde-format
 msgid ", "
 msgstr ", "

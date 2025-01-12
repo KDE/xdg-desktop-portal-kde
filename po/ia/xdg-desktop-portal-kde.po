@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-10 09:30+0000\n"
+"POT-Creation-Date: 2025-01-12 00:43+0000\n"
 "PO-Revision-Date: 2024-12-27 12:39+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -629,20 +629,20 @@ msgstr "Salveguarda"
 msgid "Take"
 msgstr "Prende"
 
-#: src/session.cpp:174
+#: src/session.cpp:175
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Fin"
 
-#: src/session.cpp:277
+#: src/session.cpp:278
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
 msgstr "Scriptorio remote"
 
-#: src/session.cpp:293
+#: src/session.cpp:294
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -650,14 +650,14 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "Compartir conmtentos a %2"
 msgstr[1] "%1 fluxos de video a %2"
 
-#: src/session.cpp:297
+#: src/session.cpp:298
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
 msgstr "Fusion de schermo"
 
-#: src/session.cpp:485
+#: src/session.cpp:487
 #, kde-format
 msgid ", "
 msgstr ", "
