@@ -10,6 +10,8 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_REQUEST_H
 #define XDG_DESKTOP_PORTAL_KDE_REQUEST_H
 
+#include "session.h"
+
 #include <QDBusVirtualObject>
 #include <QObject>
 
@@ -29,6 +31,14 @@ public:
     {
         auto request = new Request(handle, dialogAndParent);
         connect(request, &Request::closeRequested, dialogAndParent, &T::reject);
+        return request;
+    }
+
+    template<class T>
+    static Request *makeClosableDialogRequestWithSession(const QDBusObjectPath &handle, T *dialogAndParent, Session *session)
+    {
+        auto request = makeClosableDialogRequest(handle, dialogAndParent);
+        connect(session, &Session::closed, dialogAndParent, &T::reject);
         return request;
     }
 

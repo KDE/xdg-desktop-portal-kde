@@ -228,8 +228,7 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
             QScopedPointer<RemoteDesktopDialog, QScopedPointerDeleteLater> remoteDesktopDialog(
                 new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled(), session->persistMode()));
             Utils::setParentWindow(remoteDesktopDialog->windowHandle(), parent_window);
-            Request::makeClosableDialogRequest(handle, remoteDesktopDialog.get());
-            connect(session, &Session::closed, remoteDesktopDialog.data(), &RemoteDesktopDialog::reject);
+            Request::makeClosableDialogRequestWithSession(handle, remoteDesktopDialog.get(), session);
 
             if (!remoteDesktopDialog->exec()) {
                 return 1;

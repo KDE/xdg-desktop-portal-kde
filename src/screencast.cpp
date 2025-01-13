@@ -265,10 +265,8 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
     if (!valid) {
         QScopedPointer<ScreenChooserDialog, QScopedPointerDeleteLater> screenDialog(
             new ScreenChooserDialog(app_id, session->multipleSources(), SourceTypes(session->types())));
-        connect(session, &Session::closed, screenDialog.data(), &ScreenChooserDialog::reject);
         Utils::setParentWindow(screenDialog->windowHandle(), parent_window);
-        Request::makeClosableDialogRequest(handle, screenDialog.get());
-        connect(session, &Session::closed, screenDialog.get(), &QuickDialog::reject);
+        Request::makeClosableDialogRequestWithSession(handle, screenDialog.get(), session);
         valid = screenDialog->exec();
         if (valid) {
             allowRestore = screenDialog->allowRestore();
