@@ -207,7 +207,7 @@ uint InputCapturePortal::GetZones(const QDBusObjectPath &handle,
             .x_offset = screen->geometry().x(),
             .y_offset = screen->geometry().y(),
         });
-        connect(screen, &QScreen::geometryChanged, this, handleZoneChange);
+        connect(screen, &QScreen::geometryChanged, session, handleZoneChange);
     }
 
     connect(qGuiApp, &QGuiApplication::screenAdded, session, handleZoneChange);
