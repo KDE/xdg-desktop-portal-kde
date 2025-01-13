@@ -102,6 +102,7 @@ uint InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
     InputCaptureDialog dialog(app_id, Capabilities::fromInt(requestedCapabilities), this);
     Utils::setParentWindow(dialog.windowHandle(), parent_window);
     Request::makeClosableDialogRequest(handle, &dialog);
+    connect(session, &Session::closed, &dialog, &QuickDialog::reject);
 
     if (!dialog.exec()) {
         return 1;
