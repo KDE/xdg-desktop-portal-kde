@@ -2,13 +2,13 @@
 # Burkhard Lück <lueck@hube-lueck.de>, 2017, 2018, 2019, 2020, 2021.
 # Frederik Schwarzer <schwarzer@kde.org>, 2020, 2022, 2023.
 # Frank Steinmetzger <dev-kde@felsenfleischer.de>, 2022.
-# SPDX-FileCopyrightText: 2024 Johannes Obermayr <johannesobermayr@gmx.de>
+# SPDX-FileCopyrightText: 2024, 2025 Johannes Obermayr <johannesobermayr@gmx.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:43+0000\n"
-"PO-Revision-Date: 2024-12-23 17:14+0100\n"
+"POT-Creation-Date: 2025-01-14 00:43+0000\n"
+"PO-Revision-Date: 2025-01-09 20:00+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -238,18 +238,18 @@ msgid "Open"
 msgstr "Öffnen"
 
 #: src/inputcapture.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "Eingabeaufzeichnung angefordert"
+msgstr "Eingabeaufzeichnung gestartet"
 
 #: src/inputcapture.cpp:148
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr ""
+"Die Eingabe wird von %1 verwaltet. Durch Drücken von <shortcut>%2</shortcut> "
+"wird dies deaktiviert."
 
 #: src/inputcapture.cpp:153
 #, kde-kuit-format
@@ -258,6 +258,8 @@ msgid ""
 "Input is being managed by an application. Press <shortcut>%1</shortcut> to "
 "disable."
 msgstr ""
+"Die Eingabe wird von einer Anwendung verwaltet. Durch Drücken von <shortcut>"
+"%1</shortcut> wird dies deaktiviert."
 
 #: src/InputCaptureDialog.qml:16
 #, kde-format
@@ -463,18 +465,18 @@ msgstr "Wiederherstellung bei künftigen Sitzungen aktivieren"
 msgid "Share"
 msgstr "Teilen"
 
-#: src/screencast.cpp:296
+#: src/screencast.cpp:295
 #, kde-format
 msgid "Virtual Output"
 msgstr "Virtueller Bildschirm"
 
-#: src/screencast.cpp:297
+#: src/screencast.cpp:296
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Virtueller Bildschirm (geteilt mit %1)"
 
-#: src/screencast.cpp:351
+#: src/screencast.cpp:350
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"

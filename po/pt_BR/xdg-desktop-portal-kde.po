@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:43+0000\n"
+"POT-Creation-Date: 2025-01-14 00:43+0000\n"
 "PO-Revision-Date: 2024-11-27 00:11-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -464,20 +464,20 @@ msgstr "Permite restaurar em sessões futuras"
 msgid "Share"
 msgstr "Compartilhar"
 
-#: src/screencast.cpp:296
+#: src/screencast.cpp:295
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgid "Virtual Output"
 msgstr "Nova saída virtual"
 
-#: src/screencast.cpp:297
+#: src/screencast.cpp:296
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Nova saída virtual"
 
-#: src/screencast.cpp:351
+#: src/screencast.cpp:350
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"

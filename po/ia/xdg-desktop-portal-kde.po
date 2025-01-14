@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:43+0000\n"
+"POT-Creation-Date: 2025-01-14 00:43+0000\n"
 "PO-Revision-Date: 2024-12-27 12:39+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -460,18 +460,18 @@ msgstr "Permitte restabilir sur sessiones future"
 msgid "Share"
 msgstr "Comparti"
 
-#: src/screencast.cpp:296
+#: src/screencast.cpp:295
 #, kde-format
 msgid "Virtual Output"
 msgstr "Sortita Virtual"
 
-#: src/screencast.cpp:297
+#: src/screencast.cpp:296
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Sortita Virtual (compartite con %1)"
 
-#: src/screencast.cpp:351
+#: src/screencast.cpp:350
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"

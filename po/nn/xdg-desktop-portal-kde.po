@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 00:43+0000\n"
+"POT-Creation-Date: 2025-01-14 00:43+0000\n"
 "PO-Revision-Date: 2024-10-06 14:06+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -462,18 +462,18 @@ msgstr "Tillat gjenoppretting ved framtidige økter"
 msgid "Share"
 msgstr "Del"
 
-#: src/screencast.cpp:296
+#: src/screencast.cpp:295
 #, fuzzy, kde-format
 msgid "Virtual Output"
 msgstr "Ny virtuell uteining"
 
-#: src/screencast.cpp:297
+#: src/screencast.cpp:296
 #, fuzzy, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Ny virtuell uteining"
 
-#: src/screencast.cpp:351
+#: src/screencast.cpp:350
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
