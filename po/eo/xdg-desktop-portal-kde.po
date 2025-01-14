@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 02:43+0000\n"
+"POT-Creation-Date: 2025-01-14 02:36+0000\n"
 "PO-Revision-Date: 2024-12-28 17:41+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -237,20 +237,20 @@ msgstr "Nuligi"
 msgid "Open"
 msgstr "Malfermi"
 
-#: src/inputcapture.cpp:145
+#: src/inputcapture.cpp:146
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
 msgstr "Eniga Kaptado komencita"
 
-#: src/inputcapture.cpp:148
+#: src/inputcapture.cpp:149
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr ""
 "Enigo estas administrata per %1. Premu <shortcut>%2</shortcut> por malebligi."
 
-#: src/inputcapture.cpp:153
+#: src/inputcapture.cpp:154
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -464,18 +464,18 @@ msgstr "Permesi restarigi en estontaj seancoj"
 msgid "Share"
 msgstr "Kunhavigi"
 
-#: src/screencast.cpp:296
+#: src/screencast.cpp:297
 #, kde-format
 msgid "Virtual Output"
 msgstr "Virtuala Eligo"
 
-#: src/screencast.cpp:297
+#: src/screencast.cpp:298
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Virtuala Eligo (kundividita kun %1)"
 
-#: src/screencast.cpp:351
+#: src/screencast.cpp:352
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"

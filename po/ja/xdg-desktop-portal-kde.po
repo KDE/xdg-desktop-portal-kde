@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 02:43+0000\n"
+"POT-Creation-Date: 2025-01-14 02:36+0000\n"
 "PO-Revision-Date: 2023-04-07 23:28-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -237,19 +237,19 @@ msgstr "キャンセル"
 msgid "Open"
 msgstr "開く"
 
-#: src/inputcapture.cpp:145
+#: src/inputcapture.cpp:146
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
 msgstr ""
 
-#: src/inputcapture.cpp:148
+#: src/inputcapture.cpp:149
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr ""
 
-#: src/inputcapture.cpp:153
+#: src/inputcapture.cpp:154
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -462,18 +462,18 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-#: src/screencast.cpp:296
+#: src/screencast.cpp:297
 #, kde-format
 msgid "Virtual Output"
 msgstr ""
 
-#: src/screencast.cpp:297
+#: src/screencast.cpp:298
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr ""
 
-#: src/screencast.cpp:351
+#: src/screencast.cpp:352
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"

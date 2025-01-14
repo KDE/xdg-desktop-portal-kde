@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-12 02:43+0000\n"
+"POT-Creation-Date: 2025-01-14 02:36+0000\n"
 "PO-Revision-Date: 2024-11-17 17:41+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -242,7 +242,7 @@ msgstr "Отмена"
 msgid "Open"
 msgstr "Открыть"
 
-#: src/inputcapture.cpp:145
+#: src/inputcapture.cpp:146
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Input Capture Requested"
@@ -250,13 +250,13 @@ msgctxt "@title:notification"
 msgid "Input Capture started"
 msgstr "Запрос захвата ввода"
 
-#: src/inputcapture.cpp:148
+#: src/inputcapture.cpp:149
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr ""
 
-#: src/inputcapture.cpp:153
+#: src/inputcapture.cpp:154
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -468,20 +468,20 @@ msgstr "Сохранить параметры"
 msgid "Share"
 msgstr "Поделиться"
 
-#: src/screencast.cpp:296
+#: src/screencast.cpp:297
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgid "Virtual Output"
 msgstr "Новый виртуальный вывод"
 
-#: src/screencast.cpp:297
+#: src/screencast.cpp:298
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Новый виртуальный вывод"
 
-#: src/screencast.cpp:351
+#: src/screencast.cpp:352
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
