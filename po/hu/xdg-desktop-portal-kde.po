@@ -3,13 +3,13 @@
 #
 # SPDX-FileCopyrightText: 2017, 2018, 2024 Kiszel Kristóf <kiszel.kristof@gmail.com>
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2019, 2020, 2021.
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Kristof Kiszel <ulysses@fsf.hu>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-14 00:43+0000\n"
-"PO-Revision-Date: 2024-09-29 20:33+0200\n"
+"PO-Revision-Date: 2025-01-18 21:55+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -239,18 +239,18 @@ msgid "Open"
 msgstr "Megnyitás"
 
 #: src/inputcapture.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "Bevitelrögzítési kérés"
+msgstr "Bevitelrögzítés elindítva"
 
 #: src/inputcapture.cpp:148
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr ""
+"A bevitelt a(z) %1 kezeli. Nyomja meg a(z) <shortcut>%2</shortcut> "
+"kombinációt a kikapcsoláshoz."
 
 #: src/inputcapture.cpp:153
 #, kde-kuit-format
@@ -259,6 +259,8 @@ msgid ""
 "Input is being managed by an application. Press <shortcut>%1</shortcut> to "
 "disable."
 msgstr ""
+"A bevitelt egy alkalmazás kezeli. Nyomja meg a(z) <shortcut>%1</shortcut> "
+"kombinációt a kikapcsoláshoz."
 
 #: src/InputCaptureDialog.qml:16
 #, kde-format
@@ -465,17 +467,15 @@ msgid "Share"
 msgstr "Megosztás"
 
 #: src/screencast.cpp:295
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgid "Virtual Output"
-msgstr "Új virtuális kimenet"
+msgstr "Virtuális kimenet"
 
 #: src/screencast.cpp:296
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
-msgstr "Új virtuális kimenet"
+msgstr "Virtuális kimenet (megosztva ezzel: %1)"
 
 #: src/screencast.cpp:350
 #, kde-format
