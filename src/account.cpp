@@ -41,7 +41,8 @@ uint AccountPortal::GetUserInformation(const QDBusObjectPath &handle,
     if (result) {
         results.insert(QStringLiteral("id"), userInfoDialog->id());
         results.insert(QStringLiteral("name"), userInfoDialog->name());
-        results.insert(QStringLiteral("image"), userInfoDialog->image());
+        const QString image = userInfoDialog->image();
+        results.insert(QStringLiteral("image"), image.isEmpty() ? QStringLiteral("file://") : image);
     }
 
     userInfoDialog->deleteLater();
