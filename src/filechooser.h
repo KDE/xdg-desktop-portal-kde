@@ -9,6 +9,8 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_FILECHOOSER_H
 #define XDG_DESKTOP_PORTAL_KDE_FILECHOOSER_H
 
+#include "dbushelpers.h"
+
 #include <QCheckBox>
 #include <QComboBox>
 #include <QDBusAbstractAdaptor>
@@ -55,20 +57,6 @@ public:
         Filters filters;
     } FilterList;
     typedef QList<FilterList> FilterListList;
-
-    typedef struct {
-        QString id;
-        QString value;
-    } Choice;
-    typedef QList<Choice> Choices;
-
-    typedef struct {
-        QString id;
-        QString label;
-        Choices choices;
-        QString initialChoiceId;
-    } Option;
-    typedef QList<Option> OptionList;
 
     explicit FileChooserPortal(QObject *parent);
 
