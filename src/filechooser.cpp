@@ -43,11 +43,6 @@ Q_DECLARE_METATYPE(FileChooserPortal::Filter)
 Q_DECLARE_METATYPE(FileChooserPortal::Filters)
 Q_DECLARE_METATYPE(FileChooserPortal::FilterList)
 Q_DECLARE_METATYPE(FileChooserPortal::FilterListList)
-// used for options - choices
-Q_DECLARE_METATYPE(FileChooserPortal::Choice)
-Q_DECLARE_METATYPE(FileChooserPortal::Choices)
-Q_DECLARE_METATYPE(FileChooserPortal::Option)
-Q_DECLARE_METATYPE(FileChooserPortal::OptionList)
 
 using namespace Qt::StringLiterals;
 
@@ -90,50 +85,6 @@ const QDBusArgument &operator>>(const QDBusArgument &arg, FileChooserPortal::Fil
     filterList.filters = filters;
     arg.endStructure();
 
-    return arg;
-}
-
-QDBusArgument &operator<<(QDBusArgument &arg, const FileChooserPortal::Choice &choice)
-{
-    arg.beginStructure();
-    arg << choice.id << choice.value;
-    arg.endStructure();
-    return arg;
-}
-
-const QDBusArgument &operator>>(const QDBusArgument &arg, FileChooserPortal::Choice &choice)
-{
-    QString id;
-    QString value;
-    arg.beginStructure();
-    arg >> id >> value;
-    choice.id = id;
-    choice.value = value;
-    arg.endStructure();
-    return arg;
-}
-
-QDBusArgument &operator<<(QDBusArgument &arg, const FileChooserPortal::Option &option)
-{
-    arg.beginStructure();
-    arg << option.id << option.label << option.choices << option.initialChoiceId;
-    arg.endStructure();
-    return arg;
-}
-
-const QDBusArgument &operator>>(const QDBusArgument &arg, FileChooserPortal::Option &option)
-{
-    QString id;
-    QString label;
-    FileChooserPortal::Choices choices;
-    QString initialChoiceId;
-    arg.beginStructure();
-    arg >> id >> label >> choices >> initialChoiceId;
-    option.id = id;
-    option.label = label;
-    option.choices = choices;
-    option.initialChoiceId = initialChoiceId;
-    arg.endStructure();
     return arg;
 }
 
@@ -671,9 +622,7 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     return 1;
 }
 
-QWidget *FileChooserPortal::CreateChoiceControls(const FileChooserPortal::OptionList &optionList,
-                                                 QMap<QString, QCheckBox *> &checkboxes,
-                                                 QMap<QString, QComboBox *> &comboboxes)
+QWidget *FileChooserPortal::CreateChoiceControls(const OptionList &optionList, QMap<QString, QCheckBox *> &checkboxes, QMap<QString, QComboBox *> &comboboxes)
 {
     if (optionList.empty()) {
         return nullptr;

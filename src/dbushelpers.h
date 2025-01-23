@@ -30,3 +30,25 @@ using AppIdPermissionsMap = QMap<QString, Permissions>;
 
 Q_DECLARE_METATYPE(VariantMapMap)
 Q_DECLARE_METATYPE(Shortcuts)
+
+struct Choice {
+    Q_GADGET
+public:
+    QString id;
+    QString value;
+};
+using Choices = QList<Choice>;
+QDBusArgument &operator<<(QDBusArgument &arg, const Choice &choice);
+const QDBusArgument &operator>>(const QDBusArgument &arg, Choice &choice);
+
+struct Option {
+    Q_GADGET
+public:
+    QString id;
+    QString label;
+    Choices choices;
+    QString initialChoiceId;
+};
+using OptionList = QList<Option>;
+QDBusArgument &operator<<(QDBusArgument &arg, const Option &option);
+const QDBusArgument &operator>>(const QDBusArgument &arg, Option &option);
