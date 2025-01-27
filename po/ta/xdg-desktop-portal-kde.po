@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the xdg-desktop-portal-kde package.
 #
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-14 02:36+0000\n"
-"PO-Revision-Date: 2024-12-01 18:55+0530\n"
+"PO-Revision-Date: 2025-01-26 18:06+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -235,18 +235,17 @@ msgid "Open"
 msgstr "திற"
 
 #: src/inputcapture.cpp:146
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "உள்ளீட்டு பிடிப்பு கோரப்பட்டது"
+msgstr "உள்ளீட்டு பிடிப்பு துவங்கியது"
 
 #: src/inputcapture.cpp:149
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr ""
+"உள்ளீட்டை %1 நிர்வகிக்கிறது. இதை நிறுத்த <shortcut>%2</shortcut> தனை அழுத்தவும்."
 
 #: src/inputcapture.cpp:154
 #, kde-kuit-format
@@ -255,6 +254,8 @@ msgid ""
 "Input is being managed by an application. Press <shortcut>%1</shortcut> to "
 "disable."
 msgstr ""
+"உள்ளீட்டை ஓர் செயலி நிர்வகிக்கிறது. இதை நிறுத்த <shortcut>%1</shortcut> தனை "
+"அழுத்தவும்."
 
 #: src/InputCaptureDialog.qml:16
 #, kde-format
