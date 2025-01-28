@@ -9,6 +9,7 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_ACCESS_DIALOG_H
 #define XDG_DESKTOP_PORTAL_KDE_ACCESS_DIALOG_H
 
+#include "dbushelpers.h"
 #include "quickdialog.h"
 #include <QVariantMap>
 
@@ -24,6 +25,9 @@ public:
     void setRejectLabel(const QString &label);
     void setTitle(const QString &title);
     void setSubtitle(const QString &subtitle);
+    void setChoices(const OptionList &choices);
+
+    Choices selectedChoices() const;
 
     void createDialog();
 

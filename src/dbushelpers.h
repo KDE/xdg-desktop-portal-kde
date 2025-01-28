@@ -33,6 +33,8 @@ Q_DECLARE_METATYPE(Shortcuts)
 
 struct Choice {
     Q_GADGET
+    Q_PROPERTY(QString id MEMBER id CONSTANT)
+    Q_PROPERTY(QString value MEMBER value CONSTANT)
 public:
     QString id;
     QString value;
@@ -43,6 +45,10 @@ const QDBusArgument &operator>>(const QDBusArgument &arg, Choice &choice);
 
 struct Option {
     Q_GADGET
+    Q_PROPERTY(QString id MEMBER id CONSTANT)
+    Q_PROPERTY(QString label MEMBER label CONSTANT)
+    Q_PROPERTY(Choices choices MEMBER choices CONSTANT)
+    Q_PROPERTY(QString initialChoiceId MEMBER initialChoiceId CONSTANT)
 public:
     QString id;
     QString label;

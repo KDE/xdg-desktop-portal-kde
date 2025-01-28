@@ -13,6 +13,9 @@
 #include <KLocalizedString>
 #include <QPushButton>
 #include <QStandardPaths>
+#include <QWindow>
+
+using namespace Qt::StringLiterals;
 
 using namespace Qt::StringLiterals;
 
@@ -53,6 +56,22 @@ void AccessDialog::setSubtitle(const QString &subtitle)
 void AccessDialog::setTitle(const QString &title)
 {
     m_props.insert(QStringLiteral("title"), title);
+}
+
+void AccessDialog::setChoices(const OptionList &choices)
+{
+    m_props.insert(u"choices"_s, QVariant::fromValue(choices));
+}
+
+Choices AccessDialog::selectedChoices() const
+{
+    auto props = m_theDialog->property("selectedChoices").value<QVariantMap>();
+    Choices choices;
+    choices.reserve(props.size());
+    for (const auto &prop : props.asKeyValueRange()) {
+        choices.emplaceBack(prop.first, prop.second.toString());
+    }
+    return choices;
 }
 
 void AccessDialog::createDialog()
