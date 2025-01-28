@@ -9,10 +9,13 @@
 #include "access.h"
 #include "access_debug.h"
 #include "accessdialog.h"
+#include "dbushelpers.h"
 #include "request.h"
 #include "utils.h"
 
 #include <QWindow>
+
+using namespace Qt::StringLiterals;
 
 AccessPortal::AccessPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
@@ -54,19 +57,19 @@ uint AccessPortal::AccessDialog(const QDBusObjectPath &handle,
         accessDialog->setIcon(options.value(QStringLiteral("icon")).toString());
     }
 
-    // TODO choices
-    Q_UNUSED(results);
+    if (options.contains(u"choices"_s)) {
+        accessDialog->setChoices(qdbus_cast<OptionList>(options.value(u"choices"_s)));
+    }
 
     accessDialog->createDialog();
     Utils::setParentWindow(accessDialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequest(handle, accessDialog);
     accessDialog->windowHandle()->setModality(options.value(QStringLiteral("modal"), true).toBool() ? Qt::WindowModal : Qt::NonModal);
 
-    if (accessDialog->exec()) {
-        accessDialog->deleteLater();
-        return 0;
-    }
+    auto granted = accessDialog->exec();
     accessDialog->deleteLater();
+    auto choices = accessDialog->selectedChoices();
+    results.insert(u"choices"_s, QVariant::fromValue(choices));
 
-    return 1;
+    return granted ? 0 : 1;
 }
