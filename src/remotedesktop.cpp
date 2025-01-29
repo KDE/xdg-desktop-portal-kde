@@ -206,10 +206,10 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
             // check we asked for the same key content both times; if not, don't restore
             // some settings (like ScreenCast multipleSources or cursorMode) don't involve user prompts so use whatever was explicitly
             // requested this time
-            const RemoteDesktopPortal::DeviceTypes devices = static_cast<RemoteDesktopPortal::DeviceTypes>(restoreData.payload["devices"].toUInt());
+            const RemoteDesktopPortal::DeviceTypes devices = static_cast<RemoteDesktopPortal::DeviceTypes>(restoreData.payload[u"devices"_s].toUInt());
             if (session->deviceTypes() != devices) {
                 qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "Not restoring session as requested devices don't match";
-            } else if (session->screenSharingEnabled() != restoreData.payload["screenShareEnabled"].toBool()) {
+            } else if (session->screenSharingEnabled() != restoreData.payload[u"screenShareEnabled"_s].toBool()) {
                 qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "Not restoring session as requested screen sharing doesn't match";
             } else {
                 restored = true;
@@ -262,13 +262,13 @@ uint RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
     results.insert(QStringLiteral("devices"), QVariant::fromValue<uint>(session->deviceTypes()));
     results.insert(QStringLiteral("clipboard_enabled"), false);
     if (session->persistMode() != ScreenCastPortal::NoPersist) {
-        results.insert("persist_mode", quint32(persist));
+        results.insert(u"persist_mode"_s, quint32(persist));
         if (persist != ScreenCastPortal::NoPersist) {
             const RestoreData restoreData = {
-                "KDE",
+                u"KDE"_s,
                 RestoreData::currentRestoreDataVersion(),
-                QVariantMap{{"screenShareEnabled", session->screenSharingEnabled()}, {"devices", static_cast<quint32>(session->deviceTypes())}}};
-            results.insert("restore_data", QVariant::fromValue<RestoreData>(restoreData));
+                QVariantMap{{u"screenShareEnabled"_s, session->screenSharingEnabled()}, {u"devices"_s, static_cast<quint32>(session->deviceTypes())}}};
+            results.insert(u"restore_data"_s, QVariant::fromValue<RestoreData>(restoreData));
         }
     }
 

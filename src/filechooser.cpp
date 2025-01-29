@@ -49,6 +49,8 @@ Q_DECLARE_METATYPE(FileChooserPortal::Choices)
 Q_DECLARE_METATYPE(FileChooserPortal::Option)
 Q_DECLARE_METATYPE(FileChooserPortal::OptionList)
 
+using namespace Qt::StringLiterals;
+
 QDBusArgument &operator<<(QDBusArgument &arg, const FileChooserPortal::Filter &filter)
 {
     arg.beginStructure();
@@ -137,8 +139,8 @@ const QDBusArgument &operator>>(const QDBusArgument &arg, FileChooserPortal::Opt
 
 static bool isKIOFuseAvailable()
 {
-    static bool available =
-        QDBusConnection::sessionBus().interface() && QDBusConnection::sessionBus().interface()->activatableServiceNames().value().contains("org.kde.KIOFuse");
+    static bool available = QDBusConnection::sessionBus().interface()
+        && QDBusConnection::sessionBus().interface()->activatableServiceNames().value().contains("org.kde.KIOFuse"_L1);
     return available;
 }
 
@@ -156,7 +158,7 @@ static QString decodeFileName(const QByteArray &name)
 FileDialog::FileDialog(QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)
     , m_fileWidget(new KFileWidget(QUrl(), this))
-    , m_configGroup(KSharedConfig::openConfig()->group("FileDialogSize"))
+    , m_configGroup(KSharedConfig::openConfig()->group(QStringLiteral("FileDialogSize")))
 {
     setLayout(new QVBoxLayout);
     layout()->setContentsMargins({});
@@ -320,12 +322,12 @@ static QUrl kioUrlFromSandboxPath(const QString &path, Entity entity)
     }
 
     if (!isKIOFuseAvailable()) {
-        return QUrl::fromLocalFile(localFilePath);
+        return QUrl::fromLocalFile(QString::fromLocal8Bit(localFilePath));
     }
 
     OrgKdeKIOFuseVFSInterface fuse_iface(QStringLiteral("org.kde.KIOFuse"), QStringLiteral("/org/kde/KIOFuse"), QDBusConnection::sessionBus());
 
-    QString remoteFilePath = fuse_iface.remoteUrl(localFilePath);
+    QString remoteFilePath = fuse_iface.remoteUrl(QString::fromLocal8Bit(localFilePath));
     if (remoteFilePath.isEmpty()) {
         return QUrl::fromLocalFile(path);
     }

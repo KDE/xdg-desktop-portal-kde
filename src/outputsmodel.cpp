@@ -11,6 +11,8 @@
 
 #include <algorithm>
 
+using namespace Qt::StringLiterals;
+
 OutputsModel::OutputsModel(Options o, QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -18,7 +20,7 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
 
     // Only show the full workspace if there's several outputs
     if (screens.count() > 1 && (o & WorkspaceIncluded)) {
-        m_outputs << Output{Output::Workspace, nullptr, i18n("Full Workspace"), "Workspace", {}};
+        m_outputs << Output{Output::Workspace, nullptr, i18n("Full Workspace"), u"Workspace"_s, {}};
     }
 
     if (o & VirtualIncluded) {
@@ -26,7 +28,7 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
     }
 
     if (o & RegionIncluded) {
-        m_outputs << Output{Output::Region, nullptr, i18n("Rectangular Region"), "Region", {}};
+        m_outputs << Output{Output::Region, nullptr, i18n("Rectangular Region"), u"Region"_s, {}};
     }
 
     for (const auto screen : screens) {

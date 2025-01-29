@@ -27,8 +27,8 @@ NotificationPortal::NotificationPortal(QObject *parent)
 static QString appPathFromId(const QString &app_id)
 {
     QString ret = QLatin1Char('/') + app_id;
-    ret.replace('.', '/');
-    ret.replace('-', '_');
+    ret.replace(u'.', u'/');
+    ret.replace(u'-', u'_');
     return ret;
 }
 
@@ -99,7 +99,7 @@ void NotificationPortal::AddNotification(const QString &app_id, const QString &i
         }
 
         OrgFreedesktopApplicationInterface iface(app_id, appPathFromId(app_id), QDBusConnection::sessionBus());
-        if (actionId.startsWith("app.")) {
+        if (actionId.startsWith(QLatin1StringView("app."))) {
             // Try to activate the target application and issue the action, assuming it implements
             // org.freedesktop.Application.
             iface.ActivateAction(actionId.mid(4), params, platformData);

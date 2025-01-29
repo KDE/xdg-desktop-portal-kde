@@ -93,7 +93,7 @@ uint InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
         return 2;
     }
 
-    const auto requestedCapabilities = options.value("capabilities").toUInt();
+    const auto requestedCapabilities = options.value(u"capabilities"_s).toUInt();
     if (requestedCapabilities == 0) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "No capabilities requested";
         return 2;
@@ -153,7 +153,7 @@ uint InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
                                          "Input is being managed by an application. Press <shortcut>%1</shortcut> to disable.",
                                          disableSequence.toString(QKeySequence::NativeText)));
         }
-        notification->setIconName("dialog-input-devices");
+        notification->setIconName(u"dialog-input-devices"_s);
         connect(session, &InputCaptureSession::deactivated, notification, &KNotification::close);
         notification->sendEvent();
 
@@ -198,7 +198,7 @@ uint InputCapturePortal::GetZones(const QDBusObjectPath &handle,
         Q_EMIT ZonesChanged(QDBusObjectPath(session->handle()), {{u"zone_set"_s, m_zoneId}});
     };
 
-    results.insert("zone_set", m_zoneId);
+    results.insert(u"zone_set"_s, m_zoneId);
     QList<zone> zones;
     for (const auto screen : qGuiApp->screens()) {
         zones.push_back(zone{
@@ -213,7 +213,7 @@ uint InputCapturePortal::GetZones(const QDBusObjectPath &handle,
     connect(qGuiApp, &QGuiApplication::screenAdded, session, handleZoneChange);
     connect(qGuiApp, &QGuiApplication::screenRemoved, session, handleZoneChange);
 
-    results.insert("zones", QVariant::fromValue(zones));
+    results.insert(u"zones"_s, QVariant::fromValue(zones));
     return 0;
 }
 
@@ -407,7 +407,7 @@ uint InputCapturePortal::Release(const QDBusObjectPath &session_handle, const QS
         return 2;
     }
 
-    auto it = options.find("cursor_position");
+    auto it = options.find(u"cursor_position"_s);
     bool positionSpecified = it != options.end();
     QPointF cursorPosition = positionSpecified ? qdbus_cast<QPointF>(it->value<QDBusArgument>()) : QPointF(); // (dd)
 

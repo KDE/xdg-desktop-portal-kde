@@ -136,7 +136,7 @@ uint DynamicLauncherPortal::PrepareInstall(const QDBusObjectPath &handle,
     if (editableIcon && dialog.m_icon != icon && dialog.m_icon.type() == QVariant::String) {
         const auto data = iconFromName(dialog.m_icon.toString());
         if (!data.isEmpty()) {
-            const PortalIcon portalIcon{"bytes", QDBusVariant(data)};
+            const PortalIcon portalIcon{QStringLiteral("bytes"), QDBusVariant(data)};
             results[iconKey] = QVariant::fromValue(QDBusVariant(QVariant::fromValue(portalIcon)));
         }
     }

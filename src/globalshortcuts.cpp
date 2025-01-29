@@ -21,6 +21,8 @@
 
 Q_LOGGING_CATEGORY(XdgDesktopPortalKdeGlobalShortcuts, "xdp-kde-GlobalShortcuts")
 
+using namespace Qt::StringLiterals;
+
 GlobalShortcutsPortal::GlobalShortcutsPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
 {
@@ -82,7 +84,7 @@ uint GlobalShortcutsPortal::ListShortcuts(const QDBusObjectPath &handle, const Q
         return 2;
     }
     results = {
-        {"shortcuts", session->shortcutDescriptionsVariant()},
+        {u"shortcuts"_s, session->shortcutDescriptionsVariant()},
     };
     return 0;
 }
@@ -109,7 +111,7 @@ uint GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
     QDesktopServices::openUrl(QUrl(QStringLiteral("systemsettings://kcm_keys/") + session->componentName()));
 
     results = {
-        {"shortcuts", session->shortcutDescriptionsVariant()},
+        {u"shortcuts"_s, session->shortcutDescriptionsVariant()},
     };
     return 0;
 }

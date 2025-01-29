@@ -264,7 +264,7 @@ void WaylandIntegration::WaylandIntegrationPrivate::acquireStreamingInput(bool a
 WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingWindow(KWayland::Client::PlasmaWindow *window,
                                                                                                Screencasting::CursorMode cursorMode)
 {
-    return startStreaming(m_screencasting->createWindowStream(window->uuid(), cursorMode),
+    return startStreaming(m_screencasting->createWindowStream(QString::fromLatin1(window->uuid()), cursorMode),
                           {{QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Window)}});
 }
 

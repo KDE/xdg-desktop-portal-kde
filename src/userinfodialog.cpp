@@ -22,6 +22,8 @@
 
 #include <KLocalizedString>
 
+using namespace Qt::StringLiterals;
+
 UserInfoDialog::UserInfoDialog(const QString &reason, QObject *parent)
     : QuickDialog(parent)
 {
@@ -29,18 +31,18 @@ UserInfoDialog::UserInfoDialog(const QString &reason, QObject *parent)
     m_userInterface = new OrgFreedesktopAccountsUserInterface(QStringLiteral("org.freedesktop.Accounts"), ifacePath, QDBusConnection::systemBus(), this);
 
     QString image = QFileInfo::exists(m_userInterface->iconFile()) ? m_userInterface->iconFile() : QString();
-    QVariantMap props = {{"title", i18n("Share Information")},
-                         {"subtitle", i18n("Share your personal information with the requesting application?")},
-                         {"reason", reason},
-                         {"userName", m_userInterface->userName()},
-                         {"realName", m_userInterface->realName()}};
+    QVariantMap props = {{u"title"_s, i18n("Share Information")},
+                         {u"subtitle"_s, i18n("Share your personal information with the requesting application?")},
+                         {u"reason"_s, reason},
+                         {u"userName"_s, m_userInterface->userName()},
+                         {u"realName"_s, m_userInterface->realName()}};
 
     if (QFileInfo::exists(m_userInterface->iconFile())) {
         props.insert(QStringLiteral("iconName"), m_userInterface->iconFile());
     } else {
         props.insert(QStringLiteral("iconName"), QStringLiteral("user-identity"));
     }
-    create("qrc:/UserInfoDialog.qml", props);
+    create(u"qrc:/UserInfoDialog.qml"_s, props);
 }
 
 UserInfoDialog::~UserInfoDialog()

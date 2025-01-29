@@ -25,7 +25,7 @@ void QuickDialog::create(const QString &file, const QVariantMap &props)
 {
     auto engine = new QQmlApplicationEngine(this);
     auto context = new KLocalizedContext(engine);
-    context->setTranslationDomain(TRANSLATION_DOMAIN);
+    context->setTranslationDomain(QStringLiteral(TRANSLATION_DOMAIN));
     engine->rootContext()->setContextObject(context);
 
     engine->setInitialProperties(props);

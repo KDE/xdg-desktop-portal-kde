@@ -27,6 +27,8 @@
 #include <poll.h>
 #include <unistd.h>
 
+using namespace Qt::StringLiterals;
+
 static int readData(int fd, QByteArray &data)
 {
     char buffer[4096];
@@ -117,8 +119,8 @@ ScreenshotDialog::ScreenshotDialog(QObject *parent)
     model->appendRow(new QStandardItem(i18n("Active Window")));
     create(QStringLiteral("qrc:/ScreenshotDialog.qml"),
            {
-               {"app", QVariant::fromValue<QObject *>(this)},
-               {"screenshotTypesModel", QVariant::fromValue<QObject *>(model)},
+               {u"app"_s, QVariant::fromValue<QObject *>(this)},
+               {u"screenshotTypesModel"_s, QVariant::fromValue<QObject *>(model)},
            });
 }
 

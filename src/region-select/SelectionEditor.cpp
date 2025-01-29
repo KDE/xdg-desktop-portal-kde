@@ -87,7 +87,7 @@ SelectionEditor::SelectionEditor(QObject *parent)
     , m_engine(new QQmlApplicationEngine(this))
 {
     auto context = new KLocalizedContext(m_engine);
-    context->setTranslationDomain(TRANSLATION_DOMAIN);
+    context->setTranslationDomain(QStringLiteral(TRANSLATION_DOMAIN));
     m_engine->rootContext()->setContextObject(context);
     m_engine->rootContext()->setContextProperty(QStringLiteral("SelectionEditor"), QVariant::fromValue<QObject *>(this));
 

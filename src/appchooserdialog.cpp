@@ -32,6 +32,8 @@
 #include <KWaylandExtras>
 #include <KWindowSystem>
 
+using namespace Qt::StringLiterals;
+
 AppChooserDialog::AppChooserDialog(const QStringList &choices,
                                    const QString &lastUsedApp,
                                    const QString &fileName,
@@ -44,10 +46,10 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices,
     , m_autoRemember(autoRemember)
 {
     QVariantMap props = {
-        {"title", i18nc("@title:window", "Choose Application")},
+        {u"title"_s, i18nc("@title:window", "Choose Application")},
         // fileName is actually the full path, confusingly enough. But showing the
         // whole thing is overkill; let's just show the user the file itself
-        {"mainText", xi18nc("@info", "Choose an application to open <filename>%1</filename>", QUrl::fromLocalFile(fileName).fileName())},
+        {u"mainText"_s, xi18nc("@info", "Choose an application to open <filename>%1</filename>", QUrl::fromLocalFile(fileName).fileName())},
     };
 
     auto filterModel = new AppFilterModel(this);

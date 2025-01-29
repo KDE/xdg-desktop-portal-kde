@@ -9,6 +9,8 @@
 #include <QRegularExpression>
 #include <QtGui/private/qxkbcommon_p.h>
 
+using namespace Qt::StringLiterals;
+
 struct Modifier {
     const char *xkbModifier;
     Qt::KeyboardModifier qtModifier;
@@ -17,12 +19,12 @@ struct Modifier {
 std::optional<QKeySequence> XdgShortcut::parse(const QString &shortcutString)
 {
     static const QHash<QString, Modifier> allowedModifiers = {
-        {"SHIFT", {XKB_MOD_NAME_SHIFT, Qt::ShiftModifier}},
-        {"CAPS", {XKB_MOD_NAME_CAPS, Qt::GroupSwitchModifier}},
-        {"CTRL", {XKB_MOD_NAME_CTRL, Qt::ControlModifier}},
-        {"ALT", {XKB_MOD_NAME_ALT, Qt::AltModifier}},
-        {"NUM", {XKB_MOD_NAME_NUM, Qt::KeypadModifier}},
-        {"LOGO", {XKB_MOD_NAME_LOGO, Qt::MetaModifier}},
+        {u"SHIFT"_s, {XKB_MOD_NAME_SHIFT, Qt::ShiftModifier}},
+        {u"CAPS"_s, {XKB_MOD_NAME_CAPS, Qt::GroupSwitchModifier}},
+        {u"CTRL"_s, {XKB_MOD_NAME_CTRL, Qt::ControlModifier}},
+        {u"ALT"_s, {XKB_MOD_NAME_ALT, Qt::AltModifier}},
+        {u"NUM"_s, {XKB_MOD_NAME_NUM, Qt::KeypadModifier}},
+        {u"LOGO"_s, {XKB_MOD_NAME_LOGO, Qt::MetaModifier}},
     };
 
     xkb_keysym_t identifier = XKB_KEY_NoSymbol;
@@ -30,7 +32,7 @@ std::optional<QKeySequence> XdgShortcut::parse(const QString &shortcutString)
 
     QStringView remaining(shortcutString);
     while (!remaining.isEmpty()) {
-        auto nextPlus = remaining.indexOf(QChar('+'));
+        auto nextPlus = remaining.indexOf(u'+');
         if (nextPlus == 0) { // ++ or ending with +
             qWarning() << "empty modifier";
             return {};

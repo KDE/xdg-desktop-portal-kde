@@ -12,5 +12,5 @@ using namespace Qt::StringLiterals;
 InputCaptureDialog::InputCaptureDialog(const QString &appId, InputCapturePortal::Capabilities capabilties, QObject *parent)
     : QuickDialog(parent)
 {
-    create(u"qrc:/InputCaptureDialog.qml"_s, {{"app", Utils::applicationName(appId)}});
+    create(u"qrc:/InputCaptureDialog.qml"_s, {{u"app"_s, Utils::applicationName(appId)}});
 }

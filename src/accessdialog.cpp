@@ -14,12 +14,14 @@
 #include <QPushButton>
 #include <QStandardPaths>
 
+using namespace Qt::StringLiterals;
+
 AccessDialog::AccessDialog(QObject *parent)
     : QuickDialog(parent)
 {
     m_props = {
-        {"iconName", "dialog-question"},
-        {"title", i18n("Request device access")},
+        {u"iconName"_s, u"dialog-question"_s},
+        {u"title"_s, i18n("Request device access")},
     };
 }
 

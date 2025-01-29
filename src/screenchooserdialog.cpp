@@ -24,6 +24,8 @@
 #include <QTimer>
 #include <QWindow>
 
+using namespace Qt::StringLiterals;
+
 class FilteredWindowModel : public QSortFilterProxyModel
 {
     Q_OBJECT
@@ -140,15 +142,15 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
     Q_ASSERT(types != 0);
 
     QVariantMap props = {
-        {"title", i18n("Screen Sharing")},
-        {"multiple", multiple},
+        {u"title"_s, i18n("Screen Sharing")},
+        {u"multiple"_s, multiple},
     };
 
     int numberOfMonitors = 0;
     if (types & ScreenCastPortal::Monitor) {
         auto model =
             new OutputsModel(OutputsModel::Options(OutputsModel::WorkspaceIncluded | OutputsModel::VirtualIncluded | OutputsModel::RegionIncluded), this);
-        props.insert("outputsModel", QVariant::fromValue<QObject *>(model));
+        props.insert(u"outputsModel"_s, QVariant::fromValue<QObject *>(model));
         numberOfMonitors += model->rowCount(QModelIndex());
         connect(this, &ScreenChooserDialog::clearSelection, model, &OutputsModel::clearSelection);
     }
@@ -158,7 +160,7 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
         auto model = new KWayland::Client::PlasmaWindowModel(WaylandIntegration::plasmaWindowManagement());
         auto windowsProxy = new FilteredWindowModel(this);
         windowsProxy->setSourceModel(model);
-        props.insert("windowsModel", QVariant::fromValue<QObject *>(windowsProxy));
+        props.insert(u"windowsModel"_s, QVariant::fromValue<QObject *>(windowsProxy));
         connect(this, &ScreenChooserDialog::clearSelection, windowsProxy, &FilteredWindowModel::clearSelection);
         numberOfWindows += model->rowCount(QModelIndex());
     }
@@ -225,7 +227,7 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
             }
         }
     }
-    props.insert("mainText", mainText);
+    props.insert(u"mainText"_s, mainText);
 
     create(QStringLiteral("qrc:/ScreenChooserDialog.qml"), props);
     connect(m_theDialog, SIGNAL(clearSelection()), this, SIGNAL(clearSelection()));

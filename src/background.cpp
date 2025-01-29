@@ -101,7 +101,7 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
         }
     };
 
-    if (KSharedConfig::openConfig()->group("Background").readEntry("NotifyBackgroundApps", true)) {
+    if (KSharedConfig::openConfig()->group(QStringLiteral("Background")).readEntry("NotifyBackgroundApps", true)) {
         allowOnce();
         return 0;
     }

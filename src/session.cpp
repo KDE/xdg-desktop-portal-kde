@@ -335,7 +335,7 @@ void ScreenCastSession::streamClosed()
 
 GlobalShortcutsSession::GlobalShortcutsSession(QObject *parent, const QString &appId, const QString &path)
     : Session(parent, appId, path)
-    , m_token(path.mid(path.lastIndexOf('/') + 1))
+    , m_token(path.mid(path.lastIndexOf(u'/') + 1))
     , m_globalAccelInterface(
           new KGlobalAccelInterface(QStringLiteral("org.kde.kglobalaccel"), QStringLiteral("/kglobalaccel"), QDBusConnection::sessionBus(), this))
     , m_component(new KGlobalAccelComponentInterface(m_globalAccelInterface->service(),
@@ -394,7 +394,7 @@ void GlobalShortcutsSession::setActions(const Shortcuts &shortcuts)
     }
 
     for (const auto &shortcut : shortcuts) {
-        const QString description = shortcut.second["description"].toString();
+        const QString description = shortcut.second[u"description"_s].toString();
         if (description.isEmpty() || shortcut.first.isEmpty()) {
             qCWarning(XdgSessionKdeSession) << "Shortcut without name or description" << shortcut.first << "for" << componentName();
             continue;
@@ -413,7 +413,7 @@ void GlobalShortcutsSession::setActions(const Shortcuts &shortcuts)
         if (itShortcut != shortcutInfosByName.constEnd()) {
             action->setShortcuts(itShortcut->keys());
         } else {
-            const auto preferredShortcut = XdgShortcut::parse(shortcut.second["preferred_trigger"].toString());
+            const auto preferredShortcut = XdgShortcut::parse(shortcut.second[u"preferred_trigger"_s].toString());
             if (preferredShortcut) {
                 action->setShortcut(preferredShortcut.value());
             }
@@ -532,9 +532,9 @@ void InputCaptureSession::connect(const QDBusObjectPath &path)
     auto connectSignal = [this](const QString &signalName, const char *slot) {
         QDBusConnection::sessionBus().connect(kwinService(), m_kwinInputCapture.path(), kwinInputCaptureInterface(), signalName, this, slot);
     };
-    connectSignal("disabled", SIGNAL(disabled()));
-    connectSignal("activated", SIGNAL(activated(uint, QPointF)));
-    connectSignal("deactivated", SIGNAL(deactivated(uint)));
+    connectSignal(u"disabled"_s, SIGNAL(disabled()));
+    connectSignal(u"activated"_s, SIGNAL(activated(uint, QPointF)));
+    connectSignal(u"deactivated"_s, SIGNAL(deactivated(uint)));
 }
 
 QDBusPendingReply<void> InputCaptureSession::enable()

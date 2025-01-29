@@ -31,6 +31,8 @@
 
 #include <ranges>
 
+using namespace Qt::StringLiterals;
+
 struct WindowRestoreInfo {
     QString appId;
     QString title;
@@ -117,7 +119,7 @@ bool ScreenCastPortal::inhibitionsEnabled() const
 
     auto cfg = KSharedConfig::openConfig(QStringLiteral("plasmanotifyrc"));
 
-    KConfigGroup grp(cfg, "DoNotDisturb");
+    KConfigGroup grp(cfg, u"DoNotDisturb"_s);
 
     return grp.readEntry("WhenScreenSharing", true);
 }
@@ -333,16 +335,16 @@ uint ScreenCastPortal::Start(const QDBusObjectPath &handle,
         session->setStreams(streams);
         results.insert(QStringLiteral("streams"), QVariant::fromValue<WaylandIntegration::Streams>(streams));
         if (allowRestore) {
-            results.insert("persist_mode", quint32(persist));
+            results.insert(u"persist_mode"_s, quint32(persist));
             if (persist != NoPersist) {
-                const RestoreData restoreData = {"KDE",
+                const RestoreData restoreData = {u"KDE"_s,
                                                  RestoreData::currentRestoreDataVersion(),
                                                  QVariantMap{
-                                                     {"outputs", outputs},
-                                                     {"windows", QVariant::fromValue(windows)},
-                                                     {"region", selectedRegion},
+                                                     {u"outputs"_s, outputs},
+                                                     {u"windows"_s, QVariant::fromValue(windows)},
+                                                     {u"region"_s, selectedRegion},
                                                  }};
-                results.insert("restore_data", QVariant::fromValue<RestoreData>(restoreData));
+                results.insert(u"restore_data"_s, QVariant::fromValue<RestoreData>(restoreData));
             }
         }
 
