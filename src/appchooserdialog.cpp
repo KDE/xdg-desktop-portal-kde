@@ -291,7 +291,7 @@ void AppFilterModel::setFilter(const QString &text)
 
     if (!m_filter.isEmpty() && m_showOnlyPreferredApps) {
         m_showOnlyPreferredApps = false;
-        emit showOnlyPreferredAppsChanged();
+        Q_EMIT showOnlyPreferredAppsChanged();
     }
 
     invalidate();
