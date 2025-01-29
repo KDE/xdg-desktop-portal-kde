@@ -60,9 +60,7 @@ uint AccessPortal::AccessDialog(const QDBusObjectPath &handle,
     accessDialog->createDialog();
     Utils::setParentWindow(accessDialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequest(handle, accessDialog);
-    if (options.contains(QStringLiteral("modal"))) {
-        accessDialog->windowHandle()->setModality(options.value(QStringLiteral("modal")).toBool() ? Qt::WindowModal : Qt::NonModal);
-    }
+    accessDialog->windowHandle()->setModality(options.value(QStringLiteral("modal"), true).toBool() ? Qt::WindowModal : Qt::NonModal);
 
     if (accessDialog->exec()) {
         accessDialog->deleteLater();
