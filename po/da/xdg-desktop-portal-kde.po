@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-29 00:43+0000\n"
+"POT-Creation-Date: 2025-01-31 00:43+0000\n"
 "PO-Revision-Date: 2024-07-18 12:45+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "rasmus@rosendahl-kaa.name"
 
-#: src/accessdialog.cpp:22
+#: src/accessdialog.cpp:24
 #, kde-format
 msgid "Request device access"
 msgstr "Anmod om adgang til enhed"
@@ -39,13 +39,13 @@ msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "%1 filer"
 
-#: src/appchooserdialog.cpp:47
+#: src/appchooserdialog.cpp:49
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "Vælg program"
 
-#: src/appchooserdialog.cpp:50
+#: src/appchooserdialog.cpp:52
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
@@ -231,7 +231,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Annullér"
 
-#: src/filechooser.cpp:479
+#: src/filechooser.cpp:481
 #, kde-format
 msgid "Open"
 msgstr "Åbn"
@@ -347,22 +347,22 @@ msgstr "Filtrér filtype"
 msgid "Show Hidden Files"
 msgstr "Vis skjulte filer"
 
-#: src/outputsmodel.cpp:21
+#: src/outputsmodel.cpp:23
 #, kde-format
 msgid "Full Workspace"
 msgstr "Fuld arbejdsområde"
 
-#: src/outputsmodel.cpp:25
+#: src/outputsmodel.cpp:27
 #, kde-format
 msgid "New Virtual Output"
 msgstr "Nyt virtuelt output"
 
-#: src/outputsmodel.cpp:29
+#: src/outputsmodel.cpp:31
 #, kde-format
 msgid "Rectangular Region"
 msgstr "Firkantet område"
 
-#: src/outputsmodel.cpp:59
+#: src/outputsmodel.cpp:61
 #, kde-format
 msgid "Laptop screen"
 msgstr "Bærbarskærm"
@@ -462,96 +462,96 @@ msgstr "Tillad gendannelse ved fremtidige sessioner"
 msgid "Share"
 msgstr "Del"
 
-#: src/screencast.cpp:295
+#: src/screencast.cpp:297
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgid "Virtual Output"
 msgstr "Nyt virtuelt output"
 
-#: src/screencast.cpp:296
+#: src/screencast.cpp:298
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Nyt virtuelt output"
 
-#: src/screencast.cpp:350
+#: src/screencast.cpp:352
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Skærmdeling i gang"
 
-#: src/screenchooserdialog.cpp:143
+#: src/screenchooserdialog.cpp:145
 #, kde-format
 msgid "Screen Sharing"
 msgstr "Skærmdeling"
 
-#: src/screenchooserdialog.cpp:173
+#: src/screenchooserdialog.cpp:175
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr "Vælg hvad der skal deles med programmet der anmoder:"
 
-#: src/screenchooserdialog.cpp:175
+#: src/screenchooserdialog.cpp:177
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "Vælg hvad der skal deles med %1:"
 
-#: src/screenchooserdialog.cpp:183
+#: src/screenchooserdialog.cpp:185
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "Del denne skærm med programmet, der anmoder?"
 
-#: src/screenchooserdialog.cpp:185
+#: src/screenchooserdialog.cpp:187
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "Del denne skærm med %1?"
 
-#: src/screenchooserdialog.cpp:190
+#: src/screenchooserdialog.cpp:192
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "Vælg skærme, der skal deles med programmet, der anmoder:"
 
-#: src/screenchooserdialog.cpp:192
+#: src/screenchooserdialog.cpp:194
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "Vælg skærme der skal deles med %1:"
 
-#: src/screenchooserdialog.cpp:196
+#: src/screenchooserdialog.cpp:198
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr "Vælg hvilken skærm, der skal deles med programmet, der anmoder:"
 
-#: src/screenchooserdialog.cpp:198
+#: src/screenchooserdialog.cpp:200
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "Vælg hvilken skærm, der skal deles med %1:"
 
-#: src/screenchooserdialog.cpp:208
+#: src/screenchooserdialog.cpp:210
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "Del dette vindue med programmet, der anmoder?"
 
-#: src/screenchooserdialog.cpp:210
+#: src/screenchooserdialog.cpp:212
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "Del dette vindue med %1?"
 
-#: src/screenchooserdialog.cpp:215
+#: src/screenchooserdialog.cpp:217
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "Vælg vinduer, der skal deles med programmet, der anmoder:"
 
-#: src/screenchooserdialog.cpp:217
+#: src/screenchooserdialog.cpp:219
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "Vælg vinduer, der skal deles med %1:"
 
-#: src/screenchooserdialog.cpp:221
+#: src/screenchooserdialog.cpp:223
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr "Vælg hvilke vinduer, der skal deles med programmet, der anmoder:"
 
-#: src/screenchooserdialog.cpp:223
+#: src/screenchooserdialog.cpp:225
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "Vælg hvilke vinduer, der skal deles med %1:"
@@ -566,17 +566,17 @@ msgstr "Skærme"
 msgid "Windows"
 msgstr "Vinduer"
 
-#: src/screenshotdialog.cpp:115
+#: src/screenshotdialog.cpp:117
 #, kde-format
 msgid "Full Screen"
 msgstr "Fuldskærm"
 
-#: src/screenshotdialog.cpp:116
+#: src/screenshotdialog.cpp:118
 #, kde-format
 msgid "Current Screen"
 msgstr "Nuværende skærm"
 
-#: src/screenshotdialog.cpp:117
+#: src/screenshotdialog.cpp:119
 #, kde-format
 msgid "Active Window"
 msgstr "Aktivt vindue"
@@ -666,12 +666,12 @@ msgstr "Skærmoptagelse"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:32
+#: src/userinfodialog.cpp:34
 #, kde-format
 msgid "Share Information"
 msgstr "Del information"
 
-#: src/userinfodialog.cpp:33
+#: src/userinfodialog.cpp:35
 #, kde-format
 msgid "Share your personal information with the requesting application?"
 msgstr "Del din personlige information med programmet, der anmoder?"

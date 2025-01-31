@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-29 00:43+0000\n"
+"POT-Creation-Date: 2025-01-31 00:43+0000\n"
 "PO-Revision-Date: 2025-01-27 23:35-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -32,7 +32,7 @@ msgid "Your emails"
 msgstr ""
 "elchevive@opensuse.org, alvarenga@kde.org, geraldosimiao@fedoraproject.org"
 
-#: src/accessdialog.cpp:22
+#: src/accessdialog.cpp:24
 #, kde-format
 msgid "Request device access"
 msgstr "Solicitar acesso ao dispositivo"
@@ -43,13 +43,13 @@ msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "%1 arquivos"
 
-#: src/appchooserdialog.cpp:47
+#: src/appchooserdialog.cpp:49
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "Escolher aplicativo"
 
-#: src/appchooserdialog.cpp:50
+#: src/appchooserdialog.cpp:52
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
@@ -234,7 +234,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/filechooser.cpp:479
+#: src/filechooser.cpp:481
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
@@ -352,22 +352,22 @@ msgstr "Filtrar tipo de arquivo"
 msgid "Show Hidden Files"
 msgstr "Mostrar arquivos ocultos"
 
-#: src/outputsmodel.cpp:21
+#: src/outputsmodel.cpp:23
 #, kde-format
 msgid "Full Workspace"
 msgstr "Ambiente de trabalho completo"
 
-#: src/outputsmodel.cpp:25
+#: src/outputsmodel.cpp:27
 #, kde-format
 msgid "New Virtual Output"
 msgstr "Nova saída virtual"
 
-#: src/outputsmodel.cpp:29
+#: src/outputsmodel.cpp:31
 #, kde-format
 msgid "Rectangular Region"
 msgstr "Região retangular"
 
-#: src/outputsmodel.cpp:59
+#: src/outputsmodel.cpp:61
 #, kde-format
 msgid "Laptop screen"
 msgstr "Tela do laptop"
@@ -467,94 +467,94 @@ msgstr "Permite restaurar em sessões futuras"
 msgid "Share"
 msgstr "Compartilhar"
 
-#: src/screencast.cpp:295
+#: src/screencast.cpp:297
 #, kde-format
 msgid "Virtual Output"
 msgstr "Saída virtual"
 
-#: src/screencast.cpp:296
+#: src/screencast.cpp:298
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Saída virtual (compartilhada com %1)"
 
-#: src/screencast.cpp:350
+#: src/screencast.cpp:352
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Compartilhamento de tela em progresso"
 
-#: src/screenchooserdialog.cpp:143
+#: src/screenchooserdialog.cpp:145
 #, kde-format
 msgid "Screen Sharing"
 msgstr "Compartilhamento de tela"
 
-#: src/screenchooserdialog.cpp:173
+#: src/screenchooserdialog.cpp:175
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr "Escolher o que compartilhar com o aplicativo solicitado:"
 
-#: src/screenchooserdialog.cpp:175
+#: src/screenchooserdialog.cpp:177
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "Escolher o que compartilhar com %1:"
 
-#: src/screenchooserdialog.cpp:183
+#: src/screenchooserdialog.cpp:185
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "Compartilhar esta tela com o aplicativo solicitante?"
 
-#: src/screenchooserdialog.cpp:185
+#: src/screenchooserdialog.cpp:187
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "Compartilhar esta tela com %1?"
 
-#: src/screenchooserdialog.cpp:190
+#: src/screenchooserdialog.cpp:192
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "Escolher telas para compartilhar com o aplicativo solicitante:"
 
-#: src/screenchooserdialog.cpp:192
+#: src/screenchooserdialog.cpp:194
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "Escolher telas para compartilhar com %1:"
 
-#: src/screenchooserdialog.cpp:196
+#: src/screenchooserdialog.cpp:198
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr "Escolher qual tela compartilhar com o aplicativo solicitante:"
 
-#: src/screenchooserdialog.cpp:198
+#: src/screenchooserdialog.cpp:200
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "Escolher qual tela para compartilhar com %1:"
 
-#: src/screenchooserdialog.cpp:208
+#: src/screenchooserdialog.cpp:210
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "Compartilhar esta janela com o aplicativo solicitante?"
 
-#: src/screenchooserdialog.cpp:210
+#: src/screenchooserdialog.cpp:212
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "Compartilhar esta janela com %1?"
 
-#: src/screenchooserdialog.cpp:215
+#: src/screenchooserdialog.cpp:217
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "Escolher janelas para compartilhar com o aplicativo solicitante:"
 
-#: src/screenchooserdialog.cpp:217
+#: src/screenchooserdialog.cpp:219
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "Escolher janelas para compartilhar com %1:"
 
-#: src/screenchooserdialog.cpp:221
+#: src/screenchooserdialog.cpp:223
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr "Escolher qual janela compartilhar com o aplicativo solicitante:"
 
-#: src/screenchooserdialog.cpp:223
+#: src/screenchooserdialog.cpp:225
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "Escolher qual janela para compartilhar com %1:"
@@ -569,17 +569,17 @@ msgstr "Telas"
 msgid "Windows"
 msgstr "Janelas"
 
-#: src/screenshotdialog.cpp:115
+#: src/screenshotdialog.cpp:117
 #, kde-format
 msgid "Full Screen"
 msgstr "Tela inteira"
 
-#: src/screenshotdialog.cpp:116
+#: src/screenshotdialog.cpp:118
 #, kde-format
 msgid "Current Screen"
 msgstr "Tela atual"
 
-#: src/screenshotdialog.cpp:117
+#: src/screenshotdialog.cpp:119
 #, kde-format
 msgid "Active Window"
 msgstr "Janela ativa"
@@ -669,12 +669,12 @@ msgstr "Transmissão de tela"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:32
+#: src/userinfodialog.cpp:34
 #, kde-format
 msgid "Share Information"
 msgstr "Compartilhar informações"
 
-#: src/userinfodialog.cpp:33
+#: src/userinfodialog.cpp:35
 #, kde-format
 msgid "Share your personal information with the requesting application?"
 msgstr "Compartilhar suas informações pessoais com o aplicativo solicitante?"

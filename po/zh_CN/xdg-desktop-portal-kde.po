@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-29 00:43+0000\n"
+"POT-Creation-Date: 2025-01-31 00:43+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-china@kde.org, i@guoyunhe.me, tds00@qq.com"
 
-#: src/accessdialog.cpp:22
+#: src/accessdialog.cpp:24
 #, kde-format
 msgid "Request device access"
 msgstr "请求设备访问权限"
@@ -39,13 +39,13 @@ msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "%1 个文件"
 
-#: src/appchooserdialog.cpp:47
+#: src/appchooserdialog.cpp:49
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "选择应用程序"
 
-#: src/appchooserdialog.cpp:50
+#: src/appchooserdialog.cpp:52
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
@@ -229,7 +229,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/filechooser.cpp:479
+#: src/filechooser.cpp:481
 #, kde-format
 msgid "Open"
 msgstr "打开"
@@ -343,22 +343,22 @@ msgstr "过滤文件类型"
 msgid "Show Hidden Files"
 msgstr "显示隐藏文件"
 
-#: src/outputsmodel.cpp:21
+#: src/outputsmodel.cpp:23
 #, kde-format
 msgid "Full Workspace"
 msgstr "完整工作区"
 
-#: src/outputsmodel.cpp:25
+#: src/outputsmodel.cpp:27
 #, kde-format
 msgid "New Virtual Output"
 msgstr "新建虚拟输出"
 
-#: src/outputsmodel.cpp:29
+#: src/outputsmodel.cpp:31
 #, kde-format
 msgid "Rectangular Region"
 msgstr "矩形区域"
 
-#: src/outputsmodel.cpp:59
+#: src/outputsmodel.cpp:61
 #, kde-format
 msgid "Laptop screen"
 msgstr "笔记本屏幕"
@@ -458,94 +458,94 @@ msgstr "允许在未来会话中恢复"
 msgid "Share"
 msgstr "共享"
 
-#: src/screencast.cpp:295
+#: src/screencast.cpp:297
 #, kde-format
 msgid "Virtual Output"
 msgstr "虚拟输出"
 
-#: src/screencast.cpp:296
+#: src/screencast.cpp:298
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "虚拟输出 (与 %1 共享)"
 
-#: src/screencast.cpp:350
+#: src/screencast.cpp:352
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "正在共享屏幕"
 
-#: src/screenchooserdialog.cpp:143
+#: src/screenchooserdialog.cpp:145
 #, kde-format
 msgid "Screen Sharing"
 msgstr "屏幕分享"
 
-#: src/screenchooserdialog.cpp:173
+#: src/screenchooserdialog.cpp:175
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr "选择要与发出请求的应用程序共享的内容："
 
-#: src/screenchooserdialog.cpp:175
+#: src/screenchooserdialog.cpp:177
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "选择要与 %1 共享的内容："
 
-#: src/screenchooserdialog.cpp:183
+#: src/screenchooserdialog.cpp:185
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "要与发出请求的应用程序分享此屏幕吗？"
 
-#: src/screenchooserdialog.cpp:185
+#: src/screenchooserdialog.cpp:187
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "要与 %1 分享此屏幕吗？"
 
-#: src/screenchooserdialog.cpp:190
+#: src/screenchooserdialog.cpp:192
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "选择要与发出请求的应用程序共享的屏幕："
 
-#: src/screenchooserdialog.cpp:192
+#: src/screenchooserdialog.cpp:194
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "选择要与 %1 共享的屏幕："
 
-#: src/screenchooserdialog.cpp:196
+#: src/screenchooserdialog.cpp:198
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr "选择要与发出请求的应用程序共享的屏幕："
 
-#: src/screenchooserdialog.cpp:198
+#: src/screenchooserdialog.cpp:200
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "选择要与 %1 共享的屏幕："
 
-#: src/screenchooserdialog.cpp:208
+#: src/screenchooserdialog.cpp:210
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "要与发出请求的应用程序分享此窗口吗？"
 
-#: src/screenchooserdialog.cpp:210
+#: src/screenchooserdialog.cpp:212
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "要与 %1 分享此窗口吗？"
 
-#: src/screenchooserdialog.cpp:215
+#: src/screenchooserdialog.cpp:217
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "选择要与发出请求的应用程序共享的窗口："
 
-#: src/screenchooserdialog.cpp:217
+#: src/screenchooserdialog.cpp:219
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "选择要与 %1 共享的窗口："
 
-#: src/screenchooserdialog.cpp:221
+#: src/screenchooserdialog.cpp:223
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr "选择要与发出请求的应用程序共享的窗口："
 
-#: src/screenchooserdialog.cpp:223
+#: src/screenchooserdialog.cpp:225
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "选择要与 %1 共享的窗口："
@@ -560,17 +560,17 @@ msgstr "屏幕"
 msgid "Windows"
 msgstr "窗口"
 
-#: src/screenshotdialog.cpp:115
+#: src/screenshotdialog.cpp:117
 #, kde-format
 msgid "Full Screen"
 msgstr "全屏"
 
-#: src/screenshotdialog.cpp:116
+#: src/screenshotdialog.cpp:118
 #, kde-format
 msgid "Current Screen"
 msgstr "当前屏幕"
 
-#: src/screenshotdialog.cpp:117
+#: src/screenshotdialog.cpp:119
 #, kde-format
 msgid "Active Window"
 msgstr "活动窗口"
@@ -658,12 +658,12 @@ msgstr "屏幕录像"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:32
+#: src/userinfodialog.cpp:34
 #, kde-format
 msgid "Share Information"
 msgstr "分享信息"
 
-#: src/userinfodialog.cpp:33
+#: src/userinfodialog.cpp:35
 #, kde-format
 msgid "Share your personal information with the requesting application?"
 msgstr "要与发出请求的应用程序分享您的个人信息吗？"

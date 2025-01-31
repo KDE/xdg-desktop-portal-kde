@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-29 00:43+0000\n"
+"POT-Creation-Date: 2025-01-31 00:43+0000\n"
 "PO-Revision-Date: 2024-10-01 14:43-0500\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "aalam@punlinux.org"
 
-#: src/accessdialog.cpp:22
+#: src/accessdialog.cpp:24
 #, kde-format
 msgid "Request device access"
 msgstr "ਡਿਵਾਈਸ ਲਈ ਪਹੁੰਚ ਬੇਨਤੀ"
@@ -38,13 +38,13 @@ msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "%1 ਫਾਇਲਾਂ"
 
-#: src/appchooserdialog.cpp:47
+#: src/appchooserdialog.cpp:49
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
 
-#: src/appchooserdialog.cpp:50
+#: src/appchooserdialog.cpp:52
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
@@ -227,7 +227,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: src/filechooser.cpp:479
+#: src/filechooser.cpp:481
 #, kde-format
 msgid "Open"
 msgstr "ਖੋਲ੍ਹੋ"
@@ -343,22 +343,22 @@ msgstr "ਫਾਇਲ-ਕਿਸਮ ਨੂੰ ਫਿਲਟਰ ਕਰੋ"
 msgid "Show Hidden Files"
 msgstr "ਲੁਕਵੀਆਂ ਫਾਇਲਾਂ ਨੂੰ ਵੇਖਾਓ"
 
-#: src/outputsmodel.cpp:21
+#: src/outputsmodel.cpp:23
 #, kde-format
 msgid "Full Workspace"
 msgstr "ਪੂਰਾ ਵਰਕਸਪੇਸ"
 
-#: src/outputsmodel.cpp:25
+#: src/outputsmodel.cpp:27
 #, kde-format
 msgid "New Virtual Output"
 msgstr "ਨਵਾਂ ਵਰਚੁਅਲ ਆਉਟਪੁੱਟ"
 
-#: src/outputsmodel.cpp:29
+#: src/outputsmodel.cpp:31
 #, kde-format
 msgid "Rectangular Region"
 msgstr "ਆਇਤਾਕਾਰ ਖੇਤਰ"
 
-#: src/outputsmodel.cpp:59
+#: src/outputsmodel.cpp:61
 #, kde-format
 msgid "Laptop screen"
 msgstr "ਲੈਪਟਾਪ ਦੀ ਸਕਰੀਨ"
@@ -458,96 +458,96 @@ msgstr "ਭਵਿੱਖ ਦੇ ਸ਼ੈਸ਼ਨਾਂ ਲਈ ਬਹਾਲ ਕਰਨ 
 msgid "Share"
 msgstr "ਸਾਂਝਾ ਕਰੋ"
 
-#: src/screencast.cpp:295
+#: src/screencast.cpp:297
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgid "Virtual Output"
 msgstr "ਨਵਾਂ ਵਰਚੁਅਲ ਆਉਟਪੁੱਟ"
 
-#: src/screencast.cpp:296
+#: src/screencast.cpp:298
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "ਨਵਾਂ ਵਰਚੁਅਲ ਆਉਟਪੁੱਟ"
 
-#: src/screencast.cpp:350
+#: src/screencast.cpp:352
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "ਸ਼ੇਅਰ ਸਾਂਝਾ ਕਰਨਾ ਜਾਰੀ ਹੈ"
 
-#: src/screenchooserdialog.cpp:143
+#: src/screenchooserdialog.cpp:145
 #, kde-format
 msgid "Screen Sharing"
 msgstr "ਸਕਰੀਨ ਸਾਂਝਾ ਕਰਨਾ"
 
-#: src/screenchooserdialog.cpp:173
+#: src/screenchooserdialog.cpp:175
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੁਣੋ:"
 
-#: src/screenchooserdialog.cpp:175
+#: src/screenchooserdialog.cpp:177
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "ਚੁਣੋ ਕਿ %1 ਨਾਲ ਕੀ ਸਾਂਝਾ ਕਰਨਾ ਹੈ:"
 
-#: src/screenchooserdialog.cpp:183
+#: src/screenchooserdialog.cpp:185
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਇਹ ਸਕਰੀਨ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
 
-#: src/screenchooserdialog.cpp:185
+#: src/screenchooserdialog.cpp:187
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "ਇਹ ਸਕਰੀਨ %1 ਨਾਲ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
 
-#: src/screenchooserdialog.cpp:190
+#: src/screenchooserdialog.cpp:192
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ:"
 
-#: src/screenchooserdialog.cpp:192
+#: src/screenchooserdialog.cpp:194
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "%1 ਨਾਲ ਸਾਂਝੀ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ:"
 
-#: src/screenchooserdialog.cpp:196
+#: src/screenchooserdialog.cpp:198
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ:"
 
-#: src/screenchooserdialog.cpp:198
+#: src/screenchooserdialog.cpp:200
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "%1 ਨਾਲ ਸਾਂਝੀ ਕਰਨ ਲਈ ਸਕਰੀਨ ਨੂੰ ਚੁਣੋ:"
 
-#: src/screenchooserdialog.cpp:208
+#: src/screenchooserdialog.cpp:210
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਇਹ ਵਿੰਡੋ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
 
-#: src/screenchooserdialog.cpp:210
+#: src/screenchooserdialog.cpp:212
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "ਇਹ ਵਿੰਡੋ %1 ਨਾਲ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
 
-#: src/screenchooserdialog.cpp:215
+#: src/screenchooserdialog.cpp:217
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਵਿੰਡੋਆਂ ਚੁਣੋ:"
 
-#: src/screenchooserdialog.cpp:217
+#: src/screenchooserdialog.cpp:219
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "%1 ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਵਿੰਡੋਆਂ ਚੁਣੋ:"
 
-#: src/screenchooserdialog.cpp:221
+#: src/screenchooserdialog.cpp:223
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਵਿੰਡੋ ਦੀ ਚੋਣ ਕਰੋ:"
 
-#: src/screenchooserdialog.cpp:223
+#: src/screenchooserdialog.cpp:225
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "%1 ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਵਿੰਡੋ ਚੁਣੋ:"
@@ -562,17 +562,17 @@ msgstr "ਸਕਰੀਨਾਂ"
 msgid "Windows"
 msgstr "ਵਿੰਡੋਆਂ"
 
-#: src/screenshotdialog.cpp:115
+#: src/screenshotdialog.cpp:117
 #, kde-format
 msgid "Full Screen"
 msgstr "ਪੂਰੀ ਸਕਰੀਨ"
 
-#: src/screenshotdialog.cpp:116
+#: src/screenshotdialog.cpp:118
 #, kde-format
 msgid "Current Screen"
 msgstr "ਮੌਜੂਦਾ ਸਕਰੀਨ"
 
-#: src/screenshotdialog.cpp:117
+#: src/screenshotdialog.cpp:119
 #, kde-format
 msgid "Active Window"
 msgstr "ਸਰਗਰਮ ਵਿੰਡੋ"
@@ -662,12 +662,12 @@ msgstr "ਸਕਰੀਨ ਕਾਸਟਿੰਗ"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:32
+#: src/userinfodialog.cpp:34
 #, kde-format
 msgid "Share Information"
 msgstr "ਜਾਣਕਾਰੀ ਸਾਂਝੀ ਕਰੋ"
 
-#: src/userinfodialog.cpp:33
+#: src/userinfodialog.cpp:35
 #, kde-format
 msgid "Share your personal information with the requesting application?"
 msgstr "ਤੁਹਾਡੀ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਮੰਗ ਕਰ ਰਹੀ ਐਪਲੀਕੇਸ਼ਨ ਨਾਲ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"

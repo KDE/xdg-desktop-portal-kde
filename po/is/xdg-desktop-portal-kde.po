@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-29 00:43+0000\n"
+"POT-Creation-Date: 2025-01-31 00:43+0000\n"
 "PO-Revision-Date: 2024-07-22 12:43+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sv1@fellsnet.is, gudmundure@gmail.com"
 
-#: src/accessdialog.cpp:22
+#: src/accessdialog.cpp:24
 #, kde-format
 msgid "Request device access"
 msgstr "Biðja um aðgang að tæki"
@@ -39,13 +39,13 @@ msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "%1 skrár"
 
-#: src/appchooserdialog.cpp:47
+#: src/appchooserdialog.cpp:49
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "Velja forrit"
 
-#: src/appchooserdialog.cpp:50
+#: src/appchooserdialog.cpp:52
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
@@ -230,7 +230,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Hætta við"
 
-#: src/filechooser.cpp:479
+#: src/filechooser.cpp:481
 #, kde-format
 msgid "Open"
 msgstr "Opna"
@@ -346,22 +346,22 @@ msgstr "Sía skrárgerð"
 msgid "Show Hidden Files"
 msgstr "Sýna faldar skrár"
 
-#: src/outputsmodel.cpp:21
+#: src/outputsmodel.cpp:23
 #, kde-format
 msgid "Full Workspace"
 msgstr "Allt vinnusvæðið"
 
-#: src/outputsmodel.cpp:25
+#: src/outputsmodel.cpp:27
 #, kde-format
 msgid "New Virtual Output"
 msgstr "Nýtt sýndarúttak"
 
-#: src/outputsmodel.cpp:29
+#: src/outputsmodel.cpp:31
 #, kde-format
 msgid "Rectangular Region"
 msgstr "Ferhyrnt svæði"
 
-#: src/outputsmodel.cpp:59
+#: src/outputsmodel.cpp:61
 #, kde-format
 msgid "Laptop screen"
 msgstr "Fartölvuskjár"
@@ -461,96 +461,96 @@ msgstr "Leyfa endurheimtu í framtíðarsetum"
 msgid "Share"
 msgstr "Samnýta"
 
-#: src/screencast.cpp:295
+#: src/screencast.cpp:297
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgid "Virtual Output"
 msgstr "Nýtt sýndarúttak"
 
-#: src/screencast.cpp:296
+#: src/screencast.cpp:298
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Nýtt sýndarúttak"
 
-#: src/screencast.cpp:350
+#: src/screencast.cpp:352
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Samnýting á skjá í gangi"
 
-#: src/screenchooserdialog.cpp:143
+#: src/screenchooserdialog.cpp:145
 #, kde-format
 msgid "Screen Sharing"
 msgstr "Samnýting á skjá"
 
-#: src/screenchooserdialog.cpp:173
+#: src/screenchooserdialog.cpp:175
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr "Velja hvað á að samnýta með forritinu sem sendir beiðnina:"
 
-#: src/screenchooserdialog.cpp:175
+#: src/screenchooserdialog.cpp:177
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "Velja hvað á að samnýta með %1:"
 
-#: src/screenchooserdialog.cpp:183
+#: src/screenchooserdialog.cpp:185
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "Samnýta þennan skjá með forritinu sem sendir beiðnina?"
 
-#: src/screenchooserdialog.cpp:185
+#: src/screenchooserdialog.cpp:187
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "Samnýta þennan skjá með %1?"
 
-#: src/screenchooserdialog.cpp:190
+#: src/screenchooserdialog.cpp:192
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "Veldu skjá til að samnýta með forritinu sem sendir beiðnina:"
 
-#: src/screenchooserdialog.cpp:192
+#: src/screenchooserdialog.cpp:194
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "Veldu hvaða skjái eigi að samnýta með %1:"
 
-#: src/screenchooserdialog.cpp:196
+#: src/screenchooserdialog.cpp:198
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr "Veldu hvaða skjá á að samnýta með forritinu sem sendir beiðnina:"
 
-#: src/screenchooserdialog.cpp:198
+#: src/screenchooserdialog.cpp:200
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "Veldu hvaða skjá eigi að deila með %1:"
 
-#: src/screenchooserdialog.cpp:208
+#: src/screenchooserdialog.cpp:210
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "Samnýta þennan glugga með forritinu sem sendir beiðnina?"
 
-#: src/screenchooserdialog.cpp:210
+#: src/screenchooserdialog.cpp:212
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "Samnýta þennan glugga með %1?"
 
-#: src/screenchooserdialog.cpp:215
+#: src/screenchooserdialog.cpp:217
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "Veldu glugga til að samnýta með forritinu sem sendir beiðnina:"
 
-#: src/screenchooserdialog.cpp:217
+#: src/screenchooserdialog.cpp:219
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "Veldu glugga til að samnýta með %1:"
 
-#: src/screenchooserdialog.cpp:221
+#: src/screenchooserdialog.cpp:223
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr "Veldu hvaða glugga á að samnýta með forritinu sem sendir beiðnina:"
 
-#: src/screenchooserdialog.cpp:223
+#: src/screenchooserdialog.cpp:225
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "Veldu hvaða glugga á að samnýta með %1:"
@@ -565,17 +565,17 @@ msgstr "Skjáir"
 msgid "Windows"
 msgstr "Gluggar"
 
-#: src/screenshotdialog.cpp:115
+#: src/screenshotdialog.cpp:117
 #, kde-format
 msgid "Full Screen"
 msgstr "Fylla skjáinn"
 
-#: src/screenshotdialog.cpp:116
+#: src/screenshotdialog.cpp:118
 #, kde-format
 msgid "Current Screen"
 msgstr "Núverandi skjár"
 
-#: src/screenshotdialog.cpp:117
+#: src/screenshotdialog.cpp:119
 #, kde-format
 msgid "Active Window"
 msgstr "Virkur gluggi"
@@ -665,12 +665,12 @@ msgstr "Skjávörpun"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:32
+#: src/userinfodialog.cpp:34
 #, kde-format
 msgid "Share Information"
 msgstr "Deila upplýsingum"
 
-#: src/userinfodialog.cpp:33
+#: src/userinfodialog.cpp:35
 #, kde-format
 msgid "Share your personal information with the requesting application?"
 msgstr "Deila persónuupplýsingum þínum með forritinu sem sendir beiðnina?"
