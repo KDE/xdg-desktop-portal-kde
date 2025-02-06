@@ -327,7 +327,7 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
     QEventLoop loop;
     Stream ret;
 
-    connect(stream, &ScreencastingStream::failed, this, [&](const QString &error) {
+    connect(stream, &ScreencastingStream::failed, &loop, [&](const QString &error) {
         qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "failed to start streaming" << stream << error;
 
         KNotification *notification = new KNotification(QStringLiteral("screencastfailure"), KNotification::CloseOnTimeout);
@@ -338,7 +338,7 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
 
         loop.quit();
     });
-    connect(stream, &ScreencastingStream::created, this, [&](uint32_t nodeid) {
+    connect(stream, &ScreencastingStream::created, &loop, [&](uint32_t nodeid) {
         ret.stream = stream;
         ret.nodeId = nodeid;
         ret.map = streamOptions;
@@ -351,7 +351,10 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
 
         loop.quit();
     });
-    QTimer::singleShot(3000, &loop, &QEventLoop::quit);
+    QTimer::singleShot(3000, &loop, [&loop, stream] {
+        stream->deleteLater();
+        loop.quit();
+    });
     loop.exec();
     return ret;
 }
