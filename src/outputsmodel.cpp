@@ -29,6 +29,16 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
         m_outputs << Output{Output::Region, nullptr, i18n("Rectangular Region"), "Region", {}};
     }
 
+    connect(qGuiApp, &QGuiApplication::screenRemoved, this, [this](QScreen *screen) {
+        auto it = std::ranges::find(m_outputs, screen, &Output::screen);
+        if (it != m_outputs.end()) {
+            auto index = std::distance(m_outputs.begin(), it);
+            beginRemoveRows(QModelIndex(), index, index);
+            m_outputs.erase(it);
+            endRemoveRows();
+        }
+    });
+
     for (const auto screen : screens) {
         Output::OutputType type = Output::Unknown;
 
