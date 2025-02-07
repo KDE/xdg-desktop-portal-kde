@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:43+0000\n"
+"POT-Creation-Date: 2025-02-07 00:44+0000\n"
 "PO-Revision-Date: 2024-12-24 19:21+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -675,7 +675,7 @@ msgstr "요청하는 앱과 개인 정보를 공유하시겠습니까?"
 msgid "Failed to start screencasting"
 msgstr "스크린캐스팅을 시작할 수 없음"
 
-#: src/waylandintegration.cpp:617
+#: src/waylandintegration.cpp:620
 #, kde-format
 msgid "Remote desktop"
 msgstr "원격 데스크톱"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:43+0000\n"
+"POT-Creation-Date: 2025-02-07 00:44+0000\n"
 "PO-Revision-Date: 2024-12-28 17:41+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -681,7 +681,7 @@ msgstr "Ĉu kunhavigi viajn personajn informojn kun la petanta aplikaĵo?"
 msgid "Failed to start screencasting"
 msgstr "Malsukcesis komenci ekranelsendon"
 
-#: src/waylandintegration.cpp:617
+#: src/waylandintegration.cpp:620
 #, kde-format
 msgid "Remote desktop"
 msgstr "Fora labortablo"

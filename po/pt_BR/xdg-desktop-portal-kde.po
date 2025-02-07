@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:43+0000\n"
+"POT-Creation-Date: 2025-02-07 00:44+0000\n"
 "PO-Revision-Date: 2025-02-03 08:16-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -684,7 +684,7 @@ msgstr "Compartilhar suas informações pessoais com o aplicativo solicitante?"
 msgid "Failed to start screencasting"
 msgstr "Não foi possível iniciar a transmissão de tela"
 
-#: src/waylandintegration.cpp:617
+#: src/waylandintegration.cpp:620
 #, kde-format
 msgid "Remote desktop"
 msgstr "Área de trabalho remota"

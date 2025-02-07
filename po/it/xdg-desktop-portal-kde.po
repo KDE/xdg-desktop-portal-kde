@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:43+0000\n"
+"POT-Creation-Date: 2025-02-07 00:44+0000\n"
 "PO-Revision-Date: 2024-12-24 15:14+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -681,7 +681,7 @@ msgstr ""
 msgid "Failed to start screencasting"
 msgstr "Connessione alla registrazione dello schermo non riuscita"
 
-#: src/waylandintegration.cpp:617
+#: src/waylandintegration.cpp:620
 #, kde-format
 msgid "Remote desktop"
 msgstr "Desktop remoto"
