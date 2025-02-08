@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-07 00:44+0000\n"
+"POT-Creation-Date: 2025-02-08 00:42+0000\n"
 "PO-Revision-Date: 2023-11-11 21:18+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
@@ -354,7 +354,7 @@ msgstr "Salida virtual nueva"
 msgid "Rectangular Region"
 msgstr "Rexón rectangular"
 
-#: src/outputsmodel.cpp:61
+#: src/outputsmodel.cpp:71
 #, kde-format
 msgid "Laptop screen"
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-07 00:44+0000\n"
+"POT-Creation-Date: 2025-02-08 00:42+0000\n"
 "PO-Revision-Date: 2024-07-22 12:43+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -361,7 +361,7 @@ msgstr "Nýtt sýndarúttak"
 msgid "Rectangular Region"
 msgstr "Ferhyrnt svæði"
 
-#: src/outputsmodel.cpp:61
+#: src/outputsmodel.cpp:71
 #, kde-format
 msgid "Laptop screen"
 msgstr "Fartölvuskjár"
