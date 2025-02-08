@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-07 02:41+0000\n"
+"POT-Creation-Date: 2025-02-08 02:31+0000\n"
 "PO-Revision-Date: 2019-04-17 03:47+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc."
@@ -353,7 +353,7 @@ msgstr ""
 msgid "Rectangular Region"
 msgstr ""
 
-#: src/outputsmodel.cpp:59
+#: src/outputsmodel.cpp:69
 #, kde-format
 msgid "Laptop screen"
 msgstr ""

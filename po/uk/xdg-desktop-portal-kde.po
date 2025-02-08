@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-07 02:41+0000\n"
+"POT-Creation-Date: 2025-02-08 02:31+0000\n"
 "PO-Revision-Date: 2024-12-24 18:56+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -365,7 +365,7 @@ msgstr "Нове віртуальне виведення"
 msgid "Rectangular Region"
 msgstr "Прямокутна ділянка"
 
-#: src/outputsmodel.cpp:59
+#: src/outputsmodel.cpp:69
 #, kde-format
 msgid "Laptop screen"
 msgstr "Екран ноутбука"

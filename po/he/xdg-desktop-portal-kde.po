@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-07 02:41+0000\n"
+"POT-Creation-Date: 2025-02-08 02:31+0000\n"
 "PO-Revision-Date: 2024-12-24 08:18+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -355,7 +355,7 @@ msgstr "פלט וירטואלי חדש"
 msgid "Rectangular Region"
 msgstr "אזור מרובע"
 
-#: src/outputsmodel.cpp:59
+#: src/outputsmodel.cpp:69
 #, kde-format
 msgid "Laptop screen"
 msgstr "מסך מחשב נייד"

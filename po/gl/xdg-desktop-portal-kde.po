@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-07 02:41+0000\n"
+"POT-Creation-Date: 2025-02-08 02:31+0000\n"
 "PO-Revision-Date: 2024-12-27 19:01+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -361,7 +361,7 @@ msgstr "Nova saída virtual"
 msgid "Rectangular Region"
 msgstr "Zona rectangular"
 
-#: src/outputsmodel.cpp:59
+#: src/outputsmodel.cpp:69
 #, kde-format
 msgid "Laptop screen"
 msgstr "Pantalla de portátil"

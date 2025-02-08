@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-07 02:41+0000\n"
+"POT-Creation-Date: 2025-02-08 02:31+0000\n"
 "PO-Revision-Date: 2024-10-01 14:43-0500\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -358,7 +358,7 @@ msgstr "ਨਵਾਂ ਵਰਚੁਅਲ ਆਉਟਪੁੱਟ"
 msgid "Rectangular Region"
 msgstr "ਆਇਤਾਕਾਰ ਖੇਤਰ"
 
-#: src/outputsmodel.cpp:59
+#: src/outputsmodel.cpp:69
 #, kde-format
 msgid "Laptop screen"
 msgstr "ਲੈਪਟਾਪ ਦੀ ਸਕਰੀਨ"

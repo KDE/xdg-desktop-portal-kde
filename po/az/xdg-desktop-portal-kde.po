@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-07 02:41+0000\n"
+"POT-Creation-Date: 2025-02-08 02:31+0000\n"
 "PO-Revision-Date: 2022-08-24 17:55+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -372,7 +372,7 @@ msgstr "Yeni virtual çıxarış"
 msgid "Rectangular Region"
 msgstr ""
 
-#: src/outputsmodel.cpp:59
+#: src/outputsmodel.cpp:69
 #, fuzzy, kde-format
 #| msgid ""
 #| "Laptop screen\n"
