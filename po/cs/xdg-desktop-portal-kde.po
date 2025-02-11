@@ -455,17 +455,15 @@ msgid "Share"
 msgstr "Sdílet"
 
 #: src/screencast.cpp:297
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgid "Virtual Output"
-msgstr "Nový virtuální výstup"
+msgstr ""
 
 #: src/screencast.cpp:298
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
-msgstr "Nový virtuální výstup"
+msgstr ""
 
 #: src/screencast.cpp:352
 #, kde-format
