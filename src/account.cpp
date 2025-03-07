@@ -33,7 +33,7 @@ uint AccountPortal::GetUserInformation(const QDBusObjectPath &handle,
         reason = options.value(QStringLiteral("reason")).toString();
     }
 
-    UserInfoDialog *userInfoDialog = new UserInfoDialog(reason);
+    UserInfoDialog *userInfoDialog = new UserInfoDialog(reason, app_id);
     Utils::setParentWindow(userInfoDialog->windowHandle(), parent_window);
 
     int result = userInfoDialog->exec();

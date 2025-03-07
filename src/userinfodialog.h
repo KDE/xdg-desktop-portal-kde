@@ -22,7 +22,7 @@ class UserInfoDialog : public QuickDialog
 {
     Q_OBJECT
 public:
-    explicit UserInfoDialog(const QString &reason, QObject *parent = nullptr);
+    explicit UserInfoDialog(const QString &reason, const QString &app_id, QObject *parent = nullptr);
     ~UserInfoDialog() override;
 
     QString id() const;
