@@ -54,7 +54,31 @@ void InhibitPortal::Inhibit(const QDBusObjectPath &handle, const QString &app_id
             qCDebug(XdgDesktopPortalKdeInhibit) << "Inhibition error: " << reply.error().message();
         } else {
             QDBusConnection sessionBus = QDBusConnection::sessionBus();
-            new Request(handle, this, QStringLiteral("org.freedesktop.impl.portal.Inhibit"), QVariant(reply.value()));
+            auto inhibitId = reply.value();
+            auto request = new Request(handle, this, QStringLiteral("org.freedesktop.impl.portal.Inhibit"), QVariant(inhibitId));
+
+            // Once the request is closed by the application, release our inhibitor
+            connect(request, &Request::closeRequested, this, [this, inhibitId] {
+                QDBusMessage uninhibitMessage = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
+                                                                               QStringLiteral("/org/kde/Solid/PowerManagement/PolicyAgent"),
+                                                                               QStringLiteral("org.kde.Solid.PowerManagement.PolicyAgent"),
+                                                                               QStringLiteral("ReleaseInhibition"));
+
+                uninhibitMessage << inhibitId;
+
+                QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(uninhibitMessage);
+                QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingCall);
+                connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, uninhibitMessage](QDBusPendingCallWatcher *watcher) {
+                    QDBusPendingReply<> reply = *watcher;
+                    QDBusMessage messageReply;
+                    if (reply.isError()) {
+                        qCDebug(XdgDesktopPortalKdeInhibit) << "Uninhibit error: " << reply.error().message();
+                        messageReply = uninhibitMessage.createErrorReply(reply.error());
+
+                        QDBusConnection::sessionBus().asyncCall(messageReply);
+                    }
+                });
+            });
         }
     });
 }
