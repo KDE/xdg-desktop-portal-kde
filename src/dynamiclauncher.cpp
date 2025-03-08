@@ -148,6 +148,10 @@ uint DynamicLauncherPortal::RequestInstallToken(const QString &app_id, const QVa
 {
     Q_UNUSED(options);
 
+    qCDebug(XdgDesktopPortalKdeDynamicLauncher) << "RequestInstallToken called with parameters:";
+    qCDebug(XdgDesktopPortalKdeDynamicLauncher) << "    app_id: " << app_id;
+    qCDebug(XdgDesktopPortalKdeDynamicLauncher) << "    options: " << options;
+
     // Blanket allow certain apps to create app entries. Ported from GTK portal.
     // Perhaps this should also include browsers? Unclear at the time of writing.
 
