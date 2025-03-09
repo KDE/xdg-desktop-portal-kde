@@ -113,6 +113,28 @@ Kirigami.ScrollablePage {
 
     actions: [
         Kirigami.Action {
+            icon.name: "folder"
+            text: i18n("Create Folder")
+            visible: !root.selectExisting
+
+            onTriggered: root.createDirectorySheet.open()
+        },
+        Kirigami.Action {
+            id: filterAction
+            icon.name: "view-filter"
+            checkable: true
+            checked: true
+            text: i18n("Filter Filetype")
+        },
+        Kirigami.Action {
+            icon.name: "view-hidden"
+            text: i18n("Show Hidden Files")
+            checkable: true
+            checked: root.showHiddenFiles
+
+            onToggled: root.showHiddenFiles = checked
+        },
+        Kirigami.Action {
             visible: (root.selectMultiple || root.selectFolder) && root.selectExisting
             text: root.acceptLabel ? root.acceptLabel : i18n("Select")
             icon.name: "dialog-ok"

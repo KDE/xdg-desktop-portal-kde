@@ -22,20 +22,14 @@ Kirigami.ApplicationWindow {
 
     globalDrawer: PlacesGlobalDrawer {
         onPlaceOpenRequested: {
-            filePicker.folder = place;
+            if (filePickerLoader.item) {
+                filePickerLoader.item.folder = place;
+            }
             close()
         }
     }
 
     contextDrawer: Kirigami.ContextDrawer {}
-
-    onVisibleChanged: {
-        // File picker was opened
-        if (root.visible) {
-            // reset old data
-            filePicker.fileUrls = []
-        }
-    }
 
     onClosing: close => {
         close.accepted = false
@@ -52,46 +46,36 @@ Kirigami.ApplicationWindow {
         Component.onCompleted: console.log(JSON.stringify(callback))
     }
 
-    pageStack.initialPage: FilePicker {
-        id: filePicker
+    pageStack.initialPage: filePickerComponent
 
-        actions: [
-            Kirigami.Action {
-                icon.name: "folder"
-                text: i18n("Create Folder")
-                visible: !root.selectExisting
+    Connections {
+        target: callback
 
-                onTriggered: filePicker.createDirectorySheet.open()
-            },
-            Kirigami.Action {
-                id: filterAction
-                icon.name: "view-filter"
-                checkable: true
-                checked: true
-                text: i18n("Filter Filetype")
-            },
-            Kirigami.Action {
-                icon.name: "view-hidden"
-                text: i18n("Show Hidden Files")
-                checkable: true
-                checked: filePicker.showHiddenFiles
-
-                onToggled: filePicker.showHiddenFiles = checked
-            }
-        ]
-
-        onAccepted: urls => {
-            callback.accepted(urls)
+        function onReloadWindow() {
+            root.pageStack.clear();
+            root.pageStack.push(filePickerComponent);
         }
+    }
 
-        selectMultiple: callback.selectMultiple
-        selectExisting: callback.selectExisting
-        nameFilters: callback.nameFilters
-        mimeTypeFilters: filterAction.checked ? callback.mimeTypeFilters : undefined
-        currentFile: callback.currentFile
-        acceptLabel: callback.acceptLabel
-        selectFolder: callback.selectFolder
-        folder: callback.folder
-        title: callback.title
+    Component {
+        id: filePickerComponent
+
+        FilePicker {
+            id: filePicker
+
+            onAccepted: urls => {
+                callback.accepted(urls)
+            }
+
+            selectMultiple: callback.selectMultiple
+            selectExisting: callback.selectExisting
+            nameFilters: callback.nameFilters
+            mimeTypeFilters: filterAction.checked ? callback.mimeTypeFilters : undefined
+            currentFile: callback.currentFile
+            acceptLabel: callback.acceptLabel
+            selectFolder: callback.selectFolder
+            folder: callback.folder
+            title: callback.title
+        }
     }
 }

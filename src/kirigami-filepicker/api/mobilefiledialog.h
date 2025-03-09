@@ -19,6 +19,9 @@ public:
     MobileFileDialog(QObject *parent);
     ~MobileFileDialog() override = default;
 
+    // Reset all fields for a new mobile file dialog session
+    void reset(bool reloadWindow);
+
     QString title() const;
     void setTitle(const QString &title);
 

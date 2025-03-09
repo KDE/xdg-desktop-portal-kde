@@ -379,7 +379,9 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     const auto [filters, currentFilter] = ExtractFilters(options);
 
     if (isMobile()) {
-        if (!m_mobileFileDialog) {
+        if (m_mobileFileDialog) {
+            m_mobileFileDialog->reset(true);
+        } else {
             qCDebug(XdgDesktopPortalKdeFileChooser) << "Creating file dialog";
             m_mobileFileDialog = new MobileFileDialog(this);
         }
@@ -555,7 +557,9 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     const auto [filters, currentFilter] = ExtractFilters(options);
 
     if (isMobile()) {
-        if (!m_mobileFileDialog) {
+        if (m_mobileFileDialog) {
+            m_mobileFileDialog->reset(true);
+        } else {
             qCDebug(XdgDesktopPortalKdeFileChooser) << "Creating file dialog";
             m_mobileFileDialog = new MobileFileDialog(this);
         }

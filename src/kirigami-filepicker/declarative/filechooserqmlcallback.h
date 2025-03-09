@@ -24,6 +24,9 @@ class FileChooserQmlCallback : public QObject
 public:
     FileChooserQmlCallback(QObject *parent = nullptr);
 
+    void reset();
+    void requestReloadWindow();
+
     QString title() const;
     void setTitle(const QString &title);
 
@@ -64,6 +67,8 @@ Q_SIGNALS:
     void currentFileChanged();
     void acceptLabelChanged();
     void selectFolderChanged();
+
+    void reloadWindow();
 
 private:
     QString m_title;

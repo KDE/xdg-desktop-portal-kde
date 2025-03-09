@@ -58,8 +58,19 @@ MobileFileDialog::MobileFileDialog(QObject *parent)
     connect(m_callback, &FileChooserQmlCallback::acceptLabelChanged, this, &MobileFileDialog::acceptLabelChanged);
     connect(m_callback, &FileChooserQmlCallback::selectFolderChanged, this, &MobileFileDialog::selectFolderChanged);
 
+    reset(false);
+}
+
+void MobileFileDialog::reset(bool reloadWindow)
+{
+    m_callback->reset();
+
     // Set default path for file dialog
     setFolder(QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::HomeLocation)));
+
+    if (reloadWindow) {
+        m_callback->requestReloadWindow();
+    }
 }
 
 // FileDialog methods pass through to the callback to provide a nice c++ api
