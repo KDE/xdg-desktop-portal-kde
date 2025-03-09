@@ -14,6 +14,23 @@ FileChooserQmlCallback::FileChooserQmlCallback(QObject *parent)
 {
 }
 
+void FileChooserQmlCallback::reset()
+{
+    setSelectMultiple(true);
+    setSelectExisting(true);
+    setNameFilters(QStringList() << QStringLiteral("*"));
+    setMimeTypeFilters({});
+    setFolder({});
+    setCurrentFile({});
+    setAcceptLabel({});
+    setSelectFolder(false);
+}
+
+void FileChooserQmlCallback::requestReloadWindow()
+{
+    Q_EMIT reloadWindow();
+}
+
 QString FileChooserQmlCallback::title() const
 {
     return m_title;
