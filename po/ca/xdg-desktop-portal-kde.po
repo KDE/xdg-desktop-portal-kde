@@ -689,7 +689,3 @@ msgstr "Ha fallat en iniciar el vídeo de captura de pantalla"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Escriptori remot"
-
-#~ msgctxt "Virtual Output (shared with %1)"
-#~ msgid "%1 is the application name"
-#~ msgstr "%1 és el nom de l'aplicació"
