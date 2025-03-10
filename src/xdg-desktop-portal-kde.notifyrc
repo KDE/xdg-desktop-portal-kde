@@ -368,3 +368,11 @@ Comment[zh_TW]=一個應用程式已得到您的輸入裝置與顯示器的控�
 Contexts=remotedesktop
 Action=Popup
 Urgency=High
+
+
+[Event/inputcapturestarted]
+Name=Input Capture Started
+Comment=Input is now being managed by an application
+Contexts=remotedesktop
+Action=Popup
+Urgency=High
