@@ -13,6 +13,7 @@
 #include "xdgshortcut.h"
 
 #include <KGlobalAccel>
+#include <KIO/OpenUrlJob>
 #include <KLocalizedString>
 #include <KStandardShortcut>
 
@@ -20,7 +21,6 @@
 #include <QAction>
 #include <QDBusMetaType>
 #include <QDataStream>
-#include <QDesktopServices>
 #include <QLoggingCategory>
 #include <QUrl>
 #include <QWindow>
@@ -184,7 +184,7 @@ GlobalShortcutsPortal::~GlobalShortcutsPortal() = default;
 
 uint GlobalShortcutsPortal::version() const
 {
-    return 1;
+    return 2;
 }
 
 uint GlobalShortcutsPortal::CreateSession(const QDBusObjectPath &handle,
@@ -317,6 +317,22 @@ void GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
         session->setActions(currentShortcutInfos);
         return {PortalResponse::Success, QVariantMap{{u"shortcuts"_s, session->shortcutDescriptionsVariant()}}};
     });
+}
+
+void GlobalShortcutsPortal::ConfigureShortcuts(const QDBusObjectPath &session_handle, const QString &parent_window, const QVariantMap &options)
+{
+    qCDebug(XdgDesktopPortalKdeGlobalShortcuts) << "ConfigureShortcuts called with parameters:";
+    qCDebug(XdgDesktopPortalKdeGlobalShortcuts) << "    parent_window: " << parent_window;
+    qCDebug(XdgDesktopPortalKdeGlobalShortcuts) << "    session_handle: " << session_handle.path();
+    qCDebug(XdgDesktopPortalKdeGlobalShortcuts) << "    options: " << options;
+
+    auto session = Session::getSession<GlobalShortcutsSession>(session_handle.path());
+    if (!session) {
+        return;
+    }
+    auto job = new KIO::OpenUrlJob(QUrl(u"systemsettings://kcm_keys/"_s + session->componentName()));
+    job->setStartupId(options.value(u"activation_token"_s).value<QByteArray>());
+    job->start();
 }
 
 #include "globalshortcuts.moc"

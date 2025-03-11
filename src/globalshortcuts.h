@@ -53,6 +53,7 @@ public Q_SLOTS:
                        const QVariantMap &options,
                        QVariantMap &results);
     uint ListShortcuts(const QDBusObjectPath &handle, const QDBusObjectPath &session_handle, QVariantMap &results);
+    void ConfigureShortcuts(const QDBusObjectPath &session_handle, const QString &parent_window, const QVariantMap &options);
 
 Q_SIGNALS:
     void Activated(const QDBusObjectPath &session_handle, const QString &shortcutId, quint64 timestamp, const QVariantMap &unused = {});
