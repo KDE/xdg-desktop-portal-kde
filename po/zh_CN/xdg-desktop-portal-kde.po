@@ -67,7 +67,7 @@ msgstr "打开"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr "总是使用所选应用打开 %1 文件"
+msgstr "总是使用在此选择的应用打开 %1 文件"
 
 #: src/AppChooserDialog.qml:98
 #, kde-format
