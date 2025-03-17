@@ -142,7 +142,7 @@ uint InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
         // Unfortunately KGlobalAccel doesnt have a method to retrieve the default shortcut for another component
         const QKeySequence disableSequence = disableShortcuts.value(0, QKeySequence(Qt::META | Qt::SHIFT | Qt::Key_Escape));
 
-        auto notification = new KNotification(u"notification"_s, KNotification::CloseOnTimeout | KNotification::DefaultEvent | KNotification::Persistent, this);
+        auto notification = new KNotification(u"inputcapturestarted"_s, KNotification::CloseOnTimeout | KNotification::Persistent, this);
         notification->setTitle(i18nc("@title:notification", "Input Capture started"));
         if (const QString appName = Utils::applicationName(session->appId()); !appName.isEmpty()) {
             notification->setText(xi18nc("@info %1 is the name of the application",
