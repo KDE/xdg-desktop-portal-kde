@@ -372,7 +372,19 @@ Urgency=High
 
 [Event/inputcapturestarted]
 Name=Input Capture Started
+Name[ca]=S'ha iniciat la captura de l'entrada
+Name[es]=Captura de entrada iniciada
+Name[nl]=Vangen van invoer gestart
+Name[sl]=Začetek zajemanja vnosa
+Name[uk]=Розпочато захоплення введення
+Name[zh_CN]=输入捕获已开始
 Comment=Input is now being managed by an application
+Comment[ca]=Ara l'entrada és gestionada per una aplicació
+Comment[es]=La entrada está siendo gestionada por una aplicación
+Comment[nl]=Invoer wordt nu beheerd door een toepassing
+Comment[sl]=Vnos zdaj upravlja aplikacija
+Comment[uk]=Тепер введенням керує програма
+Comment[zh_CN]=输入正在由一个应用程序管理
 Contexts=remotedesktop
 Action=Popup
 Urgency=High
