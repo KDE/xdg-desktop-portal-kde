@@ -90,10 +90,10 @@ Kirigami.ScrollablePage {
     }
     footer: Controls.ToolBar {
         visible: !root.selectExisting
-        height: visible ? Kirigami.Units.gridUnit * 2 : 0
 
         RowLayout {
             anchors.fill: parent
+
             Controls.TextField {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
