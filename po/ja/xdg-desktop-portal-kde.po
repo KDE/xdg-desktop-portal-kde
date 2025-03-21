@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-08 00:42+0000\n"
+"POT-Creation-Date: 2025-03-21 00:44+0000\n"
 "PO-Revision-Date: 2023-04-07 23:28-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ryuichi_ya220@outlook.jp"
 
-#: src/accessdialog.cpp:24
+#: src/accessdialog.cpp:27
 #, kde-format
 msgid "Request device access"
 msgstr "デバイスへのアクセスを要求"
@@ -232,7 +232,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/filechooser.cpp:481
+#: src/filechooser.cpp:432
 #, kde-format
 msgid "Open"
 msgstr "開く"

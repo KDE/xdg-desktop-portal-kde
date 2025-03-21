@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-08 00:42+0000\n"
+"POT-Creation-Date: 2025-03-21 00:44+0000\n"
 "PO-Revision-Date: 2025-02-03 08:16-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -32,7 +32,7 @@ msgid "Your emails"
 msgstr ""
 "elchevive@opensuse.org, alvarenga@kde.org, geraldosimiao@fedoraproject.org"
 
-#: src/accessdialog.cpp:24
+#: src/accessdialog.cpp:27
 #, kde-format
 msgid "Request device access"
 msgstr "Solicitar acesso ao dispositivo"
@@ -234,7 +234,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/filechooser.cpp:481
+#: src/filechooser.cpp:432
 #, kde-format
 msgid "Open"
 msgstr "Abrir"

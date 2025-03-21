@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-08 00:42+0000\n"
+"POT-Creation-Date: 2025-03-21 00:44+0000\n"
 "PO-Revision-Date: 2022-08-24 17:55+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xxmn77@gmail.com"
 
-#: src/accessdialog.cpp:24
+#: src/accessdialog.cpp:27
 #, kde-format
 msgid "Request device access"
 msgstr "Cihaza giriş tələb etmək"
@@ -236,7 +236,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr ""
 
-#: src/filechooser.cpp:481
+#: src/filechooser.cpp:432
 #, kde-format
 msgid "Open"
 msgstr "Açmaq"
