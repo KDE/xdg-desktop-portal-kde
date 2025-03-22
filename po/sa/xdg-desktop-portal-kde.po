@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-21 00:44+0000\n"
+"POT-Creation-Date: 2025-03-22 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -230,7 +230,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "निरसयतु"
 
-#: src/filechooser.cpp:432
+#: src/filechooser.cpp:434
 #, kde-format
 msgid "Open"
 msgstr "उद्घाटित"
@@ -280,45 +280,30 @@ msgctxt "@action:button"
 msgid "Allow"
 msgstr "अनुमन्यताम्‌"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:102
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:113
 #, kde-format
 msgid "Select Folder"
 msgstr "Folder इति चिनोतु"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:116
 #, kde-format
 msgid "Open File"
 msgstr "सञ्चिकां उद्घाटयन्तु"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:107
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:118
 #, kde-format
 msgid "Save File"
 msgstr "सञ्चिकां रक्षतु"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:18
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
 msgid "Create New Folder"
 msgstr "New Folder रचयन्तु"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:28
-#, kde-format
-msgid "Create new folder in %1"
-msgstr "%1 मध्ये नूतनं पुटं रचयन्तु"
-
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:35
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:32
 #, kde-format
 msgid "Folder name"
 msgstr "पुटस्य नाम"
-
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:46
-#, kde-format
-msgid "OK"
-msgstr "अस्तु"
-
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:57
-#, kde-format
-msgid "Cancel"
-msgstr "निरसयतु"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
@@ -327,23 +312,23 @@ msgstr "सञ्चिकानाम"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:117
 #, kde-format
-msgid "Select"
-msgstr "विचि"
-
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:61
-#, kde-format
 msgid "Create Folder"
 msgstr "Folder रचयन्तु"
 
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
+#: src/kirigami-filepicker/declarative/FilePicker.qml:127
 #, kde-format
 msgid "Filter Filetype"
 msgstr "फ़िल्टर सञ्चिकाप्रकार"
 
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:75
+#: src/kirigami-filepicker/declarative/FilePicker.qml:131
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "गुप्तसञ्चिकाः दर्शयतु"
+
+#: src/kirigami-filepicker/declarative/FilePicker.qml:139
+#, kde-format
+msgid "Select"
+msgstr "विचि"
 
 #: src/outputsmodel.cpp:23
 #, kde-format
@@ -681,3 +666,12 @@ msgstr "स्क्रीनकास्टिंग् आरभ्यतु�
 #, kde-format
 msgid "Remote desktop"
 msgstr "दूरस्थः डेस्कटॉपः"
+
+#~ msgid "Create new folder in %1"
+#~ msgstr "%1 मध्ये नूतनं पुटं रचयन्तु"
+
+#~ msgid "OK"
+#~ msgstr "अस्तु"
+
+#~ msgid "Cancel"
+#~ msgstr "निरसयतु"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-21 00:44+0000\n"
+"POT-Creation-Date: 2025-03-22 00:43+0000\n"
 "PO-Revision-Date: 2025-01-04 15:18+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -230,7 +230,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Atcelt"
 
-#: src/filechooser.cpp:432
+#: src/filechooser.cpp:434
 #, kde-format
 msgid "Open"
 msgstr "Atvērt"
@@ -280,45 +280,30 @@ msgctxt "@action:button"
 msgid "Allow"
 msgstr "Atļaut"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:102
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:113
 #, kde-format
 msgid "Select Folder"
 msgstr "Atlasīt mapi"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:116
 #, kde-format
 msgid "Open File"
 msgstr "Atvērt datni"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:107
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:118
 #, kde-format
 msgid "Save File"
 msgstr "Saglabāt datni"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:18
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
 msgid "Create New Folder"
 msgstr "Izveidot jaunu mapi"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:28
-#, kde-format
-msgid "Create new folder in %1"
-msgstr "Izveidot jaunu mapi „%1“"
-
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:35
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:32
 #, kde-format
 msgid "Folder name"
 msgstr "Mapes nosaukums"
-
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:46
-#, kde-format
-msgid "OK"
-msgstr "Labi"
-
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:57
-#, kde-format
-msgid "Cancel"
-msgstr "Atcelt"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
@@ -327,23 +312,23 @@ msgstr "Datnes nosaukums"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:117
 #, kde-format
-msgid "Select"
-msgstr "Atlasīt"
-
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:61
-#, kde-format
 msgid "Create Folder"
 msgstr "Izveidot mapi"
 
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
+#: src/kirigami-filepicker/declarative/FilePicker.qml:127
 #, kde-format
 msgid "Filter Filetype"
 msgstr "Filtrēta datnes tipu"
 
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:75
+#: src/kirigami-filepicker/declarative/FilePicker.qml:131
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Rādīt slēptās datnes"
+
+#: src/kirigami-filepicker/declarative/FilePicker.qml:139
+#, kde-format
+msgid "Select"
+msgstr "Atlasīt"
 
 #: src/outputsmodel.cpp:23
 #, kde-format
@@ -683,3 +668,12 @@ msgstr "Neizdevās sākt ekrāna ierakstīšanu"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Attālinātā darbvirsma"
+
+#~ msgid "Create new folder in %1"
+#~ msgstr "Izveidot jaunu mapi „%1“"
+
+#~ msgid "OK"
+#~ msgstr "Labi"
+
+#~ msgid "Cancel"
+#~ msgstr "Atcelt"

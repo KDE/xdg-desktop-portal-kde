@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-21 00:44+0000\n"
+"POT-Creation-Date: 2025-03-22 00:43+0000\n"
 "PO-Revision-Date: 2024-12-28 17:41+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -232,7 +232,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Nuligi"
 
-#: src/filechooser.cpp:432
+#: src/filechooser.cpp:434
 #, kde-format
 msgid "Open"
 msgstr "Malfermi"
@@ -284,45 +284,30 @@ msgctxt "@action:button"
 msgid "Allow"
 msgstr "Permesi"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:102
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:113
 #, kde-format
 msgid "Select Folder"
 msgstr "Elekti Dosierujon"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:116
 #, kde-format
 msgid "Open File"
 msgstr "Malfermi Dosieron"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:107
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:118
 #, kde-format
 msgid "Save File"
 msgstr "Konservi Dosieron"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:18
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
 msgid "Create New Folder"
 msgstr "Krei Novan Dosierujon"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:28
-#, kde-format
-msgid "Create new folder in %1"
-msgstr "Krei novan dosierujon en %1"
-
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:35
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:32
 #, kde-format
 msgid "Folder name"
 msgstr "Nomo de dosierujo"
-
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:46
-#, kde-format
-msgid "OK"
-msgstr "bone"
-
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:57
-#, kde-format
-msgid "Cancel"
-msgstr "Nuligi"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
@@ -331,23 +316,23 @@ msgstr "Dosiernomo"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:117
 #, kde-format
-msgid "Select"
-msgstr "Elekti"
-
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:61
-#, kde-format
 msgid "Create Folder"
 msgstr "Krei Dosierujon"
 
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
+#: src/kirigami-filepicker/declarative/FilePicker.qml:127
 #, kde-format
 msgid "Filter Filetype"
 msgstr "Filtri Dosiertipon"
 
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:75
+#: src/kirigami-filepicker/declarative/FilePicker.qml:131
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Montri Kaŝitajn dosierojn"
+
+#: src/kirigami-filepicker/declarative/FilePicker.qml:139
+#, kde-format
+msgid "Select"
+msgstr "Elekti"
 
 #: src/outputsmodel.cpp:23
 #, kde-format
@@ -685,3 +670,12 @@ msgstr "Malsukcesis komenci ekranelsendon"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Fora labortablo"
+
+#~ msgid "Create new folder in %1"
+#~ msgstr "Krei novan dosierujon en %1"
+
+#~ msgid "OK"
+#~ msgstr "bone"
+
+#~ msgid "Cancel"
+#~ msgstr "Nuligi"

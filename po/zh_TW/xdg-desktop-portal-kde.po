@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-21 00:44+0000\n"
+"POT-Creation-Date: 2025-03-22 00:43+0000\n"
 "PO-Revision-Date: 2024-12-29 01:57+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -228,7 +228,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/filechooser.cpp:432
+#: src/filechooser.cpp:434
 #, kde-format
 msgid "Open"
 msgstr "開啟"
@@ -277,45 +277,30 @@ msgctxt "@action:button"
 msgid "Allow"
 msgstr "允許"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:102
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:113
 #, kde-format
 msgid "Select Folder"
 msgstr "選擇資料夾"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:116
 #, kde-format
 msgid "Open File"
 msgstr "開啟檔案"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:107
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:118
 #, kde-format
 msgid "Save File"
 msgstr "儲存檔案"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:18
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
 msgid "Create New Folder"
 msgstr "建立新資料夾"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:28
-#, kde-format
-msgid "Create new folder in %1"
-msgstr "在 %1 中建立新資料夾"
-
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:35
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:32
 #, kde-format
 msgid "Folder name"
 msgstr "資料夾名稱"
-
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:46
-#, kde-format
-msgid "OK"
-msgstr "確定"
-
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:57
-#, kde-format
-msgid "Cancel"
-msgstr "取消"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
@@ -324,23 +309,23 @@ msgstr "檔案名稱"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:117
 #, kde-format
-msgid "Select"
-msgstr "選取"
-
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:61
-#, kde-format
 msgid "Create Folder"
 msgstr "建立資料夾"
 
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
+#: src/kirigami-filepicker/declarative/FilePicker.qml:127
 #, kde-format
 msgid "Filter Filetype"
 msgstr "過濾檔案類型"
 
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:75
+#: src/kirigami-filepicker/declarative/FilePicker.qml:131
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "顯示隱藏檔案"
+
+#: src/kirigami-filepicker/declarative/FilePicker.qml:139
+#, kde-format
+msgid "Select"
+msgstr "選取"
 
 #: src/outputsmodel.cpp:23
 #, kde-format
@@ -676,6 +661,15 @@ msgstr "無法開始螢幕錄製"
 #, kde-format
 msgid "Remote desktop"
 msgstr "遠端桌面"
+
+#~ msgid "Create new folder in %1"
+#~ msgstr "在 %1 中建立新資料夾"
+
+#~ msgid "OK"
+#~ msgstr "確定"
+
+#~ msgid "Cancel"
+#~ msgstr "取消"
 
 #~ msgid ""
 #~ "Laptop screen\n"

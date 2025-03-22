@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-21 00:44+0000\n"
+"POT-Creation-Date: 2025-03-22 00:43+0000\n"
 "PO-Revision-Date: 2025-01-09 20:00+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -232,7 +232,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: src/filechooser.cpp:432
+#: src/filechooser.cpp:434
 #, kde-format
 msgid "Open"
 msgstr "Öffnen"
@@ -285,45 +285,30 @@ msgctxt "@action:button"
 msgid "Allow"
 msgstr "Zulassen"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:102
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:113
 #, kde-format
 msgid "Select Folder"
 msgstr "Ordner auswählen"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:116
 #, kde-format
 msgid "Open File"
 msgstr "Datei öffnen"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:107
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:118
 #, kde-format
 msgid "Save File"
 msgstr "Datei speichern"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:18
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
 msgid "Create New Folder"
 msgstr "Neuen Ordner erstellen"
 
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:28
-#, kde-format
-msgid "Create new folder in %1"
-msgstr "Neuen Ordner in %1 anlegen"
-
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:35
+#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:32
 #, kde-format
 msgid "Folder name"
 msgstr "Ordnername"
-
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:46
-#, kde-format
-msgid "OK"
-msgstr "OK"
-
-#: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:57
-#, kde-format
-msgid "Cancel"
-msgstr "Abbrechen"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
@@ -332,23 +317,23 @@ msgstr "Dateiname"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:117
 #, kde-format
-msgid "Select"
-msgstr "Auswählen"
-
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:61
-#, kde-format
 msgid "Create Folder"
 msgstr "Ordner erstellen"
 
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
+#: src/kirigami-filepicker/declarative/FilePicker.qml:127
 #, kde-format
 msgid "Filter Filetype"
 msgstr "Dateityp filtern"
 
-#: src/kirigami-filepicker/declarative/FilePickerWindow.qml:75
+#: src/kirigami-filepicker/declarative/FilePicker.qml:131
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Versteckte Dateien anzeigen"
+
+#: src/kirigami-filepicker/declarative/FilePicker.qml:139
+#, kde-format
+msgid "Select"
+msgstr "Auswählen"
 
 #: src/outputsmodel.cpp:23
 #, kde-format
@@ -689,6 +674,15 @@ msgstr "Das Bildschirmvideo kann nicht gestartet werden"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Arbeitsfläche des Fremdgeräts"
+
+#~ msgid "Create new folder in %1"
+#~ msgstr "Neuen Ordner in %1 anlegen"
+
+#~ msgid "OK"
+#~ msgstr "OK"
+
+#~ msgid "Cancel"
+#~ msgstr "Abbrechen"
 
 #~ msgid ""
 #~ "Laptop screen\n"
