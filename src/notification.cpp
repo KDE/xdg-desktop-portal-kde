@@ -116,7 +116,7 @@ void NotificationPortal::AddNotification(const QString &app_id, const QString &i
         }
     };
 
-    if (notification.contains(QStringLiteral("default-action")) && notification.contains(QStringLiteral("default-action-target"))) {
+    if (notification.contains(QStringLiteral("default-action"))) {
         KNotificationAction *action = notify->addDefaultAction(notification.value(QStringLiteral("default-action")).toString());
 
         connect(action, &KNotificationAction::activated, this, [actionInvoked, notification] {
