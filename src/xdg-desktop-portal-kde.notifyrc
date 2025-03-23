@@ -373,6 +373,7 @@ Urgency=High
 [Event/inputcapturestarted]
 Name=Input Capture Started
 Name[ar]=بدأ التقاط الإدخال
+Name[bg]=Стартирано улавяне на входни данни
 Name[ca]=S'ha iniciat la captura de l'entrada
 Name[ca@valencia]=S'ha iniciat la captura de l'entrada
 Name[es]=Captura de entrada iniciada
@@ -388,6 +389,7 @@ Name[uk]=Розпочато захоплення введення
 Name[zh_CN]=输入捕获已开始
 Comment=Input is now being managed by an application
 Comment[ar]=المدخلات تدار الآن بواسطة تطبيق
+Comment[bg]=Входът вече се управлява от приложение
 Comment[ca]=Ara l'entrada és gestionada per una aplicació
 Comment[ca@valencia]=Ara l'entrada és gestionada per una aplicació
 Comment[es]=La entrada está siendo gestionada por una aplicación
