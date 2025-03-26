@@ -24,11 +24,13 @@ public:
     explicit AppChooserPortal(QObject *parent);
 
 public Q_SLOTS:
-    uint ChooseApplication(const QDBusObjectPath &handle,
+    void ChooseApplication(const QDBusObjectPath &handle,
                            const QString &app_id,
                            const QString &parent_window,
                            const QStringList &choices,
                            const QVariantMap &options,
+                           const QDBusMessage &message,
+                           uint &reponse,
                            QVariantMap &results);
 
     uint
