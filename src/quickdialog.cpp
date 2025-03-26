@@ -60,9 +60,15 @@ bool QuickDialog::exec()
 void QuickDialog::reject()
 {
     m_execLoop.exit(1);
+    Q_EMIT rejected();
+    Q_EMIT finished(Result::Rejected);
+    deleteLater();
 }
 
 void QuickDialog::accept()
 {
     m_execLoop.quit();
+    Q_EMIT accepted();
+    Q_EMIT finished(Result::Accepted);
+    deleteLater();
 }

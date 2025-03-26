@@ -18,6 +18,11 @@ public:
     QuickDialog(QObject *parent = nullptr);
     ~QuickDialog() override;
 
+    enum class Result : unsigned {
+        Accepted = 0,
+        Rejected = 1,
+    };
+
     QWindow *windowHandle() const
     {
         return m_theDialog;
@@ -29,6 +34,11 @@ public:
 public Q_SLOTS:
     void reject();
     virtual void accept();
+
+Q_SIGNALS:
+    void finished(Result result);
+    void accepted();
+    void rejected();
 
 protected:
     QWindow *m_theDialog = nullptr;
