@@ -5,6 +5,7 @@
 
 #include <optional>
 
+#include <QDBusConnection>
 #include <QFile>
 #include <QGuiApplication>
 #include <QUrl>
@@ -93,13 +94,15 @@ static QByteArray iconFromName(const QString &name)
     return iconFile.readAll();
 }
 
-uint DynamicLauncherPortal::PrepareInstall(const QDBusObjectPath &handle,
+void DynamicLauncherPortal::PrepareInstall(const QDBusObjectPath &handle,
                                            const QString &app_id,
                                            const QString &parent_window,
                                            const QString &name,
                                            const QDBusVariant &iconVariant,
                                            const QVariantMap &options,
-                                           QVariantMap &results)
+                                           const QDBusMessage &message,
+                                           [[maybe_unused]] uint &replyResponse,
+                                           [[maybe_unused]] QVariantMap &replyResults)
 {
     qCDebug(XdgDesktopPortalKdeDynamicLauncher) << "PrepareInstall called with parameters:";
     qCDebug(XdgDesktopPortalKdeDynamicLauncher) << "    handle: " << handle.path();
@@ -117,31 +120,30 @@ uint DynamicLauncherPortal::PrepareInstall(const QDBusObjectPath &handle,
 
     static const QString nameKey = QStringLiteral("name");
     static const QString iconKey = QStringLiteral("icon");
-    results[nameKey] = name;
-    results[iconKey] = QVariant::fromValue(iconVariant);
 
     const auto icon = extractIcon(iconVariant);
 
-    DynamicLauncherDialog dialog(typeToTitle(launcherType), icon, name, optionalTarget ? QUrl(optionalTarget.value()) : QUrl());
-    dialog.windowHandle()->setModality(modal ? Qt::WindowModal : Qt::NonModal);
-    Utils::setParentWindow(dialog.windowHandle(), parent_window);
-    Request::makeClosableDialogRequest(handle, &dialog);
+    auto dialog = new DynamicLauncherDialog(typeToTitle(launcherType), icon, name, optionalTarget ? QUrl(optionalTarget.value()) : QUrl());
+    dialog->windowHandle()->setModality(modal ? Qt::WindowModal : Qt::NonModal);
+    Utils::setParentWindow(dialog->windowHandle(), parent_window);
+    Request::makeClosableDialogRequest(handle, dialog);
 
-    const bool result = dialog.exec();
-
-    if (editableName) {
-        results[nameKey] = dialog.m_name;
-    }
-
-    if (editableIcon && dialog.m_icon != icon && dialog.m_icon.type() == QVariant::String) {
-        const auto data = iconFromName(dialog.m_icon.toString());
-        if (!data.isEmpty()) {
-            const PortalIcon portalIcon{QStringLiteral("bytes"), QDBusVariant(data)};
-            results[iconKey] = QVariant::fromValue(QDBusVariant(QVariant::fromValue(portalIcon)));
+    delayReply(message, dialog, this, [dialog, editableName, editableIcon, icon](QuickDialog::Result result) {
+        QVariantMap results;
+        if (result == QuickDialog::Result::Accepted) {
+            if (editableName) {
+                results[nameKey] = dialog->m_name;
+            }
+            if (editableIcon && dialog->m_icon != icon && dialog->m_icon.type() == QVariant::String) {
+                const auto data = iconFromName(dialog->m_icon.toString());
+                if (!data.isEmpty()) {
+                    const PortalIcon portalIcon{QStringLiteral("bytes"), QDBusVariant(data)};
+                    results[iconKey] = QVariant::fromValue(QDBusVariant(QVariant::fromValue(portalIcon)));
+                }
+            }
         }
-    }
-
-    return result ? 0 : 1;
+        return QVariantList{qToUnderlying(result), results};
+    });
 }
 
 uint DynamicLauncherPortal::RequestInstallToken(const QString &app_id, const QVariantMap &options)

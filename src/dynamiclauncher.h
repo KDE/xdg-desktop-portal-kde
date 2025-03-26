@@ -6,6 +6,8 @@
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
+class QDBusMessage;
+
 class DynamicLauncherPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
@@ -26,12 +28,14 @@ public:
     explicit DynamicLauncherPortal(QObject *parent = nullptr);
 
 public Q_SLOTS:
-    uint PrepareInstall(const QDBusObjectPath &handle,
+    void PrepareInstall(const QDBusObjectPath &handle,
                         const QString &app_id,
                         const QString &parent_window,
                         const QString &name,
                         const QDBusVariant &icon_v,
                         const QVariantMap &options,
-                        QVariantMap &results);
+                        const QDBusMessage &message,
+                        uint &replyResponse,
+                        QVariantMap &replyResults);
     uint RequestInstallToken(const QString &app_id, const QVariantMap &options);
 };
