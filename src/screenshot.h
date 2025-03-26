@@ -12,6 +12,8 @@
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
+class QDBusMessage;
+
 class ScreenshotPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
@@ -33,7 +35,13 @@ public:
     }
 
 public Q_SLOTS:
-    uint Screenshot(const QDBusObjectPath &handle, const QString &app_id, const QString &parent_window, const QVariantMap &options, QVariantMap &results);
+    void Screenshot(const QDBusObjectPath &handle,
+                    const QString &app_id,
+                    const QString &parent_window,
+                    const QVariantMap &options,
+                    const QDBusMessage &message,
+                    uint &replyResponse,
+                    QVariantMap &replyResults);
 
     uint PickColor(const QDBusObjectPath &handle, const QString &app_id, const QString &parent_window, const QVariantMap &options, QVariantMap &results);
 };
