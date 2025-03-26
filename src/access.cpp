@@ -13,6 +13,7 @@
 #include "request.h"
 #include "utils.h"
 
+#include <QDBusConnection>
 #include <QWindow>
 
 using namespace Qt::StringLiterals;
@@ -22,14 +23,16 @@ AccessPortal::AccessPortal(QObject *parent)
 {
 }
 
-uint AccessPortal::AccessDialog(const QDBusObjectPath &handle,
+void AccessPortal::AccessDialog(const QDBusObjectPath &handle,
                                 const QString &app_id,
                                 const QString &parent_window,
                                 const QString &title,
                                 const QString &subtitle,
                                 const QString &body,
                                 const QVariantMap &options,
-                                QVariantMap &results)
+                                const QDBusMessage &message,
+                                [[maybe_unused]] uint &response,
+                                [[maybe_unused]] QVariantMap &results)
 {
     qCDebug(XdgDesktopPortalKdeAccess) << "AccessDialog called with parameters:";
     qCDebug(XdgDesktopPortalKdeAccess) << "    handle: " << handle.path();
@@ -65,11 +68,12 @@ uint AccessPortal::AccessDialog(const QDBusObjectPath &handle,
     Utils::setParentWindow(accessDialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequest(handle, accessDialog);
     accessDialog->windowHandle()->setModality(options.value(QStringLiteral("modal"), true).toBool() ? Qt::WindowModal : Qt::NonModal);
+    message.setDelayedReply(true);
 
-    auto granted = accessDialog->exec();
-    accessDialog->deleteLater();
-    auto choices = accessDialog->selectedChoices();
-    results.insert(u"choices"_s, QVariant::fromValue(choices));
-
-    return granted ? 0 : 1;
+    auto granted = connect(accessDialog, &QuickDialog::finished, this, [message, accessDialog](QuickDialog::Result result) {
+        auto choices = accessDialog->selectedChoices();
+        QVariantMap results{{u"choices"_s, QVariant::fromValue(choices)}};
+        const auto reply = message.createReply({qToUnderlying(result), results});
+        QDBusConnection::sessionBus().send(reply);
+    });
 }
