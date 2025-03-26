@@ -70,7 +70,7 @@ Kirigami.ApplicationWindow {
             selectMultiple: callback.selectMultiple
             selectExisting: callback.selectExisting
             nameFilters: callback.nameFilters
-            mimeTypeFilters: filterAction.checked ? callback.mimeTypeFilters : undefined
+            mimeTypeFilters: callback.mimeTypeFilters
             currentFile: callback.currentFile
             acceptLabel: callback.acceptLabel
             selectFolder: callback.selectFolder

@@ -152,7 +152,7 @@ Kirigami.ScrollablePage {
     DirModel {
         id: dirModel
         showDotFiles: root.showHiddenFiles
-        mimeFilters: root.mimeTypeFilters
+        mimeFilters: filterAction.checked ? root.mimeTypeFilters : undefined
         onLastErrorChanged: errorMessage.visible = true
         onFolderChanged: errorMessage.visible = false
     }
