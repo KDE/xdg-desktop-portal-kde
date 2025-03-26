@@ -90,6 +90,15 @@ PWD.SystemDialog {
                         grid.currentIndex = 0;
                     }
                 }
+
+                Connections {
+                    target: AppChooserData
+                    function onFileDialogFinished(text) {
+                        if (text !== "") {
+                            searchField.editText = text
+                        }
+                    }
+                }
                 onAccepted: acceptResult()
             }
 
@@ -110,10 +119,7 @@ PWD.SystemDialog {
                 icon.name: "document-open-symbolic"
                 text: i18nc("@action:button", "Choose Other…")
                 onClicked: {
-                    const text = AppChooserData.openFileDialog()
-                    if (text !== "") {
-                        searchField.editText = text
-                    }
+                    AppChooserData.openFileDialog(root)
                 }
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.visible: Kirigami.Settings.tabletMode ? pressed : hovered

@@ -25,12 +25,14 @@ AppChooserPortal::AppChooserPortal(QObject *parent)
 {
 }
 
-uint AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
+void AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
                                          const QString &app_id,
                                          const QString &parent_window,
                                          const QStringList &choices,
                                          const QVariantMap &options,
-                                         QVariantMap &results)
+                                         const QDBusMessage &message,
+                                         [[maybe_unused]] uint &replyResponse,
+                                         [[maybe_unused]] QVariantMap &replyResults)
 {
     qCDebug(XdgDesktopPortalKdeAppChooser) << "ChooseApplication called with parameters:";
     qCDebug(XdgDesktopPortalKdeAppChooser) << "    handle: " << handle.path();
@@ -54,17 +56,14 @@ uint AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
     Utils::setParentWindow(appDialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequest(handle, appDialog);
 
-    int result = appDialog->exec();
-
-    if (result) {
-        results.insert(QStringLiteral("choice"), appDialog->selectedApplication());
-        results.insert(QStringLiteral("activation_token"), appDialog->activationToken());
-    }
-
-    m_appChooserDialogs.remove(handle.path());
-    appDialog->deleteLater();
-
-    return !result;
+    delayReply(message, appDialog, this, [this, appDialog, handle](QuickDialog::Result result) {
+        QVariantMap results;
+        if (result == QuickDialog::Result::Accepted) {
+            results = {{QStringLiteral("choice"), appDialog->selectedApplication()}, {QStringLiteral("activation_token"), appDialog->activationToken()}};
+        }
+        m_appChooserDialogs.remove(handle.path());
+        return QVariantList{qToUnderlying(result), results};
+    });
 }
 
 void AppChooserPortal::UpdateChoices(const QDBusObjectPath &handle, const QStringList &choices)
@@ -82,7 +81,7 @@ uint AppChooserPortal::ChooseApplicationPrivate(const QString &parent_window,
                                                 const QStringList &urls,
                                                 const QVariantMap &options,
                                                 const QDBusMessage &msg,
-                                                QVariantMap &results)
+                                                [[maybe_unused]] QVariantMap &replyResults)
 {
     qCDebug(XdgDesktopPortalKdeAppChooser) << "ChooseApplicationPrivate called with parameters:";
     qCDebug(XdgDesktopPortalKdeAppChooser) << "    parent_window: " << parent_window;
@@ -95,27 +94,31 @@ uint AppChooserPortal::ChooseApplicationPrivate(const QString &parent_window,
 
     const QString itemName = urls.size() == 1 ? urls.at(0) : i18nc("count of files to open", "%1 files", urls.size());
 
-    AppChooserDialog appDialog({},
-                               options.value(QStringLiteral("last_choice")).toString(),
-                               itemName,
-                               options.value(QStringLiteral("content_type")).toString(),
-                               false);
-    Utils::setParentWindow(appDialog.windowHandle(), parent_window);
+    auto appDialog = new AppChooserDialog({},
+                                          options.value(QStringLiteral("last_choice")).toString(),
+                                          itemName,
+                                          options.value(QStringLiteral("content_type")).toString(),
+                                          false);
+    Utils::setParentWindow(appDialog->windowHandle(), parent_window);
+    msg.setDelayedReply(true);
 
-    appDialog.m_appChooserData->setHistory(options.value("history"_L1).toStringList());
-    appDialog.m_appChooserData->setShellAccess(KAuthorized::authorize(KAuthorized::SHELL_ACCESS));
+    appDialog->m_appChooserData->setHistory(options.value("history"_L1).toStringList());
+    appDialog->m_appChooserData->setShellAccess(KAuthorized::authorize(KAuthorized::SHELL_ACCESS));
 
     QDBusServiceWatcher watcher(msg.service(), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForUnregistration);
-    connect(&watcher, &QDBusServiceWatcher::serviceUnregistered, &appDialog, [&appDialog] {
-        appDialog.reject();
+    connect(&watcher, &QDBusServiceWatcher::serviceUnregistered, appDialog, [appDialog] {
+        appDialog->reject();
     });
 
-    const bool result = appDialog.exec();
-    if (result) {
-        results.insert(QStringLiteral("choice"), appDialog.selectedApplication());
-        results.insert(QStringLiteral("remember"), appDialog.m_appChooserData->m_remember);
-        results.insert(QStringLiteral("openInTerminal"), appDialog.m_appChooserData->m_openInTerminal);
-        results.insert(QStringLiteral("lingerTerminal"), appDialog.m_appChooserData->m_lingerTerminal);
-    }
-    return result ? 0 : 1;
+    delayReply(msg, appDialog, this, [appDialog](QuickDialog::Result result) {
+        QVariantMap results;
+        if (result == QuickDialog::Result::Accepted) {
+            results.insert(QStringLiteral("choice"), appDialog->selectedApplication());
+            results.insert(QStringLiteral("remember"), appDialog->m_appChooserData->m_remember);
+            results.insert(QStringLiteral("openInTerminal"), appDialog->m_appChooserData->m_openInTerminal);
+            results.insert(QStringLiteral("lingerTerminal"), appDialog->m_appChooserData->m_lingerTerminal);
+        }
+        return QVariantList{qToUnderlying(result), results};
+    });
+    return 0;
 }

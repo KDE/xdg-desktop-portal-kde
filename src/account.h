@@ -10,6 +10,7 @@
 #define XDG_DESKTOP_PORTAL_KDE_ACCOUNT_H
 
 #include <QDBusAbstractAdaptor>
+#include <QDBusMessage>
 #include <QDBusObjectPath>
 
 class AccountPortal : public QDBusAbstractAdaptor
@@ -20,11 +21,13 @@ public:
     explicit AccountPortal(QObject *parent);
 
 public Q_SLOTS:
-    uint GetUserInformation(const QDBusObjectPath &handle, //
+    void GetUserInformation(const QDBusObjectPath &handle, //
                             const QString &app_id,
                             const QString &parent_window,
                             const QVariantMap &options,
-                            QVariantMap &results);
+                            const QDBusMessage &message,
+                            uint &replyResponse,
+                            QVariantMap &replyResults);
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_ACCOUNT_H

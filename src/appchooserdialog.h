@@ -26,6 +26,7 @@
 #include <KFileWidget>
 #include <KProcess>
 #include <QUrl>
+#include <QWindow>
 
 class ApplicationItem
 {
@@ -149,17 +150,27 @@ public:
     Q_SIGNAL void applicationSelected(const QString &desktopFile, bool remember = false);
     Q_SIGNAL void openDiscover();
 
+    Q_SIGNAL void fileDialogFinished(const QString &selectedFile);
+
 public Q_SLOTS:
-    QString openFileDialog()
+    void openFileDialog(QWindow *parent = nullptr)
     {
-        FileDialog fileDialog(nullptr);
-        fileDialog.m_fileWidget->setMode(KFile::Mode::File | KFile::Mode::ExistingOnly);
-        fileDialog.m_fileWidget->setSupportedSchemes({QStringLiteral("file")});
-        if (fileDialog.exec() != QDialog::Accepted) {
-            return {};
-        }
-        const auto urls = fileDialog.m_fileWidget->selectedUrls();
-        return urls.at(0).toLocalFile();
+        auto fileDialog = new FileDialog;
+        fileDialog->winId(); // so it creates windowHandle
+        fileDialog->windowHandle()->setTransientParent(parent);
+        fileDialog->setWindowModality(Qt::WindowModal);
+        fileDialog->m_fileWidget->setMode(KFile::Mode::File | KFile::Mode::ExistingOnly);
+        fileDialog->m_fileWidget->setSupportedSchemes({QStringLiteral("file")});
+        connect(fileDialog, &QDialog::finished, this, [this, fileDialog](int result) {
+            fileDialog->deleteLater();
+            if (result != QDialog::Accepted) {
+                Q_EMIT fileDialogFinished({});
+                return;
+            }
+            const auto urls = fileDialog->m_fileWidget->selectedUrls();
+            Q_EMIT fileDialogFinished(urls.at(0).toLocalFile());
+        });
+        fileDialog->open();
     }
 
 private:

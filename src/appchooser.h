@@ -24,15 +24,20 @@ public:
     explicit AppChooserPortal(QObject *parent);
 
 public Q_SLOTS:
-    uint ChooseApplication(const QDBusObjectPath &handle,
+    void ChooseApplication(const QDBusObjectPath &handle,
                            const QString &app_id,
                            const QString &parent_window,
                            const QStringList &choices,
                            const QVariantMap &options,
-                           QVariantMap &results);
+                           const QDBusMessage &message,
+                           uint &replyReponse,
+                           QVariantMap &replyResults);
 
-    uint
-    ChooseApplicationPrivate(const QString &parent_window, const QStringList &urls, const QVariantMap &options, const QDBusMessage &msg, QVariantMap &results);
+    uint ChooseApplicationPrivate(const QString &parent_window,
+                                  const QStringList &urls,
+                                  const QVariantMap &options,
+                                  const QDBusMessage &msg,
+                                  QVariantMap &replyResults);
     void UpdateChoices(const QDBusObjectPath &handle, const QStringList &choices);
 
 private:
