@@ -12,6 +12,8 @@
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
+class QDBusMessage;
+
 class AccessPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
@@ -20,14 +22,16 @@ public:
     explicit AccessPortal(QObject *parent);
 
 public Q_SLOTS:
-    uint AccessDialog(const QDBusObjectPath &handle,
+    void AccessDialog(const QDBusObjectPath &handle,
                       const QString &app_id,
                       const QString &parent_window,
                       const QString &title,
                       const QString &subtitle,
                       const QString &body,
                       const QVariantMap &options,
-                      QVariantMap &results);
+                      const QDBusMessage &message,
+                      uint &replyResponse,
+                      QVariantMap &replyResults);
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_ACCESS_H
