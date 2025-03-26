@@ -12,6 +12,8 @@
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
+class QDBusMessage;
+
 class ScreenCastPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
@@ -72,15 +74,14 @@ public Q_SLOTS:
                        const QVariantMap &options,
                        QVariantMap &results);
 
-    uint Start(const QDBusObjectPath &handle,
+    void Start(const QDBusObjectPath &handle,
                const QDBusObjectPath &session_handle,
                const QString &app_id,
                const QString &parent_window,
                const QVariantMap &options,
-               QVariantMap &results);
-
-private:
-    bool inhibitionsEnabled() const;
+               const QDBusMessage &message,
+               uint &replyResponse,
+               QVariantMap &replyResults);
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SCREENCAST_H

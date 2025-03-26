@@ -280,25 +280,23 @@ bool ScreenChooserDialog::allowRestore() const
 
 void ScreenChooserDialog::accept()
 {
-    bool valid = true;
-
     for (const auto &output : selectedOutputs()) {
         if (output.outputType() == Output::OutputType::Region) {
-            QScopedPointer<SelectionEditor, QScopedPointerDeleteLater> selectionEditor(new SelectionEditor(this));
-
-            valid = selectionEditor->exec();
-            setRegion(selectionEditor->rect());
-
-            break;
+            auto selectionEditor = new SelectionEditor(this);
+            connect(selectionEditor, &SelectionEditor::finished, this, [this, selectionEditor](QuickDialog::Result result) {
+                selectionEditor->deleteLater();
+                if (result == QuickDialog::Result::Accepted) {
+                    setRegion(selectionEditor->rect());
+                    QuickDialog::accept();
+                } else {
+                    // if we selected rectangular region, but didn't actually choose a region, start over
+                    QTimer::singleShot(0, m_theDialog, SLOT(present()));
+                }
+            });
+            return;
         }
     }
-
-    if (!valid) {
-        // if we selected rectangular region, but didn't actually choose a region, start over
-        QTimer::singleShot(0, m_theDialog, SLOT(present()));
-    } else {
-        QuickDialog::accept();
-    }
+    QuickDialog::accept();
 }
 
 #include "screenchooserdialog.moc"

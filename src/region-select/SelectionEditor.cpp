@@ -234,16 +234,11 @@ SelectionEditor::~SelectionEditor() noexcept
     delete m_engine;
 }
 
-bool SelectionEditor::exec()
-{
-    return m_execLoop.exec() == 0;
-}
-
 void SelectionEditor::accept()
 {
-    m_execLoop.quit();
+    Q_EMIT finished(QuickDialog::Result::Accepted);
 }
 void SelectionEditor::reject()
 {
-    m_execLoop.exit(1);
+    Q_EMIT finished(QuickDialog::Result::Rejected);
 }
