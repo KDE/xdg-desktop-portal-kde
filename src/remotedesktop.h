@@ -56,11 +56,13 @@ public Q_SLOTS:
                        const QVariantMap &options,
                        QVariantMap &results);
 
-    uint Start(const QDBusObjectPath &handle,
+    void Start(const QDBusObjectPath &handle,
                const QDBusObjectPath &session_handle,
                const QString &app_id,
                const QString &parent_window,
                const QVariantMap &options,
+               const QDBusMessage &message,
+               uint &response,
                QVariantMap &results);
 
     void NotifyPointerMotion(const QDBusObjectPath &session_handle, const QVariantMap &options, double dx, double dy);
