@@ -10,16 +10,20 @@
 #include "userinfodialog.h"
 #include "utils.h"
 
+#include <QDBusConnection>
+
 AccountPortal::AccountPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
 {
 }
 
-uint AccountPortal::GetUserInformation(const QDBusObjectPath &handle,
+void AccountPortal::GetUserInformation(const QDBusObjectPath &handle,
                                        const QString &app_id,
                                        const QString &parent_window,
                                        const QVariantMap &options,
-                                       QVariantMap &results)
+                                       const QDBusMessage &message,
+                                       [[maybe_unused]] uint &response,
+                                       [[maybe_unused]] QVariantMap &results)
 {
     qCDebug(XdgDesktopPortalKdeAccount) << "GetUserInformation called with parameters:";
     qCDebug(XdgDesktopPortalKdeAccount) << "    handle: " << handle.path();
@@ -35,17 +39,17 @@ uint AccountPortal::GetUserInformation(const QDBusObjectPath &handle,
 
     UserInfoDialog *userInfoDialog = new UserInfoDialog(reason);
     Utils::setParentWindow(userInfoDialog->windowHandle(), parent_window);
+    message.setDelayedReply(true);
 
-    int result = userInfoDialog->exec();
-
-    if (result) {
-        results.insert(QStringLiteral("id"), userInfoDialog->id());
-        results.insert(QStringLiteral("name"), userInfoDialog->name());
-        const QString image = userInfoDialog->image();
-        results.insert(QStringLiteral("image"), image.isEmpty() ? QStringLiteral("file://") : image);
-    }
-
-    userInfoDialog->deleteLater();
-
-    return !result;
+    connect(userInfoDialog, &QuickDialog::finished, this, [message, userInfoDialog](QuickDialog::Result result) {
+        QVariantMap results;
+        if (result == QuickDialog::Result::Accepted) {
+            results.insert(QStringLiteral("id"), userInfoDialog->id());
+            results.insert(QStringLiteral("name"), userInfoDialog->name());
+            const QString image = userInfoDialog->image();
+            results.insert(QStringLiteral("image"), image.isEmpty() ? QStringLiteral("file://") : image);
+        }
+        const auto reply = message.createReply({qToUnderlying(result), results});
+        QDBusConnection::sessionBus().send(reply);
+    });
 }
