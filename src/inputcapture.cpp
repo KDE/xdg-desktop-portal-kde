@@ -73,46 +73,14 @@ InputCapturePortal::InputCapturePortal(QObject *parent)
     qDBusRegisterMetaType<QList<QPair<QPoint, QPoint>>>();
 }
 
-uint InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
-                                       const QDBusObjectPath &session_handle,
-                                       const QString &app_id,
-                                       const QString &parent_window,
-                                       const QVariantMap &options,
-                                       QVariantMap &results)
+bool InputCapturePortal::setupInputCaptureSession(InputCaptureSession *session, Capabilities capabilities)
 {
-    qCDebug(XdgDesktopPortalKdeInputCapture) << "CreateSession called with parameters:";
-    qCDebug(XdgDesktopPortalKdeInputCapture) << "    handle: " << handle.path();
-    qCDebug(XdgDesktopPortalKdeInputCapture) << "    session_handle: " << session_handle.path();
-    qCDebug(XdgDesktopPortalKdeInputCapture) << "    app_id: " << app_id;
-    qCDebug(XdgDesktopPortalKdeInputCapture) << "    parent_window: " << parent_window;
-    qCDebug(XdgDesktopPortalKdeInputCapture) << "    options: " << options;
-
-    auto *session = static_cast<InputCaptureSession *>(Session::createSession(this, Session::InputCapture, app_id, session_handle.path()));
-
-    if (!session) {
-        return 2;
-    }
-
-    const auto requestedCapabilities = options.value(u"capabilities"_s).toUInt();
-    if (requestedCapabilities == 0) {
-        qCWarning(XdgDesktopPortalKdeInputCapture) << "No capabilities requested";
-        return 2;
-    }
-
-    InputCaptureDialog dialog(app_id, Capabilities::fromInt(requestedCapabilities), this);
-    Utils::setParentWindow(dialog.windowHandle(), parent_window);
-    Request::makeClosableDialogRequestWithSession(handle, &dialog, session);
-
-    if (!dialog.exec()) {
-        return 1;
-    }
-
     auto msg = QDBusMessage::createMethodCall(kwinService(), kwinInputCapturePath(), kwinInputCaptureManagerInterface(), u"addInputCapture"_s);
-    msg << static_cast<int>(requestedCapabilities);
+    msg << capabilities.toInt();
     QDBusReply<QDBusObjectPath> reply = QDBusConnection::sessionBus().call(msg, QDBus::Block, kwinDBusTimeout);
     if (!reply.isValid()) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Failed to create KWin input capture:" << reply.error();
-        return 2;
+        return false;
     }
     session->connect(reply.value());
 
@@ -159,9 +127,55 @@ uint InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
 
         Q_EMIT Activated(QDBusObjectPath(session->handle()), {{u"activation_id"_s, activationId}, {u"cursor_position"_s, cursorPosition}});
     });
+    return true;
+}
 
-    results.insert(u"capabilities"_s, requestedCapabilities);
-    return 0;
+void InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
+                                       const QDBusObjectPath &session_handle,
+                                       const QString &app_id,
+                                       const QString &parent_window,
+                                       const QVariantMap &options,
+                                       const QDBusMessage &message,
+                                       uint &replyResponse,
+                                       [[maybe_unused]] QVariantMap &replyResults)
+{
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "CreateSession called with parameters:";
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    handle: " << handle.path();
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    session_handle: " << session_handle.path();
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    app_id: " << app_id;
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    parent_window: " << parent_window;
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    options: " << options;
+
+    auto *session = static_cast<InputCaptureSession *>(Session::createSession(this, Session::InputCapture, app_id, session_handle.path()));
+
+    if (!session) {
+        replyResponse = 2;
+        return;
+    }
+
+    const auto requestedCapabilities = Capabilities::fromInt(options.value(u"capabilities"_s).toUInt());
+    if (requestedCapabilities == Capability::None) {
+        qCWarning(XdgDesktopPortalKdeInputCapture) << "No capabilities requested";
+        replyResponse = 2;
+        return;
+    }
+
+    auto dialog = new InputCaptureDialog(app_id, (requestedCapabilities), this);
+    Utils::setParentWindow(dialog->windowHandle(), parent_window);
+    Request::makeClosableDialogRequestWithSession(handle, dialog, session);
+
+    delayReply(message, dialog, this, [this, session, requestedCapabilities](QuickDialog::Result result) {
+        uint response = qToUnderlying(result);
+        QVariantMap results;
+        if (result == QuickDialog::Result::Accepted) {
+            if (!setupInputCaptureSession(session, requestedCapabilities)) {
+                response = 2;
+            } else {
+                results.insert(u"capabilities"_s, static_cast<uint>(requestedCapabilities));
+            }
+        }
+        return QVariantList{response, results};
+    });
 }
 
 uint InputCapturePortal::GetZones(const QDBusObjectPath &handle,

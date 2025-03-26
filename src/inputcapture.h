@@ -11,6 +11,9 @@
 #include <QDBusObjectPath>
 #include <QDBusUnixFileDescriptor>
 
+class QDBusMessage;
+class InputCaptureSession;
+
 class InputCapturePortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
@@ -52,12 +55,14 @@ public:
     };
 
 public Q_SLOTS:
-    uint CreateSession(const QDBusObjectPath &handle,
+    void CreateSession(const QDBusObjectPath &handle,
                        const QDBusObjectPath &session_handle,
                        const QString &app_id,
                        const QString &parent_window,
                        const QVariantMap &options,
-                       QVariantMap &results);
+                       const QDBusMessage &message,
+                       uint &replyResponse,
+                       QVariantMap &replyResults);
     uint
     GetZones(const QDBusObjectPath &handle, const QDBusObjectPath &session_handle, const QString &app_id, const QVariantMap &options, QVariantMap &results);
     uint SetPointerBarriers(const QDBusObjectPath &handle,
@@ -81,6 +86,7 @@ Q_SIGNALS:
     void ZonesChanged(const QDBusObjectPath &session_handle, const QVariantMap &options);
 
 private:
+    bool setupInputCaptureSession(InputCaptureSession *session, InputCapturePortal::Capabilities capabilities);
     uint m_zoneId = 0;
 };
 Q_DECLARE_OPERATORS_FOR_FLAGS(InputCapturePortal::Capabilities)
