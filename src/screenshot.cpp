@@ -76,10 +76,12 @@ ScreenshotPortal::~ScreenshotPortal()
 {
 }
 
-uint ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
+void ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
                                   const QString &app_id,
                                   const QString &parent_window,
                                   const QVariantMap &options,
+                                  const QDBusMessage &message,
+                                  uint &response,
                                   QVariantMap &results)
 {
     qCDebug(XdgDesktopPortalKdeScreenshot) << "Screenshot called with parameters:";
@@ -96,33 +98,38 @@ uint ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
     screenshotDialog->windowHandle()->setModality(modal ? Qt::WindowModal : Qt::NonModal);
 
     const bool interactive = options.value(QStringLiteral("interactive"), false).toBool();
+
+    auto createReply = [](const QImage &screenshot) -> std::pair<uint, QVariantMap> {
+        if (screenshot.isNull()) {
+            return {2, {}};
+        }
+        const QString filename = QStringLiteral("%1/Screenshot_%2.png") //
+                                     .arg(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation),
+                                          QDateTime::currentDateTime().toString(QStringLiteral("yyyyMMdd_hhmmss")));
+        if (!screenshot.save(filename, "PNG")) {
+            return {2, {}};
+        }
+        return {0, {{QStringLiteral("uri"), QUrl::fromLocalFile(filename).toString(QUrl::FullyEncoded)}}};
+    };
+
     if (!interactive) {
+        qDebug() << "take non interactive";
         screenshotDialog->takeScreenshotNonInteractive();
-    } else {
-        screenshotDialog->exec();
-    }
-
-    const QImage screenshot = screenshotDialog->image();
-
-    if (screenshotDialog) {
+        std::tie(response, results) = createReply(screenshotDialog->image());
         screenshotDialog->deleteLater();
+        return;
     }
 
-    if (screenshot.isNull()) {
-        return 1;
-    }
-
-    const QString filename =
-        QStringLiteral("%1/Screenshot_%2.png") //
-            .arg(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation), QDateTime::currentDateTime().toString(QStringLiteral("yyyyMMdd_hhmmss")));
-
-    if (!screenshot.save(filename, "PNG")) {
-        return 1;
-    }
-
-    results.insert(QStringLiteral("uri"), QUrl::fromLocalFile(filename).toString(QUrl::FullyEncoded));
-
-    return 0;
+    message.setDelayedReply(true);
+    connect(screenshotDialog, &QuickDialog::finished, this, [message, screenshotDialog, createReply](QuickDialog::Result dialogResult) {
+        uint response = qToUnderlying(dialogResult);
+        QVariantMap results;
+        if (dialogResult == QuickDialog::Result::Accepted) {
+            std::tie(response, results) = createReply(screenshotDialog->image());
+        }
+        const auto reply = message.createReply({response, results});
+        QDBusConnection::sessionBus().send(reply);
+    });
 }
 
 uint ScreenshotPortal::PickColor(const QDBusObjectPath &handle,
