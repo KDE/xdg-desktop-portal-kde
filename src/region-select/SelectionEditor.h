@@ -5,6 +5,8 @@
 #include <QObject>
 #include <QQuickItem>
 
+#include "quickdialog.h"
+
 class QQuickView;
 
 class SelectionEditorPrivate;
@@ -29,12 +31,11 @@ public:
     Q_SCRIPTABLE void dragReset();
     Q_SCRIPTABLE void reject();
 
-    bool exec();
-
 Q_SIGNALS:
     void rectChanged();
     void emptyChanged();
     void isDraggingChanged();
+    void finished(QuickDialog::Result result);
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
@@ -48,5 +49,4 @@ private:
     SelectionEditorPrivate *d;
     QQmlEngine *m_engine;
     QList<QQuickView *> m_views;
-    QEventLoop m_execLoop;
 };
