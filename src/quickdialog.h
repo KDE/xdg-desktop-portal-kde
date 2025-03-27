@@ -27,7 +27,6 @@ public:
     {
         return m_theDialog;
     }
-    bool exec();
 
     void create(const QString &file, const QVariantMap &props);
 
@@ -42,5 +41,4 @@ Q_SIGNALS:
 
 protected:
     QWindow *m_theDialog = nullptr;
-    QEventLoop m_execLoop;
 };

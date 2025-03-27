@@ -48,18 +48,8 @@ void QuickDialog::create(const QString &file, const QVariantMap &props)
     QTimer::singleShot(0, m_theDialog, SLOT(present()));
 }
 
-bool QuickDialog::exec()
-{
-    if (!m_theDialog) {
-        qWarning() << "Failed to load dialog, cannot exec";
-        return false;
-    }
-    return m_execLoop.exec() == 0;
-}
-
 void QuickDialog::reject()
 {
-    m_execLoop.exit(1);
     Q_EMIT rejected();
     Q_EMIT finished(Result::Rejected);
     deleteLater();
@@ -67,7 +57,6 @@ void QuickDialog::reject()
 
 void QuickDialog::accept()
 {
-    m_execLoop.quit();
     Q_EMIT accepted();
     Q_EMIT finished(Result::Accepted);
     deleteLater();
