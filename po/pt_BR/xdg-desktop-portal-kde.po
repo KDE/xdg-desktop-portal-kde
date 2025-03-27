@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-22 00:43+0000\n"
+"POT-Creation-Date: 2025-03-27 00:43+0000\n"
 "PO-Revision-Date: 2025-02-03 08:16-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -403,7 +403,7 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Clique esquerdo e arrastar"
 
-#: src/remotedesktop.cpp:222
+#: src/remotedesktop.cpp:224
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -627,14 +627,14 @@ msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Finalizar"
 
-#: src/session.cpp:278
+#: src/session.cpp:289
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
 msgstr "Área de trabalho remota"
 
-#: src/session.cpp:294
+#: src/session.cpp:305
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -642,14 +642,14 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "Compartilhar conteúdos com %2"
 msgstr[1] "%1 fluxos de vídeo para %2"
 
-#: src/session.cpp:298
+#: src/session.cpp:309
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
 msgstr "Transmissão de tela"
 
-#: src/session.cpp:487
+#: src/session.cpp:498
 #, kde-format
 msgid ", "
 msgstr ", "
