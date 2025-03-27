@@ -23,6 +23,7 @@
 class KFileWidget;
 class QDialogButtonBox;
 class MobileFileDialog;
+class QDBusMessage;
 
 class FileDialog : public QDialog
 {
@@ -61,18 +62,22 @@ public:
     explicit FileChooserPortal(QObject *parent);
 
 public Q_SLOTS:
-    uint OpenFile(const QDBusObjectPath &handle,
+    void OpenFile(const QDBusObjectPath &handle,
                   const QString &app_id,
                   const QString &parent_window,
                   const QString &title,
                   const QVariantMap &options,
+                  const QDBusMessage &message,
+                  uint &response,
                   QVariantMap &results);
 
-    uint SaveFile(const QDBusObjectPath &handle,
+    void SaveFile(const QDBusObjectPath &handle,
                   const QString &app_id,
                   const QString &parent_window,
                   const QString &title,
                   const QVariantMap &options,
+                  const QDBusMessage &message,
+                  uint &response,
                   QVariantMap &results);
 
 private:

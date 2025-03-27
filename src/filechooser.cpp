@@ -289,11 +289,13 @@ static QUrl kioUrlFromSandboxPath(const QString &path, Entity entity)
     return url;
 };
 
-uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
+void FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
                                  const QString &app_id,
                                  const QString &parent_window,
                                  const QString &title,
                                  const QVariantMap &options,
+                                 const QDBusMessage &message,
+                                 uint &response,
                                  QVariantMap &results)
 {
     Q_UNUSED(app_id);
@@ -364,11 +366,11 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
             m_mobileFileDialog->setMimeTypeFilters(filters.first().mimePatterns());
         }
 
-        uint retCode = m_mobileFileDialog->exec();
+        response = m_mobileFileDialog->exec();
 
         results.insert(QStringLiteral("uris"), fuseRedirect(m_mobileFileDialog->results()));
 
-        return retCode;
+        return;
     }
 
     const QUrl translatedCurrentFolderUrl = kioUrlFromSandboxPath(currentFolder, Entity::Folder);
@@ -376,56 +378,63 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     // Use QFileDialog for most directory requests to utilize
     // plasma-integration's KDirSelectDialog
     if (directory && !options.contains(QStringLiteral("choices"))) {
-        QFileDialog dirDialog;
-        dirDialog.setWindowTitle(title);
-        dirDialog.setModal(modalDialog);
-        dirDialog.setFileMode(QFileDialog::Directory);
-        dirDialog.setOptions(QFileDialog::ShowDirsOnly);
+        auto dirDialog = new QFileDialog;
+        dirDialog->setWindowTitle(title);
+        dirDialog->setFileMode(QFileDialog::Directory);
+        dirDialog->setOptions(QFileDialog::ShowDirsOnly);
         if (!isKIOFuseAvailable()) {
-            dirDialog.setSupportedSchemes(QStringList{QStringLiteral("file")});
+            dirDialog->setSupportedSchemes(QStringList{QStringLiteral("file")});
         }
         if (!acceptLabel.isEmpty()) {
-            dirDialog.setLabelText(QFileDialog::Accept, acceptLabel);
+            dirDialog->setLabelText(QFileDialog::Accept, acceptLabel);
         }
         if (!translatedCurrentFolderUrl.isEmpty()) {
-            dirDialog.setDirectoryUrl(translatedCurrentFolderUrl);
+            dirDialog->setDirectoryUrl(translatedCurrentFolderUrl);
         }
 
-        dirDialog.winId(); // Trigger window creation
-        Utils::setParentWindow(&dirDialog, parent_window);
-        Request::makeClosableDialogRequest(handle, &dirDialog);
+        dirDialog->winId(); // Trigger window creation
+        Utils::setParentWindow(dirDialog, parent_window);
+        Request::makeClosableDialogRequest(handle, dirDialog);
+        dirDialog->setWindowModality(modalDialog ? Qt::WindowModal : Qt::NonModal);
+        message.setDelayedReply(true);
 
-        if (dirDialog.exec() != QDialog::Accepted) {
-            return 1;
-        }
-
-        const auto urls = dirDialog.selectedUrls();
-        if (urls.empty()) {
-            return 2;
-        }
-
-        results.insert(QStringLiteral("uris"), fuseRedirect(urls));
-        results.insert(QStringLiteral("writable"), true);
-
-        return 0;
+        connect(dirDialog, &QDialog::finished, this, [message, dirDialog](int result) {
+            dirDialog->deleteLater();
+            auto reply = message.createReply();
+            if (result == QDialog::Accepted) {
+                const auto urls = dirDialog->selectedUrls();
+                if (urls.empty()) {
+                    reply.setArguments({2});
+                } else {
+                    reply.setArguments({0, QVariantMap{{QStringLiteral("uris"), fuseRedirect(urls)}, {QStringLiteral("writable"), true}}});
+                }
+            } else {
+                reply.setArguments({1});
+            }
+            QDBusConnection::sessionBus().send(reply);
+        });
+        dirDialog->open();
+        return;
     }
 
     // for handling of options - choices
-    QScopedPointer<QWidget> optionsWidget;
+    QWidget *optionsWidget = nullptr;
     // to store IDs for choices along with corresponding comboboxes/checkboxes
     QMap<QString, QCheckBox *> checkboxes;
     QMap<QString, QComboBox *> comboboxes;
 
+    auto fileDialog = new FileDialog();
+    Utils::setParentWindow(fileDialog, parent_window);
+    Request::makeClosableDialogRequest(handle, fileDialog);
+    fileDialog->setWindowModality(modalDialog ? Qt::WindowModal : Qt::NonModal);
+    message.setDelayedReply(true);
+
     if (options.contains(QStringLiteral("choices"))) {
         OptionList optionList = qdbus_cast<OptionList>(options.value(QStringLiteral("choices")));
-        optionsWidget.reset(CreateChoiceControls(optionList, checkboxes, comboboxes));
+        optionsWidget = CreateChoiceControls(optionList, checkboxes, comboboxes);
     }
 
-    QScopedPointer<FileDialog, QScopedPointerDeleteLater> fileDialog(new FileDialog());
-    Utils::setParentWindow(fileDialog.data(), parent_window);
-    Request::makeClosableDialogRequest(handle, fileDialog.get());
     fileDialog->setWindowTitle(title);
-    fileDialog->setModal(modalDialog);
     KFile::Mode mode = directory ? KFile::Mode::Directory : multipleFiles ? KFile::Mode::Files : KFile::Mode::File;
     fileDialog->m_fileWidget->setMode(mode | KFile::Mode::ExistingOnly);
     if (!isKIOFuseAvailable()) {
@@ -440,38 +449,44 @@ uint FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     fileDialog->m_fileWidget->setFilters(filters, currentFilter);
 
     if (optionsWidget) {
-        fileDialog->m_fileWidget->setCustomWidget({}, optionsWidget.get());
+        fileDialog->m_fileWidget->setCustomWidget({}, optionsWidget);
+        optionsWidget->setParent(fileDialog);
     }
 
-    if (fileDialog->exec() == QDialog::Accepted) {
-        const auto urls = fileDialog->m_fileWidget->selectedUrls();
-        if (urls.isEmpty()) {
-            qCDebug(XdgDesktopPortalKdeFileChooser) << "Failed to open file: no local file selected";
-            return 2;
+    connect(fileDialog, &QDialog::finished, this, [message, fileDialog, optionsWidget, checkboxes, comboboxes](int dialogResult) {
+        fileDialog->deleteLater();
+        QVariantMap results;
+        uint response = 1;
+        if (dialogResult == QDialog::Accepted) {
+            response = 0;
+            const auto urls = fileDialog->m_fileWidget->selectedUrls();
+            if (urls.isEmpty()) {
+                qCDebug(XdgDesktopPortalKdeFileChooser) << "Failed to open file: no local file selected";
+                response = 2;
+            } else {
+                results.insert(QStringLiteral("uris"), fuseRedirect(urls));
+                results.insert(QStringLiteral("writable"), true);
+                if (optionsWidget) {
+                    QVariant choices = EvaluateSelectedChoices(checkboxes, comboboxes);
+                    results.insert(QStringLiteral("choices"), choices);
+                }
+                FilterList currentFilter = fileFilterToFilterList(fileDialog->m_fileWidget->currentFilter());
+                results.insert(QStringLiteral("current_filter"), QVariant::fromValue<FilterList>(currentFilter));
+            }
         }
-
-        results.insert(QStringLiteral("uris"), fuseRedirect(urls));
-        results.insert(QStringLiteral("writable"), true);
-
-        if (optionsWidget) {
-            QVariant choices = EvaluateSelectedChoices(checkboxes, comboboxes);
-            results.insert(QStringLiteral("choices"), choices);
-        }
-
-        FilterList currentFilter = fileFilterToFilterList(fileDialog->m_fileWidget->currentFilter());
-        results.insert(QStringLiteral("current_filter"), QVariant::fromValue<FilterList>(currentFilter));
-
-        return 0;
-    }
-
-    return 1;
+        auto reply = message.createReply({response, results});
+        QDBusConnection::sessionBus().send(reply);
+    });
+    fileDialog->open();
 }
 
-uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
+void FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
                                  const QString &app_id,
                                  const QString &parent_window,
                                  const QString &title,
                                  const QVariantMap &options,
+                                 const QDBusMessage &message,
+                                 uint &response,
                                  QVariantMap &results)
 {
     Q_UNUSED(app_id);
@@ -543,29 +558,31 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
             m_mobileFileDialog->setMimeTypeFilters(filters.first().mimePatterns());
         }
 
-        uint retCode = m_mobileFileDialog->exec();
+        response = m_mobileFileDialog->exec();
 
         results.insert(QStringLiteral("uris"), fuseRedirect(m_mobileFileDialog->results()));
 
-        return retCode;
+        return;
     }
 
     // for handling of options - choices
-    QScopedPointer<QWidget> optionsWidget;
+    QWidget *optionsWidget = nullptr;
     // to store IDs for choices along with corresponding comboboxes/checkboxes
     QMap<QString, QCheckBox *> checkboxes;
     QMap<QString, QComboBox *> comboboxes;
 
+    auto fileDialog = new FileDialog();
+    Utils::setParentWindow(fileDialog, parent_window);
+    Request::makeClosableDialogRequest(handle, fileDialog);
+    fileDialog->setWindowModality(modalDialog ? Qt::WindowModal : Qt::NonModal);
+    message.setDelayedReply(true);
+
     if (options.contains(QStringLiteral("choices"))) {
         OptionList optionList = qdbus_cast<OptionList>(options.value(QStringLiteral("choices")));
-        optionsWidget.reset(CreateChoiceControls(optionList, checkboxes, comboboxes));
+        optionsWidget = CreateChoiceControls(optionList, checkboxes, comboboxes);
     }
 
-    QScopedPointer<FileDialog, QScopedPointerDeleteLater> fileDialog(new FileDialog());
-    Utils::setParentWindow(fileDialog.data(), parent_window);
-    Request::makeClosableDialogRequest(handle, fileDialog.get());
     fileDialog->setWindowTitle(title);
-    fileDialog->setModal(modalDialog);
     fileDialog->m_fileWidget->setOperationMode(KFileWidget::Saving);
     fileDialog->m_fileWidget->setConfirmOverwrite(true);
 
@@ -605,25 +622,29 @@ uint FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     fileDialog->m_fileWidget->setFilters(filters, currentFilter);
 
     if (optionsWidget) {
-        fileDialog->m_fileWidget->setCustomWidget(optionsWidget.get());
+        fileDialog->m_fileWidget->setCustomWidget(optionsWidget);
+        optionsWidget->setParent(fileDialog);
     }
 
-    if (fileDialog->exec() == QDialog::Accepted) {
-        const auto urls = fileDialog->m_fileWidget->selectedUrls();
-        results.insert(QStringLiteral("uris"), fuseRedirect(urls));
-
-        if (optionsWidget) {
-            QVariant choices = EvaluateSelectedChoices(checkboxes, comboboxes);
-            results.insert(QStringLiteral("choices"), choices);
+    connect(fileDialog, &QDialog::finished, this, [message, fileDialog, optionsWidget, checkboxes, comboboxes](int dialogResult) {
+        QVariantMap results;
+        uint response = 1;
+        fileDialog->deleteLater();
+        if (dialogResult == QDialog::Accepted) {
+            const auto urls = fileDialog->m_fileWidget->selectedUrls();
+            results.insert(QStringLiteral("uris"), fuseRedirect(urls));
+            if (optionsWidget) {
+                QVariant choices = EvaluateSelectedChoices(checkboxes, comboboxes);
+                results.insert(QStringLiteral("choices"), choices);
+            }
+            FilterList currentFilter = fileFilterToFilterList(fileDialog->m_fileWidget->currentFilter());
+            results.insert(QStringLiteral("current_filter"), QVariant::fromValue<FilterList>(currentFilter));
+            response = 0;
         }
-
-        FilterList currentFilter = fileFilterToFilterList(fileDialog->m_fileWidget->currentFilter());
-        results.insert(QStringLiteral("current_filter"), QVariant::fromValue<FilterList>(currentFilter));
-
-        return 0;
-    }
-
-    return 1;
+        const auto reply = message.createReply({response, results});
+        QDBusConnection::sessionBus().send(reply);
+    });
+    fileDialog->open();
 }
 
 QWidget *FileChooserPortal::CreateChoiceControls(const OptionList &optionList, QMap<QString, QCheckBox *> &checkboxes, QMap<QString, QComboBox *> &comboboxes)
