@@ -12,6 +12,8 @@
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 
+class QDBusMessage;
+
 class EmailPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
@@ -20,7 +22,13 @@ public:
     explicit EmailPortal(QObject *parent);
 
 public Q_SLOTS:
-    uint ComposeEmail(const QDBusObjectPath &handle, const QString &app_id, const QString &window, const QVariantMap &options, QVariantMap &results);
+    void ComposeEmail(const QDBusObjectPath &handle,
+                      const QString &app_id,
+                      const QString &window,
+                      const QVariantMap &options,
+                      const QDBusMessage &message,
+                      uint &replyResponse,
+                      QVariantMap &replyResults);
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_EMAIL_H

@@ -7,8 +7,11 @@
  */
 
 #include "email.h"
+#include "dbushelpers.h"
 #include "email_debug.h"
 
+#include <QDBusConnection>
+#include <QDBusMessage>
 #include <QUrl>
 
 #include <KEMailClientLauncherJob>
@@ -18,10 +21,14 @@ EmailPortal::EmailPortal(QObject *parent)
 {
 }
 
-uint EmailPortal::ComposeEmail(const QDBusObjectPath &handle, const QString &app_id, const QString &window, const QVariantMap &options, QVariantMap &results)
+void EmailPortal::ComposeEmail(const QDBusObjectPath &handle,
+                               const QString &app_id,
+                               const QString &window,
+                               const QVariantMap &options,
+                               const QDBusMessage &message,
+                               [[maybe_unused]] uint &replyResponse,
+                               [[maybe_unused]] QVariantMap &replyResults)
 {
-    Q_UNUSED(results)
-
     qCDebug(XdgDesktopPortalKdeEmail) << "ComposeEmail called with parameters:";
     qCDebug(XdgDesktopPortalKdeEmail) << "    handle: " << handle.path();
     qCDebug(XdgDesktopPortalKdeEmail) << "    app_id: " << app_id;
@@ -31,19 +38,22 @@ uint EmailPortal::ComposeEmail(const QDBusObjectPath &handle, const QString &app
     const QStringList addresses = options.contains(QStringLiteral("address")) ? options.value(QStringLiteral("address")).toStringList()
                                                                               : options.value(QStringLiteral("addresses")).toStringList();
 
-    KEMailClientLauncherJob job;
-    job.setTo(addresses);
-    job.setCc(options.value(QStringLiteral("cc")).toStringList());
-    job.setBcc(options.value(QStringLiteral("bcc")).toStringList());
-    job.setSubject(options.value(QStringLiteral("subject")).toString());
-    job.setBody(options.value(QStringLiteral("body")).toString());
+    auto job = new KEMailClientLauncherJob;
+    job->setTo(addresses);
+    job->setCc(options.value(QStringLiteral("cc")).toStringList());
+    job->setBcc(options.value(QStringLiteral("bcc")).toStringList());
+    job->setSubject(options.value(QStringLiteral("subject")).toString());
+    job->setBody(options.value(QStringLiteral("body")).toString());
 
     const QStringList attachmentStrings = options.value(QStringLiteral("attachments")).toStringList();
     QList<QUrl> attachments;
     for (const QString &attachment : attachmentStrings) {
         attachments << QUrl(attachment);
     }
-    job.setAttachments(attachments);
+    job->setAttachments(attachments);
 
-    return job.exec();
+    job->start();
+    delayReply(message, job, this, [](KJob *job) {
+        return QVariantList{job->error() ? 2u : 0u, QVariantMap{}};
+    });
 }
