@@ -53,7 +53,7 @@ uint GlobalShortcutsPortal::CreateSession(const QDBusObjectPath &handle,
 
     auto session = qobject_cast<GlobalShortcutsSession *>(Session::createSession(this, Session::GlobalShortcuts, app_id, session_handle.path()));
     if (!session) {
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     session->loadActions();
@@ -70,7 +70,7 @@ uint GlobalShortcutsPortal::CreateSession(const QDBusObjectPath &handle,
     });
 
     Q_UNUSED(results);
-    return 0;
+    return PortalResponse::Success;
 }
 
 uint GlobalShortcutsPortal::ListShortcuts(const QDBusObjectPath &handle, const QDBusObjectPath &session_handle, QVariantMap &results)
@@ -81,12 +81,12 @@ uint GlobalShortcutsPortal::ListShortcuts(const QDBusObjectPath &handle, const Q
 
     auto session = qobject_cast<GlobalShortcutsSession *>(Session::getSession(session_handle.path()));
     if (!session) {
-        return 2;
+        return PortalResponse::OtherError;
     }
     results = {
         {u"shortcuts"_s, session->shortcutDescriptionsVariant()},
     };
-    return 0;
+    return PortalResponse::Success;
 }
 
 uint GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
@@ -105,7 +105,7 @@ uint GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
 
     auto session = qobject_cast<GlobalShortcutsSession *>(Session::getSession(session_handle.path()));
     if (!session) {
-        return 2;
+        return PortalResponse::OtherError;
     }
     session->setActions(shortcuts);
     QDesktopServices::openUrl(QUrl(QStringLiteral("systemsettings://kcm_keys/") + session->componentName()));
@@ -113,5 +113,5 @@ uint GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
     results = {
         {u"shortcuts"_s, session->shortcutDescriptionsVariant()},
     };
-    return 0;
+    return PortalResponse::Success;
 }

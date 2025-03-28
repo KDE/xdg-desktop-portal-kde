@@ -142,7 +142,7 @@ void DynamicLauncherPortal::PrepareInstall(const QDBusObjectPath &handle,
                 }
             }
         }
-        return QVariantList{qToUnderlying(result), results};
+        return QVariantList{PortalResponse::fromDialogResult(result), results};
     });
 }
 

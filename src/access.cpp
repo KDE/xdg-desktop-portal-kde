@@ -72,6 +72,6 @@ void AccessPortal::AccessDialog(const QDBusObjectPath &handle,
     delayReply(message, accessDialog, this, [accessDialog](DialogResult result) {
         auto choices = accessDialog->selectedChoices();
         QVariantMap results{{u"choices"_s, QVariant::fromValue(choices)}};
-        return QVariantList{qToUnderlying(result), results};
+        return QVariantList{PortalResponse::fromDialogResult(result), results};
     });
 }

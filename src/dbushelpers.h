@@ -14,8 +14,29 @@
 #include <QDBusArgument>
 #include <QDBusConnection>
 #include <QDBusMessage>
+#include <QDialog>
 #include <QMap>
 #include <QString>
+
+#include "utils.h"
+
+// not an enum class so it can convert to uint implicitelly when returning from a dbus handling slot
+namespace PortalResponse
+{
+enum Response : unsigned {
+    Success = 0,
+    Cancelled = 1,
+    OtherError = 2
+};
+constexpr inline Response fromDialogResult(DialogResult r)
+{
+    return r == DialogResult::Accepted ? Success : Cancelled;
+}
+constexpr inline Response fromDialogCode(QDialog::DialogCode c)
+{
+    return c == QDialog::Accepted ? Success : Cancelled;
+}
+}
 
 /// a{sa{sv}}
 using VariantMapMap = QMap<QString, QMap<QString, QVariant>>;

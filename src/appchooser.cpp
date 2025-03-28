@@ -62,7 +62,7 @@ void AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
             results = {{QStringLiteral("choice"), appDialog->selectedApplication()}, {QStringLiteral("activation_token"), appDialog->activationToken()}};
         }
         m_appChooserDialogs.remove(handle.path());
-        return QVariantList{qToUnderlying(result), results};
+        return QVariantList{PortalResponse::fromDialogResult(result), results};
     });
 }
 
@@ -118,7 +118,7 @@ uint AppChooserPortal::ChooseApplicationPrivate(const QString &parent_window,
             results.insert(QStringLiteral("openInTerminal"), appDialog->m_appChooserData->m_openInTerminal);
             results.insert(QStringLiteral("lingerTerminal"), appDialog->m_appChooserData->m_lingerTerminal);
         }
-        return QVariantList{qToUnderlying(result), results};
+        return QVariantList{PortalResponse::fromDialogResult(result), results};
     });
-    return 0;
+    return PortalResponse::Success;
 }

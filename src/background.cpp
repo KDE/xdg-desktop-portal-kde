@@ -7,6 +7,7 @@
 
 #include "background.h"
 #include "background_debug.h"
+#include "dbushelpers.h"
 #include "ksharedconfig.h"
 #include "waylandintegration.h"
 
@@ -73,13 +74,13 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
     // application, which is not what we want. This will be mostly happening on X11 session.
     if (!WaylandIntegration::plasmaWindowManagement()) {
         results.insert(QStringLiteral("result"), static_cast<uint>(BackgroundPortal::AllowOnce));
-        return 0;
+        return PortalResponse::Success;
     }
 
     QDBusMessage message = m_context->message();
     auto allow = [message]() {
         const QVariantMap map = {{QStringLiteral("result"), static_cast<uint>(BackgroundPortal::Allow)}};
-        QDBusMessage reply = message.createReply({static_cast<uint>(0), map});
+        QDBusMessage reply = message.createReply({PortalResponse::Success, map});
         if (!QDBusConnection::sessionBus().send(reply)) {
             qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
         }
@@ -87,7 +88,7 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
 
     auto allowOnce = [message]() {
         const QVariantMap map = {{QStringLiteral("result"), static_cast<uint>(BackgroundPortal::AllowOnce)}};
-        QDBusMessage reply = message.createReply({static_cast<uint>(0), map});
+        QDBusMessage reply = message.createReply({PortalResponse::Success, map});
         if (!QDBusConnection::sessionBus().send(reply)) {
             qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
         }
@@ -95,7 +96,7 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
 
     auto forbid = [message]() {
         const QVariantMap map = {{QStringLiteral("result"), static_cast<uint>(BackgroundPortal::Forbid)}};
-        QDBusMessage reply = message.createReply({static_cast<uint>(0), map});
+        QDBusMessage reply = message.createReply({PortalResponse::Success, map});
         if (!QDBusConnection::sessionBus().send(reply)) {
             qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
         }
@@ -103,7 +104,7 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
 
     if (KSharedConfig::openConfig()->group(QStringLiteral("Background")).readEntry("NotifyBackgroundApps", true)) {
         allowOnce();
-        return 0;
+        return PortalResponse::Success;
     }
 
     const KService::Ptr app = KService::serviceByDesktopName(app_id);
@@ -112,7 +113,7 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
 
     if (!obj) {
         qCWarning(XdgDesktopPortalKdeBackground) << "Failed to get dbus context";
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     const QString appName = app ? app->name() : app_id;
@@ -120,12 +121,12 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
         const QVariantMap map = {
             {QStringLiteral("result"), static_cast<uint>(BackgroundPortal::AllowOnce)},
         };
-        QDBusMessage reply = message.createReply({uint(0), map});
+        QDBusMessage reply = message.createReply({PortalResponse::Success, map});
         if (!QDBusConnection::sessionBus().send(reply)) {
             qCWarning(XdgDesktopPortalKdeBackground) << "Failed to send response";
         }
 
-        return 0;
+        return PortalResponse::Success;
     }
 
     KNotification *notify = new KNotification(QStringLiteral("notification"), KNotification::Persistent | KNotification::DefaultEvent, this);
@@ -187,7 +188,7 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
     });
     m_backgroundAppWarned.insert(app_id);
 
-    return 0;
+    return PortalResponse::Success;
 }
 
 bool BackgroundPortal::EnableAutostart(const QString &app_id, bool enable, const QStringList &commandline, uint flags)

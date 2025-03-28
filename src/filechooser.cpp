@@ -400,13 +400,13 @@ void FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
         delayReply(message, dirDialog, this, [dirDialog](int result) -> QVariantList {
             dirDialog->deleteLater();
             if (result != QDialog::Accepted) {
-                return {1u, QVariantMap{}};
+                return {PortalResponse::Cancelled, QVariantMap{}};
             }
             const auto urls = dirDialog->selectedUrls();
             if (urls.empty()) {
-                return {2u, QVariantMap{}};
+                return {PortalResponse::OtherError, QVariantMap{}};
             }
-            return {0u, QVariantMap{{QStringLiteral("uris"), fuseRedirect(urls)}, {QStringLiteral("writable"), true}}};
+            return {PortalResponse::Success, QVariantMap{{QStringLiteral("uris"), fuseRedirect(urls)}, {QStringLiteral("writable"), true}}};
         });
         dirDialog->open();
         return;
@@ -450,12 +450,10 @@ void FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     delayReply(message, fileDialog, this, [fileDialog, optionsWidget, checkboxes, comboboxes](int dialogResult) -> QVariantList {
         fileDialog->deleteLater();
         QVariantMap results;
-        uint response = 1;
         if (dialogResult == QDialog::Accepted) {
-            response = 0;
             const auto urls = fileDialog->m_fileWidget->selectedUrls();
             if (urls.isEmpty()) {
-                return {2u, results};
+                return {PortalResponse::Cancelled, results};
             }
             results.insert(QStringLiteral("uris"), fuseRedirect(urls));
             results.insert(QStringLiteral("writable"), true);
@@ -466,7 +464,7 @@ void FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
             FilterList currentFilter = fileFilterToFilterList(fileDialog->m_fileWidget->currentFilter());
             results.insert(QStringLiteral("current_filter"), QVariant::fromValue<FilterList>(currentFilter));
         }
-        return {response, results};
+        return {PortalResponse::fromDialogCode(static_cast<QDialog::DialogCode>(dialogResult)), results};
     });
     fileDialog->open();
 }
@@ -618,10 +616,8 @@ void FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
 
     delayReply(message, fileDialog, this, [fileDialog, optionsWidget, checkboxes, comboboxes](int dialogResult) {
         QVariantMap results;
-        uint response = 1;
         fileDialog->deleteLater();
         if (dialogResult == QDialog::Accepted) {
-            response = 0;
             const auto urls = fileDialog->m_fileWidget->selectedUrls();
             results.insert(QStringLiteral("uris"), fuseRedirect(urls));
             if (optionsWidget) {
@@ -631,7 +627,7 @@ void FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
             FilterList currentFilter = fileFilterToFilterList(fileDialog->m_fileWidget->currentFilter());
             results.insert(QStringLiteral("current_filter"), QVariant::fromValue<FilterList>(currentFilter));
         }
-        return QVariantList{response, results};
+        return QVariantList{PortalResponse::fromDialogCode(static_cast<QDialog::DialogCode>(dialogResult)), results};
     });
     fileDialog->open();
 }

@@ -149,14 +149,14 @@ void InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
     auto *session = static_cast<InputCaptureSession *>(Session::createSession(this, Session::InputCapture, app_id, session_handle.path()));
 
     if (!session) {
-        replyResponse = 2;
+        replyResponse = PortalResponse::OtherError;
         return;
     }
 
     const auto requestedCapabilities = Capabilities::fromInt(options.value(u"capabilities"_s).toUInt());
     if (requestedCapabilities == Capability::None) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "No capabilities requested";
-        replyResponse = 2;
+        replyResponse = PortalResponse::OtherError;
         return;
     }
 
@@ -165,11 +165,11 @@ void InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
     Request::makeClosableDialogRequestWithSession(handle, dialog, session);
 
     delayReply(message, dialog, this, [this, session, requestedCapabilities](DialogResult result) {
-        uint response = qToUnderlying(result);
+        auto response = PortalResponse::fromDialogResult(result);
         QVariantMap results;
         if (result == DialogResult::Accepted) {
             if (!setupInputCaptureSession(session, requestedCapabilities)) {
-                response = 2;
+                response = PortalResponse::OtherError;
             } else {
                 results.insert(u"capabilities"_s, static_cast<uint>(requestedCapabilities));
             }
@@ -195,7 +195,7 @@ uint InputCapturePortal::GetZones(const QDBusObjectPath &handle,
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Tried to get zones on non-existing session " << session_handle.path();
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     auto handleZoneChange = [this, session] {
@@ -228,7 +228,7 @@ uint InputCapturePortal::GetZones(const QDBusObjectPath &handle,
     connect(qGuiApp, &QGuiApplication::screenRemoved, session, handleZoneChange);
 
     results.insert(u"zones"_s, QVariant::fromValue(zones));
-    return 0;
+    return PortalResponse::Success;
 }
 
 uint InputCapturePortal::SetPointerBarriers(const QDBusObjectPath &handle,
@@ -251,18 +251,18 @@ uint InputCapturePortal::SetPointerBarriers(const QDBusObjectPath &handle,
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Tried to set barriers non-existing session " << session_handle.path();
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     if (zone_set != m_zoneId) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Invalid zone_set " << session_handle.path();
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     if (session->state != State::Disabled) {
         if (auto reply = QDBusReply(session->disable()); !reply.isValid()) {
             qCWarning(XdgDesktopPortalKdeInputCapture) << "Error disabling input capture:" << reply.error();
-            return 2;
+            return PortalResponse::OtherError;
         }
     }
     session->clearBarriers();
@@ -310,7 +310,7 @@ uint InputCapturePortal::SetPointerBarriers(const QDBusObjectPath &handle,
         }
     }
     results.insert(u"failed_barriers"_s, QVariant::fromValue(failedBarriers));
-    return 0;
+    return PortalResponse::Success;
 }
 
 QDBusUnixFileDescriptor
@@ -356,22 +356,22 @@ uint InputCapturePortal::Enable(const QDBusObjectPath &session_handle, const QSt
     auto *session = qobject_cast<InputCaptureSession *>(Session::getSession(session_handle.path()));
     if (!session) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Tried to call Enable on non-existing session " << session_handle.path();
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     if (session->state != State::Disabled) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Session is already enabled" << session_handle.path();
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     QDBusReply reply = session->enable();
     if (!reply.isValid()) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Failed to enable session" << reply.error();
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     session->state = State::Deactivated;
-    return 0;
+    return PortalResponse::Success;
 }
 
 uint InputCapturePortal::Disable(const QDBusObjectPath &session_handle, const QString &app_id, const QVariantMap &options, QVariantMap &results)
@@ -385,21 +385,21 @@ uint InputCapturePortal::Disable(const QDBusObjectPath &session_handle, const QS
     auto *session = qobject_cast<InputCaptureSession *>(Session::getSession(session_handle.path()));
     if (!session) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Tried to call Enable on non-existing session " << session_handle.path();
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     if (session->state == State::Disabled) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Session is not enabled" << session_handle.path();
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     QDBusReply reply = session->enable();
     if (!reply.isValid()) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Failed to disable session" << reply.error();
-        return 2;
+        return PortalResponse::OtherError;
     }
 
-    return 0;
+    return PortalResponse::Success;
 }
 
 uint InputCapturePortal::Release(const QDBusObjectPath &session_handle, const QString &app_id, const QVariantMap &options, QVariantMap &results)
@@ -413,12 +413,12 @@ uint InputCapturePortal::Release(const QDBusObjectPath &session_handle, const QS
     auto *session = qobject_cast<InputCaptureSession *>(Session::getSession(session_handle.path()));
     if (!session) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Tried to call Enable on non-existing session " << session_handle.path();
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     if (session->state != State::Activated) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Session is not activated" << session_handle.path();
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     auto it = options.find(u"cursor_position"_s);
@@ -434,8 +434,8 @@ uint InputCapturePortal::Release(const QDBusObjectPath &session_handle, const QS
     QDBusReply reply = session->release(cursorPosition, positionSpecified);
     if (!reply.isValid()) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Failed to release session" << reply.error();
-        return 2;
+        return PortalResponse::OtherError;
     }
 
-    return 0;
+    return PortalResponse::Success;
 }

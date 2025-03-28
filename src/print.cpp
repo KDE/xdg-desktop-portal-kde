@@ -238,7 +238,7 @@ uint PrintPortal::Print(const QDBusObjectPath &handle,
 
         if (!printer) {
             qCDebug(XdgDesktopPortalKdePrint) << "Failed to print: no QPrinter what can be used for printing";
-            return 1;
+            return PortalResponse::OtherError;
         }
 
         // We are going to print to a file
@@ -258,7 +258,7 @@ uint PrintPortal::Print(const QDBusObjectPath &handle,
 
             fileToPrint.close();
 
-            return 0;
+            return PortalResponse::Success;
 
             // TODO poscript support?
 
@@ -282,7 +282,7 @@ uint PrintPortal::Print(const QDBusObjectPath &handle,
                 exe = QStringLiteral("lp");
             } else {
                 qCDebug(XdgDesktopPortalKdePrint) << "Failed to print: couldn't run lpr command for printing";
-                return 1;
+                return PortalResponse::OtherError;
             }
 
             QTemporaryFile tempFile;
@@ -291,7 +291,7 @@ uint PrintPortal::Print(const QDBusObjectPath &handle,
                 tempFile.close();
             } else {
                 qCDebug(XdgDesktopPortalKdePrint) << "Failed to print: couldn't create temporary file for printing";
-                return 1;
+                return PortalResponse::OtherError;
             }
 
             argList = printArguments(printer, useCupsOptions, exe, printer->pageLayout().orientation()) << tempFile.fileName();
@@ -300,17 +300,17 @@ uint PrintPortal::Print(const QDBusObjectPath &handle,
 
             if (retValue <= 0) {
                 qCDebug(XdgDesktopPortalKdePrint) << "Failed to print: running KProcess failed";
-                return 1;
+                return PortalResponse::OtherError;
             }
 
             return retValue;
         }
     } else {
         qCDebug(XdgDesktopPortalKdePrint) << "Failed to print: couldn't not read from fd";
-        return 1;
+        return PortalResponse::OtherError;
     }
 
-    return 0;
+    return PortalResponse::Success;
 }
 
 void PrintPortal::PreparePrint(const QDBusObjectPath &handle,
@@ -514,7 +514,6 @@ void PrintPortal::PreparePrint(const QDBusObjectPath &handle,
     }
 
     delayReply(message, printDialog, this, [this, printer, printDialog](int dialogResult) {
-        uint response = dialogResult == QDialog::Accepted ? 0 : 1;
         QVariantMap results;
         printDialog->deleteLater();
         if (dialogResult == QDialog::Accepted) {
@@ -598,7 +597,7 @@ void PrintPortal::PreparePrint(const QDBusObjectPath &handle,
 
             m_printers.insert(token, printer);
         }
-        return QVariantList{response, results};
+        return QVariantList{PortalResponse::fromDialogCode(static_cast<QDialog::DialogCode>(dialogResult)), results};
     });
     printDialog->open();
 }

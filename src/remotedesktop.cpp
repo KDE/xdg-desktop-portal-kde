@@ -112,12 +112,12 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
     Session *session = Session::createSession(this, Session::RemoteDesktop, app_id, session_handle.path());
 
     if (!session) {
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     if (!WaylandIntegration::isStreamingAvailable()) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "zkde_screencast_unstable_v1 does not seem to be available";
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     connect(session, &Session::closed, [session] {
@@ -133,7 +133,7 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
         }
     });
 
-    return 0;
+    return PortalResponse::Success;
 }
 
 uint RemoteDesktopPortal::SelectDevices(const QDBusObjectPath &handle,
@@ -152,24 +152,24 @@ uint RemoteDesktopPortal::SelectDevices(const QDBusObjectPath &handle,
     const auto types = static_cast<RemoteDesktopPortal::DeviceTypes>(options.value(QStringLiteral("types")).toUInt());
     if (types == None) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "There are no devices to remotely control";
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to select sources on non-existing session " << session_handle.path();
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     session->setDeviceTypes(types);
     session->setPersistMode(ScreenCastPortal::PersistMode(options.value(QStringLiteral("persist_mode")).toUInt()));
     session->setRestoreData(options.value(QStringLiteral("restore_data")));
 
-    return 0;
+    return PortalResponse::Success;
 }
 
-std::pair<uint, QVariantMap> continueStart(RemoteDesktopSession *session, ScreenCastPortal::PersistMode persist)
+std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSession *session, ScreenCastPortal::PersistMode persist)
 {
     QVariantMap results;
     if (session->screenSharingEnabled()) {
@@ -179,7 +179,7 @@ std::pair<uint, QVariantMap> continueStart(RemoteDesktopSession *session, Screen
             for (const auto &screen : screens) {
                 auto stream = WaylandIntegration::startStreamingOutput(screen, Screencasting::Metadata);
                 if (!stream.isValid()) {
-                    return {2, {}};
+                    return {PortalResponse::OtherError, {}};
                 }
                 streams << stream;
             }
@@ -208,7 +208,7 @@ std::pair<uint, QVariantMap> continueStart(RemoteDesktopSession *session, Screen
             results.insert(u"restore_data"_s, QVariant::fromValue<RestoreData>(restoreData));
         }
     }
-    return {0, results};
+    return {PortalResponse::Success, results};
 }
 
 void RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
@@ -231,13 +231,13 @@ void RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call start on non-existing session " << session_handle.path();
-        replyResponse = 2;
+        replyResponse = PortalResponse::OtherError;
         return;
     }
 
     if (QGuiApplication::screens().isEmpty()) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Failed to show dialog as there is no screen to select";
-        replyResponse = 2;
+        replyResponse = PortalResponse::OtherError;
         return;
     }
 
@@ -277,7 +277,7 @@ void RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
             Utils::setParentWindow(remoteDesktopDialog->windowHandle(), parent_window);
             Request::makeClosableDialogRequestWithSession(handle, remoteDesktopDialog, session);
             delayReply(message, remoteDesktopDialog, this, [session, persist](DialogResult dialogResult) {
-                uint response = qToUnderlying(dialogResult);
+                auto response = PortalResponse::fromDialogResult(dialogResult);
                 QVariantMap results;
                 if (dialogResult == DialogResult::Accepted) {
                     std::tie(response, results) = continueStart(session, persist);

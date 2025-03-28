@@ -142,12 +142,12 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
     Session *session = Session::createSession(this, Session::ScreenCast, app_id, session_handle.path());
 
     if (!session) {
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     if (!WaylandIntegration::isStreamingAvailable()) {
         qCWarning(XdgDesktopPortalKdeScreenCast) << "zkde_screencast_unstable_v1 does not seem to be available";
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     connect(session, &Session::closed, [session] {
@@ -157,7 +157,7 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
             WaylandIntegration::stopStreaming(stream.nodeId);
         }
     });
-    return 0;
+    return PortalResponse::Success;
 }
 
 uint ScreenCastPortal::SelectSources(const QDBusObjectPath &handle,
@@ -178,7 +178,7 @@ uint ScreenCastPortal::SelectSources(const QDBusObjectPath &handle,
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeScreenCast) << "Tried to select sources on non-existing session " << session_handle.path();
-        return 2;
+        return PortalResponse::OtherError;
     }
 
     session->setOptions(options);
@@ -193,14 +193,14 @@ uint ScreenCastPortal::SelectSources(const QDBusObjectPath &handle,
         session->setRestoreData(options.value(QStringLiteral("restore_data")));
     }
 
-    return 0;
+    return PortalResponse::Success;
 }
 
-std::pair<uint, QVariantMap> continueStartAfterDialog(ScreenCastSession *session,
-                                                      const QList<Output> &selectedOutputs,
-                                                      const QRect &selectedRegion,
-                                                      QList<KWayland::Client::PlasmaWindow *> selectedWindows,
-                                                      bool allowRestore)
+std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(ScreenCastSession *session,
+                                                                          const QList<Output> &selectedOutputs,
+                                                                          const QRect &selectedRegion,
+                                                                          QList<KWayland::Client::PlasmaWindow *> selectedWindows,
+                                                                          bool allowRestore)
 {
     QVariantList outputs;
     QList<WindowRestoreInfo> windows;
@@ -229,7 +229,7 @@ std::pair<uint, QVariantMap> continueStartAfterDialog(ScreenCastSession *session
 
         if (!stream.isValid()) {
             qCWarning(XdgDesktopPortalKdeScreenCast) << "Invalid screen!" << output.outputType() << output.uniqueId();
-            return {2, {}};
+            return {PortalResponse::OtherError, {}};
         }
 
         if (allowRestore) {
@@ -241,7 +241,7 @@ std::pair<uint, QVariantMap> continueStartAfterDialog(ScreenCastSession *session
         WaylandIntegration::Stream stream = WaylandIntegration::startStreamingWindow(win, cursorMode);
         if (!stream.isValid()) {
             qCWarning(XdgDesktopPortalKdeScreenCast) << "Invalid window!" << win;
-            return {2, {}};
+            return {PortalResponse::OtherError, {}};
         }
 
         if (allowRestore) {
@@ -252,7 +252,7 @@ std::pair<uint, QVariantMap> continueStartAfterDialog(ScreenCastSession *session
 
     if (streams.isEmpty()) {
         qCWarning(XdgDesktopPortalKdeScreenCast) << "Pipewire stream is not ready to be streamed";
-        return {2, {}};
+        return {PortalResponse::OtherError, {}};
     }
 
     session->setStreams(streams);
@@ -276,7 +276,7 @@ std::pair<uint, QVariantMap> continueStartAfterDialog(ScreenCastSession *session
         new NotificationInhibition(session->appId(), i18nc("Do not disturb mode is enabled because...", "Screen sharing in progress"), session);
     }
     qCDebug(XdgDesktopPortalKdeScreenCast) << "Screencast started successfully";
-    return {0, results};
+    return {PortalResponse::Success, results};
 }
 
 void ScreenCastPortal::Start(const QDBusObjectPath &handle,
@@ -299,13 +299,13 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeScreenCast) << "Tried to call start on non-existing session " << session_handle.path();
-        replyResponse = 2;
+        replyResponse = PortalResponse::OtherError;
         return;
     }
 
     if (QGuiApplication::screens().isEmpty()) {
         qCWarning(XdgDesktopPortalKdeScreenCast) << "Failed to show dialog as there is no screen to select";
-        replyResponse = 2;
+        replyResponse = PortalResponse::OtherError;
         return;
     }
 
@@ -363,7 +363,7 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
     Request::makeClosableDialogRequestWithSession(handle, screenDialog, session);
     delayReply(message, screenDialog, this, [screenDialog, session](DialogResult result) -> QVariantList {
         if (result == DialogResult::Rejected) {
-            return {qToUnderlying(result), QVariantMap{}};
+            return {PortalResponse::fromDialogResult(result), QVariantMap{}};
         }
         auto [response, results] = continueStartAfterDialog(session,
                                                             screenDialog->selectedOutputs(),

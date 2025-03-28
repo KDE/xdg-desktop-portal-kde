@@ -99,17 +99,17 @@ void ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
 
     const bool interactive = options.value(QStringLiteral("interactive"), false).toBool();
 
-    auto createReply = [](const QImage &screenshot) -> std::pair<uint, QVariantMap> {
+    auto createReply = [](const QImage &screenshot) -> std::pair<PortalResponse::Response, QVariantMap> {
         if (screenshot.isNull()) {
-            return {2, {}};
+            return {PortalResponse::OtherError, {}};
         }
         const QString filename = QStringLiteral("%1/Screenshot_%2.png") //
                                      .arg(QStandardPaths::writableLocation(QStandardPaths::PicturesLocation),
                                           QDateTime::currentDateTime().toString(QStringLiteral("yyyyMMdd_hhmmss")));
         if (!screenshot.save(filename, "PNG")) {
-            return {2, {}};
+            return {PortalResponse::OtherError, {}};
         }
-        return {0, {{QStringLiteral("uri"), QUrl::fromLocalFile(filename).toString(QUrl::FullyEncoded)}}};
+        return {PortalResponse::Success, {{QStringLiteral("uri"), QUrl::fromLocalFile(filename).toString(QUrl::FullyEncoded)}}};
     };
 
     if (!interactive) {
@@ -121,7 +121,7 @@ void ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
     }
 
     delayReply(message, screenshotDialog.get(), this, [screenshotDialog, createReply](DialogResult dialogResult) {
-        uint response = qToUnderlying(dialogResult);
+        auto response = PortalResponse::fromDialogResult(dialogResult);
         QVariantMap results;
         if (dialogResult == DialogResult::Accepted) {
             std::tie(response, results) = createReply(screenshotDialog->image());
@@ -155,8 +155,8 @@ uint ScreenshotPortal::PickColor(const QDBusObjectPath &handle,
         color.blue = selectedColor.blueF();
 
         results.insert(QStringLiteral("color"), QVariant::fromValue<ScreenshotPortal::ColorRGB>(color));
-        return 0;
+        return PortalResponse::Success;
     }
 
-    return 1;
+    return PortalResponse::Cancelled;
 }

@@ -49,6 +49,6 @@ void AccountPortal::GetUserInformation(const QDBusObjectPath &handle,
             const QString image = userInfoDialog->image();
             results.insert(QStringLiteral("image"), image.isEmpty() ? QStringLiteral("file://") : image);
         }
-        return QVariantList{qToUnderlying(result), results};
+        return QVariantList{PortalResponse::fromDialogResult(result), results};
     });
 }
