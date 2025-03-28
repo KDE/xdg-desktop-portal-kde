@@ -5,7 +5,7 @@
 #include <QObject>
 #include <QQuickItem>
 
-#include "quickdialog.h"
+#include "utils.h"
 
 class QQuickView;
 
@@ -35,7 +35,7 @@ Q_SIGNALS:
     void rectChanged();
     void emptyChanged();
     void isDraggingChanged();
-    void finished(QuickDialog::Result result);
+    void finished(DialogResult result);
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;

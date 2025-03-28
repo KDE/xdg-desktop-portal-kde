@@ -6,6 +6,8 @@
 
 #pragma once
 
+#include "utils.h"
+
 #include <QEventLoop>
 #include <QObject>
 
@@ -17,11 +19,6 @@ class QuickDialog : public QObject
 public:
     QuickDialog(QObject *parent = nullptr);
     ~QuickDialog() override;
-
-    enum class Result : unsigned {
-        Accepted = 0,
-        Rejected = 1,
-    };
 
     QWindow *windowHandle() const
     {
@@ -35,7 +32,7 @@ public Q_SLOTS:
     virtual void accept();
 
 Q_SIGNALS:
-    void finished(Result result);
+    void finished(DialogResult result);
     void accepted();
     void rejected();
 

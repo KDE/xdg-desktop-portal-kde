@@ -164,10 +164,10 @@ void InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
     Utils::setParentWindow(dialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequestWithSession(handle, dialog, session);
 
-    delayReply(message, dialog, this, [this, session, requestedCapabilities](QuickDialog::Result result) {
+    delayReply(message, dialog, this, [this, session, requestedCapabilities](DialogResult result) {
         uint response = qToUnderlying(result);
         QVariantMap results;
-        if (result == QuickDialog::Result::Accepted) {
+        if (result == DialogResult::Accepted) {
             if (!setupInputCaptureSession(session, requestedCapabilities)) {
                 response = 2;
             } else {

@@ -56,9 +56,9 @@ void AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
     Utils::setParentWindow(appDialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequest(handle, appDialog);
 
-    delayReply(message, appDialog, this, [this, appDialog, handle](QuickDialog::Result result) {
+    delayReply(message, appDialog, this, [this, appDialog, handle](DialogResult result) {
         QVariantMap results;
-        if (result == QuickDialog::Result::Accepted) {
+        if (result == DialogResult::Accepted) {
             results = {{QStringLiteral("choice"), appDialog->selectedApplication()}, {QStringLiteral("activation_token"), appDialog->activationToken()}};
         }
         m_appChooserDialogs.remove(handle.path());
@@ -110,9 +110,9 @@ uint AppChooserPortal::ChooseApplicationPrivate(const QString &parent_window,
         appDialog->reject();
     });
 
-    delayReply(msg, appDialog, this, [appDialog](QuickDialog::Result result) {
+    delayReply(msg, appDialog, this, [appDialog](DialogResult result) {
         QVariantMap results;
-        if (result == QuickDialog::Result::Accepted) {
+        if (result == DialogResult::Accepted) {
             results.insert(QStringLiteral("choice"), appDialog->selectedApplication());
             results.insert(QStringLiteral("remember"), appDialog->m_appChooserData->m_remember);
             results.insert(QStringLiteral("openInTerminal"), appDialog->m_appChooserData->m_openInTerminal);

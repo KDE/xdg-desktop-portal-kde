@@ -11,6 +11,11 @@ class QString;
 class QWidget;
 class QWindow;
 
+enum class DialogResult : unsigned {
+    Accepted = 0,
+    Rejected = 1
+};
+
 class Utils
 {
 public:

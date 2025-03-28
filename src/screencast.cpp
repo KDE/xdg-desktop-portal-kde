@@ -361,8 +361,8 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
     auto screenDialog = new ScreenChooserDialog(app_id, session->multipleSources(), SourceTypes(session->types()));
     Utils::setParentWindow(screenDialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequestWithSession(handle, screenDialog, session);
-    delayReply(message, screenDialog, this, [screenDialog, session](QuickDialog::Result result) -> QVariantList {
-        if (result == QuickDialog::Result::Rejected) {
+    delayReply(message, screenDialog, this, [screenDialog, session](DialogResult result) -> QVariantList {
+        if (result == DialogResult::Rejected) {
             return {qToUnderlying(result), QVariantMap{}};
         }
         auto [response, results] = continueStartAfterDialog(session,

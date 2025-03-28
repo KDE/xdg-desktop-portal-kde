@@ -51,13 +51,13 @@ void QuickDialog::create(const QString &file, const QVariantMap &props)
 void QuickDialog::reject()
 {
     Q_EMIT rejected();
-    Q_EMIT finished(Result::Rejected);
+    Q_EMIT finished(DialogResult::Rejected);
     deleteLater();
 }
 
 void QuickDialog::accept()
 {
     Q_EMIT accepted();
-    Q_EMIT finished(Result::Accepted);
+    Q_EMIT finished(DialogResult::Accepted);
     deleteLater();
 }

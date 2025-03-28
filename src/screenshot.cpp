@@ -120,10 +120,10 @@ void ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
         return;
     }
 
-    delayReply(message, screenshotDialog.get(), this, [screenshotDialog, createReply](QuickDialog::Result dialogResult) {
+    delayReply(message, screenshotDialog.get(), this, [screenshotDialog, createReply](DialogResult dialogResult) {
         uint response = qToUnderlying(dialogResult);
         QVariantMap results;
-        if (dialogResult == QuickDialog::Result::Accepted) {
+        if (dialogResult == DialogResult::Accepted) {
             std::tie(response, results) = createReply(screenshotDialog->image());
         }
         return QVariantList{response, results};

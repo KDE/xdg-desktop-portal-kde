@@ -236,9 +236,9 @@ SelectionEditor::~SelectionEditor() noexcept
 
 void SelectionEditor::accept()
 {
-    Q_EMIT finished(QuickDialog::Result::Accepted);
+    Q_EMIT finished(DialogResult::Accepted);
 }
 void SelectionEditor::reject()
 {
-    Q_EMIT finished(QuickDialog::Result::Rejected);
+    Q_EMIT finished(DialogResult::Rejected);
 }

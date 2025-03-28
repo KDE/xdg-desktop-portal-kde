@@ -69,7 +69,7 @@ void AccessPortal::AccessDialog(const QDBusObjectPath &handle,
     Request::makeClosableDialogRequest(handle, accessDialog);
     accessDialog->windowHandle()->setModality(options.value(QStringLiteral("modal"), true).toBool() ? Qt::WindowModal : Qt::NonModal);
 
-    delayReply(message, accessDialog, this, [message, accessDialog](QuickDialog::Result result) {
+    delayReply(message, accessDialog, this, [accessDialog](DialogResult result) {
         auto choices = accessDialog->selectedChoices();
         QVariantMap results{{u"choices"_s, QVariant::fromValue(choices)}};
         return QVariantList{qToUnderlying(result), results};

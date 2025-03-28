@@ -276,10 +276,10 @@ void RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
             auto remoteDesktopDialog = new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled(), session->persistMode());
             Utils::setParentWindow(remoteDesktopDialog->windowHandle(), parent_window);
             Request::makeClosableDialogRequestWithSession(handle, remoteDesktopDialog, session);
-            delayReply(message, remoteDesktopDialog, this, [session, persist](QuickDialog::Result dialogResult) {
+            delayReply(message, remoteDesktopDialog, this, [session, persist](DialogResult dialogResult) {
                 uint response = qToUnderlying(dialogResult);
                 QVariantMap results;
-                if (dialogResult == QuickDialog::Result::Accepted) {
+                if (dialogResult == DialogResult::Accepted) {
                     std::tie(response, results) = continueStart(session, persist);
                 }
                 return QVariantList{response, results};

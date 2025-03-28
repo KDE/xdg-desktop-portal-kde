@@ -41,9 +41,9 @@ void AccountPortal::GetUserInformation(const QDBusObjectPath &handle,
     UserInfoDialog *userInfoDialog = new UserInfoDialog(reason);
     Utils::setParentWindow(userInfoDialog->windowHandle(), parent_window);
 
-    delayReply(message, userInfoDialog, this, [message, userInfoDialog](QuickDialog::Result result) {
+    delayReply(message, userInfoDialog, this, [message, userInfoDialog](DialogResult result) {
         QVariantMap results;
-        if (result == QuickDialog::Result::Accepted) {
+        if (result == DialogResult::Accepted) {
             results.insert(QStringLiteral("id"), userInfoDialog->id());
             results.insert(QStringLiteral("name"), userInfoDialog->name());
             const QString image = userInfoDialog->image();

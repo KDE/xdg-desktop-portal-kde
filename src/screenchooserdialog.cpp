@@ -283,9 +283,9 @@ void ScreenChooserDialog::accept()
     for (const auto &output : selectedOutputs()) {
         if (output.outputType() == Output::OutputType::Region) {
             auto selectionEditor = new SelectionEditor(this);
-            connect(selectionEditor, &SelectionEditor::finished, this, [this, selectionEditor](QuickDialog::Result result) {
+            connect(selectionEditor, &SelectionEditor::finished, this, [this, selectionEditor](DialogResult result) {
                 selectionEditor->deleteLater();
-                if (result == QuickDialog::Result::Accepted) {
+                if (result == DialogResult::Accepted) {
                     setRegion(selectionEditor->rect());
                     QuickDialog::accept();
                 } else {

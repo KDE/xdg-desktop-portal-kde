@@ -128,9 +128,9 @@ void DynamicLauncherPortal::PrepareInstall(const QDBusObjectPath &handle,
     Utils::setParentWindow(dialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequest(handle, dialog);
 
-    delayReply(message, dialog, this, [dialog, editableName, editableIcon, icon](QuickDialog::Result result) {
+    delayReply(message, dialog, this, [dialog, editableName, editableIcon, icon](DialogResult result) {
         QVariantMap results;
-        if (result == QuickDialog::Result::Accepted) {
+        if (result == DialogResult::Accepted) {
             if (editableName) {
                 results[nameKey] = dialog->m_name;
             }
