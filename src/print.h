@@ -14,6 +14,8 @@
 #include <QDBusUnixFileDescriptor>
 #include <QPrinter>
 
+class QDBusMessage;
+
 class PrintPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
@@ -30,14 +32,16 @@ public Q_SLOTS:
                const QVariantMap &options,
                QVariantMap &results);
 
-    uint PreparePrint(const QDBusObjectPath &handle,
+    void PreparePrint(const QDBusObjectPath &handle,
                       const QString &app_id,
                       const QString &parent_window,
                       const QString &title,
                       const QVariantMap &settings,
                       const QVariantMap &page_setup,
                       const QVariantMap &options,
-                      QVariantMap &results);
+                      const QDBusMessage &message,
+                      uint &replyResponse,
+                      QVariantMap &replyResults);
 
 private:
     QMap<uint, QPrinter *> m_printers;

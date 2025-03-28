@@ -15,6 +15,7 @@
 
 #include <KProcess>
 
+#include <QDBusConnection>
 #include <QFile>
 #include <QPrintDialog>
 #include <QPrintEngine>
@@ -312,14 +313,16 @@ uint PrintPortal::Print(const QDBusObjectPath &handle,
     return 0;
 }
 
-uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
+void PrintPortal::PreparePrint(const QDBusObjectPath &handle,
                                const QString &app_id,
                                const QString &parent_window,
                                const QString &title,
                                const QVariantMap &settings,
                                const QVariantMap &page_setup,
                                const QVariantMap &options,
-                               QVariantMap &results)
+                               const QDBusMessage &message,
+                               [[maybe_unused]] uint &replyResponse,
+                               [[maybe_unused]] QVariantMap &replyResults)
 {
     qCDebug(XdgDesktopPortalKdePrint) << "PreparePrint called with parameters:";
     qCDebug(XdgDesktopPortalKdePrint) << "    handle: " << handle.path();
@@ -506,100 +509,98 @@ uint PrintPortal::PreparePrint(const QDBusObjectPath &handle,
     Request::makeClosableDialogRequest(handle, printDialog);
 
     // Process options
-    if (options.contains(QStringLiteral("modal"))) {
-        printDialog->setModal(options.value(QStringLiteral("modal")).toBool());
+    if (options.value(QStringLiteral("modal"), true).toBool()) {
+        printDialog->setWindowModality(Qt::WindowModal);
     }
 
-    // Pass back what we configured
-    if (printDialog->exec() == QDialog::Accepted) {
-        QVariantMap resultingSettings;
-        QVariantMap resultingPageSetup;
-
-        // Process back printer settings
-        resultingSettings.insert(QStringLiteral("n-copies"), QString::number(printer->copyCount()));
-        resultingSettings.insert(QStringLiteral("resolution"), QString::number(printer->resolution()));
-        resultingSettings.insert(QStringLiteral("use-color"), printer->colorMode() == QPrinter::Color ? QLatin1String("yes") : QLatin1String("no"));
-        if (printer->duplex() == QPrinter::DuplexNone) {
-            resultingSettings.insert(QStringLiteral("duplex"), QLatin1String("simplex"));
-        } else if (printer->duplex() == QPrinter::DuplexShortSide) {
-            resultingSettings.insert(QStringLiteral("duplex"), QLatin1String("horizontal"));
-        } else if (printer->duplex() == QPrinter::DuplexLongSide) {
-            resultingSettings.insert(QStringLiteral("duplex"), QLatin1String("vertical"));
-        }
-        resultingSettings.insert(QStringLiteral("collate"), printer->collateCopies() ? QLatin1String("yes") : QLatin1String("no"));
-        resultingSettings.insert(QStringLiteral("reverse"), printer->pageOrder() == QPrinter::LastPageFirst ? QLatin1String("yes") : QLatin1String("no"));
-        if (printer->printRange() == QPrinter::AllPages) {
-            resultingSettings.insert(QStringLiteral("print-pages"), QLatin1String("all"));
-        } else if (printer->printRange() == QPrinter::Selection) {
-            resultingSettings.insert(QStringLiteral("print-pages"), QLatin1String("selection"));
-        } else if (printer->printRange() == QPrinter::CurrentPage) {
-            resultingSettings.insert(QStringLiteral("print-pages"), QLatin1String("current"));
-        } else if (printer->printRange() == QPrinter::PageRange) {
-            resultingSettings.insert(QStringLiteral("print-pages"), QLatin1String("ranges"));
-            const int fromPageToIndex = printer->fromPage() ? printer->fromPage() - 1 : printer->fromPage();
-            const int toPageToIndex = printer->toPage() ? printer->toPage() - 1 : printer->toPage();
-            resultingSettings.insert(QStringLiteral("page-ranges"), QStringLiteral("%1-%2").arg(fromPageToIndex).arg(toPageToIndex));
-        }
-        // Set cups specific properties
-        const QStringList cupsOptions = printer->printEngine()->property(PPK_CupsOptions).toStringList();
-        qCDebug(XdgDesktopPortalKdePrint) << cupsOptions;
-        if (cupsOptions.contains(QLatin1String("page-set"))) {
-            resultingSettings.insert(QStringLiteral("page-set"), cupsOptions.at(cupsOptions.indexOf(QStringLiteral("page-set")) + 1));
-        }
-        if (cupsOptions.contains(QLatin1String("number-up"))) {
-            resultingSettings.insert(QStringLiteral("number-up"), cupsOptions.at(cupsOptions.indexOf(QStringLiteral("number-up")) + 1));
-        }
-        if (cupsOptions.contains(QLatin1String("number-up-layout"))) {
-            resultingSettings.insert(QStringLiteral("number-up-layout"), cupsOptions.at(cupsOptions.indexOf(QStringLiteral("number-up-layout")) + 1));
-        }
-
-        if (printer->outputFormat() == QPrinter::PdfFormat) {
-            resultingSettings.insert(QStringLiteral("output-file-format"), QLatin1String("pdf"));
-        }
-
-        if (!printer->outputFileName().isEmpty()) {
-            resultingSettings.insert(QStringLiteral("output-uri"), QUrl::fromLocalFile(printer->outputFileName()).toDisplayString());
-        }
-
-        // Process back page setup
-        if (printer->pageLayout().pageSize().id() == QPageSize::Custom) {
-            resultingPageSetup.insert(QStringLiteral("Name"), printer->pageLayout().pageSize().name());
-            resultingPageSetup.insert(QStringLiteral("DisplayName"), printer->pageLayout().pageSize().name());
-        } else {
-            resultingPageSetup.insert(QStringLiteral("PPDName"), qt_keyForPageSizeId(printer->pageLayout().pageSize().id()));
-            resultingPageSetup.insert(QStringLiteral("DisplayName"), qt_keyForPageSizeId(printer->pageLayout().pageSize().id()));
-        }
-        resultingPageSetup.insert(QStringLiteral("Width"), printer->pageLayout().pageSize().size(QPageSize::Millimeter).width());
-        resultingPageSetup.insert(QStringLiteral("Height"), printer->pageLayout().pageSize().size(QPageSize::Millimeter).height());
-        resultingPageSetup.insert(QStringLiteral("MarginTop"), printer->pageLayout().margins(QPageLayout::Millimeter).top());
-        resultingPageSetup.insert(QStringLiteral("MarginBottom"), printer->pageLayout().margins(QPageLayout::Millimeter).bottom());
-        resultingPageSetup.insert(QStringLiteral("MarginLeft"), printer->pageLayout().margins(QPageLayout::Millimeter).left());
-        resultingPageSetup.insert(QStringLiteral("MarginRight"), printer->pageLayout().margins(QPageLayout::Millimeter).right());
-        resultingPageSetup.insert(QStringLiteral("Orientation"),
-                                  printer->pageLayout().orientation() == QPageLayout::Landscape ? QLatin1String("landscape") : QLatin1String("portrait"));
-
-        qCDebug(XdgDesktopPortalKdePrint) << "Settings: ";
-        qCDebug(XdgDesktopPortalKdePrint) << "---------------------------";
-        qCDebug(XdgDesktopPortalKdePrint) << resultingSettings;
-        qCDebug(XdgDesktopPortalKdePrint) << "Page setup: ";
-        qCDebug(XdgDesktopPortalKdePrint) << "---------------------------";
-        qCDebug(XdgDesktopPortalKdePrint) << resultingPageSetup;
-
-        uint token = QDateTime::currentDateTime().toSecsSinceEpoch();
-        results.insert(QStringLiteral("settings"), resultingSettings);
-        results.insert(QStringLiteral("page-setup"), resultingPageSetup);
-        results.insert(QStringLiteral("token"), token);
-
-        m_printers.insert(token, printer);
-
+    delayReply(message, printDialog, this, [this, printer, printDialog](int dialogResult) {
+        uint response = dialogResult == QDialog::Accepted ? 0 : 1;
+        QVariantMap results;
         printDialog->deleteLater();
-        return 0;
-    } else {
-        printDialog->deleteLater();
-        return 1;
-    }
+        if (dialogResult == QDialog::Accepted) {
+            QVariantMap resultingSettings;
+            QVariantMap resultingPageSetup;
 
-    return 0;
+            // Process back printer settings
+            resultingSettings.insert(QStringLiteral("n-copies"), QString::number(printer->copyCount()));
+            resultingSettings.insert(QStringLiteral("resolution"), QString::number(printer->resolution()));
+            resultingSettings.insert(QStringLiteral("use-color"), printer->colorMode() == QPrinter::Color ? QLatin1String("yes") : QLatin1String("no"));
+            if (printer->duplex() == QPrinter::DuplexNone) {
+                resultingSettings.insert(QStringLiteral("duplex"), QLatin1String("simplex"));
+            } else if (printer->duplex() == QPrinter::DuplexShortSide) {
+                resultingSettings.insert(QStringLiteral("duplex"), QLatin1String("horizontal"));
+            } else if (printer->duplex() == QPrinter::DuplexLongSide) {
+                resultingSettings.insert(QStringLiteral("duplex"), QLatin1String("vertical"));
+            }
+            resultingSettings.insert(QStringLiteral("collate"), printer->collateCopies() ? QLatin1String("yes") : QLatin1String("no"));
+            resultingSettings.insert(QStringLiteral("reverse"), printer->pageOrder() == QPrinter::LastPageFirst ? QLatin1String("yes") : QLatin1String("no"));
+            if (printer->printRange() == QPrinter::AllPages) {
+                resultingSettings.insert(QStringLiteral("print-pages"), QLatin1String("all"));
+            } else if (printer->printRange() == QPrinter::Selection) {
+                resultingSettings.insert(QStringLiteral("print-pages"), QLatin1String("selection"));
+            } else if (printer->printRange() == QPrinter::CurrentPage) {
+                resultingSettings.insert(QStringLiteral("print-pages"), QLatin1String("current"));
+            } else if (printer->printRange() == QPrinter::PageRange) {
+                resultingSettings.insert(QStringLiteral("print-pages"), QLatin1String("ranges"));
+                const int fromPageToIndex = printer->fromPage() ? printer->fromPage() - 1 : printer->fromPage();
+                const int toPageToIndex = printer->toPage() ? printer->toPage() - 1 : printer->toPage();
+                resultingSettings.insert(QStringLiteral("page-ranges"), QStringLiteral("%1-%2").arg(fromPageToIndex).arg(toPageToIndex));
+            }
+            // Set cups specific properties
+            const QStringList cupsOptions = printer->printEngine()->property(PPK_CupsOptions).toStringList();
+            qCDebug(XdgDesktopPortalKdePrint) << cupsOptions;
+            if (cupsOptions.contains(QLatin1String("page-set"))) {
+                resultingSettings.insert(QStringLiteral("page-set"), cupsOptions.at(cupsOptions.indexOf(QStringLiteral("page-set")) + 1));
+            }
+            if (cupsOptions.contains(QLatin1String("number-up"))) {
+                resultingSettings.insert(QStringLiteral("number-up"), cupsOptions.at(cupsOptions.indexOf(QStringLiteral("number-up")) + 1));
+            }
+            if (cupsOptions.contains(QLatin1String("number-up-layout"))) {
+                resultingSettings.insert(QStringLiteral("number-up-layout"), cupsOptions.at(cupsOptions.indexOf(QStringLiteral("number-up-layout")) + 1));
+            }
+
+            if (printer->outputFormat() == QPrinter::PdfFormat) {
+                resultingSettings.insert(QStringLiteral("output-file-format"), QLatin1String("pdf"));
+            }
+
+            if (!printer->outputFileName().isEmpty()) {
+                resultingSettings.insert(QStringLiteral("output-uri"), QUrl::fromLocalFile(printer->outputFileName()).toDisplayString());
+            }
+
+            // Process back page setup
+            if (printer->pageLayout().pageSize().id() == QPageSize::Custom) {
+                resultingPageSetup.insert(QStringLiteral("Name"), printer->pageLayout().pageSize().name());
+                resultingPageSetup.insert(QStringLiteral("DisplayName"), printer->pageLayout().pageSize().name());
+            } else {
+                resultingPageSetup.insert(QStringLiteral("PPDName"), qt_keyForPageSizeId(printer->pageLayout().pageSize().id()));
+                resultingPageSetup.insert(QStringLiteral("DisplayName"), qt_keyForPageSizeId(printer->pageLayout().pageSize().id()));
+            }
+            resultingPageSetup.insert(QStringLiteral("Width"), printer->pageLayout().pageSize().size(QPageSize::Millimeter).width());
+            resultingPageSetup.insert(QStringLiteral("Height"), printer->pageLayout().pageSize().size(QPageSize::Millimeter).height());
+            resultingPageSetup.insert(QStringLiteral("MarginTop"), printer->pageLayout().margins(QPageLayout::Millimeter).top());
+            resultingPageSetup.insert(QStringLiteral("MarginBottom"), printer->pageLayout().margins(QPageLayout::Millimeter).bottom());
+            resultingPageSetup.insert(QStringLiteral("MarginLeft"), printer->pageLayout().margins(QPageLayout::Millimeter).left());
+            resultingPageSetup.insert(QStringLiteral("MarginRight"), printer->pageLayout().margins(QPageLayout::Millimeter).right());
+            resultingPageSetup.insert(QStringLiteral("Orientation"),
+                                      printer->pageLayout().orientation() == QPageLayout::Landscape ? QLatin1String("landscape") : QLatin1String("portrait"));
+
+            qCDebug(XdgDesktopPortalKdePrint) << "Settings: ";
+            qCDebug(XdgDesktopPortalKdePrint) << "---------------------------";
+            qCDebug(XdgDesktopPortalKdePrint) << resultingSettings;
+            qCDebug(XdgDesktopPortalKdePrint) << "Page setup: ";
+            qCDebug(XdgDesktopPortalKdePrint) << "---------------------------";
+            qCDebug(XdgDesktopPortalKdePrint) << resultingPageSetup;
+
+            uint token = QDateTime::currentDateTime().toSecsSinceEpoch();
+            results.insert(QStringLiteral("settings"), resultingSettings);
+            results.insert(QStringLiteral("page-setup"), resultingPageSetup);
+            results.insert(QStringLiteral("token"), token);
+
+            m_printers.insert(token, printer);
+        }
+        return QVariantList{response, results};
+    });
+    printDialog->open();
 }
 
 QStringList PrintPortal::destination(const QPrinter *printer, const QString &version)
