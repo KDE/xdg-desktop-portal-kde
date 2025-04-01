@@ -427,8 +427,12 @@ void GlobalShortcutsSession::setActions(const QList<ShortcutInfo> &shortcuts)
             action->setShortcuts(itShortcut->keys());
         } else {
             action->setShortcut(shortcut.keySequence);
+            if (!shortcut.preferredKeySequence.isEmpty()) {
+                KGlobalAccel::self()->setDefaultShortcut(action.get(), {shortcut.preferredKeySequence});
+            }
         }
-        KGlobalAccel::self()->setGlobalShortcut(action.get(), action->shortcuts());
+        // If it's a new shortcut assign keySequence otherwise the old ones will be loaded.
+        KGlobalAccel::self()->setShortcut(action.get(), {shortcut.keySequence}, KGlobalAccel::Autoloading);
 
         shortcutInfosByName.remove(shortcut.id);
     }

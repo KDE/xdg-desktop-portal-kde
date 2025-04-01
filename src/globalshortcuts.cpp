@@ -269,9 +269,11 @@ void GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
     std::ranges::set_intersection(currentShortcuts, previousShortcuts, std::back_inserter(returningShortcuts), {}, &Shortcut::first, &Shortcut::first);
 
     auto toShortcutInfo = [](const Shortcut &shortcut) {
+        const QKeySequence preferredKeySequence = XdgShortcut::parse(shortcut.second.value(u"preferred_trigger"_s).toString()).value_or(QKeySequence());
         return ShortcutInfo{.id = shortcut.first,
                             .description = shortcut.second.value(u"description"_s).toString(),
-                            .keySequence = XdgShortcut::parse(shortcut.second.value(u"preferred_trigger"_s).toString()).value_or(QKeySequence())};
+                            .keySequence = preferredKeySequence,
+                            .preferredKeySequence = preferredKeySequence};
     };
 
     QList<ShortcutInfo> newShortcutInfos;

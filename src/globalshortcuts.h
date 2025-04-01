@@ -23,6 +23,7 @@ public:
     QString id;
     QString description;
     QKeySequence keySequence;
+    QKeySequence preferredKeySequence;
 };
 
 class GlobalShortcutsPortal : public QDBusAbstractAdaptor
