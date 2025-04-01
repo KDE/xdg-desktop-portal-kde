@@ -9,7 +9,11 @@
 
 #pragma once
 
+#include "quickdialog.h"
+
 #include <QDBusArgument>
+#include <QDBusConnection>
+#include <QDBusMessage>
 #include <QMap>
 #include <QString>
 
@@ -58,3 +62,12 @@ public:
 using OptionList = QList<Option>;
 QDBusArgument &operator<<(QDBusArgument &arg, const Option &option);
 const QDBusArgument &operator>>(const QDBusArgument &arg, Option &option);
+
+inline void delayReply(const QDBusMessage &message, auto *dialog, auto *contextObject, auto &&callback)
+{
+    message.setDelayedReply(true);
+    QObject::connect(dialog, &std::remove_pointer_t<decltype(dialog)>::finished, contextObject, [message, callback](const auto &result) {
+        const auto reply = message.createReply(std::invoke(callback, result));
+        QDBusConnection::sessionBus().send(reply);
+    });
+}
