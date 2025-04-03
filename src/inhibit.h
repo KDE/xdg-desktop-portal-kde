@@ -14,15 +14,50 @@
 
 #include "request.h"
 
-class InhibitPortal : public QDBusAbstractAdaptor
+class SessionStateMonitorSession;
+
+class InhibitPortal : public QDBusAbstractAdaptor, public QDBusContext
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Inhibit")
+    Q_PROPERTY(uint version READ version CONSTANT)
+
 public:
     explicit InhibitPortal(QObject *parent);
 
+    uint version() const
+    {
+        return 3;
+    }
+
 public Q_SLOTS:
     void Inhibit(const QDBusObjectPath &handle, const QString &app_id, const QString &window, uint flags, const QVariantMap &options);
+    uint CreateMonitor(const QDBusObjectPath &handle, const QDBusObjectPath &session_handle, const QString &app_id, const QString &window);
+    void QueryEndResponse(const QDBusObjectPath &handle);
+
+    // called by PlasmaShutdown. Should clearly be on a different iface, but for testing.. yolo!
+    void queryCanShutDown(const QDBusMessage &message, bool &reply);
+    void endSession();
+
+Q_SIGNALS:
+    void StateChanged(const QDBusObjectPath &path, const QVariantMap &state);
+
+private:
+    enum LockScreenState {
+        LockScreenInactive,
+        LockScreenActive,
+    };
+    enum SessionState {
+        Running = 1,
+        QueryEnd = 2,
+        Ending = 3,
+    };
+
+    void updateState(SessionStateMonitorSession *session, LockScreenState, SessionState state);
+    void queryCanShutDownComplete();
+    QHash<QDBusObjectPath, SessionStateMonitorSession *> m_monitors;
+    QHash<QDBusObjectPath, QString /*appId*/> m_appsBlockingLogout;
+    QDBusMessage m_pendingCanShutDownReply;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_INHIBIT_H
