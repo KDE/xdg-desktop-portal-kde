@@ -32,6 +32,7 @@ public:
         RemoteDesktop = 1,
         GlobalShortcuts = 2,
         InputCapture = 3,
+        SessionStateMonitor = 4,
     };
 
     bool close();
