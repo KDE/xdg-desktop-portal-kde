@@ -38,6 +38,14 @@ Session::Session(QObject *parent, const QString &appId, const QString &path)
     , m_appId(appId)
     , m_path(path)
 {
+    if (QDBusConnection::sessionBus().registerVirtualObject(path, this, QDBusConnection::VirtualObjectRegisterOption::SubPath)) {
+        connect(this, &Session::closed, [this, path]() {
+            sessionList.remove(path);
+            QDBusConnection::sessionBus().unregisterObject(path);
+            deleteLater();
+        });
+        sessionList.insert(path, this);
+    }
 }
 
 Session::~Session()
@@ -142,21 +150,7 @@ Session *Session::createSession(QObject *parent, SessionType type, const QString
         session = new InputCaptureSession(parent, appId, path);
         break;
     }
-
-    if (sessionBus.registerVirtualObject(path, session, QDBusConnection::VirtualObjectRegisterOption::SubPath)) {
-        connect(session, &Session::closed, [session, path]() {
-            sessionList.remove(path);
-            QDBusConnection::sessionBus().unregisterObject(path);
-            session->deleteLater();
-        });
-        sessionList.insert(path, session);
-        return session;
-    } else {
-        qCDebug(XdgSessionKdeSession) << sessionBus.lastError().message();
-        qCDebug(XdgSessionKdeSession) << "Failed to register session object: " << path;
-        session->deleteLater();
-        return nullptr;
-    }
+    return session;
 }
 
 Session *Session::getSession(const QString &sessionHandle)
