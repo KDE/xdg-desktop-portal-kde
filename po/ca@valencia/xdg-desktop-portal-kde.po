@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-01 00:43+0000\n"
+"POT-Creation-Date: 2025-04-03 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 08:20+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -37,7 +37,7 @@ msgstr "montoro_mde@gva.es,txemaq@gmail.com"
 msgid "Request device access"
 msgstr "Demana accés al dispositiu"
 
-#: src/appchooser.cpp:96
+#: src/appchooser.cpp:95
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
@@ -73,70 +73,70 @@ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
 msgstr "Obri sempre els fitxers %1 amb l'aplicació triada"
 
-#: src/AppChooserDialog.qml:98
+#: src/AppChooserDialog.qml:107
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "Mostra totes les aplicacions instal·lades"
 
-#: src/AppChooserDialog.qml:111
+#: src/AppChooserDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "Seleccioneu-ne una altra…"
 
-#: src/AppChooserDialog.qml:224
+#: src/AppChooserDialog.qml:230
 #, kde-format
 msgid "Default app for this file type"
 msgstr "Aplicació predeterminada per a este tipus de fitxer"
 
-#: src/AppChooserDialog.qml:225
+#: src/AppChooserDialog.qml:231
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
 msgstr "Última aplicació utilitzada per a este tipus de fitxer"
 
-#: src/AppChooserDialog.qml:246
+#: src/AppChooserDialog.qml:252
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Voleu obrir amb <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:248
+#: src/AppChooserDialog.qml:254
 #, kde-format
 msgid "No matches"
 msgstr "Sense coincidències"
 
-#: src/AppChooserDialog.qml:250
+#: src/AppChooserDialog.qml:256
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Cap aplicació instal·lada pot obrir <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:276
+#: src/AppChooserDialog.qml:282
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "Opcions del terminal"
 
-#: src/AppChooserDialog.qml:292
+#: src/AppChooserDialog.qml:298
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Executa en un terminal"
 
-#: src/AppChooserDialog.qml:301
+#: src/AppChooserDialog.qml:307
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "No el tanques quan finalitze l'ordre"
 
-#: src/AppChooserDialog.qml:314
+#: src/AppChooserDialog.qml:320
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "Descobriu més aplicacions"
 
-#: src/AppChooserDialog.qml:335
+#: src/AppChooserDialog.qml:341
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
@@ -197,13 +197,13 @@ msgctxt ""
 msgid "Forbid Anyway"
 msgstr "Prohibix igualment"
 
-#: src/dynamiclauncher.cpp:76
+#: src/dynamiclauncher.cpp:77
 #, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
 msgstr "Afig una aplicació web…"
 
-#: src/dynamiclauncher.cpp:81
+#: src/dynamiclauncher.cpp:82
 #, kde-format
 msgctxt "@title"
 msgid "Add Application…"
@@ -233,18 +233,18 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/filechooser.cpp:434
+#: src/filechooser.cpp:437
 #, kde-format
 msgid "Open"
 msgstr "Obri"
 
-#: src/inputcapture.cpp:145
+#: src/inputcapture.cpp:113
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
 msgstr "S'ha iniciat la captura de l'entrada"
 
-#: src/inputcapture.cpp:148
+#: src/inputcapture.cpp:116
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
@@ -252,7 +252,7 @@ msgstr ""
 "L'entrada està gestionada per %1. Premeu <shortcut>%2</shortcut> per a "
 "desactivar-ho."
 
-#: src/inputcapture.cpp:153
+#: src/inputcapture.cpp:121
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -402,7 +402,7 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Clic esquerre i arrossegar"
 
-#: src/remotedesktop.cpp:224
+#: src/remotedesktop.cpp:270
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -451,18 +451,18 @@ msgstr "Permet la restauració en sessions futures"
 msgid "Share"
 msgstr "Compartix"
 
-#: src/screencast.cpp:297
+#: src/screencast.cpp:220
 #, kde-format
 msgid "Virtual Output"
 msgstr "Eixida virtual"
 
-#: src/screencast.cpp:298
+#: src/screencast.cpp:221
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Eixida virtual (compartida amb %1)"
 
-#: src/screencast.cpp:352
+#: src/screencast.cpp:276
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"

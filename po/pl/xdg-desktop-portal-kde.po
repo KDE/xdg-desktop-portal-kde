@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-01 00:43+0000\n"
+"POT-Creation-Date: 2025-04-03 00:43+0000\n"
 "PO-Revision-Date: 2025-01-11 11:55+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -34,7 +34,7 @@ msgstr "lukasz.wojnilowicz@gmail.com"
 msgid "Request device access"
 msgstr "Zażądano dostępu do urządzenia"
 
-#: src/appchooser.cpp:96
+#: src/appchooser.cpp:95
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
@@ -70,71 +70,71 @@ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
 msgstr "Pliki %1 zawsze otwieraj w wybranej aplikacji"
 
-#: src/AppChooserDialog.qml:98
+#: src/AppChooserDialog.qml:107
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "Pokaż wszystkie wgrane aplikacje"
 
-#: src/AppChooserDialog.qml:111
+#: src/AppChooserDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "Wybierz inne…"
 
-#: src/AppChooserDialog.qml:224
+#: src/AppChooserDialog.qml:230
 #, kde-format
 msgid "Default app for this file type"
 msgstr "Domyślny program dla tego rodzaju plików"
 
-#: src/AppChooserDialog.qml:225
+#: src/AppChooserDialog.qml:231
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
 msgstr "Ostatnio użyty program dla tego rodzaju plików"
 
-#: src/AppChooserDialog.qml:246
+#: src/AppChooserDialog.qml:252
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Otworzyć w <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:248
+#: src/AppChooserDialog.qml:254
 #, kde-format
 msgid "No matches"
 msgstr "Nie znaleziono żadnego odpowiadającego wyrażenia"
 
-#: src/AppChooserDialog.qml:250
+#: src/AppChooserDialog.qml:256
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
 "Żadna z wgranych aplikacji nie jest w stanie otworzyć <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:276
+#: src/AppChooserDialog.qml:282
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "Ustawienia terminala"
 
-#: src/AppChooserDialog.qml:292
+#: src/AppChooserDialog.qml:298
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Wykonaj w terminalu"
 
-#: src/AppChooserDialog.qml:301
+#: src/AppChooserDialog.qml:307
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "Pozostaw otwartym po zakończeniu polecenia"
 
-#: src/AppChooserDialog.qml:314
+#: src/AppChooserDialog.qml:320
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "Odkryj więcej aplikacji"
 
-#: src/AppChooserDialog.qml:335
+#: src/AppChooserDialog.qml:341
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
@@ -195,13 +195,13 @@ msgctxt ""
 msgid "Forbid Anyway"
 msgstr "Zabroń mimo tego"
 
-#: src/dynamiclauncher.cpp:76
+#: src/dynamiclauncher.cpp:77
 #, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
 msgstr "Dodaj aplikację sieciową..."
 
-#: src/dynamiclauncher.cpp:81
+#: src/dynamiclauncher.cpp:82
 #, kde-format
 msgctxt "@title"
 msgid "Add Application…"
@@ -231,18 +231,18 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: src/filechooser.cpp:434
+#: src/filechooser.cpp:437
 #, kde-format
 msgid "Open"
 msgstr "Otwórz"
 
-#: src/inputcapture.cpp:145
+#: src/inputcapture.cpp:113
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
 msgstr "Rozpoczęto nagrywanie urządzenia wejściowego"
 
-#: src/inputcapture.cpp:148
+#: src/inputcapture.cpp:116
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
@@ -250,7 +250,7 @@ msgstr ""
 "Urządzenie wejściowe jest zarządzane przez %1. Naciśnij <shortcut>%2</"
 "shortcut>, aby wyłączyć."
 
-#: src/inputcapture.cpp:153
+#: src/inputcapture.cpp:121
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -400,7 +400,7 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Naciśnij lewym i przeciągnij"
 
-#: src/remotedesktop.cpp:224
+#: src/remotedesktop.cpp:270
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -449,18 +449,18 @@ msgstr "Zezwól na przywracanie dla przyszłych posiedzeń"
 msgid "Share"
 msgstr "Udostępnij"
 
-#: src/screencast.cpp:297
+#: src/screencast.cpp:220
 #, kde-format
 msgid "Virtual Output"
 msgstr "Wyjście wirtualne"
 
-#: src/screencast.cpp:298
+#: src/screencast.cpp:221
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Wyjście wirtualne (udostępnione dla %1)"
 
-#: src/screencast.cpp:352
+#: src/screencast.cpp:276
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"

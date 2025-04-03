@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-01 00:43+0000\n"
+"POT-Creation-Date: 2025-04-03 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 10:03+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -37,7 +37,7 @@ msgstr "andrejm@ubuntu.si,matjaz.jeran@amis.net,miles@filmsi.net"
 msgid "Request device access"
 msgstr "Zahtevaj dostop naprave"
 
-#: src/appchooser.cpp:96
+#: src/appchooser.cpp:95
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
@@ -73,70 +73,70 @@ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
 msgstr "Vedno odpri %1 datotek z izbrano aplikacijo"
 
-#: src/AppChooserDialog.qml:98
+#: src/AppChooserDialog.qml:107
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "Prikaži vse nameščene aplikacije"
 
-#: src/AppChooserDialog.qml:111
+#: src/AppChooserDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "Izberite drugo…"
 
-#: src/AppChooserDialog.qml:224
+#: src/AppChooserDialog.qml:230
 #, kde-format
 msgid "Default app for this file type"
 msgstr "Privzeta aplikacija za to zvrst datoteke"
 
-#: src/AppChooserDialog.qml:225
+#: src/AppChooserDialog.qml:231
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
 msgstr "Nedavno uporabljena aplikacija za to zvrst datoteke"
 
-#: src/AppChooserDialog.qml:246
+#: src/AppChooserDialog.qml:252
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Odpri z <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:248
+#: src/AppChooserDialog.qml:254
 #, kde-format
 msgid "No matches"
 msgstr "Ni zadetkov"
 
-#: src/AppChooserDialog.qml:250
+#: src/AppChooserDialog.qml:256
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Ni nameščene aplikacije, ki bi lahko odprla <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:276
+#: src/AppChooserDialog.qml:282
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "Možnosti terminala"
 
-#: src/AppChooserDialog.qml:292
+#: src/AppChooserDialog.qml:298
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Zaženi v terminalu"
 
-#: src/AppChooserDialog.qml:301
+#: src/AppChooserDialog.qml:307
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "Ne zapri, ko se ukaz konča"
 
-#: src/AppChooserDialog.qml:314
+#: src/AppChooserDialog.qml:320
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "Odkrij več aplikacij"
 
-#: src/AppChooserDialog.qml:335
+#: src/AppChooserDialog.qml:341
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
@@ -197,13 +197,13 @@ msgctxt ""
 msgid "Forbid Anyway"
 msgstr "Kljub temu prepovej"
 
-#: src/dynamiclauncher.cpp:76
+#: src/dynamiclauncher.cpp:77
 #, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
 msgstr "Dodaj spletno aplikacijo…"
 
-#: src/dynamiclauncher.cpp:81
+#: src/dynamiclauncher.cpp:82
 #, kde-format
 msgctxt "@title"
 msgid "Add Application…"
@@ -233,24 +233,24 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: src/filechooser.cpp:434
+#: src/filechooser.cpp:437
 #, kde-format
 msgid "Open"
 msgstr "Odpri"
 
-#: src/inputcapture.cpp:145
+#: src/inputcapture.cpp:113
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
 msgstr "Zajem vnosa se je začel"
 
-#: src/inputcapture.cpp:148
+#: src/inputcapture.cpp:116
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr "Vnos upravlja %1. Pritisnite <shortcut>%2</shortcut>, da onemogočite."
 
-#: src/inputcapture.cpp:153
+#: src/inputcapture.cpp:121
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -399,7 +399,7 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Lev klik in poteg"
 
-#: src/remotedesktop.cpp:224
+#: src/remotedesktop.cpp:270
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -448,18 +448,18 @@ msgstr "Dovoli obnovo v naslednjih sejah"
 msgid "Share"
 msgstr "Deli"
 
-#: src/screencast.cpp:297
+#: src/screencast.cpp:220
 #, kde-format
 msgid "Virtual Output"
 msgstr "Navidezni izhod"
 
-#: src/screencast.cpp:298
+#: src/screencast.cpp:221
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Navidezni izhod (deljeno z %1)"
 
-#: src/screencast.cpp:352
+#: src/screencast.cpp:276
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"

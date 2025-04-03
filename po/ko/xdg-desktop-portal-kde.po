@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-01 00:43+0000\n"
+"POT-Creation-Date: 2025-04-03 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 19:21+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -32,7 +32,7 @@ msgstr "kde@peremen.name"
 msgid "Request device access"
 msgstr "장치 접근 요청"
 
-#: src/appchooser.cpp:96
+#: src/appchooser.cpp:95
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
@@ -68,70 +68,70 @@ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
 msgstr "%1 파일을 항상 선택한 앱으로 열기"
 
-#: src/AppChooserDialog.qml:98
+#: src/AppChooserDialog.qml:107
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "모든 설치된 앱 표시"
 
-#: src/AppChooserDialog.qml:111
+#: src/AppChooserDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "다른 것 선택…"
 
-#: src/AppChooserDialog.qml:224
+#: src/AppChooserDialog.qml:230
 #, kde-format
 msgid "Default app for this file type"
 msgstr "이 파일 형식의 기본 앱"
 
-#: src/AppChooserDialog.qml:225
+#: src/AppChooserDialog.qml:231
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
 msgstr "이 파일 형식의 마지막으로 사용한 앱"
 
-#: src/AppChooserDialog.qml:246
+#: src/AppChooserDialog.qml:252
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "<command>%1</command>(으)로 여시겠습니까?"
 
-#: src/AppChooserDialog.qml:248
+#: src/AppChooserDialog.qml:254
 #, kde-format
 msgid "No matches"
 msgstr "검색 결과 없음"
 
-#: src/AppChooserDialog.qml:250
+#: src/AppChooserDialog.qml:256
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "설치된 앱 중에서 <filename>%1</filename>을(를) 열 수 있는 앱이 없음"
 
-#: src/AppChooserDialog.qml:276
+#: src/AppChooserDialog.qml:282
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "터미널 옵션"
 
-#: src/AppChooserDialog.qml:292
+#: src/AppChooserDialog.qml:298
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "터미널에서 실행"
 
-#: src/AppChooserDialog.qml:301
+#: src/AppChooserDialog.qml:307
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "명령이 끝나도 닫지 않기"
 
-#: src/AppChooserDialog.qml:314
+#: src/AppChooserDialog.qml:320
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "더 많은 앱 찾기"
 
-#: src/AppChooserDialog.qml:335
+#: src/AppChooserDialog.qml:341
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
@@ -191,13 +191,13 @@ msgctxt ""
 msgid "Forbid Anyway"
 msgstr "그래도 금지"
 
-#: src/dynamiclauncher.cpp:76
+#: src/dynamiclauncher.cpp:77
 #, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
 msgstr "웹 앱 추가…"
 
-#: src/dynamiclauncher.cpp:81
+#: src/dynamiclauncher.cpp:82
 #, kde-format
 msgctxt "@title"
 msgid "Add Application…"
@@ -227,18 +227,18 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "취소"
 
-#: src/filechooser.cpp:434
+#: src/filechooser.cpp:437
 #, kde-format
 msgid "Open"
 msgstr "열기"
 
-#: src/inputcapture.cpp:145
+#: src/inputcapture.cpp:113
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
 msgstr "입력 캡처 시작됨"
 
-#: src/inputcapture.cpp:148
+#: src/inputcapture.cpp:116
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
@@ -246,7 +246,7 @@ msgstr ""
 "%1에서 입력을 관리하고 있습니다. 비활성화하려면 <shortcut>%2</shortcut> 키를 "
 "누르십시오."
 
-#: src/inputcapture.cpp:153
+#: src/inputcapture.cpp:121
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -396,7 +396,7 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "왼쪽 클릭 후 드래그"
 
-#: src/remotedesktop.cpp:224
+#: src/remotedesktop.cpp:270
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -445,18 +445,18 @@ msgstr "향후 세션에서 복원 허용"
 msgid "Share"
 msgstr "공유"
 
-#: src/screencast.cpp:297
+#: src/screencast.cpp:220
 #, kde-format
 msgid "Virtual Output"
 msgstr "가상 출력"
 
-#: src/screencast.cpp:298
+#: src/screencast.cpp:221
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "가상 출력(%1와(과) 공유됨)"
 
-#: src/screencast.cpp:352
+#: src/screencast.cpp:276
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"

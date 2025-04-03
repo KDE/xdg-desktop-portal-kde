@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-01 00:43+0000\n"
+"POT-Creation-Date: 2025-04-03 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -34,7 +34,7 @@ msgstr "आपके ईमेल"
 msgid "Request device access"
 msgstr "डिवाइस एक्सेस का अनुरोध करें"
 
-#: src/appchooser.cpp:96
+#: src/appchooser.cpp:95
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
@@ -70,70 +70,70 @@ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
 msgstr "%1 फ़ाइलें हमेशा चुने गए ऐप से खोलें"
 
-#: src/AppChooserDialog.qml:98
+#: src/AppChooserDialog.qml:107
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "सभी इंस्टॉल किए गए एप्लिकेशन दिखाएं"
 
-#: src/AppChooserDialog.qml:111
+#: src/AppChooserDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "अन्य चुनें…"
 
-#: src/AppChooserDialog.qml:224
+#: src/AppChooserDialog.qml:230
 #, kde-format
 msgid "Default app for this file type"
 msgstr "इस फ़ाइल प्रकार के लिए डिफ़ॉल्ट ऐप"
 
-#: src/AppChooserDialog.qml:225
+#: src/AppChooserDialog.qml:231
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "Last used app for this file type"
 msgstr "इस फ़ाइल प्रकार के लिए अंतिम बार उपयोग किया गया ऐप"
 
-#: src/AppChooserDialog.qml:246
+#: src/AppChooserDialog.qml:252
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "<command>%1</command> के साथ खोलें?"
 
-#: src/AppChooserDialog.qml:248
+#: src/AppChooserDialog.qml:254
 #, kde-format
 msgid "No matches"
 msgstr "कोई मेल नहीं"
 
-#: src/AppChooserDialog.qml:250
+#: src/AppChooserDialog.qml:256
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "कोई भी स्थापित अनुप्रयोग <filename>%1</filename> को नहीं खोल सकता"
 
-#: src/AppChooserDialog.qml:276
+#: src/AppChooserDialog.qml:282
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "टर्मिनल विकल्प"
 
-#: src/AppChooserDialog.qml:292
+#: src/AppChooserDialog.qml:298
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "टर्मिनल में चलाएँ"
 
-#: src/AppChooserDialog.qml:301
+#: src/AppChooserDialog.qml:307
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "जब कमांड बाहर निकले तो बंद न करें"
 
-#: src/AppChooserDialog.qml:314
+#: src/AppChooserDialog.qml:320
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "और अधिक अनुप्रयोग खोजें"
 
-#: src/AppChooserDialog.qml:335
+#: src/AppChooserDialog.qml:341
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
@@ -193,13 +193,13 @@ msgctxt ""
 msgid "Forbid Anyway"
 msgstr "वैसे भी मना करो"
 
-#: src/dynamiclauncher.cpp:76
+#: src/dynamiclauncher.cpp:77
 #, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
 msgstr "वेब अनुप्रयोग जोड़ें…"
 
-#: src/dynamiclauncher.cpp:81
+#: src/dynamiclauncher.cpp:82
 #, kde-format
 msgctxt "@title"
 msgid "Add Application…"
@@ -229,12 +229,12 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "रद्द करना"
 
-#: src/filechooser.cpp:434
+#: src/filechooser.cpp:437
 #, kde-format
 msgid "Open"
 msgstr "खुला"
 
-#: src/inputcapture.cpp:145
+#: src/inputcapture.cpp:113
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Input Capture Requested"
@@ -242,13 +242,13 @@ msgctxt "@title:notification"
 msgid "Input Capture started"
 msgstr "इनपुट कैप्चर अनुरोधित"
 
-#: src/inputcapture.cpp:148
+#: src/inputcapture.cpp:116
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr ""
 
-#: src/inputcapture.cpp:153
+#: src/inputcapture.cpp:121
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -396,7 +396,7 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "बायाँ क्लिक करें और खींचें"
 
-#: src/remotedesktop.cpp:224
+#: src/remotedesktop.cpp:270
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -445,18 +445,18 @@ msgstr "भविष्य के सत्रों पर पुनर्स�
 msgid "Share"
 msgstr "शेयर करना"
 
-#: src/screencast.cpp:297
+#: src/screencast.cpp:220
 #, kde-format
 msgid "Virtual Output"
 msgstr "वर्चुअल आउटपुट"
 
-#: src/screencast.cpp:298
+#: src/screencast.cpp:221
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "वर्चुअल आउटपुट (%1 के साथ साझा किया गया)"
 
-#: src/screencast.cpp:352
+#: src/screencast.cpp:276
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
