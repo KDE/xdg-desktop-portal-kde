@@ -20,8 +20,15 @@ class InhibitPortal : public QDBusAbstractAdaptor, public QDBusContext
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Inhibit")
+    Q_PROPERTY(uint version READ version CONSTANT)
+
 public:
     explicit InhibitPortal(QObject *parent);
+
+    uint version() const
+    {
+        return 3;
+    }
 
 public Q_SLOTS:
     void Inhibit(const QDBusObjectPath &handle, const QString &app_id, const QString &window, uint flags, const QVariantMap &options);
@@ -29,7 +36,7 @@ public Q_SLOTS:
     void QueryEndResponse(const QDBusObjectPath &handle);
 
     // called by PlasmaShutdown. Should clearly be on a different iface, but for testing.. yolo!
-    bool queryCanShutDown();
+    void queryCanShutDown(const QDBusMessage &message, bool &reply);
     void endSession();
 
 private:

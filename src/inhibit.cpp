@@ -68,9 +68,13 @@ void InhibitPortal::Inhibit(const QDBusObjectPath &handle, const QString &app_id
     auto request = new Request(handle, this, QStringLiteral("org.freedesktop.impl.portal.Inhibit"));
 
     if (flags & 1) {
+        qDebug() << "DAVE; making blocking logout";
+
         m_appsBlockingLogout[handle] = app_id;
         connect(request, &Request::closeRequested, this, [this, handle]() {
             m_appsBlockingLogout.remove(handle);
+
+            qDebug() << "no longer blocking" << m_appsBlockingLogout;
         });
     }
 
@@ -140,6 +144,8 @@ void InhibitPortal::Inhibit(const QDBusObjectPath &handle, const QString &app_id
 
 uint InhibitPortal::CreateMonitor(const QDBusObjectPath &handle, const QDBusObjectPath &session_handle, const QString &app_id, const QString &window)
 {
+    qDebug() << "DAVE; making monitor";
+
     if (m_monitors.contains(session_handle)) {
         qCDebug(XdgDesktopPortalKdeInhibit) << "CreateMonitor called for existing session:" << session_handle;
         return -1;
@@ -150,6 +156,7 @@ uint InhibitPortal::CreateMonitor(const QDBusObjectPath &handle, const QDBusObje
     auto session = new SessionStateMonitorSession(this, app_id, session_handle.path());
 
     connect(session, &Session::closed, this, [this, session_handle]() {
+        qDebug() << "dave: monitor gone";
         m_monitors.remove(session_handle);
     });
     m_monitors.insert(session_handle, session);
@@ -172,14 +179,18 @@ void InhibitPortal::QueryEndResponse(const QDBusObjectPath &handle)
     }
 }
 
-bool InhibitPortal::queryCanShutDown()
+void InhibitPortal::queryCanShutDown(const QDBusMessage &message, bool &reply)
 {
+    Q_UNUSED(reply);
+    qDebug() << "DAVE; query can logout";
+
     if (m_pendingCanShutDownReply.type() != QDBusMessage::InvalidMessage) {
         qWarning() << "querying shutdown before previous call completed, this may skip clients";
     }
 
-    setDelayedReply(true);
-    m_pendingCanShutDownReply = QDBusContext::message();
+    m_pendingCanShutDownReply = message;
+    message.setDelayedReply(true);
+
     auto lockState = SessionStateMonitorSession::LockScreenInactive;
     auto sessionState = SessionStateMonitorSession::QueryEnd;
     for (auto session : std::as_const(m_monitors)) {
@@ -190,7 +201,6 @@ bool InhibitPortal::queryCanShutDown()
     // if we don't have any monitors, we don't need to wait for a reply
     int timeout = m_monitors.isEmpty() ? 0 : 1500;
     QTimer::singleShot(timeout, this, &InhibitPortal::queryCanShutDownComplete);
-    return false;
 }
 
 void InhibitPortal::endSession()
@@ -208,8 +218,10 @@ void InhibitPortal::queryCanShutDownComplete()
         return;
     }
 
+    qDebug() << "DAVE: done! can logout?" << m_appsBlockingLogout;
+
     QDBusMessage message = m_pendingCanShutDownReply.createReply();
-    message << !m_appsBlockingLogout.isEmpty();
+    message << m_appsBlockingLogout.isEmpty();
     QDBusConnection::sessionBus().send(message);
     m_pendingCanShutDownReply = QDBusMessage();
 }
