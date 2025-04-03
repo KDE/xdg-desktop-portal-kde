@@ -39,7 +39,21 @@ public Q_SLOTS:
     void queryCanShutDown(const QDBusMessage &message, bool &reply);
     void endSession();
 
+Q_SIGNALS:
+    void StateChanged(const QDBusObjectPath &path, const QVariantMap &state);
+
 private:
+    enum LockScreenState {
+        LockScreenInactive,
+        LockScreenActive,
+    };
+    enum SessionState {
+        Running = 1,
+        QueryEnd = 2,
+        Ending = 3,
+    };
+
+    void updateState(SessionStateMonitorSession *session, LockScreenState, SessionState state);
     void queryCanShutDownComplete();
     QHash<QDBusObjectPath, SessionStateMonitorSession *> m_monitors;
     QHash<QDBusObjectPath, QString /*appId*/> m_appsBlockingLogout;

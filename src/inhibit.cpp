@@ -20,16 +20,6 @@ class SessionStateMonitorSession : public Session
 {
     Q_OBJECT
 public:
-    enum LockScreenState {
-        LockScreenInactive,
-        LockScreenActive,
-    };
-    enum SessionState {
-        Running = 1,
-        QueryEnd = 2,
-        Ending = 3,
-    };
-
     SessionStateMonitorSession(QObject *parent = nullptr, const QString &appId = QString(), const QString &path = QString());
     ~SessionStateMonitorSession() = default;
     SessionType type() const override
@@ -44,7 +34,6 @@ public:
     {
         return m_waitingForResponse;
     }
-    void updateState(LockScreenState, SessionState state);
 
 private:
     bool m_waitingForResponse = false;
@@ -155,6 +144,13 @@ uint InhibitPortal::CreateMonitor(const QDBusObjectPath &handle, const QDBusObje
 
     auto session = new SessionStateMonitorSession(this, app_id, session_handle.path());
 
+    auto lockState = LockScreenInactive;
+    auto sessionState = Running;
+    // XDP doesn't forward unless, we've completed creating the monitor
+    QTimer::singleShot(0, session, [session, this, lockState, sessionState] {
+        updateState(session, lockState, sessionState);
+    });
+
     connect(session, &Session::closed, this, [this, session_handle]() {
         qDebug() << "dave: monitor gone";
         m_monitors.remove(session_handle);
@@ -191,10 +187,10 @@ void InhibitPortal::queryCanShutDown(const QDBusMessage &message, bool &reply)
     m_pendingCanShutDownReply = message;
     message.setDelayedReply(true);
 
-    auto lockState = SessionStateMonitorSession::LockScreenInactive;
-    auto sessionState = SessionStateMonitorSession::QueryEnd;
+    auto lockState = LockScreenInactive;
+    auto sessionState = QueryEnd;
     for (auto session : std::as_const(m_monitors)) {
-        session->updateState(lockState, sessionState);
+        updateState(session, lockState, sessionState);
         session->setWaitingForResponse(true);
     }
 
@@ -205,10 +201,10 @@ void InhibitPortal::queryCanShutDown(const QDBusMessage &message, bool &reply)
 
 void InhibitPortal::endSession()
 {
-    auto lockState = SessionStateMonitorSession::LockScreenInactive;
-    auto sessionState = SessionStateMonitorSession::Ending;
+    auto lockState = LockScreenInactive;
+    auto sessionState = Ending;
     for (auto session : std::as_const(m_monitors)) {
-        session->updateState(lockState, sessionState);
+        updateState(session, lockState, sessionState);
     }
 }
 
@@ -231,18 +227,13 @@ SessionStateMonitorSession::SessionStateMonitorSession(QObject *parent, const QS
 {
 }
 
-void SessionStateMonitorSession::updateState(LockScreenState lockState, SessionState sessionState)
+void InhibitPortal::updateState(SessionStateMonitorSession *session, LockScreenState lockState, SessionState sessionState)
 {
-    QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.impl.portal.Inhibit"),
-                                                          QStringLiteral("/org/freedesktop/impl/portal/Inhibit"),
-                                                          QStringLiteral("org.freedesktop.impl.portal.Inhibit"),
-                                                          QStringLiteral("StateChanged"));
     QVariantMap data;
     data[QStringLiteral("screensaver-active")] = (lockState == LockScreenActive);
     data[QStringLiteral("session-state")] = static_cast<uint>(sessionState);
-    message << handle() << data;
 
-    QDBusConnection::sessionBus().call(message, QDBus::NoBlock);
+    Q_EMIT StateChanged(QDBusObjectPath(session->handle()), data);
 }
 
 #include "inhibit.moc"
