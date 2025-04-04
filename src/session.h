@@ -11,9 +11,7 @@
 
 #include <QAction>
 #include <QDBusPendingReply>
-#include <QDBusVirtualObject>
 #include <QObject>
-#include <QShortcut>
 
 #include "globalshortcuts.h"
 #include "inputcapture.h"
@@ -26,10 +24,11 @@ class KGlobalAccelInterface;
 class KGlobalAccelComponentInterface;
 class RemoteDesktopPortal;
 
-class Session : public QDBusVirtualObject
+class Session : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(Session)
+    Q_PROPERTY(uint version READ version CONSTANT)
 public:
     explicit Session(QObject *parent = nullptr, const QString &appId = QString(), const QString &path = QString());
     ~Session() override;
@@ -41,10 +40,10 @@ public:
         InputCapture = 3,
     };
 
-    bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) override;
-    QString introspect(const QString &path) const override;
-
-    bool close();
+    constexpr uint version() const
+    {
+        return 1;
+    }
     virtual SessionType type() const = 0;
 
     static Session *createSession(QObject *parent, SessionType type, const QString &appId, const QString &path);
@@ -61,7 +60,9 @@ public:
     }
 
 Q_SIGNALS:
-    void closed();
+    Q_SCRIPTABLE void closed();
+public Q_SLOTS:
+    Q_SCRIPTABLE void close();
 
 protected:
     const QString m_appId;
