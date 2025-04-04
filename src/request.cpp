@@ -13,10 +13,8 @@
 
 using namespace Qt::StringLiterals;
 
-Request::Request(const QDBusObjectPath &handle, QObject *parent, const QString &portalName, const QVariant &data)
+Request::Request(const QDBusObjectPath &handle, QObject *parent)
     : QObject(parent)
-    , m_data(data)
-    , m_portalName(portalName)
     , m_path(handle)
 {
     auto sessionBus = QDBusConnection::sessionBus();

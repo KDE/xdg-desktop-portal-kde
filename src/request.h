@@ -20,7 +20,7 @@ class Request : public QObject
 {
     Q_OBJECT
 public:
-    explicit Request(const QDBusObjectPath &handle, QObject *parent = nullptr, const QString &portalName = QString(), const QVariant &data = QVariant());
+    explicit Request(const QDBusObjectPath &handle, QObject *parent = nullptr);
 
     template<class T>
     static Request *makeClosableDialogRequest(const QDBusObjectPath &handle, T *dialogAndParent)
@@ -45,8 +45,6 @@ Q_SIGNALS:
     void closeRequested();
 
 private:
-    const QVariant m_data;
-    const QString m_portalName;
     const QDBusObjectPath m_path;
 };
 

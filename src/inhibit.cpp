@@ -55,7 +55,7 @@ void InhibitPortal::Inhibit(const QDBusObjectPath &handle, const QString &app_id
         } else {
             QDBusConnection sessionBus = QDBusConnection::sessionBus();
             auto inhibitId = reply.value();
-            auto request = new Request(handle, this, QStringLiteral("org.freedesktop.impl.portal.Inhibit"), QVariant(inhibitId));
+            auto request = new Request(handle, this);
 
             // Once the request is closed by the application, release our inhibitor
             connect(request, &Request::closeRequested, this, [this, inhibitId] {
