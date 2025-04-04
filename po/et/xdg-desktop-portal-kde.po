@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-03 00:43+0000\n"
+"POT-Creation-Date: 2025-04-04 00:43+0000\n"
 "PO-Revision-Date: 2020-10-11 01:46+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -140,13 +140,13 @@ msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
 
-#: src/background.cpp:132
+#: src/background.cpp:133
 #, fuzzy, kde-format
 #| msgid "Background activity"
 msgid "Background Activity"
 msgstr "Taustategevus"
 
-#: src/background.cpp:135
+#: src/background.cpp:136
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -154,21 +154,21 @@ msgid ""
 "this, the application will quit when its last window is closed."
 msgstr ""
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:142 src/background.cpp:159
 #, fuzzy, kde-format
 #| msgid "Allow"
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Lubamine"
 
-#: src/background.cpp:148
+#: src/background.cpp:149
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr ""
 
-#: src/background.cpp:152
+#: src/background.cpp:153
 #, fuzzy, kde-format
 #| msgid "Background activity"
 msgctxt ""
@@ -177,7 +177,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Taustategevus"
 
-#: src/background.cpp:154
+#: src/background.cpp:155
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -186,7 +186,7 @@ msgid ""
 "happens."
 msgstr ""
 
-#: src/background.cpp:159
+#: src/background.cpp:160
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -451,7 +451,6 @@ msgid "Allow restoring on future sessions"
 msgstr ""
 
 #: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:215
-#: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"
 msgstr "Jaga"
@@ -680,16 +679,28 @@ msgstr ""
 msgid ", "
 msgstr ""
 
-#: src/userinfodialog.cpp:34
-#, kde-format
-msgid "Share Information"
+#: src/userinfodialog.cpp:37
+#, fuzzy, kde-format
+#| msgid "Share Information"
+msgid "Share User Information with %1"
 msgstr "Jaga teavet"
 
-#: src/userinfodialog.cpp:35
+#: src/userinfodialog.cpp:38
+#, kde-format
+msgid "%1 wants access to your user info."
+msgstr ""
+
+#: src/userinfodialog.cpp:40
+#, kde-format
+msgid "This app will be given access to your avatar and name."
+msgstr ""
+
+#: src/UserInfoDialog.qml:59
 #, fuzzy, kde-format
-#| msgid "Select what to share with the requesting application"
-msgid "Share your personal information with the requesting application?"
-msgstr "Valimine, mida nõutud rakendusega jagada"
+#| msgid "Share"
+msgctxt "@action:button"
+msgid "Share"
+msgstr "Jaga"
 
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
@@ -700,6 +711,11 @@ msgstr "Ekraanivideo tegemise alustamine nurjus"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Kaugtöölaud"
+
+#, fuzzy
+#~| msgid "Select what to share with the requesting application"
+#~ msgid "Share your personal information with the requesting application?"
+#~ msgstr "Valimine, mida nõutud rakendusega jagada"
 
 #~ msgid ""
 #~ "Laptop screen\n"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-03 00:43+0000\n"
+"POT-Creation-Date: 2025-04-04 00:43+0000\n"
 "PO-Revision-Date: 2023-11-11 21:18+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
@@ -139,12 +139,12 @@ msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr "¿Nun ves l'aplicación correuta? Atopa más en <link>Discover</link>."
 
-#: src/background.cpp:132
+#: src/background.cpp:133
 #, kde-format
 msgid "Background Activity"
 msgstr "Actividá en segundu planu"
 
-#: src/background.cpp:135
+#: src/background.cpp:136
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -152,20 +152,20 @@ msgid ""
 "this, the application will quit when its last window is closed."
 msgstr ""
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:142 src/background.cpp:159
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr ""
 
-#: src/background.cpp:148
+#: src/background.cpp:149
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr ""
 
-#: src/background.cpp:152
+#: src/background.cpp:153
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -173,7 +173,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Usu d'aplicaciones en segundu planu"
 
-#: src/background.cpp:154
+#: src/background.cpp:155
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -182,7 +182,7 @@ msgid ""
 "happens."
 msgstr ""
 
-#: src/background.cpp:159
+#: src/background.cpp:160
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -434,7 +434,6 @@ msgid "Allow restoring on future sessions"
 msgstr ""
 
 #: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:215
-#: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"
 msgstr ""
@@ -643,14 +642,25 @@ msgstr ""
 msgid ", "
 msgstr ""
 
-#: src/userinfodialog.cpp:34
+#: src/userinfodialog.cpp:37
 #, kde-format
-msgid "Share Information"
+msgid "Share User Information with %1"
 msgstr ""
 
-#: src/userinfodialog.cpp:35
+#: src/userinfodialog.cpp:38
 #, kde-format
-msgid "Share your personal information with the requesting application?"
+msgid "%1 wants access to your user info."
+msgstr ""
+
+#: src/userinfodialog.cpp:40
+#, kde-format
+msgid "This app will be given access to your avatar and name."
+msgstr ""
+
+#: src/UserInfoDialog.qml:59
+#, kde-format
+msgctxt "@action:button"
+msgid "Share"
 msgstr ""
 
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334

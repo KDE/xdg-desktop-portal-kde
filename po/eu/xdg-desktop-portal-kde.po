@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-03 00:43+0000\n"
+"POT-Creation-Date: 2025-04-04 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 19:56+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -143,12 +143,12 @@ msgstr ""
 "Ez duzu aplikazio zuzena aurkitzen? Gehiago aurkitu <link>Discover</link> "
 "erabiliz."
 
-#: src/background.cpp:132
+#: src/background.cpp:133
 #, kde-format
 msgid "Background Activity"
 msgstr "Atzeko planoko jarduera"
 
-#: src/background.cpp:135
+#: src/background.cpp:136
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -158,20 +158,20 @@ msgstr ""
 "%1(e)k martxan jarraitu nahi du leiho ikusgairik ez duenean. Hori debekatzen "
 "baduzu, aplikazioa itxi egingo da bere azken leihoa ixten denean."
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:142 src/background.cpp:159
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Baimendu"
 
-#: src/background.cpp:148
+#: src/background.cpp:149
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "Debekatu"
 
-#: src/background.cpp:152
+#: src/background.cpp:153
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -179,7 +179,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Atzeko planoko aplikazio erabilera"
 
-#: src/background.cpp:154
+#: src/background.cpp:155
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -191,7 +191,7 @@ msgstr ""
 "Horrek datu galera eragin dezake, gertatzen denean gorde gabeko aldaketak "
 "daudenean."
 
-#: src/background.cpp:159
+#: src/background.cpp:160
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -446,7 +446,6 @@ msgid "Allow restoring on future sessions"
 msgstr "Etorkizuneko saioetan lehengoratzen uzten du."
 
 #: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:215
-#: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"
 msgstr "Partekatu"
@@ -653,16 +652,28 @@ msgstr "Pantaila igortzea"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:34
-#, kde-format
-msgid "Share Information"
+#: src/userinfodialog.cpp:37
+#, fuzzy, kde-format
+#| msgid "Share Information"
+msgid "Share User Information with %1"
 msgstr "Partekatu informazioa"
 
-#: src/userinfodialog.cpp:35
+#: src/userinfodialog.cpp:38
 #, kde-format
-msgid "Share your personal information with the requesting application?"
+msgid "%1 wants access to your user info."
 msgstr ""
-"Zure informazio pertsonala eskatzen duen aplikazioarekin partekatu nahi duzu?"
+
+#: src/userinfodialog.cpp:40
+#, kde-format
+msgid "This app will be given access to your avatar and name."
+msgstr ""
+
+#: src/UserInfoDialog.qml:59
+#, fuzzy, kde-format
+#| msgid "Share"
+msgctxt "@action:button"
+msgid "Share"
+msgstr "Partekatu"
 
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
@@ -673,6 +684,11 @@ msgstr "Huts egin du pantaila-grabatzea abiatzea"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Urruneko mahaigaina"
+
+#~ msgid "Share your personal information with the requesting application?"
+#~ msgstr ""
+#~ "Zure informazio pertsonala eskatzen duen aplikazioarekin partekatu nahi "
+#~ "duzu?"
 
 #~ msgid "Create new folder in %1"
 #~ msgstr "Sortu karpeta berria %1(e)an"

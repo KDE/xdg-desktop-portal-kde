@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-03 00:43+0000\n"
+"POT-Creation-Date: 2025-04-04 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 10:03+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -142,12 +142,12 @@ msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr "Ne vidite ustrezne aplikacije? Najdite več v <link>Discover</link>."
 
-#: src/background.cpp:132
+#: src/background.cpp:133
 #, kde-format
 msgid "Background Activity"
 msgstr "Dejavnost v ozadju"
 
-#: src/background.cpp:135
+#: src/background.cpp:136
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -157,20 +157,20 @@ msgstr ""
 "%1 si želi ostati v teku, tudi ko nima več vidnih oken. Če to prepoveste, se "
 "bo aplikacija končala, ko bo zaprto zadnje okno."
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:142 src/background.cpp:159
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Dovoli"
 
-#: src/background.cpp:148
+#: src/background.cpp:149
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "Prepovej"
 
-#: src/background.cpp:152
+#: src/background.cpp:153
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -178,7 +178,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Dejavnost aplikacije v ozadju"
 
-#: src/background.cpp:154
+#: src/background.cpp:155
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -190,7 +190,7 @@ msgstr ""
 "okno. To lahko povzroči izgubo podatkov, če ima aplikacija še neshranjene "
 "podatke, ko se to zgodi."
 
-#: src/background.cpp:159
+#: src/background.cpp:160
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -443,7 +443,6 @@ msgid "Allow restoring on future sessions"
 msgstr "Dovoli obnovo v naslednjih sejah"
 
 #: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:215
-#: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"
 msgstr "Deli"
@@ -654,15 +653,28 @@ msgstr "Deljenje zaslonov"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:34
-#, kde-format
-msgid "Share Information"
+#: src/userinfodialog.cpp:37
+#, fuzzy, kde-format
+#| msgid "Share Information"
+msgid "Share User Information with %1"
 msgstr "Deli informacije"
 
-#: src/userinfodialog.cpp:35
+#: src/userinfodialog.cpp:38
 #, kde-format
-msgid "Share your personal information with the requesting application?"
-msgstr "Naj delim osebne podatke s programom, ki pošilja zahtevek?"
+msgid "%1 wants access to your user info."
+msgstr ""
+
+#: src/userinfodialog.cpp:40
+#, kde-format
+msgid "This app will be given access to your avatar and name."
+msgstr ""
+
+#: src/UserInfoDialog.qml:59
+#, fuzzy, kde-format
+#| msgid "Share"
+msgctxt "@action:button"
+msgid "Share"
+msgstr "Deli"
 
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
@@ -673,6 +685,9 @@ msgstr "Začetek predvajanja zaslona ni uspel"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Oddaljeni zaslon"
+
+#~ msgid "Share your personal information with the requesting application?"
+#~ msgstr "Naj delim osebne podatke s programom, ki pošilja zahtevek?"
 
 #~ msgid "Create new folder in %1"
 #~ msgstr "Ustvari novo mapo v %1"

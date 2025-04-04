@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-03 00:43+0000\n"
+"POT-Creation-Date: 2025-04-04 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 19:21+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -137,12 +137,12 @@ msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr "앱이 없습니까? <link>Discover</link>에서 설치하십시오."
 
-#: src/background.cpp:132
+#: src/background.cpp:133
 #, kde-format
 msgid "Background Activity"
 msgstr "백그라운드 활동"
 
-#: src/background.cpp:135
+#: src/background.cpp:136
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -152,20 +152,20 @@ msgstr ""
 "%1에서 표시되는 창이 없을 때에도 계속 실행되기를 요청하고 있습니다. 이를 금지"
 "하면 마지막 창을 닫을 때 앱을 끝냅니다."
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:142 src/background.cpp:159
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "허용"
 
-#: src/background.cpp:148
+#: src/background.cpp:149
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "금지"
 
-#: src/background.cpp:152
+#: src/background.cpp:153
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -173,7 +173,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "백그라운드 앱 사용"
 
-#: src/background.cpp:154
+#: src/background.cpp:155
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -184,7 +184,7 @@ msgstr ""
 "마지막 창을 닫았을 때 %1을(를) 강제로 종료합니다. 앱에 저장되지 않은 데이터"
 "가 있는 경우 손실됩니다."
 
-#: src/background.cpp:159
+#: src/background.cpp:160
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -440,7 +440,6 @@ msgid "Allow restoring on future sessions"
 msgstr "향후 세션에서 복원 허용"
 
 #: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:215
-#: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"
 msgstr "공유"
@@ -645,15 +644,28 @@ msgstr "스크린 캐스팅"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:34
-#, kde-format
-msgid "Share Information"
+#: src/userinfodialog.cpp:37
+#, fuzzy, kde-format
+#| msgid "Share Information"
+msgid "Share User Information with %1"
 msgstr "정보 공유"
 
-#: src/userinfodialog.cpp:35
+#: src/userinfodialog.cpp:38
 #, kde-format
-msgid "Share your personal information with the requesting application?"
-msgstr "요청하는 앱과 개인 정보를 공유하시겠습니까?"
+msgid "%1 wants access to your user info."
+msgstr ""
+
+#: src/userinfodialog.cpp:40
+#, kde-format
+msgid "This app will be given access to your avatar and name."
+msgstr ""
+
+#: src/UserInfoDialog.qml:59
+#, fuzzy, kde-format
+#| msgid "Share"
+msgctxt "@action:button"
+msgid "Share"
+msgstr "공유"
 
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
@@ -664,6 +676,9 @@ msgstr "스크린캐스팅을 시작할 수 없음"
 #, kde-format
 msgid "Remote desktop"
 msgstr "원격 데스크톱"
+
+#~ msgid "Share your personal information with the requesting application?"
+#~ msgstr "요청하는 앱과 개인 정보를 공유하시겠습니까?"
 
 #~ msgid "Create new folder in %1"
 #~ msgstr "%1에 새 폴더 만들기"

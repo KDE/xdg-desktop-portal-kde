@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-03 00:43+0000\n"
+"POT-Creation-Date: 2025-04-04 00:43+0000\n"
 "PO-Revision-Date: 2025-02-03 08:16-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -142,12 +142,12 @@ msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr "Não vê o aplicativo certo? Encontre mais no <link>Discover</link>."
 
-#: src/background.cpp:132
+#: src/background.cpp:133
 #, kde-format
 msgid "Background Activity"
 msgstr "Atividade em segundo plano"
 
-#: src/background.cpp:135
+#: src/background.cpp:136
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -158,20 +158,20 @@ msgstr ""
 "Se você proibir isso, o aplicativo será encerrado quando sua última janela "
 "for fechada."
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:142 src/background.cpp:159
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Permitir"
 
-#: src/background.cpp:148
+#: src/background.cpp:149
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "Proibir"
 
-#: src/background.cpp:152
+#: src/background.cpp:153
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -179,7 +179,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Atividade em segundo plano"
 
-#: src/background.cpp:154
+#: src/background.cpp:155
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -191,7 +191,7 @@ msgstr ""
 "fechada. Isso pode causar perda de dados se o aplicativo tiver alterações "
 "não salvas quando isso ocorrer."
 
-#: src/background.cpp:159
+#: src/background.cpp:160
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -447,7 +447,6 @@ msgid "Allow restoring on future sessions"
 msgstr "Permite restaurar em sessões futuras"
 
 #: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:215
-#: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"
 msgstr "Compartilhar"
@@ -654,15 +653,28 @@ msgstr "Transmissão de tela"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:34
-#, kde-format
-msgid "Share Information"
+#: src/userinfodialog.cpp:37
+#, fuzzy, kde-format
+#| msgid "Share Information"
+msgid "Share User Information with %1"
 msgstr "Compartilhar informações"
 
-#: src/userinfodialog.cpp:35
+#: src/userinfodialog.cpp:38
 #, kde-format
-msgid "Share your personal information with the requesting application?"
-msgstr "Compartilhar suas informações pessoais com o aplicativo solicitante?"
+msgid "%1 wants access to your user info."
+msgstr ""
+
+#: src/userinfodialog.cpp:40
+#, kde-format
+msgid "This app will be given access to your avatar and name."
+msgstr ""
+
+#: src/UserInfoDialog.qml:59
+#, fuzzy, kde-format
+#| msgid "Share"
+msgctxt "@action:button"
+msgid "Share"
+msgstr "Compartilhar"
 
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
@@ -673,6 +685,10 @@ msgstr "Não foi possível iniciar a transmissão de tela"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Área de trabalho remota"
+
+#~ msgid "Share your personal information with the requesting application?"
+#~ msgstr ""
+#~ "Compartilhar suas informações pessoais com o aplicativo solicitante?"
 
 #~ msgid "Create new folder in %1"
 #~ msgstr "Criar nova pasta em %1"

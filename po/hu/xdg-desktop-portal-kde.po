@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-03 00:43+0000\n"
+"POT-Creation-Date: 2025-04-04 00:43+0000\n"
 "PO-Revision-Date: 2025-01-18 21:55+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -142,12 +142,12 @@ msgstr ""
 "Nem találja a megfelelő alkalmazást? Keressen továbbiakat a "
 "<link>Discoverben</link>."
 
-#: src/background.cpp:132
+#: src/background.cpp:133
 #, kde-format
 msgid "Background Activity"
 msgstr "Háttéraktivitás"
 
-#: src/background.cpp:135
+#: src/background.cpp:136
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -157,20 +157,20 @@ msgstr ""
 "A(z) %1 szeretne futni akkor is, ha nincs látható ablaka. Ha megtiltja ezt, "
 "az alkalmazás kilép, ha az utolsó ablaka is bezárult."
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:142 src/background.cpp:159
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Engedélyezés"
 
-#: src/background.cpp:148
+#: src/background.cpp:149
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "Tiltás"
 
-#: src/background.cpp:152
+#: src/background.cpp:153
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -178,7 +178,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Háttéralkalmazás-használat"
 
-#: src/background.cpp:154
+#: src/background.cpp:155
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -190,7 +190,7 @@ msgstr ""
 "bezárásakor. Ez adatvesztést okozhat, ha az alkalmazásnak nem mentett "
 "változtatásai vannak a kilépés pillanatában."
 
-#: src/background.cpp:159
+#: src/background.cpp:160
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -446,7 +446,6 @@ msgid "Allow restoring on future sessions"
 msgstr "Visszaállíthatóság engedélyezése a jövőbeli munkamenetekben"
 
 #: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:215
-#: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"
 msgstr "Megosztás"
@@ -653,15 +652,28 @@ msgstr "Képernyőmegosztás"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:34
-#, kde-format
-msgid "Share Information"
+#: src/userinfodialog.cpp:37
+#, fuzzy, kde-format
+#| msgid "Share Information"
+msgid "Share User Information with %1"
 msgstr "Információ megosztása"
 
-#: src/userinfodialog.cpp:35
+#: src/userinfodialog.cpp:38
 #, kde-format
-msgid "Share your personal information with the requesting application?"
-msgstr "Megosztja a személyes adadait az igénylő alkalmazással?"
+msgid "%1 wants access to your user info."
+msgstr ""
+
+#: src/userinfodialog.cpp:40
+#, kde-format
+msgid "This app will be given access to your avatar and name."
+msgstr ""
+
+#: src/UserInfoDialog.qml:59
+#, fuzzy, kde-format
+#| msgid "Share"
+msgctxt "@action:button"
+msgid "Share"
+msgstr "Megosztás"
 
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
@@ -672,6 +684,9 @@ msgstr "Nem sikerült elindítani a képernyőfelvételt"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Távoli asztal"
+
+#~ msgid "Share your personal information with the requesting application?"
+#~ msgstr "Megosztja a személyes adadait az igénylő alkalmazással?"
 
 #~ msgid "Create new folder in %1"
 #~ msgstr "Új mappa létrehozása itt: %1"

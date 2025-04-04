@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-03 00:43+0000\n"
+"POT-Creation-Date: 2025-04-04 00:43+0000\n"
 "PO-Revision-Date: 2024-11-17 17:41+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -145,12 +145,12 @@ msgstr ""
 "Если нужное приложение отсутствует, загрузите его в центре программ "
 "<link>Discover</link>."
 
-#: src/background.cpp:132
+#: src/background.cpp:133
 #, kde-format
 msgid "Background Activity"
 msgstr "Фоновая активность"
 
-#: src/background.cpp:135
+#: src/background.cpp:136
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -161,20 +161,20 @@ msgstr ""
 "Если такое поведение будет запрещено, то приложение будет закрыто при "
 "закрытии его последнего окна."
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:142 src/background.cpp:159
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Разрешить"
 
-#: src/background.cpp:148
+#: src/background.cpp:149
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "Запретить"
 
-#: src/background.cpp:152
+#: src/background.cpp:153
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -182,7 +182,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Фоновая активность приложения"
 
-#: src/background.cpp:154
+#: src/background.cpp:155
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -194,7 +194,7 @@ msgstr ""
 "приложения «%1», когда его последнее окно будет закрыто. Это может привести "
 "к потере данных, если в приложении есть несохраненные изменения."
 
-#: src/background.cpp:159
+#: src/background.cpp:160
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -448,7 +448,6 @@ msgid "Allow restoring on future sessions"
 msgstr "Сохранить параметры"
 
 #: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:215
-#: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"
 msgstr "Поделиться"
@@ -661,15 +660,28 @@ msgstr "Демонстрация экрана"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:34
-#, kde-format
-msgid "Share Information"
+#: src/userinfodialog.cpp:37
+#, fuzzy, kde-format
+#| msgid "Share Information"
+msgid "Share User Information with %1"
 msgstr "Сведения об общем доступе"
 
-#: src/userinfodialog.cpp:35
+#: src/userinfodialog.cpp:38
 #, kde-format
-msgid "Share your personal information with the requesting application?"
-msgstr "Поделиться личными данными с запрашивающим приложением?"
+msgid "%1 wants access to your user info."
+msgstr ""
+
+#: src/userinfodialog.cpp:40
+#, kde-format
+msgid "This app will be given access to your avatar and name."
+msgstr ""
+
+#: src/UserInfoDialog.qml:59
+#, fuzzy, kde-format
+#| msgid "Share"
+msgctxt "@action:button"
+msgid "Share"
+msgstr "Поделиться"
 
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
@@ -680,6 +692,9 @@ msgstr "Ошибка при запуске трансляции экрана"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Удалённый рабочий стол"
+
+#~ msgid "Share your personal information with the requesting application?"
+#~ msgstr "Поделиться личными данными с запрашивающим приложением?"
 
 #~ msgid "Create new folder in %1"
 #~ msgstr "Создать новую папку в %1"

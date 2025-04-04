@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-03 00:43+0000\n"
+"POT-Creation-Date: 2025-04-04 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -139,12 +139,12 @@ msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr "सम्यक् एप् न पश्यति वा? अधिकं अन्वेष्टुम् in<link> परिनयन</link> ."
 
-#: src/background.cpp:132
+#: src/background.cpp:133
 #, kde-format
 msgid "Background Activity"
 msgstr "पृष्ठभूमि क्रियाकलाप"
 
-#: src/background.cpp:135
+#: src/background.cpp:136
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -154,20 +154,20 @@ msgstr ""
 "%1 यदा तस्य दृश्यविण्डोः नास्ति तदा चालितं तिष्ठतुम् इच्छति । यदि भवान् एतत् निषिद्धं "
 "करोति तर्हि अनुप्रयोगः यदा तस्य अन्तिमविण्डो पिहितः भवति तदा निर्गमिष्यति ।"
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:142 src/background.cpp:159
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "अनुमन्यताम्‌"
 
-#: src/background.cpp:148
+#: src/background.cpp:149
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "निषेधं कुरुत"
 
-#: src/background.cpp:152
+#: src/background.cpp:153
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -175,7 +175,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "पृष्ठभूमि एप्लिकेशन उपयोग"
 
-#: src/background.cpp:154
+#: src/background.cpp:155
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -187,7 +187,7 @@ msgstr ""
 "दत्तांशहानिः भवितुम् अर्हति यदि अनुप्रयोगे यदा एतत् भवति तदा किमपि अरक्षितं परिवर्तनं "
 "भवति ।"
 
-#: src/background.cpp:159
+#: src/background.cpp:160
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -440,7 +440,6 @@ msgid "Allow restoring on future sessions"
 msgstr "भविष्येषु सत्रेषु पुनर्स्थापनस्य अनुमतिं ददातु"
 
 #: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:215
-#: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"
 msgstr "संविभागः"
@@ -647,15 +646,28 @@ msgstr "स्क्रीन कास्टिंग"
 msgid ", "
 msgstr ", ९. "
 
-#: src/userinfodialog.cpp:34
-#, kde-format
-msgid "Share Information"
+#: src/userinfodialog.cpp:37
+#, fuzzy, kde-format
+#| msgid "Share Information"
+msgid "Share User Information with %1"
 msgstr "सूचनां साझां कुर्वन्तु"
 
-#: src/userinfodialog.cpp:35
+#: src/userinfodialog.cpp:38
 #, kde-format
-msgid "Share your personal information with the requesting application?"
-msgstr "अनुरोधकर्तृ-अनुप्रयोगेन सह स्वस्य व्यक्तिगत-सूचनाः साझां कुर्वन्तु?"
+msgid "%1 wants access to your user info."
+msgstr ""
+
+#: src/userinfodialog.cpp:40
+#, kde-format
+msgid "This app will be given access to your avatar and name."
+msgstr ""
+
+#: src/UserInfoDialog.qml:59
+#, fuzzy, kde-format
+#| msgid "Share"
+msgctxt "@action:button"
+msgid "Share"
+msgstr "संविभागः"
 
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
@@ -666,6 +678,9 @@ msgstr "स्क्रीनकास्टिंग् आरभ्यतु�
 #, kde-format
 msgid "Remote desktop"
 msgstr "दूरस्थः डेस्कटॉपः"
+
+#~ msgid "Share your personal information with the requesting application?"
+#~ msgstr "अनुरोधकर्तृ-अनुप्रयोगेन सह स्वस्य व्यक्तिगत-सूचनाः साझां कुर्वन्तु?"
 
 #~ msgid "Create new folder in %1"
 #~ msgstr "%1 मध्ये नूतनं पुटं रचयन्तु"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-03 00:43+0000\n"
+"POT-Creation-Date: 2025-04-04 00:43+0000\n"
 "PO-Revision-Date: 2024-12-28 17:41+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -141,12 +141,12 @@ msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr "Ĉu vi ne vidas la ĝustan apon? Trovu pli en <link>Discover</link>."
 
-#: src/background.cpp:132
+#: src/background.cpp:133
 #, kde-format
 msgid "Background Activity"
 msgstr "Fona aktiveco"
 
-#: src/background.cpp:135
+#: src/background.cpp:136
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -156,20 +156,20 @@ msgstr ""
 "%1 volas resti rulanta kiam ĝi ne havas videblajn fenestrojn. Se vi "
 "malpermesas tion, la aplikaĵo ĉesos kiam ĝia lasta fenestro estas fermata."
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:142 src/background.cpp:159
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Permesi"
 
-#: src/background.cpp:148
+#: src/background.cpp:149
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "Malpermesi"
 
-#: src/background.cpp:152
+#: src/background.cpp:153
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -177,7 +177,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Uzado de ap-oj en fono"
 
-#: src/background.cpp:154
+#: src/background.cpp:155
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -189,7 +189,7 @@ msgstr ""
 "povus kaŭzi datumperdon se la aplikaĵo havas iujn nekonservitajn ŝanĝojn "
 "kiam ĝi okazas."
 
-#: src/background.cpp:159
+#: src/background.cpp:160
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -444,7 +444,6 @@ msgid "Allow restoring on future sessions"
 msgstr "Permesi restarigi en estontaj seancoj"
 
 #: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:215
-#: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"
 msgstr "Kunhavigi"
@@ -651,15 +650,28 @@ msgstr "Ekranelsendado"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:34
-#, kde-format
-msgid "Share Information"
+#: src/userinfodialog.cpp:37
+#, fuzzy, kde-format
+#| msgid "Share Information"
+msgid "Share User Information with %1"
 msgstr "Kunhavigi Informojn"
 
-#: src/userinfodialog.cpp:35
+#: src/userinfodialog.cpp:38
 #, kde-format
-msgid "Share your personal information with the requesting application?"
-msgstr "Ĉu kunhavigi viajn personajn informojn kun la petanta aplikaĵo?"
+msgid "%1 wants access to your user info."
+msgstr ""
+
+#: src/userinfodialog.cpp:40
+#, kde-format
+msgid "This app will be given access to your avatar and name."
+msgstr ""
+
+#: src/UserInfoDialog.qml:59
+#, fuzzy, kde-format
+#| msgid "Share"
+msgctxt "@action:button"
+msgid "Share"
+msgstr "Kunhavigi"
 
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
@@ -670,6 +682,9 @@ msgstr "Malsukcesis komenci ekranelsendon"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Fora labortablo"
+
+#~ msgid "Share your personal information with the requesting application?"
+#~ msgstr "Ĉu kunhavigi viajn personajn informojn kun la petanta aplikaĵo?"
 
 #~ msgid "Create new folder in %1"
 #~ msgstr "Krei novan dosierujon en %1"

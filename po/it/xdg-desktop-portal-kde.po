@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-03 00:43+0000\n"
+"POT-Creation-Date: 2025-04-04 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 15:14+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -139,12 +139,12 @@ msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
 "Non vedi l'applicazione giusta? Trovane altre in <link>Discover</link>."
 
-#: src/background.cpp:132
+#: src/background.cpp:133
 #, kde-format
 msgid "Background Activity"
 msgstr "Attività in sottofondo"
 
-#: src/background.cpp:135
+#: src/background.cpp:136
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -155,20 +155,20 @@ msgstr ""
 "proibisci questo, l'applicazione terminerà quando la sua ultima finestra "
 "viene chiusa."
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:142 src/background.cpp:159
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Permetti"
 
-#: src/background.cpp:148
+#: src/background.cpp:149
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "Proibisci"
 
-#: src/background.cpp:152
+#: src/background.cpp:153
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -176,7 +176,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Utilizzo applicazione in sottofondo"
 
-#: src/background.cpp:154
+#: src/background.cpp:155
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -188,7 +188,7 @@ msgstr ""
 "viene chiusa. Questo potrebbe causare una perdita di dati se l'applicazione "
 "ha dei dati non salvati quando succede questo."
 
-#: src/background.cpp:159
+#: src/background.cpp:160
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -443,7 +443,6 @@ msgid "Allow restoring on future sessions"
 msgstr "Permetti il ripristino nelle sessioni future"
 
 #: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:215
-#: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"
 msgstr "Condividi"
@@ -650,16 +649,28 @@ msgstr "Trasmissione dello schermo"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:34
-#, kde-format
-msgid "Share Information"
+#: src/userinfodialog.cpp:37
+#, fuzzy, kde-format
+#| msgid "Share Information"
+msgid "Share User Information with %1"
 msgstr "Condividi informazioni"
 
-#: src/userinfodialog.cpp:35
+#: src/userinfodialog.cpp:38
 #, kde-format
-msgid "Share your personal information with the requesting application?"
+msgid "%1 wants access to your user info."
 msgstr ""
-"Condividere le informazioni personali con l'applicazione che li richiede?"
+
+#: src/userinfodialog.cpp:40
+#, kde-format
+msgid "This app will be given access to your avatar and name."
+msgstr ""
+
+#: src/UserInfoDialog.qml:59
+#, fuzzy, kde-format
+#| msgid "Share"
+msgctxt "@action:button"
+msgid "Share"
+msgstr "Condividi"
 
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
@@ -670,6 +681,10 @@ msgstr "Connessione alla registrazione dello schermo non riuscita"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Desktop remoto"
+
+#~ msgid "Share your personal information with the requesting application?"
+#~ msgstr ""
+#~ "Condividere le informazioni personali con l'applicazione che li richiede?"
 
 #~ msgid "Create new folder in %1"
 #~ msgstr "Crea una nuova cartella in %1"

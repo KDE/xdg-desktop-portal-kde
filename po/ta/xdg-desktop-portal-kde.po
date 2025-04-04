@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-03 00:43+0000\n"
+"POT-Creation-Date: 2025-04-04 00:43+0000\n"
 "PO-Revision-Date: 2025-01-26 18:06+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -139,12 +139,12 @@ msgstr ""
 "நீங்கள் தேடும் செயலி கிடைக்கவில்லையா? <link>டிஸ்கவரில்</link> மேலும் செயலிகளை "
 "நிறுவலாம்."
 
-#: src/background.cpp:132
+#: src/background.cpp:133
 #, kde-format
 msgid "Background Activity"
 msgstr "பின்னணி செயல்பாட்டு"
 
-#: src/background.cpp:135
+#: src/background.cpp:136
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -154,20 +154,20 @@ msgstr ""
 "%1, அதன் சாளரங்கள் இல்லாதபோதும் செயல்பட விரும்புகிறது. இதை நீங்கள் மறுத்தால், கடைசி "
 "சாளரம் மூடப்படும்போது அச்செயலி மூடப்படும்."
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:142 src/background.cpp:159
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "அனுமதி"
 
-#: src/background.cpp:148
+#: src/background.cpp:149
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "மறு"
 
-#: src/background.cpp:152
+#: src/background.cpp:153
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -175,7 +175,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "பின்னணி செயல்பாட்டு"
 
-#: src/background.cpp:154
+#: src/background.cpp:155
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -186,7 +186,7 @@ msgstr ""
 "கடைசி சாளரம் மூடப்படும்போது %1 தனை வேளியேற இது கட்டாயப்படுத்தும். இது நடக்கும்போது "
 "சேமிக்கப்படா மாற்றங்கள் இருந்தால் தரவு இழப்பு நேரிடலாம்."
 
-#: src/background.cpp:159
+#: src/background.cpp:160
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -441,7 +441,6 @@ msgid "Allow restoring on future sessions"
 msgstr "வருங்கால அமர்வுகளில் மீட்டமைக்கவிடு"
 
 #: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:215
-#: src/UserInfoDialog.qml:43
 #, kde-format
 msgid "Share"
 msgstr "பகிர்"
@@ -648,15 +647,28 @@ msgstr "திரை பகிர்வு"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:34
-#, kde-format
-msgid "Share Information"
+#: src/userinfodialog.cpp:37
+#, fuzzy, kde-format
+#| msgid "Share Information"
+msgid "Share User Information with %1"
 msgstr "விவரங்களை பகிர்தல்"
 
-#: src/userinfodialog.cpp:35
+#: src/userinfodialog.cpp:38
 #, kde-format
-msgid "Share your personal information with the requesting application?"
-msgstr "கோரிக்கையிடும் செயலிக்கு உங்களை பற்றிய விவரங்களை வழங்கலாமா?"
+msgid "%1 wants access to your user info."
+msgstr ""
+
+#: src/userinfodialog.cpp:40
+#, kde-format
+msgid "This app will be given access to your avatar and name."
+msgstr ""
+
+#: src/UserInfoDialog.qml:59
+#, fuzzy, kde-format
+#| msgid "Share"
+msgctxt "@action:button"
+msgid "Share"
+msgstr "பகிர்"
 
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
@@ -667,6 +679,9 @@ msgstr "திரைப்பகிர்வை தொடங்குதல் �
 #, kde-format
 msgid "Remote desktop"
 msgstr "பணிமேடை தொலையியக்கி"
+
+#~ msgid "Share your personal information with the requesting application?"
+#~ msgstr "கோரிக்கையிடும் செயலிக்கு உங்களை பற்றிய விவரங்களை வழங்கலாமா?"
 
 #~ msgid "Create new folder in %1"
 #~ msgstr "%1 தனில் புதிய அடைவை உருவாக்கு"
