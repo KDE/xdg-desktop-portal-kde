@@ -12,19 +12,15 @@
 
 #include "session.h"
 
-#include <QDBusVirtualObject>
 #include <QObject>
 
 class QDBusObjectPath;
 
-class Request : public QDBusVirtualObject
+class Request : public QObject
 {
     Q_OBJECT
 public:
     explicit Request(const QDBusObjectPath &handle, QObject *parent = nullptr, const QString &portalName = QString(), const QVariant &data = QVariant());
-
-    bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) override;
-    QString introspect(const QString &path) const override;
 
     template<class T>
     static Request *makeClosableDialogRequest(const QDBusObjectPath &handle, T *dialogAndParent)
@@ -42,12 +38,16 @@ public:
         return request;
     }
 
+public Q_SLOTS:
+    void close();
+
 Q_SIGNALS:
     void closeRequested();
 
 private:
     const QVariant m_data;
     const QString m_portalName;
+    const QDBusObjectPath m_path;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_REQUEST_H
