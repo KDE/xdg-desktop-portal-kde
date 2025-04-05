@@ -1,6 +1,5 @@
 # Translation of xdg-desktop-portal-kde to Norwegian Bokmål
 #
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
