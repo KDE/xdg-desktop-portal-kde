@@ -1,6 +1,5 @@
 # Translation of xdg-desktop-portal-kde to Norwegian Bokmål
 #
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
@@ -651,7 +650,6 @@ msgstr ", "
 
 #: src/userinfodialog.cpp:37
 #, fuzzy, kde-format
-#| msgid "Share Information"
 msgid "Share User Information with %1"
 msgstr "Del informasjon"
 
@@ -667,7 +665,6 @@ msgstr ""
 
 #: src/UserInfoDialog.qml:59
 #, fuzzy, kde-format
-#| msgid "Share"
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Del"
@@ -681,6 +678,3 @@ msgstr "Klarte ikke starte skjermdeling"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Eksternt skrivebord"
-
-#~ msgid "Share your personal information with the requesting application?"
-#~ msgstr "Vil du dele persondata med forespørselsprogrammet?"

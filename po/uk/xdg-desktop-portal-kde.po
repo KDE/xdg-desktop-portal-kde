@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024.
+# Yuri Chornoivan <yurchor@ukr.net>, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-04 00:43+0000\n"
-"PO-Revision-Date: 2024-12-24 18:56+0200\n"
+"PO-Revision-Date: 2025-04-04 09:40+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -658,27 +658,26 @@ msgid ", "
 msgstr ", "
 
 #: src/userinfodialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Share Information"
+#, kde-format
 msgid "Share User Information with %1"
-msgstr "Оприлюднити відомості"
+msgstr "Надання даних користувача %1"
 
 #: src/userinfodialog.cpp:38
 #, kde-format
 msgid "%1 wants access to your user info."
-msgstr ""
+msgstr "%1 потрібен доступ до ваших даних користувача."
 
 #: src/userinfodialog.cpp:40
 #, kde-format
 msgid "This app will be given access to your avatar and name."
 msgstr ""
+"Цій програмі буде надано доступ до вашого аватару і назви облікового запису."
 
 #: src/UserInfoDialog.qml:59
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@action:button"
 msgid "Share"
-msgstr "Оприлюднити"
+msgstr "Надати"
 
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format

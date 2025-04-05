@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-04 00:43+0000\n"
-"PO-Revision-Date: 2025-02-21 00:12+0100\n"
+"PO-Revision-Date: 2025-04-05 00:29+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -658,24 +658,22 @@ msgid ", "
 msgstr ", "
 
 #: src/userinfodialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Share Information"
+#, kde-format
 msgid "Share User Information with %1"
-msgstr "Compartir información"
+msgstr "Compartir información del usuario con %1"
 
 #: src/userinfodialog.cpp:38
 #, kde-format
 msgid "%1 wants access to your user info."
-msgstr ""
+msgstr "%1 quiere acceder a su información de usuario."
 
 #: src/userinfodialog.cpp:40
 #, kde-format
 msgid "This app will be given access to your avatar and name."
-msgstr ""
+msgstr "Esta aplicación tendrá acceso a su nombre y avatar."
 
 #: src/UserInfoDialog.qml:59
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Compartir"
@@ -689,16 +687,3 @@ msgstr "No se ha podido iniciar la grabación de la pantalla"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Escritorio remoto"
-
-#~ msgid "Share your personal information with the requesting application?"
-#~ msgstr ""
-#~ "¿Compartir su información personal con la aplicación que lo ha solicitado?"
-
-#~ msgid "Create new folder in %1"
-#~ msgstr "Crear nueva carpeta en %1"
-
-#~ msgid "OK"
-#~ msgstr "Aceptar"
-
-#~ msgid "Cancel"
-#~ msgstr "Cancelar"
