@@ -645,17 +645,17 @@ msgstr ", "
 #: src/userinfodialog.cpp:37
 #, kde-format
 msgid "Share User Information with %1"
-msgstr ""
+msgstr "向 %1 提供用户信息"
 
 #: src/userinfodialog.cpp:38
 #, kde-format
 msgid "%1 wants access to your user info."
-msgstr ""
+msgstr "%1 请求访问您的用户信息。"
 
 #: src/userinfodialog.cpp:40
 #, kde-format
 msgid "This app will be given access to your avatar and name."
-msgstr ""
+msgstr "此应用将被允许访问您的头像和名字。"
 
 #: src/UserInfoDialog.qml:59
 #, kde-format

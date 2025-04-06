@@ -1,14 +1,14 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the xdg-desktop-portal-kde package.
-#
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 # Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2024.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-04 00:43+0000\n"
-"PO-Revision-Date: 2024-12-26 09:08+0400\n"
+"PO-Revision-Date: 2025-04-05 12:11+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -653,24 +653,22 @@ msgid ", "
 msgstr "، "
 
 #: src/userinfodialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Share Information"
+#, kde-format
 msgid "Share User Information with %1"
-msgstr "شارك المعلومات"
+msgstr "شارك معلومات المستخدم مع %1"
 
 #: src/userinfodialog.cpp:38
 #, kde-format
 msgid "%1 wants access to your user info."
-msgstr ""
+msgstr "يريد %1 الوصول إلى معلوماتك الشخصية."
 
 #: src/userinfodialog.cpp:40
 #, kde-format
 msgid "This app will be given access to your avatar and name."
-msgstr ""
+msgstr "سيتمكن هذا التطبيق من الوصول إلى صورتك الرمزية واسمك."
 
 #: src/UserInfoDialog.qml:59
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@action:button"
 msgid "Share"
 msgstr "شارك"

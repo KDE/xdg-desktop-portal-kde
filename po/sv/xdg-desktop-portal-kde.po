@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-04 00:43+0000\n"
-"PO-Revision-Date: 2025-01-11 12:38+0100\n"
+"PO-Revision-Date: 2025-04-05 08:57+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -648,24 +648,22 @@ msgid ", "
 msgstr ", "
 
 #: src/userinfodialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Share Information"
+#, kde-format
 msgid "Share User Information with %1"
-msgstr "Dela information"
+msgstr "Dela användarinformation med %1"
 
 #: src/userinfodialog.cpp:38
 #, kde-format
 msgid "%1 wants access to your user info."
-msgstr ""
+msgstr "%1 vill komma åt din användarinformation."
 
 #: src/userinfodialog.cpp:40
 #, kde-format
 msgid "This app will be given access to your avatar and name."
-msgstr ""
+msgstr "Programmet ges åtkomst till din avatar och ditt namn."
 
 #: src/UserInfoDialog.qml:59
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Dela"
