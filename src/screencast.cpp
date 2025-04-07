@@ -174,7 +174,7 @@ uint ScreenCastPortal::SelectSources(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    options: " << options;
 
-    ScreenCastSession *session = qobject_cast<ScreenCastSession *>(Session::getSession(session_handle.path()));
+    ScreenCastSession *session = Session::getSession<ScreenCastSession>(session_handle.path());
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeScreenCast) << "Tried to select sources on non-existing session " << session_handle.path();
@@ -295,7 +295,7 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    parent_window: " << parent_window;
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    options: " << options;
 
-    QPointer<ScreenCastSession> session = qobject_cast<ScreenCastSession *>(Session::getSession(session_handle.path()));
+    QPointer<ScreenCastSession> session = Session::getSession<ScreenCastSession>(session_handle.path());
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeScreenCast) << "Tried to call start on non-existing session " << session_handle.path();

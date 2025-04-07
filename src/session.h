@@ -49,6 +49,11 @@ public:
 
     static Session *createSession(QObject *parent, SessionType type, const QString &appId, const QString &path);
     static Session *getSession(const QString &sessionHandle);
+    template<typename T>
+    static T *getSession(const QString &sessionHandle)
+    {
+        return qobject_cast<T *>(getSession(sessionHandle));
+    }
 
     QString handle() const
     {

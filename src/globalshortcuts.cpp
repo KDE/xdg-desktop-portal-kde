@@ -79,7 +79,7 @@ uint GlobalShortcutsPortal::ListShortcuts(const QDBusObjectPath &handle, const Q
     qCDebug(XdgDesktopPortalKdeGlobalShortcuts) << "    handle: " << handle.path();
     qCDebug(XdgDesktopPortalKdeGlobalShortcuts) << "    session_handle: " << session_handle.path();
 
-    auto session = qobject_cast<GlobalShortcutsSession *>(Session::getSession(session_handle.path()));
+    auto session = Session::getSession<GlobalShortcutsSession>(session_handle.path());
     if (!session) {
         return PortalResponse::OtherError;
     }
@@ -103,7 +103,7 @@ uint GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeGlobalShortcuts) << "    parent_window: " << parent_window;
     qCDebug(XdgDesktopPortalKdeGlobalShortcuts) << "    options: " << options;
 
-    auto session = qobject_cast<GlobalShortcutsSession *>(Session::getSession(session_handle.path()));
+    auto session = Session::getSession<GlobalShortcutsSession>(session_handle.path());
     if (!session) {
         return PortalResponse::OtherError;
     }

@@ -191,7 +191,7 @@ uint InputCapturePortal::GetZones(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeInputCapture) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeInputCapture) << "    options: " << options;
 
-    auto *session = qobject_cast<InputCaptureSession *>(Session::getSession(session_handle.path()));
+    auto *session = Session::getSession<InputCaptureSession>(session_handle.path());
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Tried to get zones on non-existing session " << session_handle.path();
@@ -247,7 +247,7 @@ uint InputCapturePortal::SetPointerBarriers(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeInputCapture) << "    zone_set: " << zone_set;
     qCDebug(XdgDesktopPortalKdeInputCapture) << "    barriers: ";
 
-    auto *session = qobject_cast<InputCaptureSession *>(Session::getSession(session_handle.path()));
+    auto *session = Session::getSession<InputCaptureSession>(session_handle.path());
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Tried to set barriers non-existing session " << session_handle.path();
@@ -321,7 +321,7 @@ InputCapturePortal::ConnectToEIS(const QDBusObjectPath &session_handle, const QS
     qCDebug(XdgDesktopPortalKdeInputCapture) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeInputCapture) << "    options: " << options;
 
-    auto *session = qobject_cast<InputCaptureSession *>(Session::getSession(session_handle.path()));
+    auto *session = Session::getSession<InputCaptureSession>(session_handle.path());
     if (!session) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Tried to call ConnectToEis on non-existing session " << session_handle.path();
         return QDBusUnixFileDescriptor();
@@ -353,7 +353,7 @@ uint InputCapturePortal::Enable(const QDBusObjectPath &session_handle, const QSt
     qCDebug(XdgDesktopPortalKdeInputCapture) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeInputCapture) << "    options: " << options;
 
-    auto *session = qobject_cast<InputCaptureSession *>(Session::getSession(session_handle.path()));
+    auto *session = Session::getSession<InputCaptureSession>(session_handle.path());
     if (!session) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Tried to call Enable on non-existing session " << session_handle.path();
         return PortalResponse::OtherError;
@@ -382,7 +382,7 @@ uint InputCapturePortal::Disable(const QDBusObjectPath &session_handle, const QS
     qCDebug(XdgDesktopPortalKdeInputCapture) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeInputCapture) << "    options: " << options;
 
-    auto *session = qobject_cast<InputCaptureSession *>(Session::getSession(session_handle.path()));
+    auto *session = Session::getSession<InputCaptureSession>(session_handle.path());
     if (!session) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Tried to call Enable on non-existing session " << session_handle.path();
         return PortalResponse::OtherError;
@@ -410,7 +410,7 @@ uint InputCapturePortal::Release(const QDBusObjectPath &session_handle, const QS
     qCDebug(XdgDesktopPortalKdeInputCapture) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeInputCapture) << "    options: " << options;
 
-    auto *session = qobject_cast<InputCaptureSession *>(Session::getSession(session_handle.path()));
+    auto *session = Session::getSession<InputCaptureSession>(session_handle.path());
     if (!session) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Tried to call Enable on non-existing session " << session_handle.path();
         return PortalResponse::OtherError;

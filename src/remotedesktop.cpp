@@ -155,7 +155,7 @@ uint RemoteDesktopPortal::SelectDevices(const QDBusObjectPath &handle,
         return PortalResponse::OtherError;
     }
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = Session::getSession<RemoteDesktopSession>(session_handle.path());
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to select sources on non-existing session " << session_handle.path();
@@ -227,7 +227,7 @@ void RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    parent_window: " << parent_window;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    options: " << options;
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = Session::getSession<RemoteDesktopSession>(session_handle.path());
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call start on non-existing session " << session_handle.path();
@@ -299,7 +299,7 @@ void RemoteDesktopPortal::NotifyPointerMotion(const QDBusObjectPath &session_han
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    dx: " << dx;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    dy: " << dy;
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = Session::getSession<RemoteDesktopSession>(session_handle.path());
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerMotion on non-existing session " << session_handle.path();
@@ -318,7 +318,7 @@ void RemoteDesktopPortal::NotifyPointerMotionAbsolute(const QDBusObjectPath &ses
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    x: " << x;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    y: " << y;
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = Session::getSession<RemoteDesktopSession>(session_handle.path());
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerMotionAbsolute on non-existing session " << session_handle.path();
@@ -336,7 +336,7 @@ void RemoteDesktopPortal::NotifyPointerButton(const QDBusObjectPath &session_han
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    button: " << button;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    state: " << state;
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = Session::getSession<RemoteDesktopSession>(session_handle.path());
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerButton on non-existing session " << session_handle.path();
@@ -358,7 +358,7 @@ void RemoteDesktopPortal::NotifyPointerAxis(const QDBusObjectPath &session_handl
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    dx: " << dx;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    dy: " << dy;
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = Session::getSession<RemoteDesktopSession>(session_handle.path());
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyKeyboardKeysym on non-existing session " << session_handle.path();
@@ -376,7 +376,7 @@ void RemoteDesktopPortal::NotifyPointerAxisDiscrete(const QDBusObjectPath &sessi
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    axis: " << axis;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    steps: " << steps;
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = Session::getSession<RemoteDesktopSession>(session_handle.path());
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerAxisDiscrete on non-existing session " << session_handle.path();
@@ -390,7 +390,7 @@ void RemoteDesktopPortal::NotifyKeyboardKeysym(const QDBusObjectPath &session_ha
 {
     Q_UNUSED(options)
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = Session::getSession<RemoteDesktopSession>(session_handle.path());
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyKeyboardKeysym on non-existing session " << session_handle.path();
@@ -408,7 +408,7 @@ void RemoteDesktopPortal::NotifyKeyboardKeycode(const QDBusObjectPath &session_h
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    keycode: " << keycode;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    state: " << state;
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = Session::getSession<RemoteDesktopSession>(session_handle.path());
 
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyKeyboardKeycode on non-existing session " << session_handle.path();
@@ -423,7 +423,7 @@ void RemoteDesktopPortal::NotifyTouchDown(const QDBusObjectPath &session_handle,
     Q_UNUSED(options)
     Q_UNUSED(stream)
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = Session::getSession<RemoteDesktopSession>(session_handle.path());
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerAxisDiscrete on non-existing session " << session_handle.path();
         return;
@@ -436,7 +436,7 @@ void RemoteDesktopPortal::NotifyTouchMotion(const QDBusObjectPath &session_handl
     Q_UNUSED(options)
     Q_UNUSED(stream)
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = Session::getSession<RemoteDesktopSession>(session_handle.path());
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerAxisDiscrete on non-existing session " << session_handle.path();
         return;
@@ -448,7 +448,7 @@ void RemoteDesktopPortal::NotifyTouchUp(const QDBusObjectPath &session_handle, c
 {
     Q_UNUSED(options)
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = Session::getSession<RemoteDesktopSession>(session_handle.path());
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerAxisDiscrete on non-existing session " << session_handle.path();
         return;
@@ -463,7 +463,7 @@ RemoteDesktopPortal::ConnectToEIS(const QDBusObjectPath &session_handle, const Q
     Q_UNUSED(options)
     Q_UNUSED(app_id)
 
-    RemoteDesktopSession *session = qobject_cast<RemoteDesktopSession *>(Session::getSession(session_handle.path()));
+    RemoteDesktopSession *session = Session::getSession<RemoteDesktopSession>(session_handle.path());
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call ConnectToEis on non-existing session " << session_handle.path();
         return QDBusUnixFileDescriptor();
