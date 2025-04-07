@@ -253,9 +253,15 @@ static QUrl kioUrlFromSandboxPath(const QString &path, Entity entity)
                                                            QDBusConnection::sessionBus());
 
     if (mountPoint.isEmpty()) {
-        mountPoint = QString::fromUtf8(documents_iface.GetMountPoint());
-        if (!path.startsWith(mountPoint)) {
-            return QUrl::fromLocalFile(path);
+        auto reply = documents_iface.GetMountPoint();
+        reply.waitForFinished();
+        if (reply.isError()) {
+            qCWarning(XdgDesktopPortalKdeFileChooser) << "Failed to get documents mount point:" << reply.error();
+        } else {
+            mountPoint = QString::fromUtf8(reply);
+            if (!path.startsWith(mountPoint)) {
+                return QUrl::fromLocalFile(path);
+            }
         }
     }
 
@@ -278,7 +284,13 @@ static QUrl kioUrlFromSandboxPath(const QString &path, Entity entity)
 
     OrgKdeKIOFuseVFSInterface fuse_iface(QStringLiteral("org.kde.KIOFuse"), QStringLiteral("/org/kde/KIOFuse"), QDBusConnection::sessionBus());
 
-    QString remoteFilePath = fuse_iface.remoteUrl(QString::fromLocal8Bit(localFilePath));
+    auto reply = fuse_iface.remoteUrl(QString::fromLocal8Bit(localFilePath));
+    reply.waitForFinished();
+    if (reply.isError()) {
+        qCWarning(XdgDesktopPortalKdeFileChooser) << "Failed to get fuse remote URL:" << reply.error();
+        return QUrl::fromLocalFile(path);
+    }
+    QString remoteFilePath = reply.value();
     if (remoteFilePath.isEmpty()) {
         return QUrl::fromLocalFile(path);
     }
