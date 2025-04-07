@@ -174,9 +174,9 @@ ScreenCastSession::ScreenCastSession(QObject *parent, const QString &appId, cons
     auto menu = new QMenu;
     auto stopAction = new QAction(QIcon::fromTheme(QStringLiteral("process-stop")), i18nc("@action:inmenu stops screen/window sharing", "End"));
     connect(stopAction, &QAction::triggered, this, &Session::close);
-    connect(m_item, &KStatusNotifierItem::activateRequested, menu, &QMenu::show);
     menu->addAction(stopAction);
     m_item->setContextMenu(menu);
+    m_item->setIsMenu(true);
 }
 
 ScreenCastSession::~ScreenCastSession()
