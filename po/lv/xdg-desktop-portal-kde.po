@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-04 00:43+0000\n"
-"PO-Revision-Date: 2025-01-04 15:18+0200\n"
+"PO-Revision-Date: 2025-04-06 17:08+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -649,24 +649,22 @@ msgid ", "
 msgstr ", "
 
 #: src/userinfodialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Share Information"
+#, kde-format
 msgid "Share User Information with %1"
-msgstr "Kopīgot informāciju"
+msgstr "Kopīgot lietotāja informāciju ar %1"
 
 #: src/userinfodialog.cpp:38
 #, kde-format
 msgid "%1 wants access to your user info."
-msgstr ""
+msgstr "%1 vēlas piekļūt jūsu lietotāja informācijai."
 
 #: src/userinfodialog.cpp:40
 #, kde-format
 msgid "This app will be given access to your avatar and name."
-msgstr ""
+msgstr "Šī programma saņems piekļuvi jūsu attēlam un vārdam."
 
 #: src/UserInfoDialog.qml:59
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Kopīgot"
