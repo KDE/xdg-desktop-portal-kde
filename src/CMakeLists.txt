@@ -21,6 +21,7 @@ ecm_target_qml_sources(xdg-desktop-portal-kde
         InputCaptureDialog.qml
         GlobalShortcutsDialog.qml
         WallpaperDialog.qml
+        UsbDialog.qml
         region-select/RegionSelectOverlay.qml
         region-select/FloatingTextBox.qml
         region-select/FloatingBackground.qml)
@@ -84,6 +85,7 @@ set(xdg_desktop_portal_kde_SRCS
     settings.h
     userinfodialog.cpp
     userinfodialog.h
+    usb.cpp
     utils.cpp
     utils.h
     waylandintegration.cpp
