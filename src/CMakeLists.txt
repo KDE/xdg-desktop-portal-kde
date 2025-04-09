@@ -65,6 +65,7 @@ set(xdg_desktop_portal_kde_SRCS
     settings.h
     userinfodialog.cpp
     userinfodialog.h
+    usb.cpp
     utils.cpp
     utils.h
     waylandintegration.cpp

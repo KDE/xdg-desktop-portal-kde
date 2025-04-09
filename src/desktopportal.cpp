@@ -26,6 +26,7 @@
 #include "screencast.h"
 #include "screenshot.h"
 #include "settings.h"
+#include "usb.h"
 #include "waylandintegration.h"
 
 DesktopPortal::DesktopPortal(QObject *parent)
@@ -53,4 +54,5 @@ DesktopPortal::DesktopPortal(QObject *parent)
         new ClipboardPortal(this);
         WaylandIntegration::init();
     }
+    new UsbPortal(this);
 }
