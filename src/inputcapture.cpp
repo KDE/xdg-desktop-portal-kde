@@ -76,7 +76,7 @@ InputCapturePortal::InputCapturePortal(QObject *parent)
 bool InputCapturePortal::setupInputCaptureSession(InputCaptureSession *session, Capabilities capabilities)
 {
     auto msg = QDBusMessage::createMethodCall(kwinService(), kwinInputCapturePath(), kwinInputCaptureManagerInterface(), u"addInputCapture"_s);
-    msg << capabilities.toInt();
+    msg << static_cast<int>(capabilities.toInt());
     QDBusReply<QDBusObjectPath> reply = QDBusConnection::sessionBus().call(msg, QDBus::Block, kwinDBusTimeout);
     if (!reply.isValid()) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "Failed to create KWin input capture:" << reply.error();
