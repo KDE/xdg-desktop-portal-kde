@@ -26,6 +26,7 @@
 #include "screencast.h"
 #include "screenshot.h"
 #include "settings.h"
+#include "usb.h"
 #include "wallpaper.h"
 #include "waylandintegration.h"
 
@@ -55,4 +56,5 @@ DesktopPortal::DesktopPortal(QObject *parent)
         new WallpaperPortal(this);
         WaylandIntegration::init();
     }
+    new UsbPortal(this);
 }
