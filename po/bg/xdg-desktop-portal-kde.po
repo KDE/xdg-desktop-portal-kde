@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-11 00:43+0000\n"
+"POT-Creation-Date: 2025-04-12 00:43+0000\n"
 "PO-Revision-Date: 2025-04-06 16:50+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -235,6 +235,63 @@ msgstr "Прекъсване"
 #, kde-format
 msgid "Open"
 msgstr "Отваряне"
+
+#: src/globalshortcuts.cpp:104
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"The shortcut is already assigned to the action <interface>%1</interface> of "
+"<application>%2</application>.Re-enter it here to override that action."
+msgstr ""
+
+#: src/globalshortcuts.cpp:111
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"The shortcut is already assigned to the <interface>%1</interface> standard "
+"action."
+msgstr ""
+
+#: src/globalshortcuts.cpp:124
+#, kde-kuit-format
+msgctxt "@info:tooltip %1 is a list of actions"
+msgid ""
+"The shortcut is assigned to multiple actions (<interface>%1</interface>)"
+msgstr ""
+
+#: src/GlobalShortcutsDialog.qml:25
+#, kde-format
+msgctxt "@title:window"
+msgid "Global Shortcuts Requested"
+msgstr ""
+
+#: src/GlobalShortcutsDialog.qml:29
+#, kde-format
+msgctxt "The application is unknown"
+msgid "An application wants to register the following shortcut:"
+msgid_plural "An application wants to register the following shortcuts:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/GlobalShortcutsDialog.qml:31
+#, kde-format
+msgctxt "%2 is the name of the application"
+msgid "%2 wants to register the following shortcut:"
+msgid_plural "%2 wants to register the following shortcuts:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/GlobalShortcutsDialog.qml:120
+#, kde-format
+msgctxt "@action:button"
+msgid "See Other Sortcuts…"
+msgstr ""
+
+#: src/GlobalShortcutsDialog.qml:121
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "View other shortcuts registered by this application"
+msgstr ""
 
 #: src/inputcapture.cpp:113
 #, kde-format
@@ -645,7 +702,7 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "Споделяне на екрана"
 
-#: src/session.cpp:497
+#: src/session.cpp:501
 #, kde-format
 msgid ", "
 msgstr ", "
