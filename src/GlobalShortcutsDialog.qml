@@ -117,7 +117,7 @@ PWD.SystemDialog {
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.HelpRole
             visible: returningShortcuts.length != 0
             icon.name: "systemsettings"
-            text: i18nc("@action:button", "See Other Sortcuts…")
+            text: i18nc("@action:button", "See Other Shortcuts…")
             QQC2.ToolTip.text: i18nc("@info:tooltip", "View other shortcuts registered by this application")
             QQC2.ToolTip.visible: hovered
             onClicked: KCMUtils.KCMLauncher.openSystemSettings("kcm_keys", component)

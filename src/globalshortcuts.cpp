@@ -101,7 +101,7 @@ public:
                     return QString();
                 }
                 return xi18nc("@info:tooltip",
-                              "The shortcut is already assigned to the action <interface>%1</interface> of <application>%2</application>."
+                              "The shortcut is already assigned to the action <interface>%1</interface> of <application>%2</application>. "
                               "Re-enter it here to override that action.",
                               takenBy[0].friendlyName(),
                               takenBy[0].componentFriendlyName());
