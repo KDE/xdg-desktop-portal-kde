@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-12 00:43+0000\n"
-"PO-Revision-Date: 2025-04-09 04:15+0200\n"
+"POT-Creation-Date: 2025-04-13 00:43+0000\n"
+"PO-Revision-Date: 2025-04-12 03:28+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -236,12 +236,19 @@ msgid "Open"
 msgstr "გახსნა"
 
 #: src/globalshortcuts.cpp:104
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "The shortcut is already assigned to the action <interface>%1</interface> "
+#| "of <application>%2</application>.Re-enter it here to override that action."
 msgctxt "@info:tooltip"
 msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
-"<application>%2</application>.Re-enter it here to override that action."
+"<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
+"მალსახმობი უკვე მინიჭებულია ქმედებაზე <interface>%1</interface> "
+"აპლიკაციისთვის<application>%2</application>.შეიყვანეთ ის აქ, რომ ის ქმედება "
+"გადაფაროთ."
 
 #: src/globalshortcuts.cpp:111
 #, kde-kuit-format
@@ -250,6 +257,7 @@ msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
 msgstr ""
+"მალსახმობი უკვე მინიჭებულია სტანდარტულ ქმედებაზე <interface>%1</interface>."
 
 #: src/globalshortcuts.cpp:124
 #, kde-kuit-format
@@ -257,40 +265,43 @@ msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
 msgstr ""
+"ეს მალსახმობი მინიჭებულია ერთზე მეტ ქმედებაზე (<interface>%1</interface>)"
 
 #: src/GlobalShortcutsDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "მოთხოვნილი გლობალური მალსახმობები"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "აპლიკაციას სურს შემდეგი მალსახმობის რეგისტრაცია:"
+msgstr[1] "აპლიკაციას სურს შემდეგი მალსახმობების რეგისტრაცია:"
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2-ს სურს დაარეგისტრიროს შემდეგი მალსახმობი:"
+msgstr[1] "%2-ს სურს დაარეგისტრიროს შემდეგი მალსახმობები:"
 
 #: src/GlobalShortcutsDialog.qml:120
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "See Other Sortcuts…"
 msgctxt "@action:button"
-msgid "See Other Sortcuts…"
-msgstr ""
+msgid "See Other Shortcuts…"
+msgstr "სხვა მალსახმობების ნახვა…"
 
 #: src/GlobalShortcutsDialog.qml:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "ამ აპლიკაციის მიერ რეგისტრირებული სხვა მალსახმობების ნახვა"
 
 #: src/inputcapture.cpp:113
 #, kde-format

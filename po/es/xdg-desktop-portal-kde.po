@@ -1,5 +1,5 @@
 # Spanish translations for xdg-desktop-portal-kde.po package.
-# Copyright (C) 2017 This_file_is_part_of_KDE
+# Copyright (C) 2017-2025 This_file_is_part_of_KDE
 # This file is distributed under the same license as the xdg-desktop-portal-kde package.
 #
 # Automatically generated, 2017.
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-12 00:43+0000\n"
-"PO-Revision-Date: 2025-04-05 00:29+0100\n"
+"POT-Creation-Date: 2025-04-13 00:43+0000\n"
+"PO-Revision-Date: 2025-04-12 21:34+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -237,12 +237,19 @@ msgid "Open"
 msgstr "Abrir"
 
 #: src/globalshortcuts.cpp:104
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "The shortcut is already assigned to the action <interface>%1</interface> "
+#| "of <application>%2</application>.Re-enter it here to override that action."
 msgctxt "@info:tooltip"
 msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
-"<application>%2</application>.Re-enter it here to override that action."
+"<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
+"El atajo de teclado ya está asignado a la acción <interface>%1</interface> "
+"de <application>%2</application>. Vuelva a introducirlo aquí para anular "
+"esta acción."
 
 #: src/globalshortcuts.cpp:111
 #, kde-kuit-format
@@ -251,6 +258,8 @@ msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
 msgstr ""
+"El atajo de teclado ya está asignado a la acción estándar <interface>%1</"
+"interface>."
 
 #: src/globalshortcuts.cpp:124
 #, kde-kuit-format
@@ -258,40 +267,44 @@ msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
 msgstr ""
+"El atajo de teclado está asignado a varias acciones (<interface>%1</"
+"interface>)"
 
 #: src/GlobalShortcutsDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "Se han solicitado atajos de teclado globales"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Una aplicación quiere registrar el siguiente atajo de teclado:"
+msgstr[1] "Una aplicación quiere registrar los siguientes atajos de teclado:"
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2 quiere registrar el siguiente atajo de teclado:"
+msgstr[1] "%2 quiere registrar los siguientes atajos de teclado:"
 
 #: src/GlobalShortcutsDialog.qml:120
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "See Other Sortcuts…"
 msgctxt "@action:button"
-msgid "See Other Sortcuts…"
-msgstr ""
+msgid "See Other Shortcuts…"
+msgstr "Ver otros atajos de teclado…"
 
 #: src/GlobalShortcutsDialog.qml:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "Ver otros atajos de teclado registrados por esta aplicación"
 
 #: src/inputcapture.cpp:113
 #, kde-format

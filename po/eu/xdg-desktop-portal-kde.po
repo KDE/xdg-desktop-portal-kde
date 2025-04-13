@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-12 00:43+0000\n"
+"POT-Creation-Date: 2025-04-13 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 19:56+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -244,7 +244,7 @@ msgstr "Ireki"
 msgctxt "@info:tooltip"
 msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
-"<application>%2</application>.Re-enter it here to override that action."
+"<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
 
 #: src/globalshortcuts.cpp:111
@@ -287,7 +287,7 @@ msgstr[1] ""
 #: src/GlobalShortcutsDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
-msgid "See Other Sortcuts…"
+msgid "See Other Shortcuts…"
 msgstr ""
 
 #: src/GlobalShortcutsDialog.qml:121

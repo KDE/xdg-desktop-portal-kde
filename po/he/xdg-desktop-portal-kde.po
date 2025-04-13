@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-12 00:43+0000\n"
-"PO-Revision-Date: 2025-04-05 14:57+0300\n"
+"POT-Creation-Date: 2025-04-13 00:43+0000\n"
+"PO-Revision-Date: 2025-04-12 11:11+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -232,12 +232,18 @@ msgid "Open"
 msgstr "פתח"
 
 #: src/globalshortcuts.cpp:104
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "The shortcut is already assigned to the action <interface>%1</interface> "
+#| "of <application>%2</application>.Re-enter it here to override that action."
 msgctxt "@info:tooltip"
 msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
-"<application>%2</application>.Re-enter it here to override that action."
+"<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
+"קיצור המקשים כבר מוקצה לפעולה <interface>%1</interface> של <application>%2</"
+"application>.יש למלא אותו כאן מחדש כדי לדרוס את הפעולה הזאת."
 
 #: src/globalshortcuts.cpp:111
 #, kde-kuit-format
@@ -245,52 +251,54 @@ msgctxt "@info:tooltip"
 msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
-msgstr ""
+msgstr "קיצור המקשים כבר מוקצה לפעולה הרגילה של <interface>%1</interface>."
 
 #: src/globalshortcuts.cpp:124
 #, kde-kuit-format
 msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
-msgstr ""
+msgstr "קיצור המקשים מוקצה למספר פעולות (<interface>%1</interface>)"
 
 #: src/GlobalShortcutsDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "התבקשו קיצורי מקשים כלליים"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "יישום מעוניין לרשום את קיצור המקשים הבא:"
+msgstr[1] "יישום מעוניין לרשום את קיצורי המקשים הבאים:"
+msgstr[2] "יישום מעוניין לרשום את קיצורי המקשים הבאים:"
+msgstr[3] "יישום מעוניין לרשום את קיצורי המקשים הבאים:"
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%2 מעוניין לרשום את קיצור המקשים הבא:"
+msgstr[1] "%2 מעוניין לרשום את קיצורי המקשים הבאים:"
+msgstr[2] "%2 מעוניין לרשום את קיצורי המקשים הבאים:"
+msgstr[3] "%2 מעוניין לרשום את קיצורי המקשים הבאים:"
 
 #: src/GlobalShortcutsDialog.qml:120
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "See Other Sortcuts…"
 msgctxt "@action:button"
-msgid "See Other Sortcuts…"
-msgstr ""
+msgid "See Other Shortcuts…"
+msgstr "הצגת קיצורי מקשים אחרים…"
 
 #: src/GlobalShortcutsDialog.qml:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "הצגת קיצורי מקשים אחרים שנרשמו על ידי היישום הזה"
 
 #: src/inputcapture.cpp:113
 #, kde-format

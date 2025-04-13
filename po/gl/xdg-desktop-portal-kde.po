@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-12 00:43+0000\n"
+"POT-Creation-Date: 2025-04-13 00:43+0000\n"
 "PO-Revision-Date: 2024-12-27 19:01+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -239,7 +239,7 @@ msgstr "Abrir"
 msgctxt "@info:tooltip"
 msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
-"<application>%2</application>.Re-enter it here to override that action."
+"<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
 
 #: src/globalshortcuts.cpp:111
@@ -282,7 +282,7 @@ msgstr[1] ""
 #: src/GlobalShortcutsDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
-msgid "See Other Sortcuts…"
+msgid "See Other Shortcuts…"
 msgstr ""
 
 #: src/GlobalShortcutsDialog.qml:121

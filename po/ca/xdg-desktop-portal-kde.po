@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-12 00:43+0000\n"
-"PO-Revision-Date: 2025-04-04 10:02+0200\n"
+"POT-Creation-Date: 2025-04-13 00:43+0000\n"
+"PO-Revision-Date: 2025-04-12 12:14+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -240,12 +240,19 @@ msgid "Open"
 msgstr "Obre"
 
 #: src/globalshortcuts.cpp:104
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "The shortcut is already assigned to the action <interface>%1</interface> "
+#| "of <application>%2</application>.Re-enter it here to override that action."
 msgctxt "@info:tooltip"
 msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
-"<application>%2</application>.Re-enter it here to override that action."
+"<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
+"La drecera ja està assignada a l'acció <interface>%1</interface> de "
+"l'aplicació <application>%2</application>. Torneu-la a introduir aquí per a "
+"substituir aquesta acció."
 
 #: src/globalshortcuts.cpp:111
 #, kde-kuit-format
@@ -254,6 +261,7 @@ msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
 msgstr ""
+"La drecera ja està assignada a l'acció estàndard <interface>%1</interface>."
 
 #: src/globalshortcuts.cpp:124
 #, kde-kuit-format
@@ -261,40 +269,43 @@ msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
 msgstr ""
+"La drecera està assignada a diverses accions (<interface>%1</interface>)"
 
 #: src/GlobalShortcutsDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "Dreceres globals requerides"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Una aplicació vol registrar la drecera següent:"
+msgstr[1] "Una aplicació vol registrar les dreceres següents:"
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2 vol registrar la drecera següent:"
+msgstr[1] "%2 vol registrar les dreceres següents:"
 
 #: src/GlobalShortcutsDialog.qml:120
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "See Other Sortcuts…"
 msgctxt "@action:button"
-msgid "See Other Sortcuts…"
-msgstr ""
+msgid "See Other Shortcuts…"
+msgstr "Vegeu altres dreceres…"
 
 #: src/GlobalShortcutsDialog.qml:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "Veure altres dreceres registrades per aquesta aplicació"
 
 #: src/inputcapture.cpp:113
 #, kde-format
