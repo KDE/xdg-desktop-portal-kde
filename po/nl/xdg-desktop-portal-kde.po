@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-13 00:43+0000\n"
-"PO-Revision-Date: 2025-04-12 13:50+0200\n"
+"PO-Revision-Date: 2025-04-13 17:33+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -237,18 +237,14 @@ msgid "Open"
 msgstr "Openen"
 
 #: src/globalshortcuts.cpp:104
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "The shortcut is already assigned to the action <interface>%1</interface> "
-#| "of <application>%2</application>.Re-enter it here to override that action."
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
 "<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
 "De sneltoets is al toegekend aan de action <interface>%1</interface> van "
-"<application>%2</application>. Voer het opnieuw hier in om die actie te "
+"<application>%2</application>. Voer deze opnieuw hier in om die actie te "
 "overschrijven."
 
 #: src/globalshortcuts.cpp:111
@@ -292,9 +288,7 @@ msgstr[0] "%2 wil de volgende sneltoets registreren:"
 msgstr[1] "%2 wil de volgende sneltoetsen registreren:"
 
 #: src/GlobalShortcutsDialog.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "See Other Sortcuts…"
+#, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "Zie andere sneltoetsen…"

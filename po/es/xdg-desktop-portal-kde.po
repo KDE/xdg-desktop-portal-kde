@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-13 00:43+0000\n"
-"PO-Revision-Date: 2025-04-12 21:34+0100\n"
+"PO-Revision-Date: 2025-04-13 19:20+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -237,11 +237,7 @@ msgid "Open"
 msgstr "Abrir"
 
 #: src/globalshortcuts.cpp:104
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "The shortcut is already assigned to the action <interface>%1</interface> "
-#| "of <application>%2</application>.Re-enter it here to override that action."
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
@@ -293,9 +289,7 @@ msgstr[0] "%2 quiere registrar el siguiente atajo de teclado:"
 msgstr[1] "%2 quiere registrar los siguientes atajos de teclado:"
 
 #: src/GlobalShortcutsDialog.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "See Other Sortcuts…"
+#, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "Ver otros atajos de teclado…"

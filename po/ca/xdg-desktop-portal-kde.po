@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-13 00:43+0000\n"
-"PO-Revision-Date: 2025-04-12 12:14+0200\n"
+"PO-Revision-Date: 2025-04-13 10:54+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -240,11 +240,7 @@ msgid "Open"
 msgstr "Obre"
 
 #: src/globalshortcuts.cpp:104
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "The shortcut is already assigned to the action <interface>%1</interface> "
-#| "of <application>%2</application>.Re-enter it here to override that action."
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
@@ -294,9 +290,7 @@ msgstr[0] "%2 vol registrar la drecera següent:"
 msgstr[1] "%2 vol registrar les dreceres següents:"
 
 #: src/GlobalShortcutsDialog.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "See Other Sortcuts…"
+#, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "Vegeu altres dreceres…"
