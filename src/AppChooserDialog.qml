@@ -143,23 +143,25 @@ PWD.SystemDialog {
             GridView {
                 id: grid
 
-                readonly property int gridDelegateSize: Kirigami.Units.iconSizes.huge + (Kirigami.Units.gridUnit * 4)
+                readonly property int gridDelegateIconSize: Kirigami.Units.iconSizes.huge
+                readonly property int gridDelegateWidth: gridDelegateIconSize + (Kirigami.Units.gridUnit * 4)
+                readonly property int gridDelegateHeight: gridDelegateWidth + Kirigami.Units.gridUnit
 
                 clip: true
 
-                Keys.onReturnPressed: currentItem.activate();
-                Keys.onEnterPressed: currentItem.activate();
+                Keys.onReturnPressed: currentItem.click();
+                Keys.onEnterPressed: currentItem.click();
 
                 currentIndex: -1 // Don't pre-select anything as that doesn't make sense here
 
                 cellWidth: {
-                    const columns = Math.max(Math.floor(scrollView.availableWidth / gridDelegateSize), 2);
+                    const columns = Math.max(Math.floor(scrollView.availableWidth / gridDelegateWidth), 2);
                     return Math.floor(scrollView.availableWidth / columns) - 1;
                 }
-                cellHeight: gridDelegateSize
+                cellHeight: gridDelegateHeight
 
                 model: AppModel
-                delegate: Item {
+                delegate: QQC2.ItemDelegate {
                     id: delegate
 
                     required property int index
@@ -168,72 +170,23 @@ PWD.SystemDialog {
                     height: grid.cellHeight
                     width: grid.cellWidth
 
-                    function activate() {
-                        AppChooserData.applicationSelected(model.applicationDesktopFile, root.remember)
+                    display: QQC2.AbstractButton.TextUnderIcon
+
+                    icon.name: delegate.model.applicationIcon
+                    icon.width: grid.gridDelegateIconSize
+                    icon.height: grid.gridDelegateIconSize
+
+                    text: switch (delegate.model.applicationDesktopFile) {
+                        case AppChooserData.defaultApp:
+                            return xi18nc("@info", "%1<nl/><emphasis>Default app for this file type</emphasis>", delegate.model.applicationName);
+                        case AppChooserData.lastUsedApp:
+                            return xi18nc("@info", "%1<nl/><emphasis>Last used app for this file type</emphasis>", delegate.model.applicationName);
+                        default:
+                            return delegate.model.applicationName;
                     }
+                    font.bold: delegate.model.applicationDesktopFile === AppChooserData.defaultApp
 
-                    HoverHandler {
-                        id: hoverhandler
-                    }
-
-                    TapHandler {
-                        id: taphandler
-                        onTapped: delegate.activate()
-                    }
-
-                    Rectangle {
-                        anchors.fill: parent
-                        visible: hoverhandler.hovered || delegate.GridView.isCurrentItem
-                        border.color: Kirigami.Theme.highlightColor
-                        border.width: 1
-                        color: taphandler.pressed ? Kirigami.Theme.highlightColor : Qt.alpha(Kirigami.Theme.highlightColor, 0.3)
-                        radius: Kirigami.Units.smallSpacing
-                    }
-
-                    ColumnLayout {
-                        anchors {
-                            top: parent.top
-                            left: parent.left
-                            right: parent.right
-                            margins: Kirigami.Units.largeSpacing
-                        }
-                        spacing: 0 // Items add their own as needed here
-
-                        Kirigami.Icon {
-                            Layout.preferredWidth: Kirigami.Units.iconSizes.huge
-                            Layout.preferredHeight: Kirigami.Units.iconSizes.huge
-                            Layout.bottomMargin: Kirigami.Units.largeSpacing
-                            Layout.alignment: Qt.AlignHCenter
-                            source: delegate.model.applicationIcon
-                            smooth: true
-                        }
-
-                        QQC2.Label {
-                            Layout.fillWidth: true
-                            Layout.alignment: Qt.AlignTop
-                            horizontalAlignment: Text.AlignHCenter
-                            text: delegate.model.applicationName
-                            font.bold: delegate.model.applicationDesktopFile === AppChooserData.defaultApp
-                            elide: Text.ElideRight
-                            maximumLineCount: 2
-                            wrapMode: Text.WordWrap
-                        }
-
-                        QQC2.Label {
-                            Layout.fillWidth: true
-                            Layout.alignment: Qt.AlignTop
-                            horizontalAlignment: Text.AlignHCenter
-                            visible: delegate.model.applicationDesktopFile === AppChooserData.defaultApp || delegate.model.applicationDesktopFile === AppChooserData.lastUsedApp
-                            font.bold: true
-                            opacity: 0.7
-                            text: delegate.model.applicationDesktopFile === AppChooserData.defaultApp
-                                ? i18n("Default app for this file type")
-                                : i18nc("@info:whatsthis", "Last used app for this file type")
-                            elide: Text.ElideRight
-                            maximumLineCount: 2
-                            wrapMode: Text.WordWrap
-                        }
-                    }
+                    onClicked: AppChooserData.applicationSelected(model.applicationDesktopFile, root.remember)
                 }
 
                 Loader {
