@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-13 00:43+0000\n"
-"PO-Revision-Date: 2025-04-05 17:33+0200\n"
+"PO-Revision-Date: 2025-04-13 14:14+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -254,6 +254,7 @@ msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
 msgstr ""
+"Le raccourci est déjà affecté à l'action standard <interface>%1</interface>."
 
 #: src/globalshortcuts.cpp:124
 #, kde-kuit-format
@@ -261,28 +262,29 @@ msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
 msgstr ""
+"Le raccourci est affecté à plusieurs actions (<interface>%1</interface>)"
 
 #: src/GlobalShortcutsDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "Raccourcis globaux demandés"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Une application souhaite enregistrer le raccourci suivant :"
+msgstr[1] "Une application souhaite enregistrer les raccourcis suivants :"
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2 souhaite enregistrer le raccourci suivant :"
+msgstr[1] "%2 souhaite enregistrer les raccourcis suivants :"
 
 #: src/GlobalShortcutsDialog.qml:120
 #, kde-format
@@ -294,7 +296,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "Afficher les autres raccourcis enregistrés par cette application"
 
 #: src/inputcapture.cpp:113
 #, kde-format

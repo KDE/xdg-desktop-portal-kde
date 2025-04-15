@@ -248,34 +248,34 @@ msgctxt "@info:tooltip"
 msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
-msgstr ""
+msgstr "此快捷键已分配给 <interface>%1</interface> 标准操作。"
 
 #: src/globalshortcuts.cpp:124
 #, kde-kuit-format
 msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
-msgstr ""
+msgstr "该快捷方式被分配给了多个操作 (<interface>%1</interface>)"
 
 #: src/GlobalShortcutsDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "已请求全局快捷方式"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following shortcuts:"
-msgstr[0] ""
+msgstr[0] "一个应用程序想要注册以下快捷方式："
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following shortcuts:"
-msgstr[0] ""
+msgstr[0] "%2 想要注册以下快捷方式："
 
 #: src/GlobalShortcutsDialog.qml:120
 #, kde-format
@@ -287,7 +287,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "查看此应用程序注册的其他快捷方式"
 
 #: src/inputcapture.cpp:113
 #, kde-format
