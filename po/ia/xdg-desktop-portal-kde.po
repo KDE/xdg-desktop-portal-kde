@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-13 00:43+0000\n"
-"PO-Revision-Date: 2025-04-04 11:53+0200\n"
+"PO-Revision-Date: 2025-04-15 15:53+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -240,6 +240,8 @@ msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
 "<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
+"Le via breve es ja assignate al action <interface>%1</interface> de "
+"<application>%2</application>. Re-inserta lo hic per annullar ille action."
 
 #: src/globalshortcuts.cpp:111
 #, kde-kuit-format
@@ -248,6 +250,7 @@ msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
 msgstr ""
+"Le via breve ja es assignate al action standard <interface>%1</interface> ."
 
 #: src/globalshortcuts.cpp:124
 #, kde-kuit-format
@@ -255,40 +258,41 @@ msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
 msgstr ""
+"Via breve '' jam es assignate a actiones multiple (<interface>%1</interface>)"
 
 #: src/GlobalShortcutsDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "Vias breve global requirite"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Un application vole registrar le via breve sequente:"
+msgstr[1] "Un application vole registrar le vias breve sequente:"
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2 vole registrar le via breve sequente:"
+msgstr[1] "%2  vole registrar le vias breve sequente:"
 
 #: src/GlobalShortcutsDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
-msgstr ""
+msgstr "Vide altere vias breve..."
 
 #: src/GlobalShortcutsDialog.qml:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "Vide altere vias breve registrate per iste application"
 
 #: src/inputcapture.cpp:113
 #, kde-format

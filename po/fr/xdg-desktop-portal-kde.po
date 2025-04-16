@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-13 00:43+0000\n"
-"PO-Revision-Date: 2025-04-13 14:14+0200\n"
+"PO-Revision-Date: 2025-04-14 09:49+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -246,6 +246,9 @@ msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
 "<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
+"Le raccourci est déjà affecté à l'action <interface>%1</interface> de "
+"<application>%2</application>. Veuillez le saisir à nouveau ici pour "
+"remplacer cette action."
 
 #: src/globalshortcuts.cpp:111
 #, kde-kuit-format
@@ -290,7 +293,7 @@ msgstr[1] "%2 souhaite enregistrer les raccourcis suivants :"
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
-msgstr ""
+msgstr "Afficher d'autres raccourcis..."
 
 #: src/GlobalShortcutsDialog.qml:121
 #, kde-format

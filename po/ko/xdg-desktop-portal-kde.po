@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-13 00:43+0000\n"
-"PO-Revision-Date: 2025-04-07 23:52+0200\n"
+"PO-Revision-Date: 2025-04-16 01:30+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -239,6 +239,8 @@ msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
 "<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
+"이 단축키가 이미 <application>%2</application>의 <interface>%1</interface> 동"
+"작에 할당되어 있습니다. 덮어쓰려면 여기에 다시 입력하십시오."
 
 #: src/globalshortcuts.cpp:111
 #, kde-kuit-format
@@ -247,45 +249,46 @@ msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
 msgstr ""
+"이 단축키가 이미 공통 동작 <interface>%1</interface>에 할당되어 있습니다."
 
 #: src/globalshortcuts.cpp:124
 #, kde-kuit-format
 msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
-msgstr ""
+msgstr "이 단축키가 여러 동작에 할당되어 있습니다(<interface>%1</interface>)"
 
 #: src/GlobalShortcutsDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "전역 단축키 요청됨"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following shortcuts:"
-msgstr[0] ""
+msgstr[0] "앱에서 다음 전역 단축키를 등록하려고 합니다:"
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following shortcuts:"
-msgstr[0] ""
+msgstr[0] "%2에서 다음 전역 단축키를 등록하려고 합니다:"
 
 #: src/GlobalShortcutsDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
-msgstr ""
+msgstr "다른 단축키 보기…"
 
 #: src/GlobalShortcutsDialog.qml:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "이 앱에서 등록한 다른 단축키 보기"
 
 #: src/inputcapture.cpp:113
 #, kde-format
