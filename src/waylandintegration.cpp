@@ -273,6 +273,7 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
 
     return startStreaming(stream,
                           {
+                              {QLatin1String("position"), screen->geometry().topLeft()},
                               {QLatin1String("size"), screen->size()},
                               {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
                           });
