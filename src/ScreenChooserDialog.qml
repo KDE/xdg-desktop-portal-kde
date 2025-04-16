@@ -52,6 +52,7 @@ PWD.SystemDialog {
 
                     PipeWireDelegateView {
                         id: delegate
+                        modelView: outputsView
 
                         TaskManager.ScreencastingRequest {
                             id: waylandItem
@@ -66,6 +67,7 @@ PWD.SystemDialog {
 
                     PipeWireDelegateView {
                         id: delegate
+                        modelView: windowsView
 
                         TaskManager.ScreencastingRequest {
                             id: waylandItem
@@ -79,10 +81,11 @@ PWD.SystemDialog {
 
                     required property int index
                     required property var model
+                    required property var modelView
 
                     function selectAndAccept(): void {
                         root.clearSelection()
-                        outputsView.model.setData(outputsView.model.index(model.row, 0), Qt.Checked, Qt.CheckStateRole)
+                        modelView.model.setData(modelView.model.index(model.row, 0), Qt.Checked, Qt.CheckStateRole)
                         dialogButtonBox.accepted()
                     }
 
@@ -105,7 +108,7 @@ PWD.SystemDialog {
                     // Only active if this is a multi-select dialog
                     onToggled: {
                         const to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
-                        outputsView.model.setData(outputsView.model.index(model.row, 0), to, Qt.CheckStateRole)
+                        modelView.model.setData(modelView.model.index(model.row, 0), to, Qt.CheckStateRole)
                     }
 
                     // If this is isn't a multi-select dialog, accept on click
