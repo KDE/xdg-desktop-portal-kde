@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-13 00:43+0000\n"
+"POT-Creation-Date: 2025-04-17 00:43+0000\n"
 "PO-Revision-Date: 2025-04-13 13:48+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -78,59 +78,63 @@ msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "בחירה באחר…"
 
-#: src/AppChooserDialog.qml:230
-#, kde-format
-msgid "Default app for this file type"
+#: src/AppChooserDialog.qml:181
+#, fuzzy, kde-kuit-format
+#| msgid "Default app for this file type"
+msgctxt "@info"
+msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "יישום ברירת מחדל לסוג קובץ זה"
 
-#: src/AppChooserDialog.qml:231
-#, kde-format
-msgctxt "@info:whatsthis"
-msgid "Last used app for this file type"
+#: src/AppChooserDialog.qml:183
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:whatsthis"
+#| msgid "Last used app for this file type"
+msgctxt "@info"
+msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "היישום האחרון ששימש לפתיחת סוג קובץ זה"
 
-#: src/AppChooserDialog.qml:252
+#: src/AppChooserDialog.qml:205
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "לפתוח עם <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:254
+#: src/AppChooserDialog.qml:207
 #, kde-format
 msgid "No matches"
 msgstr "אין התאמות"
 
-#: src/AppChooserDialog.qml:256
+#: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "אין יישומים מותקנים שיכולים לפתוח את <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:282
+#: src/AppChooserDialog.qml:235
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "אפשרויות מסוף"
 
-#: src/AppChooserDialog.qml:298
+#: src/AppChooserDialog.qml:251
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "הרצה במסוף"
 
-#: src/AppChooserDialog.qml:307
+#: src/AppChooserDialog.qml:260
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "לא לסגור כשהפקודה מסתיימת"
 
-#: src/AppChooserDialog.qml:320
+#: src/AppChooserDialog.qml:273
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "חשיפת יישומים נוספים"
 
-#: src/AppChooserDialog.qml:341
+#: src/AppChooserDialog.qml:294
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."

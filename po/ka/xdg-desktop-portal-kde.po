@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-13 00:43+0000\n"
+"POT-Creation-Date: 2025-04-17 00:43+0000\n"
 "PO-Revision-Date: 2025-04-13 03:30+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -80,29 +80,33 @@ msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "სხვის არჩევა…"
 
-#: src/AppChooserDialog.qml:230
-#, kde-format
-msgid "Default app for this file type"
+#: src/AppChooserDialog.qml:181
+#, fuzzy, kde-kuit-format
+#| msgid "Default app for this file type"
+msgctxt "@info"
+msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "ნაგულისხმები აპი ამ ფაილის ტიპისთვის"
 
-#: src/AppChooserDialog.qml:231
-#, kde-format
-msgctxt "@info:whatsthis"
-msgid "Last used app for this file type"
+#: src/AppChooserDialog.qml:183
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:whatsthis"
+#| msgid "Last used app for this file type"
+msgctxt "@info"
+msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "ბოლოს გამოყენებული აპი ამ ფაილის ტიპისთვის"
 
-#: src/AppChooserDialog.qml:252
+#: src/AppChooserDialog.qml:205
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "გავხსნა <command>%1</command>-ით?"
 
-#: src/AppChooserDialog.qml:254
+#: src/AppChooserDialog.qml:207
 #, kde-format
 msgid "No matches"
 msgstr "დათხვევა არ არსებობს"
 
-#: src/AppChooserDialog.qml:256
+#: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
@@ -110,31 +114,31 @@ msgstr ""
 "<filename>%1</filename>-ის გახსნა ამჟამად დაყენებულ არც ერთ აპლიკაციას არ "
 "შეუძლია"
 
-#: src/AppChooserDialog.qml:282
+#: src/AppChooserDialog.qml:235
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "ტერმინალის პარამეტრები"
 
-#: src/AppChooserDialog.qml:298
+#: src/AppChooserDialog.qml:251
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "ტერმინალში გაშვება"
 
-#: src/AppChooserDialog.qml:307
+#: src/AppChooserDialog.qml:260
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "არ დახურო ბრძანების დასრულებისას"
 
-#: src/AppChooserDialog.qml:320
+#: src/AppChooserDialog.qml:273
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "აღმოაჩინეთ მეტი აპლიკაცია"
 
-#: src/AppChooserDialog.qml:341
+#: src/AppChooserDialog.qml:294
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."

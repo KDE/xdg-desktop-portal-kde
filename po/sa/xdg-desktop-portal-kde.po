@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-13 00:43+0000\n"
+"POT-Creation-Date: 2025-04-17 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -81,59 +81,63 @@ msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "अन्यं चिनोतु..."
 
-#: src/AppChooserDialog.qml:230
-#, kde-format
-msgid "Default app for this file type"
+#: src/AppChooserDialog.qml:181
+#, fuzzy, kde-kuit-format
+#| msgid "Default app for this file type"
+msgctxt "@info"
+msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "अस्य सञ्चिकाप्रकारस्य पूर्वनिर्धारितं एप्"
 
-#: src/AppChooserDialog.qml:231
-#, kde-format
-msgctxt "@info:whatsthis"
-msgid "Last used app for this file type"
+#: src/AppChooserDialog.qml:183
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:whatsthis"
+#| msgid "Last used app for this file type"
+msgctxt "@info"
+msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "अस्य सञ्चिकाप्रकारस्य कृते अन्तिमप्रयुक्तम् एप्"
 
-#: src/AppChooserDialog.qml:252
+#: src/AppChooserDialog.qml:205
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "<command>%1</command> इत्यनेन उद्घाटयतु?"
 
-#: src/AppChooserDialog.qml:254
+#: src/AppChooserDialog.qml:207
 #, kde-format
 msgid "No matches"
 msgstr "न मेलनं"
 
-#: src/AppChooserDialog.qml:256
+#: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "कोऽपि संस्थापितः अनुप्रयोगः <filename>%1</filename> उद्घाटयितुं न शक्नोति"
 
-#: src/AppChooserDialog.qml:282
+#: src/AppChooserDialog.qml:235
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "टर्मिनल विकल्प"
 
-#: src/AppChooserDialog.qml:298
+#: src/AppChooserDialog.qml:251
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "टर्मिनल् मध्ये चालयन्तु"
 
-#: src/AppChooserDialog.qml:307
+#: src/AppChooserDialog.qml:260
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "यदा आदेशः निर्गच्छति तदा न पिधातु"
 
-#: src/AppChooserDialog.qml:320
+#: src/AppChooserDialog.qml:273
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "अधिकानि अनुप्रयोगाः अन्वेष्टुम्"
 
-#: src/AppChooserDialog.qml:341
+#: src/AppChooserDialog.qml:294
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."

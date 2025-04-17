@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-13 00:43+0000\n"
+"POT-Creation-Date: 2025-04-17 00:43+0000\n"
 "PO-Revision-Date: 2023-04-07 23:28-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -80,55 +80,57 @@ msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr ""
 
-#: src/AppChooserDialog.qml:230
-#, kde-format
-msgid "Default app for this file type"
-msgstr "このファイルタイプのためのデフォルトのアプリケーション"
-
-#: src/AppChooserDialog.qml:231
-#, fuzzy, kde-format
+#: src/AppChooserDialog.qml:181
+#, fuzzy, kde-kuit-format
 #| msgid "Default app for this file type"
-msgctxt "@info:whatsthis"
-msgid "Last used app for this file type"
+msgctxt "@info"
+msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "このファイルタイプのためのデフォルトのアプリケーション"
 
-#: src/AppChooserDialog.qml:252
+#: src/AppChooserDialog.qml:183
+#, fuzzy, kde-kuit-format
+#| msgid "Default app for this file type"
+msgctxt "@info"
+msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
+msgstr "このファイルタイプのためのデフォルトのアプリケーション"
+
+#: src/AppChooserDialog.qml:205
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr ""
 
-#: src/AppChooserDialog.qml:254
+#: src/AppChooserDialog.qml:207
 #, kde-format
 msgid "No matches"
 msgstr "一致なし"
 
-#: src/AppChooserDialog.qml:256
+#: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
 "<filename>%1</filename> を開けるアプリケーションはインストールされていません"
 
-#: src/AppChooserDialog.qml:282
+#: src/AppChooserDialog.qml:235
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr ""
 
-#: src/AppChooserDialog.qml:298
+#: src/AppChooserDialog.qml:251
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr ""
 
-#: src/AppChooserDialog.qml:307
+#: src/AppChooserDialog.qml:260
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr ""
 
-#: src/AppChooserDialog.qml:320
+#: src/AppChooserDialog.qml:273
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Choose Application"
@@ -136,7 +138,7 @@ msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "アプリケーションを選択してください"
 
-#: src/AppChooserDialog.qml:341
+#: src/AppChooserDialog.qml:294
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."

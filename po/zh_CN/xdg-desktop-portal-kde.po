@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-13 00:43+0000\n"
+"POT-Creation-Date: 2025-04-17 00:43+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -80,59 +80,63 @@ msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "选择其他…"
 
-#: src/AppChooserDialog.qml:230
-#, kde-format
-msgid "Default app for this file type"
+#: src/AppChooserDialog.qml:181
+#, fuzzy, kde-kuit-format
+#| msgid "Default app for this file type"
+msgctxt "@info"
+msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "默认打开此文件类型的应用"
 
-#: src/AppChooserDialog.qml:231
-#, kde-format
-msgctxt "@info:whatsthis"
-msgid "Last used app for this file type"
+#: src/AppChooserDialog.qml:183
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:whatsthis"
+#| msgid "Last used app for this file type"
+msgctxt "@info"
+msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "上次打开此文件类型的应用"
 
-#: src/AppChooserDialog.qml:252
+#: src/AppChooserDialog.qml:205
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "使用 <command>%1</command> 打开吗？"
 
-#: src/AppChooserDialog.qml:254
+#: src/AppChooserDialog.qml:207
 #, kde-format
 msgid "No matches"
 msgstr "没有匹配项目"
 
-#: src/AppChooserDialog.qml:256
+#: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "没有任何已安装的应用能够打开 <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:282
+#: src/AppChooserDialog.qml:235
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "终端选项"
 
-#: src/AppChooserDialog.qml:298
+#: src/AppChooserDialog.qml:251
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "在终端中运行"
 
-#: src/AppChooserDialog.qml:307
+#: src/AppChooserDialog.qml:260
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "命令退出时不关闭终端"
 
-#: src/AppChooserDialog.qml:320
+#: src/AppChooserDialog.qml:273
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "发现更多应用程序"
 
-#: src/AppChooserDialog.qml:341
+#: src/AppChooserDialog.qml:294
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
