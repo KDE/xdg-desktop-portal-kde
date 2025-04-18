@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-17 00:43+0000\n"
-"PO-Revision-Date: 2025-04-05 08:57+0200\n"
+"PO-Revision-Date: 2025-04-17 12:52+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -80,19 +80,17 @@ msgid "Choose Other…"
 msgstr "Använd annat…"
 
 #: src/AppChooserDialog.qml:181
-#, fuzzy, kde-kuit-format
-#| msgid "Default app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
-msgstr "Standardprogram för den här filtypen"
+msgstr "%1<nl/><emphasis>Standardprogram för den här filtypen</emphasis>"
 
 #: src/AppChooserDialog.qml:183
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Last used app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
-msgstr "Senast använda program för den här filtypen"
+msgstr ""
+"%1<nl/><emphasis>Senast använda program för den här filtypen</emphasis>"
 
 #: src/AppChooserDialog.qml:205
 #, kde-kuit-format
@@ -244,6 +242,9 @@ msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
 "<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
+"Genvägen är redan tilldelad till åtgärden <interface>%1</interface> i "
+"<application>%2</application>. Mata in den igen här för att överskrida "
+"åtgärden"
 
 #: src/globalshortcuts.cpp:111
 #, kde-kuit-format
@@ -252,26 +253,27 @@ msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
 msgstr ""
+"Genvägen är redan tilldelad till standardgenvägen <interface>%1</interface>."
 
 #: src/globalshortcuts.cpp:124
 #, kde-kuit-format
 msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
-msgstr ""
+msgstr "Genvägen är tilldelad till flera åtgärder (<interface>%1</interface>)"
 
 #: src/GlobalShortcutsDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "Globala genvägar begärda"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following shortcuts:"
-msgstr[0] ""
+msgstr[0] "Ett program vill registrera följande genväg:"
 msgstr[1] ""
 
 #: src/GlobalShortcutsDialog.qml:31
@@ -279,20 +281,20 @@ msgstr[1] ""
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2 vill registrera följande genväg:"
+msgstr[1] "%2 vill registrera följande genvägar:"
 
 #: src/GlobalShortcutsDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
-msgstr ""
+msgstr "Se andra genvägar…"
 
 #: src/GlobalShortcutsDialog.qml:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "Visa andra genvägar registrerade av programmet"
 
 #: src/inputcapture.cpp:113
 #, kde-format

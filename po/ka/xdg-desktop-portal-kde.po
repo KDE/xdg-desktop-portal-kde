@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-17 00:43+0000\n"
-"PO-Revision-Date: 2025-04-13 03:30+0200\n"
+"PO-Revision-Date: 2025-04-17 03:41+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -81,19 +81,16 @@ msgid "Choose Other…"
 msgstr "სხვის არჩევა…"
 
 #: src/AppChooserDialog.qml:181
-#, fuzzy, kde-kuit-format
-#| msgid "Default app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
-msgstr "ნაგულისხმები აპი ამ ფაილის ტიპისთვის"
+msgstr "%1<nl/><emphasis>ნაგულისხმევი აპი ამ ფაილის ტიპისთვის</emphasis>"
 
 #: src/AppChooserDialog.qml:183
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Last used app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
-msgstr "ბოლოს გამოყენებული აპი ამ ფაილის ტიპისთვის"
+msgstr "%1<nl/><emphasis>ბოლოს გამოყენებული აპი ამ ფაილის ტიპისთვის</emphasis>"
 
 #: src/AppChooserDialog.qml:205
 #, kde-kuit-format

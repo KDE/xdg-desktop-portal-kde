@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-17 00:43+0000\n"
-"PO-Revision-Date: 2025-04-05 12:11+0400\n"
+"PO-Revision-Date: 2025-04-17 10:56+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -245,6 +245,8 @@ msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
 "<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
+"الاختصار معيّن فعلًا إلى الإجراء <interface>%1</interface> من <application>%2</"
+"application>. أعد إدخاله هنا لتجاوز هذا الإجراء."
 
 #: src/globalshortcuts.cpp:111
 #, kde-kuit-format
@@ -252,56 +254,56 @@ msgctxt "@info:tooltip"
 msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
-msgstr ""
+msgstr "الاختصار معيّن فعلًا إلى الإجراء القياسي <interface>%1</interface>."
 
 #: src/globalshortcuts.cpp:124
 #, kde-kuit-format
 msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
-msgstr ""
+msgstr "الاختصار معيّن فعلًا إلى عدة إجراءات (<interface>%1</interface>)"
 
 #: src/GlobalShortcutsDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "طلب اختصارات عامة"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "هناك تطبيق يريد تسجيل الاختصار التالي:"
+msgstr[1] "هناك تطبيق يريد تسجيل الاختصار التالي:"
+msgstr[2] "هناك تطبيق يريد تسجيل الاختصارين التاليين:"
+msgstr[3] "هناك تطبيق يريد تسجيل الاختصارات التالية:"
+msgstr[4] "هناك تطبيق يريد تسجيل الاختصارات التالية:"
+msgstr[5] "هناك تطبيق يريد تسجيل الاختصارات التالية:"
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "التطبيق %2 يريد تسجيل الاختصار التالي:"
+msgstr[1] "التطبيق %2 يريد تسجيل الاختصار التالي:"
+msgstr[2] "التطبيق %2 يريد تسجيل الاختصارين التاليين:"
+msgstr[3] "التطبيق %2 يريد تسجيل الاختصارات التالية:"
+msgstr[4] "التطبيق %2 يريد تسجيل الاختصارات التالية:"
+msgstr[5] "التطبيق %2 يريد تسجيل الاختصارات التالية:"
 
 #: src/GlobalShortcutsDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
-msgstr ""
+msgstr "انظر الاختصارات الأخرى…"
 
 #: src/GlobalShortcutsDialog.qml:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "اعرض الاختصارات الأخرى المسجلة بواسطة هذا التطبيق"
 
 #: src/inputcapture.cpp:113
 #, kde-format

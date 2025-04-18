@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-17 00:43+0000\n"
-"PO-Revision-Date: 2025-04-13 17:33+0200\n"
+"PO-Revision-Date: 2025-04-18 00:59+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -80,19 +80,17 @@ msgid "Choose Other…"
 msgstr "Kies een andere…"
 
 #: src/AppChooserDialog.qml:181
-#, fuzzy, kde-kuit-format
-#| msgid "Default app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
-msgstr "Standaard toepassing voor dit bestandstype"
+msgstr "%1<nl/><emphasis>Standaard toepassing voor dit bestandstype</emphasis>"
 
 #: src/AppChooserDialog.qml:183
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Last used app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
-msgstr "Laatst gebruikte toepassing voor dit type bestand"
+msgstr ""
+"%1<nl/><emphasis>Laatst gebruikte toepassing voor dit type bestand</emphasis>"
 
 #: src/AppChooserDialog.qml:205
 #, kde-kuit-format
