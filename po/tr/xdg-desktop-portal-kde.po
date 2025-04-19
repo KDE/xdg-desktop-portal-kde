@@ -80,19 +80,16 @@ msgid "Choose Other…"
 msgstr "Başka Seç…"
 
 #: src/AppChooserDialog.qml:181
-#, fuzzy, kde-kuit-format
-#| msgid "Default app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
-msgstr "Bu dosya türü için öntanımlı uygulama"
+msgstr "%1<nl/><emphasis>Bu dosya türü için öntanımlı uygulama</emphasis>"
 
 #: src/AppChooserDialog.qml:183
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Last used app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
-msgstr "Bu dosya türü için son kullanılan uygulama"
+msgstr "%1<nl/><emphasis>Bu dosya türü için son kullanılan uygulama</emphasis>"
 
 #: src/AppChooserDialog.qml:205
 #, kde-kuit-format
