@@ -29,108 +29,117 @@ PWD.SystemDialog {
     ColumnLayout {
         spacing: 0
 
-        QQC2.ScrollView {
+
+        QQC2.Frame {
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 20
             Layout.preferredWidth: Kirigami.Units.gridUnit * 45
-            contentWidth: availableWidth
-            contentHeight: outputsLayout.height
 
-            Kirigami.CardsLayout {
-                id: outputsLayout
-                maximumColumns: 3
+            Kirigami.Theme.inherit: false
+            Kirigami.Theme.colorSet: Kirigami.Theme.View
 
-                anchors {
-                    left: parent.left;
-                    right: parent.right;
-                }
+            QQC2.ScrollView {
+                anchors.fill: parent
+                contentWidth: availableWidth
+                contentHeight: outputsLayout.height
 
-                Repeater {
-                    id: outputsView
-                    model: null
+                Kirigami.CardsLayout {
+                    id: outputsLayout
+                    maximumColumns: 3
 
-                    PipeWireDelegateView {
-                        id: delegate
-                        modelView: outputsView
-
-                        TaskManager.ScreencastingRequest {
-                            id: waylandItem
-                            outputName: delegate.model.name
-                        }
-                    }
-                }
-
-                Repeater {
-                    id: windowsView
-                    model: null
-
-                    PipeWireDelegateView {
-                        id: delegate
-                        modelView: windowsView
-
-                        TaskManager.ScreencastingRequest {
-                            id: waylandItem
-                            uuid: delegate.model.Uuid
-                        }
-
-                    }
-                }
-
-                component PipeWireDelegateView : PipeWireDelegate {
-
-                    required property int index
-                    required property var model
-                    required property var modelView
-
-                    function selectAndAccept(): void {
-                        root.clearSelection()
-                        modelView.model.setData(modelView.model.index(model.row, 0), Qt.Checked, Qt.CheckStateRole)
-                        dialogButtonBox.accepted()
+                    anchors {
+                        left: parent.left;
+                        right: parent.right;
                     }
 
-                    banner {
-                        title: model.display ?? ""
-                        titleIcon: model.decoration ?? ""
-                        titleLevel: 3
-                    }
+                    Repeater {
+                        id: outputsView
+                        model: null
 
-                    checkable: root.multiple
-                    checked: model.checked === Qt.Checked
-                    nodeId: waylandItem.nodeId
+                        PipeWireDelegateView {
+                            id: delegate
+                            modelView: outputsView
 
-                    activeFocusOnTab: true
-                    highlighted: activeFocus
-
-                    Accessible.role: root.multiple ? Accessible.CheckBox : Accessible.Button
-
-
-                    // Only active if this is a multi-select dialog
-                    onToggled: {
-                        const to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
-                        modelView.model.setData(modelView.model.index(model.row, 0), to, Qt.CheckStateRole)
-                    }
-
-                    // If this is isn't a multi-select dialog, accept on click
-                    // since the cards are functioning as buttons
-                    onClicked: {
-                        if (!root.multiple) {
-                            selectAndAccept()
+                            TaskManager.ScreencastingRequest {
+                                id: waylandItem
+                                outputName: delegate.model.name
+                            }
                         }
                     }
 
-                    // If this is a multi-select dialog, let people choose just
-                    // one thing quickly by double-clicking
-                    onDoubleClicked: {
-                        if (root.multiple) {
-                            selectAndAccept()
+                    Repeater {
+                        id: windowsView
+                        model: null
+
+                        PipeWireDelegateView {
+                            id: delegate
+                            modelView: windowsView
+
+                            TaskManager.ScreencastingRequest {
+                                id: waylandItem
+                                uuid: delegate.model.Uuid
+                            }
+
                         }
                     }
 
-                }
+                    component PipeWireDelegateView : PipeWireDelegate {
 
+                        required property int index
+                        required property var model
+                        required property var modelView
+
+                        function selectAndAccept(): void {
+                            root.clearSelection()
+                            modelView.model.setData(modelView.model.index(model.row, 0), Qt.Checked, Qt.CheckStateRole)
+                            dialogButtonBox.accepted()
+                        }
+
+                        banner {
+                            title: model.display ?? ""
+                            titleIcon: model.decoration ?? ""
+                            titleLevel: 3
+                        }
+
+                        checkable: root.multiple
+                        checked: model.checked === Qt.Checked
+                        nodeId: waylandItem.nodeId
+
+                        activeFocusOnTab: true
+                        highlighted: activeFocus
+
+                        Accessible.role: root.multiple ? Accessible.CheckBox : Accessible.Button
+
+
+                        // Only active if this is a multi-select dialog
+                        onToggled: {
+                            const to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
+                            modelView.model.setData(modelView.model.index(model.row, 0), to, Qt.CheckStateRole)
+                        }
+
+                        // If this is isn't a multi-select dialog, accept on click
+                        // since the cards are functioning as buttons
+                        onClicked: {
+                            if (!root.multiple) {
+                                selectAndAccept()
+                            }
+                        }
+
+                        // If this is a multi-select dialog, let people choose just
+                        // one thing quickly by double-clicking
+                        onDoubleClicked: {
+                            if (root.multiple) {
+                                selectAndAccept()
+                            }
+                        }
+
+                    }
+
+                }
             }
         }
+
 
         QQC2.CheckBox {
             id: allowRestoreItem
