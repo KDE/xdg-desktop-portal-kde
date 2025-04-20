@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-17 00:43+0000\n"
-"PO-Revision-Date: 2025-04-17 10:56+0400\n"
+"PO-Revision-Date: 2025-04-19 13:09+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -82,19 +82,16 @@ msgid "Choose Other…"
 msgstr "اختر أخرى…"
 
 #: src/AppChooserDialog.qml:181
-#, fuzzy, kde-kuit-format
-#| msgid "Default app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
-msgstr "التطبيق المبدئي لهذا النوع"
+msgstr "%1<nl/><emphasis>التطبيق المبدئي لهذا النوع</emphasis>"
 
 #: src/AppChooserDialog.qml:183
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Last used app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
-msgstr "أخر تطبيق مستعمل لهذا النوع"
+msgstr "%1<nl/><emphasis>أخر تطبيق مستعمل لهذا النوع</emphasis>"
 
 #: src/AppChooserDialog.qml:205
 #, kde-kuit-format

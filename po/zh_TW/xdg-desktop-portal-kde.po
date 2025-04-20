@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-17 00:43+0000\n"
-"PO-Revision-Date: 2025-04-07 13:53+0900\n"
+"PO-Revision-Date: 2025-04-19 15:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -81,19 +81,16 @@ msgid "Choose Other…"
 msgstr "選擇別的…"
 
 #: src/AppChooserDialog.qml:181
-#, fuzzy, kde-kuit-format
-#| msgid "Default app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
-msgstr "這個檔案類型的預設應用程式"
+msgstr "%1<nl/><emphasis>這個檔案類型的預設應用程式</emphasis>"
 
 #: src/AppChooserDialog.qml:183
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Last used app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
-msgstr "這個檔案類型上次使用的應用程式"
+msgstr "%1<nl/><emphasis>這個檔案類型上次使用的應用程式</emphasis>"
 
 #: src/AppChooserDialog.qml:205
 #, kde-kuit-format
@@ -244,6 +241,8 @@ msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
 "<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
+"這個快捷鍵已經指派給應用程式 <application>%2</application> 的動作 <interface>"
+"%1</interface> 了。重新輸入它來覆寫該動作。"
 
 #: src/globalshortcuts.cpp:111
 #, kde-kuit-format
@@ -251,46 +250,46 @@ msgctxt "@info:tooltip"
 msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
-msgstr ""
+msgstr "這個快捷鍵已經指派給標準動作 <interface>%1</interface> 了。"
 
 #: src/globalshortcuts.cpp:124
 #, kde-kuit-format
 msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
-msgstr ""
+msgstr "這個快捷鍵被指派給多個動作了（<interface>%1</interface>）"
 
 #: src/GlobalShortcutsDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "請求全域快捷鍵"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following shortcuts:"
-msgstr[0] ""
+msgstr[0] "一個應用程式希望註冊以下快捷鍵："
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following shortcuts:"
-msgstr[0] ""
+msgstr[0] "%2 希望註冊以下快捷鍵："
 
 #: src/GlobalShortcutsDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
-msgstr ""
+msgstr "檢視其他快捷鍵…"
 
 #: src/GlobalShortcutsDialog.qml:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "檢視這個應用程式所註冊的其他快捷鍵"
 
 #: src/inputcapture.cpp:113
 #, kde-format
