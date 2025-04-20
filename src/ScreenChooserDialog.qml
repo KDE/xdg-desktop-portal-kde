@@ -60,6 +60,7 @@ PWD.SystemDialog {
                         PipeWireDelegateView {
                             id: delegate
                             modelView: outputsView
+                            nodeId: waylandItem.nodeId
 
                             TaskManager.ScreencastingRequest {
                                 id: waylandItem
@@ -75,6 +76,7 @@ PWD.SystemDialog {
                         PipeWireDelegateView {
                             id: delegate
                             modelView: windowsView
+                            nodeId: waylandItem.nodeId
 
                             TaskManager.ScreencastingRequest {
                                 id: waylandItem
@@ -96,15 +98,11 @@ PWD.SystemDialog {
                             dialogButtonBox.accepted()
                         }
 
-                        banner {
-                            title: model.display ?? ""
-                            titleIcon: model.decoration ?? ""
-                            titleLevel: 3
-                        }
-
                         checkable: root.multiple
                         checked: model.checked === Qt.Checked
-                        nodeId: waylandItem.nodeId
+
+                        title: model.display ?? ""
+                        titleIcon: model.decoration ?? ""
 
                         activeFocusOnTab: true
                         highlighted: activeFocus

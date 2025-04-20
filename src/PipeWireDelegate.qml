@@ -5,30 +5,58 @@
 */
 
 import QtQuick
+import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.pipewire 0.1 as PipeWire
 
-Kirigami.Card {
-    id: card
+Kirigami.AbstractCard {
+    id: root
 
     property alias nodeId: pipeWireSourceItem.nodeId
+    required property var title
+    required property var titleIcon
 
     showClickFeedback: true
+    Accessible.name: title
+    implicitHeight: Kirigami.Units.gridUnit * 10
+    implicitWidth: Kirigami.Units.gridUnit * 15
 
-    contentItem: PipeWire.PipeWireSourceItem {
-        id: pipeWireSourceItem
-        Layout.preferredHeight: Kirigami.Units.gridUnit * 7
-        Layout.preferredWidth: Kirigami.Units.gridUnit * 7
-        Layout.fillWidth: true
-        Layout.fillHeight: true
+    Controls.CheckBox {
+        checked: root.checked
+        onToggled: root.toggled()
 
-        Kirigami.Icon {
-            anchors.fill: parent
-            visible: pipeWireSourceItem.nodeId === 0
-            source: card.banner.titleIcon
+        anchors {
+            right: root.right
+            bottom: root.bottom
+            bottomMargin: root.topPadding
         }
+
     }
 
-    Layout.preferredHeight: contentItem.Layout.preferredHeight
+    contentItem: Kirigami.Padding {
+        topPadding: -root.topPadding + root.background.border.width
+        leftPadding: -root.leftPadding + root.background.border.width
+        rightPadding: -root.rightPadding + root.background.border.width
+        bottomPadding: root.contentItem ? 0 : -root.bottomPadding + root.background.border.width
+
+        contentItem: PipeWire.PipeWireSourceItem {
+            id: pipeWireSourceItem
+        }
+
+    }
+
+    footer: RowLayout {
+        Kirigami.Icon {
+            source: titleIcon
+        }
+
+        Kirigami.Heading {
+            text: title
+            level: 3
+            Layout.fillWidth: true
+        }
+
+    }
+
 }
