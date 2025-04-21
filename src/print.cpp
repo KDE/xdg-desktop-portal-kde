@@ -25,7 +25,12 @@
 #include <QUrl>
 #include <QtPrintSupport/private/qcups_p.h>
 
-// INFO: code below is copied from Qt as there is no public API for converting key to PageSizeId
+// INFO: code below is copied from Qt as there is no public API for converting key to PageSizeId.
+// As the Qt comment below notes, this must be re-copied from
+// qtbase/src/gui/painting/qpagesize.cpp when certain changes are made to Qt. In particular,
+// inconsistency with QPageSize::PageSizeId will produce runtime misbehaviour, not build failure!
+
+// This code is currently synchronised with changes made for the Qt 6 release.
 
 // Standard sizes data
 struct StandardPageSize {
