@@ -29,8 +29,8 @@
 
 // Standard sizes data
 struct StandardPageSize {
-    QPageSize::PageSizeId id;
-    const char *mediaOption; // PPD standard mediaOption ID
+    QPageSize::PageSizeId id : 8;
+    const char mediaOption[20]; // PPD standard mediaOption ID
 };
 
 // Standard page sizes taken from the Postscript PPD Standard v4.3
