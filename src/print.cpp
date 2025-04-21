@@ -34,14 +34,12 @@ struct StandardPageSize {
 };
 
 // Standard page sizes taken from the Postscript PPD Standard v4.3
-// See https://www-cdf.fnal.gov/offline/PostScript/5003.PPD_Spec_v4.3.pdf
+// See http://partners.adobe.com/public/developer/en/ps/5003.PPD_Spec_v4.3.pdf
 // Excludes all Transverse and Rotated sizes
-// NB!This table needs to be in sync with QPageSize::PageSizeId
-const static StandardPageSize qt_pageSizes[] = {
+// NB! This table needs to be in sync with QPageSize::PageSizeId
+static const StandardPageSize qt_pageSizes[] = {
 
-    // Existing Qt sizes including ISO, US, ANSI and other standards
-    {QPageSize::A4, "A4"},
-    {QPageSize::B5, "ISOB5"},
+    // Old Qt sizes including ISO, US, ANSI and other standards
     {QPageSize::Letter, "Letter"},
     {QPageSize::Legal, "Legal"},
     {QPageSize::Executive, "Executive.7.5x10in"}, // Qt size differs from Postscript / Windows
@@ -49,21 +47,24 @@ const static StandardPageSize qt_pageSizes[] = {
     {QPageSize::A1, "A1"},
     {QPageSize::A2, "A2"},
     {QPageSize::A3, "A3"},
+    {QPageSize::A4, "A4"},
     {QPageSize::A5, "A5"},
     {QPageSize::A6, "A6"},
     {QPageSize::A7, "A7"},
     {QPageSize::A8, "A8"},
     {QPageSize::A9, "A9"},
+    {QPageSize::A10, "A10"},
     {QPageSize::B0, "ISOB0"},
     {QPageSize::B1, "ISOB1"},
-    {QPageSize::B10, "ISOB10"},
     {QPageSize::B2, "ISOB2"},
     {QPageSize::B3, "ISOB3"},
     {QPageSize::B4, "ISOB4"},
+    {QPageSize::B5, "ISOB5"},
     {QPageSize::B6, "ISOB6"},
     {QPageSize::B7, "ISOB7"},
     {QPageSize::B8, "ISOB8"},
     {QPageSize::B9, "ISOB9"},
+    {QPageSize::B10, "ISOB10"},
     {QPageSize::C5E, "EnvC5"},
     {QPageSize::Comm10E, "Env10"},
     {QPageSize::DLE, "EnvDL"},
@@ -73,7 +74,6 @@ const static StandardPageSize qt_pageSizes[] = {
     {QPageSize::Custom, "Custom"}, // Special case to keep in sync with QPageSize::PageSizeId
 
     // ISO Standard Sizes
-    {QPageSize::A10, "A10"},
     {QPageSize::A3Extra, "A3Extra"},
     {QPageSize::A4Extra, "A4Extra"},
     {QPageSize::A4Plus, "A4Plus"},
