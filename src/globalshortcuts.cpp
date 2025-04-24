@@ -256,6 +256,7 @@ void GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
     auto session = Session::getSession<GlobalShortcutsSession>(session_handle.path());
     if (!session) {
         replyResponse = PortalResponse::OtherError;
+        return;
     }
 
     auto previousShortcuts = session->shortcutDescriptions();
