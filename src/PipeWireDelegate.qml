@@ -7,7 +7,7 @@
 import QtQuick
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
-import org.kde.pipewire 0.1 as PipeWire
+import org.kde.pipewire as PipeWire
 
 Kirigami.Card {
     id: card
