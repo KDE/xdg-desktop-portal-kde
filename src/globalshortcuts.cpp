@@ -298,7 +298,7 @@ void GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
     dialog->create(u"qrc:/GlobalShortcutsDialog.qml"_s,
                    {{u"app"_s, Utils::applicationName(session->appId())},
                     {u"returningShortcuts"_s, QVariant::fromValue(returningShortcutInfos)},
-                    {u"newShortcuts"_s, QVariant::fromValue(&model)},
+                    {u"newShortcuts"_s, QVariant::fromValue(model)},
                     {u"component"_s, session->componentName()}});
     delayReply(message, dialog, session, [model, returningShortcutInfos, session](DialogResult result) -> QVariantList {
         // The dialog asks the user if they want to add the new bindings, if denied we still allow
