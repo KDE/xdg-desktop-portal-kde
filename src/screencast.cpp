@@ -351,12 +351,13 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
         }
     }
 
-    message.setDelayedReply(true);
 
     if (valid) {
         std::tie(replyResponse, replyResults) = continueStartAfterDialog(session, selectedOutputs, selectedRegion, selectedWindows, true);
         return;
     }
+
+    message.setDelayedReply(true);
 
     auto screenDialog = new ScreenChooserDialog(app_id, session->multipleSources(), SourceTypes(session->types()));
     Utils::setParentWindow(screenDialog->windowHandle(), parent_window);
