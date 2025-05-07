@@ -26,9 +26,9 @@ PWD.SystemDialog {
     subtitle: {
         const count = newShortcuts.rowCount()
         if (app === "") {
-            return  i18ncp("The application is unknown", "An application wants to register the following shortcut:", "An application wants to register the following shortcuts:", count)
+            return  i18ncp("The application is unknown", "An application wants to register the following shortcut:", "An application wants to register the following %1 shortcuts:", count)
         }
-        return i18ncp("%2 is the name of the application", "%2 wants to register the following shortcut:", "%2 wants to register the following shortcuts:", count, app)
+        return i18ncp("%2 is the name of the application", "%2 wants to register the following shortcut:", "%2 wants to register the following %1 shortcuts:", count, app)
     }
 
     standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
