@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-17 00:43+0000\n"
+"POT-Creation-Date: 2025-05-08 00:44+0000\n"
 "PO-Revision-Date: 2025-05-04 21:43+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -278,20 +278,26 @@ msgid "Global Shortcuts Requested"
 msgstr "Globális gyorsbillentyű kérés"
 
 #: src/GlobalShortcutsDialog.qml:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "The application is unknown"
+#| msgid "An application wants to register the following shortcut:"
+#| msgid_plural "An application wants to register the following shortcuts:"
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
-msgid_plural "An application wants to register the following shortcuts:"
+msgid_plural "An application wants to register the following %1 shortcuts:"
 msgstr[0] ""
 "Egy alkalmazás a következő billentyűparancsot szeretné regisztrálni:"
 msgstr[1] ""
 "Egy alkalmazás a következő billentyűparancsokat szeretné regisztrálni:"
 
 #: src/GlobalShortcutsDialog.qml:31
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "%2 is the name of the application"
+#| msgid "%2 wants to register the following shortcut:"
+#| msgid_plural "%2 wants to register the following shortcuts:"
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
-msgid_plural "%2 wants to register the following shortcuts:"
+msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "A(z) %2 a következő billentyűparancsot szeretné regisztrálni:"
 msgstr[1] "A(z) %2 a következő billentyűparancsokat szeretné regisztrálni:"
 

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-17 00:43+0000\n"
+"POT-Creation-Date: 2025-05-08 00:44+0000\n"
 "PO-Revision-Date: 2025-04-19 18:20+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -264,20 +264,26 @@ msgid "Global Shortcuts Requested"
 msgstr "התבקשו קיצורי מקשים כלליים"
 
 #: src/GlobalShortcutsDialog.qml:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "The application is unknown"
+#| msgid "An application wants to register the following shortcut:"
+#| msgid_plural "An application wants to register the following shortcuts:"
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
-msgid_plural "An application wants to register the following shortcuts:"
+msgid_plural "An application wants to register the following %1 shortcuts:"
 msgstr[0] "יישום מעוניין לרשום את קיצור המקשים הבא:"
 msgstr[1] "יישום מעוניין לרשום את קיצורי המקשים הבאים:"
 msgstr[2] "יישום מעוניין לרשום את קיצורי המקשים הבאים:"
 msgstr[3] "יישום מעוניין לרשום את קיצורי המקשים הבאים:"
 
 #: src/GlobalShortcutsDialog.qml:31
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "%2 is the name of the application"
+#| msgid "%2 wants to register the following shortcut:"
+#| msgid_plural "%2 wants to register the following shortcuts:"
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
-msgid_plural "%2 wants to register the following shortcuts:"
+msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2 מעוניין לרשום את קיצור המקשים הבא:"
 msgstr[1] "%2 מעוניין לרשום את קיצורי המקשים הבאים:"
 msgstr[2] "%2 מעוניין לרשום את קיצורי המקשים הבאים:"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-17 00:43+0000\n"
+"POT-Creation-Date: 2025-05-08 00:44+0000\n"
 "PO-Revision-Date: 2025-04-17 11:46+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -277,18 +277,24 @@ msgid "Global Shortcuts Requested"
 msgstr "Se han solicitado atajos de teclado globales"
 
 #: src/GlobalShortcutsDialog.qml:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "The application is unknown"
+#| msgid "An application wants to register the following shortcut:"
+#| msgid_plural "An application wants to register the following shortcuts:"
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
-msgid_plural "An application wants to register the following shortcuts:"
+msgid_plural "An application wants to register the following %1 shortcuts:"
 msgstr[0] "Una aplicación quiere registrar el siguiente atajo de teclado:"
 msgstr[1] "Una aplicación quiere registrar los siguientes atajos de teclado:"
 
 #: src/GlobalShortcutsDialog.qml:31
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "%2 is the name of the application"
+#| msgid "%2 wants to register the following shortcut:"
+#| msgid_plural "%2 wants to register the following shortcuts:"
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
-msgid_plural "%2 wants to register the following shortcuts:"
+msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2 quiere registrar el siguiente atajo de teclado:"
 msgstr[1] "%2 quiere registrar los siguientes atajos de teclado:"
 

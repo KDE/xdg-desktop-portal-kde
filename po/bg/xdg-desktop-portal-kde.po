@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-17 00:43+0000\n"
+"POT-Creation-Date: 2025-05-08 00:44+0000\n"
 "PO-Revision-Date: 2025-04-19 12:04+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -274,18 +274,24 @@ msgid "Global Shortcuts Requested"
 msgstr "Заявени са глобални клавишни комбинации"
 
 #: src/GlobalShortcutsDialog.qml:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "The application is unknown"
+#| msgid "An application wants to register the following shortcut:"
+#| msgid_plural "An application wants to register the following shortcuts:"
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
-msgid_plural "An application wants to register the following shortcuts:"
+msgid_plural "An application wants to register the following %1 shortcuts:"
 msgstr[0] "Приложение иска да регистрира следната клавишна комбинация:"
 msgstr[1] "Приложение иска да регистрира следните клавишните комбинации:"
 
 #: src/GlobalShortcutsDialog.qml:31
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "%2 is the name of the application"
+#| msgid "%2 wants to register the following shortcut:"
+#| msgid_plural "%2 wants to register the following shortcuts:"
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
-msgid_plural "%2 wants to register the following shortcuts:"
+msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2 иска да регистрира следната клавишна комбинация:"
 msgstr[1] "%2 иска да регистрира следните клавишни комбинации:"
 
