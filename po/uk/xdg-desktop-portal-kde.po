@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-08 00:44+0000\n"
-"PO-Revision-Date: 2025-04-17 13:19+0300\n"
+"PO-Revision-Date: 2025-05-08 16:51+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -274,29 +274,23 @@ msgid "Global Shortcuts Requested"
 msgstr "Запит щодо загальних скорочень"
 
 #: src/GlobalShortcutsDialog.qml:29
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following shortcuts:"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following %1 shortcuts:"
-msgstr[0] "Програмі потрібно зареєструвати такі скорочення:"
-msgstr[1] "Програмі потрібно зареєструвати такі скорочення:"
-msgstr[2] "Програмі потрібно зареєструвати такі скорочення:"
+msgstr[0] "Програмі потрібно зареєструвати таке %1 скорочення:"
+msgstr[1] "Програмі потрібно зареєструвати такі %1 скорочення:"
+msgstr[2] "Програмі потрібно зареєструвати такі %1 скорочень:"
 msgstr[3] "Програмі потрібно зареєструвати таке скорочення:"
 
 #: src/GlobalShortcutsDialog.qml:31
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following shortcuts:"
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
-msgstr[0] "%2 потрібно зареєструвати такі скорочення:"
-msgstr[1] "%2 потрібно зареєструвати такі скорочення:"
-msgstr[2] "%2 потрібно зареєструвати такі скорочення:"
+msgstr[0] "%2 потрібно зареєструвати таке %1 скорочення:"
+msgstr[1] "%2 потрібно зареєструвати такі %1 скорочення:"
+msgstr[2] "%2 потрібно зареєструвати такі %1 скорочень:"
 msgstr[3] "%2 потрібно зареєструвати таке скорочення:"
 
 #: src/GlobalShortcutsDialog.qml:120
