@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-08 00:44+0000\n"
-"PO-Revision-Date: 2025-04-19 09:12+0200\n"
+"PO-Revision-Date: 2025-05-09 10:58+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -278,26 +278,20 @@ msgid "Global Shortcuts Requested"
 msgstr "Raccourcis globaux demandés"
 
 #: src/GlobalShortcutsDialog.qml:29
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following shortcuts:"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following %1 shortcuts:"
 msgstr[0] "Une application souhaite enregistrer le raccourci suivant :"
-msgstr[1] "Une application souhaite enregistrer les raccourcis suivants :"
+msgstr[1] "Une application souhaite enregistrer les %1 raccourcis suivants :"
 
 #: src/GlobalShortcutsDialog.qml:31
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following shortcuts:"
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2 souhaite enregistrer le raccourci suivant :"
-msgstr[1] "%2 souhaite enregistrer les raccourcis suivants :"
+msgstr[1] "%2 souhaite enregistrer les %1 raccourcis suivants :"
 
 #: src/GlobalShortcutsDialog.qml:120
 #, kde-format
