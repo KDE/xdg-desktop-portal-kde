@@ -81,19 +81,16 @@ msgid "Choose Other…"
 msgstr "Vyberte jiný…"
 
 #: src/AppChooserDialog.qml:181
-#, fuzzy, kde-kuit-format
-#| msgid "Default app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
-msgstr "Výchozí aplikace pro tento typ souborů"
+msgstr ""
 
 #: src/AppChooserDialog.qml:183
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Last used app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
-msgstr "Naposled použitá aplikace pro tento typ souborů"
+msgstr ""
 
 #: src/AppChooserDialog.qml:205
 #, kde-kuit-format
@@ -706,10 +703,9 @@ msgid ", "
 msgstr ", "
 
 #: src/userinfodialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Share Information"
+#, kde-format
 msgid "Share User Information with %1"
-msgstr "Informace o sdílení"
+msgstr ""
 
 #: src/userinfodialog.cpp:38
 #, kde-format
@@ -736,15 +732,3 @@ msgstr ""
 #, kde-format
 msgid "Remote desktop"
 msgstr "Vzdálená plocha"
-
-#~ msgid "Share your personal information with the requesting application?"
-#~ msgstr "Sdílet soukromé informace s aplikací, která o ně žádá?"
-
-#~ msgid "Create new folder in %1"
-#~ msgstr "Vytvořit novou složku v %1"
-
-#~ msgid "OK"
-#~ msgstr "OK"
-
-#~ msgid "Cancel"
-#~ msgstr "Zrušit"
