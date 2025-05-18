@@ -267,9 +267,6 @@ msgstr "請求全域快捷鍵"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following shortcuts:"
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following %1 shortcuts:"
@@ -277,9 +274,6 @@ msgstr[0] "一個應用程式希望註冊以下 %1 個快捷鍵："
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following shortcuts:"
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
