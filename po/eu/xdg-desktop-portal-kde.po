@@ -1,16 +1,16 @@
 # Translation for xdg-desktop-portal-kde.po to Euskara/Basque (eu).
-# Copyright (C) 2007-2024 This file is copyright:
+# Copyright (C) 2007-2025 This file is copyright:
 # This file is distributed under the same license as the xdg-desktop-portal-kde package.
-# SPDX-FileCopyrightText: 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2024, 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-08 00:44+0000\n"
-"PO-Revision-Date: 2024-12-24 19:56+0100\n"
+"PO-Revision-Date: 2025-05-17 20:51+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -83,19 +83,19 @@ msgid "Choose Other…"
 msgstr "Aukeratu beste..."
 
 #: src/AppChooserDialog.qml:181
-#, fuzzy, kde-kuit-format
-#| msgid "Default app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
-msgstr "Fitxategi-mota honetarako aplikazio lehenetsia"
+msgstr ""
+"%1<nl/><emphasis>Fitxategi-mota honetarako aplikazio lehenetsia</emphasis>"
 
 #: src/AppChooserDialog.qml:183
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Last used app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
-msgstr "Fitxategi-mota honetarako erabilitako azken aplikazioa"
+msgstr ""
+"%1<nl/><emphasis>Fitxategi-mota honetarako erabilitako azken aplikazioa</"
+"emphasis>"
 
 #: src/AppChooserDialog.qml:205
 #, kde-kuit-format
@@ -250,6 +250,9 @@ msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
 "<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
+"Lasterbidea dagoeneko <application>%2</application>(e)ren <interface>%1</"
+"interface> ekintzara esleituta dago. Hemen berriz sartu ekintza hura "
+"indargabetzeko."
 
 #: src/globalshortcuts.cpp:111
 #, kde-kuit-format
@@ -258,6 +261,8 @@ msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
 msgstr ""
+"Lasterbidea dagoeneko <interface>%1</interface> ekintza estandarrera "
+"esleituta dago."
 
 #: src/globalshortcuts.cpp:124
 #, kde-kuit-format
@@ -265,40 +270,41 @@ msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
 msgstr ""
+"Lasterbidea ekintza anizkoitzetara esleituta dago (<interface>%1</interface>)"
 
 #: src/GlobalShortcutsDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "Lasterbide globalak eskatu dira"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following %1 shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Aplikazio batek ondoko lasterbidea erregistratu nahi du:"
+msgstr[1] "Aplikazio batek ondoko %1 lasterbideak erregistratu nahi ditu:"
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2(e)k ondoko lasterbidea erregistratu nahi du:"
+msgstr[1] "%2(e)k ondoko %1 lasterbideak erregistratu nahi ditu:"
 
 #: src/GlobalShortcutsDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
-msgstr ""
+msgstr "Ikusi beste lasterbide batzuk..."
 
 #: src/GlobalShortcutsDialog.qml:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "Ikusi aplikazio honek erregistratutako beste lasterbide batzuk"
 
 #: src/inputcapture.cpp:113
 #, kde-format
@@ -714,24 +720,22 @@ msgid ", "
 msgstr ", "
 
 #: src/userinfodialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Share Information"
+#, kde-format
 msgid "Share User Information with %1"
-msgstr "Partekatu informazioa"
+msgstr "Partekatu erabiltzailearen informazioa %1(e)rekin"
 
 #: src/userinfodialog.cpp:38
 #, kde-format
 msgid "%1 wants access to your user info."
-msgstr ""
+msgstr "%1(e)k zure erabiltzailearen informaziora sarbidea nahi du."
 
 #: src/userinfodialog.cpp:40
 #, kde-format
 msgid "This app will be given access to your avatar and name."
-msgstr ""
+msgstr "Aplikazio honi zure abatarrera eta izenera sarbidea emango zaio."
 
 #: src/UserInfoDialog.qml:59
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Partekatu"
