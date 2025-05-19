@@ -174,11 +174,13 @@ FileDialog::FileDialog(QDialog *parent, Qt::WindowFlags flags)
     connect(m_fileWidget->cancelButton(), &QAbstractButton::clicked, this, &QDialog::reject);
     connect(this, &QDialog::rejected, m_fileWidget, &KFileWidget::slotCancel);
 
-    // restore window size
+    // restore window size and position
     if (m_configGroup.exists()) {
         winId(); // ensure there's a window created
         KWindowConfig::restoreWindowSize(windowHandle(), m_configGroup);
         resize(windowHandle()->size());
+        KWindowConfig::restoreWindowPosition(windowHandle(), m_configGroup);
+        move(windowHandle()->position());
     }
 }
 
@@ -186,6 +188,8 @@ FileDialog::~FileDialog()
 {
     // save window size
     KWindowConfig::saveWindowSize(windowHandle(), m_configGroup);
+    // save window position
+    KWindowConfig::saveWindowPosition(windowHandle(), m_configGroup);
 }
 
 FileChooserPortal::FileChooserPortal(QObject *parent)
