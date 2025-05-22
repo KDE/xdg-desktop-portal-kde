@@ -39,10 +39,10 @@ void Utils::setParentWindow(QWindow *w, const QString &parent_window)
     }
 }
 
-QString Utils::applicationName(const QString &appName)
+QString Utils::applicationName(const QString &appId)
 {
     QString applicationName;
-    const QString desktopFile = appName + QStringLiteral(".desktop");
+    const QString desktopFile = appId + QStringLiteral(".desktop");
     const QStringList desktopFileLocations = QStandardPaths::locateAll(QStandardPaths::ApplicationsLocation, desktopFile, QStandardPaths::LocateFile);
     for (const QString &location : desktopFileLocations) {
         QSettings settings(location, QSettings::IniFormat);
@@ -57,5 +57,11 @@ QString Utils::applicationName(const QString &appName)
             break;
         }
     }
+
+    // Use `appId` as a fallback in case we're unable to find actual application name
+    if (applicationName.isEmpty()) {
+        applicationName = appId;
+    }
+
     return applicationName;
 }
