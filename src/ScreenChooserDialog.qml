@@ -30,6 +30,27 @@ PWD.SystemDialog {
         spacing: 0
 
 
+        Kirigami.NavigationTabBar {
+            id: tabView
+
+            Layout.fillWidth: true
+            Kirigami.Theme.colorSet: Kirigami.Theme.Window
+            visible: root.outputsModel && root.windowsModel
+
+            actions : [
+                Kirigami.Action {
+                    icon.name: "window-symbolic"
+                    text: "Windows"
+                },
+                Kirigami.Action {
+                    icon.name: "monitor-symbolic"
+                    text: "Screens"
+                }
+            ]
+
+            Component.onCompleted: actions[0].checked = true
+        }
+
         QQC2.Frame {
             Layout.fillWidth: true
             Layout.fillHeight: true
@@ -39,105 +60,122 @@ PWD.SystemDialog {
             Kirigami.Theme.inherit: false
             Kirigami.Theme.colorSet: Kirigami.Theme.View
 
-            QQC2.ScrollView {
+            StackLayout {
                 anchors.fill: parent
-                contentWidth: availableWidth
-                contentHeight: outputsLayout.height
+                currentIndex: tabView.currentIndex
 
-                Kirigami.CardsLayout {
-                    id: outputsLayout
-                    maximumColumns: 3
+                QQC2.ScrollView {
+                    contentWidth: availableWidth
+                    contentHeight: windowsLayout.height
 
-                    anchors {
-                        left: parent.left;
-                        right: parent.right;
-                    }
+                    Kirigami.CardsLayout {
+                        id: windowsLayout
+                        maximumColumns: 3
 
-                    Repeater {
-                        id: outputsView
-                        model: null
+                        anchors {
+                            left: parent.left;
+                            right: parent.right;
+                        }
 
-                        PipeWireDelegateView {
-                            id: delegate
-                            modelView: outputsView
-                            nodeId: waylandItem.nodeId
+                        Repeater {
+                            id: windowsView
+                            model: null
 
-                            TaskManager.ScreencastingRequest {
-                                id: waylandItem
-                                outputName: delegate.model.name
+                            PipeWireDelegateView {
+                                id: delegate
+                                modelView: windowsView
+
+                                TaskManager.ScreencastingRequest {
+                                    id: waylandItem
+                                    uuid: delegate.model.Uuid
+                                }
                             }
                         }
                     }
+                }
 
-                    Repeater {
-                        id: windowsView
-                        model: null
+                QQC2.ScrollView {
+                    contentWidth: availableWidth
+                    contentHeight: outputsLayout.height
 
-                        PipeWireDelegateView {
-                            id: delegate
-                            modelView: windowsView
-                            nodeId: waylandItem.nodeId
+                    Kirigami.CardsLayout {
+                        id: outputsLayout
+                        maximumColumns: 3
 
-                            TaskManager.ScreencastingRequest {
-                                id: waylandItem
-                                uuid: delegate.model.Uuid
+                        anchors {
+                            left: parent.left;
+                            right: parent.right;
+                        }
+
+                        Repeater {
+                            id: outputsView
+                            model: null
+
+                            PipeWireDelegateView {
+                                id: delegate
+                                modelView: outputsView
+
+                                TaskManager.ScreencastingRequest {
+                                    id: waylandItem
+                                    outputName: delegate.model.name
+                                }
                             }
-
                         }
                     }
-
-                    component PipeWireDelegateView : PipeWireDelegate {
-
-                        required property int index
-                        required property var model
-                        required property var modelView
-
-                        function selectAndAccept(): void {
-                            root.clearSelection()
-                            modelView.model.setData(modelView.model.index(model.row, 0), Qt.Checked, Qt.CheckStateRole)
-                            dialogButtonBox.accepted()
-                        }
-
-                        checkable: root.multiple
-                        checked: model.checked === Qt.Checked
-
-                        title: model.display ?? ""
-                        titleIcon: model.decoration ?? ""
-
-                        activeFocusOnTab: true
-                        highlighted: activeFocus
-
-                        Accessible.role: root.multiple ? Accessible.CheckBox : Accessible.Button
-
-
-                        // Only active if this is a multi-select dialog
-                        onToggled: {
-                            const to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
-                            modelView.model.setData(modelView.model.index(model.row, 0), to, Qt.CheckStateRole)
-                        }
-
-                        // If this is isn't a multi-select dialog, accept on click
-                        // since the cards are functioning as buttons
-                        onClicked: {
-                            if (!root.multiple) {
-                                selectAndAccept()
-                            }
-                        }
-
-                        // If this is a multi-select dialog, let people choose just
-                        // one thing quickly by double-clicking
-                        onDoubleClicked: {
-                            if (root.multiple) {
-                                selectAndAccept()
-                            }
-                        }
-
-                    }
-
                 }
             }
-        }
 
+            component PipeWireDelegateView : PipeWireDelegate {
+
+                required property int index
+                required property var model
+                required property var modelView
+
+                function selectAndAccept(): void {
+                    root.clearSelection()
+                    modelView.model.setData(modelView.model.index(model.row, 0), Qt.Checked, Qt.CheckStateRole)
+                    dialogButtonBox.accepted()
+                }
+
+                checkable: root.multiple
+                checked: model.checked === Qt.Checked
+                nodeId: waylandItem.nodeId
+
+                title: model.display ?? ""
+                titleIcon: model.decoration ?? ""
+
+                activeFocusOnTab: true
+                highlighted: activeFocus
+
+                Accessible.role: root.multiple ? Accessible.CheckBox : Accessible.Button
+
+
+                // Only active if this is a multi-select dialog
+                onToggled: {
+                    const to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
+                    modelView.model.setData(modelView.model.index(model.row, 0), to, Qt.CheckStateRole)
+                }
+
+                // If this is isn't a multi-select dialog, accept on click
+                // since the cards are functioning as buttons
+                onClicked: {
+                    if (!root.multiple) {
+                        selectAndAccept()
+                    }
+                }
+
+                // If this is a multi-select dialog, let people choose just
+                // one thing quickly by double-clicking
+                onDoubleClicked: {
+                    if (root.multiple) {
+                        selectAndAccept()
+                    }
+                }
+
+            }
+
+
+        }
 
         QQC2.CheckBox {
             id: allowRestoreItem
