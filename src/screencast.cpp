@@ -351,8 +351,6 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
         }
     }
 
-    message.setDelayedReply(true);
-
     if (valid) {
         std::tie(replyResponse, replyResults) = continueStartAfterDialog(session, selectedOutputs, selectedRegion, selectedWindows, true);
         return;
