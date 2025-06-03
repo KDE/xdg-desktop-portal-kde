@@ -44,7 +44,7 @@ PWD.SystemDialog {
         QQC2.CheckBox {
             Layout.fillWidth: true
             visible: AppChooserData.mimeName !== ""
-            text: i18nc("@option:check %1 is description of a file type, like 'PNG image'", "Always open %1 files with the chosen app", AppChooserData.mimeDesc)
+            text: i18nc("@option:check %1 is description of a file type, like 'PNG image'", "Set as default app to open %1 files", AppChooserData.mimeDesc)
             checked: root.remember
             onToggled: {
                 root.remember = checked;
