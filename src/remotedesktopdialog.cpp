@@ -38,7 +38,7 @@ QString RemoteDesktopDialog::buildDescription(const QString &appName, RemoteDesk
 {
     const QString applicationName = Utils::applicationName(appName);
     QString description = applicationName.isEmpty()
-        ? i18nc("Unordered list with privileges granted to an external process", "An application requested access to:\n")
+        ? i18nc("Unordered list with privileges granted to an external process", "An application requested access to remotely control:\n")
         : i18nc("Unordered list with privileges granted to an external process, included the app's name",
                 "%1 requested access to remotely control:\n",
                 applicationName);
