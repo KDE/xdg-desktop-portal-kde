@@ -205,6 +205,7 @@ std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(Screen
     QVariantList outputs;
     QList<WindowRestoreInfo> windows;
     WaylandIntegration::Streams streams;
+    QPointer<ScreenCastSession> guardedSession(session);
     Screencasting::CursorMode cursorMode = Screencasting::CursorMode(session->cursorMode());
     for (const auto &output : std::as_const(selectedOutputs)) {
         WaylandIntegration::Stream stream;
@@ -252,6 +253,10 @@ std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(Screen
 
     if (streams.isEmpty()) {
         qCWarning(XdgDesktopPortalKdeScreenCast) << "Pipewire stream is not ready to be streamed";
+        return {PortalResponse::OtherError, {}};
+    }
+
+    if (!guardedSession) {
         return {PortalResponse::OtherError, {}};
     }
 
