@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-08 00:44+0000\n"
+"POT-Creation-Date: 2025-06-04 00:45+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -67,8 +67,8 @@ msgstr "उद्घाटित"
 #: src/AppChooserDialog.qml:47
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
-msgid "Always open %1 files with the chosen app"
-msgstr "चयनित-अनुप्रयोगेन %1 सञ्चिकाः सर्वदा उद्घाटयन्तु"
+msgid "Set as default app to open %1 files"
+msgstr ""
 
 #: src/AppChooserDialog.qml:107
 #, kde-format
@@ -505,18 +505,18 @@ msgstr "भविष्येषु सत्रेषु पुनर्स्�
 msgid "Share"
 msgstr "संविभागः"
 
-#: src/screencast.cpp:220
+#: src/screencast.cpp:221
 #, kde-format
 msgid "Virtual Output"
 msgstr "वर्चुअल आउटपुट"
 
-#: src/screencast.cpp:221
+#: src/screencast.cpp:222
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "वर्चुअल् आउटपुट् (%1 इत्यनेन सह साझाः)"
 
-#: src/screencast.cpp:276
+#: src/screencast.cpp:281
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
@@ -739,6 +739,10 @@ msgstr "स्क्रीनकास्टिंग् आरभ्यतु�
 #, kde-format
 msgid "Remote desktop"
 msgstr "दूरस्थः डेस्कटॉपः"
+
+#~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
+#~ msgid "Always open %1 files with the chosen app"
+#~ msgstr "चयनित-अनुप्रयोगेन %1 सञ्चिकाः सर्वदा उद्घाटयन्तु"
 
 #~ msgid "Share your personal information with the requesting application?"
 #~ msgstr "अनुरोधकर्तृ-अनुप्रयोगेन सह स्वस्य व्यक्तिगत-सूचनाः साझां कुर्वन्तु?"

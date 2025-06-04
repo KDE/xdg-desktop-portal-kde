@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-08 00:44+0000\n"
+"POT-Creation-Date: 2025-06-04 00:45+0000\n"
 "PO-Revision-Date: 2025-05-12 16:50+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -66,8 +66,8 @@ msgstr "Aperi"
 #: src/AppChooserDialog.qml:47
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
-msgid "Always open %1 files with the chosen app"
-msgstr "Sempre aperi %1 files con le app seligite"
+msgid "Set as default app to open %1 files"
+msgstr ""
 
 #: src/AppChooserDialog.qml:107
 #, kde-format
@@ -507,18 +507,18 @@ msgstr "Permitte restabilir sur sessiones future"
 msgid "Share"
 msgstr "Comparti"
 
-#: src/screencast.cpp:220
+#: src/screencast.cpp:221
 #, kde-format
 msgid "Virtual Output"
 msgstr "Sortita Virtual"
 
-#: src/screencast.cpp:221
+#: src/screencast.cpp:222
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Sortita Virtual (compartite con %1)"
 
-#: src/screencast.cpp:276
+#: src/screencast.cpp:281
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
@@ -739,6 +739,10 @@ msgstr "Il falleva a initiar screencasting"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Scriptorio remote"
+
+#~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
+#~ msgid "Always open %1 files with the chosen app"
+#~ msgstr "Sempre aperi %1 files con le app seligite"
 
 #~ msgid "Share your personal information with the requesting application?"
 #~ msgstr "Compartir tu information personal con le application requiriente?"

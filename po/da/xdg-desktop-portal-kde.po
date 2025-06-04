@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-08 00:44+0000\n"
+"POT-Creation-Date: 2025-06-04 00:45+0000\n"
 "PO-Revision-Date: 2024-07-18 12:45+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -67,8 +67,8 @@ msgstr "Åbn"
 #: src/AppChooserDialog.qml:47
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
-msgid "Always open %1 files with the chosen app"
-msgstr "Altid åbn %1-filer med det valgte program"
+msgid "Set as default app to open %1 files"
+msgstr ""
 
 #: src/AppChooserDialog.qml:107
 #, kde-format
@@ -507,20 +507,20 @@ msgstr "Tillad gendannelse ved fremtidige sessioner"
 msgid "Share"
 msgstr "Del"
 
-#: src/screencast.cpp:220
+#: src/screencast.cpp:221
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgid "Virtual Output"
 msgstr "Nyt virtuelt output"
 
-#: src/screencast.cpp:221
+#: src/screencast.cpp:222
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Nyt virtuelt output"
 
-#: src/screencast.cpp:276
+#: src/screencast.cpp:281
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
@@ -743,6 +743,10 @@ msgstr "Kunne ikke starte skærmoptagelse"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Fjernskrivebord"
+
+#~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
+#~ msgid "Always open %1 files with the chosen app"
+#~ msgstr "Altid åbn %1-filer med det valgte program"
 
 #~ msgid "Share your personal information with the requesting application?"
 #~ msgstr "Del din personlige information med programmet, der anmoder?"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-08 00:44+0000\n"
+"POT-Creation-Date: 2025-06-04 00:45+0000\n"
 "PO-Revision-Date: 2025-05-08 13:35+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -65,8 +65,8 @@ msgstr "Openen"
 #: src/AppChooserDialog.qml:47
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
-msgid "Always open %1 files with the chosen app"
-msgstr "Open altijd %1 bestanden met de gekozen toepassing"
+msgid "Set as default app to open %1 files"
+msgstr ""
 
 #: src/AppChooserDialog.qml:107
 #, kde-format
@@ -513,18 +513,18 @@ msgstr "Herstellen toestaan in toekomstige sessies"
 msgid "Share"
 msgstr "Delen"
 
-#: src/screencast.cpp:220
+#: src/screencast.cpp:221
 #, kde-format
 msgid "Virtual Output"
 msgstr "Virtuele uitvoer"
 
-#: src/screencast.cpp:221
+#: src/screencast.cpp:222
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Virtuele uitvoer (gedeeld met %1)"
 
-#: src/screencast.cpp:276
+#: src/screencast.cpp:281
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
@@ -745,6 +745,10 @@ msgstr "Beginnen van screencasting is mislukt"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Bureaublad op afstand"
+
+#~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
+#~ msgid "Always open %1 files with the chosen app"
+#~ msgstr "Open altijd %1 bestanden met de gekozen toepassing"
 
 #~ msgid "Share your personal information with the requesting application?"
 #~ msgstr "Uw persoonlijke informatie delen met de vragende toepassing?"

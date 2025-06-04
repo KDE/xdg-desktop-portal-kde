@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-08 00:44+0000\n"
+"POT-Creation-Date: 2025-06-04 00:45+0000\n"
 "PO-Revision-Date: 2025-03-23 21:24+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -67,8 +67,8 @@ msgstr "Opna"
 #: src/AppChooserDialog.qml:47
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
-msgid "Always open %1 files with the chosen app"
-msgstr "Opna alltid %1-filer i valt program"
+msgid "Set as default app to open %1 files"
+msgstr ""
 
 #: src/AppChooserDialog.qml:107
 #, kde-format
@@ -507,18 +507,18 @@ msgstr "Tillat gjenoppretting ved framtidige økter"
 msgid "Share"
 msgstr "Del"
 
-#: src/screencast.cpp:220
+#: src/screencast.cpp:221
 #, fuzzy, kde-format
 msgid "Virtual Output"
 msgstr "Ny virtuell uteining"
 
-#: src/screencast.cpp:221
+#: src/screencast.cpp:222
 #, fuzzy, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Ny virtuell uteining"
 
-#: src/screencast.cpp:276
+#: src/screencast.cpp:281
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
@@ -739,3 +739,7 @@ msgstr "Klarte ikkje starta skjermdeling"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Eksternt skrivebord"
+
+#~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
+#~ msgid "Always open %1 files with the chosen app"
+#~ msgstr "Opna alltid %1-filer i valt program"

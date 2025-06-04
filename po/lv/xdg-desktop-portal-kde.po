@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-08 00:44+0000\n"
+"POT-Creation-Date: 2025-06-04 00:45+0000\n"
 "PO-Revision-Date: 2025-05-03 15:19+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -66,8 +66,8 @@ msgstr "Atvērt"
 #: src/AppChooserDialog.qml:47
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
-msgid "Always open %1 files with the chosen app"
-msgstr "Vienmēr atņemt %1 datnes ar izvēlēto programmu"
+msgid "Set as default app to open %1 files"
+msgstr ""
 
 #: src/AppChooserDialog.qml:107
 #, kde-format
@@ -514,18 +514,18 @@ msgstr "Atļaut atjaunot nākotnes sesijās"
 msgid "Share"
 msgstr "Kopīgot"
 
-#: src/screencast.cpp:220
+#: src/screencast.cpp:221
 #, kde-format
 msgid "Virtual Output"
 msgstr "Virtuālā izvade"
 
-#: src/screencast.cpp:221
+#: src/screencast.cpp:222
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Virtuālā izvade (dalīta ar „%1“)"
 
-#: src/screencast.cpp:276
+#: src/screencast.cpp:281
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
@@ -748,6 +748,10 @@ msgstr "Neizdevās sākt ekrāna ierakstīšanu"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Attālinātā darbvirsma"
+
+#~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
+#~ msgid "Always open %1 files with the chosen app"
+#~ msgstr "Vienmēr atņemt %1 datnes ar izvēlēto programmu"
 
 #~ msgid "Share your personal information with the requesting application?"
 #~ msgstr "Vai ar pieprasījušo programmu kopīgot personīgo informāciju?"
