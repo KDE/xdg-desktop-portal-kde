@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-08 00:44+0000\n"
+"POT-Creation-Date: 2025-06-04 02:35+0000\n"
 "PO-Revision-Date: 2025-02-28 11:01-0600\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -501,18 +501,18 @@ msgstr "ਭਵਿੱਖ ਦੇ ਸ਼ੈਸ਼ਨਾਂ ਲਈ ਬਹਾਲ ਕਰਨ 
 msgid "Share"
 msgstr "ਸਾਂਝਾ ਕਰੋ"
 
-#: src/screencast.cpp:220
+#: src/screencast.cpp:221
 #, kde-format
 msgid "Virtual Output"
 msgstr "ਵਰਚੁਅਲ ਆਉਟਪੁੱਟ"
 
-#: src/screencast.cpp:221
+#: src/screencast.cpp:222
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "ਵਰਚੁਅਲ ਆਉਟਪੁੱਟ (%1 ਨਾਲ ਸਾਂਝਾ ਕੀਤਾ)"
 
-#: src/screencast.cpp:276
+#: src/screencast.cpp:281
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"

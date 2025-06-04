@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-08 00:44+0000\n"
+"POT-Creation-Date: 2025-06-04 02:35+0000\n"
 "PO-Revision-Date: 2020-10-11 01:46+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -513,19 +513,19 @@ msgstr ""
 msgid "Share"
 msgstr "Jaga"
 
-#: src/screencast.cpp:220
+#: src/screencast.cpp:221
 #, kde-format
 msgid "Virtual Output"
 msgstr ""
 
-#: src/screencast.cpp:221
+#: src/screencast.cpp:222
 #, fuzzy, kde-format
 #| msgid "Select what to share with %1"
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Valimine, mida rakendusega %1 jagada"
 
-#: src/screencast.cpp:276
+#: src/screencast.cpp:281
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
