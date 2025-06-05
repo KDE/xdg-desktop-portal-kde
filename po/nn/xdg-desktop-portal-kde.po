@@ -739,7 +739,3 @@ msgstr "Klarte ikkje starta skjermdeling"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Eksternt skrivebord"
-
-#~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
-#~ msgid "Always open %1 files with the chosen app"
-#~ msgstr "Opna alltid %1-filer i valt program"

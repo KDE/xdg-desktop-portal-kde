@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-04 00:45+0000\n"
-"PO-Revision-Date: 2025-05-08 09:15+0200\n"
+"PO-Revision-Date: 2025-06-04 09:03+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -71,7 +71,7 @@ msgstr "Obre"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
-msgstr ""
+msgstr "Estableix com a aplicació predeterminada per a obrir fitxers %1"
 
 #: src/AppChooserDialog.qml:107
 #, kde-format
@@ -750,7 +750,3 @@ msgstr "Ha fallat en iniciar el vídeo de captura de pantalla"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Escriptori remot"
-
-#~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
-#~ msgid "Always open %1 files with the chosen app"
-#~ msgstr "Obre sempre els fitxers %1 amb l'aplicació triada"

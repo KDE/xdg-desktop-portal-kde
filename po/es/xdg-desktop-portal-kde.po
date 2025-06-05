@@ -1,5 +1,5 @@
 # Spanish translations for xdg-desktop-portal-kde.po package.
-# Copyright (C) 2017-2025 This_file_is_part_of_KDE
+# Copyright (C) 2017-2025 This file is copyright:
 # This file is distributed under the same license as the xdg-desktop-portal-kde package.
 # Automatically generated, 2017.
 #
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-04 00:45+0000\n"
-"PO-Revision-Date: 2025-05-08 21:35+0100\n"
+"PO-Revision-Date: 2025-06-04 20:23+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -68,7 +68,7 @@ msgstr "Abrir"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
-msgstr ""
+msgstr "Definir como aplicación predeterminada para abrir archivos %1"
 
 #: src/AppChooserDialog.qml:107
 #, kde-format
@@ -756,7 +756,3 @@ msgstr "No se ha podido iniciar la grabación de la pantalla"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Escritorio remoto"
-
-#~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
-#~ msgid "Always open %1 files with the chosen app"
-#~ msgstr "Abrir siempre los archivos %1 con la aplicación escogida"

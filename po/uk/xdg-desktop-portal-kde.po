@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-04 00:45+0000\n"
-"PO-Revision-Date: 2025-05-08 16:51+0300\n"
+"PO-Revision-Date: 2025-06-04 22:31+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -69,7 +69,7 @@ msgstr "Відкрити"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
-msgstr ""
+msgstr "Встановити типовою програмою для відкриття файлів %1"
 
 #: src/AppChooserDialog.qml:107
 #, kde-format
