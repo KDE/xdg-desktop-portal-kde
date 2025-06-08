@@ -67,7 +67,7 @@ msgstr "打开"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
-msgstr ""
+msgstr "设置为打开 %1 文件的默认应用"
 
 #: src/AppChooserDialog.qml:107
 #, kde-format
@@ -730,7 +730,3 @@ msgstr "启动屏幕录像失败"
 #, kde-format
 msgid "Remote desktop"
 msgstr "远程桌面"
-
-#~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
-#~ msgid "Always open %1 files with the chosen app"
-#~ msgstr "总是使用在此选择的应用打开 %1 文件"

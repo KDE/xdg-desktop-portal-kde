@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-04 00:45+0000\n"
-"PO-Revision-Date: 2025-05-17 20:51+0200\n"
+"PO-Revision-Date: 2025-06-07 19:57+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -69,7 +69,7 @@ msgstr "Ireki"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
-msgstr ""
+msgstr "Ezarri %1 fitxategiak irekitzeko aplikazio lehenetsi gisa"
 
 #: src/AppChooserDialog.qml:107
 #, kde-format
