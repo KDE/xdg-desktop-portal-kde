@@ -55,6 +55,9 @@ Kirigami.AbstractCard {
             text: title
             level: 3
             Layout.fillWidth: true
+            wrapMode: Text.NoWrap
+            elide: Text.ElideRight
+            verticalAlignment: Text.AlignVCenter
         }
 
     }
