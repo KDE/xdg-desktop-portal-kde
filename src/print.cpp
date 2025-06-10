@@ -188,7 +188,13 @@ static const StandardPageSize qt_pageSizes[] = {
 // Return key name for PageSize
 static QString qt_keyForPageSizeId(QPageSize::PageSizeId id)
 {
-    return QString::fromLatin1(qt_pageSizes[id].mediaOption);
+    for (const auto &pagesize : qt_pageSizes) {
+        if (id == pagesize.id) {
+            return QString::fromLatin1(pagesize.mediaOption);
+        }
+    }
+
+    return QLatin1String("Custom");
 }
 
 // Return id name for PPD Key
