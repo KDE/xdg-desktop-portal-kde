@@ -58,7 +58,7 @@ int levenshteinDistance(const QString &a, const QString &b)
 
     auto v0 = std::make_unique_for_overwrite<int[]>(b.size() + 1);
     auto v1 = std::make_unique_for_overwrite<int[]>(b.size() + 1);
-    std::iota(v0.get(), v0.get() + b.size() - 1, 0);
+    std::iota(v0.get(), v0.get() + b.size(), 0);
 
     for (int i = 0; i < a.size(); ++i) {
         v1[0] = i + 1;
