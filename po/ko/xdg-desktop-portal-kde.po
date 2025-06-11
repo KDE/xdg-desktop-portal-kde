@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 02:35+0000\n"
-"PO-Revision-Date: 2025-04-22 01:30+0200\n"
+"POT-Creation-Date: 2025-06-11 02:48+0000\n"
+"PO-Revision-Date: 2025-06-11 00:23+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -228,7 +228,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "취소"
 
-#: src/filechooser.cpp:449
+#: src/filechooser.cpp:453
 #, kde-format
 msgid "Open"
 msgstr "열기"
@@ -266,24 +266,18 @@ msgid "Global Shortcuts Requested"
 msgstr "전역 단축키 요청됨"
 
 #: src/GlobalShortcutsDialog.qml:29
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following shortcuts:"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following %1 shortcuts:"
-msgstr[0] "앱에서 다음 전역 단축키를 등록하려고 합니다:"
+msgstr[0] "앱에서 다음 단축키 %1개를 등록하려고 합니다:"
 
 #: src/GlobalShortcutsDialog.qml:31
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following shortcuts:"
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
-msgstr[0] "%2에서 다음 전역 단축키를 등록하려고 합니다:"
+msgstr[0] "%2에서 다음 단축키 %1개를 등록하려고 합니다:"
 
 #: src/GlobalShortcutsDialog.qml:120
 #, kde-format
