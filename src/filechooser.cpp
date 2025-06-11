@@ -230,6 +230,28 @@ KFileFilter FileChooserPortal::filterListToFileFilter(const FileChooserPortal::F
         }
     }
 
+    // Normalize file filters of the form *.[pP][nN][gG] to *.png
+    static QRegularExpression filterPattern("\\[([a-z][A-Z]|[A-Z][a-z])\\]"_L1);
+    for (auto &filter : nameFilters) {
+        if (!filter.startsWith("*."_L1)) {
+            continue;
+        }
+        auto matches = filterPattern.globalMatch(filter, 2);
+        QString newFilter = u"*."_s;
+        for (const auto &match : matches) {
+            const auto first = match.capturedView(1)[0].toLower();
+            const auto second = match.capturedView(1)[1].toLower();
+            if (first != second) {
+                break;
+            }
+            newFilter += first;
+        }
+        // 2 chars prefix and then four char become one [pP] -> p
+        if ((newFilter.length() - 2) * 4 == filter.length() - 2) {
+            filter = newFilter;
+        }
+    }
+
     return KFileFilter(filterList.userVisibleName, nameFilters, mimeFilters);
 }
 
