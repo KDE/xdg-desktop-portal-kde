@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:45+0000\n"
+"POT-Creation-Date: 2025-06-11 00:45+0000\n"
 "PO-Revision-Date: 2023-01-19 03:02+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -230,7 +230,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/filechooser.cpp:449
+#: src/filechooser.cpp:453
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
@@ -473,11 +473,13 @@ msgstr "Foi pedido o acesso ao comando à distância"
 
 #: src/remotedesktopdialog.cpp:41
 #, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "Requested access to:\n"
+#| msgctxt ""
+#| "Unordered list with privileges granted to an external process, included "
+#| "the app's name"
+#| msgid "%1 requested access to remotely control:\n"
 msgctxt "Unordered list with privileges granted to an external process"
-msgid "An application requested access to:\n"
-msgstr "Foi pedido o acesso a:\n"
+msgid "An application requested access to remotely control:\n"
+msgstr "O %1 pediu o acesso a:\n"
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
@@ -746,6 +748,13 @@ msgstr "Não foi possível iniciar a partilha do ecrã"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Ecrã remoto"
+
+#, fuzzy
+#~| msgctxt "Unordered list with privileges granted to an external process"
+#~| msgid "Requested access to:\n"
+#~ msgctxt "Unordered list with privileges granted to an external process"
+#~ msgid "An application requested access to:\n"
+#~ msgstr "Foi pedido o acesso a:\n"
 
 #~ msgid "Share your personal information with the requesting application?"
 #~ msgstr "Partilhar a sua informação pessoal com a aplicação solicitada?"

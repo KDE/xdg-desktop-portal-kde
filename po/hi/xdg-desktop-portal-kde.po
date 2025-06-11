@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:45+0000\n"
+"POT-Creation-Date: 2025-06-11 00:45+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -233,7 +233,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "रद्द करना"
 
-#: src/filechooser.cpp:449
+#: src/filechooser.cpp:453
 #, kde-format
 msgid "Open"
 msgstr "खुला"
@@ -470,10 +470,14 @@ msgid "Remote control requested"
 msgstr "रिमोट कंट्रोल का अनुरोध किया गया"
 
 #: src/remotedesktopdialog.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Unordered list with privileges granted to an external process, included "
+#| "the app's name"
+#| msgid "%1 requested access to remotely control:\n"
 msgctxt "Unordered list with privileges granted to an external process"
-msgid "An application requested access to:\n"
-msgstr "एक एप्लिकेशन ने निम्नलिखित तक पहुंच का अनुरोध किया:\n"
+msgid "An application requested access to remotely control:\n"
+msgstr "%1 ने दूरस्थ रूप से नियंत्रण हेतु पहुँच का अनुरोध किया:\n"
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
@@ -739,6 +743,10 @@ msgstr "स्क्रीनकास्टिंग प्रारंभ क�
 #, kde-format
 msgid "Remote desktop"
 msgstr "दूरवर्ती डेस्कटॉप"
+
+#~ msgctxt "Unordered list with privileges granted to an external process"
+#~ msgid "An application requested access to:\n"
+#~ msgstr "एक एप्लिकेशन ने निम्नलिखित तक पहुंच का अनुरोध किया:\n"
 
 #~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 #~ msgid "Always open %1 files with the chosen app"

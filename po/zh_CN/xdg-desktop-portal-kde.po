@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:45+0000\n"
+"POT-Creation-Date: 2025-06-11 00:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -230,7 +230,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/filechooser.cpp:449
+#: src/filechooser.cpp:453
 #, kde-format
 msgid "Open"
 msgstr "打开"
@@ -465,10 +465,14 @@ msgid "Remote control requested"
 msgstr "已请求远程控制"
 
 #: src/remotedesktopdialog.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Unordered list with privileges granted to an external process, included "
+#| "the app's name"
+#| msgid "%1 requested access to remotely control:\n"
 msgctxt "Unordered list with privileges granted to an external process"
-msgid "An application requested access to:\n"
-msgstr "一个应用程序请求访问：\n"
+msgid "An application requested access to remotely control:\n"
+msgstr "%1 请求了远程控制访问权限：\n"
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
@@ -730,3 +734,7 @@ msgstr "启动屏幕录像失败"
 #, kde-format
 msgid "Remote desktop"
 msgstr "远程桌面"
+
+#~ msgctxt "Unordered list with privileges granted to an external process"
+#~ msgid "An application requested access to:\n"
+#~ msgstr "一个应用程序请求访问：\n"

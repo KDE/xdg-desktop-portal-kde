@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:45+0000\n"
+"POT-Creation-Date: 2025-06-11 00:45+0000\n"
 "PO-Revision-Date: 2024-06-09 13:00+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -238,7 +238,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Renunță"
 
-#: src/filechooser.cpp:449
+#: src/filechooser.cpp:453
 #, kde-format
 msgid "Open"
 msgstr "Deschide"
@@ -477,10 +477,14 @@ msgid "Remote control requested"
 msgstr "Control de la distanță cerut"
 
 #: src/remotedesktopdialog.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Unordered list with privileges granted to an external process, included "
+#| "the app's name"
+#| msgid "%1 requested access to remotely control:\n"
 msgctxt "Unordered list with privileges granted to an external process"
-msgid "An application requested access to:\n"
-msgstr "O aplicație a cerut acces la:\n"
+msgid "An application requested access to remotely control:\n"
+msgstr "%1 cere acces să controleze de la distanță:\n"
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
@@ -750,6 +754,10 @@ msgstr "Pornirea difuzării ecranului a eșuat"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Birou distant"
+
+#~ msgctxt "Unordered list with privileges granted to an external process"
+#~ msgid "An application requested access to:\n"
+#~ msgstr "O aplicație a cerut acces la:\n"
 
 #~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 #~ msgid "Always open %1 files with the chosen app"

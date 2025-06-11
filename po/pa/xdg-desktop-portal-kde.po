@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-04 00:45+0000\n"
+"POT-Creation-Date: 2025-06-11 00:45+0000\n"
 "PO-Revision-Date: 2025-02-28 11:01-0600\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -231,7 +231,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: src/filechooser.cpp:449
+#: src/filechooser.cpp:453
 #, kde-format
 msgid "Open"
 msgstr "ਖੋਲ੍ਹੋ"
@@ -466,10 +466,14 @@ msgid "Remote control requested"
 msgstr "ਰਿਮੋਟ ਕੰਟਰੋਲ ਦੀ ਬੇਨਤੀ ਕੀਤੀ"
 
 #: src/remotedesktopdialog.cpp:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Unordered list with privileges granted to an external process, included "
+#| "the app's name"
+#| msgid "%1 requested access to remotely control:\n"
 msgctxt "Unordered list with privileges granted to an external process"
-msgid "An application requested access to:\n"
-msgstr "ਐਪਲੀਕੇਸ਼ਨ ਨੇ ਇਸ ਲਈ ਪਹੁੰਚ ਬੇਨਤੀ:\n"
+msgid "An application requested access to remotely control:\n"
+msgstr "%1 ਨੇ ਰਿਮੋਟ ਕੰਟਰੋਲ ਕਰਨ ਲਈ ਬੇਨਤੀ ਕੀਤੀ ਹੈ:\n"
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
@@ -735,6 +739,10 @@ msgstr "ਸਕਰੀਨ-ਕਾਸਟ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ 
 #, kde-format
 msgid "Remote desktop"
 msgstr "ਰਿਮੋਟ ਡੈਸਕਟਾਪ"
+
+#~ msgctxt "Unordered list with privileges granted to an external process"
+#~ msgid "An application requested access to:\n"
+#~ msgstr "ਐਪਲੀਕੇਸ਼ਨ ਨੇ ਇਸ ਲਈ ਪਹੁੰਚ ਬੇਨਤੀ:\n"
 
 #~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 #~ msgid "Always open %1 files with the chosen app"
