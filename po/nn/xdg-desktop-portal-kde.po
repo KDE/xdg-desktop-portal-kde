@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-11 00:45+0000\n"
+"POT-Creation-Date: 2025-06-12 00:44+0000\n"
 "PO-Revision-Date: 2025-03-23 21:24+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -237,7 +237,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/filechooser.cpp:453
+#: src/filechooser.cpp:475
 #, kde-format
 msgid "Open"
 msgstr "Opna"
@@ -743,7 +743,3 @@ msgstr "Klarte ikkje starta skjermdeling"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Eksternt skrivebord"
-
-#~ msgctxt "Unordered list with privileges granted to an external process"
-#~ msgid "An application requested access to:\n"
-#~ msgstr "Eit program har bedt om tilgang til:\n"

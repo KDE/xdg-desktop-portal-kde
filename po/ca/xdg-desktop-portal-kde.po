@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-11 00:45+0000\n"
-"PO-Revision-Date: 2025-06-04 09:03+0200\n"
+"POT-Creation-Date: 2025-06-12 00:44+0000\n"
+"PO-Revision-Date: 2025-06-11 08:02+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -239,7 +239,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/filechooser.cpp:453
+#: src/filechooser.cpp:475
 #, kde-format
 msgid "Open"
 msgstr "Obre"
@@ -483,14 +483,10 @@ msgid "Remote control requested"
 msgstr "S'ha demanat control remot"
 
 #: src/remotedesktopdialog.cpp:41
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Unordered list with privileges granted to an external process, included "
-#| "the app's name"
-#| msgid "%1 requested access to remotely control:\n"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to remotely control:\n"
-msgstr "%1 ha demanat accés a controlar remotament:\n"
+msgstr "Una aplicació ha sol·licitat accés a controlar remotament:\n"
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
@@ -754,7 +750,3 @@ msgstr "Ha fallat en iniciar el vídeo de captura de pantalla"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Escriptori remot"
-
-#~ msgctxt "Unordered list with privileges granted to an external process"
-#~ msgid "An application requested access to:\n"
-#~ msgstr "Una aplicació demana accés a:\n"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-11 00:45+0000\n"
-"PO-Revision-Date: 2025-06-04 22:31+0300\n"
+"POT-Creation-Date: 2025-06-12 00:44+0000\n"
+"PO-Revision-Date: 2025-06-11 16:39+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -236,7 +236,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: src/filechooser.cpp:453
+#: src/filechooser.cpp:475
 #, kde-format
 msgid "Open"
 msgstr "Відкрити"
@@ -481,14 +481,10 @@ msgid "Remote control requested"
 msgstr "Надіслано запит щодо віддаленого керування"
 
 #: src/remotedesktopdialog.cpp:41
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Unordered list with privileges granted to an external process, included "
-#| "the app's name"
-#| msgid "%1 requested access to remotely control:\n"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to remotely control:\n"
-msgstr "%1 надіслано запит щодо доступу до віддаленого керування:\n"
+msgstr "Програмою надіслано запит щодо доступу до віддаленого керування:\n"
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
