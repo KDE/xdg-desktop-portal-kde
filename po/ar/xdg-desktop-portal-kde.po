@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-12 00:44+0000\n"
-"PO-Revision-Date: 2025-05-10 13:51+0400\n"
+"PO-Revision-Date: 2025-06-12 12:29+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -68,7 +68,7 @@ msgstr "افتح"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
-msgstr ""
+msgstr "عيّنه تطبيق مبدئي لفتح ملفات %1"
 
 #: src/AppChooserDialog.qml:107
 #, kde-format
@@ -475,14 +475,10 @@ msgid "Remote control requested"
 msgstr "طلب التحكم عن بعد"
 
 #: src/remotedesktopdialog.cpp:41
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Unordered list with privileges granted to an external process, included "
-#| "the app's name"
-#| msgid "%1 requested access to remotely control:\n"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to remotely control:\n"
-msgstr "طلب %1 أذن بالتحكم عن بعد بـ: \n"
+msgstr "طلب أحد التطبيقات الوصول إلى التحكم عن بعد: \n"
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
