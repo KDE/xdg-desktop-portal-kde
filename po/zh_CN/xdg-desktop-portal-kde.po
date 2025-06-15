@@ -465,14 +465,10 @@ msgid "Remote control requested"
 msgstr "已请求远程控制"
 
 #: src/remotedesktopdialog.cpp:41
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Unordered list with privileges granted to an external process, included "
-#| "the app's name"
-#| msgid "%1 requested access to remotely control:\n"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to remotely control:\n"
-msgstr "%1 请求了远程控制访问权限：\n"
+msgstr ""
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
@@ -734,7 +730,3 @@ msgstr "启动屏幕录像失败"
 #, kde-format
 msgid "Remote desktop"
 msgstr "远程桌面"
-
-#~ msgctxt "Unordered list with privileges granted to an external process"
-#~ msgid "An application requested access to:\n"
-#~ msgstr "一个应用程序请求访问：\n"
