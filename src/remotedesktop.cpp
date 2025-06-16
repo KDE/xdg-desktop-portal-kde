@@ -169,46 +169,64 @@ uint RemoteDesktopPortal::SelectDevices(const QDBusObjectPath &handle,
     return PortalResponse::Success;
 }
 
-std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSession *session, ScreenCastPortal::PersistMode persist)
+QFuture<QVariantList> continueStart(RemoteDesktopSession *session, ScreenCastPortal::PersistMode persist)
 {
-    QVariantMap results;
+    QList<QFuture<WaylandIntegration::Stream>> streams;
     if (session->screenSharingEnabled()) {
-        WaylandIntegration::Streams streams;
         const auto screens = qGuiApp->screens();
         if (session->multipleSources() || screens.count() == 1) {
             for (const auto &screen : screens) {
                 auto stream = WaylandIntegration::startStreamingOutput(screen, Screencasting::Metadata);
-                if (!stream.isValid()) {
-                    return {PortalResponse::OtherError, {}};
-                }
                 streams << stream;
             }
         } else {
             streams << WaylandIntegration::startStreamingWorkspace(Screencasting::Metadata);
         }
-
-        session->setStreams(streams);
-        results.insert(QStringLiteral("streams"), QVariant::fromValue<WaylandIntegration::Streams>(streams));
     } else {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop()) << "Only stream input";
         session->refreshDescription();
     }
-    session->acquireStreamingInput();
 
-    results.insert(QStringLiteral("devices"), QVariant::fromValue<uint>(session->deviceTypes()));
-    results.insert(QStringLiteral("clipboard_enabled"), false);
-    if (session->persistMode() != ScreenCastPortal::NoPersist) {
-        results.insert(u"persist_mode"_s, quint32(persist));
-        if (persist != ScreenCastPortal::NoPersist) {
-            const RestoreData restoreData = {u"KDE"_s,
-                                             RestoreData::currentRestoreDataVersion(),
-                                             QVariantMap{{u"screenShareEnabled"_s, session->screenSharingEnabled()},
-                                                         {u"devices"_s, static_cast<quint32>(session->deviceTypes())},
-                                                         {u"clipboardEnabled"_s, session->clipboardEnabled()}}};
-            results.insert(u"restore_data"_s, QVariant::fromValue<RestoreData>(restoreData));
-        }
-    }
-    return {PortalResponse::Success, results};
+    session->acquireStreamingInput();
+    return QtFuture::whenAll(streams.begin(), streams.end())
+        .then(session,
+              [session, persist](const QList<QFuture<WaylandIntegration::Stream>> &streamFutures) -> QVariantList {
+                  QVariantMap results;
+                  QList<WaylandIntegration::Stream> streams;
+                  for (const auto &stream : streamFutures) {
+                      if (stream.isCanceled() || !stream.result().isValid()) {
+                          for (const auto &stream : streamFutures) {
+                              if (!stream.isCanceled() && stream.result().isValid()) {
+                                  stream.result().close();
+                              }
+                          }
+                          return {PortalResponse::OtherError, QVariantMap{}};
+                      } else {
+                          streams.push_back(stream.result());
+                      }
+                  }
+                  if (!streams.empty()) {
+                      session->setStreams(streams);
+                      results.insert(QStringLiteral("streams"), QVariant::fromValue<WaylandIntegration::Streams>(streams));
+                  }
+                  results.insert(QStringLiteral("devices"), QVariant::fromValue<uint>(session->deviceTypes()));
+                  results.insert(QStringLiteral("clipboard_enabled"), false);
+                  if (session->persistMode() != ScreenCastPortal::NoPersist) {
+                      results.insert(u"persist_mode"_s, quint32(persist));
+                      if (persist != ScreenCastPortal::NoPersist) {
+                          const RestoreData restoreData = {.session = u"KDE"_s,
+                                                           .version = RestoreData::currentRestoreDataVersion(),
+                                                           .payload = QVariantMap{{u"screenShareEnabled"_s, session->screenSharingEnabled()},
+                                                                                  {u"devices"_s, static_cast<quint32>(session->deviceTypes())},
+                                                                                  {u"clipboardEnabled"_s, session->clipboardEnabled()}}};
+                          results.insert(u"restore_data"_s, QVariant::fromValue<RestoreData>(restoreData));
+                      }
+                  }
+                  return {PortalResponse::Success, results};
+              })
+        .onCanceled([] {
+            return QVariantList{PortalResponse::OtherError, QVariantMap{}};
+        });
 }
 
 void RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
@@ -218,7 +236,7 @@ void RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
                                 const QVariantMap &options,
                                 const QDBusMessage &message,
                                 uint &replyResponse,
-                                QVariantMap &replyResults)
+                                [[maybe_unused]] QVariantMap &replyResults)
 {
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "Start called with parameters:";
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    handle: " << handle.path();
@@ -265,30 +283,28 @@ void RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
         }
     }
 
+    QFuture<DialogResult> dialogDone = QtFuture::makeReadyValueFuture(DialogResult::Accepted);
+
     if (restored) {
         auto notification = new KNotification(QStringLiteral("remotedesktopstarted"), KNotification::CloseOnTimeout);
         notification->setTitle(i18nc("title of notification about input systems taken over", "Remote control session started"));
         notification->setText(RemoteDesktopDialog::buildDescription(app_id, session->deviceTypes(), session->screenSharingEnabled()));
         notification->setIconName(QStringLiteral("krfb"));
         notification->sendEvent();
-    } else {
-        if (!isAppMegaAuthorized(app_id)) { // authorize right away
-            auto remoteDesktopDialog = new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled(), session->persistMode());
-            Utils::setParentWindow(remoteDesktopDialog->windowHandle(), parent_window);
-            Request::makeClosableDialogRequestWithSession(handle, remoteDesktopDialog, session);
-            delayReply(message, remoteDesktopDialog, this, [session, persist](DialogResult dialogResult) {
-                auto response = PortalResponse::fromDialogResult(dialogResult);
-                QVariantMap results;
-                if (dialogResult == DialogResult::Accepted) {
-                    std::tie(response, results) = continueStart(session, persist);
-                }
-                return QVariantList{response, results};
-            });
-            return;
-        }
+    } else if (!isAppMegaAuthorized(app_id)) { // authorize right away
+        auto remoteDesktopDialog = new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled(), session->persistMode());
+        Utils::setParentWindow(remoteDesktopDialog->windowHandle(), parent_window);
+        Request::makeClosableDialogRequestWithSession(handle, remoteDesktopDialog, session);
+        dialogDone = QtFuture::connect(remoteDesktopDialog, &QuickDialog::finished);
     }
 
-    std::tie(replyResponse, replyResults) = continueStart(session, persist);
+    auto results = dialogDone.then([persist, session](DialogResult result) {
+        if (result == DialogResult::Rejected) {
+            return QtFuture::makeReadyValueFuture<QVariantList>({PortalResponse::fromDialogResult(result), QVariantMap{}});
+        }
+        return continueStart(session, persist);
+    });
+    delayReply(message, results.unwrap(), this);
 }
 
 void RemoteDesktopPortal::NotifyPointerMotion(const QDBusObjectPath &session_handle, const QVariantMap &options, double dx, double dy)

@@ -196,19 +196,18 @@ uint ScreenCastPortal::SelectSources(const QDBusObjectPath &handle,
     return PortalResponse::Success;
 }
 
-std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(ScreenCastSession *session,
-                                                                          const QList<Output> &selectedOutputs,
-                                                                          const QRect &selectedRegion,
-                                                                          QList<KWayland::Client::PlasmaWindow *> selectedWindows,
-                                                                          bool allowRestore)
+QFuture<QVariantList> continueStartAfterDialog(ScreenCastSession *session,
+                                               const QList<Output> &selectedOutputs,
+                                               const QRect &selectedRegion,
+                                               QList<KWayland::Client::PlasmaWindow *> selectedWindows,
+                                               bool allowRestore)
 {
     QVariantList outputs;
     QList<WindowRestoreInfo> windows;
-    WaylandIntegration::Streams streams;
-    QPointer<ScreenCastSession> guardedSession(session);
+    QList<QFuture<WaylandIntegration::Stream>> streams;
     Screencasting::CursorMode cursorMode = Screencasting::CursorMode(session->cursorMode());
     for (const auto &output : std::as_const(selectedOutputs)) {
-        WaylandIntegration::Stream stream;
+        QFuture<WaylandIntegration::Stream> stream;
         switch (output.outputType()) {
         case Output::Region:
             stream = WaylandIntegration::startStreamingRegion(selectedRegion, cursorMode);
@@ -228,60 +227,68 @@ std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(Screen
             break;
         }
 
-        if (!stream.isValid()) {
+        streams << stream.onCanceled([output] {
             qCWarning(XdgDesktopPortalKdeScreenCast) << "Invalid screen!" << output.outputType() << output.uniqueId();
-            return {PortalResponse::OtherError, {}};
-        }
+            return WaylandIntegration::Stream();
+        });
 
         if (allowRestore) {
             outputs += output.uniqueId();
         }
-        streams << stream;
     }
     for (const auto win : std::as_const(selectedWindows)) {
-        WaylandIntegration::Stream stream = WaylandIntegration::startStreamingWindow(win, cursorMode);
-        if (!stream.isValid()) {
+        auto stream = WaylandIntegration::startStreamingWindow(win, cursorMode);
+        streams << stream.onCanceled([win] {
             qCWarning(XdgDesktopPortalKdeScreenCast) << "Invalid window!" << win;
-            return {PortalResponse::OtherError, {}};
-        }
+            return WaylandIntegration::Stream();
+        });
 
         if (allowRestore) {
             windows += WindowRestoreInfo{.appId = win->appId(), .title = win->title()};
         }
-        streams << stream;
     }
 
-    if (streams.isEmpty()) {
-        qCWarning(XdgDesktopPortalKdeScreenCast) << "Pipewire stream is not ready to be streamed";
-        return {PortalResponse::OtherError, {}};
-    }
-
-    if (!guardedSession) {
-        return {PortalResponse::OtherError, {}};
-    }
-
-    session->setStreams(streams);
-    QVariantMap results;
-    results.insert(QStringLiteral("streams"), QVariant::fromValue<WaylandIntegration::Streams>(streams));
-    if (allowRestore) {
-        results.insert(u"persist_mode"_s, quint32(session->persistMode()));
-        if (session->persistMode() != ScreenCastPortal::NoPersist) {
-            const RestoreData restoreData = {u"KDE"_s,
-                                             RestoreData::currentRestoreDataVersion(),
-                                             QVariantMap{
-                                                 {u"outputs"_s, outputs},
-                                                 {u"windows"_s, QVariant::fromValue(windows)},
-                                                 {u"region"_s, selectedRegion},
-                                             }};
-            results.insert(u"restore_data"_s, QVariant::fromValue<RestoreData>(restoreData));
-        }
-    }
-
-    if (inhibitionsEnabled()) {
-        new NotificationInhibition(session->appId(), i18nc("Do not disturb mode is enabled because...", "Screen sharing in progress"), session);
-    }
-    qCDebug(XdgDesktopPortalKdeScreenCast) << "Screencast started successfully";
-    return {PortalResponse::Success, results};
+    auto all = QtFuture::whenAll(streams.begin(), streams.end());
+    return all
+        .then(session,
+              [session, allowRestore, outputs, windows, selectedRegion](const QList<QFuture<WaylandIntegration::Stream>> &result) -> QVariantList {
+                  QVariantMap results;
+                  WaylandIntegration::Streams streams;
+                  for (const auto &stream : result) {
+                      if (stream.isCanceled() || !stream.result().isValid()) {
+                          for (const auto &stream : result) {
+                              if (!stream.isCanceled() && stream.result().isValid()) {
+                                  stream.result().close();
+                              }
+                          }
+                          return {PortalResponse::OtherError, QVariantMap{}};
+                      }
+                      streams.push_back(stream.result());
+                  }
+                  session->setStreams(streams);
+                  results.insert(QStringLiteral("streams"), QVariant::fromValue<WaylandIntegration::Streams>(streams));
+                  if (allowRestore) {
+                      results.insert(u"persist_mode"_s, quint32(session->persistMode()));
+                      if (session->persistMode() != ScreenCastPortal::NoPersist) {
+                          const RestoreData restoreData = {.session = u"KDE"_s,
+                                                           .version = RestoreData::currentRestoreDataVersion(),
+                                                           .payload = QVariantMap{
+                                                               {u"outputs"_s, outputs},
+                                                               {u"windows"_s, QVariant::fromValue(windows)},
+                                                               {u"region"_s, selectedRegion},
+                                                           }};
+                          results.insert(u"restore_data"_s, QVariant::fromValue<RestoreData>(restoreData));
+                      }
+                  }
+                  if (inhibitionsEnabled()) {
+                      new NotificationInhibition(session->appId(), i18nc("Do not disturb mode is enabled because...", "Screen sharing in progress"), session);
+                  }
+                  qCDebug(XdgDesktopPortalKdeScreenCast) << "Screencast started successfully";
+                  return {PortalResponse::Success, results};
+              })
+        .onCanceled([] {
+            return QVariantList{PortalResponse::OtherError, QVariantMap{}};
+        });
 }
 
 void ScreenCastPortal::Start(const QDBusObjectPath &handle,
@@ -291,7 +298,7 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
                              const QVariantMap &options,
                              const QDBusMessage &message,
                              uint &replyResponse,
-                             QVariantMap &replyResults)
+                             [[maybe_unused]] QVariantMap &replyResults)
 {
     qCDebug(XdgDesktopPortalKdeScreenCast) << "Start called with parameters:";
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    handle: " << handle.path();
@@ -357,22 +364,24 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
     }
 
     if (valid) {
-        std::tie(replyResponse, replyResults) = continueStartAfterDialog(session, selectedOutputs, selectedRegion, selectedWindows, true);
+        auto result = continueStartAfterDialog(session, selectedOutputs, selectedRegion, selectedWindows, true);
+        delayReply(message, result, this);
         return;
     }
 
     auto screenDialog = new ScreenChooserDialog(app_id, session->multipleSources(), SourceTypes(session->types()));
     Utils::setParentWindow(screenDialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequestWithSession(handle, screenDialog, session);
-    delayReply(message, screenDialog, this, [screenDialog, session](DialogResult result) -> QVariantList {
+    auto dialogDone = QtFuture::connect(screenDialog, &QuickDialog::finished);
+    auto result = dialogDone.then([screenDialog, session](DialogResult result) {
         if (result == DialogResult::Rejected) {
-            return {PortalResponse::fromDialogResult(result), QVariantMap{}};
+            return QtFuture::makeReadyValueFuture(QVariantList{PortalResponse::fromDialogResult(result), QVariantMap{}});
         }
-        auto [response, results] = continueStartAfterDialog(session,
-                                                            screenDialog->selectedOutputs(),
-                                                            screenDialog->selectedRegion(),
-                                                            screenDialog->selectedWindows(),
-                                                            screenDialog->allowRestore());
-        return {response, results};
+        return continueStartAfterDialog(session,
+                                        screenDialog->selectedOutputs(),
+                                        screenDialog->selectedRegion(),
+                                        screenDialog->selectedWindows(),
+                                        screenDialog->allowRestore());
     });
+    delayReply(message, result.unwrap(), this);
 }
