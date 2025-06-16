@@ -15,6 +15,7 @@
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDialog>
+#include <QFuture>
 #include <QMap>
 #include <QString>
 
@@ -89,6 +90,16 @@ inline void delayReply(const QDBusMessage &message, auto *dialog, auto *contextO
     message.setDelayedReply(true);
     QObject::connect(dialog, &std::remove_pointer_t<decltype(dialog)>::finished, contextObject, [message, callback](const auto &result) {
         const auto reply = message.createReply(std::invoke(callback, result));
+        QDBusConnection::sessionBus().send(reply);
+    });
+}
+
+template<typename T>
+inline void delayReply(const QDBusMessage &message, QFuture<T> future, auto *contextObject)
+{
+    message.setDelayedReply(true);
+    future.then(contextObject, [message](const T &result) {
+        const auto reply = message.createReply(result);
         QDBusConnection::sessionBus().send(reply);
     });
 }
