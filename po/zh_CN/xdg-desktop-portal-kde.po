@@ -468,7 +468,7 @@ msgstr "已请求远程控制"
 #, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to remotely control:\n"
-msgstr ""
+msgstr "一个应用程序请求访问远程控制：\n"
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
