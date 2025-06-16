@@ -10,6 +10,7 @@
 #define XDG_DESKTOP_PORTAL_KDE_WAYLAND_INTEGRATION_H
 
 #include <QDBusArgument>
+#include <QFuture>
 #include <QObject>
 #include <QPoint>
 #include <QScreen>
@@ -44,11 +45,12 @@ Q_SIGNALS:
 bool isStreamingAvailable();
 
 void acquireStreamingInput(bool acquire);
-std::unique_ptr<ScreencastingStream> startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode);
-std::unique_ptr<ScreencastingStream> startStreamingWorkspace(Screencasting::CursorMode mode);
-std::unique_ptr<ScreencastingStream> startStreamingVirtual(const QString &name, const QString &description, const QSize &size, Screencasting::CursorMode mode);
-std::unique_ptr<ScreencastingStream> startStreamingWindow(KWayland::Client::PlasmaWindow *window, Screencasting::CursorMode mode);
-std::unique_ptr<ScreencastingStream> startStreamingRegion(const QRect &region, Screencasting::CursorMode mode);
+
+QFuture<std::unique_ptr<ScreencastingStream>> startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode);
+QFuture<std::unique_ptr<ScreencastingStream>> startStreamingWorkspace(Screencasting::CursorMode mode);
+QFuture<std::unique_ptr<ScreencastingStream>> startStreamingVirtual(const QString &name, const QString &description, const QSize &size, Screencasting::CursorMode mode);
+QFuture<std::unique_ptr<ScreencastingStream>> startStreamingWindow(KWayland::Client::PlasmaWindow *window, Screencasting::CursorMode mode);
+QFuture<std::unique_ptr<ScreencastingStream>> startStreamingRegion(const QRect &region, Screencasting::CursorMode mode);
 
 void requestPointerButtonPress(quint32 linuxButton);
 void requestPointerButtonRelease(quint32 linuxButton);

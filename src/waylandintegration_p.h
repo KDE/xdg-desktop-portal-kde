@@ -70,11 +70,11 @@ public:
 
     void acquireStreamingInput(bool acquire);
 
-    std::unique_ptr<ScreencastingStream> startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode);
-    std::unique_ptr<ScreencastingStream> startStreamingWindow(KWayland::Client::PlasmaWindow *window, Screencasting::CursorMode mode);
-    std::unique_ptr<ScreencastingStream> startStreamingWorkspace(Screencasting::CursorMode mode);
-    std::unique_ptr<ScreencastingStream> startStreamingRegion(const QRect region, Screencasting::CursorMode mode);
-    std::unique_ptr<ScreencastingStream>
+    QFuture<std::unique_ptr<ScreencastingStream>> startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode);
+    QFuture<std::unique_ptr<ScreencastingStream>> startStreamingWindow(KWayland::Client::PlasmaWindow *window, Screencasting::CursorMode mode);
+    QFuture<std::unique_ptr<ScreencastingStream>> startStreamingWorkspace(Screencasting::CursorMode mode);
+    QFuture<std::unique_ptr<ScreencastingStream>> startStreamingRegion(const QRect region, Screencasting::CursorMode mode);
+    QFuture<std::unique_ptr<ScreencastingStream>>
     startStreamingVirtualOutput(const QString &name, const QString &description, const QSize &size, Screencasting::CursorMode mode);
 
     void requestPointerButtonPress(quint32 linuxButton);
@@ -92,7 +92,7 @@ public:
     void setParentWindow(QWindow *window, const QString &parentHandle);
 
 private:
-    std::unique_ptr<ScreencastingStream> startStreaming(ScreencastingStream *stream);
+    QFuture<std::unique_ptr<ScreencastingStream>> startStreaming(ScreencastingStream *stream, const QVariantMap &streamOptions = {});
 
     uint m_streamInput = 0;
     bool m_waylandAuthenticationRequested = false;
