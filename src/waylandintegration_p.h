@@ -71,11 +71,11 @@ public:
 
     void acquireStreamingInput(bool acquire);
 
-    Stream startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode);
-    Stream startStreamingWindow(KWayland::Client::PlasmaWindow *window, Screencasting::CursorMode mode);
-    Stream startStreamingWorkspace(Screencasting::CursorMode mode);
-    Stream startStreamingRegion(const QRect region, Screencasting::CursorMode mode);
-    Stream startStreamingVirtualOutput(const QString &name, const QString &description, const QSize &size, Screencasting::CursorMode mode);
+    QFuture<Stream> startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode);
+    QFuture<Stream> startStreamingWindow(KWayland::Client::PlasmaWindow *window, Screencasting::CursorMode mode);
+    QFuture<Stream> startStreamingWorkspace(Screencasting::CursorMode mode);
+    QFuture<Stream> startStreamingRegion(const QRect region, Screencasting::CursorMode mode);
+    QFuture<Stream> startStreamingVirtualOutput(const QString &name, const QString &description, const QSize &size, Screencasting::CursorMode mode);
     void stopStreaming(uint32_t nodeid);
 
     void requestPointerButtonPress(quint32 linuxButton);
@@ -93,7 +93,7 @@ public:
     void setParentWindow(QWindow *window, const QString &parentHandle);
 
 private:
-    Stream startStreaming(ScreencastingStream *stream, const QVariantMap &streamOptions);
+    QFuture<Stream> startStreaming(ScreencastingStream *stream, const QVariantMap &streamOptions);
 
     uint m_streamInput = 0;
     bool m_waylandAuthenticationRequested = false;
