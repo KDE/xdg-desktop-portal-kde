@@ -20,6 +20,7 @@
 #include "globalshortcuts.h"
 #include "inhibit.h"
 #include "inputcapture.h"
+#include "location.h"
 #include "notification.h"
 #include "print.h"
 #include "remotedesktop.h"
@@ -36,6 +37,7 @@ DesktopPortal::DesktopPortal(QObject *parent)
     , m_email(new EmailPortal(this))
     , m_fileChooser(new FileChooserPortal(this))
     , m_inhibit(new InhibitPortal(this))
+    , m_location(new LocationPortal(this))
     , m_notification(new NotificationPortal(this))
     , m_print(new PrintPortal(this))
     , m_settings(new SettingsPortal(this))

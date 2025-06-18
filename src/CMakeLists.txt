@@ -33,6 +33,7 @@ set(xdg_desktop_portal_kde_SRCS
     inputcapture.cpp
     inputcapturebarrier.cpp
     inputcapturedialog.cpp
+    location.cpp
     notification.cpp
     notification.h
     notificationinhibition.cpp
@@ -159,6 +160,13 @@ ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     CATEGORY_NAME "xdp-kde-inhibit"
     HEADER inhibit_debug.h
     DESCRIPTION "XDG Desktop Portal KDE Inhibit"
+    EXPORT XDPKDE
+)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeLocation"
+    CATEGORY_NAME "xdp-kde-location"
+    HEADER location_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Location"
     EXPORT XDPKDE
 )
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS

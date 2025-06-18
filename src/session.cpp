@@ -141,6 +141,9 @@ Session *Session::createSession(QObject *parent, SessionType type, const QString
     case InputCapture:
         session = new InputCaptureSession(parent, appId, path);
         break;
+    case Location:
+        session = new LocationSession(parent, appId, path);
+        break;
     }
 
     if (sessionBus.registerVirtualObject(path, session, QDBusConnection::VirtualObjectRegisterOption::SubPath)) {
@@ -575,4 +578,29 @@ QDBusPendingReply<QDBusUnixFileDescriptor> InputCaptureSession::connectToEIS()
 {
     auto msg = QDBusMessage::createMethodCall(kwinService(), m_kwinInputCapture.path(), kwinInputCaptureInterface(), u"connectToEIS"_s);
     return QDBusConnection::sessionBus().asyncCall(msg, kwinDBusTimeout);
+}
+
+static QString geoClue2Service()
+{
+    return u"org.freedesktop.GeoClue2"_s;
+}
+
+static QString geoClue2Interface()
+{
+    return u"org.freedesktop.GeoClue2.Manager"_s;
+}
+
+LocationSession::LocationSession(QObject *parent, const QString &appId, const QString &path)
+    : Session(parent, appId, path)
+{
+}
+
+LocationSession::~LocationSession() = default;
+
+void LocationSession::connect(const QDBusObjectPath &path)
+{
+    m_geoClue2Manager = path;
+    auto connectSignal = [this](const QString &signalName, const char *slot) {
+        QDBusConnection::sessionBus().connect(geoClue2Service(), m_geoClue2Manager.path(), geoClue2Interface(), signalName, this, slot);
+    };
 }

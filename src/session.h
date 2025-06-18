@@ -39,6 +39,7 @@ public:
         RemoteDesktop = 1,
         GlobalShortcuts = 2,
         InputCapture = 3,
+        Location = 4,
     };
 
     bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) override;
@@ -247,6 +248,27 @@ Q_SIGNALS:
 
 private:
     QDBusObjectPath m_kwinInputCapture;
+    QList<QPair<QPoint, QPoint>> m_barriers;
+};
+
+class LocationSession : public Session
+{
+    Q_OBJECT
+public:
+    explicit LocationSession(QObject *parent, const QString &appId, const QString &path);
+    ~LocationSession() override;
+
+    SessionType type() const override
+    {
+        return SessionType::Location;
+    }
+
+    void connect(const QDBusObjectPath &path);
+
+Q_SIGNALS:
+
+private:
+    QDBusObjectPath m_geoClue2Manager;
     QList<QPair<QPoint, QPoint>> m_barriers;
 };
 
