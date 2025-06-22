@@ -745,28 +745,3 @@ msgstr "Неуспешно стартиране на видеозапис на �
 #, kde-format
 msgid "Remote desktop"
 msgstr "Отдалечен работен плот"
-
-#~ msgctxt "Unordered list with privileges granted to an external process"
-#~ msgid "An application requested access to:\n"
-#~ msgstr "Приложение заяви достъп до:\n"
-
-#~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
-#~ msgid "Always open %1 files with the chosen app"
-#~ msgstr "Файлове  от тип %1 винаги да се отварят с избраното приложение"
-
-#~ msgid "Share your personal information with the requesting application?"
-#~ msgstr ""
-#~ "Да се сподели ли вашата лична информация със заявяващото приложение?"
-
-#~ msgid "Create new folder in %1"
-#~ msgstr "Създаване на нова папка в %1"
-
-#~ msgid "OK"
-#~ msgstr "Добре"
-
-#~ msgid "Cancel"
-#~ msgstr "Отказ"
-
-#~ msgctxt "Virtual Output (shared with %1)"
-#~ msgid "%1 is the application name"
-#~ msgstr "%1 е името на приложението"
