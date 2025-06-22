@@ -745,20 +745,3 @@ msgstr "Неуспешно стартиране на видеозапис на �
 #, kde-format
 msgid "Remote desktop"
 msgstr "Отдалечен работен плот"
-
-#~ msgid "Share your personal information with the requesting application?"
-#~ msgstr ""
-#~ "Да се сподели ли вашата лична информация със заявяващото приложение?"
-
-#~ msgid "Create new folder in %1"
-#~ msgstr "Създаване на нова папка в %1"
-
-#~ msgid "OK"
-#~ msgstr "Добре"
-
-#~ msgid "Cancel"
-#~ msgstr "Отказ"
-
-#~ msgctxt "Virtual Output (shared with %1)"
-#~ msgid "%1 is the application name"
-#~ msgstr "%1 е името на приложението"
