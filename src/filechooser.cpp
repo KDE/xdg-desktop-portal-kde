@@ -482,7 +482,6 @@ void FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
 
     if (optionsWidget) {
         fileDialog->m_fileWidget->setCustomWidget({}, optionsWidget);
-        optionsWidget->setParent(fileDialog);
     }
 
     delayReply(message, fileDialog, this, [fileDialog, optionsWidget, checkboxes, comboboxes](int dialogResult) -> QVariantList {
@@ -653,7 +652,6 @@ void FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
 
     if (optionsWidget) {
         fileDialog->m_fileWidget->setCustomWidget(optionsWidget);
-        optionsWidget->setParent(fileDialog);
     }
 
     delayReply(message, fileDialog, this, [fileDialog, optionsWidget, checkboxes, comboboxes](int dialogResult) {
