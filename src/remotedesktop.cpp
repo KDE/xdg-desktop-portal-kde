@@ -172,6 +172,7 @@ uint RemoteDesktopPortal::SelectDevices(const QDBusObjectPath &handle,
 std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSession *session, ScreenCastPortal::PersistMode persist)
 {
     QVariantMap results;
+    QPointer<RemoteDesktopSession> guardedSession(session);
     if (session->screenSharingEnabled()) {
         WaylandIntegration::Streams streams;
         const auto screens = qGuiApp->screens();
@@ -185,6 +186,10 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
             }
         } else {
             streams << WaylandIntegration::startStreamingWorkspace(Screencasting::Metadata);
+        }
+
+        if (!guardedSession) {
+            return {PortalResponse::OtherError, {}};
         }
 
         session->setStreams(streams);
