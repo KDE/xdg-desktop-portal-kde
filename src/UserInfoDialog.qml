@@ -16,12 +16,16 @@ import org.kde.plasma.workspace.dialogs as PWD
 PWD.SystemDialog {
     id: root
 
-    property alias name: nameText.text
-    property alias details: detailsText.text
+    required property string realname
+    required property string username
     property alias avatar: avatar.source
 
     ColumnLayout {
         spacing: Kirigami.Units.largeSpacing
+
+        Item {
+            Layout.fillHeight: true
+        }
 
         KirigamiComponents.Avatar {
             id: avatar
@@ -33,8 +37,8 @@ PWD.SystemDialog {
             Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
         }
 
-        Kirigami.Heading {
-            id: nameText
+        component Heading: Kirigami.Heading {
+            visible: text.length > 0
 
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignTop
@@ -43,13 +47,22 @@ PWD.SystemDialog {
             Layout.fillWidth: true
         }
 
-        QQC2.Label {
-            id: detailsText
+        Heading {
+            level: 1
+            text: root.realname
+        }
 
-            wrapMode: Text.WordWrap
+        Heading {
+            // Take away the spacing here so things look a bit more packed since they are related information.
+            Layout.topMargin: -parent.spacing
 
-            Layout.alignment: Qt.AlignBottom
-            Layout.fillWidth: true
+            level: 2
+            text: root.username
+            color: Kirigami.Theme.disabledTextColor
+        }
+
+        Item {
+            Layout.fillHeight: true
         }
     }
 
