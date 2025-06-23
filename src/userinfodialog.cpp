@@ -34,11 +34,10 @@ UserInfoDialog::UserInfoDialog(const QString &reason, const QString &app_id, QOb
     const KService::Ptr app = KService::serviceByDesktopName(app_id);
     const QString appName = app ? app->name() : app_id;
 
-    QVariantMap props = {{u"title"_s, i18n("Share User Information with %1", appName)},
-                         {u"subtitle"_s, reason.isEmpty() ? i18n("%1 wants access to your user info.", appName) : reason},
-                         {u"iconName"_s, QStringLiteral("user-identity")},
-                         {u"details"_s, i18n("This app will be given access to your avatar and name.")},
-                         {u"name"_s, m_userInterface->realName().isEmpty() ? m_userInterface->userName() : m_userInterface->realName()}};
+    QVariantMap props = {{u"title"_s, i18n("%1 asks for your user information", appName)},
+                         {u"subtitle"_s, reason.isEmpty() ? i18n("Allows your username and profile picture to be used by the application.", appName) : reason},
+                         {u"username"_s, id()},
+                         {u"realname"_s, name()}};
 
     if (QFileInfo::exists(m_userInterface->iconFile())) {
         props.insert(QStringLiteral("avatar"), image());
