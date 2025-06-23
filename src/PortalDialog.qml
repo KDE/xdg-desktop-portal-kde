@@ -13,7 +13,7 @@ import QtQuick.Templates as T
 import org.kde.kirigami as Kirigami
 import Qt5Compat.GraphicalEffects
 
-Kirigami.AbstractApplicationWindow {
+Kirigami.ApplicationWindow {
     id: root
 
     title: mainText
@@ -70,6 +70,7 @@ Kirigami.AbstractApplicationWindow {
      */
     property int /*Qt.Orientation*/ layout: actions.length > 3 ? Qt.Vertical : Qt.Horizontal
 
+    pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.None
     flags: Qt.Dialog | Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
 
     width: contentLayout.implicitWidth
