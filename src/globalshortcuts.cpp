@@ -292,7 +292,6 @@ void GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
     }
 
     auto dialog = new QuickDialog();
-    Utils::setParentWindow(dialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequestWithSession(handle, dialog, session);
     auto model = new ShortcutsModel(newShortcutInfos, dialog);
     dialog->create(u"qrc:/GlobalShortcutsDialog.qml"_s,
@@ -300,6 +299,7 @@ void GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
                     {u"returningShortcuts"_s, QVariant::fromValue(returningShortcutInfos)},
                     {u"newShortcuts"_s, QVariant::fromValue(model)},
                     {u"component"_s, session->componentName()}});
+    Utils::setParentWindow(dialog->windowHandle(), parent_window);
     delayReply(message, dialog, session, [model, returningShortcutInfos, session](DialogResult result) -> QVariantList {
         // The dialog asks the user if they want to add the new bindings, if denied we still allow
         // binding the returning shortcuts if there are any.
