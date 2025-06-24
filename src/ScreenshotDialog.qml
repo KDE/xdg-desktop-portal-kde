@@ -75,7 +75,7 @@ PWD.SystemDialog {
         QQC2.Action {
             readonly property Timer takeTimer: Timer {
                 repeat: false
-                interval: delayTime.value
+                interval: delayTime.value * 1000
                 onTriggered: root.app.takeScreenshotInteractive()
             }
             text: i18n("Take")
