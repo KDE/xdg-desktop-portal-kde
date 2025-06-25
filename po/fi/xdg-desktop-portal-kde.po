@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-24 02:36+0000\n"
-"PO-Revision-Date: 2025-04-21 11:47+0300\n"
+"PO-Revision-Date: 2025-05-31 10:46+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -82,19 +82,17 @@ msgid "Choose Other…"
 msgstr "Valitse muu…"
 
 #: src/AppChooserDialog.qml:181
-#, fuzzy, kde-kuit-format
-#| msgid "Default app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
-msgstr "Tämän tiedostotyypin oletussovellus"
+msgstr "%1<nl/><emphasis>Tämän tiedostotyypin oletussovellus</emphasis>"
 
 #: src/AppChooserDialog.qml:183
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Last used app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
-msgstr "Viimeksi käytetty tämän tiedostotyypin sovellus"
+msgstr ""
+"%1<nl/><emphasis>Viimeksi tälle tiedostotyypille käytetty sovellus</emphasis>"
 
 #: src/AppChooserDialog.qml:205
 #, kde-kuit-format
@@ -247,6 +245,9 @@ msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
 "<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
+"Pikanäppäin on jo kytketty toimintoon <interface>%1</interface> "
+"sovelluksessa <application>%2</application>. Korvaa kytkös syöttämällä "
+"näppäin uudestaan tähän."
 
 #: src/globalshortcuts.cpp:111
 #, kde-kuit-format
@@ -254,48 +255,48 @@ msgctxt "@info:tooltip"
 msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
-msgstr ""
+msgstr "Pikanäppäin on jo kytketty vakiotoimintoon <interface>%1</interface>."
 
 #: src/globalshortcuts.cpp:124
 #, kde-kuit-format
 msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
-msgstr ""
+msgstr "Pikanäppäin on kytketty useaan toimintoon (<interface>%1</interface>)"
 
 #: src/GlobalShortcutsDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "Yleispikanäppäimiä pyydetty"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following %1 shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sovellus haluaa rekisteröidä seuraavan pikanäppäimen:"
+msgstr[1] "Sovellus haluaa rekisteröidä seuraavat %1 pikanäppäintä:"
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2 haluaa rekisteröidä seuraavan pikanäppäimen:"
+msgstr[1] "%2 haluaa rekisteröidä seuraavat %1 pikanäppäintä:"
 
 #: src/GlobalShortcutsDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
-msgstr ""
+msgstr "Näytä muut pikanäppäimet…"
 
 #: src/GlobalShortcutsDialog.qml:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "Näytä muut tämän sovelluksen rekisteröimät pikanäppäimet"
 
 #: src/inputcapture.cpp:113
 #, kde-format
