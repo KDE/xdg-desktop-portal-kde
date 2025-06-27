@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-24 00:44+0000\n"
-"PO-Revision-Date: 2025-04-08 10:19+0300\n"
+"PO-Revision-Date: 2025-06-26 12:59+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -85,19 +85,19 @@ msgid "Choose Other…"
 msgstr "Выбрать другое приложение…"
 
 #: src/AppChooserDialog.qml:181
-#, fuzzy, kde-kuit-format
-#| msgid "Default app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
-msgstr "Приложение по умолчанию"
+msgstr ""
+"%1<nl/><emphasis>Приложение по умолчанию для этого типа файлов</emphasis>"
 
 #: src/AppChooserDialog.qml:183
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Last used app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
-msgstr "Последнее использованное приложение для открытия этого типа файлов"
+msgstr ""
+"%1<nl/><emphasis>Последнее использованное приложение для открытия этого типа "
+"файлов</emphasis>"
 
 #: src/AppChooserDialog.qml:205
 #, kde-kuit-format
@@ -162,7 +162,7 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
-"Приложение %1 хочет продолжать работу, даже если у него нет видимых окон. "
+"Приложение %1 будет продолжать работу, даже если у него нет видимых окон. "
 "Если такое поведение будет запрещено, то приложение будет закрыто при "
 "закрытии его последнего окна."
 
@@ -254,6 +254,9 @@ msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
 "<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
+"Эта комбинация клавиш уже назначена действию <interface>%1</interface> "
+"приложения <application>%2</application>. Повторно введите её здесь, чтобы "
+"переопределить это действие."
 
 #: src/globalshortcuts.cpp:111
 #, kde-kuit-format
@@ -262,6 +265,8 @@ msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
 msgstr ""
+"Эта комбинация клавиш уже назначена стандартному действию <interface>%1</"
+"interface>."
 
 #: src/globalshortcuts.cpp:124
 #, kde-kuit-format
@@ -269,44 +274,46 @@ msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
 msgstr ""
+"Эта комбинация клавиш назначена нескольким действиям (<interface>%1</"
+"interface>)"
 
 #: src/GlobalShortcutsDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "Запрос глобальных комбинаций клавиш"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following %1 shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Приложение будет использовать следующую %1 комбинацию клавиш:"
+msgstr[1] "Приложение будет использовать следующие %1 комбинации клавиш:"
+msgstr[2] "Приложение будет использовать следующие %1 комбинаций клавиш:"
+msgstr[3] "Приложение будет использовать следующую комбинацию клавиш:"
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Приложение %2 будет использовать следующую %1 комбинацию клавиш:"
+msgstr[1] "Приложение %2 будет использовать следующие %1 комбинации клавиш:"
+msgstr[2] "Приложение %2 будет использовать следующие %1 комбинаций клавиш:"
+msgstr[3] "Приложение %2 будет использовать следующую комбинацию клавиш:"
 
 #: src/GlobalShortcutsDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
-msgstr ""
+msgstr "Другие комбинации клавиш…"
 
 #: src/GlobalShortcutsDialog.qml:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "Просмотр других комбинаций клавиш, связанных с этим приложением"
 
 #: src/inputcapture.cpp:113
 #, kde-format
@@ -483,10 +490,6 @@ msgstr "Запрошен удалённо управляемый сеанс"
 
 #: src/remotedesktopdialog.cpp:41
 #, fuzzy, kde-format
-#| msgctxt ""
-#| "Unordered list with privileges granted to an external process, included "
-#| "the app's name"
-#| msgid "%1 requested access to remotely control:\n"
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to remotely control:\n"
 msgstr "%1 запрашивает удалённое управление:\n"
@@ -728,25 +731,25 @@ msgid ", "
 msgstr ", "
 
 #: src/userinfodialog.cpp:37
-#, fuzzy, kde-format
+#, kde-format
 msgid "Share User Information with %1"
-msgstr "Сведения об общем доступе"
+msgstr "Предоставление пользовательских данных приложению %1"
 
 #: src/userinfodialog.cpp:38
 #, kde-format
 msgid "%1 wants access to your user info."
-msgstr ""
+msgstr "Приложение %1 запрашивает доступ к вашим пользовательским данным."
 
 #: src/userinfodialog.cpp:40
 #, kde-format
 msgid "This app will be given access to your avatar and name."
-msgstr ""
+msgstr "Это приложение получит доступ к вашим аватару и имени пользователя."
 
 #: src/UserInfoDialog.qml:59
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Share"
-msgstr "Поделиться"
+msgstr "Предоставить доступ"
 
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
