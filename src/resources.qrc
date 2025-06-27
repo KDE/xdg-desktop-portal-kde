@@ -14,5 +14,8 @@
     <file>region-select/RegionSelectOverlay.qml</file>
     <file>region-select/FloatingTextBox.qml</file>
     <file>region-select/FloatingBackground.qml</file>
+    <file>PipeWireCard.qml</file>
+    <file>PipeWireCardWindow.qml</file>
+    <file>PipeWireDelegateWindow.qml</file>
  </qresource>
 </RCC>

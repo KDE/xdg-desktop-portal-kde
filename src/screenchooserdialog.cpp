@@ -15,6 +15,7 @@
 #include <KLocalizedString>
 #include <KWayland/Client/plasmawindowmanagement.h>
 #include <KWayland/Client/plasmawindowmodel.h>
+#include <KService>
 
 #include <QCoreApplication>
 #include <QScreen>
@@ -136,20 +137,41 @@ private:
     QSet<QPersistentModelIndex> m_selected;
 };
 
+struct ServiceAddon : public QObject
+{
+    Q_OBJECT
+public:
+    using QObject::QObject;
+
+public Q_SLOTS:
+    QString iconFromAppId(const QString &appId)
+    {
+        auto service = KService::serviceByStorageId(appId);
+        if (service && service->isValid()) {
+            return service->icon();
+        }
+        return u"applications-other"_s;
+    }
+};
+
 ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, ScreenCastPortal::SourceTypes types)
     : QuickDialog()
 {
     Q_ASSERT(types != 0);
 
+    static ServiceAddon serviceAddon;
+    qmlRegisterSingletonInstance<ServiceAddon>("org.kde.xdgdesktopportal", 1, 0, "ServiceAddon", &serviceAddon);
+
     QVariantMap props = {
-        {u"title"_s, i18n("Screen Sharing")},
+        // {u"title"_s, i18n("Screen Sharing")},
         {u"multiple"_s, multiple},
+
     };
 
     int numberOfMonitors = 0;
     if (types & ScreenCastPortal::Monitor) {
         auto model =
-            new OutputsModel(OutputsModel::Options(OutputsModel::WorkspaceIncluded | OutputsModel::VirtualIncluded | OutputsModel::RegionIncluded), this);
+            new OutputsModel(OutputsModel::Options(OutputsModel::WorkspaceIncluded), this);
         props.insert(u"outputsModel"_s, QVariant::fromValue<QObject *>(model));
         numberOfMonitors += model->rowCount(QModelIndex());
         connect(this, &ScreenChooserDialog::clearSelection, model, &OutputsModel::clearSelection);
@@ -227,7 +249,8 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
             }
         }
     }
-    props.insert(u"mainText"_s, mainText);
+    // props.insert(u"mainText"_s, mainText);
+    props.insert(u"applicationName"_s, applicationName);
 
     create(QStringLiteral("qrc:/ScreenChooserDialog.qml"), props);
     connect(m_theDialog, SIGNAL(clearSelection()), this, SIGNAL(clearSelection()));
