@@ -30,7 +30,7 @@ public Q_SLOTS:
                            const QStringList &choices,
                            const QVariantMap &options,
                            const QDBusMessage &message,
-                           uint &replyReponse,
+                           uint &replyResponse,
                            QVariantMap &replyResults);
 
     uint ChooseApplicationPrivate(const QString &parent_window,
