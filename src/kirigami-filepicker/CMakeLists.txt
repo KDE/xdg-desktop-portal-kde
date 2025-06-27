@@ -18,6 +18,7 @@ ecm_qt_declare_logging_category(filepicker_lib_SRCS
     HEADER mobilefiledialog_debug.h)
 
 add_library(KirigamiFilepicker STATIC ${filepicker_lib_SRCS})
+set_property(TARGET KirigamiFilepicker PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_include_directories(KirigamiFilepicker PRIVATE declarative)
 target_link_libraries(KirigamiFilepicker
     Qt::Quick

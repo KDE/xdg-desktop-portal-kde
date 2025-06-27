@@ -3,82 +3,105 @@ add_definitions(-DTRANSLATION_DOMAIN="xdg-desktop-portal-kde")
 
 add_subdirectory(kirigami-filepicker)
 
-add_executable(xdg-desktop-portal-kde)
-
-set(xdg_desktop_portal_kde_SRCS
-    access.cpp
-    accessdialog.cpp
-    accessdialog.h
-    access.h
-    account.cpp
-    account.h
-    appchooser.cpp
-    appchooserdialog.cpp
-    appchooserdialog.h
-    appchooser.h
-    background.cpp
-    background.h
-    clipboard.cpp
-    clipboard.h
-    dbushelpers.cpp dbushelpers.h
-    desktopportal.cpp
-    desktopportal.h
-    email.cpp
-    email.h
-    filechooser.cpp
-    filechooser.h
-    globalshortcuts.cpp globalshortcuts.h
-    inhibit.cpp
-    inhibit.h
-    inputcapture.cpp
-    inputcapturebarrier.cpp
-    inputcapturedialog.cpp
-    notification.cpp
-    notification.h
-    notificationinhibition.cpp
-    notificationinhibition.h
-    outputsmodel.cpp outputsmodel.h
-    print.cpp
-    print.h
-    quickdialog.cpp quickdialog.h
-    remotedesktop.cpp
-    remotedesktopdialog.cpp
-    remotedesktopdialog.h
-    remotedesktop.h
-    restoredata.h
-    restoredata.cpp
-    request.cpp
-    request.h
-    screencast.cpp
-    screencast.h
-    screencasting.cpp
-    screencasting.h
-    screenchooserdialog.cpp
-    screenchooserdialog.h
-    screenshot.cpp
-    screenshotdialog.cpp
-    screenshotdialog.h
-    screenshot.h
-    session.cpp
-    session.h
-    settings.cpp
-    settings.h
-    userinfodialog.cpp
-    userinfodialog.h
-    utils.cpp
-    utils.h
-    waylandintegration.cpp
-    waylandintegration.h
-    waylandintegration_p.h
-    xdg-desktop-portal-kde.cpp
-    resources.qrc
-    portalicon.cpp portalicon.h
-    dynamiclauncher.cpp dynamiclauncher.h
-    dynamiclauncherdialog.cpp dynamiclauncherdialog.h
-    xdgshortcut.cpp xdgshortcut.h
-    region-select/SelectionEditor.h
-    region-select/SelectionEditor.cpp
+add_library(xdg-desktop-portal-kde-private SHARED)
+set_target_properties(xdg-desktop-portal-kde-private PROPERTIES
+    NO_SONAME TRUE
+    CXX_VISIBILITY_PRESET default # internal lib; no need to hide symbols
 )
+ecm_add_qml_module(xdg-desktop-portal-kde-private
+    URI org.kde.xdg.desktop.portal.private
+    VERSION 1.0
+    GENERATE_PLUGIN_SOURCE)
+ecm_target_qml_sources(xdg-desktop-portal-kde-private
+    SOURCES
+        ScreenChooserDialog.qml
+        UserInfoDialog.qml
+        AccessDialog.qml
+        AppChooserDialog.qml
+        RemoteDesktopDialog.qml
+        ScreenshotDialog.qml
+        DynamicLauncherDialog.qml
+        PipeWireDelegate.qml
+        InputCaptureDialog.qml
+        GlobalShortcutsDialog.qml
+        region-select/RegionSelectOverlay.qml
+        region-select/FloatingTextBox.qml
+        region-select/FloatingBackground.qml)
+target_sources(xdg-desktop-portal-kde-private
+    PRIVATE
+        access.cpp
+        accessdialog.cpp
+        accessdialog.h
+        access.h
+        account.cpp
+        account.h
+        appchooser.cpp
+        appchooserdialog.cpp
+        appchooserdialog.h
+        appchooser.h
+        background.cpp
+        background.h
+        clipboard.cpp
+        clipboard.h
+        dbushelpers.cpp dbushelpers.h
+        desktopportal.cpp
+        desktopportal.h
+        email.cpp
+        email.h
+        filechooser.cpp
+        filechooser.h
+        globalshortcuts.cpp globalshortcuts.h
+        inhibit.cpp
+        inhibit.h
+        inputcapture.cpp
+        inputcapturebarrier.cpp
+        inputcapturedialog.cpp
+        notification.cpp
+        notification.h
+        notificationinhibition.cpp
+        notificationinhibition.h
+        outputsmodel.cpp outputsmodel.h
+        print.cpp
+        print.h
+        quickdialog.cpp quickdialog.h
+        remotedesktop.cpp
+        remotedesktopdialog.cpp
+        remotedesktopdialog.h
+        remotedesktop.h
+        restoredata.h
+        restoredata.cpp
+        request.cpp
+        request.h
+        screencast.cpp
+        screencast.h
+        screencasting.cpp
+        screencasting.h
+        screenchooserdialog.cpp
+        screenchooserdialog.h
+        screenshot.cpp
+        screenshotdialog.cpp
+        screenshotdialog.h
+        screenshot.h
+        session.cpp
+        session.h
+        settings.cpp
+        settings.h
+        userinfodialog.cpp
+        userinfodialog.h
+        utils.cpp
+        utils.h
+        waylandintegration.cpp
+        waylandintegration.h
+        waylandintegration_p.h
+        portalicon.cpp portalicon.h
+        dynamiclauncher.cpp dynamiclauncher.h
+        dynamiclauncherdialog.cpp dynamiclauncherdialog.h
+        xdgshortcut.cpp xdgshortcut.h
+        region-select/SelectionEditor.h
+        region-select/SelectionEditor.cpp
+)
+
+set(xdg_desktop_portal_kde_SRCS)
 
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeBackground"
@@ -280,14 +303,13 @@ qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS org.kde.KWin.VirtualKeyboard.x
 if (Qt6_VERSION VERSION_GREATER_EQUAL "6.8.0")
     set(private_code_option  "PRIVATE_CODE")
 endif()
-qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde
-    ${private_code_option} 
+qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde-private
+    ${private_code_option}
     FILES
         ${PLASMA_WAYLAND_PROTOCOLS_DIR}/zkde-screencast-unstable-v1.xml
         ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml
         ${Wayland_DATADIR}/wayland.xml
 )
-
 
 set_source_files_properties(../data/org.freedesktop.Accounts.User.xml PROPERTIES NO_NAMESPACE TRUE)
 qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS ../data/org.freedesktop.Accounts.User.xml user_interface)
@@ -303,38 +325,44 @@ qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS ../data/org.freedesktop.Applic
 set_source_files_properties(../data/org.freedesktop.impl.portal.PermissionStore.xml PROPERTIES NO_NAMESPACE TRUE INCLUDE "dbushelpers.h")
 qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS ../data/org.freedesktop.impl.portal.PermissionStore.xml permission_store)
 
-target_sources(xdg-desktop-portal-kde PRIVATE ${xdg_desktop_portal_kde_SRCS})
+target_sources(xdg-desktop-portal-kde-private PRIVATE ${xdg_desktop_portal_kde_SRCS})
 
-target_link_libraries(xdg-desktop-portal-kde
-    Qt::Core
-    Qt::GuiPrivate
-    Qt::DBus
-    Qt::Concurrent
-    Qt::PrintSupport
-    Qt::QuickWidgets
-    Qt::Widgets
-    Qt::WaylandClient
-    KF6::CoreAddons
-    KF6::ConfigCore
-    KF6::ConfigGui
-    KF6::GlobalAccel
-    KF6::GuiAddons
-    KF6::I18n
-    KF6::KIOFileWidgets
-    KF6::Notifications
-    KF6::Service
-    Plasma::KWaylandClient
-    KF6::WidgetsAddons
-    KF6::WindowSystem
-    KF6::IconThemes
-    KF6::StatusNotifierItem
-    KF6::Crash
-    KirigamiFilepicker
-    Wayland::Client
-    PkgConfig::XKB
+target_link_libraries(xdg-desktop-portal-kde-private
+    PUBLIC
+        Qt::Core
+        Qt::GuiPrivate
+        Qt::DBus
+        Qt::Concurrent
+        Qt::PrintSupport
+        Qt::QuickWidgets
+        Qt::Widgets
+        Qt::WaylandClient
+        KF6::CoreAddons
+        KF6::ConfigCore
+        KF6::ConfigGui
+        KF6::GlobalAccel
+        KF6::GuiAddons
+        KF6::I18n
+        KF6::KIOFileWidgets
+        KF6::Notifications
+        KF6::Service
+        Plasma::KWaylandClient
+        KF6::WidgetsAddons
+        KF6::WindowSystem
+        KF6::IconThemes
+        KF6::StatusNotifierItem
+        KF6::Crash
+        KirigamiFilepicker
+        Wayland::Client
+        PkgConfig::XKB
+        Qt::PrintSupportPrivate
+        Qt::GuiPrivate
 )
-target_link_libraries(xdg-desktop-portal-kde Qt::PrintSupportPrivate Qt::GuiPrivate)
+install(TARGETS xdg-desktop-portal-kde-private ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+ecm_finalize_qml_module(xdg-desktop-portal-kde-private DESTINATION ${KDE_INSTALL_QMLDIR})
 
+add_executable(xdg-desktop-portal-kde xdg-desktop-portal-kde.cpp)
+target_link_libraries(xdg-desktop-portal-kde PRIVATE xdg-desktop-portal-kde-private)
 install(TARGETS xdg-desktop-portal-kde DESTINATION ${KDE_INSTALL_LIBEXECDIR})
 
 install(FILES

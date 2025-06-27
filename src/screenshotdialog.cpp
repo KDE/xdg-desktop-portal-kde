@@ -117,7 +117,7 @@ ScreenshotDialog::ScreenshotDialog(QObject *parent)
     model->appendRow(new QStandardItem(i18n("Full Screen")));
     model->appendRow(new QStandardItem(i18n("Current Screen")));
     model->appendRow(new QStandardItem(i18n("Active Window")));
-    create(QStringLiteral("qrc:/ScreenshotDialog.qml"),
+    create(QStringLiteral("ScreenshotDialog"),
            {
                {u"app"_s, QVariant::fromValue<QObject *>(this)},
                {u"screenshotTypesModel"_s, QVariant::fromValue<QObject *>(model)},

@@ -26,7 +26,7 @@ RemoteDesktopDialog::RemoteDesktopDialog(const QString &appName,
     const QVariantMap props = {{QStringLiteral("title"), i18nc("Title of the dialog that requests remote input privileges", "Remote control requested")},
                                {QStringLiteral("description"), buildDescription(appName, deviceTypes, screenSharingEnabled)},
                                {QStringLiteral("persistenceRequested"), persistMode != ScreenCastPortal::PersistMode::NoPersist}};
-    create(QStringLiteral("qrc:/RemoteDesktopDialog.qml"), props);
+    create(QStringLiteral("RemoteDesktopDialog"), props);
 }
 
 bool RemoteDesktopDialog::allowRestore() const

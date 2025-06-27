@@ -12,7 +12,7 @@ DynamicLauncherDialog::DynamicLauncherDialog(const QString &title, const QIcon &
     , m_name(name)
     , m_icon(icon)
 {
-    create(QStringLiteral("qrc:/DynamicLauncherDialog.qml"),
+    create(QStringLiteral("DynamicLauncherDialog"),
            {
                {QStringLiteral("title"), title},
                {QStringLiteral("launcherName"), name},

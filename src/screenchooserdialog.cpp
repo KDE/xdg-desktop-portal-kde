@@ -229,7 +229,7 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
     }
     props.insert(u"mainText"_s, mainText);
 
-    create(QStringLiteral("qrc:/ScreenChooserDialog.qml"), props);
+    create(QStringLiteral("ScreenChooserDialog"), props);
     connect(m_theDialog, SIGNAL(clearSelection()), this, SIGNAL(clearSelection()));
 }
 

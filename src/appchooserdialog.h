@@ -27,6 +27,7 @@
 #include <KProcess>
 #include <QUrl>
 #include <QWindow>
+#include <QtQmlIntegration/qqmlintegration.h>
 
 class ApplicationItem
 {
@@ -60,6 +61,8 @@ private:
 class AppFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Provided by C++ side via properties")
     Q_PROPERTY(bool showOnlyPreferredApps READ showOnlyPreferredApps WRITE setShowOnlyPreferredApps NOTIFY showOnlyPreferredAppsChanged)
     Q_PROPERTY(QString filter READ filter WRITE setFilter NOTIFY filterChanged)
 
@@ -96,6 +99,9 @@ private:
 class AppChooserData : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Provided by C++ side via properties")
+
     // Outgoing to QML
     Q_PROPERTY(QString fileName READ fileName WRITE setFileName NOTIFY fileNameChanged)
     Q_PROPERTY(QString defaultApp READ defaultApp WRITE setDefaultApp NOTIFY defaultAppChanged)

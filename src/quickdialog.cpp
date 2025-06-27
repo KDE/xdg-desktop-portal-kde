@@ -11,6 +11,8 @@
 #include <QQuickWindow>
 #include <QTimer>
 
+using namespace Qt::StringLiterals;
+
 QuickDialog::QuickDialog(QObject *parent)
     : QObject(parent)
 {
@@ -29,7 +31,7 @@ void QuickDialog::create(const QString &file, const QVariantMap &props)
     engine->rootContext()->setContextObject(context);
 
     engine->setInitialProperties(props);
-    engine->load(file);
+    engine->loadFromModule("org.kde.xdg.desktop.portal.private"_L1, file);
 
     connect(engine, &QQmlEngine::warnings, this, [](const QList<QQmlError> &warnings) {
         for (const QQmlError &warning : warnings) {
