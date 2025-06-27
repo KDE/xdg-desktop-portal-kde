@@ -97,10 +97,10 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &la
         findPreferredApps();
     }
 
-    qmlRegisterSingletonInstance<AppFilterModel>("org.kde.xdgdesktopportal", 1, 0, "AppModel", filterModel);
-    qmlRegisterSingletonInstance<AppChooserData>("org.kde.xdgdesktopportal", 1, 0, "AppChooserData", m_appChooserData);
+    props.insert(u"appModel"_s, QVariant::fromValue(filterModel));
+    props.insert(u"appChooserData"_s, QVariant::fromValue(m_appChooserData));
 
-    create(QStringLiteral("qrc:/AppChooserDialog.qml"), props);
+    create(QStringLiteral("AppChooserDialog"), props);
 
     connect(m_appChooserData, &AppChooserData::openDiscover, this, &AppChooserDialog::onOpenDiscover);
     connect(m_appChooserData, &AppChooserData::applicationSelected, this, &AppChooserDialog::onApplicationSelected);

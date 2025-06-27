@@ -294,7 +294,7 @@ void GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
     auto dialog = new QuickDialog();
     Request::makeClosableDialogRequestWithSession(handle, dialog, session);
     auto model = new ShortcutsModel(newShortcutInfos, dialog);
-    dialog->create(u"qrc:/GlobalShortcutsDialog.qml"_s,
+    dialog->create(u"GlobalShortcutsDialog"_s,
                    {{u"app"_s, Utils::applicationName(session->appId())},
                     {u"returningShortcuts"_s, QVariant::fromValue(returningShortcutInfos)},
                     {u"newShortcuts"_s, QVariant::fromValue(model)},

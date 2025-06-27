@@ -43,7 +43,7 @@ UserInfoDialog::UserInfoDialog(const QString &reason, const QString &app_id, QOb
     if (QFileInfo::exists(m_userInterface->iconFile())) {
         props.insert(QStringLiteral("avatar"), image());
     }
-    create(u"qrc:/UserInfoDialog.qml"_s, props);
+    create(u"UserInfoDialog"_s, props);
 }
 
 UserInfoDialog::~UserInfoDialog()

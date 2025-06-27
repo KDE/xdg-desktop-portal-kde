@@ -76,5 +76,5 @@ Choices AccessDialog::selectedChoices() const
 
 void AccessDialog::createDialog()
 {
-    create(QStringLiteral("qrc:/AccessDialog.qml"), m_props);
+    create(QStringLiteral("AccessDialog"), m_props);
 }

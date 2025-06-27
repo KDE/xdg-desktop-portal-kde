@@ -22,15 +22,18 @@ PWD.SystemDialog {
 
     iconName: "applications-all"
 
-    readonly property bool showingTerminalCommand: AppChooserData.shellAccess && searchField.editText.startsWith("/")
+    required property AppFilterModel appModel
+    required property AppChooserData appChooserData
+
+    readonly property bool showingTerminalCommand: root.appChooserData.shellAccess && searchField.editText.startsWith("/")
 
     property bool remember: false
-    onRememberChanged: AppChooserData.remember = remember
+    onRememberChanged: root.appChooserData.remember = remember
 
     readonly property QQC2.Action discoverAction: QQC2.Action{
         icon.name: "plasmadiscover"
         text: i18nc("Find some more apps that can open this content using the Discover app", "Find More in Discover")
-        onTriggered: AppChooserData.openDiscover()
+        onTriggered: root.appChooserData.openDiscover()
     }
     readonly property QQC2.Action openWithTerminalAction: QQC2.Action {
         icon.name: "system-run"
@@ -43,8 +46,8 @@ PWD.SystemDialog {
 
         QQC2.CheckBox {
             Layout.fillWidth: true
-            visible: AppChooserData.mimeName !== ""
-            text: i18nc("@option:check %1 is description of a file type, like 'PNG image'", "Set as default app to open %1 files", AppChooserData.mimeDesc)
+            visible: root.appChooserData.mimeName !== ""
+            text: i18nc("@option:check %1 is description of a file type, like 'PNG image'", "Set as default app to open %1 files", root.appChooserData.mimeDesc)
             checked: root.remember
             onToggled: {
                 root.remember = checked;
@@ -61,7 +64,7 @@ PWD.SystemDialog {
 
                 function acceptResult() {
                     if (showingTerminalCommand) {
-                        AppChooserData.applicationSelected(searchField.text, root.remember)
+                        root.appChooserData.applicationSelected(searchField.text, root.remember)
                     } else {
                         grid.currentItem.activate();
                     }
@@ -76,7 +79,7 @@ PWD.SystemDialog {
                     grid.forceActiveFocus();
                     grid.currentIndex = 0;
                 }
-                model: AppChooserData.history
+                model: root.appChooserData.history
                 onModelChanged: {
                     editText = ""
                     ready = true
@@ -85,14 +88,14 @@ PWD.SystemDialog {
                     if (!ready) {
                         return
                     }
-                    AppModel.filter = editText;
+                    root.appModel.filter = editText;
                     if (editText.length > 0 && grid.count === 1) {
                         grid.currentIndex = 0;
                     }
                 }
 
                 Connections {
-                    target: AppChooserData
+                    target: root.appChooserData
                     function onFileDialogFinished(text) {
                         if (text !== "") {
                             searchField.editText = text
@@ -107,19 +110,19 @@ PWD.SystemDialog {
                 text: i18n("Show All Installed Applications")
 
                 checkable: true
-                checked: !AppModel.showOnlyPreferredApps
-                visible: AppModel.sourceModel.hasPreferredApps
-                onVisibleChanged: AppModel.showOnlyPreferredApps = visible
+                checked: !root.appModel.showOnlyPreferredApps
+                visible: root.appModel.sourceModel.hasPreferredApps
+                onVisibleChanged: root.appModel.showOnlyPreferredApps = visible
 
-                onToggled: AppModel.showOnlyPreferredApps = !AppModel.showOnlyPreferredApps
+                onToggled: root.appModel.showOnlyPreferredApps = !root.appModel.showOnlyPreferredApps
             }
 
             QQC2.Button {
-                visible: AppChooserData.shellAccess
+                visible: root.appChooserData.shellAccess
                 icon.name: "document-open-symbolic"
                 text: i18nc("@action:button", "Choose Other…")
                 onClicked: {
-                    AppChooserData.openFileDialog(root)
+                    root.appChooserData.openFileDialog(root)
                 }
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.visible: Kirigami.Settings.tabletMode ? pressed : hovered
@@ -160,7 +163,7 @@ PWD.SystemDialog {
                 }
                 cellHeight: gridDelegateHeight
 
-                model: AppModel
+                model: root.appModel
                 delegate: QQC2.ItemDelegate {
                     id: delegate
 
@@ -177,16 +180,16 @@ PWD.SystemDialog {
                     icon.height: grid.gridDelegateIconSize
 
                     text: switch (delegate.model.applicationDesktopFile) {
-                        case AppChooserData.defaultApp:
+                        case root.appChooserData.defaultApp:
                             return xi18nc("@info", "%1<nl/><emphasis>Default app for this file type</emphasis>", delegate.model.applicationName);
-                        case AppChooserData.lastUsedApp:
+                        case root.appChooserData.lastUsedApp:
                             return xi18nc("@info", "%1<nl/><emphasis>Last used app for this file type</emphasis>", delegate.model.applicationName);
                         default:
                             return delegate.model.applicationName;
                     }
-                    font.bold: delegate.model.applicationDesktopFile === AppChooserData.defaultApp
+                    font.bold: delegate.model.applicationDesktopFile === root.appChooserData.defaultApp
 
-                    onClicked: AppChooserData.applicationSelected(model.applicationDesktopFile, root.remember)
+                    onClicked: root.appChooserData.applicationSelected(model.applicationDesktopFile, root.remember)
                 }
 
                 Loader {
@@ -206,7 +209,7 @@ PWD.SystemDialog {
                             } else if (searchField.editText.length > 0) {
                                 return i18n("No matches")
                             } else {
-                                return xi18nc("@info", "No installed applications can open <filename>%1</filename>", AppChooserData.fileName)
+                                return xi18nc("@info", "No installed applications can open <filename>%1</filename>", root.appChooserData.fileName)
                             }
                         }
 
@@ -217,7 +220,7 @@ PWD.SystemDialog {
         }
 
         ColumnLayout {
-            visible: AppChooserData.shellAccess
+            visible: root.appChooserData.shellAccess
 
             RowLayout {
                 id: rowLayout
@@ -247,7 +250,7 @@ PWD.SystemDialog {
 
             QQC2.CheckBox {
                 id: openInTerminal
-                onCheckedChanged: AppChooserData.openInTerminal = checked
+                onCheckedChanged: root.appChooserData.openInTerminal = checked
                 text: i18nc("@option:check", "Run in terminal")
             }
 
@@ -256,7 +259,7 @@ PWD.SystemDialog {
                 // information is not exposed through API, so we have no way of hiding this when not supported.
                 Layout.leftMargin: Kirigami.Units.gridUnit
                 enabled: openInTerminal.checked
-                onCheckedChanged: AppChooserData.lingerTerminal = checked
+                onCheckedChanged: root.appChooserData.lingerTerminal = checked
                 text: i18nc("@option:check", "Do not close when command exits")
             }
         }
@@ -300,7 +303,7 @@ PWD.SystemDialog {
             selectionColor: Kirigami.Theme.highlightColor
 
             onLinkActivated: {
-                AppChooserData.openDiscover()
+                root.appChooserData.openDiscover()
             }
 
             HoverHandler {

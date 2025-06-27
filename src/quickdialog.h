@@ -25,7 +25,7 @@ public:
         return m_theDialog;
     }
 
-    void create(const QString &file, const QVariantMap &props);
+    void create(const QString &componentName, const QVariantMap &props);
 
 public Q_SLOTS:
     void reject();

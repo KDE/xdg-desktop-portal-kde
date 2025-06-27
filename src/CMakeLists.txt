@@ -4,7 +4,25 @@ add_definitions(-DTRANSLATION_DOMAIN="xdg-desktop-portal-kde")
 add_subdirectory(kirigami-filepicker)
 
 add_executable(xdg-desktop-portal-kde)
-
+ecm_add_qml_module(xdg-desktop-portal-kde
+    URI org.kde.xdgdesktopportal
+    VERSION 1.0
+    GENERATE_PLUGIN_SOURCE)
+ecm_target_qml_sources(xdg-desktop-portal-kde
+    SOURCES
+        ScreenChooserDialog.qml
+        UserInfoDialog.qml
+        AccessDialog.qml
+        AppChooserDialog.qml
+        RemoteDesktopDialog.qml
+        ScreenshotDialog.qml
+        DynamicLauncherDialog.qml
+        PipeWireDelegate.qml
+        InputCaptureDialog.qml
+        GlobalShortcutsDialog.qml
+        region-select/RegionSelectOverlay.qml
+        region-select/FloatingTextBox.qml
+        region-select/FloatingBackground.qml)
 set(xdg_desktop_portal_kde_SRCS
     access.cpp
     accessdialog.cpp
@@ -71,7 +89,6 @@ set(xdg_desktop_portal_kde_SRCS
     waylandintegration.h
     waylandintegration_p.h
     xdg-desktop-portal-kde.cpp
-    resources.qrc
     portalicon.cpp portalicon.h
     dynamiclauncher.cpp dynamiclauncher.h
     dynamiclauncherdialog.cpp dynamiclauncherdialog.h
@@ -281,7 +298,7 @@ if (Qt6_VERSION VERSION_GREATER_EQUAL "6.8.0")
     set(private_code_option  "PRIVATE_CODE")
 endif()
 qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde
-    ${private_code_option} 
+    ${private_code_option}
     FILES
         ${PLASMA_WAYLAND_PROTOCOLS_DIR}/zkde-screencast-unstable-v1.xml
         ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml
@@ -306,6 +323,7 @@ qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS ../data/org.freedesktop.impl.p
 target_sources(xdg-desktop-portal-kde PRIVATE ${xdg_desktop_portal_kde_SRCS})
 
 target_link_libraries(xdg-desktop-portal-kde
+PRIVATE
     Qt::Core
     Qt::GuiPrivate
     Qt::DBus
@@ -333,7 +351,7 @@ target_link_libraries(xdg-desktop-portal-kde
     Wayland::Client
     PkgConfig::XKB
 )
-target_link_libraries(xdg-desktop-portal-kde Qt::PrintSupportPrivate Qt::GuiPrivate)
+target_link_libraries(xdg-desktop-portal-kde PRIVATE Qt::PrintSupportPrivate Qt::GuiPrivate)
 
 install(TARGETS xdg-desktop-portal-kde DESTINATION ${KDE_INSTALL_LIBEXECDIR})
 
@@ -342,3 +360,4 @@ install(FILES
     DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})
 
 ecm_qt_install_logging_categories(EXPORT XDPKDE FILE xdp-kde.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
+
