@@ -18,6 +18,9 @@ ecm_target_qml_sources(xdg-desktop-portal-kde
         ScreenshotDialog.qml
         DynamicLauncherDialog.qml
         PipeWireDelegate.qml
+        PipeWireDelegateWindow.qml
+        PipeWireCard.qml
+        PipeWireCardWindow.qml
         InputCaptureDialog.qml
         GlobalShortcutsDialog.qml
         region-select/RegionSelectOverlay.qml

@@ -94,6 +94,7 @@ public:
     enum Roles {
         ScreenRole = Qt::UserRole,
         NameRole,
+        GeometryRole,
     };
 
     OutputsModel(Options o, QObject *parent);

@@ -20,7 +20,7 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
 
     // Only show the full workspace if there's several outputs
     if (screens.count() > 1 && (o & WorkspaceIncluded)) {
-        m_outputs << Output{Output::Workspace, nullptr, i18n("Full Workspace"), u"Workspace"_s, {}};
+        // m_outputs << Output{Output::Workspace, nullptr, i18n("Full Workspace"), u"Workspace"_s, {}};
     }
 
     if (o & VirtualIncluded) {
@@ -112,6 +112,7 @@ QHash<int, QByteArray> OutputsModel::roleNames() const
         {Qt::CheckStateRole, "checked"},
         {ScreenRole, "screen"},
         {NameRole, "name"},
+        {GeometryRole, "geometry"},
     };
 }
 
@@ -128,6 +129,8 @@ QVariant OutputsModel::data(const QModelIndex &index, int role) const
         return 0;
     case NameRole:
         return output.name();
+    case GeometryRole:
+        return output.screen() ? output.screen()->geometry() : QRect();
     case Qt::DecorationRole:
         return QIcon::fromTheme(output.iconName());
     case Qt::DisplayRole:
