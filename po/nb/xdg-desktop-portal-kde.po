@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-24 00:44+0000\n"
+"POT-Creation-Date: 2025-06-28 00:44+0000\n"
 "PO-Revision-Date: 2025-03-23 21:00+0100\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -51,43 +51,43 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Velg et program for å åpne <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:32
+#: src/AppChooserDialog.qml:35
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
 msgstr "Finn flere i Discover"
 
-#: src/AppChooserDialog.qml:37
+#: src/AppChooserDialog.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Åpne"
 
-#: src/AppChooserDialog.qml:47
+#: src/AppChooserDialog.qml:50
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr ""
 
-#: src/AppChooserDialog.qml:107
+#: src/AppChooserDialog.qml:110
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "Vis alle installerte program"
 
-#: src/AppChooserDialog.qml:120
+#: src/AppChooserDialog.qml:123
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "Velg annet  …"
 
-#: src/AppChooserDialog.qml:181
+#: src/AppChooserDialog.qml:184
 #, fuzzy, kde-kuit-format
 #| msgid "Default app for this file type"
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "Standardprogram for denne filtypen"
 
-#: src/AppChooserDialog.qml:183
+#: src/AppChooserDialog.qml:186
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:whatsthis"
 #| msgid "Last used app for this file type"
@@ -95,48 +95,48 @@ msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "Siste brukte program for denne filtypen"
 
-#: src/AppChooserDialog.qml:205
+#: src/AppChooserDialog.qml:208
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Åpne med <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:207
+#: src/AppChooserDialog.qml:210
 #, kde-format
 msgid "No matches"
 msgstr "Ingen treff"
 
-#: src/AppChooserDialog.qml:209
+#: src/AppChooserDialog.qml:212
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Ingen installerte programmer kan åpne <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:235
+#: src/AppChooserDialog.qml:238
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "Terminalvalg"
 
-#: src/AppChooserDialog.qml:251
+#: src/AppChooserDialog.qml:254
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Kjør i terminal"
 
-#: src/AppChooserDialog.qml:260
+#: src/AppChooserDialog.qml:263
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "Ikke lukk når programmet avslutter"
 
-#: src/AppChooserDialog.qml:273
+#: src/AppChooserDialog.qml:276
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "Finn flere program"
 
-#: src/AppChooserDialog.qml:294
+#: src/AppChooserDialog.qml:297
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
