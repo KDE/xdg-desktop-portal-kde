@@ -11,15 +11,15 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-28 00:44+0000\n"
-"PO-Revision-Date: 2025-04-14 01:13-0300\n"
-"Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
+"PO-Revision-Date: 2025-06-30 01:30-0300\n"
+"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -85,19 +85,19 @@ msgid "Choose Other…"
 msgstr "Escolher outro..."
 
 #: src/AppChooserDialog.qml:184
-#, fuzzy, kde-kuit-format
-#| msgid "Default app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
-msgstr "Aplicativo padrão para este tipo de arquivo"
+msgstr ""
+"%1<nl/><emphasis>Aplicativo padrão para este tipo de arquivo</emphasis>"
 
 #: src/AppChooserDialog.qml:186
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Last used app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
-msgstr "Aplicativo usado por último para este tipo de arquivo"
+msgstr ""
+"%1<nl/><emphasis>Aplicativo usado por último para este tipo de arquivo</"
+"emphasis>"
 
 #: src/AppChooserDialog.qml:208
 #, kde-kuit-format
@@ -275,26 +275,20 @@ msgid "Global Shortcuts Requested"
 msgstr "Atalhos globais solicitados"
 
 #: src/GlobalShortcutsDialog.qml:29
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following shortcuts:"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following %1 shortcuts:"
 msgstr[0] "Um aplicativo deseja registrar o seguinte atalho:"
-msgstr[1] "Um aplicativo deseja registrar os seguintes atalhos:"
+msgstr[1] "Um aplicativo deseja registrar os seguintes %1 atalhos:"
 
 #: src/GlobalShortcutsDialog.qml:31
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following shortcuts:"
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2 deseja registrar o seguinte atalho:"
-msgstr[1] "%2 deseja registrar os seguinte atalhos:"
+msgstr[1] "%2 deseja registrar os seguintes %1 atalhos:"
 
 #: src/GlobalShortcutsDialog.qml:120
 #, kde-format
