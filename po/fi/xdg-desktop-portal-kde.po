@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-28 00:44+0000\n"
-"PO-Revision-Date: 2025-05-31 10:46+0300\n"
+"PO-Revision-Date: 2025-07-10 19:50+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -68,7 +68,7 @@ msgstr "Avaa"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
-msgstr ""
+msgstr "Aseta oletussovellukseksi tyypin ”%1” tiedostojen avaamiseksi"
 
 #: src/AppChooserDialog.qml:110
 #, kde-format
@@ -474,14 +474,10 @@ msgid "Remote control requested"
 msgstr "Etähallintaa pyydetty"
 
 #: src/remotedesktopdialog.cpp:41
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Unordered list with privileges granted to an external process, included "
-#| "the app's name"
-#| msgid "%1 requested access to remotely control:\n"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to remotely control:\n"
-msgstr "%1 pyysi etähallintalupaa:\n"
+msgstr "Sovellus on pyytänyt etähallintalupaa:\n"
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
