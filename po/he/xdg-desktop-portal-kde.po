@@ -1,112 +1,111 @@
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-13 02:30+0000\n"
-"PO-Revision-Date: 2017-05-22 04:55-0400\n"
-"Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
-"Language-Team: Hebrew\n"
+"PO-Revision-Date: 2025-07-14 17:31+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 3.6\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "צוות התרגום של KDE ישראל"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "kde-l10n-he@kde.org"
 
 #: src/accessdialog.cpp:22
 #, kde-format
 msgid "Request device access"
-msgstr ""
+msgstr "בקשת גישה להתקן"
 
 #: src/appchooser.cpp:96
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
-msgstr ""
+msgstr "%1 קבצים"
 
 #: src/appchooserdialog.cpp:40
-#, fuzzy, kde-format
-#| msgid "Select application"
+#, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
-msgstr "בחר יישום"
+msgstr "נא לבחור יישום"
 
 #: src/appchooserdialog.cpp:43
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
-msgstr ""
+msgstr "נא לבחור יישום לפתיחת <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:31
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr ""
+msgstr "תמיד לפתוח קובצי %1 עם היישום הנבחר"
 
 #: src/AppChooserDialog.qml:64
-#, fuzzy, kde-format
-#| msgid "Select application"
+#, kde-format
 msgid "Show All Installed Applications"
-msgstr "בחר יישום"
+msgstr "הצגת כל היישומים המותקנים"
 
 #: src/AppChooserDialog.qml:171
 #, kde-format
 msgid "Default app for this file type"
-msgstr ""
+msgstr "יישום ברירת מחדל לסוג קובץ זה"
 
 #: src/AppChooserDialog.qml:190
 #, kde-format
 msgid "No matches"
-msgstr ""
+msgstr "אין התאמות"
 
 #: src/AppChooserDialog.qml:190
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
-msgstr ""
+msgstr "אין יישומים מותקנים שיכולים לפתוח את <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:194
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr ""
+msgstr "איתור של עוד עם Discover"
 
 #: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr ""
+msgstr "היישום הנכון לא מופיע? אפשר למצוא עוד ב־<link>Discover</link>."
 
 #: src/background.cpp:104
 #, kde-format
 msgid "Background activity"
-msgstr ""
+msgstr "פעילות רקע"
 
 #: src/background.cpp:105
 #, kde-format
 msgid "%1 is running in the background."
-msgstr ""
+msgstr "%1 רץ ברקע."
 
 #: src/background.cpp:106
 #, kde-format
 msgid "Find out more"
-msgstr ""
+msgstr "מידע נוסף"
 
 #: src/background.cpp:117
 #, kde-format
 msgid "%1 is running in the background"
-msgstr ""
+msgstr "%1 רץ ברקע"
 
 #: src/background.cpp:119
 #, kde-format
@@ -116,161 +115,158 @@ msgid ""
 "\n"
 "Note that forcing an application to quit might cause data loss."
 msgstr ""
+"יכול להיות שהסיבה לכך תמימה, אך היישום לא סיפק אותה.\n"
+"\n"
+"נא לשים לב שאילוץ יציאה מיישום עלול לגרום לאובדן נתונים."
 
 #: src/background.cpp:122
 #, kde-format
 msgid "Force quit"
-msgstr ""
+msgstr "אילוץ יציאה"
 
 #: src/background.cpp:123
 #, kde-format
 msgid "Allow"
-msgstr ""
+msgstr "לאפשר"
 
 #: src/dynamiclauncher.cpp:76
-#, fuzzy, kde-format
-#| msgid "Select application"
+#, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
-msgstr "בחר יישום"
+msgstr "הוספת יישום רשת…"
 
 #: src/dynamiclauncher.cpp:81
-#, fuzzy, kde-format
-#| msgid "Select application"
+#, kde-format
 msgctxt "@title"
 msgid "Add Application…"
-msgstr "בחר יישום"
+msgstr "הוספת יישום…"
 
 #: src/DynamicLauncherDialog.qml:72
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
-msgstr ""
+msgstr "שם"
 
 #: src/DynamicLauncherDialog.qml:91
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr ""
+msgstr "עריכת פרטים…"
 
 #: src/DynamicLauncherDialog.qml:97
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
-msgstr ""
+msgstr "קבלה"
 
 #: src/DynamicLauncherDialog.qml:102
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
-msgstr ""
+msgstr "ביטול"
 
 #: src/filechooser.cpp:369
 #, kde-format
 msgid "Open"
-msgstr "פתח"
+msgstr "פתיחה"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:100
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgid "Select Folder"
-msgstr "בחר"
+msgstr "בחירת תיקייה"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgid "Open File"
-msgstr "פתח"
+msgstr "פתיחת קובץ"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:105
 #, kde-format
 msgid "Save File"
-msgstr ""
+msgstr "שמירת קובץ"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
 msgid "Create new folder"
-msgstr ""
+msgstr "יצירת תיקייה חדשה"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:26
 #, kde-format
 msgid "Create new folder in %1"
-msgstr ""
+msgstr "יצירת תיקייה חדשה בתוך %1"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:33
 #, kde-format
 msgid "folder name"
-msgstr ""
+msgstr "שם תיקייה"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:41
 #, kde-format
 msgid "Ok"
-msgstr ""
+msgstr "אישור"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:52
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "ביטול"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
 msgid "File name"
-msgstr ""
+msgstr "שם קובץ"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:116
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgid "Select"
-msgstr "בחר"
+msgstr "בחירה"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
-#, fuzzy, kde-format
-#| msgid "Select"
+#, kde-format
 msgid "Create folder"
-msgstr "בחר"
+msgstr "יצירת תיקייה"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
 msgid "Filter filetype"
-msgstr ""
+msgstr "סינון סוג קובץ"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:71
 #, kde-format
 msgid "Show hidden files"
-msgstr ""
+msgstr "הצגת קבצים מוסתרים"
 
 #: src/outputsmodel.cpp:18
 #, kde-format
 msgid "Full Workspace"
-msgstr ""
+msgstr "סביבת עבודה מלאה"
 
 #: src/outputsmodel.cpp:22
 #, kde-format
 msgid "New Virtual Output"
-msgstr ""
+msgstr "פלט וירטואלי חדש"
 
 #: src/outputsmodel.cpp:28
 #, kde-format
 msgid "Laptop screen"
-msgstr ""
+msgstr "מסך מחשב נייד"
 
 #: src/remotedesktop.cpp:129
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
-msgstr ""
+msgstr "החלה שליטה מרחוק"
 
 #: src/remotedesktopdialog.cpp:23
 #, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote control requested"
-msgstr ""
+msgstr "התקבלה בקשה לשליטה מרחוק"
 
 #: src/remotedesktopdialog.cpp:32
 #, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "Requested access to:\n"
-msgstr ""
+msgstr "ביקש גישה אל:\n"
 
 #: src/remotedesktopdialog.cpp:34
 #, kde-format
@@ -278,31 +274,31 @@ msgctxt ""
 "Unordered list with privileges granted to an external process, included the "
 "app's name"
 msgid "%1 requested access to remotely control:\n"
-msgstr ""
+msgstr "%1 ביקש גישה לשליטה מרחוק:\n"
 
 #: src/remotedesktopdialog.cpp:37
 #, kde-format
 msgctxt "Will allow the app to see what's on the outputs, in markdown"
 msgid " - Screens\n"
-msgstr ""
+msgstr " - מסכים\n"
 
 #: src/remotedesktopdialog.cpp:40
 #, kde-format
 msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
-msgstr ""
+msgstr " - התקני קלט\n"
 
 #: src/RemoteDesktopDialog.qml:26 src/ScreenChooserDialog.qml:135
 #: src/UserInfoDialog.qml:41
 #, kde-format
 msgid "Share"
-msgstr ""
+msgstr "שיתוף"
 
 #: src/screencast.cpp:316
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
-msgstr ""
+msgstr "המסך משותף כרגע"
 
 #: src/screencastwidget.cpp:24
 #, kde-format
@@ -310,6 +306,8 @@ msgid ""
 "Laptop screen\n"
 "Model: %1"
 msgstr ""
+"מסך מחשב נייד\n"
+"דגם: %1"
 
 #: src/screencastwidget.cpp:27 src/screencastwidget.cpp:30
 #, kde-format
@@ -317,222 +315,224 @@ msgid ""
 "Manufacturer: %1\n"
 "Model: %2"
 msgstr ""
+"יצרן: %1\n"
+"דגם: %2"
 
 #: src/screenchooserdialog.cpp:138
 #, kde-format
 msgid "Screen Sharing"
-msgstr ""
+msgstr "שיתוף מסך"
 
 #: src/screenchooserdialog.cpp:167
 #, kde-format
 msgid "Choose what to share with the requesting application:"
-msgstr ""
+msgstr "נא לבחור מה לשתף עם היישום שביקש:"
 
 #: src/screenchooserdialog.cpp:169
 #, kde-format
 msgid "Choose what to share with %1:"
-msgstr ""
+msgstr "נא לבחור מה לשתף עם %1:"
 
 #: src/screenchooserdialog.cpp:177
 #, kde-format
 msgid "Share this screen with the requesting application?"
-msgstr ""
+msgstr "לשתף את המסך עם היישום שביקש?"
 
 #: src/screenchooserdialog.cpp:179
 #, kde-format
 msgid "Share this screen with %1?"
-msgstr ""
+msgstr "לשתף את המסך עם %1?"
 
 #: src/screenchooserdialog.cpp:184
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
-msgstr ""
+msgstr "בחירת מסכים לשיתוף עם היישומים שמבקשים:"
 
 #: src/screenchooserdialog.cpp:186
 #, kde-format
 msgid "Choose screens to share with %1:"
-msgstr ""
+msgstr "בחירת מסכים לשיתוף עם %1:"
 
 #: src/screenchooserdialog.cpp:190
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
-msgstr ""
+msgstr "בחירת אילו מסכים לשתף עם היישום שמבקש:"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
 msgid "Choose which screen to share with %1:"
-msgstr ""
+msgstr "נא לבחור איזה מסך לשתף עם %1:"
 
 #: src/screenchooserdialog.cpp:202
 #, kde-format
 msgid "Share this window with the requesting application?"
-msgstr ""
+msgstr "לשתף את החלון הזה עם היישום שביקש?"
 
 #: src/screenchooserdialog.cpp:204
 #, kde-format
 msgid "Share this window with %1?"
-msgstr ""
+msgstr "לשתף את החלון הזה עם %1?"
 
 #: src/screenchooserdialog.cpp:209
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
-msgstr ""
+msgstr "נא לבחור חלונות לשיתוף עם היישום שביקש:"
 
 #: src/screenchooserdialog.cpp:211
 #, kde-format
 msgid "Choose windows to share with %1:"
-msgstr ""
+msgstr "בחירת חלונות לשיתוף עם %1:"
 
 #: src/screenchooserdialog.cpp:215
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
-msgstr ""
+msgstr "נא לבחור אילו חלונות לשתף עם היישום שביקש:"
 
 #: src/screenchooserdialog.cpp:217
 #, kde-format
 msgid "Choose which window to share with %1:"
-msgstr ""
+msgstr "נא לבחור איזה חלון לשתף עם %1:"
 
 #: src/ScreenChooserDialog.qml:36
 #, kde-format
 msgid "Screens"
-msgstr ""
+msgstr "מסכים"
 
 #: src/ScreenChooserDialog.qml:39
 #, kde-format
 msgid "Windows"
-msgstr ""
+msgstr "חלונות"
 
 #: src/ScreenChooserDialog.qml:129
 #, kde-format
 msgid "Allow restoring on future sessions"
-msgstr ""
+msgstr "לאפשר שחזור בהפעלות עתידיות"
 
 #: src/screenshotdialog.cpp:88
 #, kde-format
 msgid "Full Screen"
-msgstr ""
+msgstr "מסך מלא"
 
 #: src/screenshotdialog.cpp:89
 #, kde-format
 msgid "Current Screen"
-msgstr ""
+msgstr "מסך נוכחי"
 
 #: src/screenshotdialog.cpp:90
 #, kde-format
 msgid "Active Window"
-msgstr ""
+msgstr "חלון פעיל"
 
 #: src/ScreenshotDialog.qml:23
 #, kde-format
 msgid "Request screenshot"
-msgstr ""
+msgstr "בקשת צילום המסך"
 
 #: src/ScreenshotDialog.qml:30
 #, kde-format
 msgid "Capture Mode"
-msgstr ""
+msgstr "מצב לכידה"
 
 #: src/ScreenshotDialog.qml:34
 #, kde-format
 msgid "Area:"
-msgstr ""
+msgstr "אזור:"
 
 #: src/ScreenshotDialog.qml:39
 #, kde-format
 msgid "Delay:"
-msgstr ""
+msgstr "השהיה:"
 
 #: src/ScreenshotDialog.qml:44
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "שנייה"
+msgstr[1] "%1 שניות"
 
 #: src/ScreenshotDialog.qml:52
 #, kde-format
 msgid "Content Options"
-msgstr ""
+msgstr "אפשרויות תוכן"
 
 #: src/ScreenshotDialog.qml:56
 #, kde-format
 msgid "Include cursor pointer"
-msgstr ""
+msgstr "כולל סמן העכבר"
 
 #: src/ScreenshotDialog.qml:61
 #, kde-format
 msgid "Include window borders"
-msgstr ""
+msgstr "כולל גבולות החלונות"
 
 #: src/ScreenshotDialog.qml:74
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "שמירה"
 
 #: src/ScreenshotDialog.qml:84
 #, kde-format
 msgid "Take"
-msgstr ""
+msgstr "צילום"
 
 #: src/session.cpp:169
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
-msgstr ""
+msgstr "סיום"
 
 #: src/session.cpp:255
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
-msgstr ""
+msgstr "שולחן עבודה מרוחק"
 
 #: src/session.cpp:271
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "התוכן משותף אל %2"
+msgstr[1] "%1 תזרימי וידאו אל %2"
 
 #: src/session.cpp:275
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
-msgstr ""
+msgstr "שידור המסך"
 
 #: src/session.cpp:445
 #, kde-format
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/userinfodialog.cpp:32
 #, kde-format
 msgid "Share Information"
-msgstr ""
+msgstr "שיתוף פרטים"
 
 #: src/userinfodialog.cpp:33
 #, kde-format
 msgid "Share your personal information with the requesting application?"
-msgstr ""
+msgstr "לשתף את המידע האישי שלך עם היישום שביקש?"
 
 #: src/waylandintegration.cpp:293 src/waylandintegration.cpp:311
 #: src/waylandintegration.cpp:357
 #, kde-format
 msgid "Failed to start screencasting"
-msgstr ""
+msgstr "התחלת הסרטת מסך נכשלה"
 
 #: src/waylandintegration.cpp:666
 #, kde-format
 msgid "Remote desktop"
-msgstr ""
+msgstr "שולחן עבודה מרוחק"
 
 #: src/xdg-desktop-portal-kde.cpp:28
 #, kde-format
 msgid "Portal"
-msgstr ""
+msgstr "שער גישה"
 
 #~ msgid "Dialog"
 #~ msgstr "תיבת דו־שיח"
