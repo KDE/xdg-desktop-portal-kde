@@ -171,22 +171,29 @@ uint RemoteDesktopPortal::SelectDevices(const QDBusObjectPath &handle,
 
 std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSession *session, ScreenCastPortal::PersistMode persist)
 {
+    qDebug() << "continue start";
     QVariantMap results;
     QPointer<RemoteDesktopSession> guardedSession(session);
     if (session->screenSharingEnabled()) {
         WaylandIntegration::Streams streams;
         const auto screens = qGuiApp->screens();
-        if (session->multipleSources() || screens.count() == 1) {
-            for (const auto &screen : screens) {
-                auto stream = WaylandIntegration::startStreamingOutput(screen, Screencasting::Metadata);
-                if (!stream.isValid()) {
-                    return {PortalResponse::OtherError, {}};
-                }
-                streams << stream;
-            }
-        } else {
-            streams << WaylandIntegration::startStreamingWorkspace(Screencasting::Metadata);
-        }
+        qDebug() << "multi" << session->multipleSources() << screens.count();
+        // if (session->multipleSources() || screens.count() == 1) {
+        //     for (const auto &screen : screens) {
+        //         auto stream = WaylandIntegration::startStreamingOutput(screen, Screencasting::Metadata);
+        //         if (!stream.isValid()) {
+        //             return {PortalResponse::OtherError, {}};
+        //         }
+        //         streams << stream;
+        //     }
+        // } else {
+        qDebug() << "streaming virtual";
+        streams << WaylandIntegration::startStreamingVirtual(OutputsModel::virtualScreenIdForApp(session->appId()),
+                                                             QStringLiteral("outputName"),
+                                                             {1920, 1080},
+                                                             Screencasting::Metadata);
+        // streams << WaylandIntegration::startStreamingWorkspace(Screencasting::Metadata);
+        // }
 
         if (!guardedSession) {
             return {PortalResponse::OtherError, {}};
