@@ -137,7 +137,7 @@ void SelectionEditor::showViews()
             Qt::Window, // the default window flag
             Qt::FramelessWindowHint,
             Qt::NoDropShadowWindowHint,
-            Qt::MaximizeUsingFullscreenGeometryHint, // also use the areas where system UIs are
+            Qt::ExpandedClientAreaHint, // also use the areas where system UIs are
         });
         view->setWindowStates(Qt::WindowFullScreen);
         view->setVisibility(QWindow::Visibility::FullScreen);

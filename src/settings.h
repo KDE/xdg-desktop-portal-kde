@@ -27,7 +27,7 @@ class SettingsModule : public QObject
 public:
     using QObject::QObject;
     ~SettingsModule() override = default;
-    Q_DISABLE_COPY_MOVE(SettingsModule);
+    Q_DISABLE_COPY_MOVE(SettingsModule)
     virtual inline QString group() = 0;
     virtual VariantMapMap readAll(const QStringList &groups) = 0;
     virtual QVariant read(const QString &group, const QString &key) = 0;

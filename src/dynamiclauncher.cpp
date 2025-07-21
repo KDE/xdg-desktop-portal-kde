@@ -63,7 +63,7 @@ QIcon static extractIcon(const QDBusVariant &iconVariant)
     auto icon = qdbus_cast<PortalIcon>(iconVariant.variant());
     const QVariant iconData = icon.data.variant();
     // NB: The DynamicLauncher portal only accept GByteIcons, i.e. the only type we'll ever get are bytes.
-    if (icon.str == QStringLiteral("bytes") && iconData.type() == QVariant::ByteArray) {
+    if (icon.str == QStringLiteral("bytes") && iconData.typeId() == QMetaType::QByteArray) {
         QPixmap pixmap;
         pixmap.loadFromData(iconData.toByteArray());
         return pixmap;
@@ -137,7 +137,7 @@ void DynamicLauncherPortal::PrepareInstall(const QDBusObjectPath &handle,
             } else {
                 results[nameKey] = name;
             }
-            if (editableIcon && dialog->m_icon != icon && dialog->m_icon.type() == QVariant::String) {
+            if (editableIcon && dialog->m_icon != icon && dialog->m_icon.typeId() == QMetaType::QString) {
                 const auto data = iconFromName(dialog->m_icon.toString());
                 if (!data.isEmpty()) {
                     const PortalIcon portalIcon{QStringLiteral("bytes"), QDBusVariant(data)};

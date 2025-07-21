@@ -49,15 +49,15 @@ void NotificationPortal::AddNotification(const QString &app_id, const QString &i
     }
     if (notification.contains(QStringLiteral("icon"))) {
         QVariant iconVariant = notification.value(QStringLiteral("icon"));
-        if (iconVariant.type() == QVariant::String) {
+        if (iconVariant.typeId() == QMetaType::QString) {
             notify->setIconName(iconVariant.toString());
         } else {
             QDBusArgument argument = iconVariant.value<QDBusArgument>();
             PortalIcon icon = qdbus_cast<PortalIcon>(argument);
             QVariant iconData = icon.data.variant();
-            if (icon.str == QStringLiteral("themed") && iconData.type() == QVariant::StringList) {
+            if (icon.str == QStringLiteral("themed") && iconData.typeId() == QMetaType::QStringList) {
                 notify->setIconName(iconData.toStringList().first());
-            } else if (icon.str == QStringLiteral("bytes") && iconData.type() == QVariant::ByteArray) {
+            } else if (icon.str == QStringLiteral("bytes") && iconData.typeId() == QMetaType::QByteArray) {
                 QPixmap pixmap;
                 if (pixmap.loadFromData(iconData.toByteArray(), "PNG")) {
                     notify->setPixmap(pixmap);

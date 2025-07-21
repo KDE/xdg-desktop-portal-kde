@@ -31,8 +31,8 @@ private Q_SLOTS:
 
         QTest::newRow("a") << "a" << QKeySequence(Qt::Key_A);
         QTest::newRow("ctrla") << "CTRL+a" << QKeySequence(Qt::Key_A | Qt::ControlModifier);
-        QTest::newRow("ctrlshifta") << "CTRL+SHIFT+a" << QKeySequence(Qt::Key_A | Qt::ControlModifier | Qt::ShiftModifier);
-        QTest::newRow("ctrlaltreturn") << "CTRL+ALT+Return" << QKeySequence(Qt::Key_Return | Qt::ControlModifier | Qt::AltModifier);
+        QTest::newRow("ctrlshifta") << "CTRL+SHIFT+a" << QKeySequence(QKeyCombination(Qt::ControlModifier | Qt::ShiftModifier | Qt::Key_A ));
+        QTest::newRow("ctrlaltreturn") << "CTRL+ALT+Return" << QKeySequence(QKeyCombination(Qt::ControlModifier | Qt::AltModifier | Qt::Key_Return));
         QTest::newRow("withweirdtoken") << "CTRL+a;Banana" << QKeySequence(Qt::Key_A | Qt::ControlModifier);
         QTest::newRow("justcontrol") << "Control_L" << QKeySequence(Qt::Key_Control);
     }
