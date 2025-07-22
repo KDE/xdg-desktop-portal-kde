@@ -175,17 +175,28 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
     QPointer<RemoteDesktopSession> guardedSession(session);
     if (session->screenSharingEnabled()) {
         WaylandIntegration::Streams streams;
-        const auto screens = qGuiApp->screens();
-        if (session->multipleSources() || screens.count() == 1) {
-            for (const auto &screen : screens) {
-                auto stream = WaylandIntegration::startStreamingOutput(screen, Screencasting::Metadata);
-                if (!stream.isValid()) {
-                    return {PortalResponse::OtherError, {}};
-                }
-                streams << stream;
+        if (session->types() == ScreenCastPortal::Virtual) {
+            const QString outputName = session->appId().isEmpty()
+                ? i18n("Virtual Output")
+                : i18nc("%1 is the application name", "Virtual Output (shared with %1)", Utils::applicationName(session->appId()));
+            auto stream = WaylandIntegration::startStreamingVirtual(OutputsModel::virtualScreenIdForApp(session->appId()), outputName, {1920, 1080}, Screencasting::Metadata);
+            if (!stream.isValid()) {
+                return {PortalResponse::OtherError, {}};
             }
+            streams << stream;
         } else {
-            streams << WaylandIntegration::startStreamingWorkspace(Screencasting::Metadata);
+            const auto screens = qGuiApp->screens();
+            if (session->multipleSources() || screens.count() == 1) {
+                for (const auto &screen : screens) {
+                    auto stream = WaylandIntegration::startStreamingOutput(screen, Screencasting::Metadata);
+                    if (!stream.isValid()) {
+                        return {PortalResponse::OtherError, {}};
+                    }
+                    streams << stream;
+                }
+            } else {
+                streams << WaylandIntegration::startStreamingWorkspace(Screencasting::Metadata);
+            }
         }
 
         if (!guardedSession) {
