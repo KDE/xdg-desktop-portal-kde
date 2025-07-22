@@ -315,7 +315,7 @@ void GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
         currentShortcutInfos.reserve(newShortcutInfos.size() + returningShortcutInfos.size());
         std::ranges::set_union(newShortcutInfos, returningShortcutInfos, std::back_inserter(currentShortcutInfos), {}, &ShortcutInfo::id, &ShortcutInfo::id);
         session->setActions(currentShortcutInfos);
-        return {PortalResponse::Success, QVariantMap{}};
+        return {PortalResponse::Success, QVariantMap{{u"shortcuts"_s, session->shortcutDescriptionsVariant()}}};
     });
 }
 
