@@ -16,12 +16,6 @@ using namespace Qt::StringLiterals;
 OutputsModel::OutputsModel(Options o, QObject *parent)
     : QAbstractListModel(parent)
 {
-    const auto screens = qGuiApp->screens();
-
-    // Only show the full workspace if there's several outputs
-    if (screens.count() > 1 && (o & WorkspaceIncluded)) {
-        m_outputs << Output{Output::Workspace, nullptr, i18n("Full Workspace"), u"Workspace"_s, {}};
-    }
 
     if (o & VirtualIncluded) {
         m_outputs << Output{Output::Virtual, nullptr, i18n("New Virtual Output"), QStringLiteral("Virtual"), {}};
@@ -29,6 +23,17 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
 
     if (o & RegionIncluded) {
         m_outputs << Output{Output::Region, nullptr, i18n("Rectangular Region"), u"Region"_s, {}};
+    }
+
+    if (o & OutputsExcluded) {
+        return;
+    }
+
+    const auto screens = qGuiApp->screens();
+
+    // Only show the full workspace if there's several outputs
+    if (screens.count() > 1 && (o & WorkspaceIncluded)) {
+        m_outputs.prepend(Output{Output::Workspace, nullptr, i18n("Full Workspace"), u"Workspace"_s, {}});
     }
 
     connect(qGuiApp, &QGuiApplication::screenRemoved, this, [this](QScreen *screen) {

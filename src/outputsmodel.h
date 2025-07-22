@@ -87,6 +87,7 @@ public:
         WorkspaceIncluded = 0x1,
         VirtualIncluded = 0x2,
         RegionIncluded = 0x4,
+        OutputsExcluded = 0x8
     };
     Q_ENUM(Option)
     Q_DECLARE_FLAGS(Options, Option)

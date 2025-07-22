@@ -54,7 +54,7 @@ public:
     }
     uint AvailableSourceTypes() const
     {
-        return Monitor | Window;
+        return Monitor | Window | Virtual;
     };
     uint AvailableCursorModes() const
     {

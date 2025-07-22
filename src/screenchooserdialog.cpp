@@ -146,10 +146,21 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
         {u"multiple"_s, multiple},
     };
 
+    // We only let the user create one virtual monitor
+    if (types == ScreenCastPortal::Virtual) {
+        multiple = false;
+    }
+
     int numberOfMonitors = 0;
-    if (types & ScreenCastPortal::Monitor) {
-        auto model =
-            new OutputsModel(OutputsModel::Options(OutputsModel::WorkspaceIncluded | OutputsModel::VirtualIncluded | OutputsModel::RegionIncluded), this);
+    if (types & ScreenCastPortal::Monitor || types & ScreenCastPortal::Virtual) {
+        // If the app requests only monitor we still allow the user to create a virtual one
+        OutputsModel::Options options = OutputsModel::VirtualIncluded;
+        if (types & ScreenCastPortal::Monitor) {
+            options |= OutputsModel::WorkspaceIncluded | OutputsModel::RegionIncluded;
+        } else {
+            options |= OutputsModel::OutputsExcluded;
+        }
+        auto model = new OutputsModel(options, this);
         props.insert(u"outputsModel"_s, QVariant::fromValue<QObject *>(model));
         numberOfMonitors += model->rowCount(QModelIndex());
         connect(this, &ScreenChooserDialog::clearSelection, model, &OutputsModel::clearSelection);
@@ -169,17 +180,9 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
 
     QString mainText;
 
-    // App asked for monitors and windows
-    if (types & ScreenCastPortal::Monitor && types & ScreenCastPortal::Window) {
-        if (appName.isEmpty()) {
-            mainText = i18n("Choose what to share with the requesting application:");
-        } else {
-            mainText = i18n("Choose what to share with %1:", applicationName);
-        }
-    }
 
     // App only asked for monitors
-    else if (types & ScreenCastPortal::Monitor) {
+    if (types == ScreenCastPortal::Monitor) {
         if (numberOfMonitors == 1) {
             if (appName.isEmpty()) {
                 mainText = i18n("Share this screen with the requesting application?");
@@ -202,9 +205,8 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
             }
         }
     }
-
     // App only asked for windows
-    else if (types & ScreenCastPortal::Window) {
+    else if (types == ScreenCastPortal::Window) {
         if (numberOfWindows == 1) {
             if (appName.isEmpty()) {
                 mainText = i18n("Share this window with the requesting application?");
@@ -225,6 +227,21 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
                     mainText = i18n("Choose which window to share with %1:", applicationName);
                 }
             }
+        }
+    }
+    else if (types == ScreenCastPortal::Virtual) {
+        if (appName.isEmpty()) {
+            mainText = i18n("Create a new virtual display to share with the requesting application:");
+        } else {
+            mainText = i18n("Create a new virtual display to share with %1:", applicationName);
+        }
+    }
+    // Any other combination
+    else {
+        if (appName.isEmpty()) {
+            mainText = i18n("Choose what to share with the requesting application:");
+        } else {
+            mainText = i18n("Choose what to share with %1:", applicationName);
         }
     }
     props.insert(u"mainText"_s, mainText);
