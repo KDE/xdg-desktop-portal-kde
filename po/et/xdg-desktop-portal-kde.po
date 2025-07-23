@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-28 00:44+0000\n"
+"POT-Creation-Date: 2025-07-23 00:45+0000\n"
 "PO-Revision-Date: 2020-10-11 01:46+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -391,22 +391,22 @@ msgstr ""
 msgid "Select"
 msgstr "Kataloogi valimine"
 
-#: src/outputsmodel.cpp:23
-#, kde-format
-msgid "Full Workspace"
-msgstr ""
-
-#: src/outputsmodel.cpp:27
+#: src/outputsmodel.cpp:21
 #, kde-format
 msgid "New Virtual Output"
 msgstr ""
 
-#: src/outputsmodel.cpp:31
+#: src/outputsmodel.cpp:25
 #, kde-format
 msgid "Rectangular Region"
 msgstr ""
 
-#: src/outputsmodel.cpp:71
+#: src/outputsmodel.cpp:36
+#, kde-format
+msgid "Full Workspace"
+msgstr ""
+
+#: src/outputsmodel.cpp:76
 #, fuzzy, kde-format
 #| msgid ""
 #| "Laptop screen\n"
@@ -536,87 +536,99 @@ msgstr ""
 msgid "Screen Sharing"
 msgstr ""
 
-#: src/screenchooserdialog.cpp:175
-#, fuzzy, kde-format
-#| msgid "Select what to share with the requesting application"
-msgid "Choose what to share with the requesting application:"
-msgstr "Valimine, mida nõutud rakendusega jagada"
-
-#: src/screenchooserdialog.cpp:177
-#, fuzzy, kde-format
-#| msgid "Select what to share with %1"
-msgid "Choose what to share with %1:"
-msgstr "Valimine, mida rakendusega %1 jagada"
-
-#: src/screenchooserdialog.cpp:185
+#: src/screenchooserdialog.cpp:188
 #, fuzzy, kde-format
 #| msgid "Select screen to share with the requesting application"
 msgid "Share this screen with the requesting application?"
 msgstr "Ekraani valimine jagamiseks nõutud rakendusega"
 
-#: src/screenchooserdialog.cpp:187
+#: src/screenchooserdialog.cpp:190
 #, fuzzy, kde-format
 #| msgid "Select screen to share with %1"
 msgid "Share this screen with %1?"
 msgstr "Ekraani valimine rakendusega %1 jagamiseks"
 
-#: src/screenchooserdialog.cpp:192
+#: src/screenchooserdialog.cpp:195
 #, fuzzy, kde-format
 #| msgid "Select screen to share with the requesting application"
 msgid "Choose screens to share with the requesting application:"
 msgstr "Ekraani valimine jagamiseks nõutud rakendusega"
 
-#: src/screenchooserdialog.cpp:194
+#: src/screenchooserdialog.cpp:197
 #, fuzzy, kde-format
 #| msgid "Select screen to share with %1"
 msgid "Choose screens to share with %1:"
 msgstr "Ekraani valimine rakendusega %1 jagamiseks"
 
-#: src/screenchooserdialog.cpp:198
+#: src/screenchooserdialog.cpp:201
 #, fuzzy, kde-format
 #| msgid "Select screen to share with the requesting application"
 msgid "Choose which screen to share with the requesting application:"
 msgstr "Ekraani valimine jagamiseks nõutud rakendusega"
 
-#: src/screenchooserdialog.cpp:200
+#: src/screenchooserdialog.cpp:203
 #, fuzzy, kde-format
 #| msgid "Select screen to share with %1"
 msgid "Choose which screen to share with %1:"
 msgstr "Ekraani valimine rakendusega %1 jagamiseks"
 
-#: src/screenchooserdialog.cpp:210
+#: src/screenchooserdialog.cpp:212
 #, fuzzy, kde-format
 #| msgid "Select what to share with the requesting application"
 msgid "Share this window with the requesting application?"
 msgstr "Valimine, mida nõutud rakendusega jagada"
 
-#: src/screenchooserdialog.cpp:212
+#: src/screenchooserdialog.cpp:214
 #, kde-format
 msgid "Share this window with %1?"
 msgstr ""
 
-#: src/screenchooserdialog.cpp:217
+#: src/screenchooserdialog.cpp:219
 #, fuzzy, kde-format
 #| msgid "Select what to share with the requesting application"
 msgid "Choose windows to share with the requesting application:"
 msgstr "Valimine, mida nõutud rakendusega jagada"
 
-#: src/screenchooserdialog.cpp:219
+#: src/screenchooserdialog.cpp:221
 #, fuzzy, kde-format
 #| msgid "Select what to share with %1"
 msgid "Choose windows to share with %1:"
 msgstr "Valimine, mida rakendusega %1 jagada"
 
-#: src/screenchooserdialog.cpp:223
+#: src/screenchooserdialog.cpp:225
 #, fuzzy, kde-format
 #| msgid "Select what to share with the requesting application"
 msgid "Choose which window to share with the requesting application:"
 msgstr "Valimine, mida nõutud rakendusega jagada"
 
-#: src/screenchooserdialog.cpp:225
+#: src/screenchooserdialog.cpp:227
 #, fuzzy, kde-format
 #| msgid "Select what to share with %1"
 msgid "Choose which window to share with %1:"
+msgstr "Valimine, mida rakendusega %1 jagada"
+
+#: src/screenchooserdialog.cpp:234
+#, fuzzy, kde-format
+#| msgid "Select what to share with the requesting application"
+msgid "Create a new virtual display to share with the requesting application:"
+msgstr "Valimine, mida nõutud rakendusega jagada"
+
+#: src/screenchooserdialog.cpp:236
+#, fuzzy, kde-format
+#| msgid "Select what to share with %1"
+msgid "Create a new virtual display to share with %1:"
+msgstr "Valimine, mida rakendusega %1 jagada"
+
+#: src/screenchooserdialog.cpp:242
+#, fuzzy, kde-format
+#| msgid "Select what to share with the requesting application"
+msgid "Choose what to share with the requesting application:"
+msgstr "Valimine, mida nõutud rakendusega jagada"
+
+#: src/screenchooserdialog.cpp:244
+#, fuzzy, kde-format
+#| msgid "Select what to share with %1"
+msgid "Choose what to share with %1:"
 msgstr "Valimine, mida rakendusega %1 jagada"
 
 #: src/ScreenChooserDialog.qml:39

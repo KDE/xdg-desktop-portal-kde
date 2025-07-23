@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-28 00:44+0000\n"
+"POT-Creation-Date: 2025-07-23 00:45+0000\n"
 "PO-Revision-Date: 2025-02-28 11:01-0600\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -387,22 +387,22 @@ msgstr "ਲੁਕਵੀਆਂ ਫਾਇਲਾਂ ਨੂੰ ਵੇਖਾਓ"
 msgid "Select"
 msgstr "ਚੁਣੋ"
 
-#: src/outputsmodel.cpp:23
-#, kde-format
-msgid "Full Workspace"
-msgstr "ਪੂਰਾ ਵਰਕਸਪੇਸ"
-
-#: src/outputsmodel.cpp:27
+#: src/outputsmodel.cpp:21
 #, kde-format
 msgid "New Virtual Output"
 msgstr "ਨਵਾਂ ਵਰਚੁਅਲ ਆਉਟਪੁੱਟ"
 
-#: src/outputsmodel.cpp:31
+#: src/outputsmodel.cpp:25
 #, kde-format
 msgid "Rectangular Region"
 msgstr "ਆਇਤਾਕਾਰ ਖੇਤਰ"
 
-#: src/outputsmodel.cpp:71
+#: src/outputsmodel.cpp:36
+#, kde-format
+msgid "Full Workspace"
+msgstr "ਪੂਰਾ ਵਰਕਸਪੇਸ"
+
+#: src/outputsmodel.cpp:76
 #, kde-format
 msgid "Laptop screen"
 msgstr "ਲੈਪਟਾਪ ਦੀ ਸਕਰੀਨ"
@@ -527,75 +527,87 @@ msgstr "ਸ਼ੇਅਰ ਸਾਂਝਾ ਕਰਨਾ ਜਾਰੀ ਹੈ"
 msgid "Screen Sharing"
 msgstr "ਸਕਰੀਨ ਸਾਂਝਾ ਕਰਨਾ"
 
-#: src/screenchooserdialog.cpp:175
-#, kde-format
-msgid "Choose what to share with the requesting application:"
-msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੁਣੋ:"
-
-#: src/screenchooserdialog.cpp:177
-#, kde-format
-msgid "Choose what to share with %1:"
-msgstr "ਚੁਣੋ ਕਿ %1 ਨਾਲ ਕੀ ਸਾਂਝਾ ਕਰਨਾ ਹੈ:"
-
-#: src/screenchooserdialog.cpp:185
+#: src/screenchooserdialog.cpp:188
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਇਹ ਸਕਰੀਨ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
 
-#: src/screenchooserdialog.cpp:187
+#: src/screenchooserdialog.cpp:190
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "ਇਹ ਸਕਰੀਨ %1 ਨਾਲ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
 
-#: src/screenchooserdialog.cpp:192
+#: src/screenchooserdialog.cpp:195
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ:"
 
-#: src/screenchooserdialog.cpp:194
+#: src/screenchooserdialog.cpp:197
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "%1 ਨਾਲ ਸਾਂਝੀ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ:"
 
-#: src/screenchooserdialog.cpp:198
+#: src/screenchooserdialog.cpp:201
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਸਕਰੀਨ ਚੁਣੋ:"
 
-#: src/screenchooserdialog.cpp:200
+#: src/screenchooserdialog.cpp:203
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "%1 ਨਾਲ ਸਾਂਝੀ ਕਰਨ ਲਈ ਸਕਰੀਨ ਨੂੰ ਚੁਣੋ:"
 
-#: src/screenchooserdialog.cpp:210
+#: src/screenchooserdialog.cpp:212
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਇਹ ਵਿੰਡੋ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
 
-#: src/screenchooserdialog.cpp:212
+#: src/screenchooserdialog.cpp:214
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "ਇਹ ਵਿੰਡੋ %1 ਨਾਲ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
 
-#: src/screenchooserdialog.cpp:217
+#: src/screenchooserdialog.cpp:219
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਵਿੰਡੋਆਂ ਚੁਣੋ:"
 
-#: src/screenchooserdialog.cpp:219
+#: src/screenchooserdialog.cpp:221
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "%1 ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਵਿੰਡੋਆਂ ਚੁਣੋ:"
 
-#: src/screenchooserdialog.cpp:223
+#: src/screenchooserdialog.cpp:225
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਵਿੰਡੋ ਦੀ ਚੋਣ ਕਰੋ:"
 
-#: src/screenchooserdialog.cpp:225
+#: src/screenchooserdialog.cpp:227
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "%1 ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਵਿੰਡੋ ਚੁਣੋ:"
+
+#: src/screenchooserdialog.cpp:234
+#, fuzzy, kde-format
+#| msgid "Choose windows to share with the requesting application:"
+msgid "Create a new virtual display to share with the requesting application:"
+msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਵਿੰਡੋਆਂ ਚੁਣੋ:"
+
+#: src/screenchooserdialog.cpp:236
+#, fuzzy, kde-format
+#| msgid "Choose windows to share with %1:"
+msgid "Create a new virtual display to share with %1:"
+msgstr "%1 ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਵਿੰਡੋਆਂ ਚੁਣੋ:"
+
+#: src/screenchooserdialog.cpp:242
+#, kde-format
+msgid "Choose what to share with the requesting application:"
+msgstr "ਮੰਗ ਕੀਤੀ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਨਾਲ ਸਾਂਝਾ ਕਰਨ ਲਈ ਚੁਣੋ:"
+
+#: src/screenchooserdialog.cpp:244
+#, kde-format
+msgid "Choose what to share with %1:"
+msgstr "ਚੁਣੋ ਕਿ %1 ਨਾਲ ਕੀ ਸਾਂਝਾ ਕਰਨਾ ਹੈ:"
 
 #: src/ScreenChooserDialog.qml:39
 #, kde-format

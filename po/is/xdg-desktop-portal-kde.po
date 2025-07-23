@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-28 00:44+0000\n"
+"POT-Creation-Date: 2025-07-23 00:45+0000\n"
 "PO-Revision-Date: 2024-07-22 12:43+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -392,22 +392,22 @@ msgstr "Sýna faldar skrár"
 msgid "Select"
 msgstr "Velja"
 
-#: src/outputsmodel.cpp:23
-#, kde-format
-msgid "Full Workspace"
-msgstr "Allt vinnusvæðið"
-
-#: src/outputsmodel.cpp:27
+#: src/outputsmodel.cpp:21
 #, kde-format
 msgid "New Virtual Output"
 msgstr "Nýtt sýndarúttak"
 
-#: src/outputsmodel.cpp:31
+#: src/outputsmodel.cpp:25
 #, kde-format
 msgid "Rectangular Region"
 msgstr "Ferhyrnt svæði"
 
-#: src/outputsmodel.cpp:71
+#: src/outputsmodel.cpp:36
+#, kde-format
+msgid "Full Workspace"
+msgstr "Allt vinnusvæðið"
+
+#: src/outputsmodel.cpp:76
 #, kde-format
 msgid "Laptop screen"
 msgstr "Fartölvuskjár"
@@ -534,75 +534,87 @@ msgstr "Samnýting á skjá í gangi"
 msgid "Screen Sharing"
 msgstr "Samnýting á skjá"
 
-#: src/screenchooserdialog.cpp:175
-#, kde-format
-msgid "Choose what to share with the requesting application:"
-msgstr "Velja hvað á að samnýta með forritinu sem sendir beiðnina:"
-
-#: src/screenchooserdialog.cpp:177
-#, kde-format
-msgid "Choose what to share with %1:"
-msgstr "Velja hvað á að samnýta með %1:"
-
-#: src/screenchooserdialog.cpp:185
+#: src/screenchooserdialog.cpp:188
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "Samnýta þennan skjá með forritinu sem sendir beiðnina?"
 
-#: src/screenchooserdialog.cpp:187
+#: src/screenchooserdialog.cpp:190
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "Samnýta þennan skjá með %1?"
 
-#: src/screenchooserdialog.cpp:192
+#: src/screenchooserdialog.cpp:195
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "Veldu skjá til að samnýta með forritinu sem sendir beiðnina:"
 
-#: src/screenchooserdialog.cpp:194
+#: src/screenchooserdialog.cpp:197
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "Veldu hvaða skjái eigi að samnýta með %1:"
 
-#: src/screenchooserdialog.cpp:198
+#: src/screenchooserdialog.cpp:201
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr "Veldu hvaða skjá á að samnýta með forritinu sem sendir beiðnina:"
 
-#: src/screenchooserdialog.cpp:200
+#: src/screenchooserdialog.cpp:203
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "Veldu hvaða skjá eigi að deila með %1:"
 
-#: src/screenchooserdialog.cpp:210
+#: src/screenchooserdialog.cpp:212
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "Samnýta þennan glugga með forritinu sem sendir beiðnina?"
 
-#: src/screenchooserdialog.cpp:212
+#: src/screenchooserdialog.cpp:214
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "Samnýta þennan glugga með %1?"
 
-#: src/screenchooserdialog.cpp:217
+#: src/screenchooserdialog.cpp:219
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "Veldu glugga til að samnýta með forritinu sem sendir beiðnina:"
 
-#: src/screenchooserdialog.cpp:219
+#: src/screenchooserdialog.cpp:221
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "Veldu glugga til að samnýta með %1:"
 
-#: src/screenchooserdialog.cpp:223
+#: src/screenchooserdialog.cpp:225
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr "Veldu hvaða glugga á að samnýta með forritinu sem sendir beiðnina:"
 
-#: src/screenchooserdialog.cpp:225
+#: src/screenchooserdialog.cpp:227
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "Veldu hvaða glugga á að samnýta með %1:"
+
+#: src/screenchooserdialog.cpp:234
+#, fuzzy, kde-format
+#| msgid "Choose windows to share with the requesting application:"
+msgid "Create a new virtual display to share with the requesting application:"
+msgstr "Veldu glugga til að samnýta með forritinu sem sendir beiðnina:"
+
+#: src/screenchooserdialog.cpp:236
+#, fuzzy, kde-format
+#| msgid "Choose windows to share with %1:"
+msgid "Create a new virtual display to share with %1:"
+msgstr "Veldu glugga til að samnýta með %1:"
+
+#: src/screenchooserdialog.cpp:242
+#, kde-format
+msgid "Choose what to share with the requesting application:"
+msgstr "Velja hvað á að samnýta með forritinu sem sendir beiðnina:"
+
+#: src/screenchooserdialog.cpp:244
+#, kde-format
+msgid "Choose what to share with %1:"
+msgstr "Velja hvað á að samnýta með %1:"
 
 #: src/ScreenChooserDialog.qml:39
 #, kde-format
