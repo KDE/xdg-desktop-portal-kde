@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-23 00:45+0000\n"
-"PO-Revision-Date: 2025-06-11 16:39+0300\n"
+"PO-Revision-Date: 2025-07-23 16:06+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -601,16 +601,15 @@ msgid "Choose which window to share with %1:"
 msgstr "Виберіть вікно, яким слід поділитися з %1:"
 
 #: src/screenchooserdialog.cpp:234
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with the requesting application:"
+#, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
-msgstr "Виберіть вікна, якими слід поділитися з відповідною програмою:"
+msgstr ""
+"Створити віртуальний дисплей, якими слід поділитися з відповідною програмою:"
 
 #: src/screenchooserdialog.cpp:236
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with %1:"
+#, kde-format
 msgid "Create a new virtual display to share with %1:"
-msgstr "Виберіть вікна, якими слід поділитися з %1:"
+msgstr "Створити віртуальний дисплей, якими слід поділитися з %1:"
 
 #: src/screenchooserdialog.cpp:242
 #, kde-format

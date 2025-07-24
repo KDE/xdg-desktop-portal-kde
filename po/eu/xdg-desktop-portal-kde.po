@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-23 00:45+0000\n"
-"PO-Revision-Date: 2025-06-19 16:07+0200\n"
+"PO-Revision-Date: 2025-07-23 14:21+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -80,7 +80,7 @@ msgstr "Erakutsi instalatutako aplikazio guztiak"
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
-msgstr "Aukeratu beste..."
+msgstr "Aukeratu beste…"
 
 #: src/AppChooserDialog.qml:184
 #, kde-kuit-format
@@ -206,13 +206,13 @@ msgstr "Debekatu edonola ere"
 #, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
-msgstr "Gehitu web aplikazioa..."
+msgstr "Gehitu web aplikazioa…"
 
 #: src/dynamiclauncher.cpp:82
 #, kde-format
 msgctxt "@title"
 msgid "Add Application…"
-msgstr "Gehitu aplikazioa..."
+msgstr "Gehitu aplikazioa…"
 
 #: src/DynamicLauncherDialog.qml:71
 #, kde-format
@@ -224,7 +224,7 @@ msgstr "Izena"
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr "Editatu informazioa..."
+msgstr "Editatu informazioa…"
 
 #: src/DynamicLauncherDialog.qml:96
 #, kde-format
@@ -298,7 +298,7 @@ msgstr[1] "%2(e)k ondoko %1 lasterbideak erregistratu nahi ditu:"
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
-msgstr "Ikusi beste lasterbide batzuk..."
+msgstr "Ikusi beste lasterbide batzuk…"
 
 #: src/GlobalShortcutsDialog.qml:121
 #, kde-format
@@ -600,16 +600,16 @@ msgid "Choose which window to share with %1:"
 msgstr "Hautatu %1(r)(e)kin zein leiho partekatu:"
 
 #: src/screenchooserdialog.cpp:234
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with the requesting application:"
+#, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
-msgstr "Hautatu aplikazio eskatzailearekin partekatzeko leihoak:"
+msgstr ""
+"Sortu aplikazio eskatzailearekin partekatzeko alegiazko bistaratzaile berri "
+"bat:"
 
 #: src/screenchooserdialog.cpp:236
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with %1:"
+#, kde-format
 msgid "Create a new virtual display to share with %1:"
-msgstr "Hautatu %1(r)(e)kin partekatzeko leihoak:"
+msgstr "Sortu %1(e)rekin partekatzeko alegiazko bistaratzaile berri bat:"
 
 #: src/screenchooserdialog.cpp:242
 #, kde-format

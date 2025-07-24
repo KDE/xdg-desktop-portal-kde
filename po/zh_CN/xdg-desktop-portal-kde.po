@@ -583,16 +583,14 @@ msgid "Choose which window to share with %1:"
 msgstr "选择要与 %1 共享的窗口："
 
 #: src/screenchooserdialog.cpp:234
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with the requesting application:"
+#, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
-msgstr "选择要与发出请求的应用程序共享的窗口："
+msgstr ""
 
 #: src/screenchooserdialog.cpp:236
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with %1:"
+#, kde-format
 msgid "Create a new virtual display to share with %1:"
-msgstr "选择要与 %1 共享的窗口："
+msgstr ""
 
 #: src/screenchooserdialog.cpp:242
 #, kde-format

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-23 00:45+0000\n"
-"PO-Revision-Date: 2025-06-11 06:02+0200\n"
+"PO-Revision-Date: 2025-07-23 06:51+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -597,16 +597,15 @@ msgid "Choose which window to share with %1:"
 msgstr "Izberite, katero okno želite deliti s %1:"
 
 #: src/screenchooserdialog.cpp:234
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with the requesting application:"
+#, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
-msgstr "Izberite okna, ki jih želite deliti s programom, ki pošilja zahtevek:"
+msgstr ""
+"Ustvarite nov virtualni zaslon za skupno rabo z aplikacijo, ki ga zahteva:"
 
 #: src/screenchooserdialog.cpp:236
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with %1:"
+#, kde-format
 msgid "Create a new virtual display to share with %1:"
-msgstr "Izberite okna, ki jih želite deliti s %1:"
+msgstr "Ustvari nov virtualni zaslon za skupno rabo z %1:"
 
 #: src/screenchooserdialog.cpp:242
 #, kde-format
