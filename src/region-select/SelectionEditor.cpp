@@ -128,7 +128,7 @@ void SelectionEditor::showViews()
         view->create();
         view->setScreen(screen);
 
-        view->setSource(QUrl(QStringLiteral("qrc:/region-select/RegionSelectOverlay.qml")));
+        view->loadFromModule("org.kde.xdgdesktopportal", "RegionSelectOverlay");
         view->installEventFilter(this);
 
         view->setResizeMode(QQuickView::SizeRootObjectToView);
