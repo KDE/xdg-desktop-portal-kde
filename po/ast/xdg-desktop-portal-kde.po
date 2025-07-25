@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-23 00:45+0000\n"
+"POT-Creation-Date: 2025-07-25 00:44+0000\n"
 "PO-Revision-Date: 2023-11-11 21:18+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
@@ -448,7 +448,20 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr ""
 
-#: src/remotedesktop.cpp:275
+#: src/remotedesktop.cpp:180 src/screencast.cpp:221
+#, fuzzy, kde-format
+#| msgid "New Virtual Output"
+msgid "Virtual Output"
+msgstr "Salida virtual nueva"
+
+#: src/remotedesktop.cpp:181 src/screencast.cpp:222
+#, fuzzy, kde-format
+#| msgid "New Virtual Output"
+msgctxt "%1 is the application name"
+msgid "Virtual Output (shared with %1)"
+msgstr "Salida virtual nueva"
+
+#: src/remotedesktop.cpp:286
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -495,19 +508,6 @@ msgstr ""
 #, kde-format
 msgid "Share"
 msgstr ""
-
-#: src/screencast.cpp:221
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
-msgid "Virtual Output"
-msgstr "Salida virtual nueva"
-
-#: src/screencast.cpp:222
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
-msgctxt "%1 is the application name"
-msgid "Virtual Output (shared with %1)"
-msgstr "Salida virtual nueva"
 
 #: src/screencast.cpp:281
 #, kde-format

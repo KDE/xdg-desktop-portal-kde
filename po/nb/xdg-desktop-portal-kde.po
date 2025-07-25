@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-23 00:45+0000\n"
+"POT-Creation-Date: 2025-07-25 00:44+0000\n"
 "PO-Revision-Date: 2025-03-23 21:00+0100\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -459,7 +459,18 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Venstreklikk og dra"
 
-#: src/remotedesktop.cpp:275
+#: src/remotedesktop.cpp:180 src/screencast.cpp:221
+#, kde-format
+msgid "Virtual Output"
+msgstr "Virtuell utdata"
+
+#: src/remotedesktop.cpp:181 src/screencast.cpp:222
+#, kde-format
+msgctxt "%1 is the application name"
+msgid "Virtual Output (shared with %1)"
+msgstr "Virtuell utdata (delt med %1)"
+
+#: src/remotedesktop.cpp:286
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -510,17 +521,6 @@ msgstr "Tillat gjenoppretting ved fremtidige økter"
 #, kde-format
 msgid "Share"
 msgstr "Del"
-
-#: src/screencast.cpp:221
-#, kde-format
-msgid "Virtual Output"
-msgstr "Virtuell utdata"
-
-#: src/screencast.cpp:222
-#, kde-format
-msgctxt "%1 is the application name"
-msgid "Virtual Output (shared with %1)"
-msgstr "Virtuell utdata (delt med %1)"
 
 #: src/screencast.cpp:281
 #, kde-format

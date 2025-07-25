@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-23 00:45+0000\n"
-"PO-Revision-Date: 2025-07-14 16:31+0300\n"
+"POT-Creation-Date: 2025-07-25 00:44+0000\n"
+"PO-Revision-Date: 2025-07-24 09:45+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -455,7 +455,18 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "לחיצה שמאלית וגרירה"
 
-#: src/remotedesktop.cpp:275
+#: src/remotedesktop.cpp:180 src/screencast.cpp:221
+#, kde-format
+msgid "Virtual Output"
+msgstr "פלט וירטואלי"
+
+#: src/remotedesktop.cpp:181 src/screencast.cpp:222
+#, kde-format
+msgctxt "%1 is the application name"
+msgid "Virtual Output (shared with %1)"
+msgstr "פלט וירטואלי (משותף עם %1)"
+
+#: src/remotedesktop.cpp:286
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -502,17 +513,6 @@ msgstr "לאפשר שחזור בהפעלות עתידיות"
 #, kde-format
 msgid "Share"
 msgstr "שיתוף"
-
-#: src/screencast.cpp:221
-#, kde-format
-msgid "Virtual Output"
-msgstr "פלט וירטואלי"
-
-#: src/screencast.cpp:222
-#, kde-format
-msgctxt "%1 is the application name"
-msgid "Virtual Output (shared with %1)"
-msgstr "פלט וירטואלי (משותף עם %1)"
 
 #: src/screencast.cpp:281
 #, kde-format
@@ -586,16 +586,14 @@ msgid "Choose which window to share with %1:"
 msgstr "נא לבחור איזה חלון לשתף עם %1:"
 
 #: src/screenchooserdialog.cpp:234
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with the requesting application:"
+#, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
-msgstr "נא לבחור חלונות לשיתוף עם היישום שביקש:"
+msgstr "יצירת תצוגה וירטואלית חדשה לשיתוף עם היישום המבוקש:"
 
 #: src/screenchooserdialog.cpp:236
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with %1:"
+#, kde-format
 msgid "Create a new virtual display to share with %1:"
-msgstr "בחירת חלונות לשיתוף עם %1:"
+msgstr "יצירת תצוגה וירטואלית חדשה לשיתוף עם %1:"
 
 #: src/screenchooserdialog.cpp:242
 #, kde-format

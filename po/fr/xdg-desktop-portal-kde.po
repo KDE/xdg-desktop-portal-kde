@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-23 00:45+0000\n"
+"POT-Creation-Date: 2025-07-25 00:44+0000\n"
 "PO-Revision-Date: 2025-06-16 11:06+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -469,7 +469,18 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Clic gauche et glisser"
 
-#: src/remotedesktop.cpp:275
+#: src/remotedesktop.cpp:180 src/screencast.cpp:221
+#, kde-format
+msgid "Virtual Output"
+msgstr "Sortie virtuelle"
+
+#: src/remotedesktop.cpp:181 src/screencast.cpp:222
+#, kde-format
+msgctxt "%1 is the application name"
+msgid "Virtual Output (shared with %1)"
+msgstr "Sortie virtuelle (Partagée avec %1)"
+
+#: src/remotedesktop.cpp:286
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -516,17 +527,6 @@ msgstr "Autoriser la restauration pour de futures sessions"
 #, kde-format
 msgid "Share"
 msgstr "Partager"
-
-#: src/screencast.cpp:221
-#, kde-format
-msgid "Virtual Output"
-msgstr "Sortie virtuelle"
-
-#: src/screencast.cpp:222
-#, kde-format
-msgctxt "%1 is the application name"
-msgid "Virtual Output (shared with %1)"
-msgstr "Sortie virtuelle (Partagée avec %1)"
 
 #: src/screencast.cpp:281
 #, kde-format

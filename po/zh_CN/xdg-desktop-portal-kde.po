@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-23 00:45+0000\n"
+"POT-Creation-Date: 2025-07-25 00:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -452,7 +452,18 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "左键点击并拖动"
 
-#: src/remotedesktop.cpp:275
+#: src/remotedesktop.cpp:180 src/screencast.cpp:221
+#, kde-format
+msgid "Virtual Output"
+msgstr "虚拟输出"
+
+#: src/remotedesktop.cpp:181 src/screencast.cpp:222
+#, kde-format
+msgctxt "%1 is the application name"
+msgid "Virtual Output (shared with %1)"
+msgstr "虚拟输出 (与 %1 共享)"
+
+#: src/remotedesktop.cpp:286
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -499,17 +510,6 @@ msgstr "允许在未来会话中恢复"
 #, kde-format
 msgid "Share"
 msgstr "共享"
-
-#: src/screencast.cpp:221
-#, kde-format
-msgid "Virtual Output"
-msgstr "虚拟输出"
-
-#: src/screencast.cpp:222
-#, kde-format
-msgctxt "%1 is the application name"
-msgid "Virtual Output (shared with %1)"
-msgstr "虚拟输出 (与 %1 共享)"
 
 #: src/screencast.cpp:281
 #, kde-format
@@ -585,12 +585,12 @@ msgstr "选择要与 %1 共享的窗口："
 #: src/screenchooserdialog.cpp:234
 #, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
-msgstr ""
+msgstr "创建一个新的虚拟显示器以共享请求的应用程序："
 
 #: src/screenchooserdialog.cpp:236
 #, kde-format
 msgid "Create a new virtual display to share with %1:"
-msgstr ""
+msgstr "创建一个新的虚拟显示器来与 %1 共享："
 
 #: src/screenchooserdialog.cpp:242
 #, kde-format
