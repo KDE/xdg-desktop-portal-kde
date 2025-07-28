@@ -121,13 +121,20 @@ ScreencastingStream *Screencasting::createOutputStream(QScreen *screen, CursorMo
 
     stream->d->init(d->stream_output(output, mode));
     stream->d->m_geometry = screen->geometry();
+    connect(screen, &QScreen::geometryChanged, stream, [stream](const QRect &geometry) {
+        stream->d->m_geometry = geometry;
+    });
     return stream;
 }
 
-ScreencastingStream *Screencasting::createWindowStream(const QString &uuid, CursorMode mode)
+ScreencastingStream *Screencasting::createWindowStream(const KWayland::Client::PlasmaWindow *window, CursorMode mode)
 {
     auto stream = new ScreencastingStream(this);
-    stream->d->init(d->stream_window(uuid, mode));
+    stream->d->init(d->stream_window(QString::fromUtf8(window->uuid()), mode));
+    stream->d->m_geometry = window->geometry();
+    connect(window, &KWayland::Client::PlasmaWindow::geometryChanged, stream, [window, stream] {
+        stream->d->m_geometry = window->geometry();
+    });
     return stream;
 }
 
@@ -148,7 +155,15 @@ Screencasting::createVirtualOutputStream(const QString &name, const QString &des
     } else {
         stream->d->init(d->stream_virtual_output(name, s.width(), s.height(), wl_fixed_from_double(scale), mode));
     }
-    stream->d->m_geometry = QRect(QPoint(0, 0), s);
+    connect(qGuiApp, &QGuiApplication::screenAdded, stream, [stream, name](const QScreen *screen) {
+        // KWin adds "Virtual-" to virtual screen naems
+        if (screen->name() == QLatin1StringView("Virtual-") + name) {
+            stream->d->m_geometry = screen->geometry();
+            connect(screen, &QScreen::geometryChanged, stream, [stream](const QRect &geometry) {
+                stream->d->m_geometry = geometry;
+            });
+        }
+    });
     return stream;
 }
 
