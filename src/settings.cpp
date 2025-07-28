@@ -10,12 +10,14 @@
 #include "settings.h"
 #include "settings_debug.h"
 
+#include <QAccessibilityHints>
 #include <QApplication>
 #include <QDBusConnection>
 #include <QDBusContext>
 #include <QDBusMessage>
 #include <QDBusMetaType>
 #include <QPalette>
+#include <QStyleHints>
 
 #include <KConfigGroup>
 
@@ -210,6 +212,7 @@ class FdoAppearanceSettings : public SettingsModule
     Q_OBJECT
     static constexpr auto colorScheme = "color-scheme"_L1;
     static constexpr auto accentColor = "accent-color"_L1;
+    static constexpr auto contrast = "contrast"_L1;
 
 public:
     explicit FdoAppearanceSettings(QObject *parent = nullptr)
@@ -231,6 +234,7 @@ public:
         QVariantMap appearanceSettings;
         appearanceSettings.insert(colorScheme, readFdoColorScheme().variant());
         appearanceSettings.insert(accentColor, readAccentColor().variant());
+        appearanceSettings.insert(contrast, readContrast().variant());
         result.insert(group(), appearanceSettings);
         return result;
     }
@@ -244,6 +248,8 @@ public:
             return readFdoColorScheme().variant();
         } else if (key == accentColor) {
             return readAccentColor().variant();
+        } else if (key == contrast) {
+            return readContrast().variant();
         }
         return {};
     }
@@ -274,6 +280,17 @@ private:
     {
         const QColor accentColor = qGuiApp->palette().highlight().color();
         return QDBusVariant(AccentColorArray{accentColor.redF(), accentColor.greenF(), accentColor.blueF()});
+    }
+
+    QDBusVariant readContrast()
+    {
+        uint result = 0; // no preference
+
+        if (qApp->styleHints()->accessibility()->contrastPreference() == Qt::ContrastPreference::HighContrast) {
+            result = 1;
+        }
+
+        return QDBusVariant(result);
     }
 
 private Q_SLOTS:
