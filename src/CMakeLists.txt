@@ -279,7 +279,7 @@ ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeWallpaper"
     CATEGORY_NAME "xdp-kde-wallpaper"
     HEADER wallpaper_debug.h
-    DESCRIPTION "XDG Desktop Portal KDE Clipboard"
+    DESCRIPTION "XDG Desktop Portal KDE Wallpaper"
     EXPORT XDPKDE
 )
 
