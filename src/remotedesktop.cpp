@@ -179,10 +179,12 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
             const QString outputName = session->appId().isEmpty()
                 ? i18n("Virtual Output")
                 : i18nc("%1 is the application name", "Virtual Output (shared with %1)", Utils::applicationName(session->appId()));
-            auto stream = WaylandIntegration::startStreamingVirtual(OutputsModel::virtualScreenIdForApp(session->appId()), outputName, {1920, 1080}, Screencasting::Metadata);
+            const QString screenId = OutputsModel::virtualScreenIdForApp(session->appId());
+            auto stream = WaylandIntegration::startStreamingVirtual(screenId, outputName, {1920, 1080}, Screencasting::Metadata);
             if (!stream.isValid()) {
                 return {PortalResponse::OtherError, {}};
             }
+            stream.map.insert("mapping_id"_L1, QVariant("Virtual-"_L1 + screenId));
             streams << stream;
         } else {
             const auto screens = qGuiApp->screens();
@@ -192,6 +194,7 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
                     if (!stream.isValid()) {
                         return {PortalResponse::OtherError, {}};
                     }
+                    stream.map.insert(u"mapping_id"_s, screen->name());
                     streams << stream;
                 }
             } else {
