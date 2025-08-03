@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-25 00:44+0000\n"
-"PO-Revision-Date: 2025-07-24 09:45+0300\n"
+"PO-Revision-Date: 2025-08-02 20:58+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -261,7 +261,7 @@ msgstr "קיצור המקשים מוקצה למספר פעולות (<interface>%
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr "התבקשו קיצורי מקשים כלליים"
+msgstr "התבקשו קיצורי מקשים מקיפים"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
