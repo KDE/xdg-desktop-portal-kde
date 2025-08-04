@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-25 00:44+0000\n"
-"PO-Revision-Date: 2025-06-11 16:54+0200\n"
+"PO-Revision-Date: 2025-07-23 14:05+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -594,16 +594,15 @@ msgid "Choose which window to share with %1:"
 msgstr "Scegli quale finestra condividere con %1:"
 
 #: src/screenchooserdialog.cpp:234
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with the requesting application:"
+#, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
-msgstr "Scegli le finestre da condividere con l'applicazione richiedente:"
+msgstr ""
+"Crea un nuovo schermo virtuale da condividere con l'applicazione richiedente:"
 
 #: src/screenchooserdialog.cpp:236
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with %1:"
+#, kde-format
 msgid "Create a new virtual display to share with %1:"
-msgstr "Scegli le finestre da condividere con %1:"
+msgstr "Crea un nuovo schermo virtuale da condividere con %1:"
 
 #: src/screenchooserdialog.cpp:242
 #, kde-format

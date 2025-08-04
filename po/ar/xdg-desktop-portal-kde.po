@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-25 00:44+0000\n"
-"PO-Revision-Date: 2025-06-12 12:29+0400\n"
+"PO-Revision-Date: 2025-08-03 08:06+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -424,7 +424,7 @@ msgstr "ابدأ البث:"
 #: src/region-select/RegionSelectOverlay.qml:151
 #, kde-format
 msgid "Clear selection:"
-msgstr "امسح التحديد:"
+msgstr "امحُ التحديد:"
 
 #: src/region-select/RegionSelectOverlay.qml:155
 #: src/region-select/RegionSelectOverlay.qml:199
@@ -593,16 +593,14 @@ msgid "Choose which window to share with %1:"
 msgstr "اختر أي نافذة لمشاركتها مع %1:"
 
 #: src/screenchooserdialog.cpp:234
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with the requesting application:"
+#, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
-msgstr "اختر النوافذ لتشاركها مع التطبيق  الذي يطلبها:"
+msgstr "أنشئ شاشة عرض افتراضية جديدة لمشاركتها مع التطبيق الذي يطلبها:"
 
 #: src/screenchooserdialog.cpp:236
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with %1:"
+#, kde-format
 msgid "Create a new virtual display to share with %1:"
-msgstr "اختر النوافذ لتشاركها مع %1:"
+msgstr "أنشئ شاشة عرض افتراضية جديدة لمشاركتها مع %1:"
 
 #: src/screenchooserdialog.cpp:242
 #, kde-format
