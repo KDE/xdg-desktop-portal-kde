@@ -24,7 +24,9 @@ Dependencies:
       'frameworks/kirigami': '@latest-kf6'
       'frameworks/kstatusnotifieritem': '@latest-kf6'
       'frameworks/kcrash': '@latest-kf6'
+      'frameworks/kdeclarative': '@latest-kf6'
       'plasma/kwayland': '@same'
+      'plasma/plasma-workspace': '@same'
       'third-party/wayland': '@latest'
       'third-party/wayland-protocols': '@latest'
 
