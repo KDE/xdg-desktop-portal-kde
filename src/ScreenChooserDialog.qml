@@ -75,7 +75,7 @@ PWD.SystemDialog {
                             id: outputsView
                             model: null
                             PipeWireDelegate {
-                                id: delegate
+                                id: outputDelegate
 
                                 required property int index
                                 required property var model
@@ -93,7 +93,7 @@ PWD.SystemDialog {
                                 }
                                 checkable: root.multiple
                                 checked: model.checked === Qt.Checked
-                                nodeId: waylandItem.nodeId
+                                nodeId: outputWaylandItem.nodeId
 
                                 activeFocusOnTab: true
                                 highlighted: activeFocus
@@ -101,8 +101,8 @@ PWD.SystemDialog {
                                 Accessible.role: root.multiple ? Accessible.CheckBox : Accessible.Button
 
                                 TaskManager.ScreencastingRequest {
-                                    id: waylandItem
-                                    outputName: delegate.model.name
+                                    id: outputWaylandItem
+                                    outputName: outputDelegate.model.name
                                 }
 
                                 // Only active if this is a multi-select dialog
@@ -143,7 +143,7 @@ PWD.SystemDialog {
                             id: windowsView
                             model: null
                             PipeWireDelegate {
-                                id: delegate
+                                id: windowDelegate
 
                                 required property int index
                                 required property var model
@@ -161,7 +161,7 @@ PWD.SystemDialog {
                                 }
                                 checkable: root.multiple
                                 checked: model.checked === Qt.Checked
-                                nodeId: waylandItem.nodeId
+                                nodeId: windowWaylandItem.nodeId
 
                                 activeFocusOnTab: true
                                 highlighted: activeFocus
@@ -169,8 +169,8 @@ PWD.SystemDialog {
                                 Accessible.role: root.multiple ? Accessible.CheckBox : Accessible.Button
 
                                 TaskManager.ScreencastingRequest {
-                                    id: waylandItem
-                                    uuid: delegate.model.Uuid
+                                    id: windowWaylandItem
+                                    uuid: windowDelegate.model.Uuid
                                 }
 
                                 // Only active if this is a multi-select dialog
