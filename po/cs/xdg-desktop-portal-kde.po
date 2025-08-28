@@ -474,14 +474,10 @@ msgid "Remote control requested"
 msgstr ""
 
 #: src/remotedesktopdialog.cpp:41
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Unordered list with privileges granted to an external process, included "
-#| "the app's name"
-#| msgid "%1 requested access to remotely control:\n"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to remotely control:\n"
-msgstr "%1 žádá o přístup k vzdálenému ovládání:\n"
+msgstr ""
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
