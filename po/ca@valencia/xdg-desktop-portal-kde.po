@@ -53,7 +53,7 @@ msgstr "Tria d'aplicació"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
-msgstr "Seleccioneu una aplicació per a obrir <filename>%1</filename>"
+msgstr "Trieu una aplicació per a obrir <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:31
 #, kde-format
@@ -182,7 +182,7 @@ msgstr "Obri"
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:100
 #, kde-format
 msgid "Select Folder"
-msgstr "Selecciona una carpeta"
+msgstr "Tria una carpeta"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:103
 #, kde-format
@@ -227,7 +227,7 @@ msgstr "Nom del fitxer"
 #: src/kirigami-filepicker/declarative/FilePicker.qml:116
 #, kde-format
 msgid "Select"
-msgstr "Selecciona"
+msgstr "Tria"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
 #, kde-format
@@ -335,12 +335,12 @@ msgstr "Compartiu la pantalla"
 #: src/screenchooserdialog.cpp:167
 #, kde-format
 msgid "Choose what to share with the requesting application:"
-msgstr "Seleccioneu què compartir amb l'aplicació sol·licitant:"
+msgstr "Trieu què compartir amb l'aplicació sol·licitant:"
 
 #: src/screenchooserdialog.cpp:169
 #, kde-format
 msgid "Choose what to share with %1:"
-msgstr "Seleccioneu què compartir amb %1:"
+msgstr "Trieu què compartir amb %1:"
 
 #: src/screenchooserdialog.cpp:177
 #, kde-format
@@ -356,24 +356,22 @@ msgstr "Voleu compartir esta pantalla amb %1?"
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr ""
-"Seleccioneu les pantalles que s'han de compartir amb l'aplicació "
-"sol·licitant:"
+"Trieu les pantalles que s'han de compartir amb l'aplicació sol·licitant:"
 
 #: src/screenchooserdialog.cpp:186
 #, kde-format
 msgid "Choose screens to share with %1:"
-msgstr "Seleccioneu les pantalles que s'han de compartir amb %1:"
+msgstr "Trieu les pantalles que s'han de compartir amb %1:"
 
 #: src/screenchooserdialog.cpp:190
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
-msgstr ""
-"Seleccioneu la pantalla que s'ha de compartir amb l'aplicació sol·licitant:"
+msgstr "Trieu la pantalla que s'ha de compartir amb l'aplicació sol·licitant:"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
 msgid "Choose which screen to share with %1:"
-msgstr "Seleccioneu la pantalla que s'ha de compartir amb %1:"
+msgstr "Trieu la pantalla que s'ha de compartir amb %1:"
 
 #: src/screenchooserdialog.cpp:202
 #, kde-format
@@ -389,24 +387,22 @@ msgstr "Voleu compartir esta finestra amb %1?"
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr ""
-"Seleccioneu les finestres que s'han de compartir amb l'aplicació "
-"sol·licitant:"
+"Trieu les finestres que s'han de compartir amb l'aplicació sol·licitant:"
 
 #: src/screenchooserdialog.cpp:211
 #, kde-format
 msgid "Choose windows to share with %1:"
-msgstr "Seleccioneu les finestres que s'han de compartir amb %1:"
+msgstr "Trieu les finestres que s'han de compartir amb %1:"
 
 #: src/screenchooserdialog.cpp:215
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
-msgstr ""
-"Seleccioneu la finestra que s'ha de compartir amb l'aplicació sol·licitant:"
+msgstr "Trieu la finestra que s'ha de compartir amb l'aplicació sol·licitant:"
 
 #: src/screenchooserdialog.cpp:217
 #, kde-format
 msgid "Choose which window to share with %1:"
-msgstr "Seleccioneu la finestra que s'ha de compartir amb %1:"
+msgstr "Trieu la finestra que s'ha de compartir amb %1:"
 
 #: src/ScreenChooserDialog.qml:36
 #, kde-format
