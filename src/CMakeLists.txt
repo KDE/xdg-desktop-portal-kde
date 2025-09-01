@@ -20,6 +20,7 @@ ecm_target_qml_sources(xdg-desktop-portal-kde
         PipeWireDelegate.qml
         InputCaptureDialog.qml
         GlobalShortcutsDialog.qml
+        WallpaperDialog.qml
         region-select/RegionSelectOverlay.qml
         region-select/FloatingTextBox.qml
         region-select/FloatingBackground.qml)
@@ -95,6 +96,7 @@ set(xdg_desktop_portal_kde_SRCS
     xdgshortcut.cpp xdgshortcut.h
     region-select/SelectionEditor.h
     region-select/SelectionEditor.cpp
+    wallpaper.cpp
 )
 
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
@@ -272,6 +274,13 @@ ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     CATEGORY_NAME "xdp-kde-clipboard"
     HEADER clipboard_debug.h
     DESCRIPTION "XDG Desktop Portal KDE Clipboard"
+    EXPORT XDPKDE
+)
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeWallpaper"
+    CATEGORY_NAME "xdp-kde-wallpaper"
+    HEADER wallpaper_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Wallpaper"
     EXPORT XDPKDE
 )
 

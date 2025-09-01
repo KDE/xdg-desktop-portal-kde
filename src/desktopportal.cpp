@@ -26,6 +26,7 @@
 #include "screencast.h"
 #include "screenshot.h"
 #include "settings.h"
+#include "wallpaper.h"
 #include "waylandintegration.h"
 
 DesktopPortal::DesktopPortal(QObject *parent)
@@ -51,6 +52,7 @@ DesktopPortal::DesktopPortal(QObject *parent)
         m_screenshot = new ScreenshotPortal(this);
         new InputCapturePortal(this);
         new ClipboardPortal(this);
+        new WallpaperPortal(this);
         WaylandIntegration::init();
     }
 }
