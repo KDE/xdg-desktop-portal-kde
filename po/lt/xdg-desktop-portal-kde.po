@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-24 02:36+0000\n"
-"PO-Revision-Date: 2024-12-06 00:43+0200\n"
+"PO-Revision-Date: 2025-09-01 22:25+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.6\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -82,19 +82,17 @@ msgid "Choose Other…"
 msgstr "Pasirinkti kitą…"
 
 #: src/AppChooserDialog.qml:181
-#, fuzzy, kde-kuit-format
-#| msgid "Default app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
-msgstr "Numatytoji programa šiam failo tipui"
+msgstr "%1<nl/><emphasis>Numatytoji programa šiam failo tipui</emphasis>"
 
 #: src/AppChooserDialog.qml:183
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Last used app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
-msgstr "Paskutinė naudota programa šiam failo tipui"
+msgstr ""
+"%1<nl/><emphasis>Paskutinė naudota programa šiam failo tipui</emphasis>"
 
 #: src/AppChooserDialog.qml:205
 #, kde-kuit-format
@@ -248,6 +246,9 @@ msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
 "<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
+"Spartusis klavišas jau yra priskirtas veiksmui <interface>%1</interface>, "
+"programoje <application>%2</application>. Iš naujo įveskite jį čia, norėdami "
+"tą veiksmą nustelbti."
 
 #: src/globalshortcuts.cpp:111
 #, kde-kuit-format
@@ -256,6 +257,8 @@ msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
 msgstr ""
+"Spartusis klavišas jau yra priskirtas standartiniam veiksmui <interface>%1</"
+"interface>."
 
 #: src/globalshortcuts.cpp:124
 #, kde-kuit-format
@@ -263,58 +266,59 @@ msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
 msgstr ""
+"Spartusis klavišas yra priskirtas keliems veiksmams (<interface>%1</"
+"interface>)"
 
 #: src/GlobalShortcutsDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "Užklausta visuotinių sparčiųjų klavišų"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following %1 shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Programa nori įregistruoti šį spartųjį klavišą:"
+msgstr[1] "Programa nori įregistruoti šiuos %1 sparčiuosius klavišus:"
+msgstr[2] "Programa nori įregistruoti šiuos %1 sparčiųjų klavišų:"
+msgstr[3] "Programa nori įregistruoti šį %1 spartųjį klavišą:"
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%2 nori įregistruoti šį spartųjį klavišą:"
+msgstr[1] "%2 nori įregistruoti šiuos %1 sparčiuosius klavišus:"
+msgstr[2] "%2 nori įregistruoti šiuos %1 sparčiųjų klavišų:"
+msgstr[3] "%2 nori įregistruoti šį %1 spartųjį klavišą:"
 
 #: src/GlobalShortcutsDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
-msgstr ""
+msgstr "Rodyti kitus sparčiuosius klavišus…"
 
 #: src/GlobalShortcutsDialog.qml:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "Rodyti kitus šios programos įregistruotus sparčiuosius klavišus"
 
 #: src/inputcapture.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "Paprašyta įvesties užvaldymo"
+msgstr "Pradėtas įvesties užvaldymas"
 
 #: src/inputcapture.cpp:116
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr ""
+"Įvestį valdo %1. Paspauskite <shortcut>%2</shortcut> norėdami išjungti."
 
 #: src/inputcapture.cpp:121
 #, kde-kuit-format
@@ -323,6 +327,7 @@ msgid ""
 "Input is being managed by an application. Press <shortcut>%1</shortcut> to "
 "disable."
 msgstr ""
+"Įvestį valdo programa. Paspauskite <shortcut>%1</shortcut> norėdami išjungti."
 
 #: src/InputCaptureDialog.qml:16
 #, kde-format
@@ -720,24 +725,22 @@ msgid ", "
 msgstr ", "
 
 #: src/userinfodialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Share Information"
+#, kde-format
 msgid "Share User Information with %1"
-msgstr "Bendrinti informaciją"
+msgstr "Bendrinti informaciją apie naudotoją su %1"
 
 #: src/userinfodialog.cpp:38
 #, kde-format
 msgid "%1 wants access to your user info."
-msgstr ""
+msgstr "%1 nori prieigos prie jūsų naudotojo informacijos."
 
 #: src/userinfodialog.cpp:40
 #, kde-format
 msgid "This app will be given access to your avatar and name."
-msgstr ""
+msgstr "Šiai programai bus suteikta prieiga prie jūsų avataro ir vardo."
 
 #: src/UserInfoDialog.qml:59
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Bendrinti"
