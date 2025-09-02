@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-25 00:44+0000\n"
+"POT-Creation-Date: 2025-09-02 00:45+0000\n"
 "PO-Revision-Date: 2025-05-12 16:50+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -745,6 +745,48 @@ msgstr "Iste app habera accesso a tu avatar e nomine."
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Comparti"
+
+#: src/WallpaperDialog.qml:21
+#, kde-format
+msgctxt "@title:window"
+msgid "Set Wallpaper"
+msgstr ""
+
+#: src/WallpaperDialog.qml:26
+#, kde-format
+msgctxt "the app is unknown"
+msgid "Allow an application to set the desktop background?"
+msgstr ""
+
+#: src/WallpaperDialog.qml:28
+#, kde-format
+msgctxt "the app is unknown"
+msgid "Allow an application to set the lock screen background?"
+msgstr ""
+
+#: src/WallpaperDialog.qml:30
+#, kde-format
+msgctxt "the app is unknown"
+msgid "Allow an application to set desktop and lock screen backgrounds?"
+msgstr ""
+
+#: src/WallpaperDialog.qml:35
+#, kde-format
+msgctxt "%1 is the application name"
+msgid "Allow %1 to set the desktop background?"
+msgstr ""
+
+#: src/WallpaperDialog.qml:37
+#, kde-format
+msgctxt "%1 is the application name"
+msgid "Allow %1 to set the lock screen background?"
+msgstr ""
+
+#: src/WallpaperDialog.qml:39
+#, kde-format
+msgctxt "%1 is the application name"
+msgid "Allow %1 to set desktop and lock screen backgrounds?"
+msgstr ""
 
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
