@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-02 00:45+0000\n"
-"PO-Revision-Date: 2025-07-24 09:57+0200\n"
+"PO-Revision-Date: 2025-09-03 16:50+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 25.07.80\n"
+"X-Generator: Lokalize 25.08.0\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -761,43 +761,49 @@ msgstr "Partager"
 #, kde-format
 msgctxt "@title:window"
 msgid "Set Wallpaper"
-msgstr ""
+msgstr "Définir le papier peint"
 
 #: src/WallpaperDialog.qml:26
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the desktop background?"
-msgstr ""
+msgstr "Autoriser une application à définir l'arrière-plan du bureau ?"
 
 #: src/WallpaperDialog.qml:28
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the lock screen background?"
 msgstr ""
+"Autoriser une application à définir l'arrière-plan de l'écran de "
+"verrouillage ?"
 
 #: src/WallpaperDialog.qml:30
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set desktop and lock screen backgrounds?"
 msgstr ""
+"Autoriser une application à définir les arrière-plans du bureau et de "
+"l'écran de verrouillage ?"
 
 #: src/WallpaperDialog.qml:35
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the desktop background?"
-msgstr ""
+msgstr "Autoriser %1 à définir l'arrière-plan du bureau ?"
 
 #: src/WallpaperDialog.qml:37
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the lock screen background?"
-msgstr ""
+msgstr "Autoriser %1 à définir l'arrière-plan de l'écran de verrouillage ?"
 
 #: src/WallpaperDialog.qml:39
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
 msgstr ""
+"Autoriser %1 à définir les arrière-plans du bureau et de l'écran de "
+"verrouillage ?"
 
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
