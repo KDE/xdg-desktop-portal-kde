@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-02 00:45+0000\n"
-"PO-Revision-Date: 2025-08-08 01:44+0900\n"
+"PO-Revision-Date: 2025-09-05 17:13+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 25.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -734,43 +734,43 @@ msgstr "分享"
 #, kde-format
 msgctxt "@title:window"
 msgid "Set Wallpaper"
-msgstr ""
+msgstr "設定桌布"
 
 #: src/WallpaperDialog.qml:26
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the desktop background?"
-msgstr ""
+msgstr "要允許應用程式設定桌面背景嗎？"
 
 #: src/WallpaperDialog.qml:28
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the lock screen background?"
-msgstr ""
+msgstr "要允許應用程式設定鎖定螢幕背景嗎？"
 
 #: src/WallpaperDialog.qml:30
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set desktop and lock screen backgrounds?"
-msgstr ""
+msgstr "要允許應用程式設定桌面和鎖定螢幕的背景嗎？"
 
 #: src/WallpaperDialog.qml:35
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the desktop background?"
-msgstr ""
+msgstr "要允許 %1 設定桌面背景嗎？"
 
 #: src/WallpaperDialog.qml:37
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the lock screen background?"
-msgstr ""
+msgstr "要允許 %1 設定鎖定螢幕背景嗎？"
 
 #: src/WallpaperDialog.qml:39
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
-msgstr ""
+msgstr "要允許 %1 設定桌面和鎖定螢幕的背景嗎？"
 
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
