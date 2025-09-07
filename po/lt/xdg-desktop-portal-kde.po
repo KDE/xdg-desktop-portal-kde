@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-24 02:36+0000\n"
-"PO-Revision-Date: 2025-09-01 22:25+0300\n"
+"PO-Revision-Date: 2025-09-06 13:31+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -717,7 +717,7 @@ msgstr[3] "%1 vaizdo srautas į %2"
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
-msgstr "Ekrano bendrinimas"
+msgstr "Ekrano įrašinėjimas"
 
 #: src/session.cpp:501
 #, kde-format
@@ -748,7 +748,7 @@ msgstr "Bendrinti"
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
 msgid "Failed to start screencasting"
-msgstr "Nepavyko pradėti ekrano bendrinimo"
+msgstr "Nepavyko pradėti ekrano įrašo"
 
 #: src/waylandintegration.cpp:620
 #, kde-format
