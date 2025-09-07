@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-02 00:45+0000\n"
-"PO-Revision-Date: 2025-07-28 18:21+0200\n"
+"PO-Revision-Date: 2025-09-06 17:31+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -752,43 +752,46 @@ msgstr "Споделяне"
 #, kde-format
 msgctxt "@title:window"
 msgid "Set Wallpaper"
-msgstr ""
+msgstr "Задаване на тапет"
 
 #: src/WallpaperDialog.qml:26
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the desktop background?"
-msgstr ""
+msgstr "Да се разреши ли на приложението да задава фона на работния плот?"
 
 #: src/WallpaperDialog.qml:28
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the lock screen background?"
-msgstr ""
+msgstr "Да се разреши ли на приложението да задава фона на заключения екран?"
 
 #: src/WallpaperDialog.qml:30
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set desktop and lock screen backgrounds?"
 msgstr ""
+"Да се разреши ли на приложението да задава фона на работния плот и на "
+"заключения екран?"
 
 #: src/WallpaperDialog.qml:35
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the desktop background?"
-msgstr ""
+msgstr "Да се разреши ли на %1 да задава фона на работния плот?"
 
 #: src/WallpaperDialog.qml:37
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the lock screen background?"
-msgstr ""
+msgstr "Да се разреши ли на %1 да задава фона на заключения екран?"
 
 #: src/WallpaperDialog.qml:39
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
 msgstr ""
+"Да се разреши ли на %1 да задава фона на работния плот и на заключения екран?"
 
 #: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
 #, kde-format
