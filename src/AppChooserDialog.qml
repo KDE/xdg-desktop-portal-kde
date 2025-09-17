@@ -66,7 +66,7 @@ PWD.SystemDialog {
                     if (showingTerminalCommand) {
                         root.appChooserData.applicationSelected(searchField.text, root.remember)
                     } else {
-                        grid.currentItem.activate();
+                        grid.currentItem.click();
                     }
                 }
 
@@ -77,8 +77,8 @@ PWD.SystemDialog {
 
                 Keys.onDownPressed: {
                     grid.forceActiveFocus();
-                    grid.currentIndex = 0;
                 }
+
                 model: root.appChooserData.history
                 onModelChanged: {
                     editText = ""
@@ -154,8 +154,6 @@ PWD.SystemDialog {
 
                 Keys.onReturnPressed: currentItem.click();
                 Keys.onEnterPressed: currentItem.click();
-
-                currentIndex: -1 // Don't pre-select anything as that doesn't make sense here
 
                 cellWidth: {
                     const columns = Math.max(Math.floor(scrollView.availableWidth / gridDelegateWidth), 2);
