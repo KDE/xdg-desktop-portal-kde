@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-02 00:45+0000\n"
+"POT-Creation-Date: 2025-09-19 00:44+0000\n"
 "PO-Revision-Date: 2025-09-03 01:06+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -797,12 +797,12 @@ msgid "Allow %1 to set desktop and lock screen backgrounds?"
 msgstr ""
 "%1(e)ri mahaigainaren eta giltzapeko pantailaren atzeko planoa ezartzen utzi?"
 
-#: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
+#: src/waylandintegration.cpp:269 src/waylandintegration.cpp:326
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Huts egin du pantaila-grabatzea abiatzea"
 
-#: src/waylandintegration.cpp:620
+#: src/waylandintegration.cpp:477
 #, kde-format
 msgid "Remote desktop"
 msgstr "Urruneko mahaigaina"

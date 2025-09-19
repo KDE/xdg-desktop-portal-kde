@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-02 00:45+0000\n"
+"POT-Creation-Date: 2025-09-19 00:44+0000\n"
 "PO-Revision-Date: 2025-09-14 08:48-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -797,12 +797,12 @@ msgstr ""
 "Permitir que %1 defina planos de fundo da área de trabalho e da tela de "
 "bloqueio?"
 
-#: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
+#: src/waylandintegration.cpp:269 src/waylandintegration.cpp:326
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Não foi possível iniciar a transmissão de tela"
 
-#: src/waylandintegration.cpp:620
+#: src/waylandintegration.cpp:477
 #, kde-format
 msgid "Remote desktop"
 msgstr "Área de trabalho remota"
