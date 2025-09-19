@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-02 00:45+0000\n"
+"POT-Creation-Date: 2025-09-19 02:39+0000\n"
 "PO-Revision-Date: 2025-09-06 17:31+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -793,12 +793,12 @@ msgid "Allow %1 to set desktop and lock screen backgrounds?"
 msgstr ""
 "Да се разреши ли на %1 да задава фона на работния плот и на заключения екран?"
 
-#: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
+#: src/waylandintegration.cpp:269 src/waylandintegration.cpp:326
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Неуспешно стартиране на видеозапис на екрана"
 
-#: src/waylandintegration.cpp:620
+#: src/waylandintegration.cpp:477
 #, kde-format
 msgid "Remote desktop"
 msgstr "Отдалечен работен плот"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-02 00:45+0000\n"
+"POT-Creation-Date: 2025-09-19 02:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -14,9 +14,9 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/xdg-desktop-portal-kde/xdg-desktop-"
+"X-Crowdin-File: /kf6-stable/messages/xdg-desktop-portal-kde/xdg-desktop-"
 "portal-kde.pot\n"
-"X-Crowdin-File-ID: 43565\n"
+"X-Crowdin-File-ID: 52876\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -735,50 +735,50 @@ msgstr "共享"
 #, kde-format
 msgctxt "@title:window"
 msgid "Set Wallpaper"
-msgstr ""
+msgstr "设置壁纸"
 
 #: src/WallpaperDialog.qml:26
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the desktop background?"
-msgstr ""
+msgstr "允许应用程序设置桌面背景吗？"
 
 #: src/WallpaperDialog.qml:28
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the lock screen background?"
-msgstr ""
+msgstr "允许应用程序设置锁屏背景吗？"
 
 #: src/WallpaperDialog.qml:30
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set desktop and lock screen backgrounds?"
-msgstr ""
+msgstr "允许应用程序设置桌面和锁屏背景吗？"
 
 #: src/WallpaperDialog.qml:35
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the desktop background?"
-msgstr ""
+msgstr "允许 %1 设置桌面背景吗？"
 
 #: src/WallpaperDialog.qml:37
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the lock screen background?"
-msgstr ""
+msgstr "允许 %1 设置锁屏背景吗？"
 
 #: src/WallpaperDialog.qml:39
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
-msgstr ""
+msgstr "允许 %1 设置桌面和锁屏背景吗？"
 
-#: src/waylandintegration.cpp:277 src/waylandintegration.cpp:334
+#: src/waylandintegration.cpp:269 src/waylandintegration.cpp:326
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "启动屏幕录像失败"
 
-#: src/waylandintegration.cpp:620
+#: src/waylandintegration.cpp:477
 #, kde-format
 msgid "Remote desktop"
 msgstr "远程桌面"
