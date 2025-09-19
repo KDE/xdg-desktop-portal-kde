@@ -109,7 +109,7 @@ static QString decodeFileName(const QByteArray &name)
 FileDialog::FileDialog(QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)
     , m_fileWidget(new KFileWidget(QUrl(), this))
-    , m_configGroup(KSharedConfig::openConfig()->group(QStringLiteral("FileDialogSize")))
+    , m_configGroup(KSharedConfig::openStateConfig()->group(QStringLiteral("FileDialogSize")))
 {
     setLayout(new QVBoxLayout);
     layout()->setContentsMargins({});
@@ -126,6 +126,9 @@ FileDialog::FileDialog(QDialog *parent, Qt::WindowFlags flags)
     // reject
     connect(m_fileWidget->cancelButton(), &QAbstractButton::clicked, this, &QDialog::reject);
     connect(this, &QDialog::rejected, m_fileWidget, &KFileWidget::slotCancel);
+
+    KSharedConfig::Ptr oldConf = KSharedConfig::openConfig();
+    oldConf->group(u"FileDialogSize"_s).moveValuesTo(m_configGroup);
 
     // restore window size
     if (m_configGroup.exists()) {
