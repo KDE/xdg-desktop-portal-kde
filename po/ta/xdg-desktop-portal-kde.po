@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-19 02:39+0000\n"
+"POT-Creation-Date: 2025-09-21 02:41+0000\n"
 "PO-Revision-Date: 2025-01-26 18:06+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -233,7 +233,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "ரத்து செய்"
 
-#: src/filechooser.cpp:475
+#: src/filechooser.cpp:478
 #, kde-format
 msgid "Open"
 msgstr "திற"
