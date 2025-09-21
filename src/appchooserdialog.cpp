@@ -27,7 +27,6 @@
 #include <KApplicationTrader>
 #include <KIO/MimeTypeFinderJob>
 #include <KLocalizedString>
-#include <KProcess>
 #include <KSycoca>
 #include <KWaylandExtras>
 #include <KWindowSystem>

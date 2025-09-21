@@ -12,7 +12,6 @@
 #include "waylandintegration.h"
 
 #include <QDBusConnection>
-#include <QDBusContext>
 #include <QDBusMessage>
 #include <QDBusMetaType>
 

@@ -26,7 +26,6 @@
 #include <QVBoxLayout>
 #include <QWindow>
 
-#include <KFileFilter>
 #include <KFileFilterCombo>
 #include <KFileWidget>
 #include <KLocalizedString>

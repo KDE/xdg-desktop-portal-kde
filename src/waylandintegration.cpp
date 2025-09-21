@@ -21,7 +21,6 @@
 #include <QEventLoop>
 #include <QImage>
 #include <QMenu>
-#include <QScreen>
 #include <QThread>
 #include <QTimer>
 #include <QWaylandClientExtensionTemplate>
