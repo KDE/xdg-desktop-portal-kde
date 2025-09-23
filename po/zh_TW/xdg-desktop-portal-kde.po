@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-21 00:44+0000\n"
+"POT-Creation-Date: 2025-09-23 00:45+0000\n"
 "PO-Revision-Date: 2025-09-05 17:13+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -39,13 +39,13 @@ msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "%1 個檔案"
 
-#: src/appchooserdialog.cpp:44
+#: src/appchooserdialog.cpp:43
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "選擇應用程式"
 
-#: src/appchooserdialog.cpp:47
+#: src/appchooserdialog.cpp:46
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
@@ -139,12 +139,12 @@ msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr "沒看到正確的應用程式嗎？在 <link>Discover</link> 尋找更多應用程式。"
 
-#: src/background.cpp:133
+#: src/background.cpp:132
 #, kde-format
 msgid "Background Activity"
 msgstr "背景活動"
 
-#: src/background.cpp:136
+#: src/background.cpp:135
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -154,20 +154,20 @@ msgstr ""
 "%1 希望在沒有可見視窗的時候依然繼續執行。如果您拒絕這個請求，關閉它的最後一個"
 "視窗的時候便會使其停止執行。"
 
-#: src/background.cpp:142 src/background.cpp:159
+#: src/background.cpp:141 src/background.cpp:158
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "允許"
 
-#: src/background.cpp:149
+#: src/background.cpp:148
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "拒絕"
 
-#: src/background.cpp:153
+#: src/background.cpp:152
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -175,7 +175,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "背景應用程式利用"
 
-#: src/background.cpp:155
+#: src/background.cpp:154
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -186,7 +186,7 @@ msgstr ""
 "請注意，這會在關閉 %1 的最後一個視窗時強制停止它。若是當下它還有未儲存的變"
 "更，這便會造成資料遺失。"
 
-#: src/background.cpp:160
+#: src/background.cpp:159
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -229,7 +229,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/filechooser.cpp:478
+#: src/filechooser.cpp:477
 #, kde-format
 msgid "Open"
 msgstr "開啟"
@@ -772,12 +772,12 @@ msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
 msgstr "要允許 %1 設定桌面和鎖定螢幕的背景嗎？"
 
-#: src/waylandintegration.cpp:269 src/waylandintegration.cpp:326
+#: src/waylandintegration.cpp:268 src/waylandintegration.cpp:325
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "無法開始螢幕錄製"
 
-#: src/waylandintegration.cpp:477
+#: src/waylandintegration.cpp:476
 #, kde-format
 msgid "Remote desktop"
 msgstr "遠端桌面"

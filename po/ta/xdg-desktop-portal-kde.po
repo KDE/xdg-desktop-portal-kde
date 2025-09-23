@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-21 00:44+0000\n"
+"POT-Creation-Date: 2025-09-23 00:45+0000\n"
 "PO-Revision-Date: 2025-01-26 18:06+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -38,13 +38,13 @@ msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "%1 கோப்புகள்"
 
-#: src/appchooserdialog.cpp:44
+#: src/appchooserdialog.cpp:43
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "செயலியை தேர்வு செய்வது"
 
-#: src/appchooserdialog.cpp:47
+#: src/appchooserdialog.cpp:46
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
@@ -143,12 +143,12 @@ msgstr ""
 "நீங்கள் தேடும் செயலி கிடைக்கவில்லையா? <link>டிஸ்கவரில்</link> மேலும் செயலிகளை "
 "நிறுவலாம்."
 
-#: src/background.cpp:133
+#: src/background.cpp:132
 #, kde-format
 msgid "Background Activity"
 msgstr "பின்னணி செயல்பாட்டு"
 
-#: src/background.cpp:136
+#: src/background.cpp:135
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -158,20 +158,20 @@ msgstr ""
 "%1, அதன் சாளரங்கள் இல்லாதபோதும் செயல்பட விரும்புகிறது. இதை நீங்கள் மறுத்தால், கடைசி "
 "சாளரம் மூடப்படும்போது அச்செயலி மூடப்படும்."
 
-#: src/background.cpp:142 src/background.cpp:159
+#: src/background.cpp:141 src/background.cpp:158
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "அனுமதி"
 
-#: src/background.cpp:149
+#: src/background.cpp:148
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "மறு"
 
-#: src/background.cpp:153
+#: src/background.cpp:152
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -179,7 +179,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "பின்னணி செயல்பாட்டு"
 
-#: src/background.cpp:155
+#: src/background.cpp:154
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -190,7 +190,7 @@ msgstr ""
 "கடைசி சாளரம் மூடப்படும்போது %1 தனை வேளியேற இது கட்டாயப்படுத்தும். இது நடக்கும்போது "
 "சேமிக்கப்படா மாற்றங்கள் இருந்தால் தரவு இழப்பு நேரிடலாம்."
 
-#: src/background.cpp:160
+#: src/background.cpp:159
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -233,7 +233,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "ரத்து செய்"
 
-#: src/filechooser.cpp:478
+#: src/filechooser.cpp:477
 #, kde-format
 msgid "Open"
 msgstr "திற"
@@ -789,12 +789,12 @@ msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
 msgstr ""
 
-#: src/waylandintegration.cpp:269 src/waylandintegration.cpp:326
+#: src/waylandintegration.cpp:268 src/waylandintegration.cpp:325
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "திரைப்பகிர்வை தொடங்குதல் தோல்வியடைந்தது"
 
-#: src/waylandintegration.cpp:477
+#: src/waylandintegration.cpp:476
 #, kde-format
 msgid "Remote desktop"
 msgstr "பணிமேடை தொலையியக்கி"

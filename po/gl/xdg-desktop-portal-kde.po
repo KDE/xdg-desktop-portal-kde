@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-21 00:44+0000\n"
+"POT-Creation-Date: 2025-09-23 00:45+0000\n"
 "PO-Revision-Date: 2025-06-21 13:04+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -38,13 +38,13 @@ msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "%1 ficheiros"
 
-#: src/appchooserdialog.cpp:44
+#: src/appchooserdialog.cpp:43
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "Escoller unha aplicación"
 
-#: src/appchooserdialog.cpp:47
+#: src/appchooserdialog.cpp:46
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
@@ -143,12 +143,12 @@ msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr "Non atopa a aplicación axeitada? Atope máis en <link>Discover</link>."
 
-#: src/background.cpp:133
+#: src/background.cpp:132
 #, kde-format
 msgid "Background Activity"
 msgstr "Actividade en segundo plano"
 
-#: src/background.cpp:136
+#: src/background.cpp:135
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -158,20 +158,20 @@ msgstr ""
 "%1 quere seguir en execución cando non ten xanelas visíbeis. Se o impide, a "
 "aplicación pecharase cando se peche a última das súas xanelas."
 
-#: src/background.cpp:142 src/background.cpp:159
+#: src/background.cpp:141 src/background.cpp:158
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Permitir"
 
-#: src/background.cpp:149
+#: src/background.cpp:148
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "Impedir"
 
-#: src/background.cpp:153
+#: src/background.cpp:152
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -179,7 +179,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Uso da aplicación en segundo plano"
 
-#: src/background.cpp:155
+#: src/background.cpp:154
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -191,7 +191,7 @@ msgstr ""
 "xanela. Isto podería causar unha perda de datos se a aplicación ten algún "
 "cambio sen gardar cando suceda."
 
-#: src/background.cpp:160
+#: src/background.cpp:159
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -234,7 +234,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/filechooser.cpp:478
+#: src/filechooser.cpp:477
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
@@ -786,12 +786,12 @@ msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
 msgstr ""
 
-#: src/waylandintegration.cpp:269 src/waylandintegration.cpp:326
+#: src/waylandintegration.cpp:268 src/waylandintegration.cpp:325
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Non foi posíbel iniciar a retransmisión de pantalla"
 
-#: src/waylandintegration.cpp:477
+#: src/waylandintegration.cpp:476
 #, kde-format
 msgid "Remote desktop"
 msgstr "Escritorio remoto"

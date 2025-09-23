@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-21 00:44+0000\n"
+"POT-Creation-Date: 2025-09-23 00:45+0000\n"
 "PO-Revision-Date: 2023-04-07 23:28-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -38,13 +38,13 @@ msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "%1 ファイル"
 
-#: src/appchooserdialog.cpp:44
+#: src/appchooserdialog.cpp:43
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "アプリケーションを選択してください"
 
-#: src/appchooserdialog.cpp:47
+#: src/appchooserdialog.cpp:46
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
@@ -145,13 +145,13 @@ msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
 "適切なアプリケーションがない場合は、<link>Discover</link> で探してください。"
 
-#: src/background.cpp:133
+#: src/background.cpp:132
 #, fuzzy, kde-format
 #| msgid "Background activity"
 msgid "Background Activity"
 msgstr "バックグラウンドアクティビティ"
 
-#: src/background.cpp:136
+#: src/background.cpp:135
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -159,21 +159,21 @@ msgid ""
 "this, the application will quit when its last window is closed."
 msgstr ""
 
-#: src/background.cpp:142 src/background.cpp:159
+#: src/background.cpp:141 src/background.cpp:158
 #, fuzzy, kde-format
 #| msgid "Allow"
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "許可"
 
-#: src/background.cpp:149
+#: src/background.cpp:148
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr ""
 
-#: src/background.cpp:153
+#: src/background.cpp:152
 #, fuzzy, kde-format
 #| msgid "Background activity"
 msgctxt ""
@@ -182,7 +182,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "バックグラウンドアクティビティ"
 
-#: src/background.cpp:155
+#: src/background.cpp:154
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -191,7 +191,7 @@ msgid ""
 "happens."
 msgstr ""
 
-#: src/background.cpp:160
+#: src/background.cpp:159
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -234,7 +234,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/filechooser.cpp:478
+#: src/filechooser.cpp:477
 #, kde-format
 msgid "Open"
 msgstr "開く"
@@ -776,12 +776,12 @@ msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
 msgstr ""
 
-#: src/waylandintegration.cpp:269 src/waylandintegration.cpp:326
+#: src/waylandintegration.cpp:268 src/waylandintegration.cpp:325
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr ""
 
-#: src/waylandintegration.cpp:477
+#: src/waylandintegration.cpp:476
 #, kde-format
 msgid "Remote desktop"
 msgstr ""

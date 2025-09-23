@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-21 00:44+0000\n"
+"POT-Creation-Date: 2025-09-23 00:45+0000\n"
 "PO-Revision-Date: 2024-06-09 13:00+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -39,13 +39,13 @@ msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "%1 fișiere"
 
-#: src/appchooserdialog.cpp:44
+#: src/appchooserdialog.cpp:43
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "Alegere aplicație"
 
-#: src/appchooserdialog.cpp:47
+#: src/appchooserdialog.cpp:46
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
@@ -147,12 +147,12 @@ msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
 "Nu vedeți aplicația potrivită? Găsiți mai multe în <link>Discover</link>."
 
-#: src/background.cpp:133
+#: src/background.cpp:132
 #, kde-format
 msgid "Background Activity"
 msgstr "Activitate de fundal"
 
-#: src/background.cpp:136
+#: src/background.cpp:135
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -162,20 +162,20 @@ msgstr ""
 "%1 vrea să rămână rulând când nu are ferestre vizibile. Dacă interziceți "
 "aceasta, aplicația se va termina când i se închide ultima fereastră."
 
-#: src/background.cpp:142 src/background.cpp:159
+#: src/background.cpp:141 src/background.cpp:158
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Permite"
 
-#: src/background.cpp:149
+#: src/background.cpp:148
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "Interzice"
 
-#: src/background.cpp:153
+#: src/background.cpp:152
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -183,7 +183,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Utilizare aplicații în fundal"
 
-#: src/background.cpp:155
+#: src/background.cpp:154
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -195,7 +195,7 @@ msgstr ""
 "ferestre. Aceasta poate provoca pierderea datelor dacă aplicația are "
 "modificări nesalvate în acel moment."
 
-#: src/background.cpp:160
+#: src/background.cpp:159
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -238,7 +238,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Renunță"
 
-#: src/filechooser.cpp:478
+#: src/filechooser.cpp:477
 #, kde-format
 msgid "Open"
 msgstr "Deschide"
@@ -799,12 +799,12 @@ msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
 msgstr ""
 
-#: src/waylandintegration.cpp:269 src/waylandintegration.cpp:326
+#: src/waylandintegration.cpp:268 src/waylandintegration.cpp:325
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Pornirea difuzării ecranului a eșuat"
 
-#: src/waylandintegration.cpp:477
+#: src/waylandintegration.cpp:476
 #, kde-format
 msgid "Remote desktop"
 msgstr "Birou distant"

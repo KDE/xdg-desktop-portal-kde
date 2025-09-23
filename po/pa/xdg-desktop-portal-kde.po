@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-21 00:44+0000\n"
+"POT-Creation-Date: 2025-09-23 00:45+0000\n"
 "PO-Revision-Date: 2025-02-28 11:01-0600\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -38,13 +38,13 @@ msgctxt "count of files to open"
 msgid "%1 files"
 msgstr "%1 ਫਾਇਲਾਂ"
 
-#: src/appchooserdialog.cpp:44
+#: src/appchooserdialog.cpp:43
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
 msgstr "ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
 
-#: src/appchooserdialog.cpp:47
+#: src/appchooserdialog.cpp:46
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
@@ -141,12 +141,12 @@ msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr "ਸਹੀ ਐਪ ਨਹੀਂ ਦਿਸੀ ਹੈ? <link>ਡਿਸਕਵਰ</link> ਵਿੱਚ ਹੋਰ ਲੱਭੋ।"
 
-#: src/background.cpp:133
+#: src/background.cpp:132
 #, kde-format
 msgid "Background Activity"
 msgstr "ਬੈਕਗਰਾਊਂਡ ਸਰਗਰਮੀ"
 
-#: src/background.cpp:136
+#: src/background.cpp:135
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -156,20 +156,20 @@ msgstr ""
 "ਜਦੋਂ ਕੋਈ ਵੀ ਵਿੰਡੋ ਦਸਦੀ ਨਾ ਹੋਵੇ ਤਾਂ %1 ਚੱਲਦਾ ਰਹਿਣਾ ਚਾਹੁੰਦੀ ਹੈ। ਜੇ ਤੁਸੀਂ ਇਸ ਲਈ ਇਨਕਾਰ ਕੀਤਾ ਤਾਂ "
 "ਐਪਲੀਕੇਸ਼ਨ ਆਖਰੀ ਵਿੰਡੋ ਬੰਦ ਹੋਣ ਉੱਤੇ ਬੰਦ ਹੋ ਜਾਵੇਗੀ।"
 
-#: src/background.cpp:142 src/background.cpp:159
+#: src/background.cpp:141 src/background.cpp:158
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "ਮਨਜ਼ੂਰ"
 
-#: src/background.cpp:149
+#: src/background.cpp:148
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "ਇਨਕਾਰ"
 
-#: src/background.cpp:153
+#: src/background.cpp:152
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -177,7 +177,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "ਬੈਕਗਰਾਊਂਡ ਐਪ ਵਰਤੋਂ"
 
-#: src/background.cpp:155
+#: src/background.cpp:154
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -188,7 +188,7 @@ msgstr ""
 "ਯਾਦ ਰੱਖੋ ਕਿ ਇਸ ਨਾਲ ਆਖਰੀ ਵਿੰਡੋ ਬੰਦ ਹੋਣ ਉੱਤੇ %1 ਨੂੰ ਬੰਦ ਹੋਣ ਲਈ ਮਜ਼ਬੂਰ ਕੀਤਾ ਜਾਵੇਗਾ। ਇਸ ਨਾਲ ਜੇ "
 "ਐਪਲੀਕੇਸ਼ਨ ਵਿੱਚ ਕੋਈ ਵੀ ਨਾ ਸੰਭਾਲਿਆ ਡਾਟਾ ਹੋਇਆ ਤਾਂ ਉਹ ਗੁੰਮ ਹੋ ਜਾਵੇਗਾ।"
 
-#: src/background.cpp:160
+#: src/background.cpp:159
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -231,7 +231,7 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: src/filechooser.cpp:478
+#: src/filechooser.cpp:477
 #, kde-format
 msgid "Open"
 msgstr "ਖੋਲ੍ਹੋ"
@@ -784,12 +784,12 @@ msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
 msgstr ""
 
-#: src/waylandintegration.cpp:269 src/waylandintegration.cpp:326
+#: src/waylandintegration.cpp:268 src/waylandintegration.cpp:325
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "ਸਕਰੀਨ-ਕਾਸਟ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਅਸਫ਼ਲ"
 
-#: src/waylandintegration.cpp:477
+#: src/waylandintegration.cpp:476
 #, kde-format
 msgid "Remote desktop"
 msgstr "ਰਿਮੋਟ ਡੈਸਕਟਾਪ"
