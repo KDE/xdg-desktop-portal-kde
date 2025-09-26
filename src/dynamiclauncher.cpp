@@ -128,11 +128,13 @@ void DynamicLauncherPortal::PrepareInstall(const QDBusObjectPath &handle,
     Utils::setParentWindow(dialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequest(handle, dialog);
 
-    delayReply(message, dialog, this, [dialog, editableName, editableIcon, icon](DialogResult result) {
+    delayReply(message, dialog, this, [dialog, editableName, editableIcon, icon, name, iconVariant](DialogResult result) {
         QVariantMap results;
         if (result == DialogResult::Accepted) {
             if (editableName) {
                 results[nameKey] = dialog->m_name;
+            } else {
+                results[nameKey] = name;
             }
             if (editableIcon && dialog->m_icon != icon && dialog->m_icon.type() == QVariant::String) {
                 const auto data = iconFromName(dialog->m_icon.toString());
@@ -140,6 +142,8 @@ void DynamicLauncherPortal::PrepareInstall(const QDBusObjectPath &handle,
                     const PortalIcon portalIcon{QStringLiteral("bytes"), QDBusVariant(data)};
                     results[iconKey] = QVariant::fromValue(QDBusVariant(QVariant::fromValue(portalIcon)));
                 }
+            } else {
+                results[iconKey] = QVariant::fromValue(iconVariant);
             }
         }
         return QVariantList{PortalResponse::fromDialogResult(result), results};
