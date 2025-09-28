@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the xdg-desktop-portal-kde package.
-# Sergiu Bivol <sergiu@cip.md>, 2020, 2021, 2022, 2024.
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024, 2025 Sergiu Bivol <sergiu@cip.md>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-23 00:45+0000\n"
-"PO-Revision-Date: 2024-06-09 13:00+0100\n"
+"PO-Revision-Date: 2025-09-27 13:52+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -58,8 +58,7 @@ msgid "Find More in Discover"
 msgstr "Găsește mai multe în Discover"
 
 #: src/AppChooserDialog.qml:40
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Deschide"
@@ -68,7 +67,7 @@ msgstr "Deschide"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
-msgstr ""
+msgstr "Stabilește ca aplicație implicită pentru deschis fișiere %1"
 
 #: src/AppChooserDialog.qml:110
 #, kde-format
@@ -79,28 +78,28 @@ msgstr "Arată toate aplicațiile instalate"
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
-msgstr ""
+msgstr "Alege alta…"
 
 #: src/AppChooserDialog.qml:184
-#, fuzzy, kde-kuit-format
-#| msgid "Default app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
-msgstr "Aplicația implicită pentru acest tip de fișiere"
+msgstr ""
+"%1<nl/><emphasis>Aplicația implicită pentru acest tip de fișiere</emphasis>"
 
 #: src/AppChooserDialog.qml:186
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Last used app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
-msgstr "Ultima aplicație folosită pentru acest tip de fișiere"
+msgstr ""
+"%1<nl/><emphasis>Ultima aplicație folosită pentru acest tip de fișiere</"
+"emphasis>"
 
 #: src/AppChooserDialog.qml:208
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
-msgstr ""
+msgstr "Deschideți cu <command>%1</command>?"
 
 #: src/AppChooserDialog.qml:210
 #, kde-format
@@ -114,31 +113,28 @@ msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Nicio aplicație instalată nu poate deschide <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:238
-#, fuzzy, kde-format
-#| msgid "Content Options"
+#, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
-msgstr "Opțiuni de conținut"
+msgstr "Opțiuni de terminal"
 
 #: src/AppChooserDialog.qml:254
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
-msgstr ""
+msgstr "Execută în terminal"
 
 #: src/AppChooserDialog.qml:263
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
-msgstr ""
+msgstr "Nu închide când comanda se termină"
 
 #: src/AppChooserDialog.qml:276
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
-msgstr "Alegere aplicație"
+msgstr "Descoperă aplicații suplimentare"
 
 #: src/AppChooserDialog.qml:297
 #, kde-kuit-format
@@ -250,6 +246,9 @@ msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
 "<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
+"Scurtătura e atribuită deja acțiunii <interface>%1</interface> din "
+"<application>%2</application>. Introduceți-o aici din nou pentru a "
+"supradefini acea acțiune."
 
 #: src/globalshortcuts.cpp:111
 #, kde-kuit-format
@@ -258,63 +257,64 @@ msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
 msgstr ""
+"Scurtătura e atribuită deja acțiunii standard <interface>%1</interface>."
 
 #: src/globalshortcuts.cpp:124
 #, kde-kuit-format
 msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
-msgstr ""
+msgstr "Scurtătura e atribuită mai multor acțiuni (<interface>%1</interface>)"
 
 #: src/GlobalShortcutsDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "Se cer scurtături globale"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following %1 shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "O aplicație vrea să înregistreze scurtătura următoare:"
+msgstr[1] "O aplicație vrea să înregistreze următoarele %1 scurtături:"
+msgstr[2] "O aplicație vrea să înregistreze următoarele %1 de scurtături:"
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2 vrea să înregistreze scurtătura următoare:"
+msgstr[1] "%2 vrea să înregistreze următoarele %1 scurtături:"
+msgstr[2] "%2 vrea să înregistreze următoarele %1 de scurtături:"
 
 #: src/GlobalShortcutsDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
-msgstr ""
+msgstr "Vezi alte scurtături…"
 
 #: src/GlobalShortcutsDialog.qml:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "Vedeți alte scurtături înregistrate de către această aplicație"
 
 #: src/inputcapture.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "Se cere capturarea intrării"
+msgstr "A început capturarea introducerii"
 
 #: src/inputcapture.cpp:116
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr ""
+"Introducerea e gestionată de către %1. Apăsați <shortcut>%2</shortcut> "
+"pentru a dezactiva."
 
 #: src/inputcapture.cpp:121
 #, kde-kuit-format
@@ -323,6 +323,8 @@ msgid ""
 "Input is being managed by an application. Press <shortcut>%1</shortcut> to "
 "disable."
 msgstr ""
+"Introducerea e gestionată de către o aplicație. Apăsați <shortcut>%1</"
+"shortcut> pentru a dezactiva."
 
 #: src/InputCaptureDialog.qml:16
 #, kde-format
@@ -465,17 +467,15 @@ msgid "Left-click and drag"
 msgstr "Apăsați clic stâng și trageți"
 
 #: src/remotedesktop.cpp:180 src/screencast.cpp:221
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgid "Virtual Output"
-msgstr "Ieșire virtuală nouă"
+msgstr "Ieșire virtuală"
 
 #: src/remotedesktop.cpp:181 src/screencast.cpp:222
-#, fuzzy, kde-format
-#| msgid "New Virtual Output"
+#, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
-msgstr "Ieșire virtuală nouă"
+msgstr "Ieșire virtuală (partajată cu %1)"
 
 #: src/remotedesktop.cpp:286
 #, kde-format
@@ -490,14 +490,10 @@ msgid "Remote control requested"
 msgstr "Control de la distanță cerut"
 
 #: src/remotedesktopdialog.cpp:41
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Unordered list with privileges granted to an external process, included "
-#| "the app's name"
-#| msgid "%1 requested access to remotely control:\n"
+#, kde-format
 msgctxt "Unordered list with privileges granted to an external process"
 msgid "An application requested access to remotely control:\n"
-msgstr "%1 cere acces să controleze de la distanță:\n"
+msgstr "O aplicație cere acces să controleze de la distanță:\n"
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
@@ -601,16 +597,14 @@ msgid "Choose which window to share with %1:"
 msgstr "Alegeți care fereastră să fie partajată cu %1:"
 
 #: src/screenchooserdialog.cpp:234
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with the requesting application:"
+#, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
-msgstr "Alegeți ferestrele de partajat cu aplicația solicitantă:"
+msgstr "Creează un nou afișaj virtual de partajat cu aplicația solicitantă:"
 
 #: src/screenchooserdialog.cpp:236
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with %1:"
+#, kde-format
 msgid "Create a new virtual display to share with %1:"
-msgstr "Alegeți ferestrele de partajat cu %1:"
+msgstr "Creează un nou afișaj virtual de partajat cu %1:"
 
 #: src/screenchooserdialog.cpp:242
 #, kde-format
@@ -735,24 +729,22 @@ msgid ", "
 msgstr ", "
 
 #: src/userinfodialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Share Information"
+#, kde-format
 msgid "Share User Information with %1"
-msgstr "Informații despre partajare"
+msgstr "Partajează informații despre utilizator cu %1"
 
 #: src/userinfodialog.cpp:38
 #, kde-format
 msgid "%1 wants access to your user info."
-msgstr ""
+msgstr "%1 vrea acces la informațiile utilizatorului dvs."
 
 #: src/userinfodialog.cpp:40
 #, kde-format
 msgid "This app will be given access to your avatar and name."
-msgstr ""
+msgstr "Această aplicație va primi acces la avatarul și numele dumneavoastră."
 
 #: src/UserInfoDialog.qml:59
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Partajează"
@@ -761,43 +753,45 @@ msgstr "Partajează"
 #, kde-format
 msgctxt "@title:window"
 msgid "Set Wallpaper"
-msgstr ""
+msgstr "Stabilește tapetul"
 
 #: src/WallpaperDialog.qml:26
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the desktop background?"
-msgstr ""
+msgstr "Permiteți unei aplicații să stabilească tapetul biroului?"
 
 #: src/WallpaperDialog.qml:28
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the lock screen background?"
-msgstr ""
+msgstr "Permiteți unei aplicații să stabilească tapetul ecranului de blocare?"
 
 #: src/WallpaperDialog.qml:30
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set desktop and lock screen backgrounds?"
 msgstr ""
+"Permiteți unei aplicații să stabilească tapetele biroului și ecranului de "
+"blocare?"
 
 #: src/WallpaperDialog.qml:35
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the desktop background?"
-msgstr ""
+msgstr "Permiteți %1 să stabilească tapetul biroului?"
 
 #: src/WallpaperDialog.qml:37
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the lock screen background?"
-msgstr ""
+msgstr "Permiteți %1 să stabilească tapetul ecranului de blocare?"
 
 #: src/WallpaperDialog.qml:39
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
-msgstr ""
+msgstr "Permiteți %1 să stabilească tapetele biroului și ecranului de blocare?"
 
 #: src/waylandintegration.cpp:268 src/waylandintegration.cpp:325
 #, kde-format
@@ -808,129 +802,3 @@ msgstr "Pornirea difuzării ecranului a eșuat"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Birou distant"
-
-#~ msgctxt "Unordered list with privileges granted to an external process"
-#~ msgid "An application requested access to:\n"
-#~ msgstr "O aplicație a cerut acces la:\n"
-
-#~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
-#~ msgid "Always open %1 files with the chosen app"
-#~ msgstr "Deschide mereu fișiere cu %1 în aplicația aleasă"
-
-#~ msgid "Share your personal information with the requesting application?"
-#~ msgstr "Partajați informații personale cu aplicația solicitantă?"
-
-#~ msgid "Create new folder in %1"
-#~ msgstr "Creează dosar nou în %1"
-
-#~ msgid "OK"
-#~ msgstr "Bine"
-
-#~ msgid "Cancel"
-#~ msgstr "Renunță"
-
-#~ msgid ""
-#~ "Laptop screen\n"
-#~ "Model: %1"
-#~ msgstr ""
-#~ "Ecran de laptop\n"
-#~ "Model: %1"
-
-#~ msgid ""
-#~ "Manufacturer: %1\n"
-#~ "Model: %2"
-#~ msgstr ""
-#~ "Producător: %1\n"
-#~ "Model: %2"
-
-#~ msgid "%1 is running in the background."
-#~ msgstr "%1 rulează în fundal."
-
-#~ msgid "Find out more"
-#~ msgstr "Află mai multe"
-
-#~ msgid "%1 is running in the background"
-#~ msgstr "%1 rulează în fundal"
-
-#~ msgid ""
-#~ "This might be for a legitimate reason, but the application has not "
-#~ "provided one.\n"
-#~ "\n"
-#~ "Note that forcing an application to quit might cause data loss."
-#~ msgstr ""
-#~ "Aceasta poate fi dintr-un motiv întemeiat, dar aplicația nu a furnizat "
-#~ "unul.\n"
-#~ "\n"
-#~ "Rețineți că forțarea unei aplicații să termine poate provoca pierderi de "
-#~ "date."
-
-#~ msgid "Force quit"
-#~ msgstr "Forțează închiderea"
-
-#~ msgid "Portal"
-#~ msgstr "Portal"
-
-#, fuzzy
-#~| msgid "Full Screen"
-#~ msgctxt "Will allow the app to see what's on the outputs"
-#~ msgid ""
-#~ " <li>Screens\n"
-#~ "</li>"
-#~ msgstr "Ecran complet"
-
-#~ msgid "Select what to share with the requesting application"
-#~ msgstr "Alegeți ce să fie partajat cu aplicația solicitantă"
-
-#~ msgid "Select what to share with %1"
-#~ msgstr "Alegeți ce să fie partajat cu %1"
-
-#~ msgid "Recording window \"%1\"..."
-#~ msgstr "Se înregistrează fereastra „%1”…"
-
-#~ msgid "Recording screen \"%1\"..."
-#~ msgstr "Se înregistrează ecranul „%1”…"
-
-#~ msgid "Recording workspace..."
-#~ msgstr "Se înregistrează spațiul de lucru…"
-
-#~ msgid "Recording virtual output '%1'..."
-#~ msgstr "Se înregistrează ieșirea virtuală „%1”…"
-
-#~ msgid "Dialog"
-#~ msgstr "Dialog"
-
-#~ msgid "Allow access to:"
-#~ msgstr "Permite accesul la:"
-
-#~ msgid "Pointer"
-#~ msgstr "Indicator"
-
-#~ msgid "Keyboard"
-#~ msgstr "Tastatură"
-
-#~ msgid "Touch screen"
-#~ msgstr "Ecran tactil"
-
-#~ msgid "Press to cancel"
-#~ msgstr "Apăsați pentru a renunța"
-
-#~ msgid "xdg-desktop-portals-kde"
-#~ msgstr "xdg-desktop-portals-kde"
-
-#~ msgid "Open with..."
-#~ msgstr "Deschide cu..."
-
-#~ msgid "Icon"
-#~ msgstr "Pictogramă"
-
-#~ msgid "TextLabel"
-#~ msgstr "EtichetăTextuală"
-
-#~ msgid "Full Screen (All Monitors)"
-#~ msgstr "Ecran complet (toate monitoarele)"
-
-#~ msgid "No Delay"
-#~ msgstr "Fără întârziere"
-
-#~ msgid "Take screenshot"
-#~ msgstr "Fă o captură"
