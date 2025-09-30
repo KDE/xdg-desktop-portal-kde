@@ -140,17 +140,11 @@ void AppChooserDialog::onApplicationSelected(const QString &desktopFile, const b
     }
 
     if (KWindowSystem::isPlatformWayland()) {
-        KWaylandExtras::requestXdgActivationToken(m_theDialog, KWaylandExtras::lastInputSerial(m_theDialog), m_selectedApplication);
-
-        connect(
-            KWaylandExtras::self(),
-            &KWaylandExtras::xdgActivationTokenArrived,
-            this,
-            [this](int /*serial*/, const QString &token) {
-                m_activationToken = token;
-                accept();
-            },
-            Qt::SingleShotConnection);
+        auto tokenFuture = KWaylandExtras::xdgActivationToken(m_theDialog, m_selectedApplication);
+        tokenFuture.then(this, [this](const QString &token) {
+            m_activationToken = token;
+            accept();
+        });
     } else {
         accept();
     }
