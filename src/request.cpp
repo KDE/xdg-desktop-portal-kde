@@ -35,8 +35,6 @@ Request::Request(const QDBusObjectPath &handle, QObject *parent, const QString &
 
 bool Request::handleMessage(const QDBusMessage &message, const QDBusConnection &connection)
 {
-    Q_UNUSED(connection);
-
     /* Check to make sure we're getting properties on our interface */
     if (message.type() != QDBusMessage::MessageType::MethodCallMessage) {
         return false;
@@ -49,8 +47,7 @@ bool Request::handleMessage(const QDBusMessage &message, const QDBusConnection &
     if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Request")) {
         if (message.member() == QLatin1String("Close")) {
             Q_EMIT closeRequested();
-            QDBusMessage reply = message.createReply();
-            return connection.send(reply);
+            handleClose(message, connection);
         }
     }
 
@@ -72,4 +69,9 @@ QString Request::introspect(const QString &path) const
     qCDebug(XdgRequestKdeRequest) << nodes;
 
     return nodes;
+}
+
+void Request::handleClose(const QDBusMessage &message, const QDBusConnection &connection)
+{
+    connection.send(message.createReply());
 }
