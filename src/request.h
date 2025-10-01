@@ -45,6 +45,9 @@ public:
 Q_SIGNALS:
     void closeRequested();
 
+protected:
+    virtual void handleClose(const QDBusMessage &message, const QDBusConnection &connection);
+
 private:
     const QVariant m_data;
     const QString m_portalName;
