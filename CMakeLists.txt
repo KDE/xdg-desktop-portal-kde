@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 
 set(CMAKE_C_STANDARD 99)
 
-set(PROJECT_VERSION "6.4.90")
+set(PROJECT_VERSION "6.4.91")
 
 project(xdg-desktop-portal-kde VERSION ${PROJECT_VERSION})
 
