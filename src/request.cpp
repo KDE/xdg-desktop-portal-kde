@@ -15,10 +15,8 @@
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
 
-Request::Request(const QDBusObjectPath &handle, QObject *parent, const QString &portalName, const QVariant &data)
+Request::Request(const QDBusObjectPath &handle, QObject *parent)
     : QDBusVirtualObject(parent)
-    , m_data(data)
-    , m_portalName(portalName)
 {
     auto sessionBus = QDBusConnection::sessionBus();
     if (sessionBus.registerVirtualObject(handle.path(), this, QDBusConnection::VirtualObjectRegisterOption::SubPath)) {
