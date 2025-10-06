@@ -21,7 +21,7 @@ class Request : public QDBusVirtualObject
 {
     Q_OBJECT
 public:
-    explicit Request(const QDBusObjectPath &handle, QObject *parent = nullptr, const QString &portalName = QString(), const QVariant &data = QVariant());
+    explicit Request(const QDBusObjectPath &handle, QObject *parent = nullptr);
 
     bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) override;
     QString introspect(const QString &path) const override;
@@ -47,10 +47,6 @@ Q_SIGNALS:
 
 protected:
     virtual void handleClose(const QDBusMessage &message, const QDBusConnection &connection);
-
-private:
-    const QVariant m_data;
-    const QString m_portalName;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_REQUEST_H

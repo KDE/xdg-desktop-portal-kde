@@ -19,7 +19,7 @@ class InhibitionRequest : public Request
 {
 public:
     InhibitionRequest(const QDBusObjectPath &handle, uint inhibitionId, QObject *parent = nullptr)
-        : Request(handle, parent, QStringLiteral("org.freedesktop.impl.portal.Inhibit"))
+        : Request(handle, parent)
         , m_inhibitionId(inhibitionId)
     {
     }
