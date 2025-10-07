@@ -15,38 +15,62 @@
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
 
+static void releaseInhibition(uint cookie)
+{
+    QDBusMessage uninhibitMessage = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
+                                                                   QStringLiteral("/org/kde/Solid/PowerManagement/PolicyAgent"),
+                                                                   QStringLiteral("org.kde.Solid.PowerManagement.PolicyAgent"),
+                                                                   QStringLiteral("ReleaseInhibition"));
+    uninhibitMessage << cookie;
+    auto pendingCall = QDBusConnection::sessionBus().asyncCall(uninhibitMessage);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingCall);
+    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, watcher, [](QDBusPendingCallWatcher *watcher) {
+        watcher->deleteLater();
+        QDBusPendingReply<> reply = *watcher;
+        if (reply.isError()) {
+            qCDebug(XdgDesktopPortalKdeInhibit) << "Uninhibit error: " << reply.error().message();
+        }
+    });
+}
+
 class InhibitionRequest : public Request
 {
 public:
-    InhibitionRequest(const QDBusObjectPath &handle, uint inhibitionId, QObject *parent = nullptr)
+    InhibitionRequest(const QDBusObjectPath &handle, uint policies, const QString app_id, const QString &reason, QObject *parent = nullptr)
         : Request(handle, parent)
-        , m_inhibitionId(inhibitionId)
     {
-    }
-    void handleClose(const QDBusMessage &message, const QDBusConnection &connection) override
-    {
-        QDBusMessage uninhibitMessage = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
-                                                                       QStringLiteral("/org/kde/Solid/PowerManagement/PolicyAgent"),
-                                                                       QStringLiteral("org.kde.Solid.PowerManagement.PolicyAgent"),
-                                                                       QStringLiteral("ReleaseInhibition"));
-
-        uninhibitMessage << m_inhibitionId;
-
-        QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(uninhibitMessage);
+        QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
+                                                              QStringLiteral("/org/kde/Solid/PowerManagement/PolicyAgent"),
+                                                              QStringLiteral("org.kde.Solid.PowerManagement.PolicyAgent"),
+                                                              QStringLiteral("AddInhibition"));
+        message << policies << app_id << reason;
+        QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(message);
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingCall);
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [message, &connection](QDBusPendingCallWatcher *watcher) {
+        connect(watcher, &QDBusPendingCallWatcher::finished, watcher, [request = QPointer(this)](QDBusPendingCallWatcher *watcher) {
             watcher->deleteLater();
-            QDBusPendingReply<> reply = *watcher;
+            QDBusPendingReply<uint> reply = *watcher;
             if (reply.isError()) {
-                qCDebug(XdgDesktopPortalKdeInhibit) << "Uninhibit error: " << reply.error().message();
-                connection.send(message.createErrorReply(reply.error()));
+                qCDebug(XdgDesktopPortalKdeInhibit) << "Inhibition error: " << reply.error().message();
+                return;
             }
-            connection.send(message.createReply());
+            const auto inhibitId = reply.value();
+            // The Request could have been closed in the meantime
+            if (request) {
+                request->m_inhibitionId = inhibitId;
+            } else {
+                releaseInhibition(inhibitId);
+            }
         });
+    }
+    ~InhibitionRequest()
+    {
+        if (m_inhibitionId) {
+            releaseInhibition(*m_inhibitionId);
+        }
     }
 
 private:
-    const uint m_inhibitionId;
+    std::optional<uint> m_inhibitionId;
 };
 
 InhibitPortal::InhibitPortal(QObject *parent)
@@ -63,10 +87,6 @@ void InhibitPortal::Inhibit(const QDBusObjectPath &handle, const QString &app_id
     qCDebug(XdgDesktopPortalKdeInhibit) << "    flags: " << flags;
     qCDebug(XdgDesktopPortalKdeInhibit) << "    options: " << options;
 
-    QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
-                                                          QStringLiteral("/org/kde/Solid/PowerManagement/PolicyAgent"),
-                                                          QStringLiteral("org.kde.Solid.PowerManagement.PolicyAgent"),
-                                                          QStringLiteral("AddInhibition"));
     uint policies = 0;
     if (flags & 4) { // Suspend
         policies |= 1; // InterruptSession a.k.a. logind "sleep"
@@ -78,17 +98,6 @@ void InhibitPortal::Inhibit(const QDBusObjectPath &handle, const QString &app_id
         qCDebug(XdgDesktopPortalKdeInhibit) << "Inhibition error: flags not supported by KDE policy agent:" << flags;
         return;
     }
-    message << policies << app_id << options.value(QStringLiteral("reason")).toString();
 
-    QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(message);
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingCall);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [handle, this](QDBusPendingCallWatcher *watcher) {
-        QDBusPendingReply<uint> reply = *watcher;
-        if (reply.isError()) {
-            qCDebug(XdgDesktopPortalKdeInhibit) << "Inhibition error: " << reply.error().message();
-            return;
-        }
-        auto inhibitId = reply.value();
-        [[maybe_unused]] auto request = new InhibitionRequest(handle, inhibitId, this);
-    });
+    [[maybe_unused]] auto request = new InhibitionRequest(handle, policies, app_id, options.value(QStringLiteral("reason")).toString(), this);
 }

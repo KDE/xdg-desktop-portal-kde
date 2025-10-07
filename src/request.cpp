@@ -45,7 +45,7 @@ bool Request::handleMessage(const QDBusMessage &message, const QDBusConnection &
     if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Request")) {
         if (message.member() == QLatin1String("Close")) {
             Q_EMIT closeRequested();
-            handleClose(message, connection);
+            connection.send(message.createReply());
         }
     }
 
@@ -67,9 +67,4 @@ QString Request::introspect(const QString &path) const
     qCDebug(XdgRequestKdeRequest) << nodes;
 
     return nodes;
-}
-
-void Request::handleClose(const QDBusMessage &message, const QDBusConnection &connection)
-{
-    connection.send(message.createReply());
 }

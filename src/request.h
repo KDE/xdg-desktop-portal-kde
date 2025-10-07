@@ -44,9 +44,6 @@ public:
 
 Q_SIGNALS:
     void closeRequested();
-
-protected:
-    virtual void handleClose(const QDBusMessage &message, const QDBusConnection &connection);
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_REQUEST_H
