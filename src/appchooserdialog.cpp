@@ -557,8 +557,8 @@ void AppModel::loadApplications()
         if (service->noDisplay()) {
             if (const auto alias = service->aliasFor(); !alias.isEmpty()) {
                 m_noDisplayAliasesFor.insert(service->desktopEntryName(), service->aliasFor());
+                continue;
             }
-            continue; // no display after all
         }
 
         const QString fullName = service->property<QString>(QStringLiteral("X-GNOME-FullName"));
