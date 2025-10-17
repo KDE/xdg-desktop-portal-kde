@@ -53,6 +53,9 @@ void AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
     }
     auto appDialog = new AppChooserDialog(choices, latestChoice, itemName.toString(), options.value(QStringLiteral("content_type")).toString(), true);
     m_appChooserDialogs.insert(handle.path(), appDialog);
+
+    const bool modal = options.value(QStringLiteral("modal"), true).toBool();
+    appDialog->windowHandle()->setModality(modal ? Qt::WindowModal : Qt::NonModal);
     Utils::setParentWindow(appDialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequest(handle, appDialog);
 
