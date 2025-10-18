@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-21 02:41+0000\n"
+"POT-Creation-Date: 2025-10-18 03:16+0000\n"
 "PO-Revision-Date: 2024-11-23 12:11+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -32,7 +32,7 @@ msgstr "steve.allewell@gmail.com"
 msgid "Request device access"
 msgstr "Request device access"
 
-#: src/appchooser.cpp:95
+#: src/appchooser.cpp:98
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-21 02:41+0000\n"
+"POT-Creation-Date: 2025-10-18 03:16+0000\n"
 "PO-Revision-Date: 2023-11-11 21:18+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
@@ -32,7 +32,7 @@ msgstr "alministradores@softastur.org"
 msgid "Request device access"
 msgstr ""
 
-#: src/appchooser.cpp:95
+#: src/appchooser.cpp:98
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
