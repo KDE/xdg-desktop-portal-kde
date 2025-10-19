@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-18 03:16+0000\n"
-"PO-Revision-Date: 2025-07-10 19:50+0300\n"
+"PO-Revision-Date: 2025-10-15 18:11+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -592,16 +592,14 @@ msgid "Choose which window to share with %1:"
 msgstr "Valitse, mikä ikkuna käyttäjälle %1 jaetaan:"
 
 #: src/screenchooserdialog.cpp:234
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with the requesting application:"
+#, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
-msgstr "Valitse, mitkä ikkunat pyytävälle sovellukselle jaetaan:"
+msgstr "Luo uusi virtuaalityöpöytä jaettavaksi sitä pyytävälle sovellukselle:"
 
 #: src/screenchooserdialog.cpp:236
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with %1:"
+#, kde-format
 msgid "Create a new virtual display to share with %1:"
-msgstr "Valitse, mitkä ikkunat käyttäjälle %1 jaetaan:"
+msgstr "Luo uusi virtuaalityöpöytä jaettavaksi sovelluksen %1 kanssa:"
 
 #: src/screenchooserdialog.cpp:242
 #, kde-format
@@ -749,43 +747,43 @@ msgstr "Jaa"
 #, kde-format
 msgctxt "@title:window"
 msgid "Set Wallpaper"
-msgstr ""
+msgstr "Aseta tausta"
 
 #: src/WallpaperDialog.qml:26
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the desktop background?"
-msgstr ""
+msgstr "Sallitaanko sovelluksen asettaa työpöydän tausta?"
 
 #: src/WallpaperDialog.qml:28
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the lock screen background?"
-msgstr ""
+msgstr "Sallitaanko sovelluksen asettaa lukitusnäytön tausta?"
 
 #: src/WallpaperDialog.qml:30
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set desktop and lock screen backgrounds?"
-msgstr ""
+msgstr "Sallitaanko sovelluksen asettaa työpöydän ja lukitusnäytön taustat?"
 
 #: src/WallpaperDialog.qml:35
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the desktop background?"
-msgstr ""
+msgstr "Sallitaanko, että %1 asettaa työpöydän taustan?"
 
 #: src/WallpaperDialog.qml:37
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the lock screen background?"
-msgstr ""
+msgstr "Sallitaanko, että %1 asettaa lukitusnäytön taustan?"
 
 #: src/WallpaperDialog.qml:39
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
-msgstr ""
+msgstr "Sallitaanko, että %1 asettaa työpöydän ja lukitusnäytön taustat?"
 
 #: src/waylandintegration.cpp:269 src/waylandintegration.cpp:326
 #, kde-format
