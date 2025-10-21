@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 00:44+0000\n"
+"POT-Creation-Date: 2025-10-21 00:44+0000\n"
 "PO-Revision-Date: 2025-09-02 10:39+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -798,12 +798,12 @@ msgid "Allow %1 to set desktop and lock screen backgrounds?"
 msgstr ""
 "Permetre que %1 estableixi els fons de pantalla d'escriptori i de bloqueig?"
 
-#: src/waylandintegration.cpp:268 src/waylandintegration.cpp:325
+#: src/waylandintegration.cpp:268 src/waylandintegration.cpp:326
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Ha fallat en iniciar el vídeo de captura de pantalla"
 
-#: src/waylandintegration.cpp:476
+#: src/waylandintegration.cpp:477
 #, kde-format
 msgid "Remote desktop"
 msgstr "Escriptori remot"
