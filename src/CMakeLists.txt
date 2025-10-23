@@ -22,6 +22,7 @@ ecm_target_qml_sources(xdg-desktop-portal-kde
         GlobalShortcutsDialog.qml
         WallpaperDialog.qml
         Dialog.qml
+        MobileDialog.qml
         region-select/RegionSelectOverlay.qml
         region-select/FloatingTextBox.qml
         region-select/FloatingBackground.qml)
