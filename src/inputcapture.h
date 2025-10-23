@@ -52,6 +52,11 @@ public:
         uint height;
         int x_offset;
         int y_offset;
+
+        bool operator==(const zone &other) const
+        {
+            return width == other.width && height == other.height && x_offset == other.x_offset && y_offset == other.y_offset;
+        }
     };
 
 public Q_SLOTS:

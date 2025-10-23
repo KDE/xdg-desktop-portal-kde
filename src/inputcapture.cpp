@@ -214,13 +214,24 @@ uint InputCapturePortal::GetZones(const QDBusObjectPath &handle,
 
     results.insert(u"zone_set"_s, m_zoneId);
     QList<zone> zones;
+
     for (const auto screen : qGuiApp->screens()) {
-        zones.push_back(zone{
+        const zone zone = {
             .width = static_cast<uint>(screen->geometry().width()),
             .height = static_cast<uint>(screen->geometry().height()),
             .x_offset = screen->geometry().x(),
             .y_offset = screen->geometry().y(),
-        });
+        };
+
+        // Skip duplicate zones (replicated/mirrored displays)
+        if (zones.contains(zone)) {
+            qCDebug(XdgDesktopPortalKdeInputCapture) << "Skipping duplicate screen geometry" << screen->geometry()
+                                                     << "for screen" << screen->name()
+                                                     << "(likely replicated display)";
+            continue;
+        }
+
+        zones.push_back(zone);
         connect(screen, &QScreen::geometryChanged, session, handleZoneChange);
     }
 
@@ -267,8 +278,14 @@ uint InputCapturePortal::SetPointerBarriers(const QDBusObjectPath &handle,
     }
     session->clearBarriers();
 
+    // Build unique screen geometries, skipping replicated displays
     QList<QRect> screenGeometries;
-    std::ranges::transform(qGuiApp->screens(), std::back_inserter(screenGeometries), &QScreen::geometry);
+    for (const auto screen : qGuiApp->screens()) {
+        const QRect geometry = screen->geometry();
+        if (!screenGeometries.contains(geometry)) {
+            screenGeometries.append(geometry);
+        }
+    }
 
     QList<uint> failedBarriers;
 
