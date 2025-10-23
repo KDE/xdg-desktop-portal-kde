@@ -53,7 +53,7 @@ public:
         int x_offset;
         int y_offset;
 
-        bool operator==(const zone &) = default;
+        bool operator==(const zone &) const = default;
     };
 
 public Q_SLOTS:
