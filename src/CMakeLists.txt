@@ -21,6 +21,7 @@ ecm_target_qml_sources(xdg-desktop-portal-kde
         InputCaptureDialog.qml
         GlobalShortcutsDialog.qml
         WallpaperDialog.qml
+        Dialog.qml
         region-select/RegionSelectOverlay.qml
         region-select/FloatingTextBox.qml
         region-select/FloatingBackground.qml)
