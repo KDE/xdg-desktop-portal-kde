@@ -11,11 +11,6 @@
 
 #include "quickdialog.h"
 
-namespace Ui
-{
-class UserInfoDialog;
-}
-
 class OrgFreedesktopAccountsUserInterface;
 struct UserDetails;
 
