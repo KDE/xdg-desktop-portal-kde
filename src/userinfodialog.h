@@ -17,6 +17,7 @@ class UserInfoDialog;
 }
 
 class OrgFreedesktopAccountsUserInterface;
+struct UserDetails;
 
 class UserInfoDialog : public QuickDialog
 {
@@ -30,7 +31,7 @@ public:
     QString image() const;
 
 private:
-    OrgFreedesktopAccountsUserInterface *m_userInterface;
+    std::unique_ptr<UserDetails> m_userDetails;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_USERINFO_DIALOG_H
