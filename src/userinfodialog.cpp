@@ -60,9 +60,7 @@ UserInfoDialog::UserInfoDialog(const QString &reason, const QString &app_id, QOb
     create(u"UserInfoDialog"_s, props);
 }
 
-UserInfoDialog::~UserInfoDialog()
-{
-}
+UserInfoDialog::~UserInfoDialog() = default;
 
 QString UserInfoDialog::id() const
 {
