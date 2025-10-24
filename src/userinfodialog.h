@@ -22,9 +22,9 @@ public:
     ~UserInfoDialog() override;
     Q_DISABLE_COPY_MOVE(UserInfoDialog)
 
-    QString id() const;
-    QString name() const;
-    QString image() const;
+    [[nodiscard]] QString id() const;
+    [[nodiscard]] QString name() const;
+    [[nodiscard]] QString image() const;
 
 private:
     std::unique_ptr<UserDetails> m_userDetails;
