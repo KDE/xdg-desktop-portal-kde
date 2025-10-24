@@ -25,6 +25,7 @@ class UserInfoDialog : public QuickDialog
 public:
     explicit UserInfoDialog(const QString &reason, const QString &app_id, QObject *parent = nullptr);
     ~UserInfoDialog() override;
+    Q_DISABLE_COPY_MOVE(UserInfoDialog)
 
     QString id() const;
     QString name() const;
