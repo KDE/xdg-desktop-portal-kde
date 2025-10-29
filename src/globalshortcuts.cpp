@@ -302,20 +302,24 @@ void GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
                     {u"component"_s, session->componentName()}});
     Utils::setParentWindow(dialog->windowHandle(), parent_window);
     delayReply(message, dialog, session, [model, returningShortcutInfos, session](DialogResult result) -> QVariantList {
-        // The dialog asks the user if they want to add the new bindings, if denied we still allow
+        // The dialog asks the user if they want to add the new bindings. If denied we still allow
         // binding the returning shortcuts if there are any.
+        // We also register the denied shortcuts (with no key combinations) so we don't prompt on next
+        // application start. The user can assign bindings later in systemsettings if they change their mind.
+        // Still return a cancelled result if there are no active shortcuts.
         auto newShortcutInfos = model->shortcuts();
         if (result == DialogResult::Rejected) {
-            newShortcutInfos.clear();
-            if (returningShortcutInfos.empty()) {
-                session->setActions({});
-                return QVariantList{PortalResponse::Cancelled, QVariantMap{}};
+            for (auto &newShortcut : newShortcutInfos) {
+                newShortcut.keySequence = {};
             }
         }
         QList<ShortcutInfo> currentShortcutInfos;
         currentShortcutInfos.reserve(newShortcutInfos.size() + returningShortcutInfos.size());
         std::ranges::set_union(newShortcutInfos, returningShortcutInfos, std::back_inserter(currentShortcutInfos), {}, &ShortcutInfo::id, &ShortcutInfo::id);
         session->setActions(currentShortcutInfos);
+        if (result == DialogResult::Rejected && returningShortcutInfos.empty()) {
+            return QVariantList{PortalResponse::Cancelled, QVariantMap{}};
+        }
         return {PortalResponse::Success, QVariantMap{{u"shortcuts"_s, session->shortcutDescriptionsVariant()}}};
     });
 }
