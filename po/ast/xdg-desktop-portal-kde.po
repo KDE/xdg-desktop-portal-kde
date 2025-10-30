@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-21 00:44+0000\n"
+"POT-Creation-Date: 2025-10-30 00:44+0000\n"
 "PO-Revision-Date: 2023-11-11 21:18+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
@@ -709,6 +709,28 @@ msgstr ""
 #, kde-format
 msgid ", "
 msgstr ""
+
+#: src/UsbDialog.qml:21
+#, kde-format
+msgctxt "@title:window"
+msgid "Access to USB Devices Requested"
+msgstr ""
+
+#: src/UsbDialog.qml:24
+#, kde-format
+msgctxt "The application is unknown"
+msgid "An application wants to access the following device:"
+msgid_plural "An application wants to access the following devices:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/UsbDialog.qml:26
+#, kde-format
+msgctxt "%2 is the name of the application"
+msgid "%2 wants to access the following device:"
+msgid_plural "%2 wants to access the following devices:"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/userinfodialog.cpp:37
 #, kde-format

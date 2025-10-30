@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-21 00:44+0000\n"
+"POT-Creation-Date: 2025-10-30 00:44+0000\n"
 "PO-Revision-Date: 2025-10-15 18:11+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -721,6 +721,34 @@ msgstr "Näytönjako"
 #, kde-format
 msgid ", "
 msgstr ", "
+
+#: src/UsbDialog.qml:21
+#, kde-format
+msgctxt "@title:window"
+msgid "Access to USB Devices Requested"
+msgstr ""
+
+#: src/UsbDialog.qml:24
+#, fuzzy, kde-format
+#| msgctxt "The application is unknown"
+#| msgid "An application wants to register the following shortcut:"
+#| msgid_plural "An application wants to register the following %1 shortcuts:"
+msgctxt "The application is unknown"
+msgid "An application wants to access the following device:"
+msgid_plural "An application wants to access the following devices:"
+msgstr[0] "Sovellus haluaa rekisteröidä seuraavan pikanäppäimen:"
+msgstr[1] "Sovellus haluaa rekisteröidä seuraavat %1 pikanäppäintä:"
+
+#: src/UsbDialog.qml:26
+#, fuzzy, kde-format
+#| msgctxt "%2 is the name of the application"
+#| msgid "%2 wants to register the following shortcut:"
+#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+msgctxt "%2 is the name of the application"
+msgid "%2 wants to access the following device:"
+msgid_plural "%2 wants to access the following devices:"
+msgstr[0] "%2 haluaa rekisteröidä seuraavan pikanäppäimen:"
+msgstr[1] "%2 haluaa rekisteröidä seuraavat %1 pikanäppäintä:"
 
 #: src/userinfodialog.cpp:37
 #, kde-format

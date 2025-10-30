@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-21 00:44+0000\n"
+"POT-Creation-Date: 2025-10-30 00:44+0000\n"
 "PO-Revision-Date: 2025-01-09 20:00+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -729,6 +729,30 @@ msgstr "Bildschirmübertragung"
 msgid ", "
 msgstr ", "
 
+#: src/UsbDialog.qml:21
+#, kde-format
+msgctxt "@title:window"
+msgid "Access to USB Devices Requested"
+msgstr ""
+
+#: src/UsbDialog.qml:24
+#, fuzzy, kde-format
+#| msgctxt "Unordered list with privileges granted to an external process"
+#| msgid "An application requested access to:\n"
+msgctxt "The application is unknown"
+msgid "An application wants to access the following device:"
+msgid_plural "An application wants to access the following devices:"
+msgstr[0] "Eine Anwendung fordert den Zugriff auf:\n"
+msgstr[1] "Eine Anwendung fordert den Zugriff auf:\n"
+
+#: src/UsbDialog.qml:26
+#, kde-format
+msgctxt "%2 is the name of the application"
+msgid "%2 wants to access the following device:"
+msgid_plural "%2 wants to access the following devices:"
+msgstr[0] ""
+msgstr[1] ""
+
 #: src/userinfodialog.cpp:37
 #, fuzzy, kde-format
 #| msgid "Share Information"
@@ -803,10 +827,6 @@ msgstr "Das Bildschirmvideo kann nicht gestartet werden"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Arbeitsfläche des Fremdgeräts"
-
-#~ msgctxt "Unordered list with privileges granted to an external process"
-#~ msgid "An application requested access to:\n"
-#~ msgstr "Eine Anwendung fordert den Zugriff auf:\n"
 
 #~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 #~ msgid "Always open %1 files with the chosen app"

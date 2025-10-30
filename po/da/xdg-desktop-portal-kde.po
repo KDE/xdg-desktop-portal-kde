@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-21 00:44+0000\n"
+"POT-Creation-Date: 2025-10-30 00:44+0000\n"
 "PO-Revision-Date: 2024-07-18 12:45+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -727,6 +727,30 @@ msgstr "Skærmoptagelse"
 msgid ", "
 msgstr ", "
 
+#: src/UsbDialog.qml:21
+#, kde-format
+msgctxt "@title:window"
+msgid "Access to USB Devices Requested"
+msgstr ""
+
+#: src/UsbDialog.qml:24
+#, fuzzy, kde-format
+#| msgctxt "Unordered list with privileges granted to an external process"
+#| msgid "An application requested access to:\n"
+msgctxt "The application is unknown"
+msgid "An application wants to access the following device:"
+msgid_plural "An application wants to access the following devices:"
+msgstr[0] "Et program anmodede om adgang til:\n"
+msgstr[1] "Et program anmodede om adgang til:\n"
+
+#: src/UsbDialog.qml:26
+#, kde-format
+msgctxt "%2 is the name of the application"
+msgid "%2 wants to access the following device:"
+msgid_plural "%2 wants to access the following devices:"
+msgstr[0] ""
+msgstr[1] ""
+
 #: src/userinfodialog.cpp:37
 #, fuzzy, kde-format
 #| msgid "Share Information"
@@ -801,10 +825,6 @@ msgstr "Kunne ikke starte skærmoptagelse"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Fjernskrivebord"
-
-#~ msgctxt "Unordered list with privileges granted to an external process"
-#~ msgid "An application requested access to:\n"
-#~ msgstr "Et program anmodede om adgang til:\n"
 
 #~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 #~ msgid "Always open %1 files with the chosen app"

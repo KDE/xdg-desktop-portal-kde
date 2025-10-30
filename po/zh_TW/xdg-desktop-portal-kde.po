@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-21 00:44+0000\n"
+"POT-Creation-Date: 2025-10-30 00:44+0000\n"
 "PO-Revision-Date: 2025-09-05 17:13+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -708,6 +708,32 @@ msgstr "螢幕錄製中"
 #, kde-format
 msgid ", "
 msgstr "、"
+
+#: src/UsbDialog.qml:21
+#, kde-format
+msgctxt "@title:window"
+msgid "Access to USB Devices Requested"
+msgstr ""
+
+#: src/UsbDialog.qml:24
+#, fuzzy, kde-format
+#| msgctxt "The application is unknown"
+#| msgid "An application wants to register the following shortcut:"
+#| msgid_plural "An application wants to register the following %1 shortcuts:"
+msgctxt "The application is unknown"
+msgid "An application wants to access the following device:"
+msgid_plural "An application wants to access the following devices:"
+msgstr[0] "一個應用程式希望註冊以下 %1 個快捷鍵："
+
+#: src/UsbDialog.qml:26
+#, fuzzy, kde-format
+#| msgctxt "%2 is the name of the application"
+#| msgid "%2 wants to register the following shortcut:"
+#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+msgctxt "%2 is the name of the application"
+msgid "%2 wants to access the following device:"
+msgid_plural "%2 wants to access the following devices:"
+msgstr[0] "%2 希望註冊以下 %1 個快捷鍵："
 
 #: src/userinfodialog.cpp:37
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-21 00:44+0000\n"
+"POT-Creation-Date: 2025-10-30 00:44+0000\n"
 "PO-Revision-Date: 2022-08-24 17:55+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -746,6 +746,29 @@ msgstr "Ekran paylaşılır"
 msgid ", "
 msgstr ""
 
+#: src/UsbDialog.qml:21
+#, kde-format
+msgctxt "@title:window"
+msgid "Access to USB Devices Requested"
+msgstr ""
+
+#: src/UsbDialog.qml:24
+#, fuzzy, kde-format
+#| msgid "Request device access"
+msgctxt "The application is unknown"
+msgid "An application wants to access the following device:"
+msgid_plural "An application wants to access the following devices:"
+msgstr[0] "Cihaza giriş tələb etmək"
+msgstr[1] "Cihaza giriş tələb etmək"
+
+#: src/UsbDialog.qml:26
+#, kde-format
+msgctxt "%2 is the name of the application"
+msgid "%2 wants to access the following device:"
+msgid_plural "%2 wants to access the following devices:"
+msgstr[0] ""
+msgstr[1] ""
+
 #: src/userinfodialog.cpp:37
 #, fuzzy, kde-format
 #| msgid "Share Information"
@@ -820,12 +843,6 @@ msgstr "Ekranın paylaşımı baş tutmadı"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Şəbəkədəki İş masası"
-
-#, fuzzy
-#~| msgid "Request device access"
-#~ msgctxt "Unordered list with privileges granted to an external process"
-#~ msgid "An application requested access to:\n"
-#~ msgstr "Cihaza giriş tələb etmək"
 
 #~ msgid "Share your personal information with the requesting application?"
 #~ msgstr "Tələb olunan tətbiq ilə şəxsi məlumatlarınız paylaşılsın?"

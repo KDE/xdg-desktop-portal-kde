@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-21 00:44+0000\n"
+"POT-Creation-Date: 2025-10-30 00:44+0000\n"
 "PO-Revision-Date: 2025-03-23 21:24+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -724,6 +724,32 @@ msgstr "Skjermdeling"
 #, kde-format
 msgid ", "
 msgstr ", "
+
+#: src/UsbDialog.qml:21
+#, kde-format
+msgctxt "@title:window"
+msgid "Access to USB Devices Requested"
+msgstr ""
+
+#: src/UsbDialog.qml:24
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Unordered list with privileges granted to an external process, included "
+#| "the app's name"
+#| msgid "%1 requested access to remotely control:\n"
+msgctxt "The application is unknown"
+msgid "An application wants to access the following device:"
+msgid_plural "An application wants to access the following devices:"
+msgstr[0] "%1 har bedt om tilgang til å fjernstyra:\n"
+msgstr[1] "%1 har bedt om tilgang til å fjernstyra:\n"
+
+#: src/UsbDialog.qml:26
+#, kde-format
+msgctxt "%2 is the name of the application"
+msgid "%2 wants to access the following device:"
+msgid_plural "%2 wants to access the following devices:"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/userinfodialog.cpp:37
 #, fuzzy, kde-format

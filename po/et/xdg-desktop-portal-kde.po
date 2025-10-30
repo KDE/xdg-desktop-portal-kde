@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-21 00:44+0000\n"
+"POT-Creation-Date: 2025-10-30 00:44+0000\n"
 "PO-Revision-Date: 2020-10-11 01:46+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -749,6 +749,29 @@ msgstr ""
 msgid ", "
 msgstr ""
 
+#: src/UsbDialog.qml:21
+#, kde-format
+msgctxt "@title:window"
+msgid "Access to USB Devices Requested"
+msgstr ""
+
+#: src/UsbDialog.qml:24
+#, fuzzy, kde-format
+#| msgid "Request device access"
+msgctxt "The application is unknown"
+msgid "An application wants to access the following device:"
+msgid_plural "An application wants to access the following devices:"
+msgstr[0] "Seadmele juurdepääsu nõudmine"
+msgstr[1] "Seadmele juurdepääsu nõudmine"
+
+#: src/UsbDialog.qml:26
+#, kde-format
+msgctxt "%2 is the name of the application"
+msgid "%2 wants to access the following device:"
+msgid_plural "%2 wants to access the following devices:"
+msgstr[0] ""
+msgstr[1] ""
+
 #: src/userinfodialog.cpp:37
 #, fuzzy, kde-format
 #| msgid "Share Information"
@@ -823,12 +846,6 @@ msgstr "Ekraanivideo tegemise alustamine nurjus"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Kaugtöölaud"
-
-#, fuzzy
-#~| msgid "Request device access"
-#~ msgctxt "Unordered list with privileges granted to an external process"
-#~ msgid "An application requested access to:\n"
-#~ msgstr "Seadmele juurdepääsu nõudmine"
 
 #, fuzzy
 #~| msgid "Select what to share with the requesting application"

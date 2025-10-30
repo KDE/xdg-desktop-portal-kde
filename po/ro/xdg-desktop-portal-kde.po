@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-21 00:44+0000\n"
+"POT-Creation-Date: 2025-10-30 00:44+0000\n"
 "PO-Revision-Date: 2025-09-27 13:52+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -727,6 +727,36 @@ msgstr "Se partajează ecranul"
 #, kde-format
 msgid ", "
 msgstr ", "
+
+#: src/UsbDialog.qml:21
+#, kde-format
+msgctxt "@title:window"
+msgid "Access to USB Devices Requested"
+msgstr ""
+
+#: src/UsbDialog.qml:24
+#, fuzzy, kde-format
+#| msgctxt "The application is unknown"
+#| msgid "An application wants to register the following shortcut:"
+#| msgid_plural "An application wants to register the following %1 shortcuts:"
+msgctxt "The application is unknown"
+msgid "An application wants to access the following device:"
+msgid_plural "An application wants to access the following devices:"
+msgstr[0] "O aplicație vrea să înregistreze scurtătura următoare:"
+msgstr[1] "O aplicație vrea să înregistreze următoarele %1 scurtături:"
+msgstr[2] "O aplicație vrea să înregistreze următoarele %1 de scurtături:"
+
+#: src/UsbDialog.qml:26
+#, fuzzy, kde-format
+#| msgctxt "%2 is the name of the application"
+#| msgid "%2 wants to register the following shortcut:"
+#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+msgctxt "%2 is the name of the application"
+msgid "%2 wants to access the following device:"
+msgid_plural "%2 wants to access the following devices:"
+msgstr[0] "%2 vrea să înregistreze scurtătura următoare:"
+msgstr[1] "%2 vrea să înregistreze următoarele %1 scurtături:"
+msgstr[2] "%2 vrea să înregistreze următoarele %1 de scurtături:"
 
 #: src/userinfodialog.cpp:37
 #, kde-format
