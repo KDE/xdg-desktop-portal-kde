@@ -303,7 +303,7 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
 
 WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingRegion(const QRect region, Screencasting::CursorMode mode)
 {
-    return startStreaming(m_screencasting->createRegionStream(region, 1, mode),
+    return startStreaming(m_screencasting->createRegionStream(region, 0, mode),
                           {
                               {QLatin1String("size"), region.size()},
                               {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
