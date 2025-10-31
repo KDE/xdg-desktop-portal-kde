@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-30 00:44+0000\n"
-"PO-Revision-Date: 2025-09-02 09:45+0200\n"
+"PO-Revision-Date: 2025-10-30 14:35+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -730,29 +730,23 @@ msgstr ", "
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
-msgstr ""
+msgstr "Toegang tot USB-apparaten gevraagd"
 
 #: src/UsbDialog.qml:24
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
 msgid_plural "An application wants to access the following devices:"
-msgstr[0] "Een toepassing wil de volgende sneltoets registreren:"
-msgstr[1] "Een toepassing wil de volgende %1 sneltoetsen registreren:"
+msgstr[0] "Een toepassing wil toegang tot het volgende apparaat:"
+msgstr[1] "Een toepassing wil toegang tot de volgende apparaten:"
 
 #: src/UsbDialog.qml:26
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
 msgid_plural "%2 wants to access the following devices:"
-msgstr[0] "%2 wil de volgende sneltoets registreren:"
-msgstr[1] "%2 wil de volgende %1 sneltoetsen registreren:"
+msgstr[0] "%2 wil toegang tot het volgende apparaat:"
+msgstr[1] "%2 wil toegang tot de volgende apparaten:"
 
 #: src/userinfodialog.cpp:37
 #, kde-format

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-30 00:44+0000\n"
-"PO-Revision-Date: 2025-10-05 11:56+0300\n"
+"PO-Revision-Date: 2025-10-30 08:45+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -723,33 +723,27 @@ msgstr ", "
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
-msgstr ""
+msgstr "התבקשה גישה להתקני USB"
 
 #: src/UsbDialog.qml:24
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
 msgid_plural "An application wants to access the following devices:"
-msgstr[0] "יישום מעוניין לרשום את קיצור המקשים הבא:"
-msgstr[1] "יישום מעוניין לרשום את שני קיצורי המקשים הבאים:"
-msgstr[2] "יישום מעוניין לרשום את %1 קיצורי המקשים הבאים:"
-msgstr[3] "יישום מעוניין לרשום את %1 קיצורי המקשים הבאים:"
+msgstr[0] "יישום מעוניין לגשת להתקן הבא:"
+msgstr[1] "יישום מעוניין לגשת להתקנים הבאים:"
+msgstr[2] "יישום מעוניין לגשת להתקנים הבאים:"
+msgstr[3] "יישום מעוניין לגשת להתקנים הבאים:"
 
 #: src/UsbDialog.qml:26
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
 msgid_plural "%2 wants to access the following devices:"
-msgstr[0] "%2 מעוניין לרשום את קיצור המקשים הבא:"
-msgstr[1] "%2 מעוניין לרשום את שני קיצורי המקשים הבאים:"
-msgstr[2] "%2 מעוניין לרשום את %1 קיצורי המקשים הבאים:"
-msgstr[3] "%2 מעוניין לרשום את %1 קיצורי המקשים הבאים:"
+msgstr[0] "%2 מעוניין לגשת להתקן הבא:"
+msgstr[1] "%2 מעוניין לגשת להתקנים הבאים:"
+msgstr[2] "%2 מעוניין לגשת להתקנים הבאים:"
+msgstr[3] "%2 מעוניין לגשת להתקנים הבאים:"
 
 #: src/userinfodialog.cpp:37
 #, kde-format

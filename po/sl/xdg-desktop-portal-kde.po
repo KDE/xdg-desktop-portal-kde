@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-30 00:44+0000\n"
-"PO-Revision-Date: 2025-09-02 09:25+0200\n"
+"PO-Revision-Date: 2025-10-30 07:40+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -735,33 +735,27 @@ msgstr ", "
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
-msgstr ""
+msgstr "Zahtevan dostop do naprav USB"
 
 #: src/UsbDialog.qml:24
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
 msgid_plural "An application wants to access the following devices:"
-msgstr[0] "Aplikacija želi registrirati naslednje %1 bližnjice:"
-msgstr[1] "Aplikacija želi registrirati naslednjo %1 bližnjico:"
-msgstr[2] "Aplikacija želi registrirati naslednji %1 bližnjici:"
-msgstr[3] "Aplikacija želi registrirati naslednje %1 bližnjice:"
+msgstr[0] "Aplikacija želi dostopati do naslednjih naprav:"
+msgstr[1] "Aplikacija želi dostopati do naslednje naprave:"
+msgstr[2] "Aplikacija želi dostopati do naslednjih naprav:"
+msgstr[3] "Aplikacija želi dostopati do naslednjih naprav:"
 
 #: src/UsbDialog.qml:26
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
 msgid_plural "%2 wants to access the following devices:"
-msgstr[0] "%2 želi registrirati naslednje %1 bližnjice:"
-msgstr[1] "%2 želi registrirati naslednjo %1 bližnjico:"
-msgstr[2] "%2 želi registrirati naslednji %1 bližnjici:"
-msgstr[3] "%2 želi registrirati naslednje %1 bližnjice:"
+msgstr[0] "%2 želi dostopati do naslednjih naprav:"
+msgstr[1] "%2 želi dostopati do naslednje naprave:"
+msgstr[2] "%2 želi dostopati do naslednjih naprav:"
+msgstr[3] "%2 želi dostopati do naslednjih naprav:"
 
 #: src/userinfodialog.cpp:37
 #, kde-format

@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-30 00:44+0000\n"
-"PO-Revision-Date: 2025-06-30 15:31+0300\n"
+"PO-Revision-Date: 2025-10-30 18:29+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -607,16 +607,16 @@ msgid "Choose which window to share with %1:"
 msgstr "Выберите, какое окно будет доступно приложению %1:"
 
 #: src/screenchooserdialog.cpp:234
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with the requesting application:"
+#, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
-msgstr "Выберите, какие окна будут доступны запрашивающему приложению:"
+msgstr ""
+"Создать новый виртуальный экран для совместного использования с "
+"запрашивающим приложением:"
 
 #: src/screenchooserdialog.cpp:236
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with %1:"
+#, kde-format
 msgid "Create a new virtual display to share with %1:"
-msgstr "Выберите, какие окна будут доступны приложению %1:"
+msgstr "Создать новый виртуальный экран для совместного использования с %1:"
 
 #: src/screenchooserdialog.cpp:242
 #, kde-format
@@ -799,43 +799,47 @@ msgstr "Предоставить доступ"
 #, kde-format
 msgctxt "@title:window"
 msgid "Set Wallpaper"
-msgstr ""
+msgstr "Выбор обоев"
 
 #: src/WallpaperDialog.qml:26
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the desktop background?"
-msgstr ""
+msgstr "Разрешить приложению устанавливать обои рабочего стола?"
 
 #: src/WallpaperDialog.qml:28
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the lock screen background?"
-msgstr ""
+msgstr "Разрешить приложению устанавливать фон экрана блокировки?"
 
 #: src/WallpaperDialog.qml:30
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set desktop and lock screen backgrounds?"
 msgstr ""
+"Разрешить приложению устанавливать обои рабочего стола и фон экрана "
+"блокировки?"
 
 #: src/WallpaperDialog.qml:35
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the desktop background?"
-msgstr ""
+msgstr "Разрешить приложению %1 устанавливать обои рабочего стола?"
 
 #: src/WallpaperDialog.qml:37
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the lock screen background?"
-msgstr ""
+msgstr "Разрешить приложению %1 устанавливать фон экрана блокировки?"
 
 #: src/WallpaperDialog.qml:39
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
 msgstr ""
+"Разрешить приложению %1 устанавливать обои рабочего стола и фон экрана "
+"блокировки?"
 
 #: src/waylandintegration.cpp:268 src/waylandintegration.cpp:326
 #, kde-format

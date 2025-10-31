@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-30 00:44+0000\n"
-"PO-Revision-Date: 2025-09-02 10:39+0200\n"
+"PO-Revision-Date: 2025-10-30 13:25+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -735,29 +735,23 @@ msgstr ", "
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
-msgstr ""
+msgstr "S'ha sol·licitat accés als dispositius USB"
 
 #: src/UsbDialog.qml:24
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
 msgid_plural "An application wants to access the following devices:"
-msgstr[0] "Una aplicació vol registrar la drecera següent:"
-msgstr[1] "Una aplicació vol registrar les %1 dreceres següents:"
+msgstr[0] "Una aplicació vol accés al dispositiu següent:"
+msgstr[1] "Una aplicació vol accés als dispositius següents:"
 
 #: src/UsbDialog.qml:26
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
 msgid_plural "%2 wants to access the following devices:"
-msgstr[0] "%2 vol registrar la drecera següent:"
-msgstr[1] "%2 vol registrar les %1 dreceres següents:"
+msgstr[0] "%2 vol accés al dispositiu següent:"
+msgstr[1] "%2 vol accés als dispositius següents:"
 
 #: src/userinfodialog.cpp:37
 #, kde-format

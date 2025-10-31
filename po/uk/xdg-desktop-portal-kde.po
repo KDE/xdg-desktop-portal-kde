@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-30 00:44+0000\n"
-"PO-Revision-Date: 2025-09-02 17:36+0300\n"
+"PO-Revision-Date: 2025-10-30 14:34+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -739,33 +739,27 @@ msgstr ", "
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
-msgstr ""
+msgstr "Надіслано запит щодо доступу до пристроїв USB"
 
 #: src/UsbDialog.qml:24
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
 msgid_plural "An application wants to access the following devices:"
-msgstr[0] "Програмі потрібно зареєструвати таке %1 скорочення:"
-msgstr[1] "Програмі потрібно зареєструвати такі %1 скорочення:"
-msgstr[2] "Програмі потрібно зареєструвати такі %1 скорочень:"
-msgstr[3] "Програмі потрібно зареєструвати таке скорочення:"
+msgstr[0] "Програмі потрібен доступ до таких пристроїв:"
+msgstr[1] "Програмі потрібен доступ до таких пристроїв:"
+msgstr[2] "Програмі потрібен доступ до таких пристроїв:"
+msgstr[3] "Програмі потрібен доступ до такого пристрою:"
 
 #: src/UsbDialog.qml:26
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
 msgid_plural "%2 wants to access the following devices:"
-msgstr[0] "%2 потрібно зареєструвати таке %1 скорочення:"
-msgstr[1] "%2 потрібно зареєструвати такі %1 скорочення:"
-msgstr[2] "%2 потрібно зареєструвати такі %1 скорочень:"
-msgstr[3] "%2 потрібно зареєструвати таке скорочення:"
+msgstr[0] "%2 потрібен доступ до таких пристроїв:"
+msgstr[1] "%2 потрібен доступ до таких пристроїв:"
+msgstr[2] "%2 потрібен доступ до таких пристроїв:"
+msgstr[3] "%2 потрібен доступ до такого пристрою:"
 
 #: src/userinfodialog.cpp:37
 #, kde-format
