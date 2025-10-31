@@ -39,6 +39,7 @@ public:
         RemoteDesktop = 1,
         GlobalShortcuts = 2,
         InputCapture = 3,
+        SaveRestore = 4
     };
 
     bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) override;

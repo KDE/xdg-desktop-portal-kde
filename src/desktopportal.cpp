@@ -23,6 +23,7 @@
 #include "notification.h"
 #include "print.h"
 #include "remotedesktop.h"
+#include "saverestore.h"
 #include "screencast.h"
 #include "screenshot.h"
 #include "settings.h"
@@ -54,6 +55,7 @@ DesktopPortal::DesktopPortal(QObject *parent)
         new InputCapturePortal(this);
         new ClipboardPortal(this);
         new WallpaperPortal(this);
+        new SaveRestore(this);
         WaylandIntegration::init();
     }
     new UsbPortal(this);

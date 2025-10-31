@@ -69,6 +69,8 @@ set(xdg_desktop_portal_kde_SRCS
     restoredata.cpp
     request.cpp
     request.h
+    saverestore.h
+    saverestore.cpp
     screencast.cpp
     screencast.h
     screencasting.cpp
@@ -286,6 +288,14 @@ ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     EXPORT XDPKDE
 )
 
+ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
+    IDENTIFIER "XdgDesktopPortalKdeSaveRestore"
+    CATEGORY_NAME "xdp-kde-saverestore"
+    HEADER saverestore_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Save/Restore"
+    EXPORT XDPKDE
+)
+
 set(kglobalaccel_xml ${KGLOBALACCEL_DBUS_INTERFACES_DIR}/kf6_org.kde.KGlobalAccel.xml)
 set_source_files_properties(${kglobalaccel_xml} PROPERTIES
     INCLUDE "kglobalaccel.h"
@@ -371,4 +381,3 @@ install(FILES
     DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})
 
 ecm_qt_install_logging_categories(EXPORT XDPKDE FILE xdp-kde.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
-
