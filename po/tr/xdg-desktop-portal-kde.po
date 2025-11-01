@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-30 00:44+0000\n"
-"PO-Revision-Date: 2025-10-24 17:00+0300\n"
+"PO-Revision-Date: 2025-10-31 17:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -725,29 +725,23 @@ msgstr ", "
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
-msgstr ""
+msgstr "USB Aygıtlara Erişim İstendi"
 
 #: src/UsbDialog.qml:24
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
 msgid_plural "An application wants to access the following devices:"
-msgstr[0] "Bir uygulama, aşağıdaki kısayolu kaydetmek istiyor:"
-msgstr[1] "Bir uygulama, aşağıdaki %1 kısayolu kaydetmek istiyor:"
+msgstr[0] "Bir uygulama, aşağıdaki aygıta erişmek istiyor:"
+msgstr[1] "Bir uygulama, aşağıdaki aygıtlara erişmek istiyor:"
 
 #: src/UsbDialog.qml:26
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
 msgid_plural "%2 wants to access the following devices:"
-msgstr[0] "%2, aşağıdaki kısayolu kaydetmek istiyor:"
-msgstr[1] "%2, aşağıdaki %1 kısayolu kaydetmek istiyor:"
+msgstr[0] "%2, aşağıdaki aygıta erişmek istiyor:"
+msgstr[1] "%2, aşağıdaki aygıtlara erişmek istiyor:"
 
 #: src/userinfodialog.cpp:37
 #, kde-format
