@@ -38,6 +38,17 @@ Session::Session(QObject *parent, const QString &appId, const QString &path)
     , m_appId(appId)
     , m_path(path)
 {
+    qDebug() << "new session" << m_appId << m_path;
+
+    QDBusConnection sessionBus = QDBusConnection::sessionBus();
+
+    sessionBus.registerVirtualObject(path, this, QDBusConnection::VirtualObjectRegisterOption::SubPath);
+    connect(this, &Session::closed, [this, path]() {
+        sessionList.remove(path);
+        QDBusConnection::sessionBus().unregisterObject(path);
+        deleteLater();
+    });
+    sessionList.insert(path, this);
 }
 
 Session::~Session()
@@ -47,6 +58,7 @@ Session::~Session()
 bool Session::handleMessage(const QDBusMessage &message, const QDBusConnection &connection)
 {
     Q_UNUSED(connection);
+    qDebug() << "msg" << message.path() << m_path;
 
     if (message.path() != m_path) {
         return false;
@@ -81,7 +93,7 @@ bool Session::handleMessage(const QDBusMessage &message, const QDBusConnection &
 
                 if (interface == QLatin1String("org.freedesktop.impl.portal.Session") && property == QLatin1String("version")) {
                     QList<QVariant> arguments;
-                    arguments << 1;
+                    arguments << 2;
 
                     QDBusMessage reply = message.createReply();
                     reply.setArguments(arguments);
@@ -103,6 +115,8 @@ QString Session::introspect(const QString &path) const
             "<interface name=\"org.freedesktop.impl.portal.Session\">"
             "    <method name=\"Close\">"
             "    </method>"
+            "    <method name=\"Close2\">"
+            "    </method>"
             "<signal name=\"Closed\">"
             "</signal>"
             "<property name=\"version\" type=\"u\" access=\"read\"/>"
@@ -116,6 +130,7 @@ QString Session::introspect(const QString &path) const
 
 bool Session::close()
 {
+    qDebug() << "on session close";
     QDBusMessage reply = QDBusMessage::createSignal(m_path, QStringLiteral("org.freedesktop.impl.portal.Session"), QStringLiteral("Closed"));
     const bool result = QDBusConnection::sessionBus().send(reply);
 
@@ -131,38 +146,24 @@ bool Session::close()
 
 Session *Session::createSession(QObject *parent, SessionType type, const QString &appId, const QString &path)
 {
+    return nullptr;
     QDBusConnection sessionBus = QDBusConnection::sessionBus();
-
-    Session *session = nullptr;
-    switch (type) {
-    case ScreenCast:
-        session = new ScreenCastSession(parent, appId, path, QStringLiteral("media-record"));
-        break;
-    case RemoteDesktop:
-        session = new RemoteDesktopSession(parent, appId, path);
-        break;
-    case GlobalShortcuts:
-        session = new GlobalShortcutsSession(parent, appId, path);
-        break;
-    case InputCapture:
-        session = new InputCaptureSession(parent, appId, path);
-        break;
-    }
-
-    if (sessionBus.registerVirtualObject(path, session, QDBusConnection::VirtualObjectRegisterOption::SubPath)) {
-        connect(session, &Session::closed, [session, path]() {
-            sessionList.remove(path);
-            QDBusConnection::sessionBus().unregisterObject(path);
-            session->deleteLater();
-        });
-        sessionList.insert(path, session);
-        return session;
-    } else {
-        qCDebug(XdgSessionKdeSession) << sessionBus.lastError().message();
-        qCDebug(XdgSessionKdeSession) << "Failed to register session object: " << path;
-        session->deleteLater();
-        return nullptr;
-    }
+    /*
+        Session *session = nullptr;
+        switch (type) {
+        case ScreenCast:
+            session = new ScreenCastSession(parent, appId, path, QStringLiteral("media-record"));
+            break;
+        case RemoteDesktop:
+            session = new RemoteDesktopSession(parent, appId, path);
+            break;
+        case GlobalShortcuts:
+            session = new GlobalShortcutsSession(parent, appId, path);
+            break;
+        case InputCapture:
+            session = new InputCaptureSession(parent, appId, path);
+            break;
+        }*/
 }
 
 Session *Session::getSession(const QString &sessionHandle)
