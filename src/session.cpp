@@ -67,6 +67,12 @@ bool Session::handleMessage(const QDBusMessage &message, const QDBusConnection &
             QDBusMessage reply = message.createReply();
             return connection.send(reply);
         }
+    } else if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Session")) {
+        if (message.member() == QLatin1String("Close2")) {
+            close();
+            QDBusMessage reply = message.createReply();
+            return connection.send(reply);
+        }
     } else if (message.interface() == QLatin1String("org.freedesktop.DBus.Properties")) {
         if (message.member() == QLatin1String("Get")) {
             if (message.arguments().count() == 2) {
