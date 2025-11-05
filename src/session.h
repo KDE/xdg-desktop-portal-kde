@@ -11,7 +11,6 @@
 
 #include <QAction>
 #include <QDBusPendingReply>
-#include <QDBusVirtualObject>
 #include <QObject>
 #include <QShortcut>
 
@@ -26,7 +25,7 @@ class KGlobalAccelInterface;
 class KGlobalAccelComponentInterface;
 class RemoteDesktopPortal;
 
-class Session : public QDBusVirtualObject
+class Session : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(Session)
@@ -41,13 +40,9 @@ public:
         InputCapture = 3,
     };
 
-    bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) override;
-    QString introspect(const QString &path) const override;
-
     bool close();
     virtual SessionType type() const = 0;
 
-    static Session *createSession(QObject *parent, SessionType type, const QString &appId, const QString &path);
     static Session *getSession(const QString &sessionHandle);
     template<typename T>
     static T *getSession(const QString &sessionHandle)
@@ -55,6 +50,9 @@ public:
         return qobject_cast<T *>(getSession(sessionHandle));
     }
 
+    /*
+     * The path of the session
+     */
     QString handle() const
     {
         return m_path;
@@ -65,12 +63,36 @@ public:
         return m_appId;
     }
 
+    /*
+     * Internal: For DBus consumption
+     */
+    uint version() const
+    {
+        return 2;
+    }
+
+    /*
+     * Returns if the Session was registered successfully
+     */
+    bool isValid() const
+    {
+        return m_valid;
+    }
+
+    /*
+     * Internal: For DBus consumption
+     */
+    void Close();
+
 Q_SIGNALS:
     void closed();
 
 protected:
     const QString m_appId;
     const QString m_path;
+
+private:
+    bool m_valid = false;
 };
 
 class ScreenCastSession : public Session

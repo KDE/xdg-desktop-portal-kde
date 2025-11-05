@@ -9,6 +9,7 @@
 #include "session.h"
 #include "desktopportal.h"
 #include "session_debug.h"
+#include "sessionadaptor.h"
 #include "xdgshortcut.h"
 
 #include <QDBusConnection>
@@ -34,78 +35,19 @@ static QMap<QString, Session *> sessionList;
 using namespace Qt::StringLiterals;
 
 Session::Session(QObject *parent, const QString &appId, const QString &path)
-    : QDBusVirtualObject(parent)
+    : QObject(parent)
     , m_appId(appId)
     , m_path(path)
 {
+    new SessionAdaptor(this);
+    if (QDBusConnection::sessionBus().registerObject(path, this)) {
+        m_valid = true;
+        sessionList.insert(path, this);
+    }
 }
 
 Session::~Session()
 {
-}
-
-bool Session::handleMessage(const QDBusMessage &message, const QDBusConnection &connection)
-{
-    Q_UNUSED(connection);
-
-    if (message.path() != m_path) {
-        return false;
-    }
-
-    /* Check to make sure we're getting properties on our interface */
-    if (message.type() != QDBusMessage::MessageType::MethodCallMessage) {
-        return false;
-    }
-
-    qCDebug(XdgSessionKdeSession) << message.interface();
-    qCDebug(XdgSessionKdeSession) << message.member();
-    qCDebug(XdgSessionKdeSession) << message.path();
-
-    if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Session")) {
-        if (message.member() == QLatin1String("Close")) {
-            close();
-            QDBusMessage reply = message.createReply();
-            return connection.send(reply);
-        }
-    } else if (message.interface() == QLatin1String("org.freedesktop.DBus.Properties")) {
-        if (message.member() == QLatin1String("Get")) {
-            if (message.arguments().count() == 2) {
-                const QString interface = message.arguments().at(0).toString();
-                const QString property = message.arguments().at(1).toString();
-
-                if (interface == QLatin1String("org.freedesktop.impl.portal.Session") && property == QLatin1String("version")) {
-                    QList<QVariant> arguments;
-                    arguments << 1;
-
-                    QDBusMessage reply = message.createReply();
-                    reply.setArguments(arguments);
-                    return connection.send(reply);
-                }
-            }
-        }
-    }
-
-    return false;
-}
-
-QString Session::introspect(const QString &path) const
-{
-    QString nodes;
-
-    if (path.startsWith(QLatin1String("/org/freedesktop/portal/desktop/session/"))) {
-        nodes = QStringLiteral(
-            "<interface name=\"org.freedesktop.impl.portal.Session\">"
-            "    <method name=\"Close\">"
-            "    </method>"
-            "<signal name=\"Closed\">"
-            "</signal>"
-            "<property name=\"version\" type=\"u\" access=\"read\"/>"
-            "</interface>");
-    }
-
-    qCDebug(XdgSessionKdeSession) << nodes;
-
-    return nodes;
 }
 
 bool Session::close()
@@ -119,50 +61,21 @@ bool Session::close()
     QDBusConnection::sessionBus().unregisterObject(m_path);
 
     deleteLater();
+    m_valid = false;
 
     return result;
-}
-
-Session *Session::createSession(QObject *parent, SessionType type, const QString &appId, const QString &path)
-{
-    QDBusConnection sessionBus = QDBusConnection::sessionBus();
-
-    Session *session = nullptr;
-    switch (type) {
-    case ScreenCast:
-        session = new ScreenCastSession(parent, appId, path, QStringLiteral("media-record"));
-        break;
-    case RemoteDesktop:
-        session = new RemoteDesktopSession(parent, appId, path);
-        break;
-    case GlobalShortcuts:
-        session = new GlobalShortcutsSession(parent, appId, path);
-        break;
-    case InputCapture:
-        session = new InputCaptureSession(parent, appId, path);
-        break;
-    }
-
-    if (sessionBus.registerVirtualObject(path, session, QDBusConnection::VirtualObjectRegisterOption::SubPath)) {
-        connect(session, &Session::closed, [session, path]() {
-            sessionList.remove(path);
-            QDBusConnection::sessionBus().unregisterObject(path);
-            session->deleteLater();
-        });
-        sessionList.insert(path, session);
-        return session;
-    } else {
-        qCDebug(XdgSessionKdeSession) << sessionBus.lastError().message();
-        qCDebug(XdgSessionKdeSession) << "Failed to register session object: " << path;
-        session->deleteLater();
-        return nullptr;
-    }
 }
 
 Session *Session::getSession(const QString &sessionHandle)
 {
     return sessionList.value(sessionHandle);
 }
+
+void Session::Close()
+{
+    close();
+}
+
 
 ScreenCastSession::ScreenCastSession(QObject *parent, const QString &appId, const QString &path, const QString &iconName)
     : Session(parent, appId, path)
@@ -576,3 +489,4 @@ QDBusPendingReply<QDBusUnixFileDescriptor> InputCaptureSession::connectToEIS()
     auto msg = QDBusMessage::createMethodCall(kwinService(), m_kwinInputCapture.path(), kwinInputCaptureInterface(), u"connectToEIS"_s);
     return QDBusConnection::sessionBus().asyncCall(msg, kwinDBusTimeout);
 }
+

@@ -199,8 +199,8 @@ uint GlobalShortcutsPortal::CreateSession(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeGlobalShortcuts) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeGlobalShortcuts) << "    options: " << options;
 
-    auto session = qobject_cast<GlobalShortcutsSession *>(Session::createSession(this, Session::GlobalShortcuts, app_id, session_handle.path()));
-    if (!session) {
+    auto session = new GlobalShortcutsSession(this, app_id, session_handle.path());
+    if (!session->isValid()) {
         return PortalResponse::OtherError;
     }
 
