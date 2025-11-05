@@ -211,6 +211,7 @@ class FdoAppearanceSettings : public SettingsModule
     Q_OBJECT
     static constexpr auto colorScheme = "color-scheme"_L1;
     static constexpr auto accentColor = "accent-color"_L1;
+    static constexpr auto reducedMotion = "reduced-motion"_L1;
 
 public:
     explicit FdoAppearanceSettings(QObject *parent = nullptr)
@@ -232,6 +233,7 @@ public:
         QVariantMap appearanceSettings;
         appearanceSettings.insert(colorScheme, readFdoColorScheme().variant());
         appearanceSettings.insert(accentColor, readAccentColor().variant());
+        appearanceSettings.insert(reducedMotion, readReducedMotion().variant());
         result.insert(group(), appearanceSettings);
         return result;
     }
@@ -245,6 +247,8 @@ public:
             return readFdoColorScheme().variant();
         } else if (key == accentColor) {
             return readAccentColor().variant();
+        } else if (key == reducedMotion) {
+            return readReducedMotion().variant();
         }
         return {};
     }
@@ -272,6 +276,14 @@ private:
     {
         const QColor accentColor = qGuiApp->palette().highlight().color();
         return QDBusVariant(AccentColorArray{accentColor.redF(), accentColor.greenF(), accentColor.blueF()});
+    }
+
+    QDBusVariant readReducedMotion() const
+    {
+        KConfig kdeglobals(u"kdeglobals"_s);
+        const bool noMotion = kdeglobals.group(u"KDE"_s).readEntry("AnimationDurationFactor", 1.0) == 0;
+
+        return QDBusVariant(noMotion ? 1U : 0U);
     }
 
 private Q_SLOTS:
