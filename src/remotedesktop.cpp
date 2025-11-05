@@ -109,9 +109,9 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    options: " << options;
 
-    Session *session = Session::createSession(this, Session::RemoteDesktop, app_id, session_handle.path());
+    Session *session = new RemoteDesktopSession(this, app_id, session_handle.path());
 
-    if (!session) {
+    if (!session->isValid()) {
         return PortalResponse::OtherError;
     }
 

@@ -139,9 +139,9 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    options: " << options;
 
-    Session *session = Session::createSession(this, Session::ScreenCast, app_id, session_handle.path());
+    Session *session = new ScreenCastSession(this, app_id, session_handle.path(), QStringLiteral("media-record"));
 
-    if (!session) {
+    if (!session->isValid()) {
         return PortalResponse::OtherError;
     }
 
