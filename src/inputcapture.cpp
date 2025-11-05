@@ -146,9 +146,9 @@ void InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeInputCapture) << "    parent_window: " << parent_window;
     qCDebug(XdgDesktopPortalKdeInputCapture) << "    options: " << options;
 
-    auto *session = static_cast<InputCaptureSession *>(Session::createSession(this, Session::InputCapture, app_id, session_handle.path()));
+    auto *session = new InputCaptureSession(this, app_id, session_handle.path());
 
-    if (!session) {
+    if (!session->isValid()) {
         replyResponse = PortalResponse::OtherError;
         return;
     }
