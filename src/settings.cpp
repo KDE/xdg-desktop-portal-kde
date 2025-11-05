@@ -19,6 +19,7 @@
 #include <QStyleHints>
 
 #include <KConfigGroup>
+#include <KConfigWatcher>
 
 #include "desktopportal.h"
 #include "tabletmodemanager_interface.h"
@@ -211,6 +212,7 @@ class FdoAppearanceSettings : public SettingsModule
     Q_OBJECT
     static constexpr auto colorScheme = "color-scheme"_L1;
     static constexpr auto accentColor = "accent-color"_L1;
+    static constexpr auto reducedMotion = "reduced-motion"_L1;
 
 public:
     explicit FdoAppearanceSettings(QObject *parent = nullptr)
@@ -218,6 +220,9 @@ public:
     {
         qDBusRegisterMetaType<AccentColorArray>();
         connect(qGuiApp, &QGuiApplication::paletteChanged, this, &FdoAppearanceSettings::onPaletteChanged);
+
+        m_kdeglobalsWatcher = KConfigWatcher::create(KSharedConfig::openConfig(u"kdeglobals"_s));
+        connect(m_kdeglobalsWatcher.get(), &KConfigWatcher::configChanged, this, &FdoAppearanceSettings::kdeglobalsChanged);
     }
 
     inline QString group() final
@@ -232,6 +237,7 @@ public:
         QVariantMap appearanceSettings;
         appearanceSettings.insert(colorScheme, readFdoColorScheme().variant());
         appearanceSettings.insert(accentColor, readAccentColor().variant());
+        appearanceSettings.insert(reducedMotion, readReducedMotion().variant());
         result.insert(group(), appearanceSettings);
         return result;
     }
@@ -245,6 +251,8 @@ public:
             return readFdoColorScheme().variant();
         } else if (key == accentColor) {
             return readAccentColor().variant();
+        } else if (key == reducedMotion) {
+            return readReducedMotion().variant();
         }
         return {};
     }
@@ -274,12 +282,30 @@ private:
         return QDBusVariant(AccentColorArray{accentColor.redF(), accentColor.greenF(), accentColor.blueF()});
     }
 
+    QDBusVariant readReducedMotion() const
+    {
+        KConfig kdeglobals(u"kdeglobals"_s);
+        const bool noMotion = kdeglobals.group(u"KDE"_s).readEntry("AnimationDurationFactor", 1.0) == 0;
+
+        return QDBusVariant(noMotion ? 1U : 0U);
+    }
+
 private Q_SLOTS:
     void onPaletteChanged()
     {
         Q_EMIT settingChanged(group(), colorScheme, readFdoColorScheme());
         Q_EMIT settingChanged(group(), accentColor, readAccentColor());
     }
+
+    void kdeglobalsChanged(const KConfigGroup &configGroup, const QByteArrayList &names)
+    {
+        if (configGroup.name() == u"KDE" && names.contains("AnimationDurationFactor")) {
+            Q_EMIT settingChanged(group(), reducedMotion, readReducedMotion());
+        }
+    }
+
+private:
+    KConfigWatcher::Ptr m_kdeglobalsWatcher;
 };
 
 class KDEGlobalsSettings : public SettingsModule
