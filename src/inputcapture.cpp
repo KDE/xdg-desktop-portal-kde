@@ -11,6 +11,7 @@
 
 #include "inputcapture.h"
 
+#include "dbushelpers.h"
 #include "inputcapture_debug.h"
 #include "inputcapturebarrier.h"
 #include "inputcapturedialog.h"

@@ -9,6 +9,7 @@
  */
 
 #include "print.h"
+#include "dbushelpers.h"
 #include "print_debug.h"
 #include "request.h"
 #include "utils.h"

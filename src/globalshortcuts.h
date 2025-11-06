@@ -13,6 +13,7 @@
 #include <qqmlintegration.h>
 
 #include "dbushelpers.h"
+#include "session.h"
 
 struct ShortcutInfo {
     Q_GADGET
@@ -24,6 +25,50 @@ public:
     QString description;
     QKeySequence keySequence;
     QKeySequence preferredKeySequence;
+};
+
+
+class GlobalShortcutsSession : public Session
+{
+    Q_OBJECT
+public:
+    explicit GlobalShortcutsSession(QObject *parent, const QString &appId, const QString &path);
+    ~GlobalShortcutsSession() override;
+
+    SessionType type() const override
+    {
+        return SessionType::GlobalShortcuts;
+    }
+
+    void setActions(const QList<ShortcutInfo> &shortcuts);
+    void loadActions();
+
+    QVariant shortcutDescriptionsVariant() const;
+    Shortcuts shortcutDescriptions() const;
+    KGlobalAccelComponentInterface *component() const
+    {
+        return m_component;
+    }
+    QString componentName() const
+    {
+        return m_appId.isEmpty() ? QLatin1String("token_") + m_token : m_appId;
+    }
+
+    QString appId() const
+    {
+        return m_appId;
+    }
+
+Q_SIGNALS:
+    void shortcutsChanged();
+    void shortcutActivated(const QString &shortcutName, qlonglong timestamp);
+    void shortcutDeactivated(const QString &shortcutName, qlonglong timestamp);
+
+private:
+    const QString m_token;
+    std::unordered_map<QString, std::unique_ptr<QAction>> m_shortcuts;
+    KGlobalAccelInterface *const m_globalAccelInterface;
+    KGlobalAccelComponentInterface *const m_component;
 };
 
 class GlobalShortcutsPortal : public QDBusAbstractAdaptor

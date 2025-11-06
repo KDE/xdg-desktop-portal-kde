@@ -8,6 +8,7 @@
  */
 
 #include "screenshot.h"
+#include "dbushelpers.h"
 #include "request.h"
 #include "screenshot_debug.h"
 #include "screenshotdialog.h"

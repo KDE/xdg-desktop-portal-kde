@@ -8,6 +8,7 @@
  */
 
 #include "screencast.h"
+#include "dbushelpers.h"
 #include "notificationinhibition.h"
 #include "request.h"
 #include "restoredata.h"
