@@ -28,6 +28,7 @@
 #include <QDBusMetaType>
 #include <QDBusReply>
 #include <QGuiApplication>
+#include <QScreen>
 
 using namespace Qt::StringLiterals;
 

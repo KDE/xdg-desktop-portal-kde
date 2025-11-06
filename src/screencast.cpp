@@ -17,6 +17,7 @@
 #include "session.h"
 #include "utils.h"
 #include "waylandintegration.h"
+#include "remotedesktop.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -31,6 +32,7 @@
 #include <QGuiApplication>
 #include <QIODevice>
 
+#include <kstatusnotifieritem.h>
 #include <ranges>
 
 using namespace Qt::StringLiterals;
@@ -376,4 +378,108 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
                                                             screenDialog->allowRestore());
         return {response, results};
     });
+}
+
+
+ScreenCastSession::ScreenCastSession(QObject *parent, const QString &appId, const QString &path, const QString &iconName)
+    : Session(parent, appId, path)
+    , m_item(new KStatusNotifierItem(this))
+{
+    m_item->setStandardActionsEnabled(false);
+    m_item->setIconByName(iconName);
+
+    auto menu = new QMenu;
+    auto stopAction = menu->addAction(QIcon::fromTheme(QStringLiteral("process-stop")), i18nc("@action:inmenu stops screen/window sharing", "End"));
+    connect(stopAction, &QAction::triggered, this, &Session::close);
+    m_item->setContextMenu(menu);
+    m_item->setIsMenu(true);
+}
+
+ScreenCastSession::~ScreenCastSession()
+{
+}
+
+bool ScreenCastSession::multipleSources() const
+{
+    return m_multipleSources;
+}
+
+ScreenCastPortal::SourceType ScreenCastSession::types() const
+{
+    return m_types;
+}
+
+void ScreenCastSession::setPersistMode(ScreenCastPortal::PersistMode persistMode)
+{
+    m_persistMode = persistMode;
+}
+
+ScreenCastPortal::CursorModes ScreenCastSession::cursorMode() const
+{
+    return m_cursorMode;
+}
+
+void ScreenCastSession::setOptions(const QVariantMap &options)
+{
+    m_multipleSources = options.value(QStringLiteral("multiple")).toBool();
+    m_cursorMode = ScreenCastPortal::CursorModes(options.value(QStringLiteral("cursor_mode")).toUInt());
+    m_types = ScreenCastPortal::SourceType(options.value(QStringLiteral("types")).toUInt());
+
+    if (m_types == 0) {
+        m_types = ScreenCastPortal::Monitor;
+    }
+}
+
+
+void ScreenCastSession::setStreams(const WaylandIntegration::Streams &streams)
+{
+    Q_ASSERT(!streams.isEmpty());
+    m_streams = streams;
+
+    m_item->setStandardActionsEnabled(false);
+    if (qobject_cast<RemoteDesktopSession *>(this)) {
+        refreshDescription();
+    } else {
+        const bool isWindow = m_streams[0].map[QLatin1String("source_type")] == ScreenCastPortal::Window;
+        m_item->setToolTipSubTitle(i18ncp("%1 number of screens, %2 the app that receives them",
+                                          "Sharing contents to %2",
+                                          "%1 video streams to %2",
+                                          m_streams.count(),
+                                          Utils::applicationName(m_appId)));
+        m_item->setTitle(i18nc("SNI title that indicates there's a process seeing our windows or screens", "Screen casting"));
+        if (isWindow) {
+            m_item->setOverlayIconByName(QStringLiteral("window"));
+        } else {
+            m_item->setOverlayIconByName(QStringLiteral("monitor"));
+        }
+    }
+    m_item->setToolTipIconByName(m_item->overlayIconName());
+    m_item->setToolTipTitle(m_item->title());
+
+    for (const auto &s : streams) {
+        connect(s.stream, &ScreencastingStream::closed, this, &ScreenCastSession::streamClosed);
+        connect(s.stream, &ScreencastingStream::failed, this, [this](const QString &error) {
+            qCWarning(XdgDesktopPortalKdeScreenCast) << "ScreenCast session failed" << error;
+            streamClosed();
+        });
+    }
+    m_item->setStatus(KStatusNotifierItem::Active);
+}
+
+void ScreenCastSession::setDescription(const QString &description)
+{
+    m_item->setToolTipSubTitle(description);
+}
+
+void ScreenCastSession::streamClosed()
+{
+    ScreencastingStream *stream = qobject_cast<ScreencastingStream *>(sender());
+    auto it = std::remove_if(m_streams.begin(), m_streams.end(), [stream](const WaylandIntegration::Stream &s) {
+        return s.stream == stream;
+    });
+    m_streams.erase(it, m_streams.end());
+
+    if (m_streams.isEmpty()) {
+        close();
+    }
 }

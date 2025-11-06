@@ -10,6 +10,8 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <QUrl>
+#include <QGuiApplication>
+#include <QScreen>
 
 using namespace Qt::StringLiterals;
 
