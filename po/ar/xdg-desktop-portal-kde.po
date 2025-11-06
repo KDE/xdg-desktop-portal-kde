@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-30 00:44+0000\n"
-"PO-Revision-Date: 2025-11-05 18:19+0400\n"
+"PO-Revision-Date: 2025-11-06 09:53+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -737,34 +737,28 @@ msgid "Access to USB Devices Requested"
 msgstr "طُلب الأذن للوصول إلى أجهزة USB"
 
 #: src/UsbDialog.qml:24
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
 msgid_plural "An application wants to access the following devices:"
-msgstr[0] "هناك تطبيق يريد تسجيل الاختصار التالي:"
-msgstr[1] "هناك تطبيق يريد تسجيل الاختصار التالي:"
-msgstr[2] "هناك تطبيق يريد تسجيل الاختصارين التاليين:"
-msgstr[3] "هناك تطبيق يريد تسجيل %1 الاختصارات التالية:"
-msgstr[4] "هناك تطبيق يريد تسجيل %1 اختصارًا التالي:"
-msgstr[5] "هناك تطبيق يريد تسجيل %1 اختصار التالية:"
+msgstr[0] "هناك تطبيق يريد الوصول إلى الجهاز التالي:"
+msgstr[1] "هناك تطبيق يريد الوصول إلى الجهاز التالي:"
+msgstr[2] "هناك تطبيق يريد الوصول إلى الجهازين التاليين:"
+msgstr[3] "هناك تطبيق يريد الوصول إلى الأجهزة التالية:"
+msgstr[4] "هناك تطبيق يريد الوصول إلى الأجهزة التالية:"
+msgstr[5] "هناك تطبيق يريد الوصول إلى الأجهزة التالية:"
 
 #: src/UsbDialog.qml:26
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
 msgid_plural "%2 wants to access the following devices:"
-msgstr[0] "التطبيق %2 يريد تسجيل الاختصار التالي:"
-msgstr[1] "التطبيق %2 يريد تسجيل الاختصار التالي:"
-msgstr[2] "التطبيق %2 يريد تسجيل الاختصارين التاليين:"
-msgstr[3] "التطبيق %2 يريد تسجيل %1 اختصارات التالية:"
-msgstr[4] "التطبيق %2 يريد تسجيل %1 اختصارًا التالي:"
-msgstr[5] "التطبيق %2 يريد تسجيل %1 اختصار التالية:"
+msgstr[0] "يريد %2 الوصول إلى الجهاز التالي:"
+msgstr[1] "يريد %2 الوصول إلى الجهاز التالي:"
+msgstr[2] "يريد %2 الوصول إلى الجهازين التاليين:"
+msgstr[3] "يريد %2 الوصول إلى الأجهزة التالية:"
+msgstr[4] "يريد %2 الوصول إلى الأجهزة التالية:"
+msgstr[5] "يريد %2 الوصول إلى الأجهزة التالية:"
 
 #: src/userinfodialog.cpp:37
 #, kde-format
