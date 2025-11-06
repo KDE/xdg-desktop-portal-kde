@@ -14,6 +14,7 @@
 #include <KIconLoader>
 #include <KLocalizedString>
 
+#include "dbushelpers.h"
 #include "dynamiclauncher_debug.h"
 #include "dynamiclauncherdialog.h"
 #include "portalicon.h"
