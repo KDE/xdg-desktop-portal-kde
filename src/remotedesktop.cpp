@@ -17,6 +17,8 @@
 #include "waylandintegration.h"
 #include <KLocalizedString>
 #include <KNotification>
+#include <KStatusNotifierItem>
+
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusReply>
@@ -501,4 +503,81 @@ RemoteDesktopPortal::ConnectToEIS(const QDBusObjectPath &session_handle, const Q
     }
     session->setEisCookie(reply.argumentAt<1>());
     return reply.argumentAt<0>();
+}
+
+RemoteDesktopSession::RemoteDesktopSession(QObject *parent, const QString &appId, const QString &path)
+    : ScreenCastSession(parent, appId, path, QStringLiteral("krfb"))
+    , m_screenSharingEnabled(false)
+    , m_clipboardEnabled(false)
+{
+    connect(this, &RemoteDesktopSession::closed, this, [this] {
+        if (m_acquired) {
+            WaylandIntegration::acquireStreamingInput(false);
+        }
+    });
+}
+
+RemoteDesktopSession::~RemoteDesktopSession()
+{
+}
+
+void RemoteDesktopSession::setOptions(const QVariantMap &options)
+{
+}
+
+RemoteDesktopPortal::DeviceTypes RemoteDesktopSession::deviceTypes() const
+{
+    return m_deviceTypes;
+}
+
+void RemoteDesktopSession::setDeviceTypes(RemoteDesktopPortal::DeviceTypes deviceTypes)
+{
+    m_deviceTypes = deviceTypes;
+}
+
+bool RemoteDesktopSession::screenSharingEnabled() const
+{
+    return m_screenSharingEnabled;
+}
+
+void RemoteDesktopSession::setScreenSharingEnabled(bool enabled)
+{
+    if (m_screenSharingEnabled == enabled) {
+        return;
+    }
+
+    m_screenSharingEnabled = enabled;
+}
+
+bool RemoteDesktopSession::clipboardEnabled() const
+{
+    return m_clipboardEnabled;
+}
+
+void RemoteDesktopSession::setClipboardEnabled(bool enabled)
+{
+    m_clipboardEnabled = enabled;
+}
+
+void RemoteDesktopSession::setEisCookie(int cookie)
+{
+    m_cookie = cookie;
+}
+
+int RemoteDesktopSession::eisCookie() const
+{
+    return m_cookie;
+}
+
+void RemoteDesktopSession::acquireStreamingInput()
+{
+    WaylandIntegration::acquireStreamingInput(true);
+    m_acquired = true;
+}
+
+void RemoteDesktopSession::refreshDescription()
+{
+    m_item->setTitle(i18nc("SNI title that indicates there's a process remotely controlling the system", "Remote Control"));
+    m_item->setToolTipTitle(m_item->title());
+    setDescription(RemoteDesktopDialog::buildNotificationDescription(m_appId, deviceTypes(), screenSharingEnabled()));
 }

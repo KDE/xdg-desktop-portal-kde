@@ -15,9 +15,6 @@
 #include <QShortcut>
 
 #include "inputcapture.h"
-#include "remotedesktop.h"
-#include "screencast.h"
-#include "waylandintegration.h"
 
 class KStatusNotifierItem;
 class KGlobalAccelInterface;
@@ -92,104 +89,6 @@ protected:
 
 private:
     bool m_valid = false;
-};
-
-class ScreenCastSession : public Session
-{
-    Q_OBJECT
-public:
-    explicit ScreenCastSession(QObject *parent, const QString &appId, const QString &path, const QString &iconName);
-    ~ScreenCastSession() override;
-
-    void setOptions(const QVariantMap &options);
-
-    ScreenCastPortal::CursorModes cursorMode() const;
-    bool multipleSources() const;
-    ScreenCastPortal::SourceType types() const;
-
-    SessionType type() const override
-    {
-        return SessionType::ScreenCast;
-    }
-
-    void setRestoreData(const QVariant &restoreData)
-    {
-        m_restoreData = restoreData;
-    }
-
-    QVariant restoreData() const
-    {
-        return m_restoreData;
-    }
-
-    void setPersistMode(ScreenCastPortal::PersistMode persistMode);
-
-    ScreenCastPortal::PersistMode persistMode() const
-    {
-        return m_persistMode;
-    }
-
-    WaylandIntegration::Streams streams() const
-    {
-        return m_streams;
-    }
-    void setStreams(const WaylandIntegration::Streams &streams);
-    virtual void refreshDescription()
-    {
-    }
-
-protected:
-    void setDescription(const QString &description);
-    KStatusNotifierItem *const m_item;
-
-private:
-    bool m_multipleSources = false;
-    ScreenCastPortal::CursorModes m_cursorMode = ScreenCastPortal::Hidden;
-    ScreenCastPortal::SourceType m_types = ScreenCastPortal::Any;
-    ScreenCastPortal::PersistMode m_persistMode = ScreenCastPortal::NoPersist;
-    QVariant m_restoreData;
-
-    void streamClosed();
-
-    WaylandIntegration::Streams m_streams;
-    friend class RemoteDesktopPortal;
-};
-
-class RemoteDesktopSession : public ScreenCastSession
-{
-    Q_OBJECT
-public:
-    explicit RemoteDesktopSession(QObject *parent, const QString &appId, const QString &path);
-    ~RemoteDesktopSession() override;
-
-    void setOptions(const QVariantMap &options);
-
-    RemoteDesktopPortal::DeviceTypes deviceTypes() const;
-    void setDeviceTypes(RemoteDesktopPortal::DeviceTypes deviceTypes);
-
-    bool screenSharingEnabled() const;
-    void setScreenSharingEnabled(bool enabled);
-
-    bool clipboardEnabled() const;
-    void setClipboardEnabled(bool enabled);
-
-    void acquireStreamingInput();
-    void refreshDescription() override;
-
-    void setEisCookie(int cookie);
-    int eisCookie() const;
-
-    SessionType type() const override
-    {
-        return SessionType::RemoteDesktop;
-    }
-
-private:
-    bool m_screenSharingEnabled;
-    bool m_clipboardEnabled;
-    RemoteDesktopPortal::DeviceTypes m_deviceTypes;
-    bool m_acquired = false;
-    int m_cookie = 0;
 };
 
 class InputCaptureSession : public Session

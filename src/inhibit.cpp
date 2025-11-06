@@ -15,6 +15,8 @@
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
 
+#include <QPointer>
+
 static void releaseInhibition(uint cookie)
 {
     QDBusMessage uninhibitMessage = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),

@@ -13,6 +13,8 @@
 #include <QDBusObjectPath>
 #include <QDBusUnixFileDescriptor>
 
+#include "screencast.h"
+
 class QDBusMessage;
 
 class RemoteDesktopPortal : public QDBusAbstractAdaptor
@@ -88,5 +90,43 @@ public Q_SLOTS:
     QDBusUnixFileDescriptor ConnectToEIS(const QDBusObjectPath &session_handle, const QString &app_id, const QVariantMap &options, const QDBusMessage &message);
 };
 Q_DECLARE_OPERATORS_FOR_FLAGS(RemoteDesktopPortal::DeviceTypes)
+
+
+class RemoteDesktopSession : public ScreenCastSession
+{
+    Q_OBJECT
+public:
+    explicit RemoteDesktopSession(QObject *parent, const QString &appId, const QString &path);
+    ~RemoteDesktopSession() override;
+
+    void setOptions(const QVariantMap &options);
+
+    RemoteDesktopPortal::DeviceTypes deviceTypes() const;
+    void setDeviceTypes(RemoteDesktopPortal::DeviceTypes deviceTypes);
+
+    bool screenSharingEnabled() const;
+    void setScreenSharingEnabled(bool enabled);
+
+    bool clipboardEnabled() const;
+    void setClipboardEnabled(bool enabled);
+
+    void acquireStreamingInput();
+    void refreshDescription() override;
+
+    void setEisCookie(int cookie);
+    int eisCookie() const;
+
+    SessionType type() const override
+    {
+        return SessionType::RemoteDesktop;
+    }
+
+private:
+    bool m_screenSharingEnabled;
+    bool m_clipboardEnabled;
+    RemoteDesktopPortal::DeviceTypes m_deviceTypes;
+    bool m_acquired = false;
+    int m_cookie = 0;
+};
 
 #endif // XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_H

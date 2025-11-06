@@ -7,6 +7,7 @@
 
 #include "clipboard_debug.h"
 #include "session.h"
+#include "remotedesktop.h"
 
 #include <KSystemClipboard>
 

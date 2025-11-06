@@ -11,6 +11,8 @@
 
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
+#include "session.h"
+#include "waylandintegration.h"
 
 class QDBusMessage;
 
@@ -82,6 +84,68 @@ public Q_SLOTS:
                const QDBusMessage &message,
                uint &replyResponse,
                QVariantMap &replyResults);
+};
+
+
+class ScreenCastSession : public Session
+{
+    Q_OBJECT
+public:
+    explicit ScreenCastSession(QObject *parent, const QString &appId, const QString &path, const QString &iconName);
+    ~ScreenCastSession() override;
+
+    void setOptions(const QVariantMap &options);
+
+    ScreenCastPortal::CursorModes cursorMode() const;
+    bool multipleSources() const;
+    ScreenCastPortal::SourceType types() const;
+
+    SessionType type() const override
+    {
+        return SessionType::ScreenCast;
+    }
+
+    void setRestoreData(const QVariant &restoreData)
+    {
+        m_restoreData = restoreData;
+    }
+
+    QVariant restoreData() const
+    {
+        return m_restoreData;
+    }
+
+    void setPersistMode(ScreenCastPortal::PersistMode persistMode);
+
+    ScreenCastPortal::PersistMode persistMode() const
+    {
+        return m_persistMode;
+    }
+
+    WaylandIntegration::Streams streams() const
+    {
+        return m_streams;
+    }
+    void setStreams(const WaylandIntegration::Streams &streams);
+    virtual void refreshDescription()
+    {
+    }
+
+protected:
+    void setDescription(const QString &description);
+    KStatusNotifierItem *const m_item;
+
+private:
+    bool m_multipleSources = false;
+    ScreenCastPortal::CursorModes m_cursorMode = ScreenCastPortal::Hidden;
+    ScreenCastPortal::SourceType m_types = ScreenCastPortal::Any;
+    ScreenCastPortal::PersistMode m_persistMode = ScreenCastPortal::NoPersist;
+    QVariant m_restoreData;
+
+    void streamClosed();
+
+    WaylandIntegration::Streams m_streams;
+    friend class RemoteDesktopPortal;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SCREENCAST_H
