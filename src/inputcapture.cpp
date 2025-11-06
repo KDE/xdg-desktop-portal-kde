@@ -458,3 +458,68 @@ uint InputCapturePortal::Release(const QDBusObjectPath &session_handle, const QS
 
     return PortalResponse::Success;
 }
+
+static QString kwinInputCaptureInterface()
+{
+    return u"org.kde.KWin.EIS.InputCapture"_s;
+}
+
+InputCaptureSession::InputCaptureSession(QObject *parent, const QString &appId, const QString &path)
+    : Session(parent, appId, path)
+    , state(InputCapturePortal::State::Disabled)
+{
+}
+
+InputCaptureSession::~InputCaptureSession() = default;
+
+void InputCaptureSession::addBarrier(const QPair<QPoint, QPoint> &barrier)
+{
+    m_barriers.push_back(barrier);
+}
+
+void InputCaptureSession::clearBarriers()
+{
+    m_barriers.clear();
+}
+
+QDBusObjectPath InputCaptureSession::kwinInputCapture() const
+{
+    return m_kwinInputCapture;
+}
+
+void InputCaptureSession::connect(const QDBusObjectPath &path)
+{
+    m_kwinInputCapture = path;
+    auto connectSignal = [this](const QString &signalName, const char *slot) {
+        QDBusConnection::sessionBus().connect(kwinService(), m_kwinInputCapture.path(), kwinInputCaptureInterface(), signalName, this, slot);
+    };
+    connectSignal(u"disabled"_s, SIGNAL(disabled()));
+    connectSignal(u"activated"_s, SIGNAL(activated(uint, QPointF)));
+    connectSignal(u"deactivated"_s, SIGNAL(deactivated(uint)));
+}
+
+QDBusPendingReply<void> InputCaptureSession::enable()
+{
+    auto msg = QDBusMessage::createMethodCall(kwinService(), m_kwinInputCapture.path(), kwinInputCaptureInterface(), u"enable"_s);
+    msg << QVariant::fromValue(m_barriers);
+    return QDBusConnection::sessionBus().asyncCall(msg, kwinDBusTimeout);
+}
+
+QDBusPendingReply<void> InputCaptureSession::disable()
+{
+    auto msg = QDBusMessage::createMethodCall(kwinService(), m_kwinInputCapture.path(), kwinInputCaptureInterface(), u"disable"_s);
+    return QDBusConnection::sessionBus().asyncCall(msg, kwinDBusTimeout);
+}
+
+QDBusPendingReply<void> InputCaptureSession::release(const QPointF &cusorPosition, bool applyPosition)
+{
+    auto msg = QDBusMessage::createMethodCall(kwinService(), m_kwinInputCapture.path(), kwinInputCaptureInterface(), u"release"_s);
+    msg << cusorPosition << applyPosition;
+    return QDBusConnection::sessionBus().asyncCall(msg, kwinDBusTimeout);
+}
+
+QDBusPendingReply<QDBusUnixFileDescriptor> InputCaptureSession::connectToEIS()
+{
+    auto msg = QDBusMessage::createMethodCall(kwinService(), m_kwinInputCapture.path(), kwinInputCaptureInterface(), u"connectToEIS"_s);
+    return QDBusConnection::sessionBus().asyncCall(msg, kwinDBusTimeout);
+}
