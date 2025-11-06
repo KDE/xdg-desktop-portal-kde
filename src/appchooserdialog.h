@@ -13,8 +13,8 @@
 #include "quickdialog.h"
 
 #include <QAbstractListModel>
+#include <QMimeType>
 #include <QSortFilterProxyModel>
-#include <qmimetype.h>
 
 #include <KCompletion>
 #include <KConfigGroup>
