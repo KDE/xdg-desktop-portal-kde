@@ -11,6 +11,8 @@
 #include <QDBusObjectPath>
 #include <QDBusUnixFileDescriptor>
 
+#include "session.h"
+
 class QDBusMessage;
 class InputCaptureSession;
 
@@ -92,5 +94,42 @@ private:
     uint m_zoneId = 0;
 };
 Q_DECLARE_OPERATORS_FOR_FLAGS(InputCapturePortal::Capabilities)
+
+
+class InputCaptureSession : public Session
+{
+    Q_OBJECT
+public:
+    explicit InputCaptureSession(QObject *parent, const QString &appId, const QString &path);
+    ~InputCaptureSession() override;
+
+    SessionType type() const override
+    {
+        return SessionType::InputCapture;
+    }
+
+    InputCapturePortal::State state;
+
+    void connect(const QDBusObjectPath &path);
+    QDBusObjectPath kwinInputCapture() const;
+
+    QDBusPendingReply<void> enable();
+    QDBusPendingReply<void> disable();
+    QDBusPendingReply<void> release(const QPointF &cusorPosition, bool applyPosition);
+
+    QDBusPendingReply<QDBusUnixFileDescriptor> connectToEIS();
+
+    void addBarrier(const QPair<QPoint, QPoint> &barriers);
+    void clearBarriers();
+
+Q_SIGNALS:
+    void disabled();
+    void activated(uint activationId, const QPointF &cursorPosition);
+    void deactivated(uint activationId);
+
+private:
+    QDBusObjectPath m_kwinInputCapture;
+    QList<QPair<QPoint, QPoint>> m_barriers;
+};
 
 #endif
