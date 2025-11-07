@@ -79,8 +79,8 @@ Kirigami.ApplicationWindow {
     minimumHeight: contentLayout.minimumHeight
     minimumWidth: contentLayout.minimumWidth
 
-    function present() {
-        contentLayout.present()
+    function present() : void {
+        Kirigami.Settings.isMobile ? showMaximized() : show()
     }
     signal accept()
     signal reject()
@@ -124,10 +124,6 @@ Kirigami.ApplicationWindow {
 
         readonly property real minimumHeight: implicitHeight
         readonly property real minimumWidth: Math.min(Math.round(Screen.width / 3), implicitWidth)
-
-        function present() {
-            Kirigami.Settings.isMobile ? root.showMaximized() : root.show()
-        }
 
         Item {
             id: systemModalShadow
