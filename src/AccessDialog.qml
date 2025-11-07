@@ -6,9 +6,8 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
-import org.kde.plasma.workspace.dialogs as PWD
 
-PWD.SystemDialog {
+PortalDialog {
     id: root
 
     property alias body: bodyLabel.text
@@ -25,6 +24,7 @@ PWD.SystemDialog {
 
     Kirigami.FormLayout {
         Layout.fillWidth: true
+        visible: root.choices?.length > 0
         Repeater {
             model: root.choices
             delegate: Loader {
@@ -54,17 +54,17 @@ PWD.SystemDialog {
             }
         }
     }
- 
+
 
 
     standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
 
     Component.onCompleted: {
         if (root.acceptLabel.length > 0) {
-            dialogButtonBox.button(QQC2.DialogButtonBox.Ok).text = Qt.binding(() => root.acceptLabel);
+            dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = Qt.binding(() => root.acceptLabel);
         }
         if (root.rejectLabel.length > 0) {
-            dialogButtonBox.button(QQC2.DialogButtonBox.Cancel).text = Qt.binding(() => root.rejectLabel);
+            dialogButtonBox.standardButton(QQC2.DialogButtonBox.Cancel).text = Qt.binding(() => root.rejectLabel);
         }
     }
 }

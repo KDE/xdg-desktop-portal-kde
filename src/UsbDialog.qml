@@ -7,11 +7,10 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
-import org.kde.plasma.workspace.dialogs as PWD
 
 pragma ComponentBehavior: Bound
 
-PWD.SystemDialog {
+PortalDialog {
     id: root
 
     required property string app
@@ -74,7 +73,7 @@ PWD.SystemDialog {
                     hoverEnabled: false
                     down: false
                     contentItem:  RowLayout {
-                        spacing: Kirigami.Units.smallSpacing 
+                        spacing: Kirigami.Units.smallSpacing
                         Kirigami.TitleSubtitle {
                             Layout.fillWidth: true
                             title: delegate.model.properties?.ID_MODEL_FROM_DATABASE ||  decodeString(delegate.model.properties?.ID_MODEL_ENC) ||delegate. model.properties?.ID_MODEL_ID || ""

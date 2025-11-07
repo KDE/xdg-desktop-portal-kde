@@ -6,11 +6,10 @@
 import QtQuick
 import QtQuick.Controls as QQC
 import QtQuick.Layouts
-import org.kde.plasma.workspace.dialogs as PWD
 import org.kde.kirigami as Kirigami
 import org.kde.xdgdesktopportal
 
-PWD.SystemDialog
+PortalDialog
 {
     id: root
     required property int location

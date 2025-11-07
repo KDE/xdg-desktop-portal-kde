@@ -13,11 +13,10 @@ import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import Qt.labs.platform
 import org.kde.kirigami as Kirigami
-import org.kde.plasma.workspace.dialogs as PWD
 
 import org.kde.xdgdesktopportal
 
-PWD.SystemDialog {
+PortalDialog {
     id: root
 
     iconName: "applications-all"

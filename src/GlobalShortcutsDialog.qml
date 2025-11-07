@@ -9,10 +9,9 @@ import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kquickcontrols as KQC
 import org.kde.kirigami as Kirigami
-import org.kde.plasma.workspace.dialogs as PWD
 import org.kde.kcmutils as KCMUtils
 
-PWD.SystemDialog {
+PortalDialog {
 
     id: root
 
@@ -55,10 +54,6 @@ PWD.SystemDialog {
 
         spacing: 0
 
-        Kirigami.Separator {
-            Layout.fillWidth: true
-        }
-
         QQC2.ScrollView {
             id: view
             Kirigami.Theme.colorSet: Kirigami.Theme.View
@@ -77,7 +72,7 @@ PWD.SystemDialog {
                     hoverEnabled: false
                     down: false
                     contentItem: RowLayout {
-                        spacing: Kirigami.Units.smallSpacing 
+                        spacing: Kirigami.Units.smallSpacing
                         Kirigami.TitleSubtitle {
                             Layout.fillWidth: true
                             title: model.display
