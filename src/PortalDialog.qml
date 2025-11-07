@@ -70,14 +70,12 @@ Kirigami.ApplicationWindow {
      */
     property int /*Qt.Orientation*/ layout: actions.length > 3 ? Qt.Vertical : Qt.Horizontal
 
+    readonly property alias contentWidth: contentLayout.implicitWidth
+    readonly property alias contentHeight: contentLayout.implicitHeight
+
     pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.None
     flags: Qt.Dialog | Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
-
-    width: contentLayout.implicitWidth
-    height: contentLayout.implicitHeight
     visible: false
-    minimumHeight: contentLayout.minimumHeight
-    minimumWidth: contentLayout.minimumWidth
 
     function present() : void {
         Kirigami.Settings.isMobile ? showMaximized() : show()
@@ -96,8 +94,6 @@ Kirigami.ApplicationWindow {
             console.log("rejecting")
             root.reject()
         }
-        width = Qt.binding(() => contentLayout.implicitWidth)
-        height = Qt.binding(() => contentLayout.implicitHeight)
     }
 
     Kirigami.Theme.colorSet: Kirigami.Theme.Window
@@ -121,9 +117,6 @@ Kirigami.ApplicationWindow {
 
         implicitWidth: control.implicitWidth
         implicitHeight: control.implicitHeight
-
-        readonly property real minimumHeight: implicitHeight
-        readonly property real minimumWidth: Math.min(Math.round(Screen.width / 3), implicitWidth)
 
         Item {
             id: systemModalShadow

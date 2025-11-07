@@ -15,6 +15,8 @@ PortalDialog {
     property alias allowRestore: allowRestoreItem.checked
     property alias persistenceRequested: allowRestoreItem.visible
 
+    width: contentWidth
+    height: contentHeight
     iconName: "krfb"
 
     ColumnLayout {

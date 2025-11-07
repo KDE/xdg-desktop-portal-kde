@@ -16,6 +16,9 @@ PortalDialog {
     property var choices
     property var selectedChoices: new Object()
 
+    width: contentWidth
+    height: contentHeight
+
     QQC2.Label {
         id: bodyLabel
         Layout.fillWidth: true
