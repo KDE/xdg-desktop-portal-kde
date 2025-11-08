@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-30 00:44+0000\n"
+"POT-Creation-Date: 2025-11-08 00:44+0000\n"
 "PO-Revision-Date: 2025-10-30 18:20+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -51,91 +51,91 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Seleziona un'applicazione per aprire <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:35
+#: src/AppChooserDialog.qml:34
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
 msgstr "Trovane altre in Discover"
 
-#: src/AppChooserDialog.qml:40
+#: src/AppChooserDialog.qml:39
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Apri"
 
-#: src/AppChooserDialog.qml:50
+#: src/AppChooserDialog.qml:49
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr "Imposta come app predefinita per aprire i file di tipo %1"
 
-#: src/AppChooserDialog.qml:110
+#: src/AppChooserDialog.qml:109
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "Mostra tutte le applicazioni installate"
 
-#: src/AppChooserDialog.qml:123
+#: src/AppChooserDialog.qml:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "Scegli un'altra…"
 
-#: src/AppChooserDialog.qml:184
+#: src/AppChooserDialog.qml:183
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr ""
 "%1<nl/><emphasis>Applicazione predefinita per questo tipo di file</emphasis>"
 
-#: src/AppChooserDialog.qml:186
+#: src/AppChooserDialog.qml:185
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr ""
 "%1<nl/><emphasis>Ultima applicazione usata per questo tipo di file</emphasis>"
 
-#: src/AppChooserDialog.qml:208
+#: src/AppChooserDialog.qml:207
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Apri con <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:210
+#: src/AppChooserDialog.qml:209
 #, kde-format
 msgid "No matches"
 msgstr "Nessuna corrispondenza"
 
-#: src/AppChooserDialog.qml:212
+#: src/AppChooserDialog.qml:211
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Nessuna applicazione installata può aprire <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:238
+#: src/AppChooserDialog.qml:237
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "Opzioni del terminale"
 
-#: src/AppChooserDialog.qml:254
+#: src/AppChooserDialog.qml:253
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Esegui in un terminale"
 
-#: src/AppChooserDialog.qml:263
+#: src/AppChooserDialog.qml:262
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "Non chiudere quando il comando termina"
 
-#: src/AppChooserDialog.qml:276
+#: src/AppChooserDialog.qml:275
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "Scopri altre applicazioni"
 
-#: src/AppChooserDialog.qml:297
+#: src/AppChooserDialog.qml:296
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
@@ -210,25 +210,25 @@ msgctxt "@title"
 msgid "Add Application…"
 msgstr "Aggiungi applicazione…"
 
-#: src/DynamicLauncherDialog.qml:71
+#: src/DynamicLauncherDialog.qml:70
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
 msgstr "Nome"
 
-#: src/DynamicLauncherDialog.qml:90
+#: src/DynamicLauncherDialog.qml:89
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
 msgstr "Modifica informazioni…"
 
-#: src/DynamicLauncherDialog.qml:96
+#: src/DynamicLauncherDialog.qml:95
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
 msgstr "Accetta"
 
-#: src/DynamicLauncherDialog.qml:101
+#: src/DynamicLauncherDialog.qml:100
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
@@ -266,13 +266,13 @@ msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
 msgstr "La scorciatoia è assegnata a più azioni (<interface>%1</interface>)"
 
-#: src/GlobalShortcutsDialog.qml:25
+#: src/GlobalShortcutsDialog.qml:24
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
 msgstr "Scorciatoia globale richiesta"
 
-#: src/GlobalShortcutsDialog.qml:29
+#: src/GlobalShortcutsDialog.qml:28
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
@@ -280,7 +280,7 @@ msgid_plural "An application wants to register the following %1 shortcuts:"
 msgstr[0] "Un'applicazione vuole registrare la seguente scorciatoia:"
 msgstr[1] "Un'applicazione vuole registrare le seguenti %1 scorciatoie:"
 
-#: src/GlobalShortcutsDialog.qml:31
+#: src/GlobalShortcutsDialog.qml:30
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
@@ -288,13 +288,13 @@ msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2 vuole registrare la seguente scorciatoia:"
 msgstr[1] "%2 vuole registrare le seguenti %1 scorciatoie:"
 
-#: src/GlobalShortcutsDialog.qml:120
+#: src/GlobalShortcutsDialog.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "Visualizza le altre scorciatoie…"
 
-#: src/GlobalShortcutsDialog.qml:121
+#: src/GlobalShortcutsDialog.qml:116
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
@@ -323,25 +323,25 @@ msgstr ""
 "L'input è gestito da un'applicazione. Premi <shortcut>%1</shortcut> per "
 "disabilitarlo."
 
-#: src/InputCaptureDialog.qml:16
+#: src/InputCaptureDialog.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
 msgstr "Cattura dell'input richiesta"
 
-#: src/InputCaptureDialog.qml:17
+#: src/InputCaptureDialog.qml:16
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
 msgstr "Un'applicazione ha richiesto di poter catturare eventi di input"
 
-#: src/InputCaptureDialog.qml:17
+#: src/InputCaptureDialog.qml:16
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
 msgstr "%1 ha richiesto di poter catturare eventi di input"
 
-#: src/InputCaptureDialog.qml:21
+#: src/InputCaptureDialog.qml:20
 #, kde-format
 msgctxt "@action:button"
 msgid "Allow"
@@ -512,12 +512,12 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - Dispositivi di immissione\n"
 
-#: src/RemoteDesktopDialog.qml:30 src/ScreenChooserDialog.qml:207
+#: src/RemoteDesktopDialog.qml:29 src/ScreenChooserDialog.qml:206
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Permetti il ripristino nelle sessioni future"
 
-#: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:215
+#: src/RemoteDesktopDialog.qml:36 src/ScreenChooserDialog.qml:214
 #, kde-format
 msgid "Share"
 msgstr "Condividi"
@@ -614,12 +614,12 @@ msgstr "Scegli cosa condividere con l'applicazione richiedente:"
 msgid "Choose what to share with %1:"
 msgstr "Scegli cosa condividere con %1:"
 
-#: src/ScreenChooserDialog.qml:39
+#: src/ScreenChooserDialog.qml:38
 #, kde-format
 msgid "Screens"
 msgstr "Schermi"
 
-#: src/ScreenChooserDialog.qml:42
+#: src/ScreenChooserDialog.qml:41
 #, kde-format
 msgid "Windows"
 msgstr "Finestre"
@@ -639,54 +639,54 @@ msgstr "Schermo attuale"
 msgid "Active Window"
 msgstr "Finestra attiva"
 
-#: src/ScreenshotDialog.qml:23
+#: src/ScreenshotDialog.qml:22
 #, kde-format
 msgid "Request Screenshot"
 msgstr "Richiesta schermata"
 
-#: src/ScreenshotDialog.qml:29
+#: src/ScreenshotDialog.qml:28
 #, kde-format
 msgid "Capture Mode"
 msgstr "Modalità di acquisizione"
 
-#: src/ScreenshotDialog.qml:33
+#: src/ScreenshotDialog.qml:32
 #, kde-format
 msgid "Area:"
 msgstr "Area:"
 
-#: src/ScreenshotDialog.qml:38
+#: src/ScreenshotDialog.qml:37
 #, kde-format
 msgid "Delay:"
 msgstr "Ritardo:"
 
-#: src/ScreenshotDialog.qml:42
+#: src/ScreenshotDialog.qml:41
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 secondo"
 msgstr[1] "%1 secondi"
 
-#: src/ScreenshotDialog.qml:47
+#: src/ScreenshotDialog.qml:46
 #, kde-format
 msgid "Content Options"
 msgstr "Opzioni del contenuto"
 
-#: src/ScreenshotDialog.qml:51
+#: src/ScreenshotDialog.qml:50
 #, kde-format
 msgid "Include cursor pointer"
 msgstr "Includi il puntatore del mouse"
 
-#: src/ScreenshotDialog.qml:56
+#: src/ScreenshotDialog.qml:55
 #, kde-format
 msgid "Include window borders"
 msgstr "Includi i bordi della finestra"
 
-#: src/ScreenshotDialog.qml:71
+#: src/ScreenshotDialog.qml:70
 #, kde-format
 msgid "Save"
 msgstr "Salva"
 
-#: src/ScreenshotDialog.qml:81
+#: src/ScreenshotDialog.qml:80
 #, kde-format
 msgid "Take"
 msgstr "Scatta"
@@ -724,13 +724,13 @@ msgstr "Trasmissione dello schermo"
 msgid ", "
 msgstr ", "
 
-#: src/UsbDialog.qml:21
+#: src/UsbDialog.qml:20
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
 msgstr "Richiesto accesso a dispositivi USB"
 
-#: src/UsbDialog.qml:24
+#: src/UsbDialog.qml:23
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
@@ -738,7 +738,7 @@ msgid_plural "An application wants to access the following devices:"
 msgstr[0] "Un'applicazione vuole accedere al seguente dispositivo:"
 msgstr[1] "Un'applicazione vuole accedere ai seguenti dispositivi:"
 
-#: src/UsbDialog.qml:26
+#: src/UsbDialog.qml:25
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
@@ -761,32 +761,32 @@ msgstr "%1 vuole accedere alle tue informazioni utente."
 msgid "This app will be given access to your avatar and name."
 msgstr "Questa app avrà accesso al tuo avatar e al tuo nome."
 
-#: src/UserInfoDialog.qml:59
+#: src/UserInfoDialog.qml:58
 #, kde-format
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Condividi"
 
-#: src/WallpaperDialog.qml:21
+#: src/WallpaperDialog.qml:20
 #, kde-format
 msgctxt "@title:window"
 msgid "Set Wallpaper"
 msgstr "Imposta sfondo"
 
-#: src/WallpaperDialog.qml:26
+#: src/WallpaperDialog.qml:25
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the desktop background?"
 msgstr "Autorizzare un'applicazione ad impostare lo sfondo del desktop?"
 
-#: src/WallpaperDialog.qml:28
+#: src/WallpaperDialog.qml:27
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the lock screen background?"
 msgstr ""
 "Autorizzare un'applicazione ad impostare lo sfondo della schermata di blocco?"
 
-#: src/WallpaperDialog.qml:30
+#: src/WallpaperDialog.qml:29
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set desktop and lock screen backgrounds?"
@@ -794,19 +794,19 @@ msgstr ""
 "Autorizzare un'applicazione ad impostare lo sfondo del desktop e della "
 "schermata di blocco?"
 
-#: src/WallpaperDialog.qml:35
+#: src/WallpaperDialog.qml:34
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the desktop background?"
 msgstr "Autorizzare %1 ad impostare lo sfondo del desktop?"
 
-#: src/WallpaperDialog.qml:37
+#: src/WallpaperDialog.qml:36
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the lock screen background?"
 msgstr "Autorizzare %1 ad impostare lo sfondo della schermata di blocco?"
 
-#: src/WallpaperDialog.qml:39
+#: src/WallpaperDialog.qml:38
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"

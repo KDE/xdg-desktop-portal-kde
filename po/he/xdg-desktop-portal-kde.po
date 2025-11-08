@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-30 00:44+0000\n"
+"POT-Creation-Date: 2025-11-08 00:44+0000\n"
 "PO-Revision-Date: 2025-10-30 08:45+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -49,89 +49,89 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "נא לבחור יישום לפתיחת <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:35
+#: src/AppChooserDialog.qml:34
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
 msgstr "איתור של עוד עם Discover"
 
-#: src/AppChooserDialog.qml:40
+#: src/AppChooserDialog.qml:39
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "פתיחה"
 
-#: src/AppChooserDialog.qml:50
+#: src/AppChooserDialog.qml:49
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr "הגדרה כיישום ברירת מחדל לפתיחת קובצי %1"
 
-#: src/AppChooserDialog.qml:110
+#: src/AppChooserDialog.qml:109
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "הצגת כל היישומים המותקנים"
 
-#: src/AppChooserDialog.qml:123
+#: src/AppChooserDialog.qml:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "בחירה באחר…"
 
-#: src/AppChooserDialog.qml:184
+#: src/AppChooserDialog.qml:183
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>יישום ברירת מחדל לסוג קובץ זה</emphasis>"
 
-#: src/AppChooserDialog.qml:186
+#: src/AppChooserDialog.qml:185
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>היישום האחרון ששימש לפתיחת סוג קובץ זה</emphasis>"
 
-#: src/AppChooserDialog.qml:208
+#: src/AppChooserDialog.qml:207
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "לפתוח עם <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:210
+#: src/AppChooserDialog.qml:209
 #, kde-format
 msgid "No matches"
 msgstr "אין התאמות"
 
-#: src/AppChooserDialog.qml:212
+#: src/AppChooserDialog.qml:211
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "אין יישומים מותקנים שיכולים לפתוח את <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:238
+#: src/AppChooserDialog.qml:237
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "אפשרויות מסוף"
 
-#: src/AppChooserDialog.qml:254
+#: src/AppChooserDialog.qml:253
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "הרצה במסוף"
 
-#: src/AppChooserDialog.qml:263
+#: src/AppChooserDialog.qml:262
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "לא לסגור כשהפקודה מסתיימת"
 
-#: src/AppChooserDialog.qml:276
+#: src/AppChooserDialog.qml:275
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "חשיפת יישומים נוספים"
 
-#: src/AppChooserDialog.qml:297
+#: src/AppChooserDialog.qml:296
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
@@ -203,25 +203,25 @@ msgctxt "@title"
 msgid "Add Application…"
 msgstr "הוספת יישום…"
 
-#: src/DynamicLauncherDialog.qml:71
+#: src/DynamicLauncherDialog.qml:70
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
 msgstr "שם"
 
-#: src/DynamicLauncherDialog.qml:90
+#: src/DynamicLauncherDialog.qml:89
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
 msgstr "עריכת פרטים…"
 
-#: src/DynamicLauncherDialog.qml:96
+#: src/DynamicLauncherDialog.qml:95
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
 msgstr "קבלה"
 
-#: src/DynamicLauncherDialog.qml:101
+#: src/DynamicLauncherDialog.qml:100
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
@@ -257,13 +257,13 @@ msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
 msgstr "קיצור המקשים מוקצה למספר פעולות (<interface>%1</interface>)"
 
-#: src/GlobalShortcutsDialog.qml:25
+#: src/GlobalShortcutsDialog.qml:24
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
 msgstr "התבקשו קיצורי מקשים מקיפים"
 
-#: src/GlobalShortcutsDialog.qml:29
+#: src/GlobalShortcutsDialog.qml:28
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
@@ -273,7 +273,7 @@ msgstr[1] "יישום מעוניין לרשום את שני קיצורי המק�
 msgstr[2] "יישום מעוניין לרשום את %1 קיצורי המקשים הבאים:"
 msgstr[3] "יישום מעוניין לרשום את %1 קיצורי המקשים הבאים:"
 
-#: src/GlobalShortcutsDialog.qml:31
+#: src/GlobalShortcutsDialog.qml:30
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
@@ -283,13 +283,13 @@ msgstr[1] "%2 מעוניין לרשום את שני קיצורי המקשים ה
 msgstr[2] "%2 מעוניין לרשום את %1 קיצורי המקשים הבאים:"
 msgstr[3] "%2 מעוניין לרשום את %1 קיצורי המקשים הבאים:"
 
-#: src/GlobalShortcutsDialog.qml:120
+#: src/GlobalShortcutsDialog.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "הצגת קיצורי מקשים אחרים…"
 
-#: src/GlobalShortcutsDialog.qml:121
+#: src/GlobalShortcutsDialog.qml:116
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
@@ -315,25 +315,25 @@ msgid ""
 "disable."
 msgstr "הקלט מנוהל על ידי יישום. לחיצה על <shortcut>%1</shortcut> תשבית את זה."
 
-#: src/InputCaptureDialog.qml:16
+#: src/InputCaptureDialog.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
 msgstr "התבקשה לכידת קלט"
 
-#: src/InputCaptureDialog.qml:17
+#: src/InputCaptureDialog.qml:16
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
 msgstr "יישום ביקש ללכוד אירועי קלט"
 
-#: src/InputCaptureDialog.qml:17
+#: src/InputCaptureDialog.qml:16
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
 msgstr "התקבלה בקשה מצד %1 ללכוד אירועי קלט"
 
-#: src/InputCaptureDialog.qml:21
+#: src/InputCaptureDialog.qml:20
 #, kde-format
 msgctxt "@action:button"
 msgid "Allow"
@@ -504,12 +504,12 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - התקני קלט\n"
 
-#: src/RemoteDesktopDialog.qml:30 src/ScreenChooserDialog.qml:207
+#: src/RemoteDesktopDialog.qml:29 src/ScreenChooserDialog.qml:206
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "לאפשר שחזור בהפעלות עתידיות"
 
-#: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:215
+#: src/RemoteDesktopDialog.qml:36 src/ScreenChooserDialog.qml:214
 #, kde-format
 msgid "Share"
 msgstr "שיתוף"
@@ -605,12 +605,12 @@ msgstr "נא לבחור מה לשתף עם היישום שביקש:"
 msgid "Choose what to share with %1:"
 msgstr "נא לבחור מה לשתף עם %1:"
 
-#: src/ScreenChooserDialog.qml:39
+#: src/ScreenChooserDialog.qml:38
 #, kde-format
 msgid "Screens"
 msgstr "מסכים"
 
-#: src/ScreenChooserDialog.qml:42
+#: src/ScreenChooserDialog.qml:41
 #, kde-format
 msgid "Windows"
 msgstr "חלונות"
@@ -630,27 +630,27 @@ msgstr "מסך נוכחי"
 msgid "Active Window"
 msgstr "חלון פעיל"
 
-#: src/ScreenshotDialog.qml:23
+#: src/ScreenshotDialog.qml:22
 #, kde-format
 msgid "Request Screenshot"
 msgstr "בקשת צילום מסך"
 
-#: src/ScreenshotDialog.qml:29
+#: src/ScreenshotDialog.qml:28
 #, kde-format
 msgid "Capture Mode"
 msgstr "מצב לכידה"
 
-#: src/ScreenshotDialog.qml:33
+#: src/ScreenshotDialog.qml:32
 #, kde-format
 msgid "Area:"
 msgstr "אזור:"
 
-#: src/ScreenshotDialog.qml:38
+#: src/ScreenshotDialog.qml:37
 #, kde-format
 msgid "Delay:"
 msgstr "השהיה:"
 
-#: src/ScreenshotDialog.qml:42
+#: src/ScreenshotDialog.qml:41
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
@@ -659,27 +659,27 @@ msgstr[1] "שתי שניות"
 msgstr[2] "%1 שניות"
 msgstr[3] "%1 שניות"
 
-#: src/ScreenshotDialog.qml:47
+#: src/ScreenshotDialog.qml:46
 #, kde-format
 msgid "Content Options"
 msgstr "אפשרויות תוכן"
 
-#: src/ScreenshotDialog.qml:51
+#: src/ScreenshotDialog.qml:50
 #, kde-format
 msgid "Include cursor pointer"
 msgstr "כולל סמן העכבר"
 
-#: src/ScreenshotDialog.qml:56
+#: src/ScreenshotDialog.qml:55
 #, kde-format
 msgid "Include window borders"
 msgstr "כולל גבולות החלונות"
 
-#: src/ScreenshotDialog.qml:71
+#: src/ScreenshotDialog.qml:70
 #, kde-format
 msgid "Save"
 msgstr "שמירה"
 
-#: src/ScreenshotDialog.qml:81
+#: src/ScreenshotDialog.qml:80
 #, kde-format
 msgid "Take"
 msgstr "צילום"
@@ -719,13 +719,13 @@ msgstr "שידור המסך"
 msgid ", "
 msgstr ", "
 
-#: src/UsbDialog.qml:21
+#: src/UsbDialog.qml:20
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
 msgstr "התבקשה גישה להתקני USB"
 
-#: src/UsbDialog.qml:24
+#: src/UsbDialog.qml:23
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
@@ -735,7 +735,7 @@ msgstr[1] "יישום מעוניין לגשת להתקנים הבאים:"
 msgstr[2] "יישום מעוניין לגשת להתקנים הבאים:"
 msgstr[3] "יישום מעוניין לגשת להתקנים הבאים:"
 
-#: src/UsbDialog.qml:26
+#: src/UsbDialog.qml:25
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
@@ -760,49 +760,49 @@ msgstr "התקבלה בקשת גישה לפרטי המשתמש שלך מצד %1.
 msgid "This app will be given access to your avatar and name."
 msgstr "ליישומון הזה תסופק גישה לתמונה הייצוגית ולשם שלך."
 
-#: src/UserInfoDialog.qml:59
+#: src/UserInfoDialog.qml:58
 #, kde-format
 msgctxt "@action:button"
 msgid "Share"
 msgstr "שיתוף"
 
-#: src/WallpaperDialog.qml:21
+#: src/WallpaperDialog.qml:20
 #, kde-format
 msgctxt "@title:window"
 msgid "Set Wallpaper"
 msgstr "הגדרת תמונת רקע"
 
-#: src/WallpaperDialog.qml:26
+#: src/WallpaperDialog.qml:25
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the desktop background?"
 msgstr "לאפשר ליישום להגדיר את תמונת רקע שולחן העבודה?"
 
-#: src/WallpaperDialog.qml:28
+#: src/WallpaperDialog.qml:27
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the lock screen background?"
 msgstr "לאפשר ליישום להגדיר את תמונת רקע מסך הנעילה?"
 
-#: src/WallpaperDialog.qml:30
+#: src/WallpaperDialog.qml:29
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set desktop and lock screen backgrounds?"
 msgstr "לאפשר ליישום להגדיר את תמונות הרקע של שולחן העבודה ומסך הנעילה?"
 
-#: src/WallpaperDialog.qml:35
+#: src/WallpaperDialog.qml:34
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the desktop background?"
 msgstr "לאפשר ל־%1 להגדיר את תמונת רקע שולחן העבודה?"
 
-#: src/WallpaperDialog.qml:37
+#: src/WallpaperDialog.qml:36
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the lock screen background?"
 msgstr "לאפשר ל־%1 להגדיר את תמונת רקע מסך הנעילה?"
 
-#: src/WallpaperDialog.qml:39
+#: src/WallpaperDialog.qml:38
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"

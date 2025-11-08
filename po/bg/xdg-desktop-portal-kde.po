@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-30 00:44+0000\n"
-"PO-Revision-Date: 2025-09-06 17:31+0200\n"
+"POT-Creation-Date: 2025-11-08 00:44+0000\n"
+"PO-Revision-Date: 2025-11-07 23:17+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -50,90 +50,90 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Изберете приложение за отваряне на <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:35
+#: src/AppChooserDialog.qml:34
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
 msgstr "Търсене на още приложения в Discover"
 
-#: src/AppChooserDialog.qml:40
+#: src/AppChooserDialog.qml:39
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Отваряне"
 
-#: src/AppChooserDialog.qml:50
+#: src/AppChooserDialog.qml:49
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr "Зададено като стандартно приложение за отваряне на файлове %1"
 
-#: src/AppChooserDialog.qml:110
+#: src/AppChooserDialog.qml:109
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "Показване на всички инсталирани приложения"
 
-#: src/AppChooserDialog.qml:123
+#: src/AppChooserDialog.qml:122
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "Избор на друго…"
 
-#: src/AppChooserDialog.qml:184
+#: src/AppChooserDialog.qml:183
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>Стандартно приложение за този тип файлове</emphasis>"
 
-#: src/AppChooserDialog.qml:186
+#: src/AppChooserDialog.qml:185
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr ""
 "%1<nl/><emphasis>Последно използвано приложение за този вид файл</emphasis>"
 
-#: src/AppChooserDialog.qml:208
+#: src/AppChooserDialog.qml:207
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Отваряне с <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:210
+#: src/AppChooserDialog.qml:209
 #, kde-format
 msgid "No matches"
 msgstr "Няма съвпадения"
 
-#: src/AppChooserDialog.qml:212
+#: src/AppChooserDialog.qml:211
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Няма инсталирано приложение за отваряне на <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:238
+#: src/AppChooserDialog.qml:237
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "Опции на терминала"
 
-#: src/AppChooserDialog.qml:254
+#: src/AppChooserDialog.qml:253
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Изпълняване в терминал"
 
-#: src/AppChooserDialog.qml:263
+#: src/AppChooserDialog.qml:262
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "Без затваряне когато програмата завърши"
 
-#: src/AppChooserDialog.qml:276
+#: src/AppChooserDialog.qml:275
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "Още приложения"
 
-#: src/AppChooserDialog.qml:297
+#: src/AppChooserDialog.qml:296
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
@@ -209,25 +209,25 @@ msgctxt "@title"
 msgid "Add Application…"
 msgstr "Добавяне на приложение…"
 
-#: src/DynamicLauncherDialog.qml:71
+#: src/DynamicLauncherDialog.qml:70
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
 msgstr "Име"
 
-#: src/DynamicLauncherDialog.qml:90
+#: src/DynamicLauncherDialog.qml:89
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
 msgstr "Редактиране на информация…"
 
-#: src/DynamicLauncherDialog.qml:96
+#: src/DynamicLauncherDialog.qml:95
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
 msgstr "Приемане"
 
-#: src/DynamicLauncherDialog.qml:101
+#: src/DynamicLauncherDialog.qml:100
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
@@ -267,13 +267,13 @@ msgid ""
 msgstr ""
 "Комбинацията е присвоена на множество действия (<interface>%1</interface>)"
 
-#: src/GlobalShortcutsDialog.qml:25
+#: src/GlobalShortcutsDialog.qml:24
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
 msgstr "Заявени са глобални клавишни комбинации"
 
-#: src/GlobalShortcutsDialog.qml:29
+#: src/GlobalShortcutsDialog.qml:28
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
@@ -281,7 +281,7 @@ msgid_plural "An application wants to register the following %1 shortcuts:"
 msgstr[0] "Приложение иска да регистрира следната клавишна комбинация:"
 msgstr[1] "Приложение иска да регистрира следните %1 клавишни комбинации:"
 
-#: src/GlobalShortcutsDialog.qml:31
+#: src/GlobalShortcutsDialog.qml:30
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
@@ -289,13 +289,13 @@ msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2 иска да регистрира следната клавишна комбинация:"
 msgstr[1] "%2 иска да регистрира следните %1 клавишни комбинации:"
 
-#: src/GlobalShortcutsDialog.qml:120
+#: src/GlobalShortcutsDialog.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "Преглед на други клавишни комбинации…"
 
-#: src/GlobalShortcutsDialog.qml:121
+#: src/GlobalShortcutsDialog.qml:116
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
@@ -325,25 +325,25 @@ msgstr ""
 "Входът се управлява от приложение. Натиснете <shortcut>%1</shortcut>, за да "
 "го изключите."
 
-#: src/InputCaptureDialog.qml:16
+#: src/InputCaptureDialog.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
 msgstr "Заявено е прихващане на входа"
 
-#: src/InputCaptureDialog.qml:17
+#: src/InputCaptureDialog.qml:16
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
 msgstr "Приложение поиска да записва входни събития"
 
-#: src/InputCaptureDialog.qml:17
+#: src/InputCaptureDialog.qml:16
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
 msgstr "%1 поиска да записва входни събития"
 
-#: src/InputCaptureDialog.qml:21
+#: src/InputCaptureDialog.qml:20
 #, kde-format
 msgctxt "@action:button"
 msgid "Allow"
@@ -514,12 +514,12 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - Входни устройства\n"
 
-#: src/RemoteDesktopDialog.qml:30 src/ScreenChooserDialog.qml:207
+#: src/RemoteDesktopDialog.qml:29 src/ScreenChooserDialog.qml:206
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Позволяване на възстановяване на бъдещи сесии"
 
-#: src/RemoteDesktopDialog.qml:37 src/ScreenChooserDialog.qml:215
+#: src/RemoteDesktopDialog.qml:36 src/ScreenChooserDialog.qml:214
 #, kde-format
 msgid "Share"
 msgstr "Споделяне"
@@ -617,12 +617,12 @@ msgstr "Изберете какво да споделите със заявяв�
 msgid "Choose what to share with %1:"
 msgstr "Изберете какво да споделяте с %1:"
 
-#: src/ScreenChooserDialog.qml:39
+#: src/ScreenChooserDialog.qml:38
 #, kde-format
 msgid "Screens"
 msgstr "Екрани"
 
-#: src/ScreenChooserDialog.qml:42
+#: src/ScreenChooserDialog.qml:41
 #, kde-format
 msgid "Windows"
 msgstr "Прозорци"
@@ -642,54 +642,54 @@ msgstr "Текущ екран"
 msgid "Active Window"
 msgstr "Текущ прозорец"
 
-#: src/ScreenshotDialog.qml:23
+#: src/ScreenshotDialog.qml:22
 #, kde-format
 msgid "Request Screenshot"
 msgstr "Заявяване на снимка на екрана"
 
-#: src/ScreenshotDialog.qml:29
+#: src/ScreenshotDialog.qml:28
 #, kde-format
 msgid "Capture Mode"
 msgstr "Режим на прихващане"
 
-#: src/ScreenshotDialog.qml:33
+#: src/ScreenshotDialog.qml:32
 #, kde-format
 msgid "Area:"
 msgstr "Област:"
 
-#: src/ScreenshotDialog.qml:38
+#: src/ScreenshotDialog.qml:37
 #, kde-format
 msgid "Delay:"
 msgstr "Изчакване:"
 
-#: src/ScreenshotDialog.qml:42
+#: src/ScreenshotDialog.qml:41
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 секунда"
 msgstr[1] "%1 секунди"
 
-#: src/ScreenshotDialog.qml:47
+#: src/ScreenshotDialog.qml:46
 #, kde-format
 msgid "Content Options"
 msgstr "Настройки на съдържанието"
 
-#: src/ScreenshotDialog.qml:51
+#: src/ScreenshotDialog.qml:50
 #, kde-format
 msgid "Include cursor pointer"
 msgstr "Включване курсора на мишката"
 
-#: src/ScreenshotDialog.qml:56
+#: src/ScreenshotDialog.qml:55
 #, kde-format
 msgid "Include window borders"
 msgstr "Включване на рамката на прозореца"
 
-#: src/ScreenshotDialog.qml:71
+#: src/ScreenshotDialog.qml:70
 #, kde-format
 msgid "Save"
 msgstr "Запазване"
 
-#: src/ScreenshotDialog.qml:81
+#: src/ScreenshotDialog.qml:80
 #, kde-format
 msgid "Take"
 msgstr "Поемане на контрол"
@@ -727,33 +727,27 @@ msgstr "Споделяне на екрана"
 msgid ", "
 msgstr ", "
 
-#: src/UsbDialog.qml:21
+#: src/UsbDialog.qml:20
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
-msgstr ""
+msgstr "Заявен е достъп до USB устройства"
 
-#: src/UsbDialog.qml:24
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following %1 shortcuts:"
+#: src/UsbDialog.qml:23
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
 msgid_plural "An application wants to access the following devices:"
-msgstr[0] "Приложение иска да регистрира следната клавишна комбинация:"
-msgstr[1] "Приложение иска да регистрира следните %1 клавишни комбинации:"
+msgstr[0] "Приложение иска достъп до следното устройство:"
+msgstr[1] "Приложение иска достъп до следните устройства:"
 
-#: src/UsbDialog.qml:26
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+#: src/UsbDialog.qml:25
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
 msgid_plural "%2 wants to access the following devices:"
-msgstr[0] "%2 иска да регистрира следната клавишна комбинация:"
-msgstr[1] "%2 иска да регистрира следните %1 клавишни комбинации:"
+msgstr[0] "%2 иска достъп до следното устройство:"
+msgstr[1] "%2 иска достъп до следните устройства:"
 
 #: src/userinfodialog.cpp:37
 #, kde-format
@@ -770,31 +764,31 @@ msgstr "%1 иска достъп до вашите потребителски д
 msgid "This app will be given access to your avatar and name."
 msgstr "Това приложение ще получи достъп до вашия аватар и името ви."
 
-#: src/UserInfoDialog.qml:59
+#: src/UserInfoDialog.qml:58
 #, kde-format
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Споделяне"
 
-#: src/WallpaperDialog.qml:21
+#: src/WallpaperDialog.qml:20
 #, kde-format
 msgctxt "@title:window"
 msgid "Set Wallpaper"
 msgstr "Задаване на тапет"
 
-#: src/WallpaperDialog.qml:26
+#: src/WallpaperDialog.qml:25
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the desktop background?"
 msgstr "Да се разреши ли на приложението да задава фона на работния плот?"
 
-#: src/WallpaperDialog.qml:28
+#: src/WallpaperDialog.qml:27
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the lock screen background?"
 msgstr "Да се разреши ли на приложението да задава фона на заключения екран?"
 
-#: src/WallpaperDialog.qml:30
+#: src/WallpaperDialog.qml:29
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set desktop and lock screen backgrounds?"
@@ -802,19 +796,19 @@ msgstr ""
 "Да се разреши ли на приложението да задава фона на работния плот и на "
 "заключения екран?"
 
-#: src/WallpaperDialog.qml:35
+#: src/WallpaperDialog.qml:34
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the desktop background?"
 msgstr "Да се разреши ли на %1 да задава фона на работния плот?"
 
-#: src/WallpaperDialog.qml:37
+#: src/WallpaperDialog.qml:36
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the lock screen background?"
 msgstr "Да се разреши ли на %1 да задава фона на заключения екран?"
 
-#: src/WallpaperDialog.qml:39
+#: src/WallpaperDialog.qml:38
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
