@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-08 00:44+0000\n"
-"PO-Revision-Date: 2025-10-30 00:56-0300\n"
+"PO-Revision-Date: 2025-11-08 21:10-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -83,7 +83,7 @@ msgstr "Mostrar todos os aplicativos instalados"
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
-msgstr "Escolher outro..."
+msgstr "Escolher outro…"
 
 #: src/AppChooserDialog.qml:183
 #, kde-kuit-format
@@ -207,13 +207,13 @@ msgstr "Proibir de qualquer jeito"
 #, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
-msgstr "Adicionar aplicativo Web..."
+msgstr "Adicionar aplicativo Web…"
 
 #: src/dynamiclauncher.cpp:82
 #, kde-format
 msgctxt "@title"
 msgid "Add Application…"
-msgstr "Adicionar aplicativo..."
+msgstr "Adicionar aplicativo…"
 
 #: src/DynamicLauncherDialog.qml:70
 #, kde-format
