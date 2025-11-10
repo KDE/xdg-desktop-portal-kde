@@ -8,6 +8,7 @@ class SaveRestoreSession : public Session
 public:
     SaveRestoreSession(QObject *parent, const QString &appId, const QString &sessionHandle, const QString &instanceId)
         : Session(parent, appId, sessionHandle)
+        , m_instanceId(instanceId)
     {
     }
 
@@ -65,7 +66,13 @@ SessionStateAdaptor::SessionStateAdaptor(SaveRestore *parent)
     , m_saveRestore(parent)
 {
     QDBusConnection connection = QDBusConnection::sessionBus();
-    connection.registerObject(QStringLiteral("/org/kde/SessionState"), this, QDBusConnection::ExportAdaptors);
+    connection.registerObject(QStringLiteral("/org/kde/SessionState"), this, QDBusConnection::ExportAllContents);
+}
+
+SaveRestore::SaveRestore(QObject *parent)
+    : QDBusAbstractAdaptor(parent)
+{
+    new SessionStateAdaptor(this);
 }
 
 void SaveRestore::saveState(const QDBusMessage &message)
@@ -132,6 +139,7 @@ QVariantMap SaveRestore::Register(const QDBusObjectPath &session_handle, const Q
         auto session = SaveRestoreSession::getSession<SaveRestoreSession>(handle);
         instances << session->instanceId();
     }
+
     QString instanceId;
     for (int i = 0; true; ++i) {
         instanceId = QStringLiteral("instance%1").arg(i);

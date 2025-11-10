@@ -17,10 +17,7 @@ class SaveRestore : public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.SaveRestore")
     Q_PROPERTY(uint version READ version CONSTANT)
 public:
-    explicit SaveRestore(QObject *parent = nullptr)
-        : QDBusAbstractAdaptor(parent)
-    {
-    }
+    explicit SaveRestore(QObject *parent = nullptr);
 
     // message passed from adaptor
     void saveState(const QDBusMessage &message);
