@@ -102,6 +102,7 @@ Kirigami.ApplicationWindow {
 
     Kirigami.Theme.colorSet: Kirigami.Theme.Window
     background: Rectangle {
+        visible: !Kirigami.Settings.isMobile
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
         color: Kirigami.Theme.alternateBackgroundColor
     }
