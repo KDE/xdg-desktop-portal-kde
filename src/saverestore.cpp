@@ -6,7 +6,7 @@ class SaveRestoreSession : public Session
 {
     Q_OBJECT
 public:
-    SaveRestoreSession(QObject *parent, const QString &appId, const QString &sessionHandle)
+    SaveRestoreSession(QObject *parent, const QString &appId, const QString &sessionHandle, const QString &instanceId)
         : Session(parent, appId, sessionHandle)
     {
     }
@@ -19,8 +19,11 @@ public:
     bool awaitingSaveHintResponse() const;
     void setAwaitingSaveHintResponse(bool newAwaitingSaveHintResponse);
 
+    QString instanceId() const;
+
 private:
     bool m_awaitingSaveHintResponse = false;
+    QString m_instanceId;
 };
 
 class SessionStateAdaptor : public QObject, public QDBusContext
@@ -50,6 +53,11 @@ bool SaveRestoreSession::awaitingSaveHintResponse() const
 void SaveRestoreSession::setAwaitingSaveHintResponse(bool newAwaitingSaveHintResponse)
 {
     m_awaitingSaveHintResponse = newAwaitingSaveHintResponse;
+}
+
+QString SaveRestoreSession::instanceId() const
+{
+    return m_instanceId;
 }
 
 SessionStateAdaptor::SessionStateAdaptor(SaveRestore *parent)
@@ -119,19 +127,30 @@ void SaveRestore::SaveHintResponse(const QDBusObjectPath &session_handle)
 
 QVariantMap SaveRestore::Register(const QDBusObjectPath &session_handle, const QString &app_id, const QVariantMap &options)
 {
-    auto *session = new SaveRestoreSession(this, app_id, session_handle.path());
+    QStringList instances;
+    for (auto handle : std::as_const(m_registrations)) {
+        auto session = SaveRestoreSession::getSession<SaveRestoreSession>(handle);
+        instances << session->instanceId();
+    }
+    QString instanceId;
+    for (int i = 0; true; ++i) {
+        instanceId = QStringLiteral("instance%1").arg(i);
+        if (!instances.contains(instanceId)) {
+            break;
+        }
+    }
+
+    auto *session = new SaveRestoreSession(this, app_id, session_handle.path(), instanceId);
     connect(session, &Session::closed, this, [this, session]() {
         m_registrations.remove(session->appId(), session->handle());
     });
     m_registrations.insert(session->appId(), session->handle());
 
-    int runningCount = m_registrations.count(session->appId());
-
     // TODO, save to a config, use that to determine pristine vs launch?
     // if startup use Restore
 
     QVariantMap response;
-    response[QLatin1String("instance-id")] = QStringLiteral("instance%1").arg(runningCount);
+    response[QLatin1String("instance-id")] = instanceId;
     response[QLatin1String("restore-reason")] = 1;
     return response;
 }
