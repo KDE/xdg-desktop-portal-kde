@@ -264,6 +264,11 @@ void GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
     std::ranges::sort(currentShortcuts, {}, &Shortcut::first);
     std::ranges::sort(previousShortcuts, {}, &Shortcut::first);
 
+    // Some applications (like chrome) requests contain the same shortcut id multiple times
+    // This makes no sense remove the duplicates to not prompt for those as if they were new
+    const auto duplicates = std::ranges::unique(currentShortcuts, {}, &Shortcut::first);
+    currentShortcuts.erase(duplicates.begin(), duplicates.end());
+
     Shortcuts newShortcuts;
     std::ranges::set_difference(currentShortcuts, previousShortcuts, std::back_inserter(newShortcuts), {}, &Shortcut::first, &Shortcut::first);
     Shortcuts returningShortcuts;
