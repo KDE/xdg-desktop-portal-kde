@@ -287,6 +287,7 @@ void GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
 
     if (newShortcutInfos.empty()) {
         replyResponse = PortalResponse::Success;
+        session->setActions(returningShortcutInfos);
         replyResults = {{u"shortcuts"_s, session->shortcutDescriptionsVariant()}};
         return;
     }
