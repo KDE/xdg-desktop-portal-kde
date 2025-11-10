@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QDBusAbstractAdaptor>
+#include <QDBusMessage>
 #include <QDBusObjectPath>
 #include <QStringList>
 #include <QVariant>
@@ -21,6 +22,11 @@ public:
     {
     }
 
+    // message passed from adaptor
+    void saveState(const QDBusMessage &message);
+    void querySaveRequestComplete();
+    void saveRequestComplete();
+
 public Q_SLOTS:
     QVariantMap Register(const QDBusObjectPath &session_handle, const QString &app_id, const QVariantMap &options);
 
@@ -30,10 +36,7 @@ public Q_SLOTS:
         Q_UNUSED(instance_ids)
     }
 
-    void SaveHintResponse(const QDBusObjectPath &session_handle)
-    {
-        Q_UNUSED(session_handle)
-    }
+    void SaveHintResponse(const QDBusObjectPath &session_handle);
 
 Q_SIGNALS:
     void SaveHint(const QDBusObjectPath &session_handle);
@@ -48,4 +51,5 @@ public:
 private:
     // app-id, list -objectPath
     QMultiHash<QString, QString> m_registrations;
+    QDBusMessage m_pendingSaveReply;
 };
