@@ -50,10 +50,6 @@ PortalDialog {
 
         spacing: 0
 
-        Kirigami.Separator {
-            Layout.fillWidth: true
-        }
-
         QQC2.ScrollView {
             id: view
             Kirigami.Theme.colorSet: Kirigami.Theme.View
@@ -96,10 +92,6 @@ PortalDialog {
                 color: Kirigami.Theme.backgroundColor
             }
 
-        }
-
-        Kirigami.Separator {
-            Layout.fillWidth: true
         }
     }
 }
