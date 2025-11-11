@@ -20,6 +20,7 @@
 #include <QQuickWidget>
 #include <QStandardPaths>
 
+#include <KIconLoader>
 #include <KLocalizedString>
 #include <KService>
 
@@ -36,13 +37,13 @@ UserInfoDialog::UserInfoDialog(const QString &reason, const QString &app_id, QOb
 
     QVariantMap props = {
         {u"mainText"_s, i18nc("@title", "Share user info with %1", appName)},
-        {u"subtitle"_s, reason.isEmpty() ? i18nc("@info:usagetip", "Allows your username, full name, and profile picture to be used by the application.", appName) : reason},
+        {u"subtitle"_s,
+         reason.isEmpty() ? i18nc("@info:usagetip", "Allows your username, full name, and profile picture to be used by the application.", appName) : reason},
         {u"username"_s, id()},
-        {u"realname"_s, name()}};
+        {u"realname"_s, name()},
+        {u"avatar"_s, image()},
+    };
 
-    if (QFileInfo::exists(m_userInterface->iconFile())) {
-        props.insert(QStringLiteral("avatar"), image());
-    }
     create(u"UserInfoDialog"_s, props);
 }
 
@@ -57,8 +58,18 @@ QString UserInfoDialog::id() const
 
 QString UserInfoDialog::image() const
 {
+    // TODO: Ideally plasma-welcome and kcm_users should always set an avatar (if need be to a render of Kirigami.Avatar)
+    // such that the user always has a valid avatar 99.9% of the time.
     if (!QFileInfo::exists(m_userInterface->iconFile())) {
-        return {};
+        // Always provide a fallback. We **must** provide an avatar to XDP per its documentation and code.
+        // Legacy users may not have one, systems without Accounts service may not have one, some software may clear it...
+        static const auto iconURI = [] {
+            const auto iconPath = KIconLoader::global()->iconPath(u"user"_s, -KIconLoader::SizeEnormous, /* canReturnNull = */ false);
+            return u"file://"_s + QFileInfo(iconPath).canonicalFilePath();
+        }();
+        // WARNING: do not use symlinks. They make XDP forward incorrect paths to clients because it will portal the canonical path
+        //   but forward the original (symlink) path
+        return iconURI;
     }
     return QUrl::fromLocalFile(m_userInterface->iconFile()).toString();
 }
