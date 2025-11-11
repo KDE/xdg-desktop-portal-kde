@@ -25,6 +25,9 @@ PortalDialog {
         return i18ncp("%2 is the name of the application", "%2 wants to access the following device:", "%2 wants to access the following devices:", devices.length, app)
     }
 
+    width: Kirigami.Units.gridUnit * 28
+    height: Kirigami.Units.gridUnit * 30
+
     standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
 
     ColumnLayout {

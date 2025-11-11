@@ -30,6 +30,9 @@ PortalDialog {
         return i18ncp("%2 is the name of the application", "%2 wants to register the following shortcut:", "%2 wants to register the following %1 shortcuts:", count, app)
     }
 
+    width: Kirigami.Units.gridUnit * 28
+    height: Kirigami.Units.gridUnit * 30
+
     standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
     ColumnLayout {
         id: content

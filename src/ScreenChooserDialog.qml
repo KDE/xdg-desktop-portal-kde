@@ -23,6 +23,9 @@ PortalDialog {
     iconName: "video-display"
     acceptable: (outputsModel && outputsModel.hasSelection) || (windowsModel && windowsModel.hasSelection)
 
+    width: Kirigami.Units.gridUnit * 28
+    height: Kirigami.Units.gridUnit * 30
+
     signal clearSelection()
 
     ColumnLayout {

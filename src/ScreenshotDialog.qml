@@ -23,6 +23,9 @@ PortalDialog {
     iconName: "preferences-system-windows-effect-screenshot"
     acceptable: screenshot.valid
 
+    width: Kirigami.Units.gridUnit * 28
+    height: Kirigami.Units.gridUnit * 30
+
     Kirigami.FormLayout {
         Kirigami.Heading {
             text: i18n("Capture Mode")

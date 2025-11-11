@@ -84,6 +84,9 @@ PortalDialog {
         sourceComponent: root.edit ? editComponent : displayComponent
     }
 
+    width: contentWidth
+    height: contentHeight
+
     actions: [
         Kirigami.Action {
             text: i18nc("@action edit launcher name/icon", "Edit Info…")
