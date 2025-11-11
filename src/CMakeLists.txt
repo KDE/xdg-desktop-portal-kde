@@ -41,6 +41,8 @@ set(xdg_desktop_portal_kde_SRCS
     background.h
     clipboard.cpp
     clipboard.h
+    dbusdisconnectlistener.cpp
+    dbusdisconnectlistener.h
     dbushelpers.cpp dbushelpers.h
     desktopportal.cpp
     desktopportal.h

@@ -16,6 +16,7 @@
 #include <KLocalizedString>
 
 #include "../version.h"
+#include "dbusdisconnectlistener.h"
 #include "debug.h"
 #include "desktopportal.h"
 
@@ -64,6 +65,10 @@ int main(int argc, char *argv[])
         qCDebug(XdgDesktopPortalKde) << "Failed to register org.freedesktop.impl.portal.desktop.kde service";
         return 1;
     }
+
+    // We are DBus-activated, so don't stick around when the bus goes away (dbus-run-session).
+    DBusDisconnectListener listener(sessionBus);
+    QObject::connect(&listener, &DBusDisconnectListener::disconnected, &a, &QCoreApplication::quit);
 
     return a.exec();
 }
