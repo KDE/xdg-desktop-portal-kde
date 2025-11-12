@@ -55,6 +55,11 @@ Kirigami.ApplicationWindow {
     property alias standardButtons: footerButtonBox.standardButtons
 
     /**
+     * An optional content item that will be placed left of the action buttons in the footer of the dialog.
+    */
+    property Item dialogButtonBoxLeftItem
+
+    /**
      * Controls whether the accept button is enabled
      */
     property bool acceptable: true
@@ -280,36 +285,71 @@ Kirigami.ApplicationWindow {
                     Layout.fillWidth: true
                 }
 
-                QQC2.DialogButtonBox {
-                    id: footerButtonBox
+                QQC2.Control {
+                    id: footerControl
 
                     Layout.fillWidth: true
+                    visible: contentItem?.visible
 
-                    Kirigami.Theme.colorSet: Kirigami.Theme.Window
-                    background: Rectangle {
-                        Kirigami.Theme.colorSet: Kirigami.Theme.Window
-                        color: Kirigami.Theme.alternateBackgroundColor
-                    }
+                    contentItem: FlexboxLayout {
+                        wrap: FlexboxLayout.Wrap
+                        visible: leftContainer.visible || footerButtonBox.visible
+                        rowGap: Kirigami.Units.smallSpacing
 
-                    visible: count > 0
+                        // WARNING: In Qt 6.10.0 there is a problem with fillHeight/Width not correctly laying out items when wrapped.
+                        // Be super careful when making changes to the layout guides in the containers. Thoroughly test window resizing!
 
-                    standardButtons: {
-                        if (Kirigami.Settings.isMobile) {
-                            // ensure we never have no buttons, we always must have the cancel button available
-                            return (root.standardButtons === QQC2.DialogButtonBox.NoButton) ? QQC2.DialogButtonBox.Cancel : root.standardButtons
+                        implicitHeight: {
+                            // Height calculation in Qt 6.10.0 is a bit buggy. Help it a bit.
+                            // If the buttonbox is below the left container we are in wrap mode and must take their
+                            // combined height. Otherwise we are in row mode and must take the maximum height.
+                            // https://bugreports.qt.io/browse/QTBUG-141400
+                            if (footerButtonBox.x == leftContainer.x) {
+                                return footerButtonBox.implicitHeight + leftContainer.implicitHeight + rowGap
+                            }
+                            return Math.max(footerButtonBox.implicitHeight, leftContainer.implicitHeight)
                         }
-                        return root.standardButtons
-                    }
 
-                    onAccepted: root.accept()
-                    onRejected: root.reject()
+                        QQC2.Container {
+                            id: leftContainer
 
-                    Repeater {
-                        model: root.actions
+                            Layout.fillHeight: true // make sure the content gets placed centered by making sure we occupy the available height
+                            Layout.minimumHeight: implicitHeight
 
-                        delegate: QQC2.Button {
-                            required property var modelData
-                            action: modelData
+                            padding: 0
+                            contentItem: root.dialogButtonBoxLeftItem
+                            visible: root.dialogButtonBoxLeftItem?.visible ?? false
+                        }
+
+                        QQC2.DialogButtonBox {
+                            id: footerButtonBox
+
+                            Layout.fillWidth: true // make sure the content gets placed right by making sure we occupy the available width
+                            Layout.minimumWidth: implicitWidth
+                            Layout.minimumHeight: implicitHeight
+
+                            padding: 0
+                            visible: count > 0
+
+                            standardButtons: {
+                                if (Kirigami.Settings.isMobile) {
+                                    // ensure we never have no buttons, we always must have the cancel button available
+                                    return (root.standardButtons === QQC2.DialogButtonBox.NoButton) ? QQC2.DialogButtonBox.Cancel : root.standardButtons
+                                }
+                                return root.standardButtons
+                            }
+
+                            onAccepted: root.accept()
+                            onRejected: root.reject()
+
+                            Repeater {
+                                model: root.actions
+
+                                delegate: QQC2.Button {
+                                    required property var modelData
+                                    action: modelData
+                                }
+                            }
                         }
                     }
                 }
