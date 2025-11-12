@@ -279,7 +279,7 @@ Kirigami.ApplicationWindow {
                 }
 
                 Kirigami.Separator {
-                    visible: contentsControl.visible
+                    visible: contentsControl.visible && footerControl.visible
                     Layout.leftMargin: -control.leftPadding
                     Layout.rightMargin: -control.rightPadding
                     Layout.fillWidth: true
