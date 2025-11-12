@@ -263,9 +263,8 @@ Kirigami.ApplicationWindow {
 
                     Layout.fillWidth: true
                     Layout.fillHeight: true
-
-                    leftInset: -control.leftPadding
-                    rightInset: -control.rightPadding
+                    Layout.leftMargin: -control.leftPadding
+                    Layout.rightMargin: -control.rightPadding
 
                     Kirigami.Theme.colorSet: Kirigami.Theme.View
                     background: Rectangle {
