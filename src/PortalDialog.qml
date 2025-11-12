@@ -160,10 +160,10 @@ Kirigami.ApplicationWindow {
             anchors.fill: Kirigami.Settings.isMobile ? undefined : parent
             anchors.centerIn: Kirigami.Settings.isMobile ? parent : undefined
             anchors.margins: Kirigami.Settings.isMobile ? glow.cornerRadius : 0
-            topPadding: Kirigami.Settings.isMobile ? glow.cornerRadius / 2.0 : 0 // So we don't draw a rect over the rounded corner
-            bottomPadding: topPadding
-            rightPadding: topPadding
-            leftPadding: topPadding
+            topPadding: 0
+            bottomPadding: 0
+            rightPadding: 0
+            leftPadding: 0
 
             background: Item {
                 visible: Kirigami.Settings.isMobile
