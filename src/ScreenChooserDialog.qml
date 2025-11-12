@@ -74,6 +74,7 @@ PortalDialog {
                             left: parent.left;
                             right: parent.right;
                         }
+                        uniformCellWidths: true
                         Repeater {
                             id: outputsView
                             model: null
@@ -89,12 +90,11 @@ PortalDialog {
                                     dialogButtonBox.accepted()
                                 }
 
-                                banner {
-                                    title: model.display
-                                    titleIcon: model.decoration
-                                    titleLevel: 3
-                                }
                                 checkable: root.multiple
+                                itemName : model.display ?? ""
+                                iconSource : model.decoration ?? ""
+                                exclusive: false
+                                autoExclusive: exclusive
                                 checked: model.checked === Qt.Checked
                                 nodeId: outputWaylandItem.nodeId
 
@@ -142,6 +142,7 @@ PortalDialog {
                             left: parent.left;
                             right: parent.right;
                         }
+                        uniformCellWidths: true
                         Repeater {
                             id: windowsView
                             model: null
@@ -157,12 +158,11 @@ PortalDialog {
                                     dialogButtonBox.accepted()
                                 }
 
-                                banner {
-                                    title: model.display ?? ""
-                                    titleIcon: model.decoration ?? ""
-                                    titleLevel: 3
-                                }
                                 checkable: root.multiple
+                                itemName : model.display ?? ""
+                                iconSource : model.decoration ?? ""
+                                exclusive: false
+                                autoExclusive: exclusive
                                 checked: model.checked === Qt.Checked
                                 nodeId: windowWaylandItem.nodeId
 
