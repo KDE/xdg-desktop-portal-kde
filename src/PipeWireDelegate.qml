@@ -62,14 +62,36 @@ Kirigami.AbstractCard {
         }
     }
 
-    contentItem: PipeWire.PipeWireSourceItem {
-        id: pipeWireSourceItem
+    contentItem: Item {
         Layout.preferredHeight: Kirigami.Units.gridUnit * 7
         Layout.preferredWidth: Kirigami.Units.gridUnit * 7
         Layout.fillWidth: true
         Layout.fillHeight: true
 
-        nodeId: root.nodeId
+        PipeWire.PipeWireSourceItem {
+            id: pipeWireSourceItem
+            anchors.fill: parent
+            nodeId: root.nodeId
+        }
+
+        ShaderEffectSource {
+            id: textureSource
+            sourceItem: pipeWireSourceItem
+            sourceRect: pipeWireSourceItem.paintedRect
+            hideSource: true
+        }
+
+        Kirigami.ShadowedTexture {
+            anchors.centerIn: parent
+            width: pipeWireSourceItem.paintedRect.width
+            height: pipeWireSourceItem.paintedRect.height
+            radius: Kirigami.Units.cornerRadius
+            shadow.size: 2
+            color: Kirigami.Theme.textColor
+            border.color: Kirigami.Theme.textColor
+            border.width: 0
+            source: textureSource
+        }
 
         Kirigami.Icon {
             anchors.fill: parent
