@@ -58,6 +58,7 @@ PortalDialog {
                 color: Kirigami.Theme.backgroundColor
                 border.color: Qt.alpha(Kirigami.Theme.textColor, 0.3)
                 border.width: 1
+                visible: tabView.visible
             }
 
             StackLayout {
