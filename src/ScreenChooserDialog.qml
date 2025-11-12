@@ -203,20 +203,17 @@ PortalDialog {
                 }
             }
         }
-
-        QQC2.CheckBox {
-            id: allowRestoreItem
-            checked: true
-            text: i18n("Allow restoring on future sessions")
-        }
     }
 
     standardButtons: root.multiple ? QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel : QQC2.DialogButtonBox.NoButton
+    dialogButtonBoxLeftItem: QQC2.CheckBox {
+        id: allowRestoreItem
+        checked: true
+        text: i18n("Allow restoring on future sessions")
+    }
 
     Component.onCompleted: {
-        if (root.multiple) {
-            dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18n("Share")
-        }
+        dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18n("Share")
 
         // If there's only one thing in the list, pre-select it to save the user a click
         if (outputsView.count === 1 && windowsView.count === 0) {
