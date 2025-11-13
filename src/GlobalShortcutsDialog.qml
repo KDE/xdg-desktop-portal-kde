@@ -35,26 +35,6 @@ PortalDialog {
 
     standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
     ColumnLayout {
-        id: content
-        Binding {
-            when: content.parent
-            target: content.parent
-            property: "leftPadding"
-            value: 0
-        }
-        Binding {
-            when: content.parent
-            target: content.parent
-            property: "rightPadding"
-            value: 0
-        }
-        Binding {
-            when: content.parent
-            target: content.parent
-            property: "bottomPadding"
-            value: 0
-        }
-
         spacing: 0
 
         QQC2.ScrollView {

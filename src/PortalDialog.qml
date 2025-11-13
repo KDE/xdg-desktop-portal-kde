@@ -267,6 +267,9 @@ Kirigami.ApplicationWindow {
                     leftInset: -control.leftPadding
                     rightInset: -control.rightPadding
 
+                    leftPadding: headerControl.leftPadding
+                    rightPadding: headerControl.rightPadding
+
                     Kirigami.Theme.colorSet: Kirigami.Theme.View
                     background: Rectangle {
                         Kirigami.Theme.colorSet: Kirigami.Theme.View
@@ -290,6 +293,9 @@ Kirigami.ApplicationWindow {
 
                     Layout.fillWidth: true
                     visible: contentItem?.visible
+
+                    leftPadding: headerControl.leftPadding
+                    rightPadding: headerControl.rightPadding
 
                     contentItem: FlexboxLayout {
                         wrap: FlexboxLayout.Wrap
