@@ -43,6 +43,16 @@ Kirigami.ApplicationWindow {
     default property Item mainItem
 
     /**
+     * Sits below the mainText and subtitle but above the content separator (visually part of the header)
+     */
+    property Item headerItem
+
+    /**
+     * Sits above the dialogButtonBox but below the content separator (visually part of the footer)
+     */
+    property Item footerItem
+
+    /**
      * This property holds the QQC2.DialogButtonBox used in the footer of the dialog.
      */
     readonly property QQC2.DialogButtonBox dialogButtonBox: footerButtonBox
@@ -189,51 +199,67 @@ Kirigami.ApplicationWindow {
 
                     Layout.fillWidth: true
 
-                    visible: contentItem.visible
+                    visible: visibleChildren.length > 0
 
-                    contentItem: RowLayout {
-                        id: headerRow
-
-                        Layout.leftMargin: Kirigami.Units.largeSpacing
-                        Layout.rightMargin: Kirigami.Units.largeSpacing
-
-                        visible: titleHeading.text.length > 0 || subtitleLabel.text.length > 0 || icon.source
-
-                        // Layout.fillWidth: true
+                    contentItem: ColumnLayout {
                         spacing: Kirigami.Units.smallSpacing
+                        visible: visibleChildren.length > 0
 
-                        Kirigami.Icon {
-                            id: icon
-                            visible: source
-                            implicitWidth: Kirigami.Units.iconSizes.large
-                            implicitHeight: Kirigami.Units.iconSizes.large
-                            source: root.iconName
-                        }
+                        RowLayout {
+                            id: headerRow
 
-                        ColumnLayout {
+                            Layout.leftMargin: Kirigami.Units.largeSpacing
+                            Layout.rightMargin: Kirigami.Units.largeSpacing
+
+                            visible: titleHeading.text.length > 0 || subtitleLabel.text.length > 0 || icon.source
+
                             Layout.fillWidth: true
-
                             spacing: Kirigami.Units.smallSpacing
 
-                            Kirigami.Heading {
-                                id: titleHeading
-                                Layout.fillWidth: true
-                                level: 2
-                                wrapMode: Text.Wrap
-                                textFormat: Text.RichText
-                                elide: Text.ElideRight
-                                text: root.mainText
+                            Kirigami.Icon {
+                                id: icon
+                                visible: source
+                                implicitWidth: Kirigami.Units.iconSizes.large
+                                implicitHeight: Kirigami.Units.iconSizes.large
+                                source: root.iconName
                             }
 
-                            QQC2.Label {
-                                id: subtitleLabel
+                            ColumnLayout {
                                 Layout.fillWidth: true
-                                wrapMode: Text.Wrap
-                                elide: Text.ElideRight
-                                textFormat: Text.RichText
-                                visible: text.length > 0
-                                text: root.subtitle
+
+                                spacing: Kirigami.Units.smallSpacing
+
+                                Kirigami.Heading {
+                                    id: titleHeading
+                                    Layout.fillWidth: true
+                                    level: 2
+                                    wrapMode: Text.Wrap
+                                    textFormat: Text.RichText
+                                    elide: Text.ElideRight
+                                    text: root.mainText
+                                }
+
+                                QQC2.Label {
+                                    id: subtitleLabel
+                                    Layout.fillWidth: true
+                                    wrapMode: Text.Wrap
+                                    elide: Text.ElideRight
+                                    textFormat: Text.RichText
+                                    visible: text.length > 0
+                                    text: root.subtitle
+                                }
                             }
+                        }
+
+                        QQC2.Control {
+                            topPadding: 0
+                            rightPadding: 0
+                            bottomPadding: 0
+                            leftPadding: 0
+
+                            Layout.fillWidth: true
+                            contentItem: root.headerItem
+                            visible: root.headerItem?.visible ?? false
                         }
                     }
                 }
@@ -276,65 +302,80 @@ Kirigami.ApplicationWindow {
                     id: footerControl
 
                     Layout.fillWidth: true
-                    visible: contentItem?.visible
+                    visible: visibleChildren.length > 0
 
-                    contentItem: FlexboxLayout {
-                        wrap: FlexboxLayout.Wrap
-                        visible: leftContainer.visible || footerButtonBox.visible
-                        rowGap: Kirigami.Units.smallSpacing
+                    contentItem: ColumnLayout {
+                        visible: visibleChildren.length > 0
 
-                        // WARNING: In Qt 6.10.0 there is a problem with fillHeight/Width not correctly laying out items when wrapped.
-                        // Be super careful when making changes to the layout guides in the containers. Thoroughly test window resizing!
+                        QQC2.Control {
+                            topPadding: 0
+                            rightPadding: 0
+                            bottomPadding: 0
+                            leftPadding: 0
 
-                        implicitHeight: {
-                            // Height calculation in Qt 6.10.0 is a bit buggy. Help it a bit.
-                            // If the buttonbox is below the left container we are in wrap mode and must take their
-                            // combined height. Otherwise we are in row mode and must take the maximum height.
-                            // https://bugreports.qt.io/browse/QTBUG-141400
-                            if (footerButtonBox.x == leftContainer.x) {
-                                return footerButtonBox.implicitHeight + leftContainer.implicitHeight + rowGap
-                            }
-                            return Math.max(footerButtonBox.implicitHeight, leftContainer.implicitHeight)
+                            Layout.fillWidth: true
+                            contentItem: root.footerItem
+                            visible: root.footerItem?.visible ?? false
                         }
 
-                        QQC2.Container {
-                            id: leftContainer
+                        FlexboxLayout {
+                            wrap: FlexboxLayout.Wrap
+                            visible: visibleChildren.length > 0
+                            rowGap: Kirigami.Units.smallSpacing
 
-                            Layout.fillHeight: true // make sure the content gets placed centered by making sure we occupy the available height
-                            Layout.minimumHeight: implicitHeight
+                            // WARNING: In Qt 6.10.0 there is a problem with fillHeight/Width not correctly laying out items when wrapped.
+                            // Be super careful when making changes to the layout guides in the containers. Thoroughly test window resizing!
 
-                            padding: 0
-                            contentItem: root.dialogButtonBoxLeftItem
-                            visible: root.dialogButtonBoxLeftItem?.visible ?? false
-                        }
-
-                        QQC2.DialogButtonBox {
-                            id: footerButtonBox
-
-                            Layout.fillWidth: true // make sure the content gets placed right by making sure we occupy the available width
-                            Layout.minimumWidth: implicitWidth
-                            Layout.minimumHeight: implicitHeight
-
-                            padding: 0
-                            visible: count > 0
-
-                            standardButtons: {
-                                if (Kirigami.Settings.isMobile) {
-                                    // ensure we never have no buttons, we always must have the cancel button available
-                                    return (root.standardButtons === QQC2.DialogButtonBox.NoButton) ? QQC2.DialogButtonBox.Cancel : root.standardButtons
+                            implicitHeight: {
+                                // Height calculation in Qt 6.10.0 is a bit buggy. Help it a bit.
+                                // If the buttonbox is below the left container we are in wrap mode and must take their
+                                // combined height. Otherwise we are in row mode and must take the maximum height.
+                                // https://bugreports.qt.io/browse/QTBUG-141400
+                                if (footerButtonBox.x == leftContainer.x) {
+                                    return footerButtonBox.implicitHeight + leftContainer.implicitHeight + rowGap
                                 }
-                                return root.standardButtons
+                                return Math.max(footerButtonBox.implicitHeight, leftContainer.implicitHeight)
                             }
 
-                            onAccepted: root.accept()
-                            onRejected: root.reject()
+                            QQC2.Container {
+                                id: leftContainer
 
-                            Repeater {
-                                model: root.actions
+                                Layout.fillHeight: true // make sure the content gets placed centered by making sure we occupy the available height
+                                Layout.minimumHeight: implicitHeight
 
-                                delegate: QQC2.Button {
-                                    required property var modelData
-                                    action: modelData
+                                padding: 0
+                                contentItem: root.dialogButtonBoxLeftItem
+                                visible: root.dialogButtonBoxLeftItem?.visible ?? false
+                            }
+
+                            QQC2.DialogButtonBox {
+                                id: footerButtonBox
+
+                                Layout.fillWidth: true // make sure the content gets placed right by making sure we occupy the available width
+                                Layout.minimumWidth: implicitWidth
+                                Layout.minimumHeight: implicitHeight
+
+                                padding: 0
+                                visible: count > 0
+
+                                standardButtons: {
+                                    if (Kirigami.Settings.isMobile) {
+                                        // ensure we never have no buttons, we always must have the cancel button available
+                                        return (root.standardButtons === QQC2.DialogButtonBox.NoButton) ? QQC2.DialogButtonBox.Cancel : root.standardButtons
+                                    }
+                                    return root.standardButtons
+                                }
+
+                                onAccepted: root.accept()
+                                onRejected: root.reject()
+
+                                Repeater {
+                                    model: root.actions
+
+                                    delegate: QQC2.Button {
+                                        required property var modelData
+                                        action: modelData
+                                    }
                                 }
                             }
                         }
