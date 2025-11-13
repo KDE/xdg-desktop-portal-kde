@@ -202,7 +202,7 @@ Kirigami.ApplicationWindow {
                     visible: visibleChildren.length > 0
 
                     contentItem: ColumnLayout {
-                        spacing: Kirigami.Units.smallSpacing
+                        spacing: headerControl.topPadding
                         visible: visibleChildren.length > 0
 
                         RowLayout {
