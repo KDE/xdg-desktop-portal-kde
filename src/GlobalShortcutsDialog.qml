@@ -107,9 +107,6 @@ PortalDialog {
                 color: Kirigami.Theme.backgroundColor
             }
         }
-        Kirigami.Separator {
-            Layout.fillWidth: true
-        }
         QQC2.Button {
             parent: root.dialogButtonBox
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.HelpRole
