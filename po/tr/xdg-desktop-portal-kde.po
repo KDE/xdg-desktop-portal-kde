@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 03:16+0000\n"
+"POT-Creation-Date: 2025-11-13 02:40+0000\n"
 "PO-Revision-Date: 2025-09-03 08:51+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -720,17 +720,17 @@ msgstr "Ekran Yayını"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:37
+#: src/userinfodialog.cpp:39
 #, kde-format
 msgid "Share User Information with %1"
 msgstr "%1 ile Kullanıcı Bilgisini Paylaş"
 
-#: src/userinfodialog.cpp:38
+#: src/userinfodialog.cpp:40
 #, kde-format
 msgid "%1 wants access to your user info."
 msgstr "%1, kullanıcı bilginize erişmek istiyor."
 
-#: src/userinfodialog.cpp:40
+#: src/userinfodialog.cpp:42
 #, kde-format
 msgid "This app will be given access to your avatar and name."
 msgstr "Bu uygulamaya, avatarınıza ve adınıza erişim izni verilecektir."

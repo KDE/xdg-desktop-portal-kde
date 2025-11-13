@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 03:16+0000\n"
+"POT-Creation-Date: 2025-11-13 02:40+0000\n"
 "PO-Revision-Date: 2025-09-03 17:25+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -724,17 +724,17 @@ msgstr "Trasmissione dello schermo"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:37
+#: src/userinfodialog.cpp:39
 #, kde-format
 msgid "Share User Information with %1"
 msgstr "Condividi informazioni utente con %1"
 
-#: src/userinfodialog.cpp:38
+#: src/userinfodialog.cpp:40
 #, kde-format
 msgid "%1 wants access to your user info."
 msgstr "%1 vuole accedere alle tue informazioni utente."
 
-#: src/userinfodialog.cpp:40
+#: src/userinfodialog.cpp:42
 #, kde-format
 msgid "This app will be given access to your avatar and name."
 msgstr "Questa app avrà accesso al tuo avatar e al tuo nome."

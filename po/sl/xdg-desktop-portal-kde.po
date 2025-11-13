@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 03:16+0000\n"
+"POT-Creation-Date: 2025-11-13 02:40+0000\n"
 "PO-Revision-Date: 2025-09-02 09:25+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -731,17 +731,17 @@ msgstr "Deljenje zaslonov"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:37
+#: src/userinfodialog.cpp:39
 #, kde-format
 msgid "Share User Information with %1"
 msgstr "Deli uporabnikove informacije z %1"
 
-#: src/userinfodialog.cpp:38
+#: src/userinfodialog.cpp:40
 #, kde-format
 msgid "%1 wants access to your user info."
 msgstr "%1 želi dostop do vaših informacij o uporabniku."
 
-#: src/userinfodialog.cpp:40
+#: src/userinfodialog.cpp:42
 #, kde-format
 msgid "This app will be given access to your avatar and name."
 msgstr "Ta aplikacija bo imela dostop do vašega avatarja in imena."

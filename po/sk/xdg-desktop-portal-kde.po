@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 03:16+0000\n"
+"POT-Creation-Date: 2025-11-13 02:40+0000\n"
 "PO-Revision-Date: 2024-03-24 11:38+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -736,18 +736,18 @@ msgstr "Zdieľanie obrazovky"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:37
+#: src/userinfodialog.cpp:39
 #, fuzzy, kde-format
 #| msgid "Share Information"
 msgid "Share User Information with %1"
 msgstr "Zdieľať informácie"
 
-#: src/userinfodialog.cpp:38
+#: src/userinfodialog.cpp:40
 #, kde-format
 msgid "%1 wants access to your user info."
 msgstr ""
 
-#: src/userinfodialog.cpp:40
+#: src/userinfodialog.cpp:42
 #, kde-format
 msgid "This app will be given access to your avatar and name."
 msgstr ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 03:16+0000\n"
+"POT-Creation-Date: 2025-11-13 02:40+0000\n"
 "PO-Revision-Date: 2025-10-12 13:01+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -713,17 +713,17 @@ msgstr "스크린 캐스팅"
 msgid ", "
 msgstr ", "
 
-#: src/userinfodialog.cpp:37
+#: src/userinfodialog.cpp:39
 #, kde-format
 msgid "Share User Information with %1"
 msgstr "%1와(과) 사용자 정보 공유"
 
-#: src/userinfodialog.cpp:38
+#: src/userinfodialog.cpp:40
 #, kde-format
 msgid "%1 wants access to your user info."
 msgstr "%1에서 사용자 정보에 접근하려고 합니다."
 
-#: src/userinfodialog.cpp:40
+#: src/userinfodialog.cpp:42
 #, kde-format
 msgid "This app will be given access to your avatar and name."
 msgstr "이 앱에서 내 아바타와 이름에 접근할 수 있습니다."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-10-18 03:16+0000\n"
+"POT-Creation-Date: 2025-11-13 02:40+0000\n"
 "PO-Revision-Date: 2025-09-05 17:13+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -709,17 +709,17 @@ msgstr "螢幕錄製中"
 msgid ", "
 msgstr "、"
 
-#: src/userinfodialog.cpp:37
+#: src/userinfodialog.cpp:39
 #, kde-format
 msgid "Share User Information with %1"
 msgstr "向 %1 分享使用者資訊"
 
-#: src/userinfodialog.cpp:38
+#: src/userinfodialog.cpp:40
 #, kde-format
 msgid "%1 wants access to your user info."
 msgstr "%1 希望存取您的使用者資訊。"
 
-#: src/userinfodialog.cpp:40
+#: src/userinfodialog.cpp:42
 #, kde-format
 msgid "This app will be given access to your avatar and name."
 msgstr "這個應用程式會能夠存取您的頭貼與姓名。"
