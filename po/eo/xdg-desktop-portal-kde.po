@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-12 00:46+0000\n"
+"POT-Creation-Date: 2025-11-13 00:44+0000\n"
 "PO-Revision-Date: 2024-12-28 17:41+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -514,12 +514,12 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr "- Enigaparatoj\n"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:209
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:212
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Permesi restarigi en estontaj seancoj"
 
-#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:217
+#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:216
 #, kde-format
 msgid "Share"
 msgstr "Kunhavigi"

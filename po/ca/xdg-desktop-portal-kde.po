@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-12 00:46+0000\n"
-"PO-Revision-Date: 2025-10-30 13:25+0100\n"
+"POT-Creation-Date: 2025-11-13 00:44+0000\n"
+"PO-Revision-Date: 2025-11-12 09:45+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -519,12 +519,12 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - Dispositius d'entrada\n"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:209
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:212
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Permet la restauració en sessions futures"
 
-#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:217
+#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:216
 #, kde-format
 msgid "Share"
 msgstr "Comparteix"
@@ -754,8 +754,7 @@ msgstr[0] "%2 vol accés al dispositiu següent:"
 msgstr[1] "%2 vol accés als dispositius següents:"
 
 #: src/userinfodialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Share User Information with %1"
+#, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
 msgstr "Comparteix la informació d'usuari amb %1"
@@ -767,12 +766,14 @@ msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
 msgstr ""
+"Permet que l'aplicació usi el nom d'usuari, el nom complet i la imatge de "
+"perfil."
 
 #: src/UserInfoDialog.qml:18
 #, kde-format
 msgctxt "@action:button"
 msgid "Share user info"
-msgstr ""
+msgstr "Comparteix la informació d'usuari"
 
 #: src/UserInfoDialog.qml:76
 #, kde-format

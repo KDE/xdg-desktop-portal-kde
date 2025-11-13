@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-12 00:46+0000\n"
+"POT-Creation-Date: 2025-11-13 00:44+0000\n"
 "PO-Revision-Date: 2025-02-28 11:01-0600\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -506,12 +506,12 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - ਇਨਪੁਟ ਡਿਵਾਈਸ\n"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:209
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:212
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "ਭਵਿੱਖ ਦੇ ਸ਼ੈਸ਼ਨਾਂ ਲਈ ਬਹਾਲ ਕਰਨ ਦੀ ਮਨਜ਼ੂਰੀ ਦਿਓ"
 
-#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:217
+#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:216
 #, kde-format
 msgid "Share"
 msgstr "ਸਾਂਝਾ ਕਰੋ"

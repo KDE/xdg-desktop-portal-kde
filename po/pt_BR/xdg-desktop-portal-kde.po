@@ -11,16 +11,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-12 00:46+0000\n"
-"PO-Revision-Date: 2025-11-08 21:10-0300\n"
-"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
+"POT-Creation-Date: 2025-11-13 00:44+0000\n"
+"PO-Revision-Date: 2025-11-12 08:45-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -516,12 +516,12 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - Dispositivos de entrada\n"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:209
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:212
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Permite restaurar em sessões futuras"
 
-#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:217
+#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:216
 #, kde-format
 msgid "Share"
 msgstr "Compartilhar"
@@ -751,8 +751,7 @@ msgstr[0] "%2 deseja acessar o seguinte dispositivo:"
 msgstr[1] "%2 deseja acessar os seguintes dispositivos:"
 
 #: src/userinfodialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Share User Information with %1"
+#, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
 msgstr "Compartilhar informações do usuário com %1"
@@ -764,12 +763,14 @@ msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
 msgstr ""
+"Permite que seu nome de usuário, nome completo e foto de perfil sejam usados ​​"
+"pelo aplicativo."
 
 #: src/UserInfoDialog.qml:18
 #, kde-format
 msgctxt "@action:button"
 msgid "Share user info"
-msgstr ""
+msgstr "Compartilhar informações do usuário"
 
 #: src/UserInfoDialog.qml:76
 #, kde-format

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-12 00:46+0000\n"
-"PO-Revision-Date: 2025-11-06 09:53+0400\n"
+"POT-Creation-Date: 2025-11-13 00:44+0000\n"
+"PO-Revision-Date: 2025-11-12 19:54+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -511,12 +511,12 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - أجهزة الإدخال\n"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:209
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:212
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "اسمح بالاستعادة في الجلسات القادمة"
 
-#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:217
+#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:216
 #, kde-format
 msgid "Share"
 msgstr "شارك"
@@ -761,8 +761,7 @@ msgstr[4] "يريد %2 الوصول إلى الأجهزة التالية:"
 msgstr[5] "يريد %2 الوصول إلى الأجهزة التالية:"
 
 #: src/userinfodialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Share User Information with %1"
+#, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
 msgstr "شارك معلومات المستخدم مع %1"
@@ -773,13 +772,13 @@ msgctxt "@info:usagetip"
 msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
-msgstr ""
+msgstr "يسمح للتطبيق باستخدام اسم المستخدم واسمك الكامل وصورة ملفك الشخصي."
 
 #: src/UserInfoDialog.qml:18
 #, kde-format
 msgctxt "@action:button"
 msgid "Share user info"
-msgstr ""
+msgstr "شارك معلومات المستخدم"
 
 #: src/UserInfoDialog.qml:76
 #, kde-format

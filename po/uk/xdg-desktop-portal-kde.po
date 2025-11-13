@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-12 00:46+0000\n"
-"PO-Revision-Date: 2025-10-30 14:34+0200\n"
+"POT-Creation-Date: 2025-11-13 00:44+0000\n"
+"PO-Revision-Date: 2025-11-12 18:22+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -517,12 +517,12 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - Пристрої введення\n"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:209
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:212
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Дозволити відновлення у майбутніх сеансах"
 
-#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:217
+#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:216
 #, kde-format
 msgid "Share"
 msgstr "Оприлюднити"
@@ -762,11 +762,10 @@ msgstr[2] "%2 потрібен доступ до таких пристроїв:"
 msgstr[3] "%2 потрібен доступ до такого пристрою:"
 
 #: src/userinfodialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Share User Information with %1"
+#, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
-msgstr "Надання даних користувача %1"
+msgstr "Поділитися даними користувача з %1"
 
 #: src/userinfodialog.cpp:54
 #, kde-format
@@ -775,12 +774,14 @@ msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
 msgstr ""
+"Надає змогу програмі використовувати ваше ім'я користувача, ім'я повністю та "
+"зображення профілю."
 
 #: src/UserInfoDialog.qml:18
 #, kde-format
 msgctxt "@action:button"
 msgid "Share user info"
-msgstr ""
+msgstr "Поділитися даними користувача"
 
 #: src/UserInfoDialog.qml:76
 #, kde-format
