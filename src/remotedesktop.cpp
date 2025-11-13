@@ -212,7 +212,7 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
     session->acquireStreamingInput();
 
     results.insert(QStringLiteral("devices"), QVariant::fromValue<uint>(session->deviceTypes()));
-    results.insert(QStringLiteral("clipboard_enabled"), false);
+    results.insert(QStringLiteral("clipboard_enabled"), session->clipboardEnabled());
     if (session->persistMode() != ScreenCastPortal::NoPersist) {
         results.insert(u"persist_mode"_s, quint32(persist));
         if (persist != ScreenCastPortal::NoPersist) {
