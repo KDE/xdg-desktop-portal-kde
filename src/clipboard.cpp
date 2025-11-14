@@ -76,7 +76,10 @@ void ClipboardPortal::RequestClipboard(const QDBusObjectPath &session_handle, co
         }
     });
 
-    connect(KSystemClipboard::instance(), &KSystemClipboard::changed, session, [session, this] {
+    connect(KSystemClipboard::instance(), &KSystemClipboard::changed, session, [session, this](QClipboard::Mode mode) {
+        if (mode != QClipboard::Clipboard) {
+            return;
+        }
         auto clipboard = KSystemClipboard::instance()->mimeData(QClipboard::Clipboard);
         auto portalSource = dynamic_cast<const PortalMimeData *>(clipboard);
         Q_EMIT SelectionOwnerChanged(QDBusObjectPath(session->handle()),
