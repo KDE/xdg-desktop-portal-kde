@@ -15,8 +15,8 @@ import org.kde.taskmanager 0.1 as TaskManager
 PortalDialog {
     id: root
 
-    property alias outputsModel: outputsView.model
-    property alias windowsModel: windowsView.model
+    required property var outputsModel
+    required property var windowsModel
     property bool multiple: false
     property alias allowRestore: allowRestoreItem.checked
 
@@ -34,8 +34,8 @@ PortalDialog {
         QQC2.TabBar {
             id: tabView
             Layout.fillWidth: true
-            visible: root.outputsModel && root.windowsModel
             currentIndex: outputsView.count > 0 ? 0 : 1
+            visible: (root.outputsModel ?? false) && (root.windowsModel ?? false)
 
             QQC2.TabButton {
                 text: i18n("Screens")
