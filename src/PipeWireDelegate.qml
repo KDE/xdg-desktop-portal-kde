@@ -26,7 +26,7 @@ Kirigami.AbstractCard {
         Layout.fillWidth: true
 
         Kirigami.Icon {
-            implicitWidth: Kirigami.Units.iconSizes.small
+            implicitWidth: Kirigami.Units.iconSizes.sizeForLabels
             implicitHeight: implicitWidth
             source: root.iconSource
         }
