@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-13 00:44+0000\n"
+"POT-Creation-Date: 2025-11-14 00:44+0000\n"
 "PO-Revision-Date: 2025-10-30 18:29+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -303,13 +303,13 @@ msgstr[1] "Приложение %2 будет использовать след�
 msgstr[2] "Приложение %2 будет использовать следующие %1 комбинаций клавиш:"
 msgstr[3] "Приложение %2 будет использовать следующую комбинацию клавиш:"
 
-#: src/GlobalShortcutsDialog.qml:118
+#: src/GlobalShortcutsDialog.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "Другие комбинации клавиш…"
 
-#: src/GlobalShortcutsDialog.qml:119
+#: src/GlobalShortcutsDialog.qml:116
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"

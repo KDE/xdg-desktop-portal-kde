@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-13 00:44+0000\n"
+"POT-Creation-Date: 2025-11-14 00:44+0000\n"
 "PO-Revision-Date: 2025-11-12 17:35+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -285,13 +285,13 @@ msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2, aşağıdaki kısayolu kaydetmek istiyor:"
 msgstr[1] "%2, aşağıdaki %1 kısayolu kaydetmek istiyor:"
 
-#: src/GlobalShortcutsDialog.qml:118
+#: src/GlobalShortcutsDialog.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "Diğer Kısayolları Gör…"
 
-#: src/GlobalShortcutsDialog.qml:119
+#: src/GlobalShortcutsDialog.qml:116
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-13 00:44+0000\n"
+"POT-Creation-Date: 2025-11-14 00:44+0000\n"
 "PO-Revision-Date: 2025-09-08 18:36+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -284,13 +284,13 @@ msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2 vill registrera följande genväg:"
 msgstr[1] "%2 vill registrera följande %1 genvägar:"
 
-#: src/GlobalShortcutsDialog.qml:118
+#: src/GlobalShortcutsDialog.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "Se andra genvägar…"
 
-#: src/GlobalShortcutsDialog.qml:119
+#: src/GlobalShortcutsDialog.qml:116
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"

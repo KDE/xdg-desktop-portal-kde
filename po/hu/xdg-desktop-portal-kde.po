@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-13 00:44+0000\n"
+"POT-Creation-Date: 2025-11-14 00:44+0000\n"
 "PO-Revision-Date: 2025-11-06 21:10+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -295,13 +295,13 @@ msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "A(z) %2 a következő billentyűparancsot szeretné regisztrálni:"
 msgstr[1] "A(z) %2 a következő %1 billentyűparancsot szeretné regisztrálni:"
 
-#: src/GlobalShortcutsDialog.qml:118
+#: src/GlobalShortcutsDialog.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "Egyéb gyorsbillentyűk…"
 
-#: src/GlobalShortcutsDialog.qml:119
+#: src/GlobalShortcutsDialog.qml:116
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"

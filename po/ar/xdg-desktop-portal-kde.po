@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-13 00:44+0000\n"
+"POT-Creation-Date: 2025-11-14 00:44+0000\n"
 "PO-Revision-Date: 2025-11-12 19:54+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -290,13 +290,13 @@ msgstr[3] "التطبيق %2 يريد تسجيل %1 اختصارات التال�
 msgstr[4] "التطبيق %2 يريد تسجيل %1 اختصارًا التالي:"
 msgstr[5] "التطبيق %2 يريد تسجيل %1 اختصار التالية:"
 
-#: src/GlobalShortcutsDialog.qml:118
+#: src/GlobalShortcutsDialog.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "انظر الاختصارات الأخرى…"
 
-#: src/GlobalShortcutsDialog.qml:119
+#: src/GlobalShortcutsDialog.qml:116
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"

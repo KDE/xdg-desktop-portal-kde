@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-13 00:44+0000\n"
+"POT-Creation-Date: 2025-11-14 00:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -280,13 +280,13 @@ msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2 想要注册以下 %1 个快捷方式："
 
-#: src/GlobalShortcutsDialog.qml:118
+#: src/GlobalShortcutsDialog.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "查看其他快捷键…"
 
-#: src/GlobalShortcutsDialog.qml:119
+#: src/GlobalShortcutsDialog.qml:116
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
@@ -731,11 +731,10 @@ msgid_plural "%2 wants to access the following devices:"
 msgstr[0] "%2 想要访问以下设备："
 
 #: src/userinfodialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Share User Information with %1"
+#, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
-msgstr "向 %1 提供用户信息"
+msgstr ""
 
 #: src/userinfodialog.cpp:54
 #, kde-format
@@ -808,9 +807,3 @@ msgstr "启动屏幕录像失败"
 #, kde-format
 msgid "Remote desktop"
 msgstr "远程桌面"
-
-#~ msgid "%1 wants access to your user info."
-#~ msgstr "%1 请求访问您的用户信息。"
-
-#~ msgid "This app will be given access to your avatar and name."
-#~ msgstr "此应用将被允许访问您的头像和名字。"

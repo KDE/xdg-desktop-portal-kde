@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-13 00:44+0000\n"
-"PO-Revision-Date: 2025-10-30 12:19+0100\n"
+"POT-Creation-Date: 2025-11-14 00:44+0000\n"
+"PO-Revision-Date: 2025-11-14 01:00+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -293,13 +293,13 @@ msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2 quiere registrar el siguiente atajo de teclado:"
 msgstr[1] "%2 quiere registrar los siguientes %1 atajos de teclado:"
 
-#: src/GlobalShortcutsDialog.qml:118
+#: src/GlobalShortcutsDialog.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "Ver otros atajos de teclado…"
 
-#: src/GlobalShortcutsDialog.qml:119
+#: src/GlobalShortcutsDialog.qml:116
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
@@ -761,11 +761,10 @@ msgstr[0] "%2 quiere acceder al siguiente dispositivo:"
 msgstr[1] "%2 quiere acceder a los siguientes dispositivos:"
 
 #: src/userinfodialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Share User Information with %1"
+#, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
-msgstr "Compartir información del usuario con %1"
+msgstr "Compartir información de usuario con %1"
 
 #: src/userinfodialog.cpp:54
 #, kde-format
@@ -774,12 +773,14 @@ msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
 msgstr ""
+"Permite que la aplicación use su nombre de usuario, su nombre completo y su "
+"imagen de perfil."
 
 #: src/UserInfoDialog.qml:18
 #, kde-format
 msgctxt "@action:button"
 msgid "Share user info"
-msgstr ""
+msgstr "Compartir información de usuario"
 
 #: src/UserInfoDialog.qml:76
 #, kde-format
@@ -844,9 +845,3 @@ msgstr "No se ha podido iniciar la grabación de la pantalla"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Escritorio remoto"
-
-#~ msgid "%1 wants access to your user info."
-#~ msgstr "%1 quiere acceder a su información de usuario."
-
-#~ msgid "This app will be given access to your avatar and name."
-#~ msgstr "Esta aplicación tendrá acceso a su nombre y avatar."

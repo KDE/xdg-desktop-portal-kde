@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-13 00:44+0000\n"
+"POT-Creation-Date: 2025-11-14 00:44+0000\n"
 "PO-Revision-Date: 2025-09-06 13:30+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
@@ -295,13 +295,13 @@ msgstr[1] "%2 nori įregistruoti šiuos %1 sparčiuosius klavišus:"
 msgstr[2] "%2 nori įregistruoti šiuos %1 sparčiųjų klavišų:"
 msgstr[3] "%2 nori įregistruoti šį %1 spartųjį klavišą:"
 
-#: src/GlobalShortcutsDialog.qml:118
+#: src/GlobalShortcutsDialog.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "Rodyti kitus sparčiuosius klavišus…"
 
-#: src/GlobalShortcutsDialog.qml:119
+#: src/GlobalShortcutsDialog.qml:116
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
