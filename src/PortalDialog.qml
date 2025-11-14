@@ -101,13 +101,6 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    Kirigami.Theme.colorSet: Kirigami.Theme.Window
-    background: Rectangle {
-        visible: !Kirigami.Settings.isMobile
-        Kirigami.Theme.colorSet: Kirigami.Theme.Window
-        color: Kirigami.Theme.alternateBackgroundColor
-    }
-
     Binding {
         target: root.dialogButtonBox?.standardButton(QQC2.DialogButtonBox.Ok) ?? null
         property: "enabled"
@@ -172,12 +165,12 @@ Kirigami.ApplicationWindow {
                     anchors.fill: parent
                     anchors.margins: -1
                     radius: Kirigami.Units.largeSpacing + 1
-                    color: Qt.darker(Kirigami.Theme.alternateBackgroundColor, 1.5)
+                    color: Qt.darker(Kirigami.Theme.backgroundColor, 1.5)
                 }
                 Rectangle { // background colour
                     anchors.fill: parent
                     radius: Kirigami.Units.largeSpacing
-                    color: Kirigami.Theme.alternateBackgroundColor
+                    color: Kirigami.Theme.backgroundColor
                 }
             }
 
