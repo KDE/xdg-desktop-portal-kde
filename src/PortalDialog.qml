@@ -198,11 +198,6 @@ Kirigami.ApplicationWindow {
 
                     visible: contentItem.visible
 
-                    topPadding: Kirigami.Units.largeSpacing * 2
-                    bottomPadding: Kirigami.Units.largeSpacing * 2
-                    leftPadding: Kirigami.Units.largeSpacing * 2
-                    rightPadding: Kirigami.Units.largeSpacing * 2
-
                     contentItem: RowLayout {
                         id: headerRow
 
