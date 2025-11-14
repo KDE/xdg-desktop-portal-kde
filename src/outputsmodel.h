@@ -42,17 +42,8 @@ public:
         return m_name;
     }
 
-    QString iconName() const
-    {
-        switch (m_outputType) {
-        case Laptop:
-            return QStringLiteral("computer-laptop");
-        case Television:
-            return QStringLiteral("video-television");
-        default:
-            return QStringLiteral("video-display");
-        }
-    }
+    [[nodiscard]] QString iconName() const;
+    [[nodiscard]] QString description() const;
     [[nodiscard]] bool isSynthetic() const;
 
     QString display() const
@@ -96,6 +87,8 @@ public:
     enum Roles {
         ScreenRole = Qt::UserRole,
         NameRole,
+        IsSyntheticRole,
+        DescriptionRole,
     };
 
     OutputsModel(Options o, QObject *parent);

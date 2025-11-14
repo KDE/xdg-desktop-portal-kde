@@ -38,6 +38,8 @@ Kirigami.CardsLayout {
             checkable: root.dialog.multiple
             itemName : model.display ?? ""
             iconSource : model.decoration ?? ""
+            itemDescription : model.description ?? ""
+            synthetic: model.isSynthetic ?? false
             exclusive: false
             autoExclusive: exclusive
             checked: model.checked === Qt.Checked

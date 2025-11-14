@@ -18,11 +18,11 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
 {
 
     if (o & VirtualIncluded) {
-        m_outputs << Output{Output::Virtual, nullptr, i18n("New Virtual Output"), QStringLiteral("Virtual"), {}};
+        m_outputs << Output{Output::Virtual, nullptr, i18n("Share virtual screen"), QStringLiteral("Virtual"), {}};
     }
 
     if (o & RegionIncluded) {
-        m_outputs << Output{Output::Region, nullptr, i18n("Rectangular Region"), u"Region"_s, {}};
+        m_outputs << Output{Output::Region, nullptr, i18n("Share region"), u"Region"_s, {}};
     }
 
     if (o & OutputsExcluded) {
@@ -33,7 +33,7 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
 
     // Only show the full workspace if there's several outputs
     if (screens.count() > 1 && (o & WorkspaceIncluded)) {
-        m_outputs.prepend(Output{Output::Workspace, nullptr, i18n("Full Workspace"), u"Workspace"_s, {}});
+        m_outputs.prepend(Output{Output::Workspace, nullptr, i18n("Share full Workspace"), u"Workspace"_s, {}});
     }
 
     connect(qGuiApp, &QGuiApplication::screenRemoved, this, [this](QScreen *screen) {
@@ -121,6 +121,8 @@ QHash<int, QByteArray> OutputsModel::roleNames() const
         {Qt::CheckStateRole, "checked"},
         {ScreenRole, "screen"},
         {NameRole, "name"},
+        {IsSyntheticRole, "isSynthetic"},
+        {DescriptionRole, "description"},
     };
 }
 
@@ -137,6 +139,10 @@ QVariant OutputsModel::data(const QModelIndex &index, int role) const
         return 0;
     case NameRole:
         return output.name();
+    case IsSyntheticRole:
+        return output.isSynthetic();
+    case DescriptionRole:
+        return output.description();
     case Qt::DecorationRole:
         return QIcon::fromTheme(output.iconName());
     case Qt::DisplayRole:
@@ -211,6 +217,46 @@ QString OutputsModel::virtualScreenIdForApp(const QString &appId)
         ++i;
     }
     return id;
+}
+
+QString Output::iconName() const
+{
+    switch (m_outputType) {
+    case Laptop:
+        return QStringLiteral("computer-laptop-symbolic");
+    case Television:
+        return QStringLiteral("video-television-symbolic");
+    case Region:
+        return QStringLiteral("transform-crop-symbolic");
+    case Virtual:
+        return QStringLiteral("window-duplicate-symbolic");
+    case Workspace:
+        return QStringLiteral("preferences-desktop-display-randr-symbolic");
+    case Monitor:
+        return QStringLiteral("monitor-symbolic");
+    case Unknown:
+        break;
+    }
+    return QStringLiteral("video-display-symbolic");
+}
+
+QString Output::description() const
+{
+    switch (m_outputType) {
+    case Workspace:
+        return i18nc("@info", "Share the entire workspace across all screens");
+    case Virtual:
+        return i18nc("@info", "Creates a screen inside a window, then share");
+    case Region:
+        return i18nc("@info", "Crops a specific area of your screens");
+    case Laptop:
+    case Monitor:
+    case Television:
+    case Unknown:
+        // Unused
+        break;
+    }
+    return {};
 }
 
 bool Output::isSynthetic() const
