@@ -53,6 +53,7 @@ public:
             return QStringLiteral("video-display");
         }
     }
+    [[nodiscard]] bool isSynthetic() const;
 
     QString display() const
     {

@@ -100,6 +100,10 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
         const QPoint pos = screen->geometry().topLeft();
         m_outputs << Output(type, screen, displayText, QStringLiteral("%1x%2").arg(pos.x()).arg(pos.y()), screen->name());
     }
+
+    std::ranges::stable_partition(m_outputs, [](const Output &o) {
+        return !o.isSynthetic();
+    });
 }
 
 OutputsModel::~OutputsModel() = default;
@@ -207,4 +211,20 @@ QString OutputsModel::virtualScreenIdForApp(const QString &appId)
         ++i;
     }
     return id;
+}
+
+bool Output::isSynthetic() const
+{
+    switch (outputType()) {
+    case Output::Workspace:
+    case Output::Region:
+    case Output::Virtual:
+        return true;
+    case Output::Laptop:
+    case Output::Monitor:
+    case Output::Television:
+    case Output::Unknown:
+        break;
+    }
+    return false;
 }
