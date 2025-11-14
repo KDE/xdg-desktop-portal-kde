@@ -10,9 +10,8 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
-import org.kde.taskmanager 0.1 as TaskManager
 
-PortalDialog {
+ScreenChooserDialogTemplate {
     id: root
 
     required property var outputsModel
@@ -26,16 +25,14 @@ PortalDialog {
     width: Kirigami.Units.gridUnit * 28
     height: Kirigami.Units.gridUnit * 30
 
-    signal clearSelection()
-
     ColumnLayout {
         spacing: 0
 
         QQC2.TabBar {
             id: tabView
             Layout.fillWidth: true
-            currentIndex: outputsView.count > 0 ? 0 : 1
             visible: (root.outputsModel ?? false) && (root.windowsModel ?? false)
+            currentIndex: outputsLayout.view.count > 0 ? 0 : 1
 
             QQC2.TabButton {
                 text: i18n("Screens")
@@ -68,137 +65,24 @@ PortalDialog {
                 QQC2.ScrollView {
                     contentWidth: availableWidth
                     contentHeight: outputsLayout.height
-                    Kirigami.CardsLayout {
+                    PipeWireLayout {
                         id: outputsLayout
-                        anchors {
-                            left: parent.left;
-                            right: parent.right;
-                        }
-                        uniformCellWidths: true
-                        Repeater {
-                            id: outputsView
-                            model: null
-                            PipeWireDelegate {
-                                id: outputDelegate
-
-                                required property int index
-                                required property var model
-
-                                function selectAndAccept(): void {
-                                    root.clearSelection()
-                                    outputsView.model.setData(outputsView.model.index(model.row, 0), Qt.Checked, Qt.CheckStateRole)
-                                    dialogButtonBox.accepted()
-                                }
-
-                                checkable: root.multiple
-                                itemName : model.display ?? ""
-                                iconSource : model.decoration ?? ""
-                                exclusive: false
-                                autoExclusive: exclusive
-                                checked: model.checked === Qt.Checked
-                                nodeId: outputWaylandItem.nodeId
-
-                                activeFocusOnTab: true
-                                highlighted: activeFocus
-
-                                Accessible.role: root.multiple ? Accessible.CheckBox : Accessible.Button
-
-                                TaskManager.ScreencastingRequest {
-                                    id: outputWaylandItem
-                                    outputName: outputDelegate.model.name
-                                }
-
-                                // Only active if this is a multi-select dialog
-                                onToggled: {
-                                    const to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
-                                    outputsView.model.setData(outputsView.model.index(model.row, 0), to, Qt.CheckStateRole)
-                                }
-
-                                // If this is isn't a multi-select dialog, accept on click
-                                // since the cards are functioning as buttons
-                                onClicked: {
-                                    if (!root.multiple) {
-                                        selectAndAccept()
-                                    }
-                                }
-
-                                // If this is a multi-select dialog, let people choose just
-                                // one thing quickly by double-clicking
-                                onDoubleClicked: {
-                                    if (root.multiple) {
-                                        selectAndAccept()
-                                    }
-                                }
-                            }
-                        }
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        dialog: root
+                        model: root.outputsModel
                     }
                 }
+
                 QQC2.ScrollView {
                     contentWidth: availableWidth
                     contentHeight: windowsLayout.height
-                    Kirigami.CardsLayout {
+                    PipeWireLayout {
                         id: windowsLayout
-                        anchors {
-                            left: parent.left;
-                            right: parent.right;
-                        }
-                        uniformCellWidths: true
-                        Repeater {
-                            id: windowsView
-                            model: null
-                            PipeWireDelegate {
-                                id: windowDelegate
-
-                                required property int index
-                                required property var model
-
-                                function selectAndAccept(): void {
-                                    root.clearSelection()
-                                    windowsView.model.setData(windowsView.model.index(model.row, 0), Qt.Checked, Qt.CheckStateRole)
-                                    dialogButtonBox.accepted()
-                                }
-
-                                checkable: root.multiple
-                                itemName : model.display ?? ""
-                                iconSource : model.decoration ?? ""
-                                exclusive: false
-                                autoExclusive: exclusive
-                                checked: model.checked === Qt.Checked
-                                nodeId: windowWaylandItem.nodeId
-
-                                activeFocusOnTab: true
-                                highlighted: activeFocus
-
-                                Accessible.role: root.multiple ? Accessible.CheckBox : Accessible.Button
-
-                                TaskManager.ScreencastingRequest {
-                                    id: windowWaylandItem
-                                    uuid: windowDelegate.model.Uuid
-                                }
-
-                                // Only active if this is a multi-select dialog
-                                onToggled: {
-                                    const to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
-                                    windowsView.model.setData(windowsView.model.index(model.row, 0), to, Qt.CheckStateRole)
-                                }
-
-                                // If this is isn't a multi-select dialog, accept on click
-                                // since the cards are functioning as buttons
-                                onClicked: {
-                                    if (!root.multiple) {
-                                        selectAndAccept()
-                                    }
-                                }
-
-                                // If this is a multi-select dialog, let people choose just
-                                // one thing quickly by double-clicking
-                                onDoubleClicked: {
-                                    if (root.multiple) {
-                                        selectAndAccept()
-                                    }
-                                }
-                            }
-                        }
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        dialog: root
+                        model: root.windowsModel
                     }
                 }
             }
@@ -216,10 +100,10 @@ PortalDialog {
         dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18n("Share")
 
         // If there's only one thing in the list, pre-select it to save the user a click
-        if (outputsView.count === 1 && windowsView.count === 0) {
-            outputsView.model.setData(outputsView.model.index(0, 0), Qt.Checked, Qt.CheckStateRole);
-        } else if (windowsView.count === 1 && outputsView.count === 0) {
-            windowsView.model.setData(outputsView.model.index(0, 0), Qt.Checked, Qt.CheckStateRole);
+        if (outputsLayout.view.count === 1 && windowsLayout.view.count === 0) {
+            outputsLayout.view.model.setData(outputsLayout.view.model.index(0, 0), Qt.Checked, Qt.CheckStateRole);
+        } else if (windowsLayout.view.count === 1 && outputsLayout.view.count === 0) {
+            windowsLayout.model.setData(outputsLayout.view.model.index(0, 0), Qt.Checked, Qt.CheckStateRole);
         }
     }
 }

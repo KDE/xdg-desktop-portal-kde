@@ -23,6 +23,8 @@ ecm_target_qml_sources(xdg-desktop-portal-kde
         WallpaperDialog.qml
         UsbDialog.qml
         PortalDialog.qml
+        PipeWireLayout.qml
+        ScreenChooserDialogTemplate.qml
         region-select/RegionSelectOverlay.qml
         region-select/FloatingTextBox.qml
         region-select/FloatingBackground.qml)
