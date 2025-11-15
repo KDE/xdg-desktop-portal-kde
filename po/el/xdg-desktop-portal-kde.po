@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-14 00:44+0000\n"
+"POT-Creation-Date: 2025-11-15 00:43+0000\n"
 "PO-Revision-Date: 2024-09-19 16:07+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -64,31 +64,31 @@ msgctxt "@action:button"
 msgid "Open"
 msgstr "Άνοιγμα"
 
-#: src/AppChooserDialog.qml:49
+#: src/AppChooserDialog.qml:47
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr ""
 
-#: src/AppChooserDialog.qml:109
+#: src/AppChooserDialog.qml:107
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "Εμφάνιση όλων των εγκατεστημένων εφαρμογών"
 
-#: src/AppChooserDialog.qml:122
+#: src/AppChooserDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr ""
 
-#: src/AppChooserDialog.qml:183
+#: src/AppChooserDialog.qml:176
 #, fuzzy, kde-kuit-format
 #| msgid "Default app for this file type"
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "Προεπιλεγμένη εφαρμογή γι' αυτόν τον τύπο αρχείου"
 
-#: src/AppChooserDialog.qml:185
+#: src/AppChooserDialog.qml:178
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:whatsthis"
 #| msgid "Last used app for this file type"
@@ -96,44 +96,44 @@ msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "Τελευταία χρησιμοποιούμενη εφαρμογή για αυτόν τον τύπο αρχείου"
 
-#: src/AppChooserDialog.qml:207
+#: src/AppChooserDialog.qml:200
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr ""
 
-#: src/AppChooserDialog.qml:209
+#: src/AppChooserDialog.qml:202
 #, kde-format
 msgid "No matches"
 msgstr "Καμιά αντιστοιχία"
 
-#: src/AppChooserDialog.qml:211
+#: src/AppChooserDialog.qml:204
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
 "Καμία εγκατεστημένη εφαρμογή δεν μπορεί να ανοίξει το <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:237
+#: src/AppChooserDialog.qml:233
 #, fuzzy, kde-format
 #| msgid "Content Options"
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "Τρέχουσες επιλογές"
 
-#: src/AppChooserDialog.qml:253
+#: src/AppChooserDialog.qml:249
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr ""
 
-#: src/AppChooserDialog.qml:262
+#: src/AppChooserDialog.qml:258
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr ""
 
-#: src/AppChooserDialog.qml:275
+#: src/AppChooserDialog.qml:271
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Choose Application"
@@ -141,7 +141,7 @@ msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "Επιλογή εφαρμογής"
 
-#: src/AppChooserDialog.qml:296
+#: src/AppChooserDialog.qml:292
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
@@ -399,24 +399,44 @@ msgid "Select"
 msgstr "Επιλογή"
 
 #: src/outputsmodel.cpp:21
-#, kde-format
-msgid "New Virtual Output"
-msgstr "Νέα εικονική έξοδος"
+#, fuzzy, kde-format
+#| msgid "Share this screen with %1?"
+msgid "Share virtual screen"
+msgstr "Κοινή χρήση αυτής της οθόνης με το %1;"
 
 #: src/outputsmodel.cpp:25
 #, kde-format
-msgid "Rectangular Region"
-msgstr "Ορθογώνια περιοχή"
+msgid "Share region"
+msgstr ""
 
 #: src/outputsmodel.cpp:36
-#, kde-format
-msgid "Full Workspace"
+#, fuzzy, kde-format
+#| msgid "Full Workspace"
+msgid "Share full Workspace"
 msgstr "Πλήρης χώρος εργασίας"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
 msgid "Laptop screen"
 msgstr "Οθόνη φορητού υπολογιστή"
+
+#: src/outputsmodel.cpp:247
+#, kde-format
+msgctxt "@info"
+msgid "Share the entire workspace across all screens"
+msgstr ""
+
+#: src/outputsmodel.cpp:249
+#, kde-format
+msgctxt "@info"
+msgid "Creates a screen inside a window, then share"
+msgstr ""
+
+#: src/outputsmodel.cpp:251
+#, kde-format
+msgctxt "@info"
+msgid "Crops a specific area of your screens"
+msgstr ""
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
@@ -519,12 +539,12 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - Συσκευές εισόδου\n"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:212
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Να επιτρέπεται η επαναφορά σε μελλοντικές συνεδρίες"
 
-#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:216
+#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:100
 #, kde-format
 msgid "Share"
 msgstr "Διαμοιρασμός"
@@ -540,94 +560,94 @@ msgstr "Κοινή χρήση οθόνης σε εξέλιξη"
 msgid "Screen Sharing"
 msgstr "Κοινή χρήση οθόνης"
 
-#: src/screenchooserdialog.cpp:188
+#: src/screenchooserdialog.cpp:192
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "Κοινή χρήση αυτής της οθόνης με την αιτούσα εφαρμογή;"
 
-#: src/screenchooserdialog.cpp:190
+#: src/screenchooserdialog.cpp:194
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "Κοινή χρήση αυτής της οθόνης με το %1;"
 
-#: src/screenchooserdialog.cpp:195
+#: src/screenchooserdialog.cpp:199
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "Επιλέξτε οθόνες που θα διαμοιραστείτε με την αιτούσα εφαρμογή:"
 
-#: src/screenchooserdialog.cpp:197
+#: src/screenchooserdialog.cpp:201
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "Επιλέξτε οθόνες για κοινή χρήση με τον %1:"
 
-#: src/screenchooserdialog.cpp:201
+#: src/screenchooserdialog.cpp:205
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr "Επιλέξτε ποια οθόνη θα διαμοιραστείτε με την αιτούσα εφαρμογή:"
 
-#: src/screenchooserdialog.cpp:203
+#: src/screenchooserdialog.cpp:207
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "Επιλέξτε ποια οθόνη θα διαμοιραστείτε με τον %1:"
 
-#: src/screenchooserdialog.cpp:212
+#: src/screenchooserdialog.cpp:216
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "Κοινή χρήση αυτού του παραθύρου με την αιτούσα εφαρμογή;"
 
-#: src/screenchooserdialog.cpp:214
+#: src/screenchooserdialog.cpp:218
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "Κοινή χρήση αυτού του παραθύρου με το %1;"
 
-#: src/screenchooserdialog.cpp:219
+#: src/screenchooserdialog.cpp:223
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "Επιλέξτε παράθυρα για κοινή χρήση με την αιτούσα εφαρμογή:"
 
-#: src/screenchooserdialog.cpp:221
+#: src/screenchooserdialog.cpp:225
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "Επιλέξτε τα παράθυρα που θα διαμοιραστείτε με το %1:"
 
-#: src/screenchooserdialog.cpp:225
+#: src/screenchooserdialog.cpp:229
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr "Επιλέξτε ποιο παράθυρο θα διαμοιραστείτε με την αιτούσα εφαρμογή:"
 
-#: src/screenchooserdialog.cpp:227
+#: src/screenchooserdialog.cpp:231
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "Επιλέξτε ποιο παράθυρο θα διαμοιραστείτε με το %1:"
 
-#: src/screenchooserdialog.cpp:234
+#: src/screenchooserdialog.cpp:238
 #, fuzzy, kde-format
 #| msgid "Choose windows to share with the requesting application:"
 msgid "Create a new virtual display to share with the requesting application:"
 msgstr "Επιλέξτε παράθυρα για κοινή χρήση με την αιτούσα εφαρμογή:"
 
-#: src/screenchooserdialog.cpp:236
+#: src/screenchooserdialog.cpp:240
 #, fuzzy, kde-format
 #| msgid "Choose windows to share with %1:"
 msgid "Create a new virtual display to share with %1:"
 msgstr "Επιλέξτε τα παράθυρα που θα διαμοιραστείτε με το %1:"
 
-#: src/screenchooserdialog.cpp:242
+#: src/screenchooserdialog.cpp:246
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr "Επιλέξτε τι θα διαμοιραστείτε με την αιτούσα εφαρμογή:"
 
-#: src/screenchooserdialog.cpp:244
+#: src/screenchooserdialog.cpp:248
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "Επιλέξτε τι θα διαμοιραστείτε με το %1:"
 
-#: src/ScreenChooserDialog.qml:41
+#: src/ScreenChooserDialog.qml:38
 #, kde-format
 msgid "Screens"
 msgstr "Οθόνες"
 
-#: src/ScreenChooserDialog.qml:44
+#: src/ScreenChooserDialog.qml:41
 #, kde-format
 msgid "Windows"
 msgstr "Παράθυρα"
@@ -835,6 +855,12 @@ msgstr "Αποτυχία έναρξης αποτύπωσης οθόνης"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Απομακρυσμένη επιφάνεια εργασίας"
+
+#~ msgid "New Virtual Output"
+#~ msgstr "Νέα εικονική έξοδος"
+
+#~ msgid "Rectangular Region"
+#~ msgstr "Ορθογώνια περιοχή"
 
 #~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 #~ msgid "Always open %1 files with the chosen app"

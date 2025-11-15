@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-14 00:44+0000\n"
+"POT-Creation-Date: 2025-11-15 00:43+0000\n"
 "PO-Revision-Date: 2025-11-12 18:22+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -65,30 +65,30 @@ msgctxt "@action:button"
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/AppChooserDialog.qml:49
+#: src/AppChooserDialog.qml:47
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr "Встановити типовою програмою для відкриття файлів %1"
 
-#: src/AppChooserDialog.qml:109
+#: src/AppChooserDialog.qml:107
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "Показати усі встановлені програми"
 
-#: src/AppChooserDialog.qml:122
+#: src/AppChooserDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "Вибрати інше…"
 
-#: src/AppChooserDialog.qml:183
+#: src/AppChooserDialog.qml:176
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>Типова програма для цього типу файлів</emphasis>"
 
-#: src/AppChooserDialog.qml:185
+#: src/AppChooserDialog.qml:178
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
@@ -96,48 +96,48 @@ msgstr ""
 "%1<nl/><emphasis>Остання використана програма для цього типу файлів</"
 "emphasis>"
 
-#: src/AppChooserDialog.qml:207
+#: src/AppChooserDialog.qml:200
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Відкрити за допомогою <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:209
+#: src/AppChooserDialog.qml:202
 #, kde-format
 msgid "No matches"
 msgstr "Немає відповідників"
 
-#: src/AppChooserDialog.qml:211
+#: src/AppChooserDialog.qml:204
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Жодна з встановлених програм не може відкрити <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:237
+#: src/AppChooserDialog.qml:233
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "Параметри термінала"
 
-#: src/AppChooserDialog.qml:253
+#: src/AppChooserDialog.qml:249
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Запустити у терміналі"
 
-#: src/AppChooserDialog.qml:262
+#: src/AppChooserDialog.qml:258
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "Не закривати після завершення виконання програми"
 
-#: src/AppChooserDialog.qml:275
+#: src/AppChooserDialog.qml:271
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "Знайти інші програми"
 
-#: src/AppChooserDialog.qml:296
+#: src/AppChooserDialog.qml:292
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
@@ -403,24 +403,46 @@ msgid "Select"
 msgstr "Вибрати"
 
 #: src/outputsmodel.cpp:21
-#, kde-format
-msgid "New Virtual Output"
-msgstr "Нове віртуальне виведення"
+#, fuzzy, kde-format
+#| msgid "Share this screen with %1?"
+msgid "Share virtual screen"
+msgstr "Поділитися цим екраном з %1?"
 
 #: src/outputsmodel.cpp:25
-#, kde-format
-msgid "Rectangular Region"
-msgstr "Прямокутна ділянка"
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Share user info"
+msgid "Share region"
+msgstr "Поділитися даними користувача"
 
 #: src/outputsmodel.cpp:36
-#, kde-format
-msgid "Full Workspace"
+#, fuzzy, kde-format
+#| msgid "Full Workspace"
+msgid "Share full Workspace"
 msgstr "Увесь робочий простір"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
 msgid "Laptop screen"
 msgstr "Екран ноутбука"
+
+#: src/outputsmodel.cpp:247
+#, kde-format
+msgctxt "@info"
+msgid "Share the entire workspace across all screens"
+msgstr ""
+
+#: src/outputsmodel.cpp:249
+#, kde-format
+msgctxt "@info"
+msgid "Creates a screen inside a window, then share"
+msgstr ""
+
+#: src/outputsmodel.cpp:251
+#, kde-format
+msgctxt "@info"
+msgid "Crops a specific area of your screens"
+msgstr ""
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
@@ -517,12 +539,12 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - Пристрої введення\n"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:212
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Дозволити відновлення у майбутніх сеансах"
 
-#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:216
+#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:100
 #, kde-format
 msgid "Share"
 msgstr "Оприлюднити"
@@ -538,95 +560,95 @@ msgstr "Надається доступ до екрана"
 msgid "Screen Sharing"
 msgstr "Оприлюднення екрана"
 
-#: src/screenchooserdialog.cpp:188
+#: src/screenchooserdialog.cpp:192
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "Поділитися цим екраном із програмою, яка надіслала запит?"
 
-#: src/screenchooserdialog.cpp:190
+#: src/screenchooserdialog.cpp:194
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "Поділитися цим екраном з %1?"
 
-#: src/screenchooserdialog.cpp:195
+#: src/screenchooserdialog.cpp:199
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "Виберіть екрани, доступ до яких слід відкрити для відповідної програми"
 
-#: src/screenchooserdialog.cpp:197
+#: src/screenchooserdialog.cpp:201
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "Виберіть екрани, якими слід поділитися з %1:"
 
-#: src/screenchooserdialog.cpp:201
+#: src/screenchooserdialog.cpp:205
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr ""
 "Виберіть екран, доступ до якого слід відкрити для відповідної програми:"
 
-#: src/screenchooserdialog.cpp:203
+#: src/screenchooserdialog.cpp:207
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "Виберіть екран, яким слід поділитися з %1:"
 
-#: src/screenchooserdialog.cpp:212
+#: src/screenchooserdialog.cpp:216
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "Поділитися цим вікном з програмою, яка про це просить?"
 
-#: src/screenchooserdialog.cpp:214
+#: src/screenchooserdialog.cpp:218
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "Поділитися цим вікном з %1?"
 
-#: src/screenchooserdialog.cpp:219
+#: src/screenchooserdialog.cpp:223
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "Виберіть вікна, якими слід поділитися з відповідною програмою:"
 
-#: src/screenchooserdialog.cpp:221
+#: src/screenchooserdialog.cpp:225
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "Виберіть вікна, якими слід поділитися з %1:"
 
-#: src/screenchooserdialog.cpp:225
+#: src/screenchooserdialog.cpp:229
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr ""
 "Виберіть вікно, доступ до якого слід відкрити для відповідної програми:"
 
-#: src/screenchooserdialog.cpp:227
+#: src/screenchooserdialog.cpp:231
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "Виберіть вікно, яким слід поділитися з %1:"
 
-#: src/screenchooserdialog.cpp:234
+#: src/screenchooserdialog.cpp:238
 #, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
 msgstr ""
 "Створити віртуальний дисплей, якими слід поділитися з відповідною програмою:"
 
-#: src/screenchooserdialog.cpp:236
+#: src/screenchooserdialog.cpp:240
 #, kde-format
 msgid "Create a new virtual display to share with %1:"
 msgstr "Створити віртуальний дисплей, якими слід поділитися з %1:"
 
-#: src/screenchooserdialog.cpp:242
+#: src/screenchooserdialog.cpp:246
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr "Виберіть, що слід оприлюднити за допомогою відповідної програми:"
 
-#: src/screenchooserdialog.cpp:244
+#: src/screenchooserdialog.cpp:248
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "Виберіть, що слід оприлюднити для %1:"
 
-#: src/ScreenChooserDialog.qml:41
+#: src/ScreenChooserDialog.qml:38
 #, kde-format
 msgid "Screens"
 msgstr "Екрани"
 
-#: src/ScreenChooserDialog.qml:44
+#: src/ScreenChooserDialog.qml:41
 #, kde-format
 msgid "Windows"
 msgstr "Вікна"
@@ -840,6 +862,12 @@ msgstr "Не вдалося розпочати трансляцію з екра�
 #, kde-format
 msgid "Remote desktop"
 msgstr "Віддалена стільниця"
+
+#~ msgid "New Virtual Output"
+#~ msgstr "Нове віртуальне виведення"
+
+#~ msgid "Rectangular Region"
+#~ msgstr "Прямокутна ділянка"
 
 #~ msgid "%1 wants access to your user info."
 #~ msgstr "%1 потрібен доступ до ваших даних користувача."

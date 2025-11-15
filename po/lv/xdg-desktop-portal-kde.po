@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-14 00:44+0000\n"
+"POT-Creation-Date: 2025-11-15 00:43+0000\n"
 "PO-Revision-Date: 2025-09-24 12:35+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -63,78 +63,78 @@ msgctxt "@action:button"
 msgid "Open"
 msgstr "Atvērt"
 
-#: src/AppChooserDialog.qml:49
+#: src/AppChooserDialog.qml:47
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr "Norādiet noklusējuma programmu „%1“ datnēm"
 
-#: src/AppChooserDialog.qml:109
+#: src/AppChooserDialog.qml:107
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "Rādīt visas instalētās programmas"
 
-#: src/AppChooserDialog.qml:122
+#: src/AppChooserDialog.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "Izvēlēties citu..."
 
-#: src/AppChooserDialog.qml:183
+#: src/AppChooserDialog.qml:176
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>Noklusējuma programma šim datņu tipam</emphasis>"
 
-#: src/AppChooserDialog.qml:185
+#: src/AppChooserDialog.qml:178
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>Pēdējā izmantotā programma šim datņu tipam</emphasis>"
 
-#: src/AppChooserDialog.qml:207
+#: src/AppChooserDialog.qml:200
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Vai atvērt ar „<command>%1</command>“?"
 
-#: src/AppChooserDialog.qml:209
+#: src/AppChooserDialog.qml:202
 #, kde-format
 msgid "No matches"
 msgstr "Nav atbilstību"
 
-#: src/AppChooserDialog.qml:211
+#: src/AppChooserDialog.qml:204
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
 "Neviena no instalētajām programmām nevar atvērt <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:237
+#: src/AppChooserDialog.qml:233
 #, kde-format
 msgctxt "@title:group"
 msgid "Terminal Options"
 msgstr "Termināļa opcijas"
 
-#: src/AppChooserDialog.qml:253
+#: src/AppChooserDialog.qml:249
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Palaist terminālī"
 
-#: src/AppChooserDialog.qml:262
+#: src/AppChooserDialog.qml:258
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "Neaizvērt, izbeidzot komandu"
 
-#: src/AppChooserDialog.qml:275
+#: src/AppChooserDialog.qml:271
 #, kde-format
 msgctxt "@title:group"
 msgid "Discover More Applications"
 msgstr "Atklāt vairāk programmu"
 
-#: src/AppChooserDialog.qml:296
+#: src/AppChooserDialog.qml:292
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
@@ -395,24 +395,44 @@ msgid "Select"
 msgstr "Atlasīt"
 
 #: src/outputsmodel.cpp:21
-#, kde-format
-msgid "New Virtual Output"
-msgstr "Jauna virtuālā izvade"
+#, fuzzy, kde-format
+#| msgid "Share this screen with %1?"
+msgid "Share virtual screen"
+msgstr "Vai ar „%1“ kopīgot ekrānu?"
 
 #: src/outputsmodel.cpp:25
 #, kde-format
-msgid "Rectangular Region"
-msgstr "Četrstūra reģions"
+msgid "Share region"
+msgstr ""
 
 #: src/outputsmodel.cpp:36
-#, kde-format
-msgid "Full Workspace"
+#, fuzzy, kde-format
+#| msgid "Full Workspace"
+msgid "Share full Workspace"
 msgstr "Pilna darbvirsma"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
 msgid "Laptop screen"
 msgstr "Portatīvā datora ekrāns"
+
+#: src/outputsmodel.cpp:247
+#, kde-format
+msgctxt "@info"
+msgid "Share the entire workspace across all screens"
+msgstr ""
+
+#: src/outputsmodel.cpp:249
+#, kde-format
+msgctxt "@info"
+msgid "Creates a screen inside a window, then share"
+msgstr ""
+
+#: src/outputsmodel.cpp:251
+#, kde-format
+msgctxt "@info"
+msgid "Crops a specific area of your screens"
+msgstr ""
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
@@ -509,12 +529,12 @@ msgctxt "Will allow the app to send input events, in markdown"
 msgid " - Input devices\n"
 msgstr " - Ievades ierīces\n"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:212
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Atļaut atjaunot nākotnes sesijās"
 
-#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:216
+#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:100
 #, kde-format
 msgid "Share"
 msgstr "Kopīgot"
@@ -530,93 +550,93 @@ msgstr "Ekrāna kopīgošanas progress"
 msgid "Screen Sharing"
 msgstr "Ekrāna kopīgošana"
 
-#: src/screenchooserdialog.cpp:188
+#: src/screenchooserdialog.cpp:192
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "Vai ar pieprasījušo programmu kopīgot šo ekrānu?"
 
-#: src/screenchooserdialog.cpp:190
+#: src/screenchooserdialog.cpp:194
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "Vai ar „%1“ kopīgot ekrānu?"
 
-#: src/screenchooserdialog.cpp:195
+#: src/screenchooserdialog.cpp:199
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "Izvēlēties ekrānus, kurus kopīgot ar pieprasījušo programmu:"
 
-#: src/screenchooserdialog.cpp:197
+#: src/screenchooserdialog.cpp:201
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "Izvēlieties ar „%1“ kopīgojamos ekrānus:"
 
-#: src/screenchooserdialog.cpp:201
+#: src/screenchooserdialog.cpp:205
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr "Izvēlieties, kuru ekrānu kopīgot ar pieprasījušo programmu:"
 
-#: src/screenchooserdialog.cpp:203
+#: src/screenchooserdialog.cpp:207
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "Izvēlieties, kuru ekrānu kopīgot ar „%1“:"
 
-#: src/screenchooserdialog.cpp:212
+#: src/screenchooserdialog.cpp:216
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "Vai kopīgot šo logu ar pieprasījušo programmu?"
 
-#: src/screenchooserdialog.cpp:214
+#: src/screenchooserdialog.cpp:218
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "Vai kopīgot šo logu ar „%1“?"
 
-#: src/screenchooserdialog.cpp:219
+#: src/screenchooserdialog.cpp:223
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "Izvēlieties logus, ko kopīgot ar pieprasījušo programmu:"
 
-#: src/screenchooserdialog.cpp:221
+#: src/screenchooserdialog.cpp:225
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "Izvēlieties logus, ko kopīgot ar „%1“:"
 
-#: src/screenchooserdialog.cpp:225
+#: src/screenchooserdialog.cpp:229
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr "Izvēlieties, kuru logu kopīgot ar pieprasījušo programmu:"
 
-#: src/screenchooserdialog.cpp:227
+#: src/screenchooserdialog.cpp:231
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "Izvēlieties, kuru logu kopīgot ar „%1“:"
 
-#: src/screenchooserdialog.cpp:234
+#: src/screenchooserdialog.cpp:238
 #, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
 msgstr ""
 "Izveidot jaunu virtuālo displeju, ko kopīgot ar pieprasījušo programmu:"
 
-#: src/screenchooserdialog.cpp:236
+#: src/screenchooserdialog.cpp:240
 #, kde-format
 msgid "Create a new virtual display to share with %1:"
 msgstr "Izveidot jaunu virtuālo displeju, ko kopīgot ar „%1“:"
 
-#: src/screenchooserdialog.cpp:242
+#: src/screenchooserdialog.cpp:246
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr "Izvēlieties, ko kopīgot ar pieprasījušo programmu:"
 
-#: src/screenchooserdialog.cpp:244
+#: src/screenchooserdialog.cpp:248
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "Izvēlieties, ko kopīgot ar „%1“:"
 
-#: src/ScreenChooserDialog.qml:41
+#: src/ScreenChooserDialog.qml:38
 #, kde-format
 msgid "Screens"
 msgstr "Ekrāni"
 
-#: src/ScreenChooserDialog.qml:44
+#: src/ScreenChooserDialog.qml:41
 #, kde-format
 msgid "Windows"
 msgstr "Logi"
@@ -831,6 +851,12 @@ msgstr "Neizdevās sākt ekrāna ierakstīšanu"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Attālinātā darbvirsma"
+
+#~ msgid "New Virtual Output"
+#~ msgstr "Jauna virtuālā izvade"
+
+#~ msgid "Rectangular Region"
+#~ msgstr "Četrstūra reģions"
 
 #~ msgid "%1 wants access to your user info."
 #~ msgstr "%1 vēlas piekļūt jūsu lietotāja informācijai."
