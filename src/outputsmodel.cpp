@@ -136,7 +136,6 @@ QVariant OutputsModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case ScreenRole:
         return QVariant::fromValue(output.screen());
-        return 0;
     case NameRole:
         return output.name();
     case IsSyntheticRole:
