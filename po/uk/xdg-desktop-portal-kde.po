@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-15 00:43+0000\n"
-"PO-Revision-Date: 2025-11-12 18:22+0200\n"
+"PO-Revision-Date: 2025-11-15 18:15+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -403,23 +403,19 @@ msgid "Select"
 msgstr "Вибрати"
 
 #: src/outputsmodel.cpp:21
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "Поділитися цим екраном з %1?"
+msgstr "Поділитися віртуальним екраном"
 
 #: src/outputsmodel.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Share user info"
+#, kde-format
 msgid "Share region"
-msgstr "Поділитися даними користувача"
+msgstr "Поділитися ділянкою"
 
 #: src/outputsmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "Увесь робочий простір"
+msgstr "Поділитися усім робочим простором"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
@@ -430,19 +426,19 @@ msgstr "Екран ноутбука"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "Оприлюднювати увесь робочий простір на усіх екранах"
 
 #: src/outputsmodel.cpp:249
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgstr "Створити екран у вікні, потім поширити"
 
 #: src/outputsmodel.cpp:251
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "Обрізати певну область ваших екранів"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format

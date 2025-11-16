@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-15 00:43+0000\n"
-"PO-Revision-Date: 2025-11-12 07:40+0100\n"
+"PO-Revision-Date: 2025-11-15 07:56+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -401,23 +401,19 @@ msgid "Select"
 msgstr "Izberi"
 
 #: src/outputsmodel.cpp:21
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "Naj delim ta zaslon s %1?"
+msgstr "Deli navidezni zaslon"
 
 #: src/outputsmodel.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Share user info"
+#, kde-format
 msgid "Share region"
-msgstr "Deli uporabnikove podatke"
+msgstr "Deli območje"
 
 #: src/outputsmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "Polni delovni prostor"
+msgstr "Deli celotni delovni prostor"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
@@ -428,19 +424,19 @@ msgstr "Zaslon notesnika"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "Deli celotni delovni prostor po vseh zaslonih"
 
 #: src/outputsmodel.cpp:249
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgstr "Ustvari zaslon v oknu in ga deli"
 
 #: src/outputsmodel.cpp:251
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "Obreži določena območja vaših zaslonov"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format

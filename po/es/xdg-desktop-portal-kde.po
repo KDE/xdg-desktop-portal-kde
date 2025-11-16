@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-15 00:43+0000\n"
-"PO-Revision-Date: 2025-11-14 01:00+0100\n"
+"PO-Revision-Date: 2025-11-15 12:16+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -404,23 +404,19 @@ msgid "Select"
 msgstr "Seleccionar"
 
 #: src/outputsmodel.cpp:21
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "¿Compartir esta pantalla con %1?"
+msgstr "Compartir pantalla virtual"
 
 #: src/outputsmodel.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Share user info"
+#, kde-format
 msgid "Share region"
-msgstr "Compartir información de usuario"
+msgstr "Compartir región"
 
 #: src/outputsmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "Espacio de trabajo completo"
+msgstr "Compartir espacio de trabajo completo"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
@@ -431,19 +427,19 @@ msgstr "Pantalla del portátil"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "Compartir la totalidad del espacio de trabajo en todas las pantallas"
 
 #: src/outputsmodel.cpp:249
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgstr "Crea una pantalla dentro de una ventana y la comparte"
 
 #: src/outputsmodel.cpp:251
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "Recorta el área indicada de las pantallas"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
@@ -867,9 +863,3 @@ msgstr "No se ha podido iniciar la grabación de la pantalla"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Escritorio remoto"
-
-#~ msgid "New Virtual Output"
-#~ msgstr "Nueva salida virtual"
-
-#~ msgid "Rectangular Region"
-#~ msgstr "Región rectangular"

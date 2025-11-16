@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-15 00:43+0000\n"
-"PO-Revision-Date: 2025-11-12 08:41+0200\n"
+"PO-Revision-Date: 2025-11-15 10:16+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -390,23 +390,19 @@ msgid "Select"
 msgstr "בחירה"
 
 #: src/outputsmodel.cpp:21
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "לשתף את המסך עם %1?"
+msgstr "שיתוף מסך וירטואלי"
 
 #: src/outputsmodel.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Share user info"
+#, kde-format
 msgid "Share region"
-msgstr "שיתוף פרטי משתמש"
+msgstr "שיתוף אזור"
 
 #: src/outputsmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "סביבת עבודה מלאה"
+msgstr "שיתוף סביבת העבודה במלואה"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
@@ -417,19 +413,19 @@ msgstr "מסך מחשב נייד"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "לשתף את כל מרחב העבודה על פני כל המסכים"
 
 #: src/outputsmodel.cpp:249
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgstr "יצירת מסך בתוך חלון ואז לשתף"
 
 #: src/outputsmodel.cpp:251
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "חיתוך אזור מסוים מהמסכים שלך"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-15 00:43+0000\n"
-"PO-Revision-Date: 2025-11-12 06:59+0100\n"
+"PO-Revision-Date: 2025-11-15 08:17+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -396,23 +396,19 @@ msgid "Select"
 msgstr "აირჩიეთ"
 
 #: src/outputsmodel.cpp:21
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "გავუზიარო ეს ეკრანი %1-ს?"
+msgstr "ვირტუალური ეკრანის გაზიარება"
 
 #: src/outputsmodel.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Share user info"
+#, kde-format
 msgid "Share region"
-msgstr "მომხმარებლის ინფორმაციის გაზიარება"
+msgstr "რეგიონის გაზიარება"
 
 #: src/outputsmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "სრული სამუშაო სივრცე"
+msgstr "სრული სამუშაო სივრცის გაზიარება"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
@@ -423,19 +419,19 @@ msgstr "ნოუთბუქის ეკრანი"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "სამუშაო სივრცის სრულად გაზიარება ყველა ეკრანზე"
 
 #: src/outputsmodel.cpp:249
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgstr "ეკრანის შექმნა ფანჯარაში და შემდეგ გაზიარება"
 
 #: src/outputsmodel.cpp:251
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "ამოჭრის თქვენი ეკრანების მითითებულ ადგილს"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format

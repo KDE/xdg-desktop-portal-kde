@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-15 00:43+0000\n"
-"PO-Revision-Date: 2025-10-30 13:25+0100\n"
+"PO-Revision-Date: 2025-11-15 13:56+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -405,21 +405,19 @@ msgid "Select"
 msgstr "Tria"
 
 #: src/outputsmodel.cpp:21
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "Voleu compartir esta pantalla amb %1?"
+msgstr "Voleu compartir la pantalla virtual"
 
 #: src/outputsmodel.cpp:25
 #, kde-format
 msgid "Share region"
-msgstr ""
+msgstr "Compartix una regió"
 
 #: src/outputsmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "Espai de treball complet"
+msgstr "Compartix l'espai de treball complet"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
@@ -430,19 +428,19 @@ msgstr "Pantalla de portàtil"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "Compartix l'espai de treball sencer de totes les pantalles"
 
 #: src/outputsmodel.cpp:249
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgstr "Crea una pantalla dins una finestram després la compartix"
 
 #: src/outputsmodel.cpp:251
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "Escapça una àrea específica de les vostres pantalles"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
@@ -777,8 +775,7 @@ msgstr[0] "%2 vol accés al dispositiu següent:"
 msgstr[1] "%2 vol accés als dispositius següents:"
 
 #: src/userinfodialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Share User Information with %1"
+#, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
 msgstr "Compartix la informació d'usuari amb %1"
@@ -790,12 +787,14 @@ msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
 msgstr ""
+"Permet que l'aplicació utilitze el nom d'usuari, el nom complet i la imatge "
+"de perfil."
 
 #: src/UserInfoDialog.qml:18
 #, kde-format
 msgctxt "@action:button"
 msgid "Share user info"
-msgstr ""
+msgstr "Compartix la informació d'usuari"
 
 #: src/UserInfoDialog.qml:76
 #, kde-format
@@ -859,15 +858,3 @@ msgstr "No s'ha pogut iniciar el vídeo de captura de pantalla"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Escriptori remot"
-
-#~ msgid "New Virtual Output"
-#~ msgstr "Eixida virtual nova"
-
-#~ msgid "Rectangular Region"
-#~ msgstr "Regió rectangular"
-
-#~ msgid "%1 wants access to your user info."
-#~ msgstr "%1 vol accés a la vostra informació d'usuari."
-
-#~ msgid "This app will be given access to your avatar and name."
-#~ msgstr "Esta aplicació tindrà accés al vostre avatar i nom."

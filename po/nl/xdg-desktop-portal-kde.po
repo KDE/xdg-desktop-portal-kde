@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-15 00:43+0000\n"
-"PO-Revision-Date: 2025-11-13 17:52+0100\n"
+"PO-Revision-Date: 2025-11-15 23:46+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -400,23 +400,19 @@ msgid "Select"
 msgstr "Selecteren:"
 
 #: src/outputsmodel.cpp:21
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "Dit scherm delen met %1?"
+msgstr "Virtueel scherm delen"
 
 #: src/outputsmodel.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Share user info"
+#, kde-format
 msgid "Share region"
-msgstr "Gebruikersinformatie delen"
+msgstr "Gebied delen"
 
 #: src/outputsmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "Volledige werkruimte"
+msgstr "Volledige werkruimte delen"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
@@ -427,19 +423,19 @@ msgstr "Laptopscherm"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "De gehele werkruimte over all schermen delen"
 
 #: src/outputsmodel.cpp:249
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgstr "Maakt een scherm binnen een venster, daarna delen"
 
 #: src/outputsmodel.cpp:251
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "Snijdt een specifiek gebied van uw schermen af"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
