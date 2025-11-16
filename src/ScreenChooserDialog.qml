@@ -25,66 +25,46 @@ ScreenChooserDialogTemplate {
     width: Kirigami.Units.gridUnit * 28
     height: Kirigami.Units.gridUnit * 30
 
-    ColumnLayout {
-        spacing: 0
+    QQC2.ScrollView {
+        contentWidth: availableWidth
 
-        QQC2.TabBar {
-            id: tabView
-            Layout.fillWidth: true
-            visible: (root.outputsModel ?? false) && (root.windowsModel ?? false)
-            currentIndex: outputsLayout.view.count > 0 ? 0 : 1
+        ColumnLayout {
+            spacing: Kirigami.Units.largeSpacing
+            anchors.left: parent.left
+            anchors.right: parent.right
 
-            QQC2.TabButton {
-                text: i18n("Screens")
-            }
-            QQC2.TabButton {
-                text: i18n("Windows")
-            }
-        }
-
-        QQC2.Frame {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            Layout.preferredHeight: Kirigami.Units.gridUnit * 20
-            Layout.preferredWidth: Kirigami.Units.gridUnit * 30
-
-            Kirigami.Theme.inherit: false
-            Kirigami.Theme.colorSet: Kirigami.Theme.View
-
-            background: Rectangle {
-                color: Kirigami.Theme.backgroundColor
-                border.color: Qt.alpha(Kirigami.Theme.textColor, 0.3)
-                border.width: 1
-                visible: tabView.visible
+            PipeWireLayout {
+                id: outputsLayout
+                Layout.fillWidth: true
+                dialog: root
+                model: root.outputsModel
             }
 
-            StackLayout {
-                anchors.fill: parent
-                currentIndex: tabView.currentIndex
+            RowLayout {
+                Layout.fillWidth: true
+                spacing: Kirigami.Units.largeSpacing
+                visible: windowsLayout.view.count > 0
 
-                QQC2.ScrollView {
-                    contentWidth: availableWidth
-                    contentHeight: outputsLayout.height
-                    PipeWireLayout {
-                        id: outputsLayout
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        dialog: root
-                        model: root.outputsModel
-                    }
+                Kirigami.Separator {
+                    Layout.fillWidth: true
                 }
 
-                QQC2.ScrollView {
-                    contentWidth: availableWidth
-                    contentHeight: windowsLayout.height
-                    PipeWireLayout {
-                        id: windowsLayout
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        dialog: root
-                        model: root.windowsModel
-                    }
+                QQC2.Label {
+                    font.bold: true
+                    text: i18nc("@label separator line label between screen selection and window selection", "Windows")
+                    wrapMode: Text.WordWrap
                 }
+
+                Kirigami.Separator {
+                    Layout.fillWidth: true
+                }
+            }
+
+            PipeWireLayout {
+                id: windowsLayout
+                Layout.fillWidth: true
+                dialog: root
+                model: root.windowsModel
             }
         }
     }

@@ -142,7 +142,7 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
     Q_ASSERT(types != 0);
 
     QVariantMap props = {
-        {u"title"_s, i18n("Screen Sharing")},
+        {u"title"_s, i18nc("@title:window %1 is an application name (e.g. Falkon)", "Share screen with %1", Utils::applicationName(appName))},
         {u"multiple"_s, multiple},
     };
 
