@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-15 00:43+0000\n"
+"POT-Creation-Date: 2025-11-17 00:44+0000\n"
 "PO-Revision-Date: 2025-01-11 11:55+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -418,19 +418,19 @@ msgstr "Pełna przestrzeń pracy"
 msgid "Laptop screen"
 msgstr "Ekran laptopa"
 
-#: src/outputsmodel.cpp:247
+#: src/outputsmodel.cpp:246
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr ""
 
-#: src/outputsmodel.cpp:249
+#: src/outputsmodel.cpp:248
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr ""
 
-#: src/outputsmodel.cpp:251
+#: src/outputsmodel.cpp:250
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"

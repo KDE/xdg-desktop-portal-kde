@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-15 00:43+0000\n"
-"PO-Revision-Date: 2025-10-30 18:20+0100\n"
+"POT-Creation-Date: 2025-11-17 00:44+0000\n"
+"PO-Revision-Date: 2025-11-16 00:35+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -398,44 +398,42 @@ msgid "Select"
 msgstr "Seleziona"
 
 #: src/outputsmodel.cpp:21
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "Condividi questo schermo con %1?"
+msgstr "Condividi schermo virtuale"
 
 #: src/outputsmodel.cpp:25
 #, kde-format
 msgid "Share region"
-msgstr ""
+msgstr "Condividi regione"
 
 #: src/outputsmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "Spazio di lavoro intero"
+msgstr "Condividi l'intero spazio di lavoro"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
 msgid "Laptop screen"
 msgstr "Schermo di portatile"
 
-#: src/outputsmodel.cpp:247
+#: src/outputsmodel.cpp:246
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "Condivide l'intero spazio di lavoro da tutti gli schermi"
 
-#: src/outputsmodel.cpp:249
+#: src/outputsmodel.cpp:248
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgstr "Crea uno schermo dentro una finestra, quindi lo condivide"
 
-#: src/outputsmodel.cpp:251
+#: src/outputsmodel.cpp:250
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "Ritaglia un'area specificata dello schermo"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
@@ -767,11 +765,10 @@ msgstr[0] "%2 vuole accedere al seguente dispositivo:"
 msgstr[1] "%2 vuole accedere ai seguenti dispositivi:"
 
 #: src/userinfodialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Share User Information with %1"
+#, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
-msgstr "Condividi informazioni utente con %1"
+msgstr "Condividi info utente con %1"
 
 #: src/userinfodialog.cpp:54
 #, kde-format
@@ -780,12 +777,14 @@ msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
 msgstr ""
+"Permettere che il nome utente, il nome completo e l'immagine del profilo "
+"siano usati dall'applicazione."
 
 #: src/UserInfoDialog.qml:18
 #, kde-format
 msgctxt "@action:button"
 msgid "Share user info"
-msgstr ""
+msgstr "Condividi info utente"
 
 #: src/UserInfoDialog.qml:76
 #, kde-format

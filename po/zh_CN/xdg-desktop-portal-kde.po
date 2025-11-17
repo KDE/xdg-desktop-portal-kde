@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-15 00:43+0000\n"
+"POT-Creation-Date: 2025-11-17 00:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -387,10 +387,9 @@ msgid "Select"
 msgstr "选择"
 
 #: src/outputsmodel.cpp:21
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "要与 %1 分享此屏幕吗？"
+msgstr ""
 
 #: src/outputsmodel.cpp:25
 #, kde-format
@@ -398,29 +397,28 @@ msgid "Share region"
 msgstr ""
 
 #: src/outputsmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "完整工作区"
+msgstr ""
 
 #: src/outputsmodel.cpp:76
 #, kde-format
 msgid "Laptop screen"
 msgstr "笔记本屏幕"
 
-#: src/outputsmodel.cpp:247
+#: src/outputsmodel.cpp:246
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr ""
 
-#: src/outputsmodel.cpp:249
+#: src/outputsmodel.cpp:248
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr ""
 
-#: src/outputsmodel.cpp:251
+#: src/outputsmodel.cpp:250
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
@@ -827,9 +825,3 @@ msgstr "启动屏幕录像失败"
 #, kde-format
 msgid "Remote desktop"
 msgstr "远程桌面"
-
-#~ msgid "New Virtual Output"
-#~ msgstr "新建虚拟输出"
-
-#~ msgid "Rectangular Region"
-#~ msgstr "矩形区域"

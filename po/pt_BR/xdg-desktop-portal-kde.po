@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-15 00:43+0000\n"
+"POT-Creation-Date: 2025-11-17 00:44+0000\n"
 "PO-Revision-Date: 2025-11-15 07:35-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -421,19 +421,19 @@ msgstr "Compartilhar todo espaço de trabalho"
 msgid "Laptop screen"
 msgstr "Tela do laptop"
 
-#: src/outputsmodel.cpp:247
+#: src/outputsmodel.cpp:246
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "Compartilha todo o espaço de trabalho em todas as telas"
 
-#: src/outputsmodel.cpp:249
+#: src/outputsmodel.cpp:248
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr "Cria uma tela dentro de uma janela e depois a compartilha"
 
-#: src/outputsmodel.cpp:251
+#: src/outputsmodel.cpp:250
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"

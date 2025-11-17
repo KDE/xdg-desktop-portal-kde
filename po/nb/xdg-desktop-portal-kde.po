@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-15 00:43+0000\n"
+"POT-Creation-Date: 2025-11-17 00:44+0000\n"
 "PO-Revision-Date: 2025-03-23 21:00+0100\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -415,19 +415,19 @@ msgstr "Fullt arbeidsområde"
 msgid "Laptop screen"
 msgstr "Skjerm på bærbar"
 
-#: src/outputsmodel.cpp:247
+#: src/outputsmodel.cpp:246
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr ""
 
-#: src/outputsmodel.cpp:249
+#: src/outputsmodel.cpp:248
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr ""
 
-#: src/outputsmodel.cpp:251
+#: src/outputsmodel.cpp:250
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
@@ -848,9 +848,3 @@ msgstr "Klarte ikke starte skjermdeling"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Eksternt skrivebord"
-
-#~ msgid "New Virtual Output"
-#~ msgstr "Ny virtuell utenhet"
-
-#~ msgid "Rectangular Region"
-#~ msgstr "Skjermutsnitt"
