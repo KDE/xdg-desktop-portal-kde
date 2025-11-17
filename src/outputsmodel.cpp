@@ -101,6 +101,7 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
         m_outputs << Output(type, screen, displayText, QStringLiteral("%1x%2").arg(pos.x()).arg(pos.y()), screen->name());
     }
 
+    // Partition so that real outputs come first. This is the order in which we want to visualize them in the UI.
     std::ranges::stable_partition(m_outputs, [](const Output &o) {
         return !o.isSynthetic();
     });
@@ -123,6 +124,7 @@ QHash<int, QByteArray> OutputsModel::roleNames() const
         {NameRole, "name"},
         {IsSyntheticRole, "isSynthetic"},
         {DescriptionRole, "description"},
+        {GeometryRole, "geometry"},
     };
 }
 
@@ -142,6 +144,8 @@ QVariant OutputsModel::data(const QModelIndex &index, int role) const
         return output.isSynthetic();
     case DescriptionRole:
         return output.description();
+    case GeometryRole:
+        return output.screen() ? output.screen()->geometry() : QRect();
     case Qt::DecorationRole:
         return QIcon::fromTheme(output.iconName());
     case Qt::DisplayRole:

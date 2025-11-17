@@ -17,6 +17,7 @@ Kirigami.CardsLayout {
     readonly property alias view: view
 
     uniformCellWidths: true
+    visible: view.count > 0
 
     Repeater {
         id: view

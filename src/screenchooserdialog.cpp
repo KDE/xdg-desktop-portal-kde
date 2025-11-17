@@ -129,6 +129,19 @@ public:
         Q_EMIT hasSelectionChanged();
     }
 
+    /*
+        \brief used for finding indexes based on whether they intersect with a given screen geometry. IOW: if the window is visible on that screen
+        Mind that the call signature must be kept in sync with OutputsModel! We invoke it on both the output and window model.
+    */
+    Q_INVOKABLE [[nodiscard]] bool geometryIntersects(const QModelIndex &index, const QRect &geometry) const
+    {
+        if (!checkIndex(index, CheckIndexOption::IndexIsValid)) {
+            qWarning() << "Invalid index for geometry intersection check:" << index;
+            return false;
+        }
+        return data(index, KWayland::Client::PlasmaWindowModel::Geometry).toRect().intersects(geometry);
+    }
+
 Q_SIGNALS:
     void hasSelectionChanged();
 
