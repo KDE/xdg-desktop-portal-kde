@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 00:44+0000\n"
-"PO-Revision-Date: 2025-11-13 13:35+0100\n"
+"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"PO-Revision-Date: 2025-11-16 14:11+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -404,23 +404,19 @@ msgid "Select"
 msgstr "Sélectionner"
 
 #: src/outputsmodel.cpp:21
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "Partagez cet écran avec « %1 » ?"
+msgstr "Partager l'écran virtuel"
 
 #: src/outputsmodel.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Share user info"
+#, kde-format
 msgid "Share region"
-msgstr "Partager les informations utilisateur"
+msgstr "Partager la zone"
 
 #: src/outputsmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "Espace de travail complet"
+msgstr "Partager la totalité de l'espace de travail"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
@@ -431,19 +427,19 @@ msgstr "Écran d'ordinateur portable"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "Partager la totalité de l'espace de travail sur tous les écrans"
 
 #: src/outputsmodel.cpp:248
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgstr "Crée un écran dans une fenêtre puis le partage"
 
 #: src/outputsmodel.cpp:250
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "Rogne une zone spécifique de vos écrans"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
