@@ -125,6 +125,11 @@ Kirigami.AbstractApplicationWindow {
         implicitWidth: control.implicitWidth
         implicitHeight: control.implicitHeight
 
+        focus: true
+        Keys.onEnterPressed: root.accept()
+        Keys.onReturnPressed: root.accept()
+        Keys.onEscapePressed: root.reject()
+
         Item {
             id: systemModalShadow
             visible: Kirigami.Settings.isMobile
