@@ -13,7 +13,7 @@ import QtQuick.Templates as T
 import org.kde.kirigami as Kirigami
 import Qt5Compat.GraphicalEffects
 
-Kirigami.ApplicationWindow {
+Kirigami.AbstractApplicationWindow {
     id: root
 
     title: mainText
@@ -88,7 +88,6 @@ Kirigami.ApplicationWindow {
     readonly property alias contentWidth: contentLayout.implicitWidth
     readonly property alias contentHeight: contentLayout.implicitHeight
 
-    pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.None
     flags: Qt.Dialog | Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
     visible: false
 
