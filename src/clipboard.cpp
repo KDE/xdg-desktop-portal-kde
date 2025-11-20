@@ -249,7 +249,7 @@ QDBusUnixFileDescriptor ClipboardPortal::SelectionWrite(const QDBusObjectPath &s
                 break;
             } else if (bytesRead == 0) {
                 break;
-            } else {
+            } else if (bytesRead > 0) {
                 transfer->second.data.append(buffer, bytesRead);
             }
         }
