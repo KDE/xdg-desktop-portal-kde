@@ -284,7 +284,7 @@ void RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
     if (restored) {
         auto notification = new KNotification(QStringLiteral("remotedesktopstarted"), KNotification::CloseOnTimeout);
         notification->setTitle(i18nc("title of notification about input systems taken over", "Remote control session started"));
-        notification->setText(RemoteDesktopDialog::buildDescription(app_id, session->deviceTypes(), session->screenSharingEnabled()));
+        notification->setText(RemoteDesktopDialog::buildNotificationDescription(app_id, session->deviceTypes(), session->screenSharingEnabled()));
         notification->setIconName(QStringLiteral("krfb"));
         notification->sendEvent();
     } else {

@@ -32,7 +32,9 @@ public:
     QList<Output> selectedOutputs() const;
     bool allowRestore() const;
 
-    static QString buildDescription(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled);
+    static QString buildMainText(const QString &appName);
+    static QString buildRequestDescription(RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled);
+    static QString buildNotificationDescription(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled);
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_DIALOG_H

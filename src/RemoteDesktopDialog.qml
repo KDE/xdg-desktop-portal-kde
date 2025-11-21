@@ -35,6 +35,7 @@ PortalDialog {
     standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
 
     Component.onCompleted: {
-        dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18n("Share")
+        dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18nc("@action:button Approve the application gaining extra privileges", "Approve")
+        dialogButtonBox.standardButton(QQC2.DialogButtonBox.Cancel).text = i18nc("@action:button Deny the application gaining extra privileges", "Deny")
     }
 }
