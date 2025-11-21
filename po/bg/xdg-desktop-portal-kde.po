@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2025-11-07 23:17+0100\n"
+"PO-Revision-Date: 2025-11-20 11:13+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -400,21 +400,19 @@ msgid "Select"
 msgstr "Избиране"
 
 #: src/outputsmodel.cpp:21
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "Да се сподели ли екрана с %1?"
+msgstr "Споделяне на виртуален екран"
 
 #: src/outputsmodel.cpp:25
 #, kde-format
 msgid "Share region"
-msgstr ""
+msgstr "Споделяне на област"
 
 #: src/outputsmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "Цяло работно пространство"
+msgstr "Споделяне на цялото работно пространство"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
@@ -425,19 +423,19 @@ msgstr "Екран на лаптоп"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "Споделяне на цялото работно пространство на всички екрани"
 
 #: src/outputsmodel.cpp:248
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgstr "Създава екран в прозорец, след което споделя"
 
 #: src/outputsmodel.cpp:250
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "Изрязва определена област от вашите екрани"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
@@ -770,8 +768,7 @@ msgstr[0] "%2 иска достъп до следното устройство:"
 msgstr[1] "%2 иска достъп до следните устройства:"
 
 #: src/userinfodialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Share User Information with %1"
+#, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
 msgstr "Споделяне на потребителски данни с %1"
@@ -783,12 +780,14 @@ msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
 msgstr ""
+"Позволява потребителското име, пълното име и снимката на профила да се "
+"използват от приложението."
 
 #: src/UserInfoDialog.qml:18
 #, kde-format
 msgctxt "@action:button"
 msgid "Share user info"
-msgstr ""
+msgstr "Споделяне на потребителски данни"
 
 #: src/UserInfoDialog.qml:76
 #, kde-format
@@ -850,15 +849,3 @@ msgstr "Неуспешно стартиране на видеозапис на �
 #, kde-format
 msgid "Remote desktop"
 msgstr "Отдалечен работен плот"
-
-#~ msgid "New Virtual Output"
-#~ msgstr "Нов виртуален изход"
-
-#~ msgid "Rectangular Region"
-#~ msgstr "Правоъгълна област"
-
-#~ msgid "%1 wants access to your user info."
-#~ msgstr "%1 иска достъп до вашите потребителски данни."
-
-#~ msgid "This app will be given access to your avatar and name."
-#~ msgstr "Това приложение ще получи достъп до вашия аватар и името ви."
