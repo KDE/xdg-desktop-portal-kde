@@ -205,6 +205,11 @@ Kirigami.AbstractApplicationWindow {
 
                     visible: visibleChildren.length > 0
 
+                    topPadding: Kirigami.Units.largeSpacing
+                    bottomPadding: Kirigami.Units.largeSpacing
+                    leftPadding: Kirigami.Units.largeSpacing
+                    rightPadding: Kirigami.Units.largeSpacing
+
                     contentItem: ColumnLayout {
                         spacing: headerControl.topPadding
                         visible: visibleChildren.length > 0
@@ -212,19 +217,17 @@ Kirigami.AbstractApplicationWindow {
                         RowLayout {
                             id: headerRow
 
-                            Layout.leftMargin: Kirigami.Units.largeSpacing
-                            Layout.rightMargin: Kirigami.Units.largeSpacing
-
                             visible: titleHeading.text.length > 0 || subtitleLabel.text.length > 0 || icon.source
 
                             Layout.fillWidth: true
-                            spacing: Kirigami.Units.smallSpacing
+                            spacing: Kirigami.Units.largeSpacing
 
                             Kirigami.Icon {
                                 id: icon
                                 visible: source
-                                implicitWidth: Kirigami.Units.iconSizes.large
-                                implicitHeight: Kirigami.Units.iconSizes.large
+                                implicitWidth: Kirigami.Units.iconSizes.medium
+                                implicitHeight: Kirigami.Units.iconSizes.medium
+
                                 source: root.iconName
                             }
 
