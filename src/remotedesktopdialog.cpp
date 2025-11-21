@@ -41,15 +41,15 @@ QString RemoteDesktopDialog::buildDescription(const QString &appName, RemoteDesk
         ? i18nc("Begins the logical sentence 'an application requested access to see what's on the screen and/or control input devices'",
                 "An application requested access to:\n")
         : i18nc("Begins the logical sentence '[application name] requested access to see what's on the screen and/or control input devices'",
-                "%1 requested access to:\n",
+                "%1 requested access to:",
                 applicationName);
     if (screenSharingEnabled) {
         description += i18nc("Completes the logical sentence 'an application requested access to see what's on the screen'. '-' is Markdown, do not translate",
-                             "- See what’s on the screen\n");
+                             "\n - See what’s on the screen");
     }
     if (deviceTypes != RemoteDesktopPortal::None) {
         description += i18nc("Completes the logical sentence 'an application requested access to control input devices'. '-' is Markdown, do not translate",
-                             " - Control input devices\n");
+                             "\n - Control input devices");
     }
     return description;
 }
