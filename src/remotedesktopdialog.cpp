@@ -38,15 +38,18 @@ QString RemoteDesktopDialog::buildDescription(const QString &appName, RemoteDesk
 {
     const QString applicationName = Utils::applicationName(appName);
     QString description = applicationName.isEmpty()
-        ? i18nc("Unordered list with privileges granted to an external process", "An application requested access to remotely control:\n")
-        : i18nc("Unordered list with privileges granted to an external process, included the app's name",
-                "%1 requested access to remotely control:\n",
+        ? i18nc("Begins the logical sentence 'an application requested access to see what's on the screen and/or control input devices'",
+                "An application requested access to:\n")
+        : i18nc("Begins the logical sentence '[application name] requested access to see what's on the screen and/or control input devices'",
+                "%1 requested access to:\n",
                 applicationName);
     if (screenSharingEnabled) {
-        description += i18nc("Will allow the app to see what's on the outputs, in markdown", " - Screens\n");
+        description += i18nc("Completes the logical sentence 'an application requested access to see what's on the screen'. '-' is Markdown, do not translate",
+                             "- See what’s on the screen\n");
     }
     if (deviceTypes != RemoteDesktopPortal::None) {
-        description += i18nc("Will allow the app to send input events, in markdown", " - Input devices\n");
+        description += i18nc("Completes the logical sentence 'an application requested access to control input devices'. '-' is Markdown, do not translate",
+                             " - Control input devices\n");
     }
     return description;
 }
