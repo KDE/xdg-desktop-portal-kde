@@ -285,7 +285,7 @@ void RemoteDesktopSession::acquireStreamingInput()
 
 void RemoteDesktopSession::refreshDescription()
 {
-    m_item->setTitle(i18nc("SNI title that indicates there's a process remotely controlling the system", "Remote Desktop"));
+    m_item->setTitle(i18nc("SNI title that indicates there's a process remotely controlling the system", "Remote Control"));
     m_item->setToolTipTitle(m_item->title());
     setDescription(RemoteDesktopDialog::buildNotificationDescription(m_appId, deviceTypes(), screenSharingEnabled()));
 }
