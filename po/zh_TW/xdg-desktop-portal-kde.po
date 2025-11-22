@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-22 00:44+0000\n"
 "PO-Revision-Date: 2025-11-20 20:55+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -487,35 +487,81 @@ msgid "Remote control session started"
 msgstr "已開始遠端控制工作階段"
 
 #: src/remotedesktopdialog.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Title of the dialog that requests remote input privileges"
+#| msgid "Remote control requested"
 msgctxt "Title of the dialog that requests remote input privileges"
-msgid "Remote control requested"
+msgid "Remote Control"
 msgstr "請求遠端控制權限"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
-msgctxt "Unordered list with privileges granted to an external process"
-msgid "An application requested access to remotely control:\n"
-msgstr "某應用程式請求存取遠端控制權：\n"
+msgctxt "@info"
+msgid "An application is asking for special privileges:\n"
+msgstr ""
 
-#: src/remotedesktopdialog.cpp:43
+#: src/remotedesktopdialog.cpp:42
+#, kde-format
+msgctxt "@info"
+msgid "%1 is asking for special privileges:"
+msgstr ""
+
+#: src/remotedesktopdialog.cpp:50
 #, kde-format
 msgctxt ""
-"Unordered list with privileges granted to an external process, included the "
-"app's name"
-msgid "%1 requested access to remotely control:\n"
-msgstr "%1 請求存取遠端控制權：\n"
+"@info As in, 'an application requested access to see what’s on the screen'. "
+"'-' is Markdown, do not translate"
+msgid ""
+"\n"
+" - See what’s on the screen"
+msgstr ""
 
-#: src/remotedesktopdialog.cpp:46
-#, kde-format
-msgctxt "Will allow the app to see what's on the outputs, in markdown"
-msgid " - Screens\n"
-msgstr " - 螢幕\n"
+#: src/remotedesktopdialog.cpp:54
+#, fuzzy, kde-format
+#| msgctxt "Will allow the app to send input events, in markdown"
+#| msgid " - Input devices\n"
+msgctxt ""
+"@info As in, 'an application requested access to control input devices'. '-' "
+"is Markdown, do not translate"
+msgid ""
+"\n"
+" - Control input devices"
+msgstr " - 輸入裝置\n"
 
-#: src/remotedesktopdialog.cpp:49
+#: src/remotedesktopdialog.cpp:62
+#, fuzzy, kde-format
+#| msgctxt "Unordered list with privileges granted to an external process"
+#| msgid "An application requested access to:\n"
+msgctxt "@info"
+msgid "An application is exercising special permissions:\n"
+msgstr "某應用程式請求存取：\n"
+
+#: src/remotedesktopdialog.cpp:63
 #, kde-format
-msgctxt "Will allow the app to send input events, in markdown"
-msgid " - Input devices\n"
+msgctxt "@info"
+msgid "%1 is exercising special privileges:"
+msgstr ""
+
+#: src/remotedesktopdialog.cpp:67
+#, kde-format
+msgctxt ""
+"@info As in, 'an application is exercising privileges to access to see "
+"what’s on the screen'. '-' is Markdown, do not translate"
+msgid ""
+"\n"
+" - See what’s on the screen"
+msgstr ""
+
+#: src/remotedesktopdialog.cpp:71
+#, fuzzy, kde-format
+#| msgctxt "Will allow the app to send input events, in markdown"
+#| msgid " - Input devices\n"
+msgctxt ""
+"@info As in, 'an application is exercising privileges to control input "
+"devices'. '-' is Markdown, do not translate"
+msgid ""
+"\n"
+" - Control input devices"
 msgstr " - 輸入裝置\n"
 
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
@@ -523,10 +569,17 @@ msgstr " - 輸入裝置\n"
 msgid "Allow restoring on future sessions"
 msgstr "允許在未來工作階段恢復"
 
-#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:100
+#: src/RemoteDesktopDialog.qml:38
 #, kde-format
-msgid "Share"
-msgstr "分享"
+msgctxt "@action:button Approve the application gaining extra privileges"
+msgid "Approve"
+msgstr ""
+
+#: src/RemoteDesktopDialog.qml:39
+#, kde-format
+msgctxt "@action:button Deny the application gaining extra privileges"
+msgid "Deny"
+msgstr ""
 
 #: src/screencast.cpp:281
 #, kde-format
@@ -628,6 +681,11 @@ msgstr "螢幕"
 #, kde-format
 msgid "Windows"
 msgstr "視窗"
+
+#: src/ScreenChooserDialog.qml:100
+#, kde-format
+msgid "Share"
+msgstr "分享"
 
 #: src/screenshotdialog.cpp:117
 #, kde-format
@@ -825,6 +883,20 @@ msgstr "無法開始螢幕錄製"
 msgid "Remote desktop"
 msgstr "遠端桌面"
 
+#~ msgctxt "Unordered list with privileges granted to an external process"
+#~ msgid "An application requested access to remotely control:\n"
+#~ msgstr "某應用程式請求存取遠端控制權：\n"
+
+#~ msgctxt ""
+#~ "Unordered list with privileges granted to an external process, included "
+#~ "the app's name"
+#~ msgid "%1 requested access to remotely control:\n"
+#~ msgstr "%1 請求存取遠端控制權：\n"
+
+#~ msgctxt "Will allow the app to see what's on the outputs, in markdown"
+#~ msgid " - Screens\n"
+#~ msgstr " - 螢幕\n"
+
 #~ msgid "New Virtual Output"
 #~ msgstr "新增虛擬輸出"
 
@@ -836,10 +908,6 @@ msgstr "遠端桌面"
 
 #~ msgid "This app will be given access to your avatar and name."
 #~ msgstr "這個應用程式會能夠存取您的頭貼與姓名。"
-
-#~ msgctxt "Unordered list with privileges granted to an external process"
-#~ msgid "An application requested access to:\n"
-#~ msgstr "某應用程式請求存取：\n"
 
 #~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 #~ msgid "Always open %1 files with the chosen app"

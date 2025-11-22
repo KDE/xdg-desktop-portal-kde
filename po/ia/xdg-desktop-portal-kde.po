@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-22 00:44+0000\n"
 "PO-Revision-Date: 2025-05-12 16:50+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -497,39 +497,81 @@ msgid "Remote control session started"
 msgstr "Session de controlo remote initiava"
 
 #: src/remotedesktopdialog.cpp:26
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Title of the dialog that requests remote input privileges"
+#| msgid "Remote control requested"
 msgctxt "Title of the dialog that requests remote input privileges"
-msgid "Remote control requested"
+msgid "Remote Control"
 msgstr "Controlo remote requirite"
 
 #: src/remotedesktopdialog.cpp:41
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Unordered list with privileges granted to an external process, included "
-#| "the app's name"
-#| msgid "%1 requested access to remotely control:\n"
-msgctxt "Unordered list with privileges granted to an external process"
-msgid "An application requested access to remotely control:\n"
-msgstr "%1 requireva accesso a controlo remotemente:\n"
+#, kde-format
+msgctxt "@info"
+msgid "An application is asking for special privileges:\n"
+msgstr ""
 
-#: src/remotedesktopdialog.cpp:43
+#: src/remotedesktopdialog.cpp:42
+#, kde-format
+msgctxt "@info"
+msgid "%1 is asking for special privileges:"
+msgstr ""
+
+#: src/remotedesktopdialog.cpp:50
 #, kde-format
 msgctxt ""
-"Unordered list with privileges granted to an external process, included the "
-"app's name"
-msgid "%1 requested access to remotely control:\n"
-msgstr "%1 requireva accesso a controlo remotemente:\n"
+"@info As in, 'an application requested access to see what’s on the screen'. "
+"'-' is Markdown, do not translate"
+msgid ""
+"\n"
+" - See what’s on the screen"
+msgstr ""
 
-#: src/remotedesktopdialog.cpp:46
-#, kde-format
-msgctxt "Will allow the app to see what's on the outputs, in markdown"
-msgid " - Screens\n"
-msgstr " - Schermos\n"
+#: src/remotedesktopdialog.cpp:54
+#, fuzzy, kde-format
+#| msgctxt "Will allow the app to send input events, in markdown"
+#| msgid " - Input devices\n"
+msgctxt ""
+"@info As in, 'an application requested access to control input devices'. '-' "
+"is Markdown, do not translate"
+msgid ""
+"\n"
+" - Control input devices"
+msgstr "- Dispositivos de entrata\n"
 
-#: src/remotedesktopdialog.cpp:49
+#: src/remotedesktopdialog.cpp:62
+#, fuzzy, kde-format
+#| msgctxt "Unordered list with privileges granted to an external process"
+#| msgid "An application requested access to:\n"
+msgctxt "@info"
+msgid "An application is exercising special permissions:\n"
+msgstr "Un application requireva accesso a:\n"
+
+#: src/remotedesktopdialog.cpp:63
 #, kde-format
-msgctxt "Will allow the app to send input events, in markdown"
-msgid " - Input devices\n"
+msgctxt "@info"
+msgid "%1 is exercising special privileges:"
+msgstr ""
+
+#: src/remotedesktopdialog.cpp:67
+#, kde-format
+msgctxt ""
+"@info As in, 'an application is exercising privileges to access to see "
+"what’s on the screen'. '-' is Markdown, do not translate"
+msgid ""
+"\n"
+" - See what’s on the screen"
+msgstr ""
+
+#: src/remotedesktopdialog.cpp:71
+#, fuzzy, kde-format
+#| msgctxt "Will allow the app to send input events, in markdown"
+#| msgid " - Input devices\n"
+msgctxt ""
+"@info As in, 'an application is exercising privileges to control input "
+"devices'. '-' is Markdown, do not translate"
+msgid ""
+"\n"
+" - Control input devices"
 msgstr "- Dispositivos de entrata\n"
 
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
@@ -537,10 +579,17 @@ msgstr "- Dispositivos de entrata\n"
 msgid "Allow restoring on future sessions"
 msgstr "Permitte restabilir sur sessiones future"
 
-#: src/RemoteDesktopDialog.qml:38 src/ScreenChooserDialog.qml:100
+#: src/RemoteDesktopDialog.qml:38
 #, kde-format
-msgid "Share"
-msgstr "Comparti"
+msgctxt "@action:button Approve the application gaining extra privileges"
+msgid "Approve"
+msgstr ""
+
+#: src/RemoteDesktopDialog.qml:39
+#, kde-format
+msgctxt "@action:button Deny the application gaining extra privileges"
+msgid "Deny"
+msgstr ""
 
 #: src/screencast.cpp:281
 #, kde-format
@@ -644,6 +693,11 @@ msgstr "Schermos"
 #, kde-format
 msgid "Windows"
 msgstr "Fenestras"
+
+#: src/ScreenChooserDialog.qml:100
+#, kde-format
+msgid "Share"
+msgstr "Comparti"
 
 #: src/screenshotdialog.cpp:117
 #, kde-format
@@ -852,6 +906,25 @@ msgstr "Il falleva a initiar screencasting"
 msgid "Remote desktop"
 msgstr "Scriptorio remote"
 
+#, fuzzy
+#~| msgctxt ""
+#~| "Unordered list with privileges granted to an external process, included "
+#~| "the app's name"
+#~| msgid "%1 requested access to remotely control:\n"
+#~ msgctxt "Unordered list with privileges granted to an external process"
+#~ msgid "An application requested access to remotely control:\n"
+#~ msgstr "%1 requireva accesso a controlo remotemente:\n"
+
+#~ msgctxt ""
+#~ "Unordered list with privileges granted to an external process, included "
+#~ "the app's name"
+#~ msgid "%1 requested access to remotely control:\n"
+#~ msgstr "%1 requireva accesso a controlo remotemente:\n"
+
+#~ msgctxt "Will allow the app to see what's on the outputs, in markdown"
+#~ msgid " - Screens\n"
+#~ msgstr " - Schermos\n"
+
 #~ msgid "New Virtual Output"
 #~ msgstr "Nove Sortita Virtual"
 
@@ -863,10 +936,6 @@ msgstr "Scriptorio remote"
 
 #~ msgid "This app will be given access to your avatar and name."
 #~ msgstr "Iste app habera accesso a tu avatar e nomine."
-
-#~ msgctxt "Unordered list with privileges granted to an external process"
-#~ msgid "An application requested access to:\n"
-#~ msgstr "Un application requireva accesso a:\n"
 
 #~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 #~ msgid "Always open %1 files with the chosen app"
