@@ -31,7 +31,7 @@ PortalDialog {
 
     readonly property QQC2.Action discoverAction: QQC2.Action{
         icon.name: "plasmadiscover"
-        text: i18nc("Find some more apps that can open this content using the Discover app", "Find More in Discover")
+        text: i18nc("Find some more apps that can open this content using the Discover app store", "Find More in Discover…")
         onTriggered: root.appChooserData.openDiscover()
     }
     readonly property QQC2.Action openWithTerminalAction: QQC2.Action {
@@ -212,43 +212,17 @@ PortalDialog {
     }
 
     footerItem: ColumnLayout {
-        spacing: Kirigami.Units.smallSpacing
+        spacing: Kirigami.Units.largeSpacing
 
         ColumnLayout {
             visible: root.appChooserData.shellAccess
-
-            RowLayout {
-                id: rowLayout
-                spacing: Kirigami.Units.largeSpacing
-                property bool expanded: false
-                onExpandedChanged: containerItem.visibleHeight = expanded ? -1 : 0
-
-                Kirigami.Heading {
-                    Layout.fillWidth: rowLayout.children.length === 1
-                    Layout.alignment: Qt.AlignVCenter
-
-                    opacity: 0.7
-                    level: 5
-                    type: Kirigami.Heading.Primary
-                    text: i18nc("@title:group", "Terminal Options")
-                    elide: Text.ElideRight
-
-                    // we override the Primary type's font weight (DemiBold) for Bold for contrast with small text
-                    font.weight: Font.Bold
-                }
-
-                Kirigami.Separator {
-                    Layout.fillWidth: true
-                    Layout.alignment: Qt.AlignVCenter
-                }
-            }
+            spacing: Kirigami.Units.smallSpacing
 
             QQC2.CheckBox {
                 id: openInTerminal
                 onCheckedChanged: root.appChooserData.openInTerminal = checked
                 text: i18nc("@option:check", "Run in terminal")
             }
-
             QQC2.CheckBox {
                 // NOTE: this only ever works for konsole and xterm as per KTerminalLauncherJob. Trouble is this
                 // information is not exposed through API, so we have no way of hiding this when not supported.
@@ -259,52 +233,8 @@ PortalDialog {
             }
         }
 
-        RowLayout {
-            visible: discoverMoreEdit.visible
-            Kirigami.Heading {
-                Layout.fillWidth: rowLayout.children.length === 1
-                Layout.alignment: Qt.AlignVCenter
-
-                opacity: 0.7
-                level: 5
-                type: Kirigami.Heading.Primary
-                text: i18nc("@title:group", "Discover More Applications")
-                elide: Text.ElideRight
-
-                // we override the Primary type's font weight (DemiBold) for Bold for contrast with small text
-                font.weight: Font.Bold
-            }
-
-            Kirigami.Separator {
-                Layout.fillWidth: true
-                Layout.alignment: Qt.AlignVCenter
-            }
-        }
-
-        // Using a TextEdit here instead of a Label because it can know when any
-        // links are hovered, which is needed for us to be able to use the correct
-        // cursor shape for it.
-
-        TextEdit {
-            id: discoverMoreEdit
-            visible: !placeholderLoader.active && StandardPaths.findExecutable("plasma-discover").toString() !== ""
-            Layout.fillWidth: true
-            text: xi18nc("@info", "Don't see the right app? Find more in <link>Discover</link>.")
-            textFormat: Text.RichText
-            wrapMode: Text.WordWrap
-            readOnly: true
-            color: Kirigami.Theme.textColor
-            selectedTextColor: Kirigami.Theme.highlightedTextColor
-            selectionColor: Kirigami.Theme.highlightColor
-
-            onLinkActivated: {
-                root.appChooserData.openDiscover()
-            }
-
-            HoverHandler {
-                acceptedButtons: Qt.NoButton
-                cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
-            }
+        QQC2.Button {
+            action: root.discoverAction
         }
     }
 }
