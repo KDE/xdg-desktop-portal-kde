@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-22 00:44+0000\n"
-"PO-Revision-Date: 2025-11-15 07:56+0100\n"
+"POT-Creation-Date: 2025-11-23 00:45+0000\n"
+"PO-Revision-Date: 2025-11-22 09:02+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -502,24 +502,22 @@ msgid "Remote control session started"
 msgstr "Zagnana seja oddaljenega nadzora"
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr "Zahtevan oddaljeni nadzor"
+msgstr "Oddaljeni nadzor"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "@info"
 msgid "An application is asking for special privileges:\n"
-msgstr ""
+msgstr "Aplikacija zahteva posebne pravice:\n"
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "@info"
 msgid "%1 is asking for special privileges:"
-msgstr ""
+msgstr "%1 zahteva posebne pravice:"
 
 #: src/remotedesktopdialog.cpp:50
 #, kde-format
@@ -530,32 +528,32 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+"- Poglejte, kaj je na zaslonu"
 
 #: src/remotedesktopdialog.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application requested access to control input devices'. '-' "
 "is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - Vhodne naprave\n"
+msgstr ""
+"\n"
+"- Nadzor vhodnih naprav"
 
 #: src/remotedesktopdialog.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "@info"
 msgid "An application is exercising special permissions:\n"
-msgstr "Aplikacija je zahtevala dostop do:\n"
+msgstr "Aplikacija uporablja posebna dovoljenja:\n"
 
 #: src/remotedesktopdialog.cpp:63
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising special privileges:"
-msgstr ""
+msgstr "%1 izvaja posebne pravice:"
 
 #: src/remotedesktopdialog.cpp:67
 #, kde-format
@@ -566,18 +564,20 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+"- Poglejte, kaj je na zaslonu"
 
 #: src/remotedesktopdialog.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application is exercising privileges to control input "
 "devices'. '-' is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - Vhodne naprave\n"
+msgstr ""
+"\n"
+"- Nadzor vhodnih naprav"
 
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
 #, kde-format
@@ -588,13 +588,13 @@ msgstr "Dovoli obnovo v naslednjih sejah"
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
-msgstr ""
+msgstr "Odobri"
 
 #: src/RemoteDesktopDialog.qml:39
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr ""
+msgstr "Zavrni"
 
 #: src/screencast.cpp:281
 #, kde-format
@@ -779,11 +779,13 @@ msgid "End"
 msgstr "Konec"
 
 #: src/session.cpp:288
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Title of the dialog that requests remote input privileges"
+#| msgid "Remote Control"
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Desktop"
-msgstr "Oddaljeno namizje"
+msgid "Remote Control"
+msgstr "Oddaljeni nadzor"
 
 #: src/session.cpp:304
 #, kde-format
@@ -912,6 +914,11 @@ msgstr "Začetek predvajanja zaslona ni uspel"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Oddaljeni zaslon"
+
+#~ msgctxt ""
+#~ "SNI title that indicates there's a process remotely controlling the system"
+#~ msgid "Remote Desktop"
+#~ msgstr "Oddaljeno namizje"
 
 #~ msgctxt "Unordered list with privileges granted to an external process"
 #~ msgid "An application requested access to remotely control:\n"

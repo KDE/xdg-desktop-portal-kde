@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-22 00:44+0000\n"
+"POT-Creation-Date: 2025-11-23 00:45+0000\n"
 "PO-Revision-Date: 2025-10-30 18:29+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -792,11 +792,13 @@ msgid "End"
 msgstr "Завершить"
 
 #: src/session.cpp:288
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Title of the dialog that requests remote input privileges"
+#| msgid "Remote control requested"
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Desktop"
-msgstr "Удалённый рабочий стол"
+msgid "Remote Control"
+msgstr "Запрошен удалённо управляемый сеанс"
 
 #: src/session.cpp:304
 #, kde-format
@@ -934,6 +936,11 @@ msgstr "Ошибка при запуске трансляции экрана"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Удалённый рабочий стол"
+
+#~ msgctxt ""
+#~ "SNI title that indicates there's a process remotely controlling the system"
+#~ msgid "Remote Desktop"
+#~ msgstr "Удалённый рабочий стол"
 
 #~ msgctxt "Unordered list with privileges granted to an external process"
 #~ msgid "An application requested access to remotely control:\n"

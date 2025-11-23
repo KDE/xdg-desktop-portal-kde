@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-22 00:44+0000\n"
+"POT-Creation-Date: 2025-11-23 00:45+0000\n"
 "PO-Revision-Date: 2025-11-06 21:10+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -785,11 +785,13 @@ msgid "End"
 msgstr "Befejezés"
 
 #: src/session.cpp:288
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Title of the dialog that requests remote input privileges"
+#| msgid "Remote control requested"
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Desktop"
-msgstr "Távoli asztal"
+msgid "Remote Control"
+msgstr "Távvezérlési kérés"
 
 #: src/session.cpp:304
 #, kde-format
@@ -924,6 +926,11 @@ msgstr "Nem sikerült elindítani a képernyőfelvételt"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Távoli asztal"
+
+#~ msgctxt ""
+#~ "SNI title that indicates there's a process remotely controlling the system"
+#~ msgid "Remote Desktop"
+#~ msgstr "Távoli asztal"
 
 #~ msgctxt "Unordered list with privileges granted to an external process"
 #~ msgid "An application requested access to remotely control:\n"

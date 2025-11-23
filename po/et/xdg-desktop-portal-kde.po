@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-22 00:44+0000\n"
+"POT-Creation-Date: 2025-11-23 00:45+0000\n"
 "PO-Revision-Date: 2020-10-11 01:46+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -793,7 +793,7 @@ msgstr ""
 #| msgid "Remote desktop"
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Desktop"
+msgid "Remote Control"
 msgstr "Kaugtöölaud"
 
 #: src/session.cpp:304
@@ -918,6 +918,13 @@ msgstr "Ekraanivideo tegemise alustamine nurjus"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Kaugtöölaud"
+
+#, fuzzy
+#~| msgid "Remote desktop"
+#~ msgctxt ""
+#~ "SNI title that indicates there's a process remotely controlling the system"
+#~ msgid "Remote Desktop"
+#~ msgstr "Kaugtöölaud"
 
 #, fuzzy
 #~| msgid "Request device access"

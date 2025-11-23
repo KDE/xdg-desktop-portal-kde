@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-22 00:44+0000\n"
-"PO-Revision-Date: 2025-11-15 18:15+0200\n"
+"POT-Creation-Date: 2025-11-23 00:45+0000\n"
+"PO-Revision-Date: 2025-11-22 15:24+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -504,24 +504,22 @@ msgid "Remote control session started"
 msgstr "Запущено сеанс віддаленого керування"
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr "Надіслано запит щодо віддаленого керування"
+msgstr "Дистанційне керування"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "@info"
 msgid "An application is asking for special privileges:\n"
-msgstr ""
+msgstr "Програма просить про спеціальні привілеї:\n"
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "@info"
 msgid "%1 is asking for special privileges:"
-msgstr ""
+msgstr "%1 просить про спеціальні привілеї:"
 
 #: src/remotedesktopdialog.cpp:50
 #, kde-format
@@ -532,32 +530,32 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - Дивитися те, що є на екрані"
 
 #: src/remotedesktopdialog.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application requested access to control input devices'. '-' "
 "is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - Пристрої введення\n"
+msgstr ""
+"\n"
+" - Керувати пристроями введення"
 
 #: src/remotedesktopdialog.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "@info"
 msgid "An application is exercising special permissions:\n"
-msgstr "Отримано запит щодо доступу до такого:\n"
+msgstr "Програма користується спеціальними правами доступу:\n"
 
 #: src/remotedesktopdialog.cpp:63
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising special privileges:"
-msgstr ""
+msgstr "%1 користується спеціальними привілеями:"
 
 #: src/remotedesktopdialog.cpp:67
 #, kde-format
@@ -568,18 +566,20 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - Дивитися те, що є на екрані"
 
 #: src/remotedesktopdialog.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application is exercising privileges to control input "
 "devices'. '-' is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - Пристрої введення\n"
+msgstr ""
+"\n"
+" - Керувати пристроями введення"
 
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
 #, kde-format
@@ -590,13 +590,13 @@ msgstr "Дозволити відновлення у майбутніх сеан
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
-msgstr ""
+msgstr "Підтвердити"
 
 #: src/RemoteDesktopDialog.qml:39
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr ""
+msgstr "Заборонити"
 
 #: src/screencast.cpp:281
 #, kde-format
@@ -783,11 +783,13 @@ msgid "End"
 msgstr "Завершити"
 
 #: src/session.cpp:288
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Title of the dialog that requests remote input privileges"
+#| msgid "Remote Control"
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Desktop"
-msgstr "Віддалена стільниця"
+msgid "Remote Control"
+msgstr "Дистанційне керування"
 
 #: src/session.cpp:304
 #, kde-format
@@ -916,6 +918,11 @@ msgstr "Не вдалося розпочати трансляцію з екра�
 #, kde-format
 msgid "Remote desktop"
 msgstr "Віддалена стільниця"
+
+#~ msgctxt ""
+#~ "SNI title that indicates there's a process remotely controlling the system"
+#~ msgid "Remote Desktop"
+#~ msgstr "Віддалена стільниця"
 
 #~ msgctxt "Unordered list with privileges granted to an external process"
 #~ msgid "An application requested access to remotely control:\n"

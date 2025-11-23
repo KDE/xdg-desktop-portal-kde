@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-22 00:44+0000\n"
+"POT-Creation-Date: 2025-11-23 00:45+0000\n"
 "PO-Revision-Date: 2025-11-16 00:35+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -774,11 +774,13 @@ msgid "End"
 msgstr "Termina"
 
 #: src/session.cpp:288
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Title of the dialog that requests remote input privileges"
+#| msgid "Remote control requested"
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Desktop"
-msgstr "Desktop remoto"
+msgid "Remote Control"
+msgstr "Richiesto controllo remoto"
 
 #: src/session.cpp:304
 #, kde-format
@@ -906,6 +908,11 @@ msgstr "Connessione alla registrazione dello schermo non riuscita"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Desktop remoto"
+
+#~ msgctxt ""
+#~ "SNI title that indicates there's a process remotely controlling the system"
+#~ msgid "Remote Desktop"
+#~ msgstr "Desktop remoto"
 
 #~ msgctxt "Unordered list with privileges granted to an external process"
 #~ msgid "An application requested access to remotely control:\n"

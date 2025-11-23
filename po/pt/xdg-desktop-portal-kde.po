@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-22 00:44+0000\n"
+"POT-Creation-Date: 2025-11-23 00:45+0000\n"
 "PO-Revision-Date: 2023-01-19 03:02+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -775,11 +775,13 @@ msgid "End"
 msgstr "Parar"
 
 #: src/session.cpp:288
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Title of the dialog that requests remote input privileges"
+#| msgid "Remote control requested"
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Desktop"
-msgstr "Ecrã Remoto"
+msgid "Remote Control"
+msgstr "Foi pedido o acesso ao comando à distância"
 
 #: src/session.cpp:304
 #, kde-format
@@ -903,6 +905,11 @@ msgstr "Não foi possível iniciar a partilha do ecrã"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Ecrã remoto"
+
+#~ msgctxt ""
+#~ "SNI title that indicates there's a process remotely controlling the system"
+#~ msgid "Remote Desktop"
+#~ msgstr "Ecrã Remoto"
 
 #, fuzzy
 #~| msgctxt ""

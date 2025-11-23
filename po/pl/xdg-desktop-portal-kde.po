@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-22 00:44+0000\n"
+"POT-Creation-Date: 2025-11-23 00:45+0000\n"
 "PO-Revision-Date: 2025-01-11 11:55+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -775,11 +775,13 @@ msgid "End"
 msgstr "Koniec"
 
 #: src/session.cpp:288
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Title of the dialog that requests remote input privileges"
+#| msgid "Remote control requested"
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Desktop"
-msgstr "Pulpit zdalny"
+msgid "Remote Control"
+msgstr "Zażądano sterowania zdalnego"
 
 #: src/session.cpp:304
 #, kde-format
@@ -907,6 +909,11 @@ msgstr "Nie udało się rozpocząć przesyłania ekranu"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Zdalny pulpit"
+
+#~ msgctxt ""
+#~ "SNI title that indicates there's a process remotely controlling the system"
+#~ msgid "Remote Desktop"
+#~ msgstr "Pulpit zdalny"
 
 #, fuzzy
 #~| msgctxt ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-22 00:44+0000\n"
+"POT-Creation-Date: 2025-11-23 00:45+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -769,11 +769,13 @@ msgid "End"
 msgstr "अंत"
 
 #: src/session.cpp:288
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Title of the dialog that requests remote input privileges"
+#| msgid "Remote control requested"
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Desktop"
-msgstr "दूरवर्ती डेस्कटॉप"
+msgid "Remote Control"
+msgstr "रिमोट कंट्रोल का अनुरोध किया गया"
 
 #: src/session.cpp:304
 #, kde-format
@@ -898,6 +900,11 @@ msgstr "स्क्रीनकास्टिंग प्रारंभ क�
 #, kde-format
 msgid "Remote desktop"
 msgstr "दूरवर्ती डेस्कटॉप"
+
+#~ msgctxt ""
+#~ "SNI title that indicates there's a process remotely controlling the system"
+#~ msgid "Remote Desktop"
+#~ msgstr "दूरवर्ती डेस्कटॉप"
 
 #, fuzzy
 #~| msgctxt ""

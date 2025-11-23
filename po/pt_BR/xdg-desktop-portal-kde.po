@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-22 00:44+0000\n"
-"PO-Revision-Date: 2025-11-15 07:35-0300\n"
+"POT-Creation-Date: 2025-11-23 00:45+0000\n"
+"PO-Revision-Date: 2025-11-22 07:02-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -503,24 +503,22 @@ msgid "Remote control session started"
 msgstr "Sessão de controle remoto iniciada"
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr "Controle remoto solicitado"
+msgstr "Controle remoto"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "@info"
 msgid "An application is asking for special privileges:\n"
-msgstr ""
+msgstr "Um aplicativo está solicitando privilégios especiais:\n"
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "@info"
 msgid "%1 is asking for special privileges:"
-msgstr ""
+msgstr "%1 está solicitando privilégios especiais:"
 
 #: src/remotedesktopdialog.cpp:50
 #, kde-format
@@ -531,32 +529,32 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - Ver o que está na tela"
 
 #: src/remotedesktopdialog.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application requested access to control input devices'. '-' "
 "is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - Dispositivos de entrada\n"
+msgstr ""
+"\n"
+" - Controlar dispositivos de entrada"
 
 #: src/remotedesktopdialog.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "@info"
 msgid "An application is exercising special permissions:\n"
-msgstr "Um aplicativo solicitou acesso para:\n"
+msgstr "Um aplicativo está exercendo permissões especiais:\n"
 
 #: src/remotedesktopdialog.cpp:63
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising special privileges:"
-msgstr ""
+msgstr "%1 está exercendo privilégios especiais:"
 
 #: src/remotedesktopdialog.cpp:67
 #, kde-format
@@ -567,18 +565,20 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - Ver o que está na tela"
 
 #: src/remotedesktopdialog.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application is exercising privileges to control input "
 "devices'. '-' is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - Dispositivos de entrada\n"
+msgstr ""
+"\n"
+" - Controlar dispositivos de entrada"
 
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
 #, kde-format
@@ -589,13 +589,13 @@ msgstr "Permite restaurar em sessões futuras"
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
-msgstr ""
+msgstr "Aprovar"
 
 #: src/RemoteDesktopDialog.qml:39
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr ""
+msgstr "Negar"
 
 #: src/screencast.cpp:281
 #, kde-format
@@ -778,11 +778,13 @@ msgid "End"
 msgstr "Finalizar"
 
 #: src/session.cpp:288
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Title of the dialog that requests remote input privileges"
+#| msgid "Remote Control"
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Desktop"
-msgstr "Área de trabalho remota"
+msgid "Remote Control"
+msgstr "Controle remoto"
 
 #: src/session.cpp:304
 #, kde-format
@@ -911,6 +913,11 @@ msgstr "Não foi possível iniciar a transmissão de tela"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Área de trabalho remota"
+
+#~ msgctxt ""
+#~ "SNI title that indicates there's a process remotely controlling the system"
+#~ msgid "Remote Desktop"
+#~ msgstr "Área de trabalho remota"
 
 #~ msgctxt "Unordered list with privileges granted to an external process"
 #~ msgid "An application requested access to remotely control:\n"

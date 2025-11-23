@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-22 00:44+0000\n"
-"PO-Revision-Date: 2025-11-15 08:17+0100\n"
+"POT-Creation-Date: 2025-11-23 00:45+0000\n"
+"PO-Revision-Date: 2025-11-22 09:56+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -497,24 +497,22 @@ msgid "Remote control session started"
 msgstr "დაშორებული მართვის სესია დაიწყო"
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr "დაშორებული მართვის მოთხოვნა გაგზავნილია"
+msgstr "დაშორებული მართვა"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "@info"
 msgid "An application is asking for special privileges:\n"
-msgstr ""
+msgstr "აპლიკაცია სპეციალურ პრივილეგიებს ითხოვს:\n"
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "@info"
 msgid "%1 is asking for special privileges:"
-msgstr ""
+msgstr "%1 სპეციალურ პრივილეგიებს ითხოვს:"
 
 #: src/remotedesktopdialog.cpp:50
 #, kde-format
@@ -525,32 +523,32 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - ნახვა, რა არის ეკრანზე"
 
 #: src/remotedesktopdialog.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application requested access to control input devices'. '-' "
 "is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " შეყვანის მოწყობილობები\n"
+msgstr ""
+"\n"
+" - შეიყვანის მოწყობილობების მართვა"
 
 #: src/remotedesktopdialog.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "@info"
 msgid "An application is exercising special permissions:\n"
-msgstr "აპლიკაციამ მოითხოვა წვდომა:\n"
+msgstr "აპლიკაცია იყენებს სპეციალურ ნებართვებს:\n"
 
 #: src/remotedesktopdialog.cpp:63
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising special privileges:"
-msgstr ""
+msgstr "%1 იყენებს სპეციალურ პრივილეგიებს:"
 
 #: src/remotedesktopdialog.cpp:67
 #, kde-format
@@ -561,18 +559,20 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - ნახვა, რა არის ეკრანზე"
 
 #: src/remotedesktopdialog.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application is exercising privileges to control input "
 "devices'. '-' is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " შეყვანის მოწყობილობები\n"
+msgstr ""
+"\n"
+" - შეიყვანის მოწყობილობების მართვა"
 
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
 #, kde-format
@@ -583,13 +583,13 @@ msgstr "მომავალ სესიებზე აღდგენის 
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
-msgstr ""
+msgstr "დასტური"
 
 #: src/RemoteDesktopDialog.qml:39
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr ""
+msgstr "უარყოფა"
 
 #: src/screencast.cpp:281
 #, kde-format
@@ -772,11 +772,13 @@ msgid "End"
 msgstr "დასრულება"
 
 #: src/session.cpp:288
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Title of the dialog that requests remote input privileges"
+#| msgid "Remote Control"
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Desktop"
-msgstr "დაშორებული სამუშაო მაგიდა"
+msgid "Remote Control"
+msgstr "დაშორებული მართვა"
 
 #: src/session.cpp:304
 #, kde-format
@@ -902,6 +904,11 @@ msgstr "ეკრანის გადაცემის დაწყები�
 #, kde-format
 msgid "Remote desktop"
 msgstr "დაშორებული სამუშაო მაგიდა"
+
+#~ msgctxt ""
+#~ "SNI title that indicates there's a process remotely controlling the system"
+#~ msgid "Remote Desktop"
+#~ msgstr "დაშორებული სამუშაო მაგიდა"
 
 #~ msgctxt "Unordered list with privileges granted to an external process"
 #~ msgid "An application requested access to remotely control:\n"

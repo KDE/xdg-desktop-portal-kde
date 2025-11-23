@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-22 00:44+0000\n"
+"POT-Creation-Date: 2025-11-23 00:45+0000\n"
 "PO-Revision-Date: 2025-01-26 18:06+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -770,11 +770,13 @@ msgid "End"
 msgstr "நிறுத்து"
 
 #: src/session.cpp:288
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Title of the dialog that requests remote input privileges"
+#| msgid "Remote control requested"
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Desktop"
-msgstr "தொலையியக்கு பணிமேடை"
+msgid "Remote Control"
+msgstr "தொலையியக்கு அனுமதி கோரப்பட்டுள்ளது"
 
 #: src/session.cpp:304
 #, kde-format
@@ -899,6 +901,11 @@ msgstr "திரைப்பகிர்வை தொடங்குதல் �
 #, kde-format
 msgid "Remote desktop"
 msgstr "பணிமேடை தொலையியக்கி"
+
+#~ msgctxt ""
+#~ "SNI title that indicates there's a process remotely controlling the system"
+#~ msgid "Remote Desktop"
+#~ msgstr "தொலையியக்கு பணிமேடை"
 
 #, fuzzy
 #~| msgctxt ""

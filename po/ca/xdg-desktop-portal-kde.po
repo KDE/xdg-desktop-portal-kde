@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-22 00:44+0000\n"
-"PO-Revision-Date: 2025-11-15 13:56+0100\n"
+"POT-Creation-Date: 2025-11-23 00:45+0000\n"
+"PO-Revision-Date: 2025-11-22 07:54+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -506,24 +506,22 @@ msgid "Remote control session started"
 msgstr "S'ha iniciat una sessió d'escriptori remot"
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr "S'ha demanat control remot"
+msgstr "Control remot"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "@info"
 msgid "An application is asking for special privileges:\n"
-msgstr ""
+msgstr "Una aplicació està demanant privilegis especials:\n"
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "@info"
 msgid "%1 is asking for special privileges:"
-msgstr ""
+msgstr "%1 està demanant privilegis especials:"
 
 #: src/remotedesktopdialog.cpp:50
 #, kde-format
@@ -534,30 +532,32 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - Veure què hi ha a la pantalla"
 
 #: src/remotedesktopdialog.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application requested access to control input devices'. '-' "
 "is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - Dispositius d'entrada\n"
+msgstr ""
+"\n"
+" - Dispositius d'entrada de control"
 
 #: src/remotedesktopdialog.cpp:62
 #, kde-format
 msgctxt "@info"
 msgid "An application is exercising special permissions:\n"
-msgstr ""
+msgstr "Una aplicació està exercint privilegis especials:\n"
 
 #: src/remotedesktopdialog.cpp:63
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising special privileges:"
-msgstr ""
+msgstr "%1 està exercint privilegis especials:"
 
 #: src/remotedesktopdialog.cpp:67
 #, kde-format
@@ -568,18 +568,20 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - Veure què hi ha a la pantalla"
 
 #: src/remotedesktopdialog.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application is exercising privileges to control input "
 "devices'. '-' is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - Dispositius d'entrada\n"
+msgstr ""
+"\n"
+" - Dispositius d'entrada de control"
 
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
 #, kde-format
@@ -590,13 +592,13 @@ msgstr "Permet la restauració en sessions futures"
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
-msgstr ""
+msgstr "Aproveu"
 
 #: src/RemoteDesktopDialog.qml:39
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr ""
+msgstr "Denegueu"
 
 #: src/screencast.cpp:281
 #, kde-format
@@ -779,11 +781,13 @@ msgid "End"
 msgstr "Finalitza"
 
 #: src/session.cpp:288
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Title of the dialog that requests remote input privileges"
+#| msgid "Remote Control"
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Desktop"
-msgstr "Escriptori remot"
+msgid "Remote Control"
+msgstr "Control remot"
 
 #: src/session.cpp:304
 #, kde-format
@@ -910,6 +914,11 @@ msgstr "Ha fallat en iniciar el vídeo de captura de pantalla"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Escriptori remot"
+
+#~ msgctxt ""
+#~ "SNI title that indicates there's a process remotely controlling the system"
+#~ msgid "Remote Desktop"
+#~ msgstr "Escriptori remot"
 
 #~ msgctxt "Unordered list with privileges granted to an external process"
 #~ msgid "An application requested access to remotely control:\n"

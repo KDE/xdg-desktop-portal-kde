@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-22 00:44+0000\n"
+"POT-Creation-Date: 2025-11-23 00:45+0000\n"
 "PO-Revision-Date: 2023-11-11 21:18+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
@@ -753,11 +753,12 @@ msgid "End"
 msgstr ""
 
 #: src/session.cpp:288
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Remote desktop"
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Desktop"
-msgstr ""
+msgid "Remote Control"
+msgstr "Escritoriu remotu"
 
 #: src/session.cpp:304
 #, kde-format

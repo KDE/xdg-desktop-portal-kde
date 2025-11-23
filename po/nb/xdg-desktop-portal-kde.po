@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-22 00:44+0000\n"
+"POT-Creation-Date: 2025-11-23 00:45+0000\n"
 "PO-Revision-Date: 2025-03-23 21:00+0100\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -771,11 +771,13 @@ msgid "End"
 msgstr "Slutt"
 
 #: src/session.cpp:288
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Title of the dialog that requests remote input privileges"
+#| msgid "Remote control requested"
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Desktop"
-msgstr "Eksternt skrivebord"
+msgid "Remote Control"
+msgstr "Bedt om fjernstyring"
 
 #: src/session.cpp:304
 #, kde-format
@@ -900,6 +902,11 @@ msgstr "Klarte ikke starte skjermdeling"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Eksternt skrivebord"
+
+#~ msgctxt ""
+#~ "SNI title that indicates there's a process remotely controlling the system"
+#~ msgid "Remote Desktop"
+#~ msgstr "Eksternt skrivebord"
 
 #, fuzzy
 #~| msgctxt ""

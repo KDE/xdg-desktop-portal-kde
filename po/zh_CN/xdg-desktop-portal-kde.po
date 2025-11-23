@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-22 00:44+0000\n"
+"POT-Creation-Date: 2025-11-23 00:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -389,17 +389,17 @@ msgstr "选择"
 #: src/outputsmodel.cpp:21
 #, kde-format
 msgid "Share virtual screen"
-msgstr ""
+msgstr "共享虚拟屏幕"
 
 #: src/outputsmodel.cpp:25
 #, kde-format
 msgid "Share region"
-msgstr ""
+msgstr "共享屏幕区域"
 
 #: src/outputsmodel.cpp:36
 #, kde-format
 msgid "Share full Workspace"
-msgstr ""
+msgstr "共享完整工作区"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
@@ -410,19 +410,19 @@ msgstr "笔记本屏幕"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "共享全部屏幕的完整工作区"
 
 #: src/outputsmodel.cpp:248
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgstr "创建一个位于窗口内部的虚拟屏幕然后共享"
 
 #: src/outputsmodel.cpp:250
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "裁剪屏幕的一个特定区域"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
@@ -488,12 +488,10 @@ msgid "Remote control session started"
 msgstr "远程控制会话已开始"
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr "已请求远程控制"
+msgstr ""
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
@@ -518,16 +516,14 @@ msgid ""
 msgstr ""
 
 #: src/remotedesktopdialog.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application requested access to control input devices'. '-' "
 "is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - 输入设备\n"
+msgstr ""
 
 #: src/remotedesktopdialog.cpp:62
 #, kde-format
@@ -552,16 +548,14 @@ msgid ""
 msgstr ""
 
 #: src/remotedesktopdialog.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application is exercising privileges to control input "
 "devices'. '-' is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - 输入设备\n"
+msgstr ""
 
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
 #, kde-format
@@ -759,10 +753,13 @@ msgid "End"
 msgstr "终止"
 
 #: src/session.cpp:288
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "SNI title that indicates there's a process remotely controlling the system"
+#| msgid "Remote Desktop"
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Desktop"
+msgid "Remote Control"
 msgstr "远程桌面"
 
 #: src/session.cpp:304
@@ -808,7 +805,7 @@ msgstr[0] "%2 想要访问以下设备："
 #, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
-msgstr ""
+msgstr "向 %1 共享用户信息"
 
 #: src/userinfodialog.cpp:54
 #, kde-format
@@ -816,13 +813,13 @@ msgctxt "@info:usagetip"
 msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
-msgstr ""
+msgstr "允许该应用程序使用你的用户名、全名和个人资料图片。"
 
 #: src/UserInfoDialog.qml:18
 #, kde-format
 msgctxt "@action:button"
 msgid "Share user info"
-msgstr ""
+msgstr "共享用户信息"
 
 #: src/UserInfoDialog.qml:76
 #, kde-format
@@ -881,17 +878,3 @@ msgstr "启动屏幕录像失败"
 #, kde-format
 msgid "Remote desktop"
 msgstr "远程桌面"
-
-#~ msgctxt "Unordered list with privileges granted to an external process"
-#~ msgid "An application requested access to remotely control:\n"
-#~ msgstr "一个应用程序请求访问远程控制：\n"
-
-#~ msgctxt ""
-#~ "Unordered list with privileges granted to an external process, included "
-#~ "the app's name"
-#~ msgid "%1 requested access to remotely control:\n"
-#~ msgstr "%1 请求了远程控制访问权限：\n"
-
-#~ msgctxt "Will allow the app to see what's on the outputs, in markdown"
-#~ msgid " - Screens\n"
-#~ msgstr " - 屏幕\n"
