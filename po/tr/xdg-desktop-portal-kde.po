@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:42+0000\n"
-"PO-Revision-Date: 2025-09-03 08:51+0300\n"
+"PO-Revision-Date: 2025-11-22 18:38+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -543,22 +543,22 @@ msgstr "Bu ekran, %1 ile paylaşılsın mı?"
 #: src/screenchooserdialog.cpp:195
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
-msgstr "İsteyen uygulama ile paylaşılacak ekranları seç:"
+msgstr "İsteyen uygulama ile paylaşılacak ekranları seçin:"
 
 #: src/screenchooserdialog.cpp:197
 #, kde-format
 msgid "Choose screens to share with %1:"
-msgstr "%1 ile paylaşılacak ekranları seç:"
+msgstr "%1 ile paylaşılacak ekranları seçin:"
 
 #: src/screenchooserdialog.cpp:201
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
-msgstr "İsteyen uygulama ile hangi ekranın paylaşılacağını seç:"
+msgstr "İsteyen uygulama ile hangi ekranın paylaşılacağını seçin:"
 
 #: src/screenchooserdialog.cpp:203
 #, kde-format
 msgid "Choose which screen to share with %1:"
-msgstr "%1 ile hangi ekranın paylaşılacağını seç:"
+msgstr "%1 ile hangi ekranın paylaşılacağını seçin:"
 
 #: src/screenchooserdialog.cpp:212
 #, kde-format
@@ -578,37 +578,37 @@ msgstr "İsteyen uygulama ile hangi pencerelerin paylaşılacağını seç:"
 #: src/screenchooserdialog.cpp:221
 #, kde-format
 msgid "Choose windows to share with %1:"
-msgstr "%1 ile paylaşılacak pencereleri seç:"
+msgstr "%1 ile paylaşılacak pencereleri seçin:"
 
 #: src/screenchooserdialog.cpp:225
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
-msgstr "İsteyen uygulama ile hangi pencerenin paylaşılacağını seç:"
+msgstr "İsteyen uygulama ile hangi pencerenin paylaşılacağını seçin:"
 
 #: src/screenchooserdialog.cpp:227
 #, kde-format
 msgid "Choose which window to share with %1:"
-msgstr "%1 ile hangi pencerenin paylaşılacağını seç:"
+msgstr "%1 ile hangi pencerenin paylaşılacağını seçin:"
 
 #: src/screenchooserdialog.cpp:234
 #, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
-msgstr "İsteyen uygulama paylaşmak için yeni bir sanal görüntü oluştur:"
+msgstr "İsteyen uygulama paylaşmak için yeni bir sanal görüntü oluşturun:"
 
 #: src/screenchooserdialog.cpp:236
 #, kde-format
 msgid "Create a new virtual display to share with %1:"
-msgstr "%1 ile paylaşmak için yeni bir sanal görüntü oluştur:"
+msgstr "%1 ile paylaşmak için yeni bir sanal görüntü oluşturun:"
 
 #: src/screenchooserdialog.cpp:242
 #, kde-format
 msgid "Choose what to share with the requesting application:"
-msgstr "İsteyen uygulama ile nelerin paylaşılacağını seç:"
+msgstr "İsteyen uygulama ile nelerin paylaşılacağını seçin:"
 
 #: src/screenchooserdialog.cpp:244
 #, kde-format
 msgid "Choose what to share with %1:"
-msgstr "%1 ile nelerin paylaşılacağını seç:"
+msgstr "%1 ile nelerin paylaşılacağını seçin:"
 
 #: src/ScreenChooserDialog.qml:39
 #, kde-format
