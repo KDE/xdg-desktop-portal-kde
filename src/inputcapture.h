@@ -42,7 +42,7 @@ public:
 
     uint version() const
     {
-        return 1;
+        return 2;
     }
     uint SupportedCapabilities() const
     {
@@ -67,6 +67,18 @@ public Q_SLOTS:
                        const QDBusMessage &message,
                        uint &replyResponse,
                        QVariantMap &replyResults);
+
+    QVariantMap CreateSession2(const QDBusObjectPath &session_handle, const QString &app_id, const QVariantMap &options);
+
+    void Start(const QDBusObjectPath &handle,
+               const QDBusObjectPath &session_handle,
+               const QString &app_id,
+               const QString &parent_window,
+               const QVariantMap &options,
+               const QDBusMessage &message,
+               uint &replyResponse,
+               QVariantMap &replyResults);
+
     uint
     GetZones(const QDBusObjectPath &handle, const QDBusObjectPath &session_handle, const QString &app_id, const QVariantMap &options, QVariantMap &results);
     uint SetPointerBarriers(const QDBusObjectPath &handle,

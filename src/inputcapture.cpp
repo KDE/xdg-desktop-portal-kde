@@ -180,6 +180,67 @@ void InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
     });
 }
 
+QVariantMap InputCapturePortal::CreateSession2(const QDBusObjectPath &session_handle, const QString &app_id, const QVariantMap &options)
+{
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "CreateSession called with parameters:";
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    session_handle: " << session_handle.path();
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    app_id: " << app_id;
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    options: " << options;
+
+    [[maybe_unused]] auto *session = new InputCaptureSession(this, app_id, session_handle.path());
+
+    return {};
+}
+
+void InputCapturePortal::Start(const QDBusObjectPath &handle,
+                               const QDBusObjectPath &session_handle,
+                               const QString &app_id,
+                               const QString &parent_window,
+                               const QVariantMap &options,
+                               const QDBusMessage &message,
+                               uint &replyResponse,
+                               [[maybe_unused]] QVariantMap &replyResults)
+{
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "CreateSession called with parameters:";
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    handle: " << handle.path();
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    session_handle: " << session_handle.path();
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    app_id: " << app_id;
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    parent_window: " << parent_window;
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    options: " << options;
+
+    auto *session = Session::getSession<InputCaptureSession>(session_handle.path());
+
+    if (!session) {
+        qCWarning(XdgDesktopPortalKdeInputCapture) << "Tried to start non-existing session " << session_handle.path();
+        replyResponse = PortalResponse::OtherError;
+        return;
+    }
+
+    const auto requestedCapabilities = Capabilities::fromInt(options.value(u"capabilities"_s).toUInt());
+    if (requestedCapabilities == Capability::None) {
+        qCWarning(XdgDesktopPortalKdeInputCapture) << "No capabilities requested";
+        replyResponse = PortalResponse::OtherError;
+        return;
+    }
+
+    auto dialog = new InputCaptureDialog(app_id, (requestedCapabilities), this);
+    Utils::setParentWindow(dialog->windowHandle(), parent_window);
+    Request::makeClosableDialogRequestWithSession(handle, dialog, session);
+
+    delayReply(message, dialog, this, [this, session, requestedCapabilities](DialogResult result) {
+        auto response = PortalResponse::fromDialogResult(result);
+        QVariantMap results;
+        if (result == DialogResult::Accepted) {
+            if (!setupInputCaptureSession(session, requestedCapabilities)) {
+                response = PortalResponse::OtherError;
+            } else {
+                results.insert(u"capabilities"_s, static_cast<uint>(requestedCapabilities));
+            }
+        }
+        return QVariantList{response, results};
+    });
+}
+
 uint InputCapturePortal::GetZones(const QDBusObjectPath &handle,
                                   const QDBusObjectPath &session_handle,
                                   const QString &app_id,
