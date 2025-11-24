@@ -134,12 +134,16 @@ public:
     void addBarrier(const QPair<QPoint, QPoint> &barriers);
     void clearBarriers();
 
+    bool clipboardEnabled() const;
+    void setClipboardEnabled(bool enabled);
+
 Q_SIGNALS:
     void disabled();
     void activated(uint activationId, const QPointF &cursorPosition);
     void deactivated(uint activationId);
 
 private:
+    bool m_clipboardEnabled;
     QDBusObjectPath m_kwinInputCapture;
     QList<QPair<QPoint, QPoint>> m_barriers;
 };
