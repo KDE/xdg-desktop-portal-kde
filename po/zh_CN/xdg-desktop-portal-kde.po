@@ -491,19 +491,19 @@ msgstr "远程控制会话已开始"
 #, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr ""
+msgstr "远程控制"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "@info"
 msgid "An application is asking for special privileges:\n"
-msgstr ""
+msgstr "应用程序正在请求特殊权限：\n"
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "@info"
 msgid "%1 is asking for special privileges:"
-msgstr ""
+msgstr "%1 正在请求特殊权限："
 
 #: src/remotedesktopdialog.cpp:50
 #, kde-format
@@ -514,6 +514,8 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - 查看屏幕上的内容"
 
 #: src/remotedesktopdialog.cpp:54
 #, kde-format
@@ -524,18 +526,20 @@ msgid ""
 "\n"
 " - Control input devices"
 msgstr ""
+"\n"
+" - 控制输入设备"
 
 #: src/remotedesktopdialog.cpp:62
 #, kde-format
 msgctxt "@info"
 msgid "An application is exercising special permissions:\n"
-msgstr ""
+msgstr "应用程序正在行使特殊权限：\n"
 
 #: src/remotedesktopdialog.cpp:63
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising special privileges:"
-msgstr ""
+msgstr "%1 正在行使特殊权限："
 
 #: src/remotedesktopdialog.cpp:67
 #, kde-format
@@ -546,6 +550,8 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - 查看屏幕上的内容"
 
 #: src/remotedesktopdialog.cpp:71
 #, kde-format
@@ -556,6 +562,8 @@ msgid ""
 "\n"
 " - Control input devices"
 msgstr ""
+"\n"
+" - 控制输入设备"
 
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
 #, kde-format
@@ -566,13 +574,13 @@ msgstr "允许在未来会话中恢复"
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
-msgstr ""
+msgstr "同意"
 
 #: src/RemoteDesktopDialog.qml:39
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr ""
+msgstr "拒绝"
 
 #: src/screencast.cpp:281
 #, kde-format
@@ -753,14 +761,11 @@ msgid "End"
 msgstr "终止"
 
 #: src/session.cpp:288
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Control"
-msgstr "远程桌面"
+msgstr ""
 
 #: src/session.cpp:304
 #, kde-format
