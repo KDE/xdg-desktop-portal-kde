@@ -42,7 +42,7 @@ public:
 
     uint version() const
     {
-        return 1;
+        return 2;
     }
     uint SupportedCapabilities() const
     {
@@ -67,6 +67,18 @@ public Q_SLOTS:
                        const QDBusMessage &message,
                        uint &replyResponse,
                        QVariantMap &replyResults);
+
+    [[nodiscard]] QVariantMap CreateSession2(const QDBusObjectPath &session_handle, const QString &app_id, const QVariantMap &options);
+
+    void Start(const QDBusObjectPath &handle,
+               const QDBusObjectPath &session_handle,
+               const QString &app_id,
+               const QString &parent_window,
+               const QVariantMap &options,
+               const QDBusMessage &message,
+               uint &replyResponse,
+               QVariantMap &replyResults);
+
     uint
     GetZones(const QDBusObjectPath &handle, const QDBusObjectPath &session_handle, const QString &app_id, const QVariantMap &options, QVariantMap &results);
     uint SetPointerBarriers(const QDBusObjectPath &handle,
@@ -122,12 +134,16 @@ public:
     void addBarrier(const QPair<QPoint, QPoint> &barriers);
     void clearBarriers();
 
+    [[nodiscard]] bool clipboardEnabled() const;
+    void setClipboardEnabled(bool enabled);
+
 Q_SIGNALS:
     void disabled();
     void activated(uint activationId, const QPointF &cursorPosition);
     void deactivated(uint activationId);
 
 private:
+    bool m_clipboardEnabled = false;
     QDBusObjectPath m_kwinInputCapture;
     QList<QPair<QPoint, QPoint>> m_barriers;
 };

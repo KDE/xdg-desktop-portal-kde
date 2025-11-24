@@ -8,8 +8,9 @@
 #include "clipboard.h"
 
 #include "clipboard_debug.h"
-#include "session.h"
+#include "inputcapture.h"
 #include "remotedesktop.h"
+#include "session.h"
 
 #include <KSystemClipboard>
 
@@ -213,19 +214,20 @@ void ClipboardPortal::RequestClipboard(const QDBusObjectPath &session_handle, co
     qCDebug(XdgDesktopPortalKdeClipboard) << "    options: " << options;
 
     auto session = Session::getSession(session_handle.path());
-    auto remoteDesktopSession = qobject_cast<RemoteDesktopSession *>(session);
-    if (!remoteDesktopSession) {
-        qCWarning(XdgDesktopPortalKdeClipboard) << "Tried enabling clipboard on non remote desktop session" << session_handle.path() << "type"
-                                                << session->type();
-        return;
-    }
 
     if (!m_dataControlDevice) {
         qCWarning(XdgDesktopPortalKdeClipboard) << "Data control is not active - not enabling clipboard";
         return;
     }
 
-    remoteDesktopSession->setClipboardEnabled(true);
+    if (auto remoteDesktopSession = qobject_cast<RemoteDesktopSession *>(session)) {
+        remoteDesktopSession->setClipboardEnabled(true);
+    } else if (auto inputCaptureSession = qobject_cast<InputCaptureSession *>(session)) {
+        inputCaptureSession->setClipboardEnabled(true);
+    } else {
+        qCWarning(XdgDesktopPortalKdeClipboard) << "Tried enabling clipboard on unsupported session" << session_handle.path() << "type" << session->type();
+        return;
+    }
 
     connect(session, &Session::closed, m_dataControlDevice.get(), [session, this] {
         if (m_dataControlDevice->source() && m_dataControlDevice->source()->owner == session) {

@@ -148,9 +148,50 @@ void InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeInputCapture) << "    parent_window: " << parent_window;
     qCDebug(XdgDesktopPortalKdeInputCapture) << "    options: " << options;
 
-    auto *session = new InputCaptureSession(this, app_id, session_handle.path());
+    // Note options in this method are equivalent to  start options, so they are not forwarded to CreateSession2
+    std::ignore = CreateSession2(session_handle, app_id, {});
 
+    auto *session = Session::getSession<InputCaptureSession>(session_handle.path());
     if (!session->isValid()) {
+        replyResponse = PortalResponse::OtherError;
+        return;
+    }
+
+    Start(handle, session_handle, app_id, parent_window, options, message, replyResponse, replyResults);
+}
+
+QVariantMap InputCapturePortal::CreateSession2(const QDBusObjectPath &session_handle, const QString &app_id, const QVariantMap &options)
+{
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "CreateSession2 called with parameters:";
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    session_handle: " << session_handle.path();
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    app_id: " << app_id;
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    options: " << options;
+
+    [[maybe_unused]] auto *session = new InputCaptureSession(this, app_id, session_handle.path());
+
+    return {};
+}
+
+void InputCapturePortal::Start(const QDBusObjectPath &handle,
+                               const QDBusObjectPath &session_handle,
+                               const QString &app_id,
+                               const QString &parent_window,
+                               const QVariantMap &options,
+                               const QDBusMessage &message,
+                               uint &replyResponse,
+                               [[maybe_unused]] QVariantMap &replyResults)
+{
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "CreateSession called with parameters:";
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    handle: " << handle.path();
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    session_handle: " << session_handle.path();
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    app_id: " << app_id;
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    parent_window: " << parent_window;
+    qCDebug(XdgDesktopPortalKdeInputCapture) << "    options: " << options;
+
+    auto *session = Session::getSession<InputCaptureSession>(session_handle.path());
+
+    if (!session) {
+        qCWarning(XdgDesktopPortalKdeInputCapture) << "Tried to start non-existing session " << session_handle.path();
         replyResponse = PortalResponse::OtherError;
         return;
     }
@@ -174,6 +215,7 @@ void InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
                 response = PortalResponse::OtherError;
             } else {
                 results.insert(u"capabilities"_s, static_cast<uint>(requestedCapabilities));
+                results.insert(u"clipboard_enabled"_s, session->clipboardEnabled());
             }
         }
         return QVariantList{response, results};
@@ -522,6 +564,16 @@ QDBusPendingReply<QDBusUnixFileDescriptor> InputCaptureSession::connectToEIS()
 {
     auto msg = QDBusMessage::createMethodCall(kwinService(), m_kwinInputCapture.path(), kwinInputCaptureInterface(), u"connectToEIS"_s);
     return QDBusConnection::sessionBus().asyncCall(msg, kwinDBusTimeout);
+}
+
+void InputCaptureSession::setClipboardEnabled(bool enabled)
+{
+    m_clipboardEnabled = enabled;
+}
+
+bool InputCaptureSession::clipboardEnabled() const
+{
+    return m_clipboardEnabled;
 }
 
 #include "moc_inputcapture.cpp"
