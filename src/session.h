@@ -240,6 +240,9 @@ public:
     void addBarrier(const QPair<QPoint, QPoint> &barriers);
     void clearBarriers();
 
+    bool clipboardEnabled() const;
+    void setClipboardEnabled(bool enabled);
+
 Q_SIGNALS:
     void disabled();
     void activated(uint activationId, const QPointF &cursorPosition);
@@ -248,6 +251,7 @@ Q_SIGNALS:
 private:
     QDBusObjectPath m_kwinInputCapture;
     QList<QPair<QPoint, QPoint>> m_barriers;
+    bool m_clipboardEnabled = false;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_SESSION_H

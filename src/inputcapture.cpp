@@ -233,6 +233,7 @@ void InputCapturePortal::Start(const QDBusObjectPath &handle,
                 response = PortalResponse::OtherError;
             } else {
                 results.insert(u"capabilities"_s, static_cast<uint>(requestedCapabilities));
+                results.insert(u"clipboard_enabled"_s, session->clipboardEnabled());
             }
         }
         return QVariantList{response, results};

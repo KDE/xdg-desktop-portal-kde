@@ -576,3 +576,13 @@ QDBusPendingReply<QDBusUnixFileDescriptor> InputCaptureSession::connectToEIS()
     auto msg = QDBusMessage::createMethodCall(kwinService(), m_kwinInputCapture.path(), kwinInputCaptureInterface(), u"connectToEIS"_s);
     return QDBusConnection::sessionBus().asyncCall(msg, kwinDBusTimeout);
 }
+
+void InputCaptureSession::setClipboardEnabled(bool enabled)
+{
+    m_clipboardEnabled = enabled;
+}
+
+bool InputCaptureSession::clipboardEnabled() const
+{
+    return m_clipboardEnabled;
+}
