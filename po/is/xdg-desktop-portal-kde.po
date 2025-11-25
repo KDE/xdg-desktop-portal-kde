@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-23 00:45+0000\n"
+"POT-Creation-Date: 2025-11-25 00:44+0000\n"
 "PO-Revision-Date: 2024-07-22 12:43+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -52,9 +52,13 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Veldu forrit til að opna <b>%1</b>"
 
 #: src/AppChooserDialog.qml:34
-#, kde-format
-msgctxt "Find some more apps that can open this content using the Discover app"
-msgid "Find More in Discover"
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Find some more apps that can open this content using the Discover app"
+#| msgid "Find More in Discover"
+msgctxt ""
+"Find some more apps that can open this content using the Discover app store"
+msgid "Find More in Discover…"
 msgstr "Leita í Discover"
 
 #: src/AppChooserDialog.qml:39
@@ -113,35 +117,17 @@ msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Engin uppsett forrit geta opnað <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:233
-#, kde-format
-msgctxt "@title:group"
-msgid "Terminal Options"
-msgstr "Valkostir skjáhermis"
-
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Keyra í skjáhermi"
 
-#: src/AppChooserDialog.qml:258
+#: src/AppChooserDialog.qml:232
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "Ekki loka þegar skipunin hættir keyrslu"
-
-#: src/AppChooserDialog.qml:271
-#, kde-format
-msgctxt "@title:group"
-msgid "Discover More Applications"
-msgstr "Uppgötva fleiri forrit"
-
-#: src/AppChooserDialog.qml:292
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr "Sérðu ekki rétta forritið? Leitaðu í <link>Discover</link>."
 
 #: src/background.cpp:132
 #, kde-format
@@ -903,6 +889,18 @@ msgstr "Mistókst að ræsa skjávörpun"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Fjartengt skjáborð"
+
+#~ msgctxt "@title:group"
+#~ msgid "Terminal Options"
+#~ msgstr "Valkostir skjáhermis"
+
+#~ msgctxt "@title:group"
+#~ msgid "Discover More Applications"
+#~ msgstr "Uppgötva fleiri forrit"
+
+#~ msgctxt "@info"
+#~ msgid "Don't see the right app? Find more in <link>Discover</link>."
+#~ msgstr "Sérðu ekki rétta forritið? Leitaðu í <link>Discover</link>."
 
 #~ msgctxt ""
 #~ "SNI title that indicates there's a process remotely controlling the system"

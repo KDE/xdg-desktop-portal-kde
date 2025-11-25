@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-23 00:45+0000\n"
+"POT-Creation-Date: 2025-11-25 00:44+0000\n"
 "PO-Revision-Date: 2020-10-11 01:46+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -53,8 +53,9 @@ msgstr ""
 
 #: src/AppChooserDialog.qml:34
 #, kde-format
-msgctxt "Find some more apps that can open this content using the Discover app"
-msgid "Find More in Discover"
+msgctxt ""
+"Find some more apps that can open this content using the Discover app store"
+msgid "Find More in Discover…"
 msgstr ""
 
 #: src/AppChooserDialog.qml:39
@@ -110,35 +111,16 @@ msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
 
-#: src/AppChooserDialog.qml:233
-#, fuzzy, kde-format
-#| msgid "<b>Content Options</b>"
-msgctxt "@title:group"
-msgid "Terminal Options"
-msgstr "<b>Sisu valikud</b>"
-
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr ""
 
-#: src/AppChooserDialog.qml:258
+#: src/AppChooserDialog.qml:232
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
-msgstr ""
-
-#: src/AppChooserDialog.qml:271
-#, kde-format
-msgctxt "@title:group"
-msgid "Discover More Applications"
-msgstr ""
-
-#: src/AppChooserDialog.qml:292
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
 
 #: src/background.cpp:132
@@ -918,6 +900,12 @@ msgstr "Ekraanivideo tegemise alustamine nurjus"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Kaugtöölaud"
+
+#, fuzzy
+#~| msgid "<b>Content Options</b>"
+#~ msgctxt "@title:group"
+#~ msgid "Terminal Options"
+#~ msgstr "<b>Sisu valikud</b>"
 
 #, fuzzy
 #~| msgid "Remote desktop"

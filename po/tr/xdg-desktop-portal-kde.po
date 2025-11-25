@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-23 00:45+0000\n"
+"POT-Creation-Date: 2025-11-25 00:44+0000\n"
 "PO-Revision-Date: 2025-11-23 12:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -51,9 +51,13 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "<filename>%1</filename> ögesini açmak için bir uygulama seçin"
 
 #: src/AppChooserDialog.qml:34
-#, kde-format
-msgctxt "Find some more apps that can open this content using the Discover app"
-msgid "Find More in Discover"
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Find some more apps that can open this content using the Discover app"
+#| msgid "Find More in Discover"
+msgctxt ""
+"Find some more apps that can open this content using the Discover app store"
+msgid "Find More in Discover…"
 msgstr "Keşfet’te Daha Fazlasını Bul"
 
 #: src/AppChooserDialog.qml:39
@@ -108,37 +112,17 @@ msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "<filename>%1</filename> ögesini açabilecek bir kurulu uygulama yok"
 
-#: src/AppChooserDialog.qml:233
-#, kde-format
-msgctxt "@title:group"
-msgid "Terminal Options"
-msgstr "Uçbirim Seçenekleri"
-
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Uçbirimde çalıştır"
 
-#: src/AppChooserDialog.qml:258
+#: src/AppChooserDialog.qml:232
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "Komut çıktığında kapatma"
-
-#: src/AppChooserDialog.qml:271
-#, kde-format
-msgctxt "@title:group"
-msgid "Discover More Applications"
-msgstr "Daha Çok Uygulama Keşfet"
-
-#: src/AppChooserDialog.qml:292
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr ""
-"Uygun uygulamayı bulamıyor musunuz? <link>Keşfet</link>’ten başka "
-"uygulamalara bakın."
 
 #: src/background.cpp:132
 #, kde-format
@@ -904,6 +888,20 @@ msgstr "Ekran yayını başlatılamadı"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Uzak Masaüstü"
+
+#~ msgctxt "@title:group"
+#~ msgid "Terminal Options"
+#~ msgstr "Uçbirim Seçenekleri"
+
+#~ msgctxt "@title:group"
+#~ msgid "Discover More Applications"
+#~ msgstr "Daha Çok Uygulama Keşfet"
+
+#~ msgctxt "@info"
+#~ msgid "Don't see the right app? Find more in <link>Discover</link>."
+#~ msgstr ""
+#~ "Uygun uygulamayı bulamıyor musunuz? <link>Keşfet</link>’ten başka "
+#~ "uygulamalara bakın."
 
 #~ msgctxt ""
 #~ "SNI title that indicates there's a process remotely controlling the system"

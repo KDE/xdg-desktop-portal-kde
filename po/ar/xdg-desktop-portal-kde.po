@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-23 00:45+0000\n"
+"POT-Creation-Date: 2025-11-25 00:44+0000\n"
 "PO-Revision-Date: 2025-11-19 20:26+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -53,9 +53,13 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "اختر تطبيق لفتح '<filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:34
-#, kde-format
-msgctxt "Find some more apps that can open this content using the Discover app"
-msgid "Find More in Discover"
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Find some more apps that can open this content using the Discover app"
+#| msgid "Find More in Discover"
+msgctxt ""
+"Find some more apps that can open this content using the Discover app store"
+msgid "Find More in Discover…"
 msgstr "أظهر المزيد في المستكشف"
 
 #: src/AppChooserDialog.qml:39
@@ -110,35 +114,17 @@ msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "لا يوجد تطبيق قادر على فتح '<filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:233
-#, kde-format
-msgctxt "@title:group"
-msgid "Terminal Options"
-msgstr "خيارات  الطّرفيّة"
-
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "شغّل في الطّرفيّة"
 
-#: src/AppChooserDialog.qml:258
+#: src/AppChooserDialog.qml:232
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "لا تغلق عندما يخرج الأمر"
-
-#: src/AppChooserDialog.qml:271
-#, kde-format
-msgctxt "@title:group"
-msgid "Discover More Applications"
-msgstr "اكتشف تطبيقات أكثر"
-
-#: src/AppChooserDialog.qml:292
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr "ألم ترى التطبيق المناسب؟ اعثر على المزيد في <link>المستكشف</link>."
 
 #: src/background.cpp:132
 #, kde-format
@@ -915,6 +901,18 @@ msgstr "فشل في بدء التسجيل"
 #, kde-format
 msgid "Remote desktop"
 msgstr "سطح المكتب البعيد"
+
+#~ msgctxt "@title:group"
+#~ msgid "Terminal Options"
+#~ msgstr "خيارات  الطّرفيّة"
+
+#~ msgctxt "@title:group"
+#~ msgid "Discover More Applications"
+#~ msgstr "اكتشف تطبيقات أكثر"
+
+#~ msgctxt "@info"
+#~ msgid "Don't see the right app? Find more in <link>Discover</link>."
+#~ msgstr "ألم ترى التطبيق المناسب؟ اعثر على المزيد في <link>المستكشف</link>."
 
 #~ msgctxt ""
 #~ "SNI title that indicates there's a process remotely controlling the system"

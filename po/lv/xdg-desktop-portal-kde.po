@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-23 00:45+0000\n"
+"POT-Creation-Date: 2025-11-25 00:44+0000\n"
 "PO-Revision-Date: 2025-09-24 12:35+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -52,9 +52,13 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Izvēlēties programmu, lai atvērtu <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:34
-#, kde-format
-msgctxt "Find some more apps that can open this content using the Discover app"
-msgid "Find More in Discover"
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Find some more apps that can open this content using the Discover app"
+#| msgid "Find More in Discover"
+msgctxt ""
+"Find some more apps that can open this content using the Discover app store"
+msgid "Find More in Discover…"
 msgstr "Atrodiet vairāk ar „Discover“"
 
 #: src/AppChooserDialog.qml:39
@@ -110,35 +114,17 @@ msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
 "Neviena no instalētajām programmām nevar atvērt <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:233
-#, kde-format
-msgctxt "@title:group"
-msgid "Terminal Options"
-msgstr "Termināļa opcijas"
-
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Palaist terminālī"
 
-#: src/AppChooserDialog.qml:258
+#: src/AppChooserDialog.qml:232
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "Neaizvērt, izbeidzot komandu"
-
-#: src/AppChooserDialog.qml:271
-#, kde-format
-msgctxt "@title:group"
-msgid "Discover More Applications"
-msgstr "Atklāt vairāk programmu"
-
-#: src/AppChooserDialog.qml:292
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr "Neredzat pareizo programmu? Atrodiet vairāk „<link>Discover</link>“."
 
 #: src/background.cpp:132
 #, kde-format
@@ -911,6 +897,19 @@ msgstr "Neizdevās sākt ekrāna ierakstīšanu"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Attālinātā darbvirsma"
+
+#~ msgctxt "@title:group"
+#~ msgid "Terminal Options"
+#~ msgstr "Termināļa opcijas"
+
+#~ msgctxt "@title:group"
+#~ msgid "Discover More Applications"
+#~ msgstr "Atklāt vairāk programmu"
+
+#~ msgctxt "@info"
+#~ msgid "Don't see the right app? Find more in <link>Discover</link>."
+#~ msgstr ""
+#~ "Neredzat pareizo programmu? Atrodiet vairāk „<link>Discover</link>“."
 
 #~ msgctxt ""
 #~ "SNI title that indicates there's a process remotely controlling the system"

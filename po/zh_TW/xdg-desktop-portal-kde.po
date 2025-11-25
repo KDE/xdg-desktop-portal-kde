@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-23 00:45+0000\n"
-"PO-Revision-Date: 2025-11-20 20:55+0900\n"
+"POT-Creation-Date: 2025-11-25 00:44+0000\n"
+"PO-Revision-Date: 2025-11-24 17:11+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -52,9 +52,13 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "選擇開啟 <filename>%1</filename> 用的應用程式"
 
 #: src/AppChooserDialog.qml:34
-#, kde-format
-msgctxt "Find some more apps that can open this content using the Discover app"
-msgid "Find More in Discover"
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Find some more apps that can open this content using the Discover app"
+#| msgid "Find More in Discover"
+msgctxt ""
+"Find some more apps that can open this content using the Discover app store"
+msgid "Find More in Discover…"
 msgstr "在 Discover 中尋找更多"
 
 #: src/AppChooserDialog.qml:39
@@ -109,35 +113,17 @@ msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "已安裝應用程式中沒有可以開啟 <filename>%1</filename> 的應用程式"
 
-#: src/AppChooserDialog.qml:233
-#, kde-format
-msgctxt "@title:group"
-msgid "Terminal Options"
-msgstr "終端機選項"
-
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "在終端機執行"
 
-#: src/AppChooserDialog.qml:258
+#: src/AppChooserDialog.qml:232
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "指令離開時不要關閉"
-
-#: src/AppChooserDialog.qml:271
-#, kde-format
-msgctxt "@title:group"
-msgid "Discover More Applications"
-msgstr "探索更多應用程式"
-
-#: src/AppChooserDialog.qml:292
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr "沒看到正確的應用程式嗎？在 <link>Discover</link> 尋找更多應用程式。"
 
 #: src/background.cpp:132
 #, kde-format
@@ -487,24 +473,22 @@ msgid "Remote control session started"
 msgstr "已開始遠端控制工作階段"
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr "請求遠端控制權限"
+msgstr "遠端控制"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "@info"
 msgid "An application is asking for special privileges:\n"
-msgstr ""
+msgstr "某應用程式要求特殊權限：\n"
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "@info"
 msgid "%1 is asking for special privileges:"
-msgstr ""
+msgstr "%1 要求特殊權限："
 
 #: src/remotedesktopdialog.cpp:50
 #, kde-format
@@ -515,32 +499,32 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - 查看螢幕上的內容"
 
 #: src/remotedesktopdialog.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application requested access to control input devices'. '-' "
 "is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - 輸入裝置\n"
+msgstr ""
+"\n"
+" - 控制輸入裝置"
 
 #: src/remotedesktopdialog.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "@info"
 msgid "An application is exercising special permissions:\n"
-msgstr "某應用程式請求存取：\n"
+msgstr "某應用程式正在利用特殊權限：\n"
 
 #: src/remotedesktopdialog.cpp:63
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising special privileges:"
-msgstr ""
+msgstr "%1 正在利用特殊權限："
 
 #: src/remotedesktopdialog.cpp:67
 #, kde-format
@@ -551,18 +535,20 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - 查看螢幕上的內容"
 
 #: src/remotedesktopdialog.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application is exercising privileges to control input "
 "devices'. '-' is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - 輸入裝置\n"
+msgstr ""
+"\n"
+" - 控制輸入裝置"
 
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
 #, kde-format
@@ -573,13 +559,13 @@ msgstr "允許在未來工作階段恢復"
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
-msgstr ""
+msgstr "准許"
 
 #: src/RemoteDesktopDialog.qml:39
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr ""
+msgstr "拒絕"
 
 #: src/screencast.cpp:281
 #, kde-format
@@ -760,13 +746,11 @@ msgid "End"
 msgstr "結束"
 
 #: src/session.cpp:288
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Control"
-msgstr "請求遠端控制權限"
+msgstr "遠端控制"
 
 #: src/session.cpp:304
 #, kde-format
@@ -884,6 +868,18 @@ msgstr "無法開始螢幕錄製"
 #, kde-format
 msgid "Remote desktop"
 msgstr "遠端桌面"
+
+#~ msgctxt "@title:group"
+#~ msgid "Terminal Options"
+#~ msgstr "終端機選項"
+
+#~ msgctxt "@title:group"
+#~ msgid "Discover More Applications"
+#~ msgstr "探索更多應用程式"
+
+#~ msgctxt "@info"
+#~ msgid "Don't see the right app? Find more in <link>Discover</link>."
+#~ msgstr "沒看到正確的應用程式嗎？在 <link>Discover</link> 尋找更多應用程式。"
 
 #~ msgctxt ""
 #~ "SNI title that indicates there's a process remotely controlling the system"

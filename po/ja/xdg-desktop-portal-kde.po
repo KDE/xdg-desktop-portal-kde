@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-23 00:45+0000\n"
+"POT-Creation-Date: 2025-11-25 00:44+0000\n"
 "PO-Revision-Date: 2023-04-07 23:28-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -51,9 +51,13 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "<filename>%1</filename> を開くためのアプリケーションを選択してください"
 
 #: src/AppChooserDialog.qml:34
-#, kde-format
-msgctxt "Find some more apps that can open this content using the Discover app"
-msgid "Find More in Discover"
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Find some more apps that can open this content using the Discover app"
+#| msgid "Find More in Discover"
+msgctxt ""
+"Find some more apps that can open this content using the Discover app store"
+msgid "Find More in Discover…"
 msgstr "Discover でアプリケーションを探す"
 
 #: src/AppChooserDialog.qml:39
@@ -112,38 +116,17 @@ msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
 "<filename>%1</filename> を開けるアプリケーションはインストールされていません"
 
-#: src/AppChooserDialog.qml:233
-#, kde-format
-msgctxt "@title:group"
-msgid "Terminal Options"
-msgstr ""
-
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr ""
 
-#: src/AppChooserDialog.qml:258
+#: src/AppChooserDialog.qml:232
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr ""
-
-#: src/AppChooserDialog.qml:271
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
-msgctxt "@title:group"
-msgid "Discover More Applications"
-msgstr "アプリケーションを選択してください"
-
-#: src/AppChooserDialog.qml:292
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr ""
-"適切なアプリケーションがない場合は、<link>Discover</link> で探してください。"
 
 #: src/background.cpp:132
 #, fuzzy, kde-format
@@ -878,6 +861,19 @@ msgstr ""
 #, kde-format
 msgid "Remote desktop"
 msgstr ""
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Choose Application"
+#~ msgctxt "@title:group"
+#~ msgid "Discover More Applications"
+#~ msgstr "アプリケーションを選択してください"
+
+#~ msgctxt "@info"
+#~ msgid "Don't see the right app? Find more in <link>Discover</link>."
+#~ msgstr ""
+#~ "適切なアプリケーションがない場合は、<link>Discover</link> で探してくださ"
+#~ "い。"
 
 #~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 #~ msgid "Always open %1 files with the chosen app"

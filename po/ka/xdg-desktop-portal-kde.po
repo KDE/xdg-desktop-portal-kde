@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-23 00:45+0000\n"
+"POT-Creation-Date: 2025-11-25 00:44+0000\n"
 "PO-Revision-Date: 2025-11-23 07:08+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -52,9 +52,13 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "აირჩიეთ <filename>%1</filename>-ის გასახსნელი აპლიკაცია"
 
 #: src/AppChooserDialog.qml:34
-#, kde-format
-msgctxt "Find some more apps that can open this content using the Discover app"
-msgid "Find More in Discover"
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Find some more apps that can open this content using the Discover app"
+#| msgid "Find More in Discover"
+msgctxt ""
+"Find some more apps that can open this content using the Discover app store"
+msgid "Find More in Discover…"
 msgstr "იპოვეთ მეტი Discover-ში"
 
 #: src/AppChooserDialog.qml:39
@@ -111,35 +115,17 @@ msgstr ""
 "<filename>%1</filename>-ის გახსნა ამჟამად დაყენებულ არც ერთ აპლიკაციას არ "
 "შეუძლია"
 
-#: src/AppChooserDialog.qml:233
-#, kde-format
-msgctxt "@title:group"
-msgid "Terminal Options"
-msgstr "ტერმინალის პარამეტრები"
-
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "ტერმინალში გაშვება"
 
-#: src/AppChooserDialog.qml:258
+#: src/AppChooserDialog.qml:232
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "არ დახურო ბრძანების დასრულებისას"
-
-#: src/AppChooserDialog.qml:271
-#, kde-format
-msgctxt "@title:group"
-msgid "Discover More Applications"
-msgstr "აღმოაჩინეთ მეტი აპლიკაცია"
-
-#: src/AppChooserDialog.qml:292
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr "ვერ ხედავთ სწორ აპს? აღმოაჩინეთ მეტი აპი <link>Discover-ში</link>."
 
 #: src/background.cpp:132
 #, kde-format
@@ -902,6 +888,18 @@ msgstr "ეკრანის გადაცემის დაწყები�
 #, kde-format
 msgid "Remote desktop"
 msgstr "დაშორებული სამუშაო მაგიდა"
+
+#~ msgctxt "@title:group"
+#~ msgid "Terminal Options"
+#~ msgstr "ტერმინალის პარამეტრები"
+
+#~ msgctxt "@title:group"
+#~ msgid "Discover More Applications"
+#~ msgstr "აღმოაჩინეთ მეტი აპლიკაცია"
+
+#~ msgctxt "@info"
+#~ msgid "Don't see the right app? Find more in <link>Discover</link>."
+#~ msgstr "ვერ ხედავთ სწორ აპს? აღმოაჩინეთ მეტი აპი <link>Discover-ში</link>."
 
 #~ msgctxt ""
 #~ "SNI title that indicates there's a process remotely controlling the system"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-23 00:45+0000\n"
+"POT-Creation-Date: 2025-11-25 00:44+0000\n"
 "PO-Revision-Date: 2025-10-15 18:11+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -53,9 +53,13 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Valitse sovellus, johon <filename>%1</filename> avataan"
 
 #: src/AppChooserDialog.qml:34
-#, kde-format
-msgctxt "Find some more apps that can open this content using the Discover app"
-msgid "Find More in Discover"
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Find some more apps that can open this content using the Discover app"
+#| msgid "Find More in Discover"
+msgctxt ""
+"Find some more apps that can open this content using the Discover app store"
+msgid "Find More in Discover…"
 msgstr "Etsi Discoverista lisää"
 
 #: src/AppChooserDialog.qml:39
@@ -112,35 +116,17 @@ msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
 "Yksikään asennettu sovellus ei voi avata tiedostoa <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:233
-#, kde-format
-msgctxt "@title:group"
-msgid "Terminal Options"
-msgstr "Päätevalinnat"
-
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Suorita päätteessä"
 
-#: src/AppChooserDialog.qml:258
+#: src/AppChooserDialog.qml:232
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "Älä sulje komennon päätyttyä"
-
-#: src/AppChooserDialog.qml:271
-#, kde-format
-msgctxt "@title:group"
-msgid "Discover More Applications"
-msgstr "Etsi lisää sovelluksia"
-
-#: src/AppChooserDialog.qml:292
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr "Eikö oikeaa sovellusta löydy? Etsi <link>Discover</link>ista lisää."
 
 #: src/background.cpp:132
 #, kde-format
@@ -908,6 +894,18 @@ msgstr "Näytöntoiston käynnistäminen epäonnistui"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Etätyöpöytä"
+
+#~ msgctxt "@title:group"
+#~ msgid "Terminal Options"
+#~ msgstr "Päätevalinnat"
+
+#~ msgctxt "@title:group"
+#~ msgid "Discover More Applications"
+#~ msgstr "Etsi lisää sovelluksia"
+
+#~ msgctxt "@info"
+#~ msgid "Don't see the right app? Find more in <link>Discover</link>."
+#~ msgstr "Eikö oikeaa sovellusta löydy? Etsi <link>Discover</link>ista lisää."
 
 #~ msgctxt ""
 #~ "SNI title that indicates there's a process remotely controlling the system"

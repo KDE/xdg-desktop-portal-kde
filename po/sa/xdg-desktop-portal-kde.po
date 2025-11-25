@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-23 00:45+0000\n"
+"POT-Creation-Date: 2025-11-25 00:44+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -53,9 +53,13 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "<filename>%1</filename> उद्घाटयितुं अनुप्रयोगं चिनोतु"
 
 #: src/AppChooserDialog.qml:34
-#, kde-format
-msgctxt "Find some more apps that can open this content using the Discover app"
-msgid "Find More in Discover"
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Find some more apps that can open this content using the Discover app"
+#| msgid "Find More in Discover"
+msgctxt ""
+"Find some more apps that can open this content using the Discover app store"
+msgid "Find More in Discover…"
 msgstr "Discover इत्यत्र अधिकं अन्वेष्टुम्"
 
 #: src/AppChooserDialog.qml:39
@@ -113,35 +117,17 @@ msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "कोऽपि संस्थापितः अनुप्रयोगः <filename>%1</filename> उद्घाटयितुं न शक्नोति"
 
-#: src/AppChooserDialog.qml:233
-#, kde-format
-msgctxt "@title:group"
-msgid "Terminal Options"
-msgstr "टर्मिनल विकल्प"
-
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "टर्मिनल् मध्ये चालयन्तु"
 
-#: src/AppChooserDialog.qml:258
+#: src/AppChooserDialog.qml:232
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "यदा आदेशः निर्गच्छति तदा न पिधातु"
-
-#: src/AppChooserDialog.qml:271
-#, kde-format
-msgctxt "@title:group"
-msgid "Discover More Applications"
-msgstr "अधिकानि अनुप्रयोगाः अन्वेष्टुम्"
-
-#: src/AppChooserDialog.qml:292
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr "सम्यक् एप् न पश्यति वा? अधिकं अन्वेष्टुम् in<link> परिनयन</link> ."
 
 #: src/background.cpp:132
 #, kde-format
@@ -900,6 +886,18 @@ msgstr "स्क्रीनकास्टिंग् आरभ्यतु�
 #, kde-format
 msgid "Remote desktop"
 msgstr "दूरस्थः डेस्कटॉपः"
+
+#~ msgctxt "@title:group"
+#~ msgid "Terminal Options"
+#~ msgstr "टर्मिनल विकल्प"
+
+#~ msgctxt "@title:group"
+#~ msgid "Discover More Applications"
+#~ msgstr "अधिकानि अनुप्रयोगाः अन्वेष्टुम्"
+
+#~ msgctxt "@info"
+#~ msgid "Don't see the right app? Find more in <link>Discover</link>."
+#~ msgstr "सम्यक् एप् न पश्यति वा? अधिकं अन्वेष्टुम् in<link> परिनयन</link> ."
 
 #~ msgctxt ""
 #~ "SNI title that indicates there's a process remotely controlling the system"

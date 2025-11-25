@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop files\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-23 00:45+0000\n"
+"POT-Creation-Date: 2025-11-25 00:44+0000\n"
 "PO-Revision-Date: 2024-12-28 17:41+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -55,9 +55,13 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Elektu aplikaĵon por malfermi <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:34
-#, kde-format
-msgctxt "Find some more apps that can open this content using the Discover app"
-msgid "Find More in Discover"
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Find some more apps that can open this content using the Discover app"
+#| msgid "Find More in Discover"
+msgctxt ""
+"Find some more apps that can open this content using the Discover app store"
+msgid "Find More in Discover…"
 msgstr "Trovi Pli en Discover"
 
 #: src/AppChooserDialog.qml:39
@@ -115,35 +119,17 @@ msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Neniuj instalitaj aplikaĵoj povas malfermi <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:233
-#, kde-format
-msgctxt "@title:group"
-msgid "Terminal Options"
-msgstr "Elektebloj pri Terminalo"
-
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Ruli en terminalo"
 
-#: src/AppChooserDialog.qml:258
+#: src/AppChooserDialog.qml:232
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "Ne fermi kiam komando eliras"
-
-#: src/AppChooserDialog.qml:271
-#, kde-format
-msgctxt "@title:group"
-msgid "Discover More Applications"
-msgstr "Malkovri Pliajn Aplikaĵon"
-
-#: src/AppChooserDialog.qml:292
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr "Ĉu vi ne vidas la ĝustan apon? Trovu pli en <link>Discover</link>."
 
 #: src/background.cpp:132
 #, kde-format
@@ -904,6 +890,18 @@ msgstr "Malsukcesis komenci ekranelsendon"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Fora labortablo"
+
+#~ msgctxt "@title:group"
+#~ msgid "Terminal Options"
+#~ msgstr "Elektebloj pri Terminalo"
+
+#~ msgctxt "@title:group"
+#~ msgid "Discover More Applications"
+#~ msgstr "Malkovri Pliajn Aplikaĵon"
+
+#~ msgctxt "@info"
+#~ msgid "Don't see the right app? Find more in <link>Discover</link>."
+#~ msgstr "Ĉu vi ne vidas la ĝustan apon? Trovu pli en <link>Discover</link>."
 
 #~ msgctxt ""
 #~ "SNI title that indicates there's a process remotely controlling the system"

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-23 00:45+0000\n"
-"PO-Revision-Date: 2025-11-15 10:16+0200\n"
+"POT-Creation-Date: 2025-11-25 00:44+0000\n"
+"PO-Revision-Date: 2025-11-23 08:32+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -50,9 +50,13 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "נא לבחור יישום לפתיחת <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:34
-#, kde-format
-msgctxt "Find some more apps that can open this content using the Discover app"
-msgid "Find More in Discover"
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Find some more apps that can open this content using the Discover app"
+#| msgid "Find More in Discover"
+msgctxt ""
+"Find some more apps that can open this content using the Discover app store"
+msgid "Find More in Discover…"
 msgstr "איתור של עוד עם Discover"
 
 #: src/AppChooserDialog.qml:39
@@ -107,35 +111,17 @@ msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "אין יישומים מותקנים שיכולים לפתוח את <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:233
-#, kde-format
-msgctxt "@title:group"
-msgid "Terminal Options"
-msgstr "אפשרויות מסוף"
-
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "הרצה במסוף"
 
-#: src/AppChooserDialog.qml:258
+#: src/AppChooserDialog.qml:232
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "לא לסגור כשהפקודה מסתיימת"
-
-#: src/AppChooserDialog.qml:271
-#, kde-format
-msgctxt "@title:group"
-msgid "Discover More Applications"
-msgstr "חשיפת יישומים נוספים"
-
-#: src/AppChooserDialog.qml:292
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr "היישום הנכון לא מופיע? אפשר למצוא עוד ב־<link>Discover</link>."
 
 #: src/background.cpp:132
 #, kde-format
@@ -491,24 +477,22 @@ msgid "Remote control session started"
 msgstr "החלה שליטה מרחוק"
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr "התקבלה בקשה לשליטה מרחוק"
+msgstr "שליטה מרחוק"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "@info"
 msgid "An application is asking for special privileges:\n"
-msgstr ""
+msgstr "יישום מבקש הרשאות מיוחדות:\n"
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "@info"
 msgid "%1 is asking for special privileges:"
-msgstr ""
+msgstr "%1 מבקש הרשאות מיוחדות:"
 
 #: src/remotedesktopdialog.cpp:50
 #, kde-format
@@ -519,32 +503,32 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - לראות מה מופיע במסך"
 
 #: src/remotedesktopdialog.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application requested access to control input devices'. '-' "
 "is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - התקני קלט\n"
+msgstr ""
+"\n"
+" - לשלוט בהתקני קלט"
 
 #: src/remotedesktopdialog.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "@info"
 msgid "An application is exercising special permissions:\n"
-msgstr "יישום ביקש גישה אל:\n"
+msgstr "יישום מנצל הרשאות מיוחדות:\n"
 
 #: src/remotedesktopdialog.cpp:63
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising special privileges:"
-msgstr ""
+msgstr "%1 מנצל הרשאות מיוחדות:"
 
 #: src/remotedesktopdialog.cpp:67
 #, kde-format
@@ -555,18 +539,20 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - לראות מה מופיע במסך"
 
 #: src/remotedesktopdialog.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application is exercising privileges to control input "
 "devices'. '-' is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - התקני קלט\n"
+msgstr ""
+"\n"
+" - לשלוט בהתקני קלט"
 
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
 #, kde-format
@@ -577,13 +563,13 @@ msgstr "לאפשר שחזור בהפעלות עתידיות"
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
-msgstr ""
+msgstr "להרשות"
 
 #: src/RemoteDesktopDialog.qml:39
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr ""
+msgstr "לסרב"
 
 #: src/screencast.cpp:281
 #, kde-format
@@ -767,13 +753,11 @@ msgid "End"
 msgstr "סיום"
 
 #: src/session.cpp:288
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Control"
-msgstr "התקבלה בקשה לשליטה מרחוק"
+msgstr "שליטה מרחוק"
 
 #: src/session.cpp:304
 #, kde-format
@@ -900,6 +884,18 @@ msgstr "התחלת הסרטת מסך נכשלה"
 #, kde-format
 msgid "Remote desktop"
 msgstr "שולחן עבודה מרוחק"
+
+#~ msgctxt "@title:group"
+#~ msgid "Terminal Options"
+#~ msgstr "אפשרויות מסוף"
+
+#~ msgctxt "@title:group"
+#~ msgid "Discover More Applications"
+#~ msgstr "חשיפת יישומים נוספים"
+
+#~ msgctxt "@info"
+#~ msgid "Don't see the right app? Find more in <link>Discover</link>."
+#~ msgstr "היישום הנכון לא מופיע? אפשר למצוא עוד ב־<link>Discover</link>."
 
 #~ msgctxt ""
 #~ "SNI title that indicates there's a process remotely controlling the system"

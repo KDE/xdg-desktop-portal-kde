@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-23 00:45+0000\n"
-"PO-Revision-Date: 2025-11-16 14:11+0100\n"
+"POT-Creation-Date: 2025-11-25 00:44+0000\n"
+"PO-Revision-Date: 2025-11-24 19:32+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.11.80\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -54,9 +54,13 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Sélectionnez une application pour ouvrir <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:34
-#, kde-format
-msgctxt "Find some more apps that can open this content using the Discover app"
-msgid "Find More in Discover"
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "Find some more apps that can open this content using the Discover app"
+#| msgid "Find More in Discover"
+msgctxt ""
+"Find some more apps that can open this content using the Discover app store"
+msgid "Find More in Discover…"
 msgstr "Trouver plus de choses dans Discover"
 
 #: src/AppChooserDialog.qml:39
@@ -114,37 +118,17 @@ msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Aucune application installée ne peut ouvrir <filename>%1</filename>."
 
-#: src/AppChooserDialog.qml:233
-#, kde-format
-msgctxt "@title:group"
-msgid "Terminal Options"
-msgstr "Options du terminal"
-
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Lancer dans un terminal"
 
-#: src/AppChooserDialog.qml:258
+#: src/AppChooserDialog.qml:232
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "Ne pas fermer quand la commande se termine"
-
-#: src/AppChooserDialog.qml:271
-#, kde-format
-msgctxt "@title:group"
-msgid "Discover More Applications"
-msgstr "Découvrir plus d'applications"
-
-#: src/AppChooserDialog.qml:292
-#, kde-kuit-format
-msgctxt "@info"
-msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr ""
-"Vous ne voyez pas l'application correcte ? Trouvez-en plus dans "
-"<link>Discover</link>."
 
 #: src/background.cpp:132
 #, kde-format
@@ -505,24 +489,22 @@ msgid "Remote control session started"
 msgstr "La session de contrôle distant a démarré."
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr "Un contrôle distant a été demandé."
+msgstr "Télécommande"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "@info"
 msgid "An application is asking for special privileges:\n"
-msgstr ""
+msgstr "Une application demande des privilèges spéciaux :\n"
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "@info"
 msgid "%1 is asking for special privileges:"
-msgstr ""
+msgstr "%1 demande des privilèges spéciaux :"
 
 #: src/remotedesktopdialog.cpp:50
 #, kde-format
@@ -533,32 +515,32 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+"- Voir ce qu'il y a à l'écran"
 
 #: src/remotedesktopdialog.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application requested access to control input devices'. '-' "
 "is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - Périphériques d'entrées\n"
+msgstr ""
+"\n"
+" - Périphériques de contrôle des entrées"
 
 #: src/remotedesktopdialog.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "@info"
 msgid "An application is exercising special permissions:\n"
-msgstr "Une application a demandé un accès à :\n"
+msgstr "Une application utilise des privilèges spéciaux :\n"
 
 #: src/remotedesktopdialog.cpp:63
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising special privileges:"
-msgstr ""
+msgstr "%1 utilise des privilèges spéciaux :"
 
 #: src/remotedesktopdialog.cpp:67
 #, kde-format
@@ -569,18 +551,20 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+"- Voir ce qu'il y a à l'écran"
 
 #: src/remotedesktopdialog.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application is exercising privileges to control input "
 "devices'. '-' is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - Périphériques d'entrées\n"
+msgstr ""
+"\n"
+" - Périphériques de contrôle des entrées"
 
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
 #, kde-format
@@ -591,13 +575,13 @@ msgstr "Autoriser la restauration pour de futures sessions"
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
-msgstr ""
+msgstr "Approuver"
 
 #: src/RemoteDesktopDialog.qml:39
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr ""
+msgstr "Refuser"
 
 #: src/screencast.cpp:281
 #, kde-format
@@ -786,13 +770,11 @@ msgid "End"
 msgstr "Terminer"
 
 #: src/session.cpp:288
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Control"
-msgstr "Un contrôle distant a été demandé."
+msgstr "Télécommande"
 
 #: src/session.cpp:304
 #, kde-format
@@ -921,6 +903,20 @@ msgstr "Impossible de lancer la capture vidéo de l'écran"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Bureau distant"
+
+#~ msgctxt "@title:group"
+#~ msgid "Terminal Options"
+#~ msgstr "Options du terminal"
+
+#~ msgctxt "@title:group"
+#~ msgid "Discover More Applications"
+#~ msgstr "Découvrir plus d'applications"
+
+#~ msgctxt "@info"
+#~ msgid "Don't see the right app? Find more in <link>Discover</link>."
+#~ msgstr ""
+#~ "Vous ne voyez pas l'application correcte ? Trouvez-en plus dans "
+#~ "<link>Discover</link>."
 
 #~ msgctxt ""
 #~ "SNI title that indicates there's a process remotely controlling the system"
