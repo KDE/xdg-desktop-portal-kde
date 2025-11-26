@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-25 00:44+0000\n"
-"PO-Revision-Date: 2025-11-23 07:13-0300\n"
+"PO-Revision-Date: 2025-11-25 06:18-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -57,14 +57,11 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Escolha um aplicativo para abrir <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:34
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Find some more apps that can open this content using the Discover app"
-#| msgid "Find More in Discover"
+#, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "Encontre mais no Discover"
+msgstr "Encontre mais no Discover…"
 
 #: src/AppChooserDialog.qml:39
 #, kde-format

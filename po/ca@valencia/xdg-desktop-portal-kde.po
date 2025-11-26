@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-25 00:44+0000\n"
-"PO-Revision-Date: 2025-11-23 09:37+0100\n"
+"PO-Revision-Date: 2025-11-25 08:54+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -56,14 +56,11 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Trieu una aplicació que s'ha d'obrir <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:34
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Find some more apps that can open this content using the Discover app"
-#| msgid "Find More in Discover"
+#, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "Busqueu-ne més en Discover"
+msgstr "Trobeu-ne més en Discover…"
 
 #: src/AppChooserDialog.qml:39
 #, kde-format
@@ -896,22 +893,9 @@ msgstr ""
 #: src/waylandintegration.cpp:268 src/waylandintegration.cpp:326
 #, kde-format
 msgid "Failed to start screencasting"
-msgstr "No s'ha pogut iniciar el vídeo de captura de pantalla"
+msgstr "Ha fallat mentre s'iniciava el vídeo de captura de pantalla"
 
 #: src/waylandintegration.cpp:477
 #, kde-format
 msgid "Remote desktop"
 msgstr "Escriptori remot"
-
-#~ msgctxt "@title:group"
-#~ msgid "Terminal Options"
-#~ msgstr "Opcions del terminal"
-
-#~ msgctxt "@title:group"
-#~ msgid "Discover More Applications"
-#~ msgstr "Descobriu més aplicacions"
-
-#~ msgctxt "@info"
-#~ msgid "Don't see the right app? Find more in <link>Discover</link>."
-#~ msgstr ""
-#~ "No veeu l'aplicació correcta? Busqueu-ne més en <link>Discover</link>."
