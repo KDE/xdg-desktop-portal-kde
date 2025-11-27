@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 00:44+0000\n"
-"PO-Revision-Date: 2025-11-23 08:32+0200\n"
+"POT-Creation-Date: 2025-11-27 00:45+0000\n"
+"PO-Revision-Date: 2025-11-25 09:51+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -50,14 +50,11 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "נא לבחור יישום לפתיחת <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:34
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Find some more apps that can open this content using the Discover app"
-#| msgid "Find More in Discover"
+#, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "איתור של עוד עם Discover"
+msgstr "איתור של עוד עם Discover…"
 
 #: src/AppChooserDialog.qml:39
 #, kde-format
@@ -470,7 +467,7 @@ msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "פלט וירטואלי (משותף עם %1)"
 
-#: src/remotedesktop.cpp:286
+#: src/remotedesktop.cpp:289
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -554,7 +551,7 @@ msgstr ""
 "\n"
 " - לשלוט בהתקני קלט"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:76
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "לאפשר שחזור בהפעלות עתידיות"
@@ -578,9 +575,11 @@ msgid "Screen sharing in progress"
 msgstr "המסך משותף כרגע"
 
 #: src/screenchooserdialog.cpp:145
-#, kde-format
-msgid "Screen Sharing"
-msgstr "שיתוף מסך"
+#, fuzzy, kde-format
+#| msgid "Share this screen with %1?"
+msgctxt "@title:window %1 is an application name (e.g. Falkon)"
+msgid "Share screen with %1"
+msgstr "לשתף את המסך עם %1?"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -662,17 +661,15 @@ msgstr "נא לבחור מה לשתף עם היישום שביקש:"
 msgid "Choose what to share with %1:"
 msgstr "נא לבחור מה לשתף עם %1:"
 
-#: src/ScreenChooserDialog.qml:38
-#, kde-format
-msgid "Screens"
-msgstr "מסכים"
-
-#: src/ScreenChooserDialog.qml:41
-#, kde-format
+#: src/ScreenChooserDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Windows"
+msgctxt ""
+"@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "חלונות"
 
-#: src/ScreenChooserDialog.qml:100
+#: src/ScreenChooserDialog.qml:80
 #, kde-format
 msgid "Share"
 msgstr "שיתוף"
@@ -884,6 +881,12 @@ msgstr "התחלת הסרטת מסך נכשלה"
 #, kde-format
 msgid "Remote desktop"
 msgstr "שולחן עבודה מרוחק"
+
+#~ msgid "Screen Sharing"
+#~ msgstr "שיתוף מסך"
+
+#~ msgid "Screens"
+#~ msgstr "מסכים"
 
 #~ msgctxt "@title:group"
 #~ msgid "Terminal Options"

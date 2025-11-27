@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 00:44+0000\n"
+"POT-Creation-Date: 2025-11-27 00:45+0000\n"
 "PO-Revision-Date: 2025-11-25 06:18-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -479,7 +479,7 @@ msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Saída virtual (compartilhada com %1)"
 
-#: src/remotedesktop.cpp:286
+#: src/remotedesktop.cpp:289
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -563,7 +563,7 @@ msgstr ""
 "\n"
 " - Controlar dispositivos de entrada"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:76
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Permite restaurar em sessões futuras"
@@ -587,9 +587,11 @@ msgid "Screen sharing in progress"
 msgstr "Compartilhamento de tela em progresso"
 
 #: src/screenchooserdialog.cpp:145
-#, kde-format
-msgid "Screen Sharing"
-msgstr "Compartilhamento de tela"
+#, fuzzy, kde-format
+#| msgid "Share this screen with %1?"
+msgctxt "@title:window %1 is an application name (e.g. Falkon)"
+msgid "Share screen with %1"
+msgstr "Compartilhar esta tela com %1?"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -672,17 +674,15 @@ msgstr "Escolher o que compartilhar com o aplicativo solicitado:"
 msgid "Choose what to share with %1:"
 msgstr "Escolher o que compartilhar com %1:"
 
-#: src/ScreenChooserDialog.qml:38
-#, kde-format
-msgid "Screens"
-msgstr "Telas"
-
-#: src/ScreenChooserDialog.qml:41
-#, kde-format
+#: src/ScreenChooserDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Windows"
+msgctxt ""
+"@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "Janelas"
 
-#: src/ScreenChooserDialog.qml:100
+#: src/ScreenChooserDialog.qml:80
 #, kde-format
 msgid "Share"
 msgstr "Compartilhar"
@@ -894,6 +894,12 @@ msgstr "Não foi possível iniciar a transmissão de tela"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Área de trabalho remota"
+
+#~ msgid "Screen Sharing"
+#~ msgstr "Compartilhamento de tela"
+
+#~ msgid "Screens"
+#~ msgstr "Telas"
 
 #~ msgctxt "@title:group"
 #~ msgid "Terminal Options"

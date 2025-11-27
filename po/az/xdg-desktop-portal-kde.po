@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 00:44+0000\n"
+"POT-Creation-Date: 2025-11-27 00:45+0000\n"
 "PO-Revision-Date: 2022-08-24 17:55+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -484,7 +484,7 @@ msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Yeni virtual çıxarış"
 
-#: src/remotedesktop.cpp:286
+#: src/remotedesktop.cpp:289
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -561,7 +561,7 @@ msgid ""
 " - Control input devices"
 msgstr ""
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:76
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr ""
@@ -585,9 +585,11 @@ msgid "Screen sharing in progress"
 msgstr "Ekran paylaşımı icra olunur"
 
 #: src/screenchooserdialog.cpp:145
-#, kde-format
-msgid "Screen Sharing"
-msgstr "Ekran paylaşılır"
+#, fuzzy, kde-format
+#| msgid "Share this screen with %1?"
+msgctxt "@title:window %1 is an application name (e.g. Falkon)"
+msgid "Share screen with %1"
+msgstr "Bu ekran %1 ilə paylaşılsın?"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -671,18 +673,15 @@ msgstr "Tələb olunan tətbiq ilə nəyi paylaşacağınızı seçin:"
 msgid "Choose what to share with %1:"
 msgstr "%1 ilə nəyi paylaşacağınızı seçin:"
 
-#: src/ScreenChooserDialog.qml:38
+#: src/ScreenChooserDialog.qml:54
 #, fuzzy, kde-format
-#| msgid "Full Screen"
-msgid "Screens"
-msgstr "Tam ekran"
-
-#: src/ScreenChooserDialog.qml:41
-#, kde-format
+#| msgid "Windows"
+msgctxt ""
+"@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "Pəncərələr"
 
-#: src/ScreenChooserDialog.qml:100
+#: src/ScreenChooserDialog.qml:80
 #, kde-format
 msgid "Share"
 msgstr "Paylaşmaq"
@@ -896,6 +895,14 @@ msgstr "Ekranın paylaşımı baş tutmadı"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Şəbəkədəki İş masası"
+
+#~ msgid "Screen Sharing"
+#~ msgstr "Ekran paylaşılır"
+
+#, fuzzy
+#~| msgid "Full Screen"
+#~ msgid "Screens"
+#~ msgstr "Tam ekran"
 
 #, fuzzy
 #~| msgid "<b>Content Options</b>"

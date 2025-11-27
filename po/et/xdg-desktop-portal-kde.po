@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 00:44+0000\n"
+"POT-Creation-Date: 2025-11-27 00:45+0000\n"
 "PO-Revision-Date: 2020-10-11 01:46+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -475,7 +475,7 @@ msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Valimine, mida rakendusega %1 jagada"
 
-#: src/remotedesktop.cpp:286
+#: src/remotedesktop.cpp:289
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -552,7 +552,7 @@ msgid ""
 " - Control input devices"
 msgstr ""
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:76
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr ""
@@ -576,9 +576,11 @@ msgid "Screen sharing in progress"
 msgstr ""
 
 #: src/screenchooserdialog.cpp:145
-#, kde-format
-msgid "Screen Sharing"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Select screen to share with %1"
+msgctxt "@title:window %1 is an application name (e.g. Falkon)"
+msgid "Share screen with %1"
+msgstr "Ekraani valimine rakendusega %1 jagamiseks"
 
 #: src/screenchooserdialog.cpp:192
 #, fuzzy, kde-format
@@ -675,18 +677,15 @@ msgstr "Valimine, mida nõutud rakendusega jagada"
 msgid "Choose what to share with %1:"
 msgstr "Valimine, mida rakendusega %1 jagada"
 
-#: src/ScreenChooserDialog.qml:38
+#: src/ScreenChooserDialog.qml:54
 #, fuzzy, kde-format
-#| msgid "Screens"
-msgid "Screens"
-msgstr "Ekraanid"
-
-#: src/ScreenChooserDialog.qml:41
-#, kde-format
+#| msgid "Windows"
+msgctxt ""
+"@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "Aknad"
 
-#: src/ScreenChooserDialog.qml:100
+#: src/ScreenChooserDialog.qml:80
 #, kde-format
 msgid "Share"
 msgstr "Jaga"
@@ -900,6 +899,11 @@ msgstr "Ekraanivideo tegemise alustamine nurjus"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Kaugtöölaud"
+
+#, fuzzy
+#~| msgid "Screens"
+#~ msgid "Screens"
+#~ msgstr "Ekraanid"
 
 #, fuzzy
 #~| msgid "<b>Content Options</b>"

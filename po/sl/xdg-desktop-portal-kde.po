@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 00:44+0000\n"
+"POT-Creation-Date: 2025-11-27 00:45+0000\n"
 "PO-Revision-Date: 2025-11-25 07:40+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -478,7 +478,7 @@ msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Navidezni izhod (deljeno z %1)"
 
-#: src/remotedesktop.cpp:286
+#: src/remotedesktop.cpp:289
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -562,7 +562,7 @@ msgstr ""
 "\n"
 "- Nadzor vhodnih naprav"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:76
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Dovoli obnovo v naslednjih sejah"
@@ -586,9 +586,11 @@ msgid "Screen sharing in progress"
 msgstr "Deljenje zaslonov v teku"
 
 #: src/screenchooserdialog.cpp:145
-#, kde-format
-msgid "Screen Sharing"
-msgstr "Deljenje zaslonov"
+#, fuzzy, kde-format
+#| msgid "Share this screen with %1?"
+msgctxt "@title:window %1 is an application name (e.g. Falkon)"
+msgid "Share screen with %1"
+msgstr "Naj delim ta zaslon s %1?"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -671,17 +673,15 @@ msgstr "Izberite, kaj želite deliti s programom, ki pošilja zahtevek:"
 msgid "Choose what to share with %1:"
 msgstr "Izberite, kaj želite deliti s %1:"
 
-#: src/ScreenChooserDialog.qml:38
-#, kde-format
-msgid "Screens"
-msgstr "Zasloni"
-
-#: src/ScreenChooserDialog.qml:41
-#, kde-format
+#: src/ScreenChooserDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Windows"
+msgctxt ""
+"@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "Okna"
 
-#: src/ScreenChooserDialog.qml:100
+#: src/ScreenChooserDialog.qml:80
 #, kde-format
 msgid "Share"
 msgstr "Deli"
@@ -895,6 +895,12 @@ msgstr "Začetek predvajanja zaslona ni uspel"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Oddaljeni zaslon"
+
+#~ msgid "Screen Sharing"
+#~ msgstr "Deljenje zaslonov"
+
+#~ msgid "Screens"
+#~ msgstr "Zasloni"
 
 #~ msgctxt "@title:group"
 #~ msgid "Terminal Options"

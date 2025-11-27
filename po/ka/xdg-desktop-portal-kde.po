@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 00:44+0000\n"
+"POT-Creation-Date: 2025-11-27 00:45+0000\n"
 "PO-Revision-Date: 2025-11-25 06:00+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -473,7 +473,7 @@ msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "ვირტუალური გამოტანა (გაზიარებულია %1-სთან)"
 
-#: src/remotedesktop.cpp:286
+#: src/remotedesktop.cpp:289
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -557,7 +557,7 @@ msgstr ""
 "\n"
 " - შეიყვანის მოწყობილობების მართვა"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:76
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "მომავალ სესიებზე აღდგენის დაშვება"
@@ -581,9 +581,11 @@ msgid "Screen sharing in progress"
 msgstr "მიმდინარეობს ეკრანის გაზიარება"
 
 #: src/screenchooserdialog.cpp:145
-#, kde-format
-msgid "Screen Sharing"
-msgstr "ეკრანის გაზიარება"
+#, fuzzy, kde-format
+#| msgid "Share this screen with %1?"
+msgctxt "@title:window %1 is an application name (e.g. Falkon)"
+msgid "Share screen with %1"
+msgstr "გავუზიარო ეს ეკრანი %1-ს?"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -666,17 +668,15 @@ msgstr "აირჩიეთ, რისი გაზიარება გს�
 msgid "Choose what to share with %1:"
 msgstr "აირჩიეთ, რისი გაზიარება გსურთ %1-თვის:"
 
-#: src/ScreenChooserDialog.qml:38
-#, kde-format
-msgid "Screens"
-msgstr "ეკრანები"
-
-#: src/ScreenChooserDialog.qml:41
-#, kde-format
+#: src/ScreenChooserDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Windows"
+msgctxt ""
+"@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "ფანჯრები"
 
-#: src/ScreenChooserDialog.qml:100
+#: src/ScreenChooserDialog.qml:80
 #, kde-format
 msgid "Share"
 msgstr "ზიარი"
@@ -885,6 +885,12 @@ msgstr "ეკრანის გადაცემის დაწყები�
 #, kde-format
 msgid "Remote desktop"
 msgstr "დაშორებული სამუშაო მაგიდა"
+
+#~ msgid "Screen Sharing"
+#~ msgstr "ეკრანის გაზიარება"
+
+#~ msgid "Screens"
+#~ msgstr "ეკრანები"
 
 #~ msgctxt "@title:group"
 #~ msgid "Terminal Options"

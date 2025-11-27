@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 00:44+0000\n"
+"POT-Creation-Date: 2025-11-27 00:45+0000\n"
 "PO-Revision-Date: 2025-09-08 18:36+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -477,7 +477,7 @@ msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Virtuell utmatning (delad med %1)"
 
-#: src/remotedesktop.cpp:286
+#: src/remotedesktop.cpp:289
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -561,7 +561,7 @@ msgid ""
 " - Control input devices"
 msgstr " - Inmatningsenheter\n"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:76
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Tillåt att återställa vid framtida sessioner"
@@ -585,9 +585,11 @@ msgid "Screen sharing in progress"
 msgstr "Skärmdelning pågår"
 
 #: src/screenchooserdialog.cpp:145
-#, kde-format
-msgid "Screen Sharing"
-msgstr "Skärmdelning"
+#, fuzzy, kde-format
+#| msgid "Share this screen with %1?"
+msgctxt "@title:window %1 is an application name (e.g. Falkon)"
+msgid "Share screen with %1"
+msgstr "Dela den här skärmen med %1?"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -669,17 +671,15 @@ msgstr "Välj vad som ska delas med det begärande programmet:"
 msgid "Choose what to share with %1:"
 msgstr "Välj vad som ska delas med %1:"
 
-#: src/ScreenChooserDialog.qml:38
-#, kde-format
-msgid "Screens"
-msgstr "Skärmar"
-
-#: src/ScreenChooserDialog.qml:41
-#, kde-format
+#: src/ScreenChooserDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Windows"
+msgctxt ""
+"@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "Fönster"
 
-#: src/ScreenChooserDialog.qml:100
+#: src/ScreenChooserDialog.qml:80
 #, kde-format
 msgid "Share"
 msgstr "Dela"
@@ -893,6 +893,12 @@ msgstr "Misslyckades starta skärmutsändning"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Fjärrskrivbord"
+
+#~ msgid "Screen Sharing"
+#~ msgstr "Skärmdelning"
+
+#~ msgid "Screens"
+#~ msgstr "Skärmar"
 
 #~ msgctxt "@title:group"
 #~ msgid "Terminal Options"

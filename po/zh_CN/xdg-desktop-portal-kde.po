@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 00:44+0000\n"
+"POT-Creation-Date: 2025-11-27 00:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -52,14 +52,11 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "选择用于打开 <filename>%1</filename> 的应用程序"
 
 #: src/AppChooserDialog.qml:34
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Find some more apps that can open this content using the Discover app"
-#| msgid "Find More in Discover"
+#, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "打开 Discover 查找更多应用"
+msgstr ""
 
 #: src/AppChooserDialog.qml:39
 #, kde-format
@@ -466,7 +463,7 @@ msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "虚拟输出 (与 %1 共享)"
 
-#: src/remotedesktop.cpp:286
+#: src/remotedesktop.cpp:289
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -550,7 +547,7 @@ msgstr ""
 "\n"
 " - 控制输入设备"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:76
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "允许在未来会话中恢复"
@@ -574,9 +571,11 @@ msgid "Screen sharing in progress"
 msgstr "正在共享屏幕"
 
 #: src/screenchooserdialog.cpp:145
-#, kde-format
-msgid "Screen Sharing"
-msgstr "屏幕分享"
+#, fuzzy, kde-format
+#| msgid "Share this screen with %1?"
+msgctxt "@title:window %1 is an application name (e.g. Falkon)"
+msgid "Share screen with %1"
+msgstr "要与 %1 分享此屏幕吗？"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -658,17 +657,15 @@ msgstr "选择要与发出请求的应用程序共享的内容："
 msgid "Choose what to share with %1:"
 msgstr "选择要与 %1 共享的内容："
 
-#: src/ScreenChooserDialog.qml:38
-#, kde-format
-msgid "Screens"
-msgstr "屏幕"
-
-#: src/ScreenChooserDialog.qml:41
-#, kde-format
+#: src/ScreenChooserDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Windows"
+msgctxt ""
+"@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "窗口"
 
-#: src/ScreenChooserDialog.qml:100
+#: src/ScreenChooserDialog.qml:80
 #, kde-format
 msgid "Share"
 msgstr "共享"
@@ -750,7 +747,7 @@ msgstr "终止"
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Control"
-msgstr ""
+msgstr "远程控制"
 
 #: src/session.cpp:304
 #, kde-format
@@ -869,16 +866,8 @@ msgstr "启动屏幕录像失败"
 msgid "Remote desktop"
 msgstr "远程桌面"
 
-#~ msgctxt "@title:group"
-#~ msgid "Terminal Options"
-#~ msgstr "终端选项"
+#~ msgid "Screen Sharing"
+#~ msgstr "屏幕分享"
 
-#~ msgctxt "@title:group"
-#~ msgid "Discover More Applications"
-#~ msgstr "发现更多应用程序"
-
-#~ msgctxt "@info"
-#~ msgid "Don't see the right app? Find more in <link>Discover</link>."
-#~ msgstr ""
-#~ "没有找到合适的应用？请打开 <link>Discover 软件管理中心</link> 查找更多应"
-#~ "用。"
+#~ msgid "Screens"
+#~ msgstr "屏幕"

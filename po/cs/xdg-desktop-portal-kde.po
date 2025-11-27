@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 00:44+0000\n"
+"POT-Creation-Date: 2025-11-27 00:45+0000\n"
 "PO-Revision-Date: 2024-10-01 16:41+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -466,7 +466,7 @@ msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr ""
 
-#: src/remotedesktop.cpp:286
+#: src/remotedesktop.cpp:289
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -547,7 +547,7 @@ msgid ""
 " - Control input devices"
 msgstr " - Vstupní zařízení\n"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:76
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Umožnit návrat k předchozím verzím"
@@ -572,8 +572,9 @@ msgstr "Probíhá sdílení obrazovky"
 
 #: src/screenchooserdialog.cpp:145
 #, kde-format
-msgid "Screen Sharing"
-msgstr "Sdílení obrazovky"
+msgctxt "@title:window %1 is an application name (e.g. Falkon)"
+msgid "Share screen with %1"
+msgstr ""
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -655,17 +656,15 @@ msgstr ""
 msgid "Choose what to share with %1:"
 msgstr ""
 
-#: src/ScreenChooserDialog.qml:38
-#, kde-format
-msgid "Screens"
-msgstr "Obrazovky"
-
-#: src/ScreenChooserDialog.qml:41
-#, kde-format
+#: src/ScreenChooserDialog.qml:54
+#, fuzzy, kde-format
+#| msgid "Windows"
+msgctxt ""
+"@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "Okna"
 
-#: src/ScreenChooserDialog.qml:100
+#: src/ScreenChooserDialog.qml:80
 #, kde-format
 msgid "Share"
 msgstr "Sdílet"
@@ -874,6 +873,12 @@ msgstr ""
 #, kde-format
 msgid "Remote desktop"
 msgstr "Vzdálená plocha"
+
+#~ msgid "Screen Sharing"
+#~ msgstr "Sdílení obrazovky"
+
+#~ msgid "Screens"
+#~ msgstr "Obrazovky"
 
 #~ msgctxt "@title:group"
 #~ msgid "Terminal Options"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-25 00:44+0000\n"
+"POT-Creation-Date: 2025-11-27 00:45+0000\n"
 "PO-Revision-Date: 2023-01-19 03:02+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -473,7 +473,7 @@ msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Nova Saída Virtual"
 
-#: src/remotedesktop.cpp:286
+#: src/remotedesktop.cpp:289
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
@@ -555,7 +555,7 @@ msgid ""
 " - Control input devices"
 msgstr "- Dispositivos de entrada\n"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:96
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:76
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr ""
@@ -579,9 +579,11 @@ msgid "Screen sharing in progress"
 msgstr "Partilha do ecrã em curso"
 
 #: src/screenchooserdialog.cpp:145
-#, kde-format
-msgid "Screen Sharing"
-msgstr "Partilha do Ecrã"
+#, fuzzy, kde-format
+#| msgid "Share this screen with %1?"
+msgctxt "@title:window %1 is an application name (e.g. Falkon)"
+msgid "Share screen with %1"
+msgstr "Partilhar este ecrã com o %1?"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -665,18 +667,15 @@ msgstr "Seleccione o que deseja partilhar com a aplicação solicitada:"
 msgid "Choose what to share with %1:"
 msgstr "Seleccione o que partilhar com o %1:"
 
-#: src/ScreenChooserDialog.qml:38
-#, kde-format
-msgid "Screens"
-msgstr "Ecrãs"
-
-#: src/ScreenChooserDialog.qml:41
+#: src/ScreenChooserDialog.qml:54
 #, fuzzy, kde-format
 #| msgid "Active Window"
+msgctxt ""
+"@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "Janela Activa"
 
-#: src/ScreenChooserDialog.qml:100
+#: src/ScreenChooserDialog.qml:80
 #, kde-format
 msgid "Share"
 msgstr ""
@@ -886,6 +885,12 @@ msgstr "Não foi possível iniciar a partilha do ecrã"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Ecrã remoto"
+
+#~ msgid "Screen Sharing"
+#~ msgstr "Partilha do Ecrã"
+
+#~ msgid "Screens"
+#~ msgstr "Ecrãs"
 
 #, fuzzy
 #~| msgctxt "@title:window"
