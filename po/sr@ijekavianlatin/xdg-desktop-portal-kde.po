@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 14:42+0000\n"
+"POT-Creation-Date: 2025-11-27 02:38+0000\n"
 "PO-Revision-Date: 2017-06-04 23:06+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -467,7 +467,7 @@ msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr ""
 
-#: src/remotedesktop.cpp:286
+#: src/remotedesktop.cpp:289
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 14:42+0000\n"
+"POT-Creation-Date: 2025-11-27 02:38+0000\n"
 "PO-Revision-Date: 2025-10-05 11:56+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -466,7 +466,7 @@ msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "פלט וירטואלי (משותף עם %1)"
 
-#: src/remotedesktop.cpp:286
+#: src/remotedesktop.cpp:289
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
