@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-27 00:45+0000\n"
-"PO-Revision-Date: 2025-11-25 08:03+0200\n"
+"PO-Revision-Date: 2025-11-27 14:03+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -587,11 +587,10 @@ msgid "Screen sharing in progress"
 msgstr "Надається доступ до екрана"
 
 #: src/screenchooserdialog.cpp:145
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
-msgstr "Поділитися цим екраном з %1?"
+msgstr "Поділитися екраном з %1"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -677,8 +676,7 @@ msgid "Choose what to share with %1:"
 msgstr "Виберіть, що слід оприлюднити для %1:"
 
 #: src/ScreenChooserDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Windows"
+#, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"

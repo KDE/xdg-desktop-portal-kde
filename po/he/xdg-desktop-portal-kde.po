@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-27 00:45+0000\n"
-"PO-Revision-Date: 2025-11-25 09:51+0200\n"
+"PO-Revision-Date: 2025-11-27 11:48+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -575,11 +575,10 @@ msgid "Screen sharing in progress"
 msgstr "המסך משותף כרגע"
 
 #: src/screenchooserdialog.cpp:145
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
-msgstr "לשתף את המסך עם %1?"
+msgstr "שיתוף המסך עם %1"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -662,8 +661,7 @@ msgid "Choose what to share with %1:"
 msgstr "נא לבחור מה לשתף עם %1:"
 
 #: src/ScreenChooserDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Windows"
+#, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"

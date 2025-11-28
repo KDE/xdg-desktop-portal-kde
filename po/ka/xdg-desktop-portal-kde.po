@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-27 00:45+0000\n"
-"PO-Revision-Date: 2025-11-25 06:00+0100\n"
+"PO-Revision-Date: 2025-11-27 05:56+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -581,11 +581,10 @@ msgid "Screen sharing in progress"
 msgstr "მიმდინარეობს ეკრანის გაზიარება"
 
 #: src/screenchooserdialog.cpp:145
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
-msgstr "გავუზიარო ეს ეკრანი %1-ს?"
+msgstr "ეკრანის გაზიარება %1-თან"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -669,8 +668,7 @@ msgid "Choose what to share with %1:"
 msgstr "აირჩიეთ, რისი გაზიარება გსურთ %1-თვის:"
 
 #: src/ScreenChooserDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Windows"
+#, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
