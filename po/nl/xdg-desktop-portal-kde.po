@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-27 00:45+0000\n"
-"PO-Revision-Date: 2025-11-25 14:31+0100\n"
+"PO-Revision-Date: 2025-11-27 13:19+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -583,11 +583,10 @@ msgid "Screen sharing in progress"
 msgstr "Delen van schermen is bezig"
 
 #: src/screenchooserdialog.cpp:145
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
-msgstr "Dit scherm delen met %1?"
+msgstr "Scherm delen met %1"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -671,8 +670,7 @@ msgid "Choose what to share with %1:"
 msgstr "Kies wat te delen met %1:"
 
 #: src/ScreenChooserDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Windows"
+#, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
