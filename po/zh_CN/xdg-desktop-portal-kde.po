@@ -56,7 +56,7 @@ msgstr "选择用于打开 <filename>%1</filename> 的应用程序"
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr ""
+msgstr "打开 Discover 查找更多应用…"
 
 #: src/AppChooserDialog.qml:39
 #, kde-format
@@ -571,11 +571,10 @@ msgid "Screen sharing in progress"
 msgstr "正在共享屏幕"
 
 #: src/screenchooserdialog.cpp:145
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
-msgstr "要与 %1 分享此屏幕吗？"
+msgstr ""
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -658,12 +657,11 @@ msgid "Choose what to share with %1:"
 msgstr "选择要与 %1 共享的内容："
 
 #: src/ScreenChooserDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Windows"
+#, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
-msgstr "窗口"
+msgstr ""
 
 #: src/ScreenChooserDialog.qml:80
 #, kde-format
@@ -865,9 +863,3 @@ msgstr "启动屏幕录像失败"
 #, kde-format
 msgid "Remote desktop"
 msgstr "远程桌面"
-
-#~ msgid "Screen Sharing"
-#~ msgstr "屏幕分享"
-
-#~ msgid "Screens"
-#~ msgstr "屏幕"
