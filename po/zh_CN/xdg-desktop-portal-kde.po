@@ -610,7 +610,7 @@ msgstr "屏幕"
 #: src/ScreenChooserDialog.qml:42
 #, kde-format
 msgid "Windows"
-msgstr "窗口"
+msgstr ""
 
 #: src/screenshotdialog.cpp:117
 #, kde-format
