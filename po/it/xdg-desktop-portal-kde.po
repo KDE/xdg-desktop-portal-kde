@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-27 00:45+0000\n"
-"PO-Revision-Date: 2025-11-23 15:48+0100\n"
+"PO-Revision-Date: 2025-11-28 00:55+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -52,14 +52,11 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Seleziona un'applicazione per aprire <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:34
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Find some more apps that can open this content using the Discover app"
-#| msgid "Find More in Discover"
+#, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "Trovane altre in Discover"
+msgstr "Trovane altre in Discover…"
 
 #: src/AppChooserDialog.qml:39
 #, kde-format
@@ -585,11 +582,10 @@ msgid "Screen sharing in progress"
 msgstr "Condivisione dello schermo in corso"
 
 #: src/screenchooserdialog.cpp:145
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
-msgstr "Condividi questo schermo con %1?"
+msgstr "Condividi schermo con %1"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -673,8 +669,7 @@ msgid "Choose what to share with %1:"
 msgstr "Scegli cosa condividere con %1:"
 
 #: src/ScreenChooserDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Windows"
+#, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
