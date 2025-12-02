@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-27 00:45+0000\n"
+"POT-Creation-Date: 2025-12-02 00:44+0000\n"
 "PO-Revision-Date: 2024-07-18 12:45+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -185,13 +185,13 @@ msgctxt ""
 msgid "Forbid Anyway"
 msgstr "Forbyd alligevel"
 
-#: src/dynamiclauncher.cpp:77
+#: src/dynamiclauncher.cpp:78
 #, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
 msgstr "Tilføj web-program…"
 
-#: src/dynamiclauncher.cpp:82
+#: src/dynamiclauncher.cpp:83
 #, kde-format
 msgctxt "@title"
 msgid "Add Application…"
@@ -226,7 +226,7 @@ msgstr "Annullér"
 msgid "Open"
 msgstr "Åbn"
 
-#: src/globalshortcuts.cpp:104
+#: src/globalshortcuts.cpp:107
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -234,7 +234,7 @@ msgid ""
 "<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
 
-#: src/globalshortcuts.cpp:111
+#: src/globalshortcuts.cpp:114
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -242,12 +242,17 @@ msgid ""
 "action."
 msgstr ""
 
-#: src/globalshortcuts.cpp:124
+#: src/globalshortcuts.cpp:127
 #, kde-kuit-format
 msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
 msgstr ""
+
+#: src/globalshortcuts.cpp:507
+#, kde-format
+msgid ", "
+msgstr ", "
 
 #: src/GlobalShortcutsDialog.qml:24
 #, kde-format
@@ -283,7 +288,7 @@ msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
 msgstr ""
 
-#: src/inputcapture.cpp:113
+#: src/inputcapture.cpp:115
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Input Capture Requested"
@@ -291,13 +296,13 @@ msgctxt "@title:notification"
 msgid "Input Capture started"
 msgstr "Inputindsamling anmodet"
 
-#: src/inputcapture.cpp:116
+#: src/inputcapture.cpp:118
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr ""
 
-#: src/inputcapture.cpp:121
+#: src/inputcapture.cpp:123
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -465,24 +470,33 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Venstreklik og træk"
 
-#: src/remotedesktop.cpp:180 src/screencast.cpp:221
+#: src/remotedesktop.cpp:182 src/screencast.cpp:224
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgid "Virtual Output"
 msgstr "Nyt virtuelt output"
 
-#: src/remotedesktop.cpp:181 src/screencast.cpp:222
+#: src/remotedesktop.cpp:183 src/screencast.cpp:225
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Nyt virtuelt output"
 
-#: src/remotedesktop.cpp:289
+#: src/remotedesktop.cpp:291
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "Fjernbetjeningssession startet"
+
+#: src/remotedesktop.cpp:580
+#, fuzzy, kde-format
+#| msgctxt "Title of the dialog that requests remote input privileges"
+#| msgid "Remote control requested"
+msgctxt ""
+"SNI title that indicates there's a process remotely controlling the system"
+msgid "Remote Control"
+msgstr "Fjernbetjening anmodet"
 
 #: src/remotedesktopdialog.cpp:26
 #, fuzzy, kde-format
@@ -577,11 +591,32 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr ""
 
-#: src/screencast.cpp:281
+#: src/screencast.cpp:284
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Skærmdeling i gang"
+
+#: src/screencast.cpp:392
+#, kde-format
+msgctxt "@action:inmenu stops screen/window sharing"
+msgid "End"
+msgstr "Slut"
+
+#: src/screencast.cpp:445
+#, kde-format
+msgctxt "%1 number of screens, %2 the app that receives them"
+msgid "Sharing contents to %2"
+msgid_plural "%1 video streams to %2"
+msgstr[0] "Deler indhold til %1"
+msgstr[1] "%1 videostreamer til %2"
+
+#: src/screencast.cpp:449
+#, kde-format
+msgctxt ""
+"SNI title that indicates there's a process seeing our windows or screens"
+msgid "Screen casting"
+msgstr "Skærmoptagelse"
 
 #: src/screenchooserdialog.cpp:145
 #, fuzzy, kde-format
@@ -751,41 +786,6 @@ msgstr "Gem"
 #, kde-format
 msgid "Take"
 msgstr "Tag"
-
-#: src/session.cpp:175
-#, kde-format
-msgctxt "@action:inmenu stops screen/window sharing"
-msgid "End"
-msgstr "Slut"
-
-#: src/session.cpp:288
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
-msgctxt ""
-"SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Control"
-msgstr "Fjernbetjening anmodet"
-
-#: src/session.cpp:304
-#, kde-format
-msgctxt "%1 number of screens, %2 the app that receives them"
-msgid "Sharing contents to %2"
-msgid_plural "%1 video streams to %2"
-msgstr[0] "Deler indhold til %1"
-msgstr[1] "%1 videostreamer til %2"
-
-#: src/session.cpp:308
-#, kde-format
-msgctxt ""
-"SNI title that indicates there's a process seeing our windows or screens"
-msgid "Screen casting"
-msgstr "Skærmoptagelse"
-
-#: src/session.cpp:501
-#, kde-format
-msgid ", "
-msgstr ", "
 
 #: src/UsbDialog.qml:20
 #, kde-format

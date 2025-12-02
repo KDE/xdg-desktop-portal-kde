@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-27 00:45+0000\n"
+"POT-Creation-Date: 2025-12-02 00:44+0000\n"
 "PO-Revision-Date: 2025-11-30 13:07+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -175,13 +175,13 @@ msgctxt ""
 msgid "Forbid Anyway"
 msgstr "இருப்பினும் மறு"
 
-#: src/dynamiclauncher.cpp:77
+#: src/dynamiclauncher.cpp:78
 #, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
 msgstr "இணையச்செயலியைச் சேர்..."
 
-#: src/dynamiclauncher.cpp:82
+#: src/dynamiclauncher.cpp:83
 #, kde-format
 msgctxt "@title"
 msgid "Add Application…"
@@ -216,7 +216,7 @@ msgstr "ரத்து செய்"
 msgid "Open"
 msgstr "திற"
 
-#: src/globalshortcuts.cpp:104
+#: src/globalshortcuts.cpp:107
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -227,7 +227,7 @@ msgstr ""
 "செயலுக்கு இந்த சுருக்குவழி ஏற்கனவே பயனில் உள்ளது. அதைப் புறக்கணிக்க சுருக்குவழியை "
 "மீண்டும் இங்கு உள்ளிடவும்."
 
-#: src/globalshortcuts.cpp:111
+#: src/globalshortcuts.cpp:114
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -237,12 +237,17 @@ msgstr ""
 "<interface>%1</interface> எனும் பொதுவான செயலுக்கு இந்த சுருக்குவழி ஏற்கனவே பயனில் "
 "உள்ளது."
 
-#: src/globalshortcuts.cpp:124
+#: src/globalshortcuts.cpp:127
 #, kde-kuit-format
 msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
 msgstr "இவ்விசைக்கூட்டு பல செயல்களுக்கு அமர்த்தப்பட்டுள்ளது (<interface>%1</interface>)."
+
+#: src/globalshortcuts.cpp:507
+#, kde-format
+msgid ", "
+msgstr ", "
 
 #: src/GlobalShortcutsDialog.qml:24
 #, kde-format
@@ -278,20 +283,20 @@ msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
 msgstr "இச்செயலியின் மற்ற சுருக்குவழிகளைக் காட்டும்"
 
-#: src/inputcapture.cpp:113
+#: src/inputcapture.cpp:115
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
 msgstr "உள்ளீட்டு பிடிப்பு துவங்கியது"
 
-#: src/inputcapture.cpp:116
+#: src/inputcapture.cpp:118
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr ""
 "உள்ளீட்டை %1 நிர்வகிக்கிறது. இதை நிறுத்த <shortcut>%2</shortcut> தனை அழுத்தவும்."
 
-#: src/inputcapture.cpp:121
+#: src/inputcapture.cpp:123
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -459,22 +464,29 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "இடது கிளிக் செய்து இழுக்கவும்"
 
-#: src/remotedesktop.cpp:180 src/screencast.cpp:221
+#: src/remotedesktop.cpp:182 src/screencast.cpp:224
 #, kde-format
 msgid "Virtual Output"
 msgstr "மெய்நிகர் வெளியீடு"
 
-#: src/remotedesktop.cpp:181 src/screencast.cpp:222
+#: src/remotedesktop.cpp:183 src/screencast.cpp:225
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "மெய்நிகர் வெளியீடு (%1 உடன் பகிரப்பட்டுள்ளது)"
 
-#: src/remotedesktop.cpp:289
+#: src/remotedesktop.cpp:291
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "தொலையியக்கி அமர்வு துவக்கப்பட்டுள்ளது"
+
+#: src/remotedesktop.cpp:580
+#, kde-format
+msgctxt ""
+"SNI title that indicates there's a process remotely controlling the system"
+msgid "Remote Control"
+msgstr "தொலையியக்கி பயனிலுள்ளது"
 
 #: src/remotedesktopdialog.cpp:26
 #, kde-format
@@ -571,11 +583,32 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "நிராகரி"
 
-#: src/screencast.cpp:281
+#: src/screencast.cpp:284
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "திரை பகிரப்படுகிறது"
+
+#: src/screencast.cpp:392
+#, kde-format
+msgctxt "@action:inmenu stops screen/window sharing"
+msgid "End"
+msgstr "நிறுத்து"
+
+#: src/screencast.cpp:445
+#, kde-format
+msgctxt "%1 number of screens, %2 the app that receives them"
+msgid "Sharing contents to %2"
+msgid_plural "%1 video streams to %2"
+msgstr[0] "உள்ளடக்கத்தை %2 பெறுகிறது"
+msgstr[1] "%1 காட்சிகளை %2 பெறுகிறது"
+
+#: src/screencast.cpp:449
+#, kde-format
+msgctxt ""
+"SNI title that indicates there's a process seeing our windows or screens"
+msgid "Screen casting"
+msgstr "திரை பகிர்வு"
 
 #: src/screenchooserdialog.cpp:145
 #, kde-format
@@ -741,39 +774,6 @@ msgstr "சேமி"
 #, kde-format
 msgid "Take"
 msgstr "எடு"
-
-#: src/session.cpp:175
-#, kde-format
-msgctxt "@action:inmenu stops screen/window sharing"
-msgid "End"
-msgstr "நிறுத்து"
-
-#: src/session.cpp:288
-#, kde-format
-msgctxt ""
-"SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Control"
-msgstr "தொலையியக்கி பயனிலுள்ளது"
-
-#: src/session.cpp:304
-#, kde-format
-msgctxt "%1 number of screens, %2 the app that receives them"
-msgid "Sharing contents to %2"
-msgid_plural "%1 video streams to %2"
-msgstr[0] "உள்ளடக்கத்தை %2 பெறுகிறது"
-msgstr[1] "%1 காட்சிகளை %2 பெறுகிறது"
-
-#: src/session.cpp:308
-#, kde-format
-msgctxt ""
-"SNI title that indicates there's a process seeing our windows or screens"
-msgid "Screen casting"
-msgstr "திரை பகிர்வு"
-
-#: src/session.cpp:501
-#, kde-format
-msgid ", "
-msgstr ", "
 
 #: src/UsbDialog.qml:20
 #, kde-format

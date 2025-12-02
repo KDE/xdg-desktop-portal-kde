@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-27 00:45+0000\n"
+"POT-Creation-Date: 2025-12-02 00:44+0000\n"
 "PO-Revision-Date: 2025-11-29 17:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -176,13 +176,13 @@ msgctxt ""
 msgid "Forbid Anyway"
 msgstr "還是要拒絕"
 
-#: src/dynamiclauncher.cpp:77
+#: src/dynamiclauncher.cpp:78
 #, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
 msgstr "新增網路應用程式…"
 
-#: src/dynamiclauncher.cpp:82
+#: src/dynamiclauncher.cpp:83
 #, kde-format
 msgctxt "@title"
 msgid "Add Application…"
@@ -217,7 +217,7 @@ msgstr "取消"
 msgid "Open"
 msgstr "開啟"
 
-#: src/globalshortcuts.cpp:104
+#: src/globalshortcuts.cpp:107
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -227,7 +227,7 @@ msgstr ""
 "這個快捷鍵已經指派給應用程式 <application>%2</application> 的動作 <interface>"
 "%1</interface> 了。重新輸入它來覆寫該動作。"
 
-#: src/globalshortcuts.cpp:111
+#: src/globalshortcuts.cpp:114
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -235,12 +235,17 @@ msgid ""
 "action."
 msgstr "這個快捷鍵已經指派給標準動作 <interface>%1</interface> 了。"
 
-#: src/globalshortcuts.cpp:124
+#: src/globalshortcuts.cpp:127
 #, kde-kuit-format
 msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
 msgstr "這個快捷鍵被指派給多個動作了（<interface>%1</interface>）"
+
+#: src/globalshortcuts.cpp:507
+#, kde-format
+msgid ", "
+msgstr "、"
 
 #: src/GlobalShortcutsDialog.qml:24
 #, kde-format
@@ -274,19 +279,19 @@ msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
 msgstr "檢視這個應用程式所註冊的其他快捷鍵"
 
-#: src/inputcapture.cpp:113
+#: src/inputcapture.cpp:115
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
 msgstr "已開始進行輸入擷取"
 
-#: src/inputcapture.cpp:116
+#: src/inputcapture.cpp:118
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr "輸入正被 %1 管理。按下 <shortcut>%2</shortcut> 來停用。"
 
-#: src/inputcapture.cpp:121
+#: src/inputcapture.cpp:123
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -452,22 +457,29 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "點擊並拖曳滑鼠左鍵"
 
-#: src/remotedesktop.cpp:180 src/screencast.cpp:221
+#: src/remotedesktop.cpp:182 src/screencast.cpp:224
 #, kde-format
 msgid "Virtual Output"
 msgstr "虛擬輸出"
 
-#: src/remotedesktop.cpp:181 src/screencast.cpp:222
+#: src/remotedesktop.cpp:183 src/screencast.cpp:225
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "虛擬輸出（與 %1 共享）"
 
-#: src/remotedesktop.cpp:289
+#: src/remotedesktop.cpp:291
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "已開始遠端控制工作階段"
+
+#: src/remotedesktop.cpp:580
+#, kde-format
+msgctxt ""
+"SNI title that indicates there's a process remotely controlling the system"
+msgid "Remote Control"
+msgstr "遠端控制"
 
 #: src/remotedesktopdialog.cpp:26
 #, kde-format
@@ -564,11 +576,31 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "拒絕"
 
-#: src/screencast.cpp:281
+#: src/screencast.cpp:284
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "正在分享螢幕"
+
+#: src/screencast.cpp:392
+#, kde-format
+msgctxt "@action:inmenu stops screen/window sharing"
+msgid "End"
+msgstr "結束"
+
+#: src/screencast.cpp:445
+#, kde-format
+msgctxt "%1 number of screens, %2 the app that receives them"
+msgid "Sharing contents to %2"
+msgid_plural "%1 video streams to %2"
+msgstr[0] "正在分享 %1 個影像串流給 %2"
+
+#: src/screencast.cpp:449
+#, kde-format
+msgctxt ""
+"SNI title that indicates there's a process seeing our windows or screens"
+msgid "Screen casting"
+msgstr "螢幕錄製中"
 
 #: src/screenchooserdialog.cpp:145
 #, kde-format
@@ -733,38 +765,6 @@ msgstr "儲存"
 #, kde-format
 msgid "Take"
 msgstr "擷取"
-
-#: src/session.cpp:175
-#, kde-format
-msgctxt "@action:inmenu stops screen/window sharing"
-msgid "End"
-msgstr "結束"
-
-#: src/session.cpp:288
-#, kde-format
-msgctxt ""
-"SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Control"
-msgstr "遠端控制"
-
-#: src/session.cpp:304
-#, kde-format
-msgctxt "%1 number of screens, %2 the app that receives them"
-msgid "Sharing contents to %2"
-msgid_plural "%1 video streams to %2"
-msgstr[0] "正在分享 %1 個影像串流給 %2"
-
-#: src/session.cpp:308
-#, kde-format
-msgctxt ""
-"SNI title that indicates there's a process seeing our windows or screens"
-msgid "Screen casting"
-msgstr "螢幕錄製中"
-
-#: src/session.cpp:501
-#, kde-format
-msgid ", "
-msgstr "、"
 
 #: src/UsbDialog.qml:20
 #, kde-format

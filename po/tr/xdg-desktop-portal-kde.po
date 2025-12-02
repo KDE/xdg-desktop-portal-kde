@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-27 00:45+0000\n"
+"POT-Creation-Date: 2025-12-02 00:44+0000\n"
 "PO-Revision-Date: 2025-11-27 16:25+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -176,13 +176,13 @@ msgctxt ""
 msgid "Forbid Anyway"
 msgstr "Yine de İzin Verme"
 
-#: src/dynamiclauncher.cpp:77
+#: src/dynamiclauncher.cpp:78
 #, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
 msgstr "Web Uygulaması Ekle…"
 
-#: src/dynamiclauncher.cpp:82
+#: src/dynamiclauncher.cpp:83
 #, kde-format
 msgctxt "@title"
 msgid "Add Application…"
@@ -217,7 +217,7 @@ msgstr "İptal"
 msgid "Open"
 msgstr "Aç"
 
-#: src/globalshortcuts.cpp:104
+#: src/globalshortcuts.cpp:107
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -228,7 +228,7 @@ msgstr ""
 "<interface>%1</interface> eylemine atanmış. Bu eylemi geçersiz kılmak için "
 "burada yeniden girin."
 
-#: src/globalshortcuts.cpp:111
+#: src/globalshortcuts.cpp:114
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -237,12 +237,17 @@ msgid ""
 msgstr ""
 "Bu kısayol, halihazırda <interface>%1</interface> standart eylemine atanmış."
 
-#: src/globalshortcuts.cpp:124
+#: src/globalshortcuts.cpp:127
 #, kde-kuit-format
 msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
 msgstr "Bu kısayol, birden çok eyleme atanmış (<interface>%1</interface>)."
+
+#: src/globalshortcuts.cpp:507
+#, kde-format
+msgid ", "
+msgstr ", "
 
 #: src/GlobalShortcutsDialog.qml:24
 #, kde-format
@@ -278,13 +283,13 @@ msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
 msgstr "Bu uygulama tarafından kaydedilmiş diğer kısayolları gör"
 
-#: src/inputcapture.cpp:113
+#: src/inputcapture.cpp:115
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
 msgstr "Giriş Yakalaması Başlatıldı"
 
-#: src/inputcapture.cpp:116
+#: src/inputcapture.cpp:118
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
@@ -292,7 +297,7 @@ msgstr ""
 "Giriş, %1 tarafından yönetiliyor. Devre dışı bırakmak için <shortcut>%2</"
 "shortcut> kısayolunu kullanın."
 
-#: src/inputcapture.cpp:121
+#: src/inputcapture.cpp:123
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -460,22 +465,29 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Sol tıkla ve sürükle"
 
-#: src/remotedesktop.cpp:180 src/screencast.cpp:221
+#: src/remotedesktop.cpp:182 src/screencast.cpp:224
 #, kde-format
 msgid "Virtual Output"
 msgstr "Sanal Çıktı"
 
-#: src/remotedesktop.cpp:181 src/screencast.cpp:222
+#: src/remotedesktop.cpp:183 src/screencast.cpp:225
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Sanal Çıktı (%1 ile Paylaşılan)"
 
-#: src/remotedesktop.cpp:289
+#: src/remotedesktop.cpp:291
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "Uzaktan denetim oturumu başlatıldı"
+
+#: src/remotedesktop.cpp:580
+#, kde-format
+msgctxt ""
+"SNI title that indicates there's a process remotely controlling the system"
+msgid "Remote Control"
+msgstr "Uzaktan Denetim"
 
 #: src/remotedesktopdialog.cpp:26
 #, kde-format
@@ -572,11 +584,32 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "Reddet"
 
-#: src/screencast.cpp:281
+#: src/screencast.cpp:284
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Ekran paylaşımı sürüyor"
+
+#: src/screencast.cpp:392
+#, kde-format
+msgctxt "@action:inmenu stops screen/window sharing"
+msgid "End"
+msgstr "Sonlandır"
+
+#: src/screencast.cpp:445
+#, kde-format
+msgctxt "%1 number of screens, %2 the app that receives them"
+msgid "Sharing contents to %2"
+msgid_plural "%1 video streams to %2"
+msgstr[0] "İçerik şuna paylaşılıyor: %2"
+msgstr[1] "%1, %2 kişisine video akışı sağlıyor"
+
+#: src/screencast.cpp:449
+#, kde-format
+msgctxt ""
+"SNI title that indicates there's a process seeing our windows or screens"
+msgid "Screen casting"
+msgstr "Ekran Yayını"
 
 #: src/screenchooserdialog.cpp:145
 #, kde-format
@@ -742,39 +775,6 @@ msgstr "Kaydet"
 #, kde-format
 msgid "Take"
 msgstr "Çek"
-
-#: src/session.cpp:175
-#, kde-format
-msgctxt "@action:inmenu stops screen/window sharing"
-msgid "End"
-msgstr "Sonlandır"
-
-#: src/session.cpp:288
-#, kde-format
-msgctxt ""
-"SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Control"
-msgstr "Uzaktan Denetim"
-
-#: src/session.cpp:304
-#, kde-format
-msgctxt "%1 number of screens, %2 the app that receives them"
-msgid "Sharing contents to %2"
-msgid_plural "%1 video streams to %2"
-msgstr[0] "İçerik şuna paylaşılıyor: %2"
-msgstr[1] "%1, %2 kişisine video akışı sağlıyor"
-
-#: src/session.cpp:308
-#, kde-format
-msgctxt ""
-"SNI title that indicates there's a process seeing our windows or screens"
-msgid "Screen casting"
-msgstr "Ekran Yayını"
-
-#: src/session.cpp:501
-#, kde-format
-msgid ", "
-msgstr ", "
 
 #: src/UsbDialog.qml:20
 #, kde-format

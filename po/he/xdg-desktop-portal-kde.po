@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-27 00:45+0000\n"
+"POT-Creation-Date: 2025-12-02 00:44+0000\n"
 "PO-Revision-Date: 2025-11-27 11:48+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -174,13 +174,13 @@ msgctxt ""
 msgid "Forbid Anyway"
 msgstr "לאסור בכל זאת"
 
-#: src/dynamiclauncher.cpp:77
+#: src/dynamiclauncher.cpp:78
 #, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
 msgstr "הוספת יישום רשת…"
 
-#: src/dynamiclauncher.cpp:82
+#: src/dynamiclauncher.cpp:83
 #, kde-format
 msgctxt "@title"
 msgid "Add Application…"
@@ -215,7 +215,7 @@ msgstr "ביטול"
 msgid "Open"
 msgstr "פתיחה"
 
-#: src/globalshortcuts.cpp:104
+#: src/globalshortcuts.cpp:107
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -225,7 +225,7 @@ msgstr ""
 "קיצור המקשים כבר מוקצה לפעולה <interface>%1</interface> של <application>%2</"
 "application>. יש למלא אותו כאן מחדש כדי לדרוס את הפעולה הזאת."
 
-#: src/globalshortcuts.cpp:111
+#: src/globalshortcuts.cpp:114
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -233,12 +233,17 @@ msgid ""
 "action."
 msgstr "קיצור המקשים כבר מוקצה לפעולה הרגילה של <interface>%1</interface>."
 
-#: src/globalshortcuts.cpp:124
+#: src/globalshortcuts.cpp:127
 #, kde-kuit-format
 msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
 msgstr "קיצור המקשים מוקצה למספר פעולות (<interface>%1</interface>)"
+
+#: src/globalshortcuts.cpp:507
+#, kde-format
+msgid ", "
+msgstr ", "
 
 #: src/GlobalShortcutsDialog.qml:24
 #, kde-format
@@ -278,19 +283,19 @@ msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
 msgstr "הצגת קיצורי מקשים אחרים שנרשמו על ידי היישום הזה"
 
-#: src/inputcapture.cpp:113
+#: src/inputcapture.cpp:115
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
 msgstr "החלה לכידת קלט"
 
-#: src/inputcapture.cpp:116
+#: src/inputcapture.cpp:118
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr "הקלט מנוהל על ידי %1. לחיצה על <shortcut>%2</shortcut> תשבית את זה."
 
-#: src/inputcapture.cpp:121
+#: src/inputcapture.cpp:123
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -456,22 +461,29 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "לחיצה שמאלית וגרירה"
 
-#: src/remotedesktop.cpp:180 src/screencast.cpp:221
+#: src/remotedesktop.cpp:182 src/screencast.cpp:224
 #, kde-format
 msgid "Virtual Output"
 msgstr "פלט וירטואלי"
 
-#: src/remotedesktop.cpp:181 src/screencast.cpp:222
+#: src/remotedesktop.cpp:183 src/screencast.cpp:225
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "פלט וירטואלי (משותף עם %1)"
 
-#: src/remotedesktop.cpp:289
+#: src/remotedesktop.cpp:291
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "החלה שליטה מרחוק"
+
+#: src/remotedesktop.cpp:580
+#, kde-format
+msgctxt ""
+"SNI title that indicates there's a process remotely controlling the system"
+msgid "Remote Control"
+msgstr "שליטה מרחוק"
 
 #: src/remotedesktopdialog.cpp:26
 #, kde-format
@@ -568,11 +580,34 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "לסרב"
 
-#: src/screencast.cpp:281
+#: src/screencast.cpp:284
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "המסך משותף כרגע"
+
+#: src/screencast.cpp:392
+#, kde-format
+msgctxt "@action:inmenu stops screen/window sharing"
+msgid "End"
+msgstr "סיום"
+
+#: src/screencast.cpp:445
+#, kde-format
+msgctxt "%1 number of screens, %2 the app that receives them"
+msgid "Sharing contents to %2"
+msgid_plural "%1 video streams to %2"
+msgstr[0] "התוכן משותף אל %2"
+msgstr[1] "%1 תזרימי וידאו אל %2"
+msgstr[2] "%1 תזרימי וידאו אל %2"
+msgstr[3] "%1 תזרימי וידאו אל %2"
+
+#: src/screencast.cpp:449
+#, kde-format
+msgctxt ""
+"SNI title that indicates there's a process seeing our windows or screens"
+msgid "Screen casting"
+msgstr "שידור המסך"
 
 #: src/screenchooserdialog.cpp:145
 #, kde-format
@@ -740,41 +775,6 @@ msgstr "שמירה"
 #, kde-format
 msgid "Take"
 msgstr "צילום"
-
-#: src/session.cpp:175
-#, kde-format
-msgctxt "@action:inmenu stops screen/window sharing"
-msgid "End"
-msgstr "סיום"
-
-#: src/session.cpp:288
-#, kde-format
-msgctxt ""
-"SNI title that indicates there's a process remotely controlling the system"
-msgid "Remote Control"
-msgstr "שליטה מרחוק"
-
-#: src/session.cpp:304
-#, kde-format
-msgctxt "%1 number of screens, %2 the app that receives them"
-msgid "Sharing contents to %2"
-msgid_plural "%1 video streams to %2"
-msgstr[0] "התוכן משותף אל %2"
-msgstr[1] "%1 תזרימי וידאו אל %2"
-msgstr[2] "%1 תזרימי וידאו אל %2"
-msgstr[3] "%1 תזרימי וידאו אל %2"
-
-#: src/session.cpp:308
-#, kde-format
-msgctxt ""
-"SNI title that indicates there's a process seeing our windows or screens"
-msgid "Screen casting"
-msgstr "שידור המסך"
-
-#: src/session.cpp:501
-#, kde-format
-msgid ", "
-msgstr ", "
 
 #: src/UsbDialog.qml:20
 #, kde-format
