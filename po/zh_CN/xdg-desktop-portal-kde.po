@@ -525,12 +525,12 @@ msgstr "屏幕分享"
 #: src/screenchooserdialog.cpp:188
 #, kde-format
 msgid "Share this screen with the requesting application?"
-msgstr "要与发出请求的应用程序分享此屏幕吗？"
+msgstr "要与发出请求的应用程序共享此屏幕吗？"
 
 #: src/screenchooserdialog.cpp:190
 #, kde-format
 msgid "Share this screen with %1?"
-msgstr "要与 %1 分享此屏幕吗？"
+msgstr "要与 %1 共享此屏幕吗？"
 
 #: src/screenchooserdialog.cpp:195
 #, kde-format
@@ -555,12 +555,12 @@ msgstr "选择要与 %1 共享的屏幕："
 #: src/screenchooserdialog.cpp:212
 #, kde-format
 msgid "Share this window with the requesting application?"
-msgstr "要与发出请求的应用程序分享此窗口吗？"
+msgstr "要与发出请求的应用程序共享此窗口吗？"
 
 #: src/screenchooserdialog.cpp:214
 #, kde-format
 msgid "Share this window with %1?"
-msgstr "要与 %1 分享此窗口吗？"
+msgstr "要与 %1 共享此窗口吗？"
 
 #: src/screenchooserdialog.cpp:219
 #, kde-format
@@ -610,7 +610,7 @@ msgstr "屏幕"
 #: src/ScreenChooserDialog.qml:42
 #, kde-format
 msgid "Windows"
-msgstr ""
+msgstr "窗口"
 
 #: src/screenshotdialog.cpp:117
 #, kde-format
