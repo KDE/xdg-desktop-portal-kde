@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-02 00:44+0000\n"
-"PO-Revision-Date: 2025-12-01 08:42+0000\n"
+"PO-Revision-Date: 2025-12-02 10:54+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -363,7 +363,7 @@ msgstr "Heiti möppu"
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
 msgid "File name"
-msgstr "Skrárheiti"
+msgstr "Skráarheiti"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:117
 #, kde-format
