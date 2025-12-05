@@ -40,9 +40,15 @@ public:
         Activated
     };
 
+    enum class PersistMode : uint {
+        None = 0,
+        WhileRunning = 1,
+        UntilRevoked = 2,
+    };
+
     uint version() const
     {
-        return 2;
+        return 3;
     }
     uint SupportedCapabilities() const
     {

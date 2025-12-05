@@ -7,12 +7,23 @@
 
 #include "utils.h"
 
+#include <QWindow>
+
 using namespace Qt::StringLiterals;
 
-InputCaptureDialog::InputCaptureDialog(const QString &appId, [[maybe_unused]] InputCapturePortal::Capabilities capabilities, QObject *parent)
+InputCaptureDialog::InputCaptureDialog(const QString &appId,
+                                       InputCapturePortal::Capabilities capabilities,
+                                       InputCapturePortal::PersistMode persistence,
+                                       QObject *parent)
     : QuickDialog(parent)
 {
-    create(u"InputCaptureDialog"_s, {{u"app"_s, Utils::applicationName(appId)}});
+    create(u"InputCaptureDialog"_s,
+           {{u"app"_s, Utils::applicationName(appId)}, {u"persistenceRequested"_s, persistence != InputCapturePortal::PersistMode::None}});
+}
+
+bool InputCaptureDialog::allowRestore() const
+{
+    return m_theDialog->property("allowRestore").toBool();
 }
 
 #include "moc_inputcapturedialog.cpp"

@@ -16,6 +16,7 @@
 #include "inputcapturebarrier.h"
 #include "inputcapturedialog.h"
 #include "request.h"
+#include "restoredata.h"
 #include "session.h"
 #include "utils.h"
 
@@ -139,7 +140,7 @@ void InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
                                        const QVariantMap &options,
                                        const QDBusMessage &message,
                                        uint &replyResponse,
-                                       [[maybe_unused]] QVariantMap &replyResults)
+                                       QVariantMap &replyResults)
 {
     qCDebug(XdgDesktopPortalKdeInputCapture) << "CreateSession called with parameters:";
     qCDebug(XdgDesktopPortalKdeInputCapture) << "    handle: " << handle.path();
@@ -162,7 +163,17 @@ void InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
         return;
     }
 
-    auto dialog = new InputCaptureDialog(app_id, (requestedCapabilities), this);
+    if (options.value(u"permission_store_validated"_s).toBool()) {
+        if (!setupInputCaptureSession(session, requestedCapabilities)) {
+            replyResponse = PortalResponse::OtherError;
+        } else {
+            replyResponse = PortalResponse::Success;
+            replyResults.insert(u"capabilities"_s, static_cast<uint>(requestedCapabilities));
+        }
+        return;
+    }
+
+    auto dialog = new InputCaptureDialog(app_id, requestedCapabilities, PersistMode::None, this);
     Utils::setParentWindow(dialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequestWithSession(handle, dialog, session);
 
@@ -223,11 +234,32 @@ void InputCapturePortal::Start(const QDBusObjectPath &handle,
         return;
     }
 
-    auto dialog = new InputCaptureDialog(app_id, (requestedCapabilities), this);
+    auto persistMode = PersistMode{options.value(u"persist_mode"_s, std::to_underlying(PersistMode::None)).toUInt()};
+    auto restoreData = qdbus_cast<RestoreData>(options.value(u"restore_data"_s).value<QDBusArgument>());
+    if (persistMode != PersistMode::None && restoreData.session == "KDE"_L1 && restoreData.version == RestoreData::currentRestoreDataVersion()) {
+        const auto allowedCapabilities = Capabilities::fromInt(restoreData.payload.value(u"capabilities"_s).toUInt());
+        const bool clipboardAllowed = restoreData.payload.value(u"clipboard_enabled"_s).toBool();
+        const bool canRestoreCapabilities = (allowedCapabilities | requestedCapabilities) == allowedCapabilities;
+        const bool canRestoreClipboard = clipboardAllowed || !session->clipboardEnabled();
+        if (canRestoreCapabilities && canRestoreClipboard) {
+            if (!setupInputCaptureSession(session, requestedCapabilities)) {
+                replyResponse = PortalResponse::OtherError;
+                return;
+            }
+            replyResponse = PortalResponse::Success;
+            replyResults = {{u"capabilities"_s, static_cast<uint>(requestedCapabilities)},
+                            {u"clipboard_enabled"_s, session->clipboardEnabled()},
+                            {u"persist_mode"_s, std::to_underlying(persistMode)},
+                            {u"restore_data"_s, QVariant::fromValue(restoreData)}};
+            return;
+        }
+    }
+
+    auto dialog = new InputCaptureDialog(app_id, requestedCapabilities, persistMode, this);
     Utils::setParentWindow(dialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequestWithSession(handle, dialog, session);
 
-    delayReply(message, dialog, this, [this, session, requestedCapabilities](DialogResult result) {
+    delayReply(message, dialog, this, [this, session, requestedCapabilities, persistMode, dialog](DialogResult result) {
         auto response = PortalResponse::fromDialogResult(result);
         QVariantMap results;
         if (result == DialogResult::Accepted) {
@@ -236,6 +268,11 @@ void InputCapturePortal::Start(const QDBusObjectPath &handle,
             } else {
                 results.insert(u"capabilities"_s, static_cast<uint>(requestedCapabilities));
                 results.insert(u"clipboard_enabled"_s, session->clipboardEnabled());
+                if (persistMode != PersistMode::None && dialog->allowRestore()) {
+                    const RestoreData restoreData{.session = u"KDE"_s, .version = RestoreData::currentRestoreDataVersion(), .payload = results};
+                    results.insert(u"restore_data"_s, QVariant::fromValue(restoreData));
+                    results.insert(u"persist_mode"_s, std::to_underlying(persistMode));
+                }
             }
         }
         return QVariantList{response, results};
