@@ -8,12 +8,21 @@ import QtQuick
 import QtQuick.Controls as QQC2
 
 PortalDialog {
-
+    id: dialog
     readonly property string app: ""
+    property alias allowRestore: allowRestoreItem.checked
+    required property bool persistenceRequested
 
     iconName: "dialog-input-devices"
     title: i18nc("@title:window", "Input Capture Requested")
     subtitle: app === "" ? i18nc("The application is unknown", "An application requested to capture input events") : i18nc("%1 is the name of the application", "%1 requested to capture input events", app)
+
+
+    QQC2.CheckBox {
+        id: allowRestoreItem
+        visible: dialog.persistenceRequested
+        text: i18nc("@option:check", "Allow restoring on future sessions")
+    }
 
     width: contentWidth
     height: contentHeight
