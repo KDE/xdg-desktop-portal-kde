@@ -103,4 +103,5 @@ void UsbPortal::AcquireDevices(const QDBusObjectPath &handle,
     });
 }
 
+#include "moc_usb.cpp"
 #include "usb.moc"

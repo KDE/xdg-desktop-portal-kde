@@ -217,3 +217,5 @@ QFuture<QImage> ScreenshotDialog::takeScreenshot()
 
     return QtConcurrent::run(readImage, pipeFds[0], reply);
 }
+
+#include "moc_screenshotdialog.cpp"

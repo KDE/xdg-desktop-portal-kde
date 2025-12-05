@@ -171,3 +171,5 @@ uint DynamicLauncherPortal::RequestInstallToken(const QString &app_id, const QVa
 
     return allowedIDs.contains(app_id) ? 0 : 2;
 }
+
+#include "moc_dynamiclauncher.cpp"

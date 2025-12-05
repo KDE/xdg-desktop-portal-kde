@@ -900,3 +900,5 @@ bool PrintPortal::cupsAvailable()
     QPrinter testPrinter;
     return testPrinter.supportsMultipleCopies();
 }
+
+#include "moc_print.cpp"

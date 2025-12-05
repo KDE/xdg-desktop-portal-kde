@@ -58,3 +58,5 @@ DesktopPortal::DesktopPortal(QObject *parent)
     }
     new UsbPortal(this);
 }
+
+#include "moc_desktopportal.cpp"

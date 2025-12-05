@@ -72,3 +72,5 @@ QString RemoteDesktopDialog::buildNotificationDescription(const QString &appName
     }
     return description;
 }
+
+#include "moc_remotedesktopdialog.cpp"

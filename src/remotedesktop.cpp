@@ -581,3 +581,5 @@ void RemoteDesktopSession::refreshDescription()
     m_item->setToolTipTitle(m_item->title());
     setDescription(RemoteDesktopDialog::buildNotificationDescription(m_appId, deviceTypes(), screenSharingEnabled()));
 }
+
+#include "moc_remotedesktop.cpp"

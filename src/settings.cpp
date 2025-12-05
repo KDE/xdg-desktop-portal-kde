@@ -553,4 +553,5 @@ void SettingsPortal::Read(const QString &group, const QString &key)
     QDBusConnection::sessionBus().send(reply);
 }
 
+#include "moc_settings.cpp"
 #include "settings.moc"

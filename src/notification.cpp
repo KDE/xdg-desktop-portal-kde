@@ -170,3 +170,5 @@ void NotificationPortal::notificationClosed()
         n->close();
     }
 }
+
+#include "moc_notification.cpp"

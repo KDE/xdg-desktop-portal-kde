@@ -103,3 +103,5 @@ void InhibitPortal::Inhibit(const QDBusObjectPath &handle, const QString &app_id
 
     [[maybe_unused]] auto request = new InhibitionRequest(handle, policies, app_id, options.value(QStringLiteral("reason")).toString(), this);
 }
+
+#include "moc_inhibit.cpp"

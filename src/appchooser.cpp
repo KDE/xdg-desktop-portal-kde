@@ -125,3 +125,5 @@ uint AppChooserPortal::ChooseApplicationPrivate(const QString &parent_window,
     });
     return PortalResponse::Success;
 }
+
+#include "moc_appchooser.cpp"

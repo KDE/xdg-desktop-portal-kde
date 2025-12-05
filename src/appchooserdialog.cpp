@@ -584,3 +584,5 @@ void AppChooserData::setShellAccess(bool enable)
     m_shellAccess = enable;
     Q_EMIT shellAccessChanged();
 }
+
+#include "moc_appchooserdialog.cpp"

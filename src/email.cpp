@@ -57,3 +57,5 @@ void EmailPortal::ComposeEmail(const QDBusObjectPath &handle,
         return QVariantList{job->error() ? 2u : 0u, QVariantMap{}};
     });
 }
+
+#include "moc_email.cpp"

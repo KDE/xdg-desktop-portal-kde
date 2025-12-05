@@ -75,3 +75,5 @@ void AccessPortal::AccessDialog(const QDBusObjectPath &handle,
         return QVariantList{PortalResponse::fromDialogResult(result), results};
     });
 }
+
+#include "moc_access.cpp"

@@ -264,3 +264,5 @@ void BackgroundPortal::setActiveWindow(const QString &appId, bool active)
 
     Q_EMIT RunningApplicationsChanged();
 }
+
+#include "moc_background.cpp"

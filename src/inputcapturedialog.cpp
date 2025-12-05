@@ -14,3 +14,5 @@ InputCaptureDialog::InputCaptureDialog(const QString &appId, InputCapturePortal:
 {
     create(u"InputCaptureDialog"_s, {{u"app"_s, Utils::applicationName(appId)}});
 }
+
+#include "moc_inputcapturedialog.cpp"

@@ -483,3 +483,5 @@ void ScreenCastSession::streamClosed()
         close();
     }
 }
+
+#include "moc_screencast.cpp"
