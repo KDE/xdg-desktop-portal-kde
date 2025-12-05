@@ -139,7 +139,7 @@ void InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
                                        const QVariantMap &options,
                                        const QDBusMessage &message,
                                        uint &replyResponse,
-                                       [[maybe_unused]] QVariantMap &replyResults)
+                                       QVariantMap &replyResults)
 {
     qCDebug(XdgDesktopPortalKdeInputCapture) << "CreateSession called with parameters:";
     qCDebug(XdgDesktopPortalKdeInputCapture) << "    handle: " << handle.path();
@@ -159,6 +159,16 @@ void InputCapturePortal::CreateSession(const QDBusObjectPath &handle,
     if (requestedCapabilities == Capability::None) {
         qCWarning(XdgDesktopPortalKdeInputCapture) << "No capabilities requested";
         replyResponse = PortalResponse::OtherError;
+        return;
+    }
+
+    if (options.value(u"permission_store_validated"_s).toBool()) {
+        if (!setupInputCaptureSession(session, requestedCapabilities)) {
+            replyResponse = PortalResponse::OtherError;
+        } else {
+            replyResponse = PortalResponse::Success;
+            replyResults.insert(u"capabilities"_s, static_cast<uint>(requestedCapabilities));
+        }
         return;
     }
 

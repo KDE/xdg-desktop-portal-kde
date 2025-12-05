@@ -42,7 +42,7 @@ public:
 
     uint version() const
     {
-        return 1;
+        return 2;
     }
     uint SupportedCapabilities() const
     {
