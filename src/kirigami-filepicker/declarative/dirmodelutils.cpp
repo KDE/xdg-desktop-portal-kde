@@ -52,3 +52,5 @@ void DirModelUtils::mkdir(const QUrl path) const
 {
     KIO::mkdir(path);
 }
+
+#include "moc_dirmodelutils.cpp"

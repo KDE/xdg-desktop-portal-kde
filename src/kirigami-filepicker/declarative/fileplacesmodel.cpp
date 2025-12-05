@@ -23,3 +23,5 @@ QHash<int, QByteArray> FilePlacesModel::roleNames() const
         {KFilePlacesModel::GroupHiddenRole, QByteArrayLiteral("groupHidden")},
     };
 }
+
+#include "moc_fileplacesmodel.cpp"

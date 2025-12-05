@@ -320,4 +320,5 @@ void ScreenChooserDialog::accept()
     QuickDialog::accept();
 }
 
+#include "moc_screenchooserdialog.cpp"
 #include "screenchooserdialog.moc"

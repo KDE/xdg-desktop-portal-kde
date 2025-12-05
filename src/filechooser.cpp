@@ -784,3 +784,5 @@ bool FileChooserPortal::isMobile()
     QByteArray mobile = qgetenv("QT_QUICK_CONTROLS_MOBILE");
     return mobile == "true" || mobile == "1";
 }
+
+#include "moc_filechooser.cpp"

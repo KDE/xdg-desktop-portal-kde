@@ -512,3 +512,4 @@ Shortcuts GlobalShortcutsSession::shortcutDescriptions() const
 }
 
 #include "globalshortcuts.moc"
+#include "moc_globalshortcuts.cpp"

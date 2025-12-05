@@ -146,3 +146,5 @@ QString DirModel::lastError() const
 {
     return m_lastError;
 }
+
+#include "moc_dirmodel.cpp"

@@ -21,3 +21,5 @@ DynamicLauncherDialog::DynamicLauncherDialog(const QString &title, const QIcon &
                {QStringLiteral("dialog"), QVariant::fromValue(this)},
            });
 }
+
+#include "moc_dynamiclauncherdialog.cpp"

@@ -511,3 +511,6 @@ void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
     m_registry->create(connection);
     m_registry->setup();
 }
+
+#include "moc_waylandintegration.cpp"
+#include "moc_waylandintegration_p.cpp"

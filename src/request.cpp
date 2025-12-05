@@ -68,3 +68,5 @@ QString Request::introspect(const QString &path) const
 
     return nodes;
 }
+
+#include "moc_request.cpp"

@@ -52,3 +52,5 @@ const QDBusArgument &operator>>(const QDBusArgument &arg, Option &option)
     arg.endStructure();
     return arg;
 }
+
+#include "moc_dbushelpers.cpp"

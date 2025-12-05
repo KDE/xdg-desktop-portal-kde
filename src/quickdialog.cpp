@@ -63,3 +63,5 @@ void QuickDialog::accept()
     Q_EMIT finished(DialogResult::Accepted);
     deleteLater();
 }
+
+#include "moc_quickdialog.cpp"

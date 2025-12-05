@@ -72,3 +72,5 @@ void Session::Close()
 {
     close();
 }
+
+#include "moc_session.cpp"

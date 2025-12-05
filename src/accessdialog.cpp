@@ -78,3 +78,5 @@ void AccessDialog::createDialog()
 {
     create(QStringLiteral("AccessDialog"), m_props);
 }
+
+#include "moc_accessdialog.cpp"

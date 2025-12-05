@@ -523,3 +523,5 @@ QDBusPendingReply<QDBusUnixFileDescriptor> InputCaptureSession::connectToEIS()
     auto msg = QDBusMessage::createMethodCall(kwinService(), m_kwinInputCapture.path(), kwinInputCaptureInterface(), u"connectToEIS"_s);
     return QDBusConnection::sessionBus().asyncCall(msg, kwinDBusTimeout);
 }
+
+#include "moc_inputcapture.cpp"

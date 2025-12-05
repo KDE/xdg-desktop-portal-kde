@@ -161,3 +161,5 @@ uint ScreenshotPortal::PickColor(const QDBusObjectPath &handle,
 
     return PortalResponse::Cancelled;
 }
+
+#include "moc_screenshot.cpp"

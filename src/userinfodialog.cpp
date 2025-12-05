@@ -89,3 +89,5 @@ QString UserInfoDialog::name() const
 {
     return m_userDetails->m_realName;
 }
+
+#include "moc_userinfodialog.cpp"

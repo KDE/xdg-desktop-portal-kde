@@ -129,3 +129,5 @@ void FileChooserQmlCallback::setSelectFolder(bool selectFolder)
     m_selectFolder = selectFolder;
     Q_EMIT selectFolderChanged();
 }
+
+#include "moc_filechooserqmlcallback.cpp"

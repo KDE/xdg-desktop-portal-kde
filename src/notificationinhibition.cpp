@@ -63,3 +63,5 @@ void NotificationInhibition::uninhibit(uint cookie)
     msg.setArguments({cookie});
     QDBusConnection::sessionBus().call(msg, QDBus::NoBlock);
 }
+
+#include "moc_notificationinhibition.cpp"

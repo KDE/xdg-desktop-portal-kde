@@ -52,3 +52,5 @@ void AccountPortal::GetUserInformation(const QDBusObjectPath &handle,
         return QVariantList{PortalResponse::fromDialogResult(result), results};
     });
 }
+
+#include "moc_account.cpp"

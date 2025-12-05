@@ -273,3 +273,5 @@ bool Output::isSynthetic() const
     }
     return false;
 }
+
+#include "moc_outputsmodel.cpp"

@@ -242,3 +242,5 @@ void SelectionEditor::reject()
 {
     Q_EMIT finished(DialogResult::Rejected);
 }
+
+#include "moc_SelectionEditor.cpp"
