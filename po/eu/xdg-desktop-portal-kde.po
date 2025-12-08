@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-02 00:44+0000\n"
-"PO-Revision-Date: 2025-09-03 01:06+0200\n"
+"PO-Revision-Date: 2025-12-07 22:43+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -54,14 +54,11 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Hautatu <filename>%1</filename> irekitzeko aplikazio bat"
 
 #: src/AppChooserDialog.qml:34
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Find some more apps that can open this content using the Discover app"
-#| msgid "Find More in Discover"
+#, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "Aurkitu gehiago «Discover» erabiliz"
+msgstr "Discover-ren gehiago aurkitu…"
 
 #: src/AppChooserDialog.qml:39
 #, kde-format
@@ -393,21 +390,19 @@ msgid "Select"
 msgstr "Hautatu"
 
 #: src/outputsmodel.cpp:21
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "Pantaila hau %1(r)(e)kin partekatu?"
+msgstr "Partekatu alegiazko pantaila"
 
 #: src/outputsmodel.cpp:25
 #, kde-format
 msgid "Share region"
-msgstr ""
+msgstr "Partekatu eskualdea"
 
 #: src/outputsmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "Langune osoa"
+msgstr "Partekatu langune osoa"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
@@ -418,19 +413,20 @@ msgstr "Magalekoaren pantaila"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "Partekatu langune osoa pantaila guztietan"
 
 #: src/outputsmodel.cpp:248
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr ""
+"Pantaila bat sortzen du leiho baten barruan, ondoren partekatu egiten du"
 
 #: src/outputsmodel.cpp:250
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "Zure pantailetako eremu jakin bat mozten du"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
@@ -496,33 +492,29 @@ msgid "Remote control session started"
 msgstr "Urruneko aginte saioa hasi da"
 
 #: src/remotedesktop.cpp:580
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Control"
-msgstr "Urruneko agintea eskatu da"
+msgstr "Urruneko agintea"
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr "Urruneko agintea eskatu da"
+msgstr "Urruneko agintea"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "@info"
 msgid "An application is asking for special privileges:\n"
-msgstr ""
+msgstr "Aplikazio bat pribilegio bereziak eskatzen ari da:\n"
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "@info"
 msgid "%1 is asking for special privileges:"
-msgstr ""
+msgstr "%1 pribilegio bereziak eskatzen ari da:"
 
 #: src/remotedesktopdialog.cpp:50
 #, kde-format
@@ -533,32 +525,32 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - Pantailan zer dagoen ikustea"
 
 #: src/remotedesktopdialog.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application requested access to control input devices'. '-' "
 "is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - Sarrerako gailuak\n"
+msgstr ""
+"\n"
+" - Sarrerako gailuak kontrolatzea"
 
 #: src/remotedesktopdialog.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "@info"
 msgid "An application is exercising special permissions:\n"
-msgstr "Aplikazio batek hauetarako sarbidea eskatu du:\n"
+msgstr "Aplikazio bat baimen bereziak erabiltzen ari da:\n"
 
 #: src/remotedesktopdialog.cpp:63
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising special privileges:"
-msgstr ""
+msgstr "%1 pribilegio bereziak erabiltzen ari da:"
 
 #: src/remotedesktopdialog.cpp:67
 #, kde-format
@@ -569,18 +561,20 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - Pantailan zer dagoen ikustea"
 
 #: src/remotedesktopdialog.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application is exercising privileges to control input "
 "devices'. '-' is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - Sarrerako gailuak\n"
+msgstr ""
+"\n"
+" - Sarrerako gailuak kontrolatzea"
 
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:76
 #, kde-format
@@ -591,13 +585,13 @@ msgstr "Etorkizuneko saioetan lehengoratzen uzten du."
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
-msgstr ""
+msgstr "Onetsi"
 
 #: src/RemoteDesktopDialog.qml:39
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr ""
+msgstr "Ukatu"
 
 #: src/screencast.cpp:284
 #, kde-format
@@ -627,11 +621,10 @@ msgid "Screen casting"
 msgstr "Pantaila igortzea"
 
 #: src/screenchooserdialog.cpp:145
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
-msgstr "Pantaila hau %1(r)(e)kin partekatu?"
+msgstr "Pantaila %1(r)(e)kin partekatu"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -716,8 +709,7 @@ msgid "Choose what to share with %1:"
 msgstr "Hautatu %1(r)(e)kin zer partekatu:"
 
 #: src/ScreenChooserDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Windows"
+#, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
@@ -799,36 +791,29 @@ msgstr "Atera"
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
-msgstr ""
+msgstr "USB gailuetarako sarbidea eskatu da"
 
 #: src/UsbDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
 msgid_plural "An application wants to access the following devices:"
-msgstr[0] "Aplikazio batek ondoko lasterbidea erregistratu nahi du:"
-msgstr[1] "Aplikazio batek ondoko %1 lasterbideak erregistratu nahi ditu:"
+msgstr[0] "Aplikazio batek ondoko gailura sartu nahi du:"
+msgstr[1] "Aplikazio batek ondoko gailuetara sartu nahi du:"
 
 #: src/UsbDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
 msgid_plural "%2 wants to access the following devices:"
-msgstr[0] "%2(e)k ondoko lasterbidea erregistratu nahi du:"
-msgstr[1] "%2(e)k ondoko %1 lasterbideak erregistratu nahi ditu:"
+msgstr[0] "%2(e)k ondoko gailura sartu nahi du:"
+msgstr[1] "%2(e)k ondoko gailuetara sartu nahi du:"
 
 #: src/userinfodialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Share User Information with %1"
+#, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
-msgstr "Partekatu erabiltzailearen informazioa %1(e)rekin"
+msgstr "Erabiltzailearen informazioa %1(r)(e)kin partekatu"
 
 #: src/userinfodialog.cpp:54
 #, kde-format
@@ -837,12 +822,14 @@ msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
 msgstr ""
+"Aplikazioak erabiltzaile-izena, izen osoa, eta profileko argazkia erabiltzea "
+"baimentzen du."
 
 #: src/UserInfoDialog.qml:18
 #, kde-format
 msgctxt "@action:button"
 msgid "Share user info"
-msgstr ""
+msgstr "Partekatu Erabiltzaile informazioa"
 
 #: src/UserInfoDialog.qml:76
 #, kde-format
