@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-27 02:38+0000\n"
-"PO-Revision-Date: 2025-09-06 13:30+0300\n"
+"PO-Revision-Date: 2025-12-16 22:40+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -32,7 +32,7 @@ msgstr "<>"
 #: src/accessdialog.cpp:27
 #, kde-format
 msgid "Request device access"
-msgstr "Užklausti prieigą prie įrenginio"
+msgstr "Prašyti prieigos prie įrenginio"
 
 #: src/appchooser.cpp:98
 #, kde-format
