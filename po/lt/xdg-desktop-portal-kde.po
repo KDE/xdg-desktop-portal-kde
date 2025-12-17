@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-02 00:44+0000\n"
-"PO-Revision-Date: 2025-09-06 13:30+0300\n"
+"PO-Revision-Date: 2025-12-16 22:46+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -32,7 +32,7 @@ msgstr "<>"
 #: src/accessdialog.cpp:27
 #, kde-format
 msgid "Request device access"
-msgstr "Užklausti prieigą prie įrenginio"
+msgstr "Prašyti prieigos prie įrenginio"
 
 #: src/appchooser.cpp:98
 #, kde-format
@@ -53,14 +53,11 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Pasirinkite programą, skirtą atverti <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:34
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Find some more apps that can open this content using the Discover app"
-#| msgid "Find More in Discover"
+#, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "Rasti daugiau programoje Discover"
+msgstr "Rasti daugiau programoje Discover…"
 
 #: src/AppChooserDialog.qml:39
 #, kde-format
@@ -393,21 +390,19 @@ msgid "Select"
 msgstr "Pasirinkti"
 
 #: src/outputsmodel.cpp:21
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "Bendrinti šį ekraną su %1?"
+msgstr "Bendrinti virtualų ekraną"
 
 #: src/outputsmodel.cpp:25
 #, kde-format
 msgid "Share region"
-msgstr ""
+msgstr "Bendrinti sritį"
 
 #: src/outputsmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "Visa darbo sritis"
+msgstr "Bendrinti visą darbo sritį"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
@@ -418,19 +413,19 @@ msgstr "Nešiojamasis kompiuteris"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "Bendrinti visą darbo sritį skersai visus ekranus"
 
 #: src/outputsmodel.cpp:248
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgstr "Sukuria ekraną lango viduje, tada bendrina"
 
 #: src/outputsmodel.cpp:250
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "Apkerpa tam tikrą jūsų ekranų sritį"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
@@ -496,33 +491,29 @@ msgid "Remote control session started"
 msgstr "Pradėtas nuotolinio valdymo seansas"
 
 #: src/remotedesktop.cpp:580
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Control"
-msgstr "Paprašyta nuotolinio valdymo"
+msgstr "Nuotolinis valdymas"
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr "Paprašyta nuotolinio valdymo"
+msgstr "Nuotolinis valdymas"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "@info"
 msgid "An application is asking for special privileges:\n"
-msgstr ""
+msgstr "Programa prašo ypatingų teisių:\n"
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "@info"
 msgid "%1 is asking for special privileges:"
-msgstr ""
+msgstr "%1 prašo ypatingų teisių:"
 
 #: src/remotedesktopdialog.cpp:50
 #, kde-format
@@ -533,32 +524,32 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - Matyti, kas yra ekrane"
 
 #: src/remotedesktopdialog.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application requested access to control input devices'. '-' "
 "is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - Įvedimo įrenginiai\n"
+msgstr ""
+"\n"
+" - Valdyti įvedimo įrenginius"
 
 #: src/remotedesktopdialog.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "@info"
 msgid "An application is exercising special permissions:\n"
-msgstr "Programa paprašė prieigos prie:\n"
+msgstr "Programa naudojasi ypatingomis teisėmis:\n"
 
 #: src/remotedesktopdialog.cpp:63
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising special privileges:"
-msgstr ""
+msgstr "%1 naudojasi ypatingomis teisėmis:"
 
 #: src/remotedesktopdialog.cpp:67
 #, kde-format
@@ -569,18 +560,20 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - Matyti, kas yra ekrane"
 
 #: src/remotedesktopdialog.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application is exercising privileges to control input "
 "devices'. '-' is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - Įvedimo įrenginiai\n"
+msgstr ""
+"\n"
+" - Valdyti įvedimo įrenginius"
 
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:76
 #, kde-format
@@ -591,13 +584,13 @@ msgstr "Leisti būsimuosiuose seansuose atkurti"
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
-msgstr ""
+msgstr "Patvirtinti"
 
 #: src/RemoteDesktopDialog.qml:39
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr ""
+msgstr "Drausti"
 
 #: src/screencast.cpp:284
 #, kde-format
@@ -629,11 +622,10 @@ msgid "Screen casting"
 msgstr "Ekrano įrašinėjimas"
 
 #: src/screenchooserdialog.cpp:145
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
-msgstr "Bendrinti šį ekraną su %1?"
+msgstr "Bendrinti ekraną su %1"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -719,8 +711,7 @@ msgid "Choose what to share with %1:"
 msgstr "Pasirinkite, ką bendrinti su %1:"
 
 #: src/ScreenChooserDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Windows"
+#, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
@@ -804,37 +795,30 @@ msgstr "Padaryti"
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
-msgstr ""
+msgstr "Paprašyta prieigos prie USB įrenginių"
 
 #: src/UsbDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
 msgid_plural "An application wants to access the following devices:"
-msgstr[0] "Programa nori įregistruoti šį spartųjį klavišą:"
-msgstr[1] "Programa nori įregistruoti šiuos %1 sparčiuosius klavišus:"
-msgstr[2] "Programa nori įregistruoti šiuos %1 sparčiųjų klavišų:"
-msgstr[3] "Programa nori įregistruoti šį %1 spartųjį klavišą:"
+msgstr[0] "Programa nori gauti prieigą prie šio įrenginio:"
+msgstr[1] "Programa nori gauti prieigą prie šių įrenginių:"
+msgstr[2] "Programa nori gauti prieigą prie šių įrenginių:"
+msgstr[3] "Programa nori gauti prieigą prie šių įrenginių:"
 
 #: src/UsbDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
 msgid_plural "%2 wants to access the following devices:"
-msgstr[0] "%2 nori įregistruoti šį spartųjį klavišą:"
-msgstr[1] "%2 nori įregistruoti šiuos %1 sparčiuosius klavišus:"
-msgstr[2] "%2 nori įregistruoti šiuos %1 sparčiųjų klavišų:"
-msgstr[3] "%2 nori įregistruoti šį %1 spartųjį klavišą:"
+msgstr[0] "%2 nori gauti prieigą prie šio įrenginio:"
+msgstr[1] "%2 nori gauti prieigą prie šių įrenginių:"
+msgstr[2] "%2 nori gauti prieigą prie šių įrenginių:"
+msgstr[3] "%2 nori gauti prieigą prie šių įrenginių:"
 
 #: src/userinfodialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Share User Information with %1"
+#, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
 msgstr "Bendrinti informaciją apie naudotoją su %1"
@@ -846,12 +830,14 @@ msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
 msgstr ""
+"Leidžia programai naudoti jūsų vardą, pavardę, naudotojo vardą ir profilio "
+"paveikslą."
 
 #: src/UserInfoDialog.qml:18
 #, kde-format
 msgctxt "@action:button"
 msgid "Share user info"
-msgstr ""
+msgstr "Bendrinti informaciją apie naudotoją"
 
 #: src/UserInfoDialog.qml:76
 #, kde-format
