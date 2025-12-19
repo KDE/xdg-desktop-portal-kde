@@ -295,7 +295,7 @@ Kirigami.AbstractApplicationWindow {
                     contentItem: root.mainItem
 
                     // make sure we don't add padding if there is no content
-                    visible: contentItem?.visible ?? false
+                    visible: contentItem ?? false
                 }
 
                 Kirigami.Separator {
