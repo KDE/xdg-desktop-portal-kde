@@ -26,38 +26,42 @@ PortalDialog {
     width: Kirigami.Units.gridUnit * 28
     height: Kirigami.Units.gridUnit * 30
 
-    Kirigami.FormLayout {
-        Kirigami.Heading {
-            text: i18n("Capture Mode")
-        }
-        QQC2.ComboBox {
-            id: areaCombo
-            Kirigami.FormData.label: i18n("Area:")
-            textRole: "display"
-        }
-        QQC2.SpinBox {
-            id: delayTime
-            Kirigami.FormData.label: i18n("Delay:")
-            from: 0
-            to: 60
-            stepSize: 1
-            textFromValue: (value, locale) => i18np("%1 second", "%1 seconds", value)
-            valueFromText: (text, locale) => parseInt(text);
-        }
+    ColumnLayout {
+        spacing: Kirigami.Units.smallSpacing
 
-        Kirigami.Heading {
-            text: i18n("Content Options")
-        }
-        QQC2.CheckBox {
-            id: hasCursor
-            text: i18n("Include cursor pointer")
-            checked: true
-        }
-        QQC2.CheckBox {
-            id: hasWindowBorders
-            text: i18n("Include window borders")
-            enabled: areaCombo.currentIndex === 2
-            checked: true
+        Kirigami.FormLayout {
+            Kirigami.Heading {
+                text: i18n("Capture Mode")
+            }
+            QQC2.ComboBox {
+                id: areaCombo
+                Kirigami.FormData.label: i18n("Area:")
+                textRole: "display"
+            }
+            QQC2.SpinBox {
+                id: delayTime
+                Kirigami.FormData.label: i18n("Delay:")
+                from: 0
+                to: 60
+                stepSize: 1
+                textFromValue: (value, locale) => i18np("%1 second", "%1 seconds", value)
+                valueFromText: (text, locale) => parseInt(text);
+            }
+
+            Kirigami.Heading {
+                text: i18n("Content Options")
+            }
+            QQC2.CheckBox {
+                id: hasCursor
+                text: i18n("Include cursor pointer")
+                checked: true
+            }
+            QQC2.CheckBox {
+                id: hasWindowBorders
+                text: i18n("Include window borders")
+                enabled: areaCombo.currentIndex === 2
+                checked: true
+            }
         }
 
         Kirigami.Icon {
