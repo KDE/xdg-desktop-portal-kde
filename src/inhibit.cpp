@@ -223,8 +223,11 @@ void InhibitPortal::QueryEndResponse(const QDBusObjectPath &handle)
     bool anySessionWaiting = std::any_of(m_monitors.constBegin(), m_monitors.constEnd(), [](SessionStateMonitorSession *session) {
         return session->waitingForResponse();
     });
+
     if (!anySessionWaiting) {
-        queryCanShutDownComplete();
+        // We should be able to call directly, but there's a race at: https://github.com/flatpak/xdg-desktop-portal/issues/1881
+        // Wait a tiny bit to allow any apps to finish placing blockers
+        QTimer::singleShot(100, this, &InhibitPortal::queryCanShutDownComplete);
     }
 }
 
