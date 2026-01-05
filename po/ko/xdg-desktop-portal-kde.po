@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-02 00:44+0000\n"
+"POT-Creation-Date: 2026-01-05 00:45+0000\n"
 "PO-Revision-Date: 2025-10-12 13:01+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -733,48 +733,48 @@ msgstr "활성 창"
 msgid "Request Screenshot"
 msgstr "스크린샷 요청"
 
-#: src/ScreenshotDialog.qml:31
+#: src/ScreenshotDialog.qml:34
 #, kde-format
 msgid "Capture Mode"
 msgstr "캡처 모드"
 
-#: src/ScreenshotDialog.qml:35
+#: src/ScreenshotDialog.qml:38
 #, kde-format
 msgid "Area:"
 msgstr "영역:"
 
-#: src/ScreenshotDialog.qml:40
+#: src/ScreenshotDialog.qml:43
 #, kde-format
 msgid "Delay:"
 msgstr "지연 시간:"
 
-#: src/ScreenshotDialog.qml:44
+#: src/ScreenshotDialog.qml:47
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1초"
 
-#: src/ScreenshotDialog.qml:49
+#: src/ScreenshotDialog.qml:52
 #, kde-format
 msgid "Content Options"
 msgstr "내용 옵션"
 
-#: src/ScreenshotDialog.qml:53
+#: src/ScreenshotDialog.qml:56
 #, kde-format
 msgid "Include cursor pointer"
 msgstr "커서 포인터 포함"
 
-#: src/ScreenshotDialog.qml:58
+#: src/ScreenshotDialog.qml:61
 #, kde-format
 msgid "Include window borders"
 msgstr "창 경계선 포함"
 
-#: src/ScreenshotDialog.qml:73
+#: src/ScreenshotDialog.qml:77
 #, kde-format
 msgid "Save"
 msgstr "저장"
 
-#: src/ScreenshotDialog.qml:83
+#: src/ScreenshotDialog.qml:87
 #, kde-format
 msgid "Take"
 msgstr "찍기"

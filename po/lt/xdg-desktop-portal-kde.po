@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-02 00:44+0000\n"
+"POT-Creation-Date: 2026-01-05 00:45+0000\n"
 "PO-Revision-Date: 2025-12-16 22:46+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
@@ -742,22 +742,22 @@ msgstr "Aktyvus langas"
 msgid "Request Screenshot"
 msgstr "Prašyti ekrano kopijos"
 
-#: src/ScreenshotDialog.qml:31
+#: src/ScreenshotDialog.qml:34
 #, kde-format
 msgid "Capture Mode"
 msgstr "Fotografavimo veiksena"
 
-#: src/ScreenshotDialog.qml:35
+#: src/ScreenshotDialog.qml:38
 #, kde-format
 msgid "Area:"
 msgstr "Sritis:"
 
-#: src/ScreenshotDialog.qml:40
+#: src/ScreenshotDialog.qml:43
 #, kde-format
 msgid "Delay:"
 msgstr "Delsa:"
 
-#: src/ScreenshotDialog.qml:44
+#: src/ScreenshotDialog.qml:47
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
@@ -766,27 +766,27 @@ msgstr[1] "%1 sekundės"
 msgstr[2] "%1 sekundžių"
 msgstr[3] "%1 sekundė"
 
-#: src/ScreenshotDialog.qml:49
+#: src/ScreenshotDialog.qml:52
 #, kde-format
 msgid "Content Options"
 msgstr "Turinio parinktys"
 
-#: src/ScreenshotDialog.qml:53
+#: src/ScreenshotDialog.qml:56
 #, kde-format
 msgid "Include cursor pointer"
 msgstr "Įtraukti pelės rodyklę"
 
-#: src/ScreenshotDialog.qml:58
+#: src/ScreenshotDialog.qml:61
 #, kde-format
 msgid "Include window borders"
 msgstr "Įtraukti lango rėmelius"
 
-#: src/ScreenshotDialog.qml:73
+#: src/ScreenshotDialog.qml:77
 #, kde-format
 msgid "Save"
 msgstr "Įrašyti"
 
-#: src/ScreenshotDialog.qml:83
+#: src/ScreenshotDialog.qml:87
 #, kde-format
 msgid "Take"
 msgstr "Padaryti"

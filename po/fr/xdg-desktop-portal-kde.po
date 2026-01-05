@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-02 00:44+0000\n"
+"POT-Creation-Date: 2026-01-05 00:45+0000\n"
 "PO-Revision-Date: 2025-11-28 09:00+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -744,49 +744,49 @@ msgstr "Fenêtre active"
 msgid "Request Screenshot"
 msgstr "Demander une copie d'écran"
 
-#: src/ScreenshotDialog.qml:31
+#: src/ScreenshotDialog.qml:34
 #, kde-format
 msgid "Capture Mode"
 msgstr "Mode de capture"
 
-#: src/ScreenshotDialog.qml:35
+#: src/ScreenshotDialog.qml:38
 #, kde-format
 msgid "Area:"
 msgstr "Zone : "
 
-#: src/ScreenshotDialog.qml:40
+#: src/ScreenshotDialog.qml:43
 #, kde-format
 msgid "Delay:"
 msgstr "Délai :"
 
-#: src/ScreenshotDialog.qml:44
+#: src/ScreenshotDialog.qml:47
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 seconde"
 msgstr[1] "%1 secondes"
 
-#: src/ScreenshotDialog.qml:49
+#: src/ScreenshotDialog.qml:52
 #, kde-format
 msgid "Content Options"
 msgstr "Options de contenu"
 
-#: src/ScreenshotDialog.qml:53
+#: src/ScreenshotDialog.qml:56
 #, kde-format
 msgid "Include cursor pointer"
 msgstr "Inclure le pointeur de souris"
 
-#: src/ScreenshotDialog.qml:58
+#: src/ScreenshotDialog.qml:61
 #, kde-format
 msgid "Include window borders"
 msgstr "Inclure les bordures de la fenêtre"
 
-#: src/ScreenshotDialog.qml:73
+#: src/ScreenshotDialog.qml:77
 #, kde-format
 msgid "Save"
 msgstr "Enregistrer"
 
-#: src/ScreenshotDialog.qml:83
+#: src/ScreenshotDialog.qml:87
 #, kde-format
 msgid "Take"
 msgstr "Prendre"

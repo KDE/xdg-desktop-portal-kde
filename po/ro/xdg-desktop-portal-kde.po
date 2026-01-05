@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-02 00:44+0000\n"
-"PO-Revision-Date: 2025-09-27 13:52+0100\n"
+"POT-Creation-Date: 2026-01-05 00:45+0000\n"
+"PO-Revision-Date: 2025-12-12 10:50+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -52,14 +52,11 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Alegeți o aplicație pentru a deschide <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:34
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Find some more apps that can open this content using the Discover app"
-#| msgid "Find More in Discover"
+#, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "Găsește mai multe în Discover"
+msgstr "Găsiți mai multe în Discover…"
 
 #: src/AppChooserDialog.qml:39
 #, kde-format
@@ -391,21 +388,19 @@ msgid "Select"
 msgstr "Alege"
 
 #: src/outputsmodel.cpp:21
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "Partajați acest ecran cu %1?"
+msgstr "Partajează ecran virtual"
 
 #: src/outputsmodel.cpp:25
 #, kde-format
 msgid "Share region"
-msgstr ""
+msgstr "Partajează regiune"
 
 #: src/outputsmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "Spațiu de lucru complet"
+msgstr "Partajează spațiul de lucru complet"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
@@ -416,19 +411,19 @@ msgstr "Ecranul laptopului"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "Partajează întregul spațiu de lucru de pe toate ecranele"
 
 #: src/outputsmodel.cpp:248
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgstr "Creează un ecran într-o fereastră, apoi partajează"
 
 #: src/outputsmodel.cpp:250
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "Decupează o anumită zonă a ecranelor"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
@@ -494,33 +489,29 @@ msgid "Remote control session started"
 msgstr "Sesiunea de control de la distanță a început"
 
 #: src/remotedesktop.cpp:580
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Control"
-msgstr "Control de la distanță cerut"
+msgstr "Control de la distanță"
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr "Control de la distanță cerut"
+msgstr "Control de la distanță"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "@info"
 msgid "An application is asking for special privileges:\n"
-msgstr ""
+msgstr "O aplicație cere privilegii speciale:\n"
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "@info"
 msgid "%1 is asking for special privileges:"
-msgstr ""
+msgstr "%1 cere privilegii speciale:"
 
 #: src/remotedesktopdialog.cpp:50
 #, kde-format
@@ -531,30 +522,32 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - Să vadă ce e pe ecran"
 
 #: src/remotedesktopdialog.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application requested access to control input devices'. '-' "
 "is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - dispozitive de intrare\n"
+msgstr ""
+"\n"
+" - Să controleze dispozitivele de intrare"
 
 #: src/remotedesktopdialog.cpp:62
 #, kde-format
 msgctxt "@info"
 msgid "An application is exercising special permissions:\n"
-msgstr ""
+msgstr "O aplicație exercită permisiuni speciale:\n"
 
 #: src/remotedesktopdialog.cpp:63
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising special privileges:"
-msgstr ""
+msgstr "%1 exercită privilegii speciale:"
 
 #: src/remotedesktopdialog.cpp:67
 #, kde-format
@@ -565,18 +558,20 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - Să vadă ce e pe ecran"
 
 #: src/remotedesktopdialog.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application is exercising privileges to control input "
 "devices'. '-' is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - dispozitive de intrare\n"
+msgstr ""
+"\n"
+" - Să controleze dispozitivele de intrare"
 
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:76
 #, kde-format
@@ -587,13 +582,13 @@ msgstr "Permite restabilirea în sesiuni viitoare"
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
-msgstr ""
+msgstr "Aprobă"
 
 #: src/RemoteDesktopDialog.qml:39
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr ""
+msgstr "Refuză"
 
 #: src/screencast.cpp:284
 #, kde-format
@@ -624,11 +619,10 @@ msgid "Screen casting"
 msgstr "Se partajează ecranul"
 
 #: src/screenchooserdialog.cpp:145
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
-msgstr "Partajați acest ecran cu %1?"
+msgstr "Partajează ecranul cu %1"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -711,8 +705,7 @@ msgid "Choose what to share with %1:"
 msgstr "Alegeți ce să fie partajat cu %1:"
 
 #: src/ScreenChooserDialog.qml:54
-#, fuzzy, kde-format
-#| msgid "Windows"
+#, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
@@ -743,22 +736,22 @@ msgstr "Fereastra activă"
 msgid "Request Screenshot"
 msgstr "Cere captură de ecran"
 
-#: src/ScreenshotDialog.qml:31
+#: src/ScreenshotDialog.qml:34
 #, kde-format
 msgid "Capture Mode"
 msgstr "Regim captură"
 
-#: src/ScreenshotDialog.qml:35
+#: src/ScreenshotDialog.qml:38
 #, kde-format
 msgid "Area:"
 msgstr "Zonă:"
 
-#: src/ScreenshotDialog.qml:40
+#: src/ScreenshotDialog.qml:43
 #, kde-format
 msgid "Delay:"
 msgstr "Întârziere:"
 
-#: src/ScreenshotDialog.qml:44
+#: src/ScreenshotDialog.qml:47
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
@@ -766,27 +759,27 @@ msgstr[0] "%1 secundă"
 msgstr[1] "%1 secunde"
 msgstr[2] "%1 de secunde"
 
-#: src/ScreenshotDialog.qml:49
+#: src/ScreenshotDialog.qml:52
 #, kde-format
 msgid "Content Options"
 msgstr "Opțiuni de conținut"
 
-#: src/ScreenshotDialog.qml:53
+#: src/ScreenshotDialog.qml:56
 #, kde-format
 msgid "Include cursor pointer"
 msgstr "Include indicatorul cursorului"
 
-#: src/ScreenshotDialog.qml:58
+#: src/ScreenshotDialog.qml:61
 #, kde-format
 msgid "Include window borders"
 msgstr "Include conturul ferestrelor"
 
-#: src/ScreenshotDialog.qml:73
+#: src/ScreenshotDialog.qml:77
 #, kde-format
 msgid "Save"
 msgstr "Salvează"
 
-#: src/ScreenshotDialog.qml:83
+#: src/ScreenshotDialog.qml:87
 #, kde-format
 msgid "Take"
 msgstr "Începe"
@@ -795,35 +788,28 @@ msgstr "Începe"
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
-msgstr ""
+msgstr "Se cere acces la dispozitivele USB"
 
 #: src/UsbDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
 msgid_plural "An application wants to access the following devices:"
-msgstr[0] "O aplicație vrea să înregistreze scurtătura următoare:"
-msgstr[1] "O aplicație vrea să înregistreze următoarele %1 scurtături:"
-msgstr[2] "O aplicație vrea să înregistreze următoarele %1 de scurtături:"
+msgstr[0] "O aplicație vrea să acceseze următorul dispozitiv:"
+msgstr[1] "O aplicație vrea să acceseze următoarele dispozitive:"
+msgstr[2] "O aplicație vrea să acceseze următoarele dispozitive:"
 
 #: src/UsbDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
 msgid_plural "%2 wants to access the following devices:"
-msgstr[0] "%2 vrea să înregistreze scurtătura următoare:"
-msgstr[1] "%2 vrea să înregistreze următoarele %1 scurtături:"
-msgstr[2] "%2 vrea să înregistreze următoarele %1 de scurtături:"
+msgstr[0] "%2 vrea să acceseze următorul dispozitiv:"
+msgstr[1] "%2 vrea să acceseze următoarele dispozitive:"
+msgstr[2] "%2 vrea să acceseze următoarele dispozitive:"
 
 #: src/userinfodialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Share User Information with %1"
+#, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
 msgstr "Partajează informații despre utilizator cu %1"
@@ -835,12 +821,14 @@ msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
 msgstr ""
+"Îi permite aplicației să vă folosească numele de utilizator, numele complet "
+"și poza de profil."
 
 #: src/UserInfoDialog.qml:18
 #, kde-format
 msgctxt "@action:button"
 msgid "Share user info"
-msgstr ""
+msgstr "Partajează informații despre utilizator"
 
 #: src/UserInfoDialog.qml:76
 #, kde-format
