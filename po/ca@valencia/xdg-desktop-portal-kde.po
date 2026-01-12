@@ -805,7 +805,7 @@ msgstr ""
 #: src/waylandintegration.cpp:269 src/waylandintegration.cpp:326
 #, kde-format
 msgid "Failed to start screencasting"
-msgstr "No s'ha pogut iniciar el vídeo de captura de pantalla"
+msgstr "Ha fallat mentre s'iniciava el vídeo de captura de pantalla"
 
 #: src/waylandintegration.cpp:477
 #, kde-format
