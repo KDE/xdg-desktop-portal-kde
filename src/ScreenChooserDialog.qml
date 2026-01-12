@@ -77,6 +77,7 @@ ScreenChooserDialogTemplate {
     }
 
     acceptable: (outputsModel && outputsModel.hasSelection) || (windowsModel && windowsModel.hasSelection)
+    scrollable: true
 
     width: Kirigami.Units.gridUnit * 28
     height: Kirigami.Units.gridUnit * 30
@@ -139,50 +140,44 @@ ScreenChooserDialogTemplate {
         }
     }
 
-    QQC2.ScrollView {
-        contentWidth: availableWidth
+    ColumnLayout {
+        spacing: Kirigami.Units.largeSpacing
 
-        ColumnLayout {
+        PipeWireLayout {
+            id: outputsLayout
+            Layout.fillWidth: true
+            dialog: root
+            model: GeometryFilterModel {
+                sourceModel: root.outputsModel
+            }
+        }
+
+        RowLayout {
+            Layout.fillWidth: true
             spacing: Kirigami.Units.largeSpacing
-            anchors.left: parent.left
-            anchors.right: parent.right
+            visible: windowsLayout.view.count > 0
 
-            PipeWireLayout {
-                id: outputsLayout
+            Kirigami.Separator {
                 Layout.fillWidth: true
-                dialog: root
-                model: GeometryFilterModel {
-                    sourceModel: root.outputsModel
-                }
             }
 
-            RowLayout {
-                Layout.fillWidth: true
-                spacing: Kirigami.Units.largeSpacing
-                visible: windowsLayout.view.count > 0
-
-                Kirigami.Separator {
-                    Layout.fillWidth: true
-                }
-
-                QQC2.Label {
-                    font.bold: true
-                    text: i18nc("@label separator line label between screen selection and window selection", "Windows")
-                    wrapMode: Text.WordWrap
-                }
-
-                Kirigami.Separator {
-                    Layout.fillWidth: true
-                }
+            QQC2.Label {
+                font.bold: true
+                text: i18nc("@label separator line label between screen selection and window selection", "Windows")
+                wrapMode: Text.WordWrap
             }
 
-            PipeWireLayout {
-                id: windowsLayout
+            Kirigami.Separator {
                 Layout.fillWidth: true
-                dialog: root
-                model: GeometryFilterModel {
-                    sourceModel: root.windowsModel
-                }
+            }
+        }
+
+        PipeWireLayout {
+            id: windowsLayout
+            Layout.fillWidth: true
+            dialog: root
+            model: GeometryFilterModel {
+                sourceModel: root.windowsModel
             }
         }
     }
