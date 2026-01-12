@@ -42,6 +42,12 @@ Kirigami.AbstractApplicationWindow {
 
     default property Item mainItem
 
+    /*
+        When true the main content area will be wrapped in a ScrollView. Prefer this whenever you may need the content
+        to scroll. Adding scrollbars any other way may lead to margins being added twice and other visual glitches.
+    */
+    property bool scrollable: false
+
     /**
      * Sits below the mainText and subtitle but above the content separator (visually part of the header)
      */
@@ -278,8 +284,44 @@ Kirigami.AbstractApplicationWindow {
                     Layout.fillWidth: true
                 }
 
+                Component {
+                    id: contentComponent
+
+                    QQC2.Control {
+                        Kirigami.Theme.colorSet: Kirigami.Theme.View
+                        background: Rectangle {
+                            Kirigami.Theme.colorSet: Kirigami.Theme.View
+                            color: Kirigami.Theme.backgroundColor
+                        }
+                        contentItem: root.mainItem
+                    }
+                }
+
+                Component {
+                    id: scrollComponent
+
+                    QQC2.ScrollView {
+                        id: scrollView
+                        contentWidth: availableWidth
+
+                        Kirigami.Theme.colorSet: Kirigami.Theme.View
+                        background: Rectangle {
+                            Kirigami.Theme.colorSet: Kirigami.Theme.View
+                            color: Kirigami.Theme.backgroundColor
+                        }
+
+                        Loader {
+                            id: scrollContentLoader
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+
+                            sourceComponent: contentComponent
+                        }
+                    }
+                }
+
                 // Main content area, to be provided by the implementation
-                QQC2.Control {
+                Loader {
                     id: contentsControl
 
                     Layout.fillWidth: true
@@ -287,15 +329,10 @@ Kirigami.AbstractApplicationWindow {
                     Layout.leftMargin: -control.leftPadding
                     Layout.rightMargin: -control.rightPadding
 
-                    Kirigami.Theme.colorSet: Kirigami.Theme.View
-                    background: Rectangle {
-                        Kirigami.Theme.colorSet: Kirigami.Theme.View
-                        color: Kirigami.Theme.backgroundColor
-                    }
-                    contentItem: root.mainItem
+                    sourceComponent: root.scrollable ? scrollComponent : contentComponent
 
                     // make sure we don't add padding if there is no content
-                    visible: contentItem ?? false
+                    visible: root.mainItem ?? false
                 }
 
                 Kirigami.Separator {
