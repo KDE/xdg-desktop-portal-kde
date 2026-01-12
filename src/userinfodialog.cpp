@@ -51,7 +51,7 @@ UserInfoDialog::UserInfoDialog(const QString &reason, const QString &app_id, QOb
     QVariantMap props = {
         {u"mainText"_s, i18nc("@title", "Share user info with %1", appName)},
         {u"subtitle"_s,
-         reason.isEmpty() ? i18nc("@info:usagetip", "Allows your username, full name, and profile picture to be used by the application.", appName) : reason},
+         reason.isEmpty() ? i18nc("@info:usagetip", "Allows your username, full name, and profile picture to be used by the application.") : reason},
         {u"username"_s, id()},
         {u"realname"_s, name()},
         {u"avatar"_s, image()},
