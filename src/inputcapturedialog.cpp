@@ -9,7 +9,7 @@
 
 using namespace Qt::StringLiterals;
 
-InputCaptureDialog::InputCaptureDialog(const QString &appId, InputCapturePortal::Capabilities capabilties, QObject *parent)
+InputCaptureDialog::InputCaptureDialog(const QString &appId, InputCapturePortal::Capabilities capabilities, QObject *parent)
     : QuickDialog(parent)
 {
     create(u"InputCaptureDialog"_s, {{u"app"_s, Utils::applicationName(appId)}});
