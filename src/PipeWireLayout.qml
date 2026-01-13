@@ -45,6 +45,13 @@ Kirigami.CardsLayout {
             autoExclusive: exclusive
             checked: model.checked === Qt.Checked
             nodeId: waylandItem.nodeId
+            syntheticCount: {
+                let model = view.model.sourceModel
+                if (model instanceof OutputsModel) {
+                    return (model as OutputsModel).syntheticCount
+                }
+                return 0
+            }
 
             activeFocusOnTab: true
             highlighted: activeFocus
