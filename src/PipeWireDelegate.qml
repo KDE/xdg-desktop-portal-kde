@@ -20,6 +20,8 @@ Kirigami.AbstractCard {
     required property bool synthetic
     required property int nodeId
     required property bool exclusive
+    /*! The count of synthetic outputs in the model this delegate belongs to */
+    required property int syntheticCount
 
     function selectAndAccept(): void {
         // To be implemented by the user of the delegate. Depends entirely on context (dialog, model, etc).
@@ -124,7 +126,9 @@ Kirigami.AbstractCard {
     }
 
     // A synthetic delegate has no preview and as such has no contentItem and is smaller than a normal one.
-    Layout.rowSpan: synthetic ? 1 : 2
+    // Try to squeeze them all in one cell. Should be fine, we scale the others if need be through the uniformity rule.
+    // Conversely the big delegates are spanning multiple rows of synthetic delegates.
+    Layout.rowSpan: synthetic ? 1 : Math.max(syntheticCount, 1)
     contentItem: synthetic ? null : preview.createObject(null) as Item
 
     Layout.preferredHeight: contentItem?.Layout?.preferredHeight ?? -1
