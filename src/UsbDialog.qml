@@ -24,6 +24,7 @@ PortalDialog {
         }
         return i18ncp("%2 is the name of the application", "%2 wants to access the following device:", "%2 wants to access the following devices:", devices.length, app)
     }
+    scrollable: true
 
     width: Kirigami.Units.gridUnit * 28
     height: Kirigami.Units.gridUnit * 30
@@ -53,48 +54,38 @@ PortalDialog {
 
         spacing: 0
 
-        QQC2.ScrollView {
-            id: view
-            Kirigami.Theme.colorSet: Kirigami.Theme.View
-            clip: true
+        ListView {
+            id: list
             Layout.fillWidth: true
             Layout.fillHeight: true
-            // Let the implicitHeight be "5 items shown by default"
-            implicitHeight: Math.min(list.currentItem?.implicitHeight * 5, implicitContentHeight)
-            ListView {
-                id: list
-                model: root.devices
-                delegate: QQC2.ItemDelegate {
-                    id: delegate
-                    required property var model
-                    required property int index
-                    width: ListView.view.width
-                    hoverEnabled: false
-                    down: false
-                    contentItem:  RowLayout {
-                        spacing: Kirigami.Units.smallSpacing
-                        Kirigami.TitleSubtitle {
-                            Layout.fillWidth: true
-                            title: delegate.model.properties?.ID_MODEL_FROM_DATABASE ||  decodeString(delegate.model.properties?.ID_MODEL_ENC) ||delegate. model.properties?.ID_MODEL_ID || ""
-                            subtitle: delegate.model.properties?.ID_VENDOR_FROM_DATABASE || decodeString(delegate.model.properties?.ID_VENDOR_ENC) ||delegate. model.properties?.ID_VENDOR_ID || ""
-                            function decodeString(a)
-                            {
-                                return a?.replace(/\\x([\da-f]{2})/g, (match, capture) => String.fromCharCode(parseInt(capture, 16)))
-                            }
+            implicitHeight: contentHeight
+            model: root.devices
+            delegate: QQC2.ItemDelegate {
+                id: delegate
+                required property var model
+                required property int index
+                width: ListView.view.width
+                hoverEnabled: false
+                down: false
+                contentItem:  RowLayout {
+                    spacing: Kirigami.Units.smallSpacing
+                    Kirigami.TitleSubtitle {
+                        Layout.fillWidth: true
+                        title: delegate.model.properties?.ID_MODEL_FROM_DATABASE ||  decodeString(delegate.model.properties?.ID_MODEL_ENC) ||delegate. model.properties?.ID_MODEL_ID || ""
+                        subtitle: delegate.model.properties?.ID_VENDOR_FROM_DATABASE || decodeString(delegate.model.properties?.ID_VENDOR_ENC) ||delegate. model.properties?.ID_VENDOR_ID || ""
+                        function decodeString(a)
+                        {
+                            return a?.replace(/\\x([\da-f]{2})/g, (match, capture) => String.fromCharCode(parseInt(capture, 16)))
                         }
-                        QQC2.Button {
-                            icon.name: "list-remove"
-                            onClicked: {
-                                root.devices.splice(delegate.index, 1)
-                            }
+                    }
+                    QQC2.Button {
+                        icon.name: "list-remove"
+                        onClicked: {
+                            root.devices.splice(delegate.index, 1)
                         }
                     }
                 }
             }
-            background: Rectangle {
-                color: Kirigami.Theme.backgroundColor
-            }
-
         }
     }
 }

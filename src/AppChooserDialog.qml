@@ -20,6 +20,7 @@ PortalDialog {
     id: root
 
     iconName: "applications-all"
+    scrollable: true
 
     required property AppFilterModel appModel
     required property AppChooserData appChooserData
@@ -128,85 +129,79 @@ PortalDialog {
         }
     }
 
-    QQC2.ScrollView {
-        id: scrollView
+    GridView {
+        id: grid
 
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        Layout.preferredHeight: grid.cellHeight * 3
+        readonly property int gridDelegateIconSize: Kirigami.Units.iconSizes.huge
+        readonly property int gridDelegateWidth: gridDelegateIconSize + (Kirigami.Units.gridUnit * 4)
+        readonly property int gridDelegateHeight: gridDelegateWidth + Kirigami.Units.gridUnit
 
-        GridView {
-            id: grid
+        clip: true
 
-            readonly property int gridDelegateIconSize: Kirigami.Units.iconSizes.huge
-            readonly property int gridDelegateWidth: gridDelegateIconSize + (Kirigami.Units.gridUnit * 4)
-            readonly property int gridDelegateHeight: gridDelegateWidth + Kirigami.Units.gridUnit
+        Keys.onReturnPressed: currentItem.click();
+        Keys.onEnterPressed: currentItem.click();
 
-            clip: true
+        currentIndex: -1 // Don't pre-select anything as that doesn't make sense here
 
-            Keys.onReturnPressed: currentItem.click();
-            Keys.onEnterPressed: currentItem.click();
+        cellWidth: {
+            const columns = Math.max(Math.floor((parent as QQC2.Control).availableWidth / gridDelegateWidth), 2);
+            return Math.floor((parent as QQC2.Control).availableWidth / columns) - 1;
+        }
+        cellHeight: gridDelegateHeight
 
-            currentIndex: -1 // Don't pre-select anything as that doesn't make sense here
+        implicitHeight: contentHeight
 
-            cellWidth: {
-                const columns = Math.max(Math.floor(scrollView.availableWidth / gridDelegateWidth), 2);
-                return Math.floor(scrollView.availableWidth / columns) - 1;
+        model: root.appModel
+        delegate: QQC2.ItemDelegate {
+            id: delegate
+
+            required property int index
+            required property var model
+
+            height: grid.cellHeight
+            width: grid.cellWidth
+
+            display: QQC2.AbstractButton.TextUnderIcon
+
+            icon.name: delegate.model.applicationIcon
+            icon.width: grid.gridDelegateIconSize
+            icon.height: grid.gridDelegateIconSize
+
+            text: switch (delegate.model.applicationDesktopFile) {
+                case root.appChooserData.defaultApp:
+                    return xi18nc("@info", "%1<nl/><emphasis>Default app for this file type</emphasis>", delegate.model.applicationName);
+                case root.appChooserData.lastUsedApp:
+                    return xi18nc("@info", "%1<nl/><emphasis>Last used app for this file type</emphasis>", delegate.model.applicationName);
+                default:
+                    return delegate.model.applicationName;
             }
-            cellHeight: gridDelegateHeight
+            font.bold: delegate.model.applicationDesktopFile === root.appChooserData.defaultApp
 
-            model: root.appModel
-            delegate: QQC2.ItemDelegate {
-                id: delegate
+            onClicked: root.appChooserData.applicationSelected(model.applicationDesktopFile, root.remember)
+        }
 
-                required property int index
-                required property var model
+        Loader {
+            id: placeholderLoader
 
-                height: grid.cellHeight
-                width: grid.cellWidth
+            anchors.centerIn: parent
+            width: parent.width - Kirigami.Units.gridUnit * 4
 
-                display: QQC2.AbstractButton.TextUnderIcon
-
-                icon.name: delegate.model.applicationIcon
-                icon.width: grid.gridDelegateIconSize
-                icon.height: grid.gridDelegateIconSize
-
-                text: switch (delegate.model.applicationDesktopFile) {
-                    case root.appChooserData.defaultApp:
-                        return xi18nc("@info", "%1<nl/><emphasis>Default app for this file type</emphasis>", delegate.model.applicationName);
-                    case root.appChooserData.lastUsedApp:
-                        return xi18nc("@info", "%1<nl/><emphasis>Last used app for this file type</emphasis>", delegate.model.applicationName);
-                    default:
-                        return delegate.model.applicationName;
-                }
-                font.bold: delegate.model.applicationDesktopFile === root.appChooserData.defaultApp
-
-                onClicked: root.appChooserData.applicationSelected(model.applicationDesktopFile, root.remember)
-            }
-
-            Loader {
-                id: placeholderLoader
-
+            active: grid.count === 0
+            sourceComponent: Kirigami.PlaceholderMessage {
                 anchors.centerIn: parent
-                width: parent.width - Kirigami.Units.gridUnit * 4
 
-                active: grid.count === 0
-                sourceComponent: Kirigami.PlaceholderMessage {
-                    anchors.centerIn: parent
-
-                    icon.name: root.showingTerminalCommand ? "system-run": "edit-none"
-                    text: {
-                        if (root.showingTerminalCommand) {
-                            return xi18nc("@info", "Open with <command>%1</command>?", searchField.editText)
-                        } else if (searchField.editText.length > 0) {
-                            return i18n("No matches")
-                        } else {
-                            return xi18nc("@info", "No installed applications can open <filename>%1</filename>", root.appChooserData.fileName)
-                        }
+                icon.name: root.showingTerminalCommand ? "system-run": "edit-none"
+                text: {
+                    if (root.showingTerminalCommand) {
+                        return xi18nc("@info", "Open with <command>%1</command>?", searchField.editText)
+                    } else if (searchField.editText.length > 0) {
+                        return i18n("No matches")
+                    } else {
+                        return xi18nc("@info", "No installed applications can open <filename>%1</filename>", root.appChooserData.fileName)
                     }
-
-                    helpfulAction: root.showingTerminalCommand ? root.openWithTerminalAction : root.discoverAction
                 }
+
+                helpfulAction: root.showingTerminalCommand ? root.openWithTerminalAction : root.discoverAction
             }
         }
     }
