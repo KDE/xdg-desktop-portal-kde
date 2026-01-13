@@ -79,8 +79,8 @@ ScreenChooserDialogTemplate {
     acceptable: (outputsModel && outputsModel.hasSelection) || (windowsModel && windowsModel.hasSelection)
     scrollable: true
 
-    width: Kirigami.Units.gridUnit * 28
-    height: Kirigami.Units.gridUnit * 30
+    width: Kirigami.Units.gridUnit * 41
+    height: Kirigami.Units.gridUnit * 41
 
     headerItem: ColumnLayout {
         RowLayout {
@@ -141,7 +141,7 @@ ScreenChooserDialogTemplate {
     }
 
     ColumnLayout {
-        spacing: Kirigami.Units.largeSpacing
+        spacing: root.edgeSpacing
 
         PipeWireLayout {
             id: outputsLayout
@@ -155,7 +155,7 @@ ScreenChooserDialogTemplate {
         RowLayout {
             Layout.fillWidth: true
             spacing: Kirigami.Units.largeSpacing
-            visible: windowsLayout.view.count > 0
+            visible: outputsLayout.view.count > 0 && windowsLayout.view.count > 0
 
             Kirigami.Separator {
                 Layout.fillWidth: true
