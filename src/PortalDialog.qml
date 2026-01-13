@@ -93,6 +93,7 @@ Kirigami.AbstractApplicationWindow {
 
     readonly property alias contentWidth: contentLayout.implicitWidth
     readonly property alias contentHeight: contentLayout.implicitHeight
+    readonly property real edgeSpacing: Kirigami.Units.largeSpacing * 2
 
     flags: Qt.Dialog | Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
     visible: false
@@ -211,10 +212,10 @@ Kirigami.AbstractApplicationWindow {
 
                     visible: visibleChildren.length > 0
 
-                    topPadding: Kirigami.Units.largeSpacing
-                    bottomPadding: Kirigami.Units.largeSpacing
-                    leftPadding: Kirigami.Units.largeSpacing
-                    rightPadding: Kirigami.Units.largeSpacing
+                    topPadding: root.edgeSpacing
+                    bottomPadding: root.edgeSpacing
+                    leftPadding: root.edgeSpacing
+                    rightPadding: root.edgeSpacing
 
                     contentItem: ColumnLayout {
                         spacing: headerControl.topPadding
@@ -288,6 +289,11 @@ Kirigami.AbstractApplicationWindow {
                     id: contentComponent
 
                     QQC2.Control {
+                        topPadding: root.edgeSpacing
+                        bottomPadding: root.edgeSpacing
+                        leftPadding: root.edgeSpacing
+                        rightPadding: root.edgeSpacing
+
                         Kirigami.Theme.colorSet: Kirigami.Theme.View
                         background: Rectangle {
                             color: Kirigami.Theme.backgroundColor
@@ -345,6 +351,11 @@ Kirigami.AbstractApplicationWindow {
 
                     Layout.fillWidth: true
                     visible: visibleChildren.length > 0
+
+                    topPadding: root.edgeSpacing
+                    bottomPadding: root.edgeSpacing
+                    leftPadding: root.edgeSpacing
+                    rightPadding: root.edgeSpacing
 
                     contentItem: ColumnLayout {
                         visible: visibleChildren.length > 0

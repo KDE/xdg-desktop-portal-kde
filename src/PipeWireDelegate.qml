@@ -87,8 +87,8 @@ Kirigami.AbstractCard {
         id: preview
 
         Item {
-            Layout.preferredWidth: Kirigami.Units.gridUnit * 7
-            Layout.preferredHeight: Kirigami.Units.gridUnit * 7
+            Layout.preferredWidth: Kirigami.Units.gridUnit * 8
+            Layout.preferredHeight: Kirigami.Units.gridUnit * 8
             Layout.fillWidth: true
             Layout.fillHeight: true
 
