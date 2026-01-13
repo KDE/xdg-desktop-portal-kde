@@ -116,6 +116,7 @@ ScreenChooserDialogTemplate {
             Kirigami.SearchField {
                 id: searchField
                 Layout.alignment: Qt.AlignRight
+                placeholderText: i18nc("placeholder text for searchfield", "Search…")
                 Component.onCompleted: Qt.callLater(forceActiveFocus) // focus by default for easy searching
                 Keys.onPressed: (event) => {
                     if (event.key !== Qt.Key_Return && event.key !== Qt.Key_Enter) {
