@@ -29,6 +29,7 @@ PortalDialog {
         }
         return i18ncp("%2 is the name of the application", "%2 wants to register the following shortcut:", "%2 wants to register the following %1 shortcuts:", count, app)
     }
+    scrollable: true
 
     width: Kirigami.Units.gridUnit * 28
     height: Kirigami.Units.gridUnit * 30
@@ -57,54 +58,45 @@ PortalDialog {
 
         spacing: 0
 
-        QQC2.ScrollView {
-            id: view
-            Kirigami.Theme.colorSet: Kirigami.Theme.View
-            clip: true
+        ListView {
+            id: list
             Layout.fillWidth: true
             Layout.fillHeight: true
-            // Let the implicitHeight be "5 items shown by default"
-            implicitHeight: Math.min(list.currentItem.implicitHeight * 5, implicitContentHeight)
-            ListView {
-                id: list
-                model: newShortcuts
-                delegate: QQC2.ItemDelegate {
-                    id: delegate
-                    required property var model
-                    width: ListView.view.width
-                    hoverEnabled: false
-                    down: false
-                    contentItem: RowLayout {
-                        spacing: Kirigami.Units.smallSpacing
-                        Kirigami.TitleSubtitle {
-                            Layout.fillWidth: true
-                            title: model.display
-                            font: delegate.font
+            implicitHeight: contentHeight
+            model: newShortcuts
+            delegate: QQC2.ItemDelegate {
+                id: delegate
+                required property var model
+                width: ListView.view.width
+                hoverEnabled: false
+                down: false
+                contentItem: RowLayout {
+                    spacing: Kirigami.Units.smallSpacing
+                    Kirigami.TitleSubtitle {
+                        Layout.fillWidth: true
+                        title: model.display
+                        font: delegate.font
+                    }
+                        Kirigami.Icon {
+                        id: conflictIcon
+                        visible: model.globalConflict || model.standardConflict || model.internalConflict
+                        source: "data-warning"
+                        QQC2.ToolTip.text:  model.conflictText ?? ""
+                        QQC2.ToolTip.visible: hoverHandler.hovered
+                        HoverHandler {
+                            id: hoverHandler
                         }
-                         Kirigami.Icon {
-                            id: conflictIcon
-                            visible: model.globalConflict || model.standardConflict || model.internalConflict
-                            source: "data-warning"
-                            QQC2.ToolTip.text:  model.conflictText ?? ""
-                            QQC2.ToolTip.visible: hoverHandler.hovered
-                            HoverHandler {
-                                id: hoverHandler
-                            }
-                        }
-                        KQC.KeySequenceItem {
-                            id: keySequenceItem
-                            Layout.alignment: Qt.AlignRight
-                            showCancelButton: true
-                            keySequence: model.keySequence
-                            onKeySequenceModified: {
-                                model.keySequence = keySequence
-                            }
+                    }
+                    KQC.KeySequenceItem {
+                        id: keySequenceItem
+                        Layout.alignment: Qt.AlignRight
+                        showCancelButton: true
+                        keySequence: model.keySequence
+                        onKeySequenceModified: {
+                            model.keySequence = keySequence
                         }
                     }
                 }
-            }
-            background: Rectangle {
-                color: Kirigami.Theme.backgroundColor
             }
         }
         QQC2.Button {
