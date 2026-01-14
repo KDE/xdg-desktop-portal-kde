@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-05 00:45+0000\n"
+"POT-Creation-Date: 2026-01-14 00:46+0000\n"
 "PO-Revision-Date: 2025-12-11 19:56+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -416,19 +416,19 @@ msgstr "Открыть доступ ко всему рабочему прост�
 msgid "Laptop screen"
 msgstr "Экран ноутбука"
 
-#: src/outputsmodel.cpp:246
+#: src/outputsmodel.cpp:250
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "Открыть доступ ко всем экранам рабочего пространства"
 
-#: src/outputsmodel.cpp:248
+#: src/outputsmodel.cpp:252
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr "Создать новый экран внутри окна и открыть к нему доступ"
 
-#: src/outputsmodel.cpp:250
+#: src/outputsmodel.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
@@ -582,7 +582,7 @@ msgstr ""
 "\n"
 " - Управление устройством ввода"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:76
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:194
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Сохранить параметры"
@@ -628,102 +628,109 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "Демонстрация экрана"
 
-#: src/screenchooserdialog.cpp:145
+#: src/screenchooserdialog.cpp:158
 #, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
 msgstr "Поделиться этим экраном с приложением %1"
 
-#: src/screenchooserdialog.cpp:192
+#: src/screenchooserdialog.cpp:205
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "Поделиться этим экраном с запрашивающим приложением?"
 
-#: src/screenchooserdialog.cpp:194
+#: src/screenchooserdialog.cpp:207
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "Поделиться этим экраном с приложением %1?"
 
-#: src/screenchooserdialog.cpp:199
+#: src/screenchooserdialog.cpp:212
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "Выберите, какие экраны будут доступны запрашивающему приложению:"
 
-#: src/screenchooserdialog.cpp:201
+#: src/screenchooserdialog.cpp:214
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "Выберите, какие экраны будут доступны приложению %1:"
 
-#: src/screenchooserdialog.cpp:205
+#: src/screenchooserdialog.cpp:218
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr "Выберите, какой экран будет доступен запрашивающему приложению:"
 
-#: src/screenchooserdialog.cpp:207
+#: src/screenchooserdialog.cpp:220
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "Выберите, какой экран будет доступен приложению %1:"
 
-#: src/screenchooserdialog.cpp:216
+#: src/screenchooserdialog.cpp:229
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "Поделиться этим окном с запрашивающим приложением?"
 
-#: src/screenchooserdialog.cpp:218
+#: src/screenchooserdialog.cpp:231
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "Поделиться этим окном с приложением %1?"
 
-#: src/screenchooserdialog.cpp:223
+#: src/screenchooserdialog.cpp:236
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "Выберите, какие окна будут доступны запрашивающему приложению:"
 
-#: src/screenchooserdialog.cpp:225
+#: src/screenchooserdialog.cpp:238
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "Выберите, какие окна будут доступны приложению %1:"
 
-#: src/screenchooserdialog.cpp:229
+#: src/screenchooserdialog.cpp:242
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr "Выберите, какое окно будет доступно запрашивающему приложению:"
 
-#: src/screenchooserdialog.cpp:231
+#: src/screenchooserdialog.cpp:244
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "Выберите, какое окно будет доступно приложению %1:"
 
-#: src/screenchooserdialog.cpp:238
+#: src/screenchooserdialog.cpp:251
 #, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
 msgstr ""
 "Создать новый виртуальный экран для совместного использования с "
 "запрашивающим приложением:"
 
-#: src/screenchooserdialog.cpp:240
+#: src/screenchooserdialog.cpp:253
 #, kde-format
 msgid "Create a new virtual display to share with %1:"
 msgstr "Создать новый виртуальный экран для совместного использования с %1:"
 
-#: src/screenchooserdialog.cpp:246
+#: src/screenchooserdialog.cpp:259
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr "Выберите, что будет доступно запрашивающему приложению:"
 
-#: src/screenchooserdialog.cpp:248
+#: src/screenchooserdialog.cpp:261
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "Выберите, что будет доступно приложению %1:"
 
-#: src/ScreenChooserDialog.qml:54
+#: src/ScreenChooserDialog.qml:119
+#, fuzzy, kde-format
+#| msgid "Search"
+msgctxt "placeholder text for searchfield"
+msgid "Search…"
+msgstr "Поиск:"
+
+#: src/ScreenChooserDialog.qml:170
 #, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "Окна"
 
-#: src/ScreenChooserDialog.qml:80
+#: src/ScreenChooserDialog.qml:198
 #, kde-format
 msgid "Share"
 msgstr "Поделиться"
@@ -1103,6 +1110,3 @@ msgstr "Удалённый рабочий стол"
 #~ "Выберите программу для открытия файла «%1». Другие программы доступны в "
 #~ "<a href=#discover><span style=\"text-decoration: underline\">центре "
 #~ "программ Discover</span></a>."
-
-#~ msgid "Search"
-#~ msgstr "Поиск:"

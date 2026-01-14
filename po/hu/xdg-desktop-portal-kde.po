@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-05 00:45+0000\n"
+"POT-Creation-Date: 2026-01-14 00:46+0000\n"
 "PO-Revision-Date: 2025-11-06 21:10+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -416,19 +416,19 @@ msgstr "Teljes munkaterület"
 msgid "Laptop screen"
 msgstr "Laptop képernyő"
 
-#: src/outputsmodel.cpp:246
+#: src/outputsmodel.cpp:250
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr ""
 
-#: src/outputsmodel.cpp:248
+#: src/outputsmodel.cpp:252
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr ""
 
-#: src/outputsmodel.cpp:250
+#: src/outputsmodel.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
@@ -584,7 +584,7 @@ msgid ""
 " - Control input devices"
 msgstr " - Beviteli eszközök\n"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:76
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:194
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Visszaállíthatóság engedélyezése a jövőbeli munkamenetekben"
@@ -628,96 +628,103 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "Képernyőmegosztás"
 
-#: src/screenchooserdialog.cpp:145
+#: src/screenchooserdialog.cpp:158
 #, fuzzy, kde-format
 #| msgid "Share this screen with %1?"
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
 msgstr "Megosztja ezt a képernyőt ezzel: %1?"
 
-#: src/screenchooserdialog.cpp:192
+#: src/screenchooserdialog.cpp:205
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "Megosztja ezt a képernyőt a kérő alkalmazással?"
 
-#: src/screenchooserdialog.cpp:194
+#: src/screenchooserdialog.cpp:207
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "Megosztja ezt a képernyőt ezzel: %1?"
 
-#: src/screenchooserdialog.cpp:199
+#: src/screenchooserdialog.cpp:212
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "Válassza ki az alkalmazással megosztandó képernyőket:"
 
-#: src/screenchooserdialog.cpp:201
+#: src/screenchooserdialog.cpp:214
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "Válassza ki az ezzel megosztandó képernyőket: %1"
 
-#: src/screenchooserdialog.cpp:205
+#: src/screenchooserdialog.cpp:218
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr "Válassza ki az alkalmazással megosztandó képernyőket:"
 
-#: src/screenchooserdialog.cpp:207
+#: src/screenchooserdialog.cpp:220
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "Válassza ki, melyik képernyőt osztja meg ezzel: %1:"
 
-#: src/screenchooserdialog.cpp:216
+#: src/screenchooserdialog.cpp:229
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "Megosztja ezt az ablakot a kérő alkalmazással?"
 
-#: src/screenchooserdialog.cpp:218
+#: src/screenchooserdialog.cpp:231
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "Megosztja ezt az ablakot ezzel: %1?"
 
-#: src/screenchooserdialog.cpp:223
+#: src/screenchooserdialog.cpp:236
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "Válassza ki, mely ablakokat osztja meg a kérő alkalmazással:"
 
-#: src/screenchooserdialog.cpp:225
+#: src/screenchooserdialog.cpp:238
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "Válassza ki, mely ablakokat osztja meg ezzel: %1:"
 
-#: src/screenchooserdialog.cpp:229
+#: src/screenchooserdialog.cpp:242
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr "Válassza ki, melyik ablakot osztja meg a kérő alkalmazással:"
 
-#: src/screenchooserdialog.cpp:231
+#: src/screenchooserdialog.cpp:244
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "Válassza ki, melyik ablakot osztja meg ezzel: %1:"
 
-#: src/screenchooserdialog.cpp:238
+#: src/screenchooserdialog.cpp:251
 #, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
 msgstr ""
 "Új virtuális kijelző létrehozása a kérő alkalmazással történő megosztáshoz:"
 
-#: src/screenchooserdialog.cpp:240
+#: src/screenchooserdialog.cpp:253
 #, kde-format
 msgid "Create a new virtual display to share with %1:"
 msgstr ""
 "Új virtuális kijelző létrehozása a(z) %1 alkalmazással történő megosztáshoz:"
 
-#: src/screenchooserdialog.cpp:246
+#: src/screenchooserdialog.cpp:259
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr "Válassza ki, mit oszt meg az alkalmazással:"
 
-#: src/screenchooserdialog.cpp:248
+#: src/screenchooserdialog.cpp:261
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "Válassza ki, mit oszt meg ezzel: %1:"
 
-#: src/ScreenChooserDialog.qml:54
+#: src/ScreenChooserDialog.qml:119
+#, fuzzy, kde-format
+#| msgid "Search"
+msgctxt "placeholder text for searchfield"
+msgid "Search…"
+msgstr "Keresés"
+
+#: src/ScreenChooserDialog.qml:170
 #, fuzzy, kde-format
 #| msgid "Windows"
 msgctxt ""
@@ -725,7 +732,7 @@ msgctxt ""
 msgid "Windows"
 msgstr "Ablakok"
 
-#: src/ScreenChooserDialog.qml:80
+#: src/ScreenChooserDialog.qml:198
 #, kde-format
 msgid "Share"
 msgstr "Megosztás"
@@ -1095,6 +1102,3 @@ msgstr "Távoli asztal"
 #~ "Válasszon alkalmazást a(z) „%1” megnyitásához. Más alkalmazások "
 #~ "elérhetőek a <a href=#discover><span style=\"text-decoration: underline"
 #~ "\">Discoverben</span></a>."
-
-#~ msgid "Search"
-#~ msgstr "Keresés"
