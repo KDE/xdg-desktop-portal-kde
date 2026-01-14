@@ -290,7 +290,6 @@ Kirigami.AbstractApplicationWindow {
                     QQC2.Control {
                         Kirigami.Theme.colorSet: Kirigami.Theme.View
                         background: Rectangle {
-                            Kirigami.Theme.colorSet: Kirigami.Theme.View
                             color: Kirigami.Theme.backgroundColor
                         }
                         contentItem: root.mainItem
@@ -306,7 +305,6 @@ Kirigami.AbstractApplicationWindow {
 
                         Kirigami.Theme.colorSet: Kirigami.Theme.View
                         background: Rectangle {
-                            Kirigami.Theme.colorSet: Kirigami.Theme.View
                             color: Kirigami.Theme.backgroundColor
                         }
 
