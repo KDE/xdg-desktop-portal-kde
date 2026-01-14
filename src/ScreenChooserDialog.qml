@@ -10,6 +10,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+import org.kde.kitemmodels as KItemModels
 
 ScreenChooserDialogTemplate {
     id: root
@@ -19,11 +20,123 @@ ScreenChooserDialogTemplate {
     property bool multiple: false
     property alias allowRestore: allowRestoreItem.checked
 
-    iconName: "video-display"
+    /* The geometries of the selected chips */
+    readonly property list<rect> geometrySelectors: {
+        let chips = []
+        for (let i = 0; i < chipsRepeater.count; ++i) {
+            const chip = chipsRepeater.itemAt(i) as OutputChip
+            if (chip.checked) {
+                chips.push(chip.geometry)
+            }
+        }
+        Qt.callLater(() => invalidateFilter())
+        return chips
+    }
+    readonly property alias searchText: searchField.text
+    readonly property bool hasFilters: geometrySelectors.length > 0 || searchText.length > 0
+
+    signal invalidateFilter()
+    onSearchTextChanged: invalidateFilter()
+    onInvalidateFilter: {
+        outputsLayout.model.invalidateFilter()
+        windowsLayout.model.invalidateFilter()
+    }
+
+    component OutputChip: Kirigami.Chip {
+        required property var model
+        required property rect geometry
+    }
+
+    component GeometryFilterModel: KItemModels.KSortFilterProxyModel {
+        filterRowCallback: (row) => {
+            const index = sourceModel.index(row, 0)
+
+            // Are output filters selected?
+            if (root.geometrySelectors.length > 0) {
+                const intersectsAllSelectedOutputs = root.geometrySelectors.some((outputGeometry) => {
+                    // Unfortunately we can't be type accurate here because our input models are unrelated besides being QAbstractItemModels.
+                    // As such the linter doesn't know that both OutputsModel and WindowsModel have geometryIntersects().
+                    return sourceModel.geometryIntersects(index, outputGeometry)  // qmllint disable missing-property
+                })
+                if (!intersectsAllSelectedOutputs) {
+                    return false
+                }
+            }
+
+            // Are we searching?
+            if (root.searchText.length > 0) {
+                const searchText = root.searchText.toLowerCase()
+                const windowText = sourceModel.data(index, Qt.DisplayRole).toLowerCase()
+                if (!windowText.includes(searchText)) {
+                    return false
+                }
+            }
+
+            return true
+        }
+    }
+
     acceptable: (outputsModel && outputsModel.hasSelection) || (windowsModel && windowsModel.hasSelection)
 
     width: Kirigami.Units.gridUnit * 28
     height: Kirigami.Units.gridUnit * 30
+
+    headerItem: ColumnLayout {
+        RowLayout {
+            Layout.fillWidth: true
+
+            // Make sure the SearchField aligns to the right edge properly even when we have no chips content.
+            Item {
+                Layout.fillWidth: true
+                visible: !chipsFlow.visible
+            }
+
+            Flow {
+                id: chipsFlow
+                spacing: Kirigami.Units.largeSpacing
+                Layout.fillWidth: true
+
+                // Confusing when there is only one chip
+                visible: chipsRepeater.count > 1
+
+                Repeater {
+                    id: chipsRepeater
+                    model: KItemModels.KSortFilterProxyModel {
+                        sourceModel: root.outputsModel
+                        filterRoleName: "isSynthetic"
+                        filterString: "false"
+                    }
+                    delegate: OutputChip {
+                        text: model.display
+                        closable: false
+                    }
+                }
+            }
+
+            Kirigami.SearchField {
+                id: searchField
+                Layout.alignment: Qt.AlignRight
+                Component.onCompleted: Qt.callLater(forceActiveFocus) // focus by default for easy searching
+                Keys.onPressed: (event) => {
+                    if (event.key !== Qt.Key_Return && event.key !== Qt.Key_Enter) {
+                        return
+                    }
+
+                    const output = outputsLayout.view.itemAt(0) as PipeWireDelegate
+                    if (output) {
+                        event.accepted = true
+                        output.selectAndAccept()
+                    }
+
+                    const window = windowsLayout.view.itemAt(0) as PipeWireDelegate
+                    if (window) {
+                        event.accepted = true
+                        window.selectAndAccept()
+                    }
+                }
+            }
+        }
+    }
 
     QQC2.ScrollView {
         contentWidth: availableWidth
@@ -37,7 +150,9 @@ ScreenChooserDialogTemplate {
                 id: outputsLayout
                 Layout.fillWidth: true
                 dialog: root
-                model: root.outputsModel
+                model: GeometryFilterModel {
+                    sourceModel: root.outputsModel
+                }
             }
 
             RowLayout {
@@ -64,7 +179,9 @@ ScreenChooserDialogTemplate {
                 id: windowsLayout
                 Layout.fillWidth: true
                 dialog: root
-                model: root.windowsModel
+                model: GeometryFilterModel {
+                    sourceModel: root.windowsModel
+                }
             }
         }
     }

@@ -21,6 +21,11 @@ Kirigami.AbstractCard {
     required property int nodeId
     required property bool exclusive
 
+    function selectAndAccept(): void {
+        // To be implemented by the user of the delegate. Depends entirely on context (dialog, model, etc).
+        throw "Not implemented"
+    }
+
     Accessible.name: itemName
 
     header: GridLayout {
