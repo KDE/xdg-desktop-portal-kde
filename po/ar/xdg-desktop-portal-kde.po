@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-14 00:46+0000\n"
+"POT-Creation-Date: 2026-01-15 00:45+0000\n"
 "PO-Revision-Date: 2025-11-29 21:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -52,72 +52,72 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "اختر تطبيق لفتح '<filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:34
+#: src/AppChooserDialog.qml:35
 #, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
 msgstr "أظهر المزيد في المستكشف…"
 
-#: src/AppChooserDialog.qml:39
+#: src/AppChooserDialog.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "افتح"
 
-#: src/AppChooserDialog.qml:47
+#: src/AppChooserDialog.qml:48
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr "عيّنه تطبيق مبدئي لفتح ملفات %1"
 
-#: src/AppChooserDialog.qml:107
+#: src/AppChooserDialog.qml:108
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "أظهر كل التّطبيقات المثبّتة"
 
-#: src/AppChooserDialog.qml:120
+#: src/AppChooserDialog.qml:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "اختر أخرى…"
 
-#: src/AppChooserDialog.qml:176
+#: src/AppChooserDialog.qml:172
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>التطبيق المبدئي لهذا النوع</emphasis>"
 
-#: src/AppChooserDialog.qml:178
+#: src/AppChooserDialog.qml:174
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>أخر تطبيق مستعمل لهذا النوع</emphasis>"
 
-#: src/AppChooserDialog.qml:200
+#: src/AppChooserDialog.qml:196
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "هل ا&فتح في <command>%1</command>؟"
 
-#: src/AppChooserDialog.qml:202
+#: src/AppChooserDialog.qml:198
 #, kde-format
 msgid "No matches"
 msgstr "لا يوجد تطابق"
 
-#: src/AppChooserDialog.qml:204
+#: src/AppChooserDialog.qml:200
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "لا يوجد تطبيق قادر على فتح '<filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:224
+#: src/AppChooserDialog.qml:219
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "شغّل في الطّرفيّة"
 
-#: src/AppChooserDialog.qml:232
+#: src/AppChooserDialog.qml:227
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -278,13 +278,13 @@ msgstr[3] "التطبيق %2 يريد تسجيل %1 اختصارات التال�
 msgstr[4] "التطبيق %2 يريد تسجيل %1 اختصارًا التالي:"
 msgstr[5] "التطبيق %2 يريد تسجيل %1 اختصار التالية:"
 
-#: src/GlobalShortcutsDialog.qml:115
+#: src/GlobalShortcutsDialog.qml:107
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "انظر الاختصارات الأخرى…"
 
-#: src/GlobalShortcutsDialog.qml:116
+#: src/GlobalShortcutsDialog.qml:108
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
@@ -570,7 +570,7 @@ msgstr ""
 "\n"
 " - التحكم بأجهزة الدّخل"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:194
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:189
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "اسمح بالاستعادة في الجلسات القادمة"
@@ -704,20 +704,20 @@ msgstr "اختر ما تريد مشاركته مع التطبيق  الذي يط
 msgid "Choose what to share with %1:"
 msgstr "اختر ما تريد مشاركته مع %1:"
 
-#: src/ScreenChooserDialog.qml:119
+#: src/ScreenChooserDialog.qml:120
 #, kde-format
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
 msgstr ""
 
-#: src/ScreenChooserDialog.qml:170
+#: src/ScreenChooserDialog.qml:166
 #, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "النوافذ"
 
-#: src/ScreenChooserDialog.qml:198
+#: src/ScreenChooserDialog.qml:193
 #, kde-format
 msgid "Share"
 msgstr "شارك"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-14 00:46+0000\n"
+"POT-Creation-Date: 2026-01-15 00:45+0000\n"
 "PO-Revision-Date: 2025-11-06 21:10+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -52,7 +52,7 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Válasszon egy alkalmazást a(z) <filename>%1</filename> megnyitásához"
 
-#: src/AppChooserDialog.qml:34
+#: src/AppChooserDialog.qml:35
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Find some more apps that can open this content using the Discover app"
@@ -62,68 +62,68 @@ msgctxt ""
 msgid "Find More in Discover…"
 msgstr "Továbbiak keresése a Discoverben"
 
-#: src/AppChooserDialog.qml:39
+#: src/AppChooserDialog.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Megnyitás"
 
-#: src/AppChooserDialog.qml:47
+#: src/AppChooserDialog.qml:48
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr "Beállítás alapértelmezett alkalmazásként a(z) %1 fájlok megnyitásához"
 
-#: src/AppChooserDialog.qml:107
+#: src/AppChooserDialog.qml:108
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "Összes telepített alkalmazás megjelenítése"
 
-#: src/AppChooserDialog.qml:120
+#: src/AppChooserDialog.qml:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "Másik választása…"
 
-#: src/AppChooserDialog.qml:176
+#: src/AppChooserDialog.qml:172
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr ""
 "%1<nl/><emphasis>Alapértelmezett alkalmazás ehhez a fájltípushoz</emphasis>"
 
-#: src/AppChooserDialog.qml:178
+#: src/AppChooserDialog.qml:174
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr ""
 "%1<nl/><emphasis>Legutóbb használt alkalmazás ehhez a fájltípushoz</emphasis>"
 
-#: src/AppChooserDialog.qml:200
+#: src/AppChooserDialog.qml:196
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Megnyitja ezzel: <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:202
+#: src/AppChooserDialog.qml:198
 #, kde-format
 msgid "No matches"
 msgstr "Nincs találat"
 
-#: src/AppChooserDialog.qml:204
+#: src/AppChooserDialog.qml:200
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
 "Egy telepített alkalmazás sem tudja megnyitni ezt: <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:224
+#: src/AppChooserDialog.qml:219
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Futtatás terminálban"
 
-#: src/AppChooserDialog.qml:232
+#: src/AppChooserDialog.qml:227
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -284,13 +284,13 @@ msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "A(z) %2 a következő billentyűparancsot szeretné regisztrálni:"
 msgstr[1] "A(z) %2 a következő %1 billentyűparancsot szeretné regisztrálni:"
 
-#: src/GlobalShortcutsDialog.qml:115
+#: src/GlobalShortcutsDialog.qml:107
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "Egyéb gyorsbillentyűk…"
 
-#: src/GlobalShortcutsDialog.qml:116
+#: src/GlobalShortcutsDialog.qml:108
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
@@ -584,7 +584,7 @@ msgid ""
 " - Control input devices"
 msgstr " - Beviteli eszközök\n"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:194
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:189
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Visszaállíthatóság engedélyezése a jövőbeli munkamenetekben"
@@ -717,14 +717,14 @@ msgstr "Válassza ki, mit oszt meg az alkalmazással:"
 msgid "Choose what to share with %1:"
 msgstr "Válassza ki, mit oszt meg ezzel: %1:"
 
-#: src/ScreenChooserDialog.qml:119
+#: src/ScreenChooserDialog.qml:120
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
 msgstr "Keresés"
 
-#: src/ScreenChooserDialog.qml:170
+#: src/ScreenChooserDialog.qml:166
 #, fuzzy, kde-format
 #| msgid "Windows"
 msgctxt ""
@@ -732,7 +732,7 @@ msgctxt ""
 msgid "Windows"
 msgstr "Ablakok"
 
-#: src/ScreenChooserDialog.qml:198
+#: src/ScreenChooserDialog.qml:193
 #, kde-format
 msgid "Share"
 msgstr "Megosztás"
