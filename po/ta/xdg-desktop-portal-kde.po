@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-05 00:45+0000\n"
+"POT-Creation-Date: 2026-01-15 03:01+0000\n"
 "PO-Revision-Date: 2025-11-30 13:07+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -50,72 +50,72 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "<filename>%1</filename> என்பதை திறப்பதற்கான செயலியைத் தேர்ந்தெடுங்கள்"
 
-#: src/AppChooserDialog.qml:34
+#: src/AppChooserDialog.qml:35
 #, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
 msgstr "டிஸ்கவரில் இன்னும் காட்டு…"
 
-#: src/AppChooserDialog.qml:39
+#: src/AppChooserDialog.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "திற"
 
-#: src/AppChooserDialog.qml:47
+#: src/AppChooserDialog.qml:48
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr "%1 கோப்புகளுக்கான இயல்பிருப்பு செயலியாக அமை"
 
-#: src/AppChooserDialog.qml:107
+#: src/AppChooserDialog.qml:108
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "நிறுவியுள்ள அனைத்து செயலிகளையும் காட்டு"
 
-#: src/AppChooserDialog.qml:120
+#: src/AppChooserDialog.qml:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "இன்னொன்றை தேர்வு செய்…"
 
-#: src/AppChooserDialog.qml:176
+#: src/AppChooserDialog.qml:172
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>இக்கோப்புவகைக்கான இயல்பிருப்பு செயலி</emphasis>"
 
-#: src/AppChooserDialog.qml:178
+#: src/AppChooserDialog.qml:174
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>இக்கோப்புவகைக்கு கடைசியாக பயன்படுத்திய செயலி</emphasis>"
 
-#: src/AppChooserDialog.qml:200
+#: src/AppChooserDialog.qml:196
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "<command>%1</command> தனில் திறக்கலாமா?"
 
-#: src/AppChooserDialog.qml:202
+#: src/AppChooserDialog.qml:198
 #, kde-format
 msgid "No matches"
 msgstr "பொருத்தங்கள் இல்லை"
 
-#: src/AppChooserDialog.qml:204
+#: src/AppChooserDialog.qml:200
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "<filename>%1</filename> என்பதை எந்த நிறுவியுள்ள செயலியாலும் திறக்க முடியாது"
 
-#: src/AppChooserDialog.qml:224
+#: src/AppChooserDialog.qml:219
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "முனையத்தில் இயக்கு"
 
-#: src/AppChooserDialog.qml:232
+#: src/AppChooserDialog.qml:227
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -271,13 +271,13 @@ msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2 பின்வரும் சுருக்குவழியைப் பதிவுசெய்ய விரும்புகிறது:"
 msgstr[1] "%2 பின்வரும் %1 சுருக்குவழிகளைப் பதிவுசெய்ய விரும்புகிறது:"
 
-#: src/GlobalShortcutsDialog.qml:115
+#: src/GlobalShortcutsDialog.qml:107
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "மற்ற சுருக்குவழிகளைக் காட்டு…"
 
-#: src/GlobalShortcutsDialog.qml:116
+#: src/GlobalShortcutsDialog.qml:108
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
@@ -400,19 +400,19 @@ msgstr "முழுப் பணிமேடையைப் பகிர்"
 msgid "Laptop screen"
 msgstr "மடிக்கணினித் திரை"
 
-#: src/outputsmodel.cpp:246
+#: src/outputsmodel.cpp:250
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "முழுப் பணிமேடையையும் (அனைத்து திரைகளிலுள்ளவற்றையும்) பகிரும்"
 
-#: src/outputsmodel.cpp:248
+#: src/outputsmodel.cpp:252
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr "தனிப்பட்ட சாளரத்தை மட்டும் காட்டும் மெய்நிகர் திரையை உருவாக்கி, அதைப் பகிரும்"
 
-#: src/outputsmodel.cpp:250
+#: src/outputsmodel.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
@@ -566,7 +566,7 @@ msgstr ""
 "\n"
 " - உள்ளீட்டு சாதனங்களைக் கட்டுப்படுத்துவது"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:76
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:188
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "வருங்கால அமர்வுகளில் மீட்டமைக்கவிடு"
@@ -610,100 +610,100 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "திரை பகிர்வு"
 
-#: src/screenchooserdialog.cpp:145
+#: src/screenchooserdialog.cpp:158
 #, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
 msgstr "%1 உடன் திரையைப் பகிரலாமா?"
 
-#: src/screenchooserdialog.cpp:192
+#: src/screenchooserdialog.cpp:205
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "கோரிக்கையிடும் செயலியுடன் இத்திரையை பகிரலாமா?"
 
-#: src/screenchooserdialog.cpp:194
+#: src/screenchooserdialog.cpp:207
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "%1 உடன் இத்திரையை பகிரலாமா?"
 
-#: src/screenchooserdialog.cpp:199
+#: src/screenchooserdialog.cpp:212
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "கோரிக்கையிடும் செயலியுடன் பகிர வேண்டிய திரைகளை தேர்ந்தெடுங்கள்:"
 
-#: src/screenchooserdialog.cpp:201
+#: src/screenchooserdialog.cpp:214
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "%1 உடன் பகிர வேண்டிய திரைகளை தேர்ந்தெடுங்கள்:"
 
-#: src/screenchooserdialog.cpp:205
+#: src/screenchooserdialog.cpp:218
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr "கோரிக்கையிடும் செயலியுடன் பகிர வேண்டிய திரையை தேர்ந்தெடுங்கள்:"
 
-#: src/screenchooserdialog.cpp:207
+#: src/screenchooserdialog.cpp:220
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "%1 உடன் பகிர வேண்டிய திரைகளை தேர்ந்தெடுங்கள்:"
 
-#: src/screenchooserdialog.cpp:216
+#: src/screenchooserdialog.cpp:229
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "கோரிக்கையிடும் செயலியுடன் இச்சாளரத்தை பகிரலாமா?"
 
-#: src/screenchooserdialog.cpp:218
+#: src/screenchooserdialog.cpp:231
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "%1 உடன் இச்சாளரத்தை பகிரலாமா?"
 
-#: src/screenchooserdialog.cpp:223
+#: src/screenchooserdialog.cpp:236
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "கோரிக்கையிடும் செயலியுடன் பகிர வேண்டிய சாளரங்களை தேர்ந்தெடுங்கள்:"
 
-#: src/screenchooserdialog.cpp:225
+#: src/screenchooserdialog.cpp:238
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "%1 உடன் பகிர வேண்டிய சாளரங்களை தேர்ந்தெடுங்கள்:"
 
-#: src/screenchooserdialog.cpp:229
+#: src/screenchooserdialog.cpp:242
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr "கோரிக்கையிடும் செயலியுடன் பகிர வேண்டிய சாளரத்தை தேர்ந்தெடுங்கள்:"
 
-#: src/screenchooserdialog.cpp:231
+#: src/screenchooserdialog.cpp:244
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "%1 உடன் பகிர வேண்டிய சாளரத்தை தேர்ந்தெடுங்கள்:"
 
-#: src/screenchooserdialog.cpp:238
+#: src/screenchooserdialog.cpp:251
 #, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
 msgstr "கோரிக்கையிடும் செயலியுடன் பகிர வேண்டிய மெய்நிகர் திரையை உருவாக்கவும்:"
 
-#: src/screenchooserdialog.cpp:240
+#: src/screenchooserdialog.cpp:253
 #, kde-format
 msgid "Create a new virtual display to share with %1:"
 msgstr "%1 உடன் பகிர வேண்டிய மெய்நிகர் திரையை உருவாக்கவும்:"
 
-#: src/screenchooserdialog.cpp:246
+#: src/screenchooserdialog.cpp:259
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr "கோரிக்கையிடும் செயலியுடன் எதை பகிர வேண்டுமென்பதை தேர்வு செய்தல்"
 
-#: src/screenchooserdialog.cpp:248
+#: src/screenchooserdialog.cpp:261
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "%1 உடன் எதை பகிர வேண்டுமென்பதை தேர்வு செய்யுங்கள்:"
 
-#: src/ScreenChooserDialog.qml:54
+#: src/ScreenChooserDialog.qml:165
 #, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "சாளரங்கள்"
 
-#: src/ScreenChooserDialog.qml:80
+#: src/ScreenChooserDialog.qml:192
 #, kde-format
 msgid "Share"
 msgstr "பகிர்"

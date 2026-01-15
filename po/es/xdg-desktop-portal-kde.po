@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-05 00:45+0000\n"
+"POT-Creation-Date: 2026-01-15 03:01+0000\n"
 "PO-Revision-Date: 2025-11-27 21:17+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -52,37 +52,37 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Escoger una aplicación para abrir <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:34
+#: src/AppChooserDialog.qml:35
 #, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
 msgstr "Encuentre más en Discover…"
 
-#: src/AppChooserDialog.qml:39
+#: src/AppChooserDialog.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Abrir"
 
-#: src/AppChooserDialog.qml:47
+#: src/AppChooserDialog.qml:48
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr "Definir como aplicación predeterminada para abrir archivos %1"
 
-#: src/AppChooserDialog.qml:107
+#: src/AppChooserDialog.qml:108
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "Mostrar todas las aplicaciones instaladas"
 
-#: src/AppChooserDialog.qml:120
+#: src/AppChooserDialog.qml:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "Escoger otra…"
 
-#: src/AppChooserDialog.qml:176
+#: src/AppChooserDialog.qml:172
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
@@ -90,38 +90,38 @@ msgstr ""
 "%1<nl/><emphasis>Aplicación predeterminada para este tipo de archivo</"
 "emphasis>"
 
-#: src/AppChooserDialog.qml:178
+#: src/AppChooserDialog.qml:174
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr ""
 "%1<nl/><emphasis>Última aplicación usada para este tipo de archivo</emphasis>"
 
-#: src/AppChooserDialog.qml:200
+#: src/AppChooserDialog.qml:196
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Abrir con <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:202
+#: src/AppChooserDialog.qml:198
 #, kde-format
 msgid "No matches"
 msgstr "No hay coincidencias"
 
-#: src/AppChooserDialog.qml:204
+#: src/AppChooserDialog.qml:200
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
 "Ninguna de las aplicaciones instaladas puede abrir <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:224
+#: src/AppChooserDialog.qml:219
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Ejecutar en el terminal"
 
-#: src/AppChooserDialog.qml:232
+#: src/AppChooserDialog.qml:227
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -281,13 +281,13 @@ msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2 quiere registrar el siguiente atajo de teclado:"
 msgstr[1] "%2 quiere registrar los siguientes %1 atajos de teclado:"
 
-#: src/GlobalShortcutsDialog.qml:115
+#: src/GlobalShortcutsDialog.qml:107
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "Ver otros atajos de teclado…"
 
-#: src/GlobalShortcutsDialog.qml:116
+#: src/GlobalShortcutsDialog.qml:108
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
@@ -411,19 +411,19 @@ msgstr "Compartir espacio de trabajo completo"
 msgid "Laptop screen"
 msgstr "Pantalla del portátil"
 
-#: src/outputsmodel.cpp:246
+#: src/outputsmodel.cpp:250
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "Compartir la totalidad del espacio de trabajo en todas las pantallas"
 
-#: src/outputsmodel.cpp:248
+#: src/outputsmodel.cpp:252
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr "Crea una pantalla dentro de una ventana y la comparte"
 
-#: src/outputsmodel.cpp:250
+#: src/outputsmodel.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
@@ -577,7 +577,7 @@ msgstr ""
 "\n"
 " - Controlar dispositivos de entrada"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:76
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:188
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Permitir restaurar en futuras sesiones"
@@ -621,109 +621,109 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "Compartiendo la pantalla"
 
-#: src/screenchooserdialog.cpp:145
+#: src/screenchooserdialog.cpp:158
 #, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
 msgstr "Compartir la pantalla con %1"
 
-#: src/screenchooserdialog.cpp:192
+#: src/screenchooserdialog.cpp:205
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "¿Compartir esta pantalla con la aplicación que lo ha solicitado?"
 
-#: src/screenchooserdialog.cpp:194
+#: src/screenchooserdialog.cpp:207
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "¿Compartir esta pantalla con %1?"
 
-#: src/screenchooserdialog.cpp:199
+#: src/screenchooserdialog.cpp:212
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr ""
 "Escoja las pantallas que va a compartir con la aplicación que lo ha "
 "solicitado:"
 
-#: src/screenchooserdialog.cpp:201
+#: src/screenchooserdialog.cpp:214
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "Escoja las pantallas que va a compartir con %1:"
 
-#: src/screenchooserdialog.cpp:205
+#: src/screenchooserdialog.cpp:218
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr ""
 "Escoja la pantalla que va a compartir con la aplicación que lo ha solicitado:"
 
-#: src/screenchooserdialog.cpp:207
+#: src/screenchooserdialog.cpp:220
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "Escoja la pantalla que va a compartir con %1:"
 
-#: src/screenchooserdialog.cpp:216
+#: src/screenchooserdialog.cpp:229
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "¿Compartir esta ventana con la aplicación que lo ha solicitado?"
 
-#: src/screenchooserdialog.cpp:218
+#: src/screenchooserdialog.cpp:231
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "¿Compartir esta ventana con %1?"
 
-#: src/screenchooserdialog.cpp:223
+#: src/screenchooserdialog.cpp:236
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr ""
 "Escoja las ventanas que va a compartir con la aplicación que lo ha "
 "solicitado:"
 
-#: src/screenchooserdialog.cpp:225
+#: src/screenchooserdialog.cpp:238
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "Escoja las ventanas que va a compartir con %1:"
 
-#: src/screenchooserdialog.cpp:229
+#: src/screenchooserdialog.cpp:242
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr ""
 "Escoja la ventana que va a compartir con la aplicación que lo ha solicitado:"
 
-#: src/screenchooserdialog.cpp:231
+#: src/screenchooserdialog.cpp:244
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "Escoja la ventana que va a compartir con %1:"
 
-#: src/screenchooserdialog.cpp:238
+#: src/screenchooserdialog.cpp:251
 #, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
 msgstr ""
 "Crear una nueva pantalla virtual para compartir con la aplicación que lo ha "
 "solicitado:"
 
-#: src/screenchooserdialog.cpp:240
+#: src/screenchooserdialog.cpp:253
 #, kde-format
 msgid "Create a new virtual display to share with %1:"
 msgstr "Crear una nueva pantalla virtual para compartir con %1:"
 
-#: src/screenchooserdialog.cpp:246
+#: src/screenchooserdialog.cpp:259
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr ""
 "Seleccione lo que va a compartir con la aplicación que lo ha solicitado:"
 
-#: src/screenchooserdialog.cpp:248
+#: src/screenchooserdialog.cpp:261
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "Seleccione lo que va a compartir con %1:"
 
-#: src/ScreenChooserDialog.qml:54
+#: src/ScreenChooserDialog.qml:165
 #, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "Ventanas"
 
-#: src/ScreenChooserDialog.qml:80
+#: src/ScreenChooserDialog.qml:192
 #, kde-format
 msgid "Share"
 msgstr "Compartir"

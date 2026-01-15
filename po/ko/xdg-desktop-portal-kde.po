@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-05 00:45+0000\n"
+"POT-Creation-Date: 2026-01-15 03:01+0000\n"
 "PO-Revision-Date: 2025-10-12 13:01+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -50,7 +50,7 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "<filename>%1</filename>을(를) 열 앱 선택"
 
-#: src/AppChooserDialog.qml:34
+#: src/AppChooserDialog.qml:35
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Find some more apps that can open this content using the Discover app"
@@ -60,65 +60,65 @@ msgctxt ""
 msgid "Find More in Discover…"
 msgstr "Discover에서 앱 찾기"
 
-#: src/AppChooserDialog.qml:39
+#: src/AppChooserDialog.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "열기"
 
-#: src/AppChooserDialog.qml:47
+#: src/AppChooserDialog.qml:48
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr "%1 파일을 여는 기본 앱으로 지정"
 
-#: src/AppChooserDialog.qml:107
+#: src/AppChooserDialog.qml:108
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "모든 설치된 앱 표시"
 
-#: src/AppChooserDialog.qml:120
+#: src/AppChooserDialog.qml:121
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "다른 것 선택…"
 
-#: src/AppChooserDialog.qml:176
+#: src/AppChooserDialog.qml:172
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>이 파일 형식의 기본 앱</emphasis>"
 
-#: src/AppChooserDialog.qml:178
+#: src/AppChooserDialog.qml:174
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>이 파일 형식의 마지막으로 사용한 앱</emphasis>"
 
-#: src/AppChooserDialog.qml:200
+#: src/AppChooserDialog.qml:196
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "<command>%1</command>(으)로 여시겠습니까?"
 
-#: src/AppChooserDialog.qml:202
+#: src/AppChooserDialog.qml:198
 #, kde-format
 msgid "No matches"
 msgstr "검색 결과 없음"
 
-#: src/AppChooserDialog.qml:204
+#: src/AppChooserDialog.qml:200
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "설치된 앱 중에서 <filename>%1</filename>을(를) 열 수 있는 앱이 없음"
 
-#: src/AppChooserDialog.qml:224
+#: src/AppChooserDialog.qml:219
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "터미널에서 실행"
 
-#: src/AppChooserDialog.qml:232
+#: src/AppChooserDialog.qml:227
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -270,13 +270,13 @@ msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2에서 다음 단축키 %1개를 등록하려고 합니다:"
 
-#: src/GlobalShortcutsDialog.qml:115
+#: src/GlobalShortcutsDialog.qml:107
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "다른 단축키 보기…"
 
-#: src/GlobalShortcutsDialog.qml:116
+#: src/GlobalShortcutsDialog.qml:108
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
@@ -402,19 +402,19 @@ msgstr "전체 작업 공간"
 msgid "Laptop screen"
 msgstr "노트북 화면"
 
-#: src/outputsmodel.cpp:246
+#: src/outputsmodel.cpp:250
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr ""
 
-#: src/outputsmodel.cpp:248
+#: src/outputsmodel.cpp:252
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr ""
 
-#: src/outputsmodel.cpp:250
+#: src/outputsmodel.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
@@ -570,7 +570,7 @@ msgid ""
 " - Control input devices"
 msgstr " - 입력 장치\n"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:76
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:188
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "향후 세션에서 복원 허용"
@@ -613,94 +613,94 @@ msgctxt ""
 msgid "Screen casting"
 msgstr "스크린 캐스팅"
 
-#: src/screenchooserdialog.cpp:145
+#: src/screenchooserdialog.cpp:158
 #, fuzzy, kde-format
 #| msgid "Share this screen with %1?"
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
 msgstr "%1와(과) 이 화면을 공유하시겠습니까?"
 
-#: src/screenchooserdialog.cpp:192
+#: src/screenchooserdialog.cpp:205
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "요청한 앱과 화면을 공유하시겠습니까?"
 
-#: src/screenchooserdialog.cpp:194
+#: src/screenchooserdialog.cpp:207
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "%1와(과) 이 화면을 공유하시겠습니까?"
 
-#: src/screenchooserdialog.cpp:199
+#: src/screenchooserdialog.cpp:212
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "요청하는 앱과 공유할 화면을 선택하십시오:"
 
-#: src/screenchooserdialog.cpp:201
+#: src/screenchooserdialog.cpp:214
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "%1와(과) 공유할 화면 선택:"
 
-#: src/screenchooserdialog.cpp:205
+#: src/screenchooserdialog.cpp:218
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr "요청하는 앱과 공유할 화면을 선택하십시오:"
 
-#: src/screenchooserdialog.cpp:207
+#: src/screenchooserdialog.cpp:220
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "%1와(과) 공유할 화면 선택:"
 
-#: src/screenchooserdialog.cpp:216
+#: src/screenchooserdialog.cpp:229
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "요청한 앱과 창을 공유하시겠습니까?"
 
-#: src/screenchooserdialog.cpp:218
+#: src/screenchooserdialog.cpp:231
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "%1와(과) 이 창을 공유하시겠습니까?"
 
-#: src/screenchooserdialog.cpp:223
+#: src/screenchooserdialog.cpp:236
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "요청하는 앱과 공유할 창을 선택하십시오:"
 
-#: src/screenchooserdialog.cpp:225
+#: src/screenchooserdialog.cpp:238
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "%1와(과) 공유할 창 선택:"
 
-#: src/screenchooserdialog.cpp:229
+#: src/screenchooserdialog.cpp:242
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr "요청하는 앱과 공유할 창을 선택하십시오:"
 
-#: src/screenchooserdialog.cpp:231
+#: src/screenchooserdialog.cpp:244
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "%1와(과) 공유할 창 선택:"
 
-#: src/screenchooserdialog.cpp:238
+#: src/screenchooserdialog.cpp:251
 #, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
 msgstr "요청하는 앱과 공유할 새 가상 디스플레이를 만드십시오:"
 
-#: src/screenchooserdialog.cpp:240
+#: src/screenchooserdialog.cpp:253
 #, kde-format
 msgid "Create a new virtual display to share with %1:"
 msgstr "%1와(과) 공유할 새 가상 디스플레이 만들기:"
 
-#: src/screenchooserdialog.cpp:246
+#: src/screenchooserdialog.cpp:259
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr "요청하는 앱과 공유할 항목을 선택하십시오:"
 
-#: src/screenchooserdialog.cpp:248
+#: src/screenchooserdialog.cpp:261
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "%1와(과) 공유할 항목 선택:"
 
-#: src/ScreenChooserDialog.qml:54
+#: src/ScreenChooserDialog.qml:165
 #, fuzzy, kde-format
 #| msgid "Windows"
 msgctxt ""
@@ -708,7 +708,7 @@ msgctxt ""
 msgid "Windows"
 msgstr "창"
 
-#: src/ScreenChooserDialog.qml:80
+#: src/ScreenChooserDialog.qml:192
 #, kde-format
 msgid "Share"
 msgstr "공유"
