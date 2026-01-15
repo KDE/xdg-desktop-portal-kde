@@ -29,6 +29,8 @@ Kirigami.AbstractCard {
     }
 
     Accessible.name: itemName
+    hoverEnabled: true
+    showClickFeedback: true
 
     header: GridLayout {
         columnSpacing: Kirigami.Units.smallSpacing
