@@ -191,7 +191,9 @@ ScreenChooserDialogTemplate {
     }
 
     Component.onCompleted: {
-        dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18n("Share")
+        if (root.multiple) {
+            dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18n("Share")
+        }
 
         // If there's only one thing in the list, pre-select it to save the user a click
         if (outputsLayout.view.count === 1 && windowsLayout.view.count === 0) {
