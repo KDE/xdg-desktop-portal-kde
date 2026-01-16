@@ -76,7 +76,8 @@ ScreenChooserDialogTemplate {
         }
     }
 
-    acceptable: (outputsModel && outputsModel.hasSelection) || (windowsModel && windowsModel.hasSelection)
+    // Mind that either model may be 'null' when it is not applicable. We need to coalesce into bool.
+    acceptable: (outputsModel?.hasSelection ?? false) || (windowsModel?.hasSelection ?? false)
     scrollable: true
 
     width: Kirigami.Units.gridUnit * 41
