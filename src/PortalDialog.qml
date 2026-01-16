@@ -91,6 +91,15 @@ Kirigami.AbstractApplicationWindow {
      */
     property int /*Qt.Orientation*/ layout: actions.length > 3 ? Qt.Vertical : Qt.Horizontal
 
+    /*!
+        \qmlproperty bool PortalDialog::contentPadding
+        Whether to add padding around the main content area.
+        Ideally combined with content that doesn't have extra padding so things are flush between all elements.
+        When not using this, consider following the edgeSpacing property for padding so things are visually aligned.
+        Sometimes that is not desirable though. Evaluate on a per-use-case basis.
+    */
+    property bool contentPadding: true
+
     readonly property alias contentWidth: contentLayout.implicitWidth
     readonly property alias contentHeight: contentLayout.implicitHeight
     readonly property real edgeSpacing: Kirigami.Units.largeSpacing * 2
@@ -289,10 +298,10 @@ Kirigami.AbstractApplicationWindow {
                     id: contentComponent
 
                     QQC2.Control {
-                        topPadding: root.edgeSpacing
-                        bottomPadding: root.edgeSpacing
-                        leftPadding: root.edgeSpacing
-                        rightPadding: root.edgeSpacing
+                        topPadding: contentPadding ? root.edgeSpacing : undefined
+                        bottomPadding: topPadding
+                        leftPadding: topPadding
+                        rightPadding: topPadding
 
                         Kirigami.Theme.colorSet: Kirigami.Theme.View
                         background: Rectangle {
