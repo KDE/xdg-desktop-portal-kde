@@ -30,32 +30,13 @@ PortalDialog {
         return i18ncp("%2 is the name of the application", "%2 wants to register the following shortcut:", "%2 wants to register the following %1 shortcuts:", count, app)
     }
     scrollable: true
+    contentPadding: false
 
     width: Kirigami.Units.gridUnit * 28
     height: Kirigami.Units.gridUnit * 30
 
     standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
     ColumnLayout {
-        id: content
-        Binding {
-            when: content.parent
-            target: content.parent
-            property: "leftPadding"
-            value: 0
-        }
-        Binding {
-            when: content.parent
-            target: content.parent
-            property: "rightPadding"
-            value: 0
-        }
-        Binding {
-            when: content.parent
-            target: content.parent
-            property: "bottomPadding"
-            value: 0
-        }
-
         spacing: 0
 
         ListView {
