@@ -384,7 +384,7 @@ Kirigami.AbstractApplicationWindow {
                                 // If the buttonbox is below the left container we are in wrap mode and must take their
                                 // combined height. Otherwise we are in row mode and must take the maximum height.
                                 // https://bugreports.qt.io/browse/QTBUG-141400
-                                if (footerButtonBox.x == leftContainer.x) {
+                                if (footerButtonBox.y != leftContainer.y) { // different y means different row
                                     return footerButtonBox.implicitHeight + leftContainer.implicitHeight + rowGap
                                 }
                                 return Math.max(footerButtonBox.implicitHeight, leftContainer.implicitHeight)
