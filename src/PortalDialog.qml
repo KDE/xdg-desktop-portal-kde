@@ -389,6 +389,8 @@ Kirigami.AbstractApplicationWindow {
                                 }
                                 return Math.max(footerButtonBox.implicitHeight, leftContainer.implicitHeight)
                             }
+                            // Similarly prevent the minimumHeight guide from being wrong
+                            Layout.minimumHeight: Math.min(Layout.minimumHeight, implicitHeight)
 
                             QQC2.Container {
                                 id: leftContainer
