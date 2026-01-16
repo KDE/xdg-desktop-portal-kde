@@ -136,6 +136,12 @@ PortalDialog {
         readonly property int gridDelegateWidth: gridDelegateIconSize + (Kirigami.Units.gridUnit * 4)
         readonly property int gridDelegateHeight: gridDelegateWidth + Kirigami.Units.gridUnit
 
+        activeFocusOnTab: true
+        onFocusChanged: {
+            if (focus && !(currentItem ?? false)) {
+                currentIndex = 0;
+            }
+        }
         clip: true
 
         Keys.onReturnPressed: currentItem.click();
