@@ -178,7 +178,7 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
         numberOfMonitors += model->rowCount(QModelIndex());
         connect(this, &ScreenChooserDialog::clearSelection, model, &OutputsModel::clearSelection);
     } else {
-        props.insert(u"outputsModel"_s, QVariant());
+        props.insert(u"outputsModel"_s, QVariant::fromValue(nullptr));
     }
 
     int numberOfWindows = 0;
@@ -190,7 +190,7 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
         connect(this, &ScreenChooserDialog::clearSelection, windowsProxy, &FilteredWindowModel::clearSelection);
         numberOfWindows += model->rowCount(QModelIndex());
     } else {
-        props.insert(u"windowsModel"_s, QVariant());
+        props.insert(u"windowsModel"_s, QVariant::fromValue(nullptr));
     }
 
     const QString applicationName = Utils::applicationName(appName);
