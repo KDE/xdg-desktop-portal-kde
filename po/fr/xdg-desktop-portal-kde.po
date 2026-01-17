@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-15 00:45+0000\n"
-"PO-Revision-Date: 2026-01-05 12:28+0100\n"
+"PO-Revision-Date: 2026-01-15 11:19+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -713,11 +713,10 @@ msgid "Choose what to share with %1:"
 msgstr "Sélectionnez ce qui est à partager avec %1 :"
 
 #: src/ScreenChooserDialog.qml:120
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
-msgstr "Rechercher"
+msgstr "Rechercher..."
 
 #: src/ScreenChooserDialog.qml:166
 #, kde-format
