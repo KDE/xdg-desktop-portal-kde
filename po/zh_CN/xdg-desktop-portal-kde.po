@@ -692,7 +692,7 @@ msgstr "选择要与 %1 共享的内容："
 #, kde-format
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
-msgstr ""
+msgstr "搜索…"
 
 #: src/ScreenChooserDialog.qml:166
 #, kde-format
