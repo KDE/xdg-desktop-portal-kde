@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:19+0000\n"
-"PO-Revision-Date: 2025-03-23 21:00+0100\n"
+"PO-Revision-Date: 2026-01-18 17:01+0100\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
 "Language: nb\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.12.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -244,7 +244,7 @@ msgstr "Vis skjulte filer"
 #: src/outputsmodel.cpp:18
 #, kde-format
 msgid "Full Workspace"
-msgstr "Fullt arbeidsområde"
+msgstr "Helt arbeidsområde"
 
 #: src/outputsmodel.cpp:22
 #, kde-format
@@ -337,7 +337,7 @@ msgstr "Velg hva du vil dele med forespørselsprogrammet:"
 #: src/screenchooserdialog.cpp:169
 #, kde-format
 msgid "Choose what to share with %1:"
-msgstr "Velg hva du vil dele med %1."
+msgstr "Velg hva du vil dele med %1:"
 
 #: src/screenchooserdialog.cpp:177
 #, kde-format
