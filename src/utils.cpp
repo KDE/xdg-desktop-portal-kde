@@ -8,8 +8,10 @@
 
 #include "waylandintegration.h"
 
+#include <KLocalizedString>
 #include <KWindowSystem>
 
+#include <QMessageBox>
 #include <QSettings>
 #include <QStandardPaths>
 #include <QString>
@@ -64,4 +66,15 @@ QString Utils::applicationName(const QString &appId)
     }
 
     return applicationName;
+}
+
+void Utils::warnNoStreaming(const WarningContext &context)
+{
+    Q_ASSERT(!context.title.isEmpty());
+    Q_ASSERT(!context.genericText.isEmpty());
+    Q_ASSERT(!context.x11Text.isEmpty());
+
+    auto x11 = QGuiApplication::platformName() == QLatin1String("xcb");
+    auto box = new QMessageBox(QMessageBox::Critical, context.title, x11 ? context.x11Text : context.genericText);
+    box->show();
 }

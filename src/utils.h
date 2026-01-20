@@ -7,7 +7,8 @@
 #ifndef XDG_DESKTOP_PORTAL_KDE_UTILS_H
 #define XDG_DESKTOP_PORTAL_KDE_UTILS_H
 
-class QString;
+#include <QString>
+
 class QWidget;
 class QWindow;
 
@@ -23,6 +24,12 @@ public:
     static void setParentWindow(QWindow *w, const QString &parent_window);
 
     static QString applicationName(const QString &appId);
+    struct WarningContext {
+        QString title;
+        QString genericText;
+        QString x11Text;
+    };
+    static void warnNoStreaming(const WarningContext &context);
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_UTILS_H

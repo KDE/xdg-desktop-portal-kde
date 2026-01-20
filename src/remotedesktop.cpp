@@ -119,6 +119,18 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
 
     if (!WaylandIntegration::isStreamingAvailable()) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "zkde_screencast_unstable_v1 does not seem to be available";
+        auto appName = Utils::applicationName(app_id);
+        Utils::warnNoStreaming({
+            .title = i18nc("@title:window", "Remote Desktop Not Available"),
+            .genericText = xi18nc("@info",
+                                  "The application <application>%1</application> tried to start a remote desktop session but remote desktop is not available "
+                                  "on this system. Please ensure you are running a Wayland session with a compatible window manager such as KWin.",
+                                  appName),
+            .x11Text = xi18nc("@info",
+                              "The application <application>%1</application> tried to start a remote desktop session but remote desktop is not available in "
+                              "X11 sessions. Please switch to a Wayland session and try again.",
+                              appName),
+        });
         return PortalResponse::OtherError;
     }
 
