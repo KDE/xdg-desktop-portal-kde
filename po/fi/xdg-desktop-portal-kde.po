@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 # Lasse Liehu <lasse.liehu@iki.fi>, 2022.
 # Tommi Nieminen <translator@legisign.org>, 2024.
 #
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 00:45+0000\n"
-"PO-Revision-Date: 2025-10-15 18:11+0300\n"
+"POT-Creation-Date: 2026-01-20 00:45+0000\n"
+"PO-Revision-Date: 2026-01-05 20:37+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -53,14 +53,11 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Valitse sovellus, johon <filename>%1</filename> avataan"
 
 #: src/AppChooserDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Find some more apps that can open this content using the Discover app"
-#| msgid "Find More in Discover"
+#, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "Etsi Discoverista lisää"
+msgstr "Etsi Discoverista lisää…"
 
 #: src/AppChooserDialog.qml:40
 #, kde-format
@@ -85,44 +82,44 @@ msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "Valitse muu…"
 
-#: src/AppChooserDialog.qml:172
+#: src/AppChooserDialog.qml:178
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>Tämän tiedostotyypin oletussovellus</emphasis>"
 
-#: src/AppChooserDialog.qml:174
+#: src/AppChooserDialog.qml:180
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr ""
 "%1<nl/><emphasis>Viimeksi tälle tiedostotyypille käytetty sovellus</emphasis>"
 
-#: src/AppChooserDialog.qml:196
+#: src/AppChooserDialog.qml:202
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Avataanko ohjelmalla <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:198
+#: src/AppChooserDialog.qml:204
 #, kde-format
 msgid "No matches"
 msgstr "Ei osumia"
 
-#: src/AppChooserDialog.qml:200
+#: src/AppChooserDialog.qml:206
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
 "Yksikään asennettu sovellus ei voi avata tiedostoa <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:219
+#: src/AppChooserDialog.qml:225
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Suorita päätteessä"
 
-#: src/AppChooserDialog.qml:227
+#: src/AppChooserDialog.qml:233
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -277,13 +274,13 @@ msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2 haluaa rekisteröidä seuraavan pikanäppäimen:"
 msgstr[1] "%2 haluaa rekisteröidä seuraavat %1 pikanäppäintä:"
 
-#: src/GlobalShortcutsDialog.qml:107
+#: src/GlobalShortcutsDialog.qml:88
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "Näytä muut pikanäppäimet…"
 
-#: src/GlobalShortcutsDialog.qml:108
+#: src/GlobalShortcutsDialog.qml:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
@@ -387,21 +384,19 @@ msgid "Select"
 msgstr "Valitse"
 
 #: src/outputsmodel.cpp:21
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "Jaetaanko tämä näyttö käyttäjälle %1?"
+msgstr "Jaa virtuaalinäyttö"
 
 #: src/outputsmodel.cpp:25
 #, kde-format
 msgid "Share region"
-msgstr ""
+msgstr "Jaa näyttöalue"
 
 #: src/outputsmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "Koko työtila"
+msgstr "Jaa koko työtila"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
@@ -412,19 +407,19 @@ msgstr "Kannettavan näyttö"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "Jaa koko työtila kaikkien näyttöjen kesken"
 
 #: src/outputsmodel.cpp:252
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgstr "Luo ikkunaan näytön ja jakaa sitten"
 
 #: src/outputsmodel.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "Rajaa näytöiltä määräalueen"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
@@ -490,33 +485,29 @@ msgid "Remote control session started"
 msgstr "Etähallintaistunto aloitettu"
 
 #: src/remotedesktop.cpp:580
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Control"
-msgstr "Etähallintaa pyydetty"
+msgstr "Etähallinta"
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr "Etähallintaa pyydetty"
+msgstr "Etähallinta"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "@info"
 msgid "An application is asking for special privileges:\n"
-msgstr ""
+msgstr "Sovellus pyytää erityisiä käyttöoikeuksia:\n"
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "@info"
 msgid "%1 is asking for special privileges:"
-msgstr ""
+msgstr "%1 pyytää erityisiä käyttöoikeuksia:"
 
 #: src/remotedesktopdialog.cpp:50
 #, kde-format
@@ -527,32 +518,32 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - nähdä, mitä näytöllä on"
 
 #: src/remotedesktopdialog.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application requested access to control input devices'. '-' "
 "is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " – syötelaitteet\n"
+msgstr ""
+"\n"
+" – hallita syöttölaitteita"
 
 #: src/remotedesktopdialog.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "@info"
 msgid "An application is exercising special permissions:\n"
-msgstr "Sovellus pyysi pääsyä kohteisiin:\n"
+msgstr "Sovellus käyttää erityisiä käyttöoikeuksia:\n"
 
 #: src/remotedesktopdialog.cpp:63
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising special privileges:"
-msgstr ""
+msgstr "%1 käyttää erityisiä käyttöoikeuksia:"
 
 #: src/remotedesktopdialog.cpp:67
 #, kde-format
@@ -563,20 +554,22 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - näkee, mitä näytöllä on"
 
 #: src/remotedesktopdialog.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application is exercising privileges to control input "
 "devices'. '-' is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " – syötelaitteet\n"
+msgstr ""
+"\n"
+" - hallitsee syöttölaitteita"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:189
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:190
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Salli palauttaminen myöhemmissä istunnoissa"
@@ -585,13 +578,13 @@ msgstr "Salli palauttaminen myöhemmissä istunnoissa"
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
-msgstr ""
+msgstr "Hyväksy"
 
 #: src/RemoteDesktopDialog.qml:39
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr ""
+msgstr "Kiellä"
 
 #: src/screencast.cpp:284
 #, kde-format
@@ -621,11 +614,10 @@ msgid "Screen casting"
 msgstr "Näytönjako"
 
 #: src/screenchooserdialog.cpp:158
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
-msgstr "Jaetaanko tämä näyttö käyttäjälle %1?"
+msgstr "Jaa näyttö sovellukselle %1"
 
 #: src/screenchooserdialog.cpp:205
 #, kde-format
@@ -707,22 +699,21 @@ msgstr "Valitse, mitä pyytävälle sovellukselle jaetaan:"
 msgid "Choose what to share with %1:"
 msgstr "Valitse mitä käyttäjälle %1 jaetaan:"
 
-#: src/ScreenChooserDialog.qml:120
+#: src/ScreenChooserDialog.qml:121
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
 msgstr "Etsi"
 
-#: src/ScreenChooserDialog.qml:166
-#, fuzzy, kde-format
-#| msgid "Windows"
+#: src/ScreenChooserDialog.qml:167
+#, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "Ikkunat"
 
-#: src/ScreenChooserDialog.qml:193
+#: src/ScreenChooserDialog.qml:195
 #, kde-format
 msgid "Share"
 msgstr "Jaa"
@@ -799,36 +790,29 @@ msgstr "Kaappaa"
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
-msgstr ""
+msgstr "Pyydetään pääsyä USB-laitteisiin"
 
 #: src/UsbDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
 msgid_plural "An application wants to access the following devices:"
-msgstr[0] "Sovellus haluaa rekisteröidä seuraavan pikanäppäimen:"
-msgstr[1] "Sovellus haluaa rekisteröidä seuraavat %1 pikanäppäintä:"
+msgstr[0] "Sovellus haluaa pääsyn seuraavaan laitteeseen:"
+msgstr[1] "Sovellus haluaa pääsyn seuraaviin laitteisiin:"
 
 #: src/UsbDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
 msgid_plural "%2 wants to access the following devices:"
-msgstr[0] "%2 haluaa rekisteröidä seuraavan pikanäppäimen:"
-msgstr[1] "%2 haluaa rekisteröidä seuraavat %1 pikanäppäintä:"
+msgstr[0] "%2 haluaa pääsyn seuraavaan laitteeseen:"
+msgstr[1] "%2 haluaa pääsyn seuraaviin laitteisiin:"
 
 #: src/userinfodialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Share User Information with %1"
+#, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
-msgstr "Jaa käyttäjätietoa käyttäjälle %1"
+msgstr "Jaa käyttäjätieto sovellukselle %1"
 
 #: src/userinfodialog.cpp:54
 #, kde-format
@@ -837,12 +821,13 @@ msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
 msgstr ""
+"Sallii sovelluksen käyttävän käyttäjätunnusta, koko nimeä ja profiilikuvaa."
 
 #: src/UserInfoDialog.qml:18
 #, kde-format
 msgctxt "@action:button"
 msgid "Share user info"
-msgstr ""
+msgstr "Jaa käyttäjätiedot"
 
 #: src/UserInfoDialog.qml:76
 #, kde-format
