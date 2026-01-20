@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 03:01+0000\n"
+"POT-Creation-Date: 2026-01-20 03:01+0000\n"
 "PO-Revision-Date: 2025-11-27 01:46-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -86,14 +86,14 @@ msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "Escolher outro…"
 
-#: src/AppChooserDialog.qml:172
+#: src/AppChooserDialog.qml:178
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr ""
 "%1<nl/><emphasis>Aplicativo padrão para este tipo de arquivo</emphasis>"
 
-#: src/AppChooserDialog.qml:174
+#: src/AppChooserDialog.qml:180
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
@@ -101,30 +101,30 @@ msgstr ""
 "%1<nl/><emphasis>Aplicativo usado por último para este tipo de arquivo</"
 "emphasis>"
 
-#: src/AppChooserDialog.qml:196
+#: src/AppChooserDialog.qml:202
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Abrir com <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:198
+#: src/AppChooserDialog.qml:204
 #, kde-format
 msgid "No matches"
 msgstr "Nenhuma ocorrência"
 
-#: src/AppChooserDialog.qml:200
+#: src/AppChooserDialog.qml:206
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Nenhum aplicativo instalado pode abrir <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:219
+#: src/AppChooserDialog.qml:225
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Executar no terminal"
 
-#: src/AppChooserDialog.qml:227
+#: src/AppChooserDialog.qml:233
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -279,13 +279,13 @@ msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2 deseja registrar o seguinte atalho:"
 msgstr[1] "%2 deseja registrar os seguintes %1 atalhos:"
 
-#: src/GlobalShortcutsDialog.qml:107
+#: src/GlobalShortcutsDialog.qml:88
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "Ver outros atalhos…"
 
-#: src/GlobalShortcutsDialog.qml:108
+#: src/GlobalShortcutsDialog.qml:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
@@ -575,7 +575,7 @@ msgstr ""
 "\n"
 " - Controlar dispositivos de entrada"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:188
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:189
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Permite restaurar em sessões futuras"
@@ -706,14 +706,14 @@ msgstr "Escolher o que compartilhar com o aplicativo solicitado:"
 msgid "Choose what to share with %1:"
 msgstr "Escolher o que compartilhar com %1:"
 
-#: src/ScreenChooserDialog.qml:165
+#: src/ScreenChooserDialog.qml:166
 #, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "Janelas"
 
-#: src/ScreenChooserDialog.qml:192
+#: src/ScreenChooserDialog.qml:194
 #, kde-format
 msgid "Share"
 msgstr "Compartilhar"

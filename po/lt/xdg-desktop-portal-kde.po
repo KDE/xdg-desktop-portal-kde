@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 03:01+0000\n"
+"POT-Creation-Date: 2026-01-20 03:01+0000\n"
 "PO-Revision-Date: 2025-12-16 22:46+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
@@ -82,43 +82,43 @@ msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "Pasirinkti kitą…"
 
-#: src/AppChooserDialog.qml:172
+#: src/AppChooserDialog.qml:178
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>Numatytoji programa šiam failo tipui</emphasis>"
 
-#: src/AppChooserDialog.qml:174
+#: src/AppChooserDialog.qml:180
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr ""
 "%1<nl/><emphasis>Paskutinė naudota programa šiam failo tipui</emphasis>"
 
-#: src/AppChooserDialog.qml:196
+#: src/AppChooserDialog.qml:202
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Atverti naudojant <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:198
+#: src/AppChooserDialog.qml:204
 #, kde-format
 msgid "No matches"
 msgstr "Nėra atitikmenų"
 
-#: src/AppChooserDialog.qml:200
+#: src/AppChooserDialog.qml:206
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Jokia įdiegta programa negali atverti <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:219
+#: src/AppChooserDialog.qml:225
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Vykdyti terminale"
 
-#: src/AppChooserDialog.qml:227
+#: src/AppChooserDialog.qml:233
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -281,13 +281,13 @@ msgstr[1] "%2 nori įregistruoti šiuos %1 sparčiuosius klavišus:"
 msgstr[2] "%2 nori įregistruoti šiuos %1 sparčiųjų klavišų:"
 msgstr[3] "%2 nori įregistruoti šį %1 spartųjį klavišą:"
 
-#: src/GlobalShortcutsDialog.qml:107
+#: src/GlobalShortcutsDialog.qml:88
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "Rodyti kitus sparčiuosius klavišus…"
 
-#: src/GlobalShortcutsDialog.qml:108
+#: src/GlobalShortcutsDialog.qml:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
@@ -575,7 +575,7 @@ msgstr ""
 "\n"
 " - Valdyti įvedimo įrenginius"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:188
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:189
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Leisti būsimuosiuose seansuose atkurti"
@@ -710,14 +710,14 @@ msgstr "Pasirinkite, ką bendrinti su užklausą pateikusia programa:"
 msgid "Choose what to share with %1:"
 msgstr "Pasirinkite, ką bendrinti su %1:"
 
-#: src/ScreenChooserDialog.qml:165
+#: src/ScreenChooserDialog.qml:166
 #, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "Langai"
 
-#: src/ScreenChooserDialog.qml:192
+#: src/ScreenChooserDialog.qml:194
 #, kde-format
 msgid "Share"
 msgstr "Bendrinti"

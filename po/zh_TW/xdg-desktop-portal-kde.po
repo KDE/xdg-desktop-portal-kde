@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 03:01+0000\n"
+"POT-Creation-Date: 2026-01-20 03:01+0000\n"
 "PO-Revision-Date: 2025-11-29 17:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -81,42 +81,42 @@ msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "選擇別的…"
 
-#: src/AppChooserDialog.qml:172
+#: src/AppChooserDialog.qml:178
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>這個檔案類型的預設應用程式</emphasis>"
 
-#: src/AppChooserDialog.qml:174
+#: src/AppChooserDialog.qml:180
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>這個檔案類型上次使用的應用程式</emphasis>"
 
-#: src/AppChooserDialog.qml:196
+#: src/AppChooserDialog.qml:202
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "要使用 <command>%1</command> 開啟嗎？"
 
-#: src/AppChooserDialog.qml:198
+#: src/AppChooserDialog.qml:204
 #, kde-format
 msgid "No matches"
 msgstr "無相符項目"
 
-#: src/AppChooserDialog.qml:200
+#: src/AppChooserDialog.qml:206
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "已安裝應用程式中沒有可以開啟 <filename>%1</filename> 的應用程式"
 
-#: src/AppChooserDialog.qml:219
+#: src/AppChooserDialog.qml:225
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "在終端機執行"
 
-#: src/AppChooserDialog.qml:227
+#: src/AppChooserDialog.qml:233
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -267,13 +267,13 @@ msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2 希望註冊以下 %1 個快捷鍵："
 
-#: src/GlobalShortcutsDialog.qml:107
+#: src/GlobalShortcutsDialog.qml:88
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "檢視其他快捷鍵…"
 
-#: src/GlobalShortcutsDialog.qml:108
+#: src/GlobalShortcutsDialog.qml:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
@@ -559,7 +559,7 @@ msgstr ""
 "\n"
 " - 控制輸入裝置"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:188
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:189
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "允許在未來工作階段恢復"
@@ -688,14 +688,14 @@ msgstr "選擇要與提出請求的應用程式分享的項目："
 msgid "Choose what to share with %1:"
 msgstr "選擇要與 %1 分享的項目："
 
-#: src/ScreenChooserDialog.qml:165
+#: src/ScreenChooserDialog.qml:166
 #, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "視窗"
 
-#: src/ScreenChooserDialog.qml:192
+#: src/ScreenChooserDialog.qml:194
 #, kde-format
 msgid "Share"
 msgstr "分享"

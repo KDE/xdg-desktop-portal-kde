@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 03:01+0000\n"
+"POT-Creation-Date: 2026-01-20 03:01+0000\n"
 "PO-Revision-Date: 2025-11-27 16:25+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -80,42 +80,42 @@ msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "Başka Seç…"
 
-#: src/AppChooserDialog.qml:172
+#: src/AppChooserDialog.qml:178
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>Bu dosya türü için öntanımlı uygulama</emphasis>"
 
-#: src/AppChooserDialog.qml:174
+#: src/AppChooserDialog.qml:180
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>Bu dosya türü için son kullanılan uygulama</emphasis>"
 
-#: src/AppChooserDialog.qml:196
+#: src/AppChooserDialog.qml:202
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "<command>%1</command> ile açılsın mı?"
 
-#: src/AppChooserDialog.qml:198
+#: src/AppChooserDialog.qml:204
 #, kde-format
 msgid "No matches"
 msgstr "Eşleşme yok"
 
-#: src/AppChooserDialog.qml:200
+#: src/AppChooserDialog.qml:206
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "<filename>%1</filename> ögesini açabilecek bir kurulu uygulama yok"
 
-#: src/AppChooserDialog.qml:219
+#: src/AppChooserDialog.qml:225
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Uçbirimde çalıştır"
 
-#: src/AppChooserDialog.qml:227
+#: src/AppChooserDialog.qml:233
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -271,13 +271,13 @@ msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2, aşağıdaki kısayolu kaydetmek istiyor:"
 msgstr[1] "%2, aşağıdaki %1 kısayolu kaydetmek istiyor:"
 
-#: src/GlobalShortcutsDialog.qml:107
+#: src/GlobalShortcutsDialog.qml:88
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "Diğer Kısayolları Gör…"
 
-#: src/GlobalShortcutsDialog.qml:108
+#: src/GlobalShortcutsDialog.qml:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
@@ -567,7 +567,7 @@ msgstr ""
 "\n"
 " - Giriş aygıtlarını denetlemek"
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:188
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:189
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr "Gelecekteki oturumlarda geri yüklemeye izin ver"
@@ -697,14 +697,14 @@ msgstr "İsteyen uygulama ile nelerin paylaşılacağını seçin:"
 msgid "Choose what to share with %1:"
 msgstr "%1 ile nelerin paylaşılacağını seçin:"
 
-#: src/ScreenChooserDialog.qml:165
+#: src/ScreenChooserDialog.qml:166
 #, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "Pencereler"
 
-#: src/ScreenChooserDialog.qml:192
+#: src/ScreenChooserDialog.qml:194
 #, kde-format
 msgid "Share"
 msgstr "Paylaş"

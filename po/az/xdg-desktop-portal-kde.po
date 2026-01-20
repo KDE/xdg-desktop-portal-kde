@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 03:01+0000\n"
+"POT-Creation-Date: 2026-01-20 03:01+0000\n"
 "PO-Revision-Date: 2022-08-24 17:55+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -86,43 +86,43 @@ msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr ""
 
-#: src/AppChooserDialog.qml:172
+#: src/AppChooserDialog.qml:178
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr ""
 
-#: src/AppChooserDialog.qml:174
+#: src/AppChooserDialog.qml:180
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr ""
 
-#: src/AppChooserDialog.qml:196
+#: src/AppChooserDialog.qml:202
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr ""
 
-#: src/AppChooserDialog.qml:198
+#: src/AppChooserDialog.qml:204
 #, kde-format
 msgid "No matches"
 msgstr ""
 
-#: src/AppChooserDialog.qml:200
+#: src/AppChooserDialog.qml:206
 #, fuzzy, kde-kuit-format
 #| msgid "Select an application to open '%1'"
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "\"%1\" açacaq üçün bir tətbiq seçin"
 
-#: src/AppChooserDialog.qml:219
+#: src/AppChooserDialog.qml:225
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr ""
 
-#: src/AppChooserDialog.qml:227
+#: src/AppChooserDialog.qml:233
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -272,13 +272,13 @@ msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/GlobalShortcutsDialog.qml:107
+#: src/GlobalShortcutsDialog.qml:88
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr ""
 
-#: src/GlobalShortcutsDialog.qml:108
+#: src/GlobalShortcutsDialog.qml:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
@@ -574,7 +574,7 @@ msgid ""
 " - Control input devices"
 msgstr ""
 
-#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:188
+#: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:189
 #, kde-format
 msgid "Allow restoring on future sessions"
 msgstr ""
@@ -708,7 +708,7 @@ msgstr "Tələb olunan tətbiq ilə nəyi paylaşacağınızı seçin:"
 msgid "Choose what to share with %1:"
 msgstr "%1 ilə nəyi paylaşacağınızı seçin:"
 
-#: src/ScreenChooserDialog.qml:165
+#: src/ScreenChooserDialog.qml:166
 #, fuzzy, kde-format
 #| msgid "Windows"
 msgctxt ""
@@ -716,7 +716,7 @@ msgctxt ""
 msgid "Windows"
 msgstr "Pəncərələr"
 
-#: src/ScreenChooserDialog.qml:192
+#: src/ScreenChooserDialog.qml:194
 #, kde-format
 msgid "Share"
 msgstr "Paylaşmaq"
