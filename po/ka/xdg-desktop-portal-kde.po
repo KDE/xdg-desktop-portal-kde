@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:45+0000\n"
+"POT-Creation-Date: 2026-01-21 00:47+0000\n"
 "PO-Revision-Date: 2026-01-14 05:11+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -467,24 +467,52 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "მარცხენა-წკაპი და გადათრევა"
 
-#: src/remotedesktop.cpp:182 src/screencast.cpp:224
+#: src/remotedesktop.cpp:124
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "SNI title that indicates there's a process remotely controlling the system"
+#| msgid "Remote Desktop"
+msgctxt "@title:window"
+msgid "Remote Desktop Not Available"
+msgstr "დაშორებული სამუშაო მაგიდა"
+
+#: src/remotedesktop.cpp:126
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a remote "
+"desktop session but remote desktop is not available on this system. Please "
+"ensure you are running a Wayland session with a compatible window manager "
+"such as KWin."
+msgstr ""
+
+#: src/remotedesktop.cpp:130
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a remote "
+"desktop session but remote desktop is not available in X11 sessions. Please "
+"switch to a Wayland session and try again."
+msgstr ""
+
+#: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
 msgid "Virtual Output"
 msgstr "ვირტუალური გამოტანა"
 
-#: src/remotedesktop.cpp:183 src/screencast.cpp:225
+#: src/remotedesktop.cpp:195 src/screencast.cpp:237
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "ვირტუალური გამოტანა (გაზიარებულია %1-სთან)"
 
-#: src/remotedesktop.cpp:291
+#: src/remotedesktop.cpp:303
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "დაშორებული მართვის სესია დაიწყო"
 
-#: src/remotedesktop.cpp:580
+#: src/remotedesktop.cpp:592
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -586,19 +614,45 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "უარყოფა"
 
-#: src/screencast.cpp:284
+#: src/screencast.cpp:155
+#, fuzzy, kde-format
+#| msgid "Screen Sharing"
+msgctxt "@title:window"
+msgid "Screen Sharing Not Available"
+msgstr "ეკრანის გაზიარება"
+
+#: src/screencast.cpp:157
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a screen "
+"sharing session but screen sharing is not available on this system. Please "
+"ensure you are running a Wayland session with a compatible window manager "
+"such as KWin."
+msgstr ""
+
+#: src/screencast.cpp:161
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a screen "
+"sharing session but screen sharing is not available in X11 sessions. Please "
+"switch to a Wayland session and try again."
+msgstr ""
+
+#: src/screencast.cpp:296
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "მიმდინარეობს ეკრანის გაზიარება"
 
-#: src/screencast.cpp:392
+#: src/screencast.cpp:404
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "დასრულება"
 
-#: src/screencast.cpp:445
+#: src/screencast.cpp:457
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -606,7 +660,7 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "%2-სთან შემცველობის გაზიარება"
 msgstr[1] "%1 ვიდეონაკადი %2-მდე"
 
-#: src/screencast.cpp:449
+#: src/screencast.cpp:461
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
@@ -890,9 +944,6 @@ msgstr "ეკრანის გადაცემის დაწყები�
 msgid "Remote desktop"
 msgstr "დაშორებული სამუშაო მაგიდა"
 
-#~ msgid "Screen Sharing"
-#~ msgstr "ეკრანის გაზიარება"
-
 #~ msgid "Screens"
 #~ msgstr "ეკრანები"
 
@@ -907,11 +958,6 @@ msgstr "დაშორებული სამუშაო მაგიდა"
 #~ msgctxt "@info"
 #~ msgid "Don't see the right app? Find more in <link>Discover</link>."
 #~ msgstr "ვერ ხედავთ სწორ აპს? აღმოაჩინეთ მეტი აპი <link>Discover-ში</link>."
-
-#~ msgctxt ""
-#~ "SNI title that indicates there's a process remotely controlling the system"
-#~ msgid "Remote Desktop"
-#~ msgstr "დაშორებული სამუშაო მაგიდა"
 
 #~ msgctxt "Unordered list with privileges granted to an external process"
 #~ msgid "An application requested access to remotely control:\n"

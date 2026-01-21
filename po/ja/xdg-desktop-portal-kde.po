@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:45+0000\n"
+"POT-Creation-Date: 2026-01-21 00:47+0000\n"
 "PO-Revision-Date: 2023-04-07 23:28-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -461,24 +461,49 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr ""
 
-#: src/remotedesktop.cpp:182 src/screencast.cpp:224
+#: src/remotedesktop.cpp:124
+#, kde-format
+msgctxt "@title:window"
+msgid "Remote Desktop Not Available"
+msgstr ""
+
+#: src/remotedesktop.cpp:126
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a remote "
+"desktop session but remote desktop is not available on this system. Please "
+"ensure you are running a Wayland session with a compatible window manager "
+"such as KWin."
+msgstr ""
+
+#: src/remotedesktop.cpp:130
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a remote "
+"desktop session but remote desktop is not available in X11 sessions. Please "
+"switch to a Wayland session and try again."
+msgstr ""
+
+#: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
 msgid "Virtual Output"
 msgstr ""
 
-#: src/remotedesktop.cpp:183 src/screencast.cpp:225
+#: src/remotedesktop.cpp:195 src/screencast.cpp:237
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr ""
 
-#: src/remotedesktop.cpp:291
+#: src/remotedesktop.cpp:303
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr ""
 
-#: src/remotedesktop.cpp:580
+#: src/remotedesktop.cpp:592
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -572,26 +597,51 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr ""
 
-#: src/screencast.cpp:284
+#: src/screencast.cpp:155
+#, kde-format
+msgctxt "@title:window"
+msgid "Screen Sharing Not Available"
+msgstr ""
+
+#: src/screencast.cpp:157
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a screen "
+"sharing session but screen sharing is not available on this system. Please "
+"ensure you are running a Wayland session with a compatible window manager "
+"such as KWin."
+msgstr ""
+
+#: src/screencast.cpp:161
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a screen "
+"sharing session but screen sharing is not available in X11 sessions. Please "
+"switch to a Wayland session and try again."
+msgstr ""
+
+#: src/screencast.cpp:296
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr ""
 
-#: src/screencast.cpp:392
+#: src/screencast.cpp:404
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr ""
 
-#: src/screencast.cpp:445
+#: src/screencast.cpp:457
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
 msgstr[0] ""
 
-#: src/screencast.cpp:449
+#: src/screencast.cpp:461
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"

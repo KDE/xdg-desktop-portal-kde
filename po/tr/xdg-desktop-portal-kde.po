@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:45+0000\n"
+"POT-Creation-Date: 2026-01-21 00:47+0000\n"
 "PO-Revision-Date: 2026-01-14 19:18+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -465,24 +465,52 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Sol tıkla ve sürükle"
 
-#: src/remotedesktop.cpp:182 src/screencast.cpp:224
+#: src/remotedesktop.cpp:124
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "SNI title that indicates there's a process remotely controlling the system"
+#| msgid "Remote Desktop"
+msgctxt "@title:window"
+msgid "Remote Desktop Not Available"
+msgstr "Uzak Masaüstü"
+
+#: src/remotedesktop.cpp:126
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a remote "
+"desktop session but remote desktop is not available on this system. Please "
+"ensure you are running a Wayland session with a compatible window manager "
+"such as KWin."
+msgstr ""
+
+#: src/remotedesktop.cpp:130
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a remote "
+"desktop session but remote desktop is not available in X11 sessions. Please "
+"switch to a Wayland session and try again."
+msgstr ""
+
+#: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
 msgid "Virtual Output"
 msgstr "Sanal Çıktı"
 
-#: src/remotedesktop.cpp:183 src/screencast.cpp:225
+#: src/remotedesktop.cpp:195 src/screencast.cpp:237
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Sanal Çıktı (%1 ile Paylaşılan)"
 
-#: src/remotedesktop.cpp:291
+#: src/remotedesktop.cpp:303
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "Uzaktan denetim oturumu başlatıldı"
 
-#: src/remotedesktop.cpp:580
+#: src/remotedesktop.cpp:592
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -584,19 +612,45 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "Reddet"
 
-#: src/screencast.cpp:284
+#: src/screencast.cpp:155
+#, fuzzy, kde-format
+#| msgid "Screen Sharing"
+msgctxt "@title:window"
+msgid "Screen Sharing Not Available"
+msgstr "Ekran Paylaşımı"
+
+#: src/screencast.cpp:157
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a screen "
+"sharing session but screen sharing is not available on this system. Please "
+"ensure you are running a Wayland session with a compatible window manager "
+"such as KWin."
+msgstr ""
+
+#: src/screencast.cpp:161
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a screen "
+"sharing session but screen sharing is not available in X11 sessions. Please "
+"switch to a Wayland session and try again."
+msgstr ""
+
+#: src/screencast.cpp:296
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Ekran paylaşımı sürüyor"
 
-#: src/screencast.cpp:392
+#: src/screencast.cpp:404
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Sonlandır"
 
-#: src/screencast.cpp:445
+#: src/screencast.cpp:457
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -604,7 +658,7 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "İçerik şuna paylaşılıyor: %2"
 msgstr[1] "%1, %2 kişisine video akışı sağlıyor"
 
-#: src/screencast.cpp:449
+#: src/screencast.cpp:461
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
@@ -890,9 +944,6 @@ msgstr "Ekran yayını başlatılamadı"
 msgid "Remote desktop"
 msgstr "Uzak Masaüstü"
 
-#~ msgid "Screen Sharing"
-#~ msgstr "Ekran Paylaşımı"
-
 #~ msgid "Screens"
 #~ msgstr "Ekranlar"
 
@@ -909,11 +960,6 @@ msgstr "Uzak Masaüstü"
 #~ msgstr ""
 #~ "Uygun uygulamayı bulamıyor musunuz? <link>Keşfet</link>’ten başka "
 #~ "uygulamalara bakın."
-
-#~ msgctxt ""
-#~ "SNI title that indicates there's a process remotely controlling the system"
-#~ msgid "Remote Desktop"
-#~ msgstr "Uzak Masaüstü"
 
 #~ msgctxt "Unordered list with privileges granted to an external process"
 #~ msgid "An application requested access to remotely control:\n"

@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2022, 2024, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2022, 2024, 2025, 2026 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:45+0000\n"
-"PO-Revision-Date: 2025-09-08 18:36+0200\n"
+"POT-Creation-Date: 2026-01-21 00:47+0000\n"
+"PO-Revision-Date: 2026-01-20 21:03+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -51,14 +51,11 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Välj ett program för att öppna <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Find some more apps that can open this content using the Discover app"
-#| msgid "Find More in Discover"
+#, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "Hitta fler i Discover"
+msgstr "Hitta fler i Discover…"
 
 #: src/AppChooserDialog.qml:40
 #, kde-format
@@ -386,21 +383,19 @@ msgid "Select"
 msgstr "Markera"
 
 #: src/outputsmodel.cpp:21
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "Dela den här skärmen med %1?"
+msgstr "Dela virtuell skärm"
 
 #: src/outputsmodel.cpp:25
 #, kde-format
 msgid "Share region"
-msgstr ""
+msgstr "Dela område"
 
 #: src/outputsmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "Hel arbetsyta"
+msgstr "Dela hela arbetsytan"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
@@ -411,19 +406,19 @@ msgstr "Bildskärm på bärbar dator"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "Dela hela arbetsytan över alla skärmar"
 
 #: src/outputsmodel.cpp:252
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgstr "Skapar en skärm inne i ett fönster, och delar den sedan"
 
 #: src/outputsmodel.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "Beskär ett specifikt område på dina skärmar"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
@@ -471,51 +466,75 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Vänsterklicka och dra"
 
-#: src/remotedesktop.cpp:182 src/screencast.cpp:224
+#: src/remotedesktop.cpp:124
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "SNI title that indicates there's a process remotely controlling the system"
+#| msgid "Remote Desktop"
+msgctxt "@title:window"
+msgid "Remote Desktop Not Available"
+msgstr "Fjärrskrivbord"
+
+#: src/remotedesktop.cpp:126
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a remote "
+"desktop session but remote desktop is not available on this system. Please "
+"ensure you are running a Wayland session with a compatible window manager "
+"such as KWin."
+msgstr ""
+
+#: src/remotedesktop.cpp:130
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a remote "
+"desktop session but remote desktop is not available in X11 sessions. Please "
+"switch to a Wayland session and try again."
+msgstr ""
+
+#: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
 msgid "Virtual Output"
 msgstr "Virtuell utmatning"
 
-#: src/remotedesktop.cpp:183 src/screencast.cpp:225
+#: src/remotedesktop.cpp:195 src/screencast.cpp:237
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Virtuell utmatning (delad med %1)"
 
-#: src/remotedesktop.cpp:291
+#: src/remotedesktop.cpp:303
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "Fjärrkontrollsession startad"
 
-#: src/remotedesktop.cpp:580
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#: src/remotedesktop.cpp:592
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Control"
-msgstr "Fjärrkontroll begärd"
+msgstr "Fjärrkontroll"
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr "Fjärrkontroll begärd"
+msgstr "Fjärrkontroll"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "@info"
 msgid "An application is asking for special privileges:\n"
-msgstr ""
+msgstr "Ett program ber om särskilda privilegier:\n"
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "@info"
 msgid "%1 is asking for special privileges:"
-msgstr ""
+msgstr "%1 ber om särskilda privilegier:"
 
 #: src/remotedesktopdialog.cpp:50
 #, kde-format
@@ -526,32 +545,32 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - See what’s on the screen"
 
 #: src/remotedesktopdialog.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application requested access to control input devices'. '-' "
 "is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - Inmatningsenheter\n"
+msgstr ""
+"\n"
+" - Control input devices"
 
 #: src/remotedesktopdialog.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "@info"
 msgid "An application is exercising special permissions:\n"
-msgstr "Ett program begärde åtkomst till:\n"
+msgstr "Ett program utnyttjar särskilda rättigheter:\n"
 
 #: src/remotedesktopdialog.cpp:63
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising special privileges:"
-msgstr ""
+msgstr "%1 utnyttjar särskilda rättigheter:"
 
 #: src/remotedesktopdialog.cpp:67
 #, kde-format
@@ -562,18 +581,20 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - See what’s on the screen"
 
 #: src/remotedesktopdialog.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application is exercising privileges to control input "
 "devices'. '-' is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - Inmatningsenheter\n"
+msgstr ""
+"\n"
+" - Control input devices"
 
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:190
 #, kde-format
@@ -584,27 +605,53 @@ msgstr "Tillåt att återställa vid framtida sessioner"
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
-msgstr ""
+msgstr "Godkänn"
 
 #: src/RemoteDesktopDialog.qml:39
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
+msgstr "Neka"
+
+#: src/screencast.cpp:155
+#, fuzzy, kde-format
+#| msgid "Screen Sharing"
+msgctxt "@title:window"
+msgid "Screen Sharing Not Available"
+msgstr "Skärmdelning"
+
+#: src/screencast.cpp:157
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a screen "
+"sharing session but screen sharing is not available on this system. Please "
+"ensure you are running a Wayland session with a compatible window manager "
+"such as KWin."
 msgstr ""
 
-#: src/screencast.cpp:284
+#: src/screencast.cpp:161
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a screen "
+"sharing session but screen sharing is not available in X11 sessions. Please "
+"switch to a Wayland session and try again."
+msgstr ""
+
+#: src/screencast.cpp:296
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Skärmdelning pågår"
 
-#: src/screencast.cpp:392
+#: src/screencast.cpp:404
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Slut"
 
-#: src/screencast.cpp:445
+#: src/screencast.cpp:457
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -612,7 +659,7 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "Delar innehåll med %2"
 msgstr[1] "%1 videoströmmar till %2"
 
-#: src/screencast.cpp:449
+#: src/screencast.cpp:461
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
@@ -620,11 +667,10 @@ msgid "Screen casting"
 msgstr "Skärmsändning"
 
 #: src/screenchooserdialog.cpp:158
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
-msgstr "Dela den här skärmen med %1?"
+msgstr "Dela skärm med %1"
 
 #: src/screenchooserdialog.cpp:205
 #, kde-format
@@ -707,15 +753,13 @@ msgid "Choose what to share with %1:"
 msgstr "Välj vad som ska delas med %1:"
 
 #: src/ScreenChooserDialog.qml:121
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
-msgstr "Sök"
+msgstr "Sök…"
 
 #: src/ScreenChooserDialog.qml:167
-#, fuzzy, kde-format
-#| msgid "Windows"
+#, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
@@ -797,33 +841,26 @@ msgstr "Ta"
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
-msgstr ""
+msgstr "Åtkomst till USB-enhet begärd"
 
 #: src/UsbDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
 msgid_plural "An application wants to access the following devices:"
-msgstr[0] "Ett program vill registrera följande genväg:"
-msgstr[1] "Ett program vill registrera följande %1 genvägar:"
+msgstr[0] "Ett program vill komma åt följande enhet:"
+msgstr[1] "Ett program vill komma åt följande enheter:"
 
 #: src/UsbDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
 msgid_plural "%2 wants to access the following devices:"
-msgstr[0] "%2 vill registrera följande genväg:"
-msgstr[1] "%2 vill registrera följande %1 genvägar:"
+msgstr[0] "%2 vill komma åt följande enhet:"
+msgstr[1] "%2 vill komma åt följande enheter:"
 
 #: src/userinfodialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Share User Information with %1"
+#, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
 msgstr "Dela användarinformation med %1"
@@ -835,12 +872,14 @@ msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
 msgstr ""
+"Tillåter att ditt användarnamn, fullständiga namn och profilbild används av "
+"programmet."
 
 #: src/UserInfoDialog.qml:18
 #, kde-format
 msgctxt "@action:button"
 msgid "Share user info"
-msgstr ""
+msgstr "Dela användarinformation"
 
 #: src/UserInfoDialog.qml:76
 #, kde-format
@@ -901,9 +940,6 @@ msgstr "Misslyckades starta skärmutsändning"
 msgid "Remote desktop"
 msgstr "Fjärrskrivbord"
 
-#~ msgid "Screen Sharing"
-#~ msgstr "Skärmdelning"
-
 #~ msgid "Screens"
 #~ msgstr "Skärmar"
 
@@ -918,11 +954,6 @@ msgstr "Fjärrskrivbord"
 #~ msgctxt "@info"
 #~ msgid "Don't see the right app? Find more in <link>Discover</link>."
 #~ msgstr "Syns inte rätt program? Hitta fler i <link>Discover</link>."
-
-#~ msgctxt ""
-#~ "SNI title that indicates there's a process remotely controlling the system"
-#~ msgid "Remote Desktop"
-#~ msgstr "Fjärrskrivbord"
 
 #~ msgctxt "Unordered list with privileges granted to an external process"
 #~ msgid "An application requested access to remotely control:\n"

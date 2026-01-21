@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:45+0000\n"
+"POT-Creation-Date: 2026-01-21 00:47+0000\n"
 "PO-Revision-Date: 2025-02-28 11:01-0600\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -464,24 +464,52 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "ਖੱਬਾ-ਕਲਿੱਕ ਅਤੇ ਖਿੱਚੋ"
 
-#: src/remotedesktop.cpp:182 src/screencast.cpp:224
+#: src/remotedesktop.cpp:124
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "SNI title that indicates there's a process remotely controlling the system"
+#| msgid "Remote Desktop"
+msgctxt "@title:window"
+msgid "Remote Desktop Not Available"
+msgstr "ਰਿਮੋਟ ਡੈਸਕਟਾਪ"
+
+#: src/remotedesktop.cpp:126
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a remote "
+"desktop session but remote desktop is not available on this system. Please "
+"ensure you are running a Wayland session with a compatible window manager "
+"such as KWin."
+msgstr ""
+
+#: src/remotedesktop.cpp:130
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a remote "
+"desktop session but remote desktop is not available in X11 sessions. Please "
+"switch to a Wayland session and try again."
+msgstr ""
+
+#: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
 msgid "Virtual Output"
 msgstr "ਵਰਚੁਅਲ ਆਉਟਪੁੱਟ"
 
-#: src/remotedesktop.cpp:183 src/screencast.cpp:225
+#: src/remotedesktop.cpp:195 src/screencast.cpp:237
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "ਵਰਚੁਅਲ ਆਉਟਪੁੱਟ (%1 ਨਾਲ ਸਾਂਝਾ ਕੀਤਾ)"
 
-#: src/remotedesktop.cpp:291
+#: src/remotedesktop.cpp:303
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "ਰਿਮੋਟ ਕੰਟਰੋਲ ਸ਼ੈਸ਼ਨ ਸ਼ੁਰੂ ਹੋਇਆ"
 
-#: src/remotedesktop.cpp:580
+#: src/remotedesktop.cpp:592
 #, fuzzy, kde-format
 #| msgctxt "Title of the dialog that requests remote input privileges"
 #| msgid "Remote control requested"
@@ -583,19 +611,45 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr ""
 
-#: src/screencast.cpp:284
+#: src/screencast.cpp:155
+#, fuzzy, kde-format
+#| msgid "Screen Sharing"
+msgctxt "@title:window"
+msgid "Screen Sharing Not Available"
+msgstr "ਸਕਰੀਨ ਸਾਂਝਾ ਕਰਨਾ"
+
+#: src/screencast.cpp:157
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a screen "
+"sharing session but screen sharing is not available on this system. Please "
+"ensure you are running a Wayland session with a compatible window manager "
+"such as KWin."
+msgstr ""
+
+#: src/screencast.cpp:161
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a screen "
+"sharing session but screen sharing is not available in X11 sessions. Please "
+"switch to a Wayland session and try again."
+msgstr ""
+
+#: src/screencast.cpp:296
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "ਸ਼ੇਅਰ ਸਾਂਝਾ ਕਰਨਾ ਜਾਰੀ ਹੈ"
 
-#: src/screencast.cpp:392
+#: src/screencast.cpp:404
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "ਖਤਮ"
 
-#: src/screencast.cpp:445
+#: src/screencast.cpp:457
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -603,7 +657,7 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "ਸਮੱਗਰੀਆਂ %2 ਨਾਲ ਸਾਂਝੀਆਂ ਕੀਤੀਆਂ ਜਾ ਰਹੀਆਂ ਹਨ"
 msgstr[1] "%1 ਵੀਡੀਓ ਸਟਰੀਮ %2 ਨਾਲ ਸਾਂਝੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ"
 
-#: src/screencast.cpp:449
+#: src/screencast.cpp:461
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
@@ -890,9 +944,6 @@ msgstr "ਸਕਰੀਨ-ਕਾਸਟ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ 
 msgid "Remote desktop"
 msgstr "ਰਿਮੋਟ ਡੈਸਕਟਾਪ"
 
-#~ msgid "Screen Sharing"
-#~ msgstr "ਸਕਰੀਨ ਸਾਂਝਾ ਕਰਨਾ"
-
 #~ msgid "Screens"
 #~ msgstr "ਸਕਰੀਨਾਂ"
 
@@ -907,11 +958,6 @@ msgstr "ਰਿਮੋਟ ਡੈਸਕਟਾਪ"
 #~ msgctxt "@info"
 #~ msgid "Don't see the right app? Find more in <link>Discover</link>."
 #~ msgstr "ਸਹੀ ਐਪ ਨਹੀਂ ਦਿਸੀ ਹੈ? <link>ਡਿਸਕਵਰ</link> ਵਿੱਚ ਹੋਰ ਲੱਭੋ।"
-
-#~ msgctxt ""
-#~ "SNI title that indicates there's a process remotely controlling the system"
-#~ msgid "Remote Desktop"
-#~ msgstr "ਰਿਮੋਟ ਡੈਸਕਟਾਪ"
 
 #, fuzzy
 #~| msgctxt ""

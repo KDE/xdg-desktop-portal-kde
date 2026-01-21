@@ -1,7 +1,7 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024, 2025 Alexander Yavorsky <kekcuha@gmail.com>
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Alexander Yavorsky <kekcuha@gmail.com>
 # Alexander Potashev <aspotashev@gmail.com>, 2017, 2018.
 # Мария Шикунова <translation-team@basealt.ru>, 2022.
 # Alexander Yavorsky <kekcuha@gmail.com>, 2024.
@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:45+0000\n"
-"PO-Revision-Date: 2025-12-11 19:56+0300\n"
+"POT-Creation-Date: 2026-01-21 00:47+0000\n"
+"PO-Revision-Date: 2026-01-16 17:30+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.11.90\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -480,24 +480,52 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Протаскивание с зажатой левой кнопкой мыши"
 
-#: src/remotedesktop.cpp:182 src/screencast.cpp:224
+#: src/remotedesktop.cpp:124
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "SNI title that indicates there's a process remotely controlling the system"
+#| msgid "Remote Desktop"
+msgctxt "@title:window"
+msgid "Remote Desktop Not Available"
+msgstr "Удалённый рабочий стол"
+
+#: src/remotedesktop.cpp:126
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a remote "
+"desktop session but remote desktop is not available on this system. Please "
+"ensure you are running a Wayland session with a compatible window manager "
+"such as KWin."
+msgstr ""
+
+#: src/remotedesktop.cpp:130
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a remote "
+"desktop session but remote desktop is not available in X11 sessions. Please "
+"switch to a Wayland session and try again."
+msgstr ""
+
+#: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
 msgid "Virtual Output"
 msgstr "Виртуальный вывод"
 
-#: src/remotedesktop.cpp:183 src/screencast.cpp:225
+#: src/remotedesktop.cpp:195 src/screencast.cpp:237
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Виртуальный вывод (используется совместно с %1)"
 
-#: src/remotedesktop.cpp:291
+#: src/remotedesktop.cpp:303
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "Удалённо управляемый сеанс начат"
 
-#: src/remotedesktop.cpp:580
+#: src/remotedesktop.cpp:592
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -599,19 +627,45 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "Запретить"
 
-#: src/screencast.cpp:284
+#: src/screencast.cpp:155
+#, fuzzy, kde-format
+#| msgid "Screen Sharing"
+msgctxt "@title:window"
+msgid "Screen Sharing Not Available"
+msgstr "Демонстрация экрана"
+
+#: src/screencast.cpp:157
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a screen "
+"sharing session but screen sharing is not available on this system. Please "
+"ensure you are running a Wayland session with a compatible window manager "
+"such as KWin."
+msgstr ""
+
+#: src/screencast.cpp:161
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The application <application>%1</application> tried to start a screen "
+"sharing session but screen sharing is not available in X11 sessions. Please "
+"switch to a Wayland session and try again."
+msgstr ""
+
+#: src/screencast.cpp:296
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Выполняется трансляция изображения экрана"
 
-#: src/screencast.cpp:392
+#: src/screencast.cpp:404
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Завершить"
 
-#: src/screencast.cpp:445
+#: src/screencast.cpp:457
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -621,7 +675,7 @@ msgstr[1] "%1 потока видео транслируется в %2"
 msgstr[2] "%1 потоков видео транслируется в %2"
 msgstr[3] "Поток видео транслируется в %2"
 
-#: src/screencast.cpp:449
+#: src/screencast.cpp:461
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
@@ -717,11 +771,10 @@ msgid "Choose what to share with %1:"
 msgstr "Выберите, что будет доступно приложению %1:"
 
 #: src/ScreenChooserDialog.qml:121
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
-msgstr "Поиск:"
+msgstr "Поиск…"
 
 #: src/ScreenChooserDialog.qml:167
 #, kde-format
@@ -914,9 +967,6 @@ msgstr "Ошибка при запуске трансляции экрана"
 msgid "Remote desktop"
 msgstr "Удалённый рабочий стол"
 
-#~ msgid "Screen Sharing"
-#~ msgstr "Демонстрация экрана"
-
 #~ msgid "Screens"
 #~ msgstr "Экраны"
 
@@ -933,11 +983,6 @@ msgstr "Удалённый рабочий стол"
 #~ msgstr ""
 #~ "Если нужное приложение отсутствует, загрузите его в центре программ "
 #~ "<link>Discover</link>."
-
-#~ msgctxt ""
-#~ "SNI title that indicates there's a process remotely controlling the system"
-#~ msgid "Remote Desktop"
-#~ msgstr "Удалённый рабочий стол"
 
 #~ msgctxt "Unordered list with privileges granted to an external process"
 #~ msgid "An application requested access to remotely control:\n"
