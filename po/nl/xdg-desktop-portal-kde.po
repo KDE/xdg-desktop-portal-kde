@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-21 00:47+0000\n"
-"PO-Revision-Date: 2026-01-14 17:09+0100\n"
+"PO-Revision-Date: 2026-01-21 11:52+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -470,13 +470,10 @@ msgid "Left-click and drag"
 msgstr "Links klikken en slepen"
 
 #: src/remotedesktop.cpp:124
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "Bureaublad op afstand"
+msgstr "Bureaublad op afstand niet beschikbaar"
 
 #: src/remotedesktop.cpp:126
 #, kde-kuit-format
@@ -487,6 +484,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"De toepassing <application>%1</application> probeert een bureaubladsessie op "
+"afstand te starten maar bureaublad op afstand is niet beschikbaar op dit "
+"systeem. Ga na dat u een Wayland-sessie uitvoert met een compatibele "
+"vensterbeheerder zoals KWin."
 
 #: src/remotedesktop.cpp:130
 #, kde-kuit-format
@@ -496,6 +497,9 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"De toepassing <application>%1</application> probeert een bureaubladsessie op "
+"afstand te starten maar bureaublad op afstand is niet beschikbaar in X11-"
+"sessies. Schakel om naar een Wayland-sessie en probeer het opnieuw."
 
 #: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
@@ -617,11 +621,10 @@ msgid "Deny"
 msgstr "Weigeren"
 
 #: src/screencast.cpp:155
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "Delen van schermen"
+msgstr "Delen van scherm is niet beschikbaar"
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -632,6 +635,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"De toepassing <application>%1</application> probeert een sessie met delen "
+"van scherm te starten maar delen van scherm is niet beschikbaar op dit "
+"systeem. Ga na dat u een Wayland-sessie uitvoert met een compatibele "
+"vensterbeheerder zoals KWin."
 
 #: src/screencast.cpp:161
 #, kde-kuit-format
@@ -641,6 +648,9 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"De toepassing <application>%1</application> probeert een sessie met delen "
+"van scherm te starten maar delen van scherm is niet beschikbaar in X11-"
+"sessies. Schakel om naar een Wayland-sessie en probeer het opnieuw."
 
 #: src/screencast.cpp:296
 #, kde-format

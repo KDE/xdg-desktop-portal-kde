@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-21 00:47+0000\n"
-"PO-Revision-Date: 2026-01-15 08:56+0200\n"
+"PO-Revision-Date: 2026-01-21 09:00+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -462,13 +462,10 @@ msgid "Left-click and drag"
 msgstr "לחיצה שמאלית וגרירה"
 
 #: src/remotedesktop.cpp:124
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "שולחן עבודה מרוחק"
+msgstr "שולחן עבודה מרוחק לא זמין"
 
 #: src/remotedesktop.cpp:126
 #, kde-kuit-format
@@ -479,6 +476,9 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"היישום <application>%1</application> ניסה לפתוח הפעלת שולחן עבודה מרחוקאבל "
+"אין תמיכה בשליטה בשולחן עבודה מרחוק במערכת בזאת. נא לוודא שהפעלת ה־Wayland "
+"רצה עם מנהל חלונות תואם כגון KWin."
 
 #: src/remotedesktop.cpp:130
 #, kde-kuit-format
@@ -609,11 +609,10 @@ msgid "Deny"
 msgstr "לסרב"
 
 #: src/screencast.cpp:155
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "שיתוף מסך"
+msgstr "שיתוף מסך לא זמין"
 
 #: src/screencast.cpp:157
 #, kde-kuit-format

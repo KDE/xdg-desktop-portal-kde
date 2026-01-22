@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-21 00:47+0000\n"
-"PO-Revision-Date: 2026-01-14 07:24+0100\n"
+"PO-Revision-Date: 2026-01-21 07:02+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -473,13 +473,10 @@ msgid "Left-click and drag"
 msgstr "Lev klik in poteg"
 
 #: src/remotedesktop.cpp:124
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "Oddaljeno namizje"
+msgstr "Oddaljeno namizje ni na voljo"
 
 #: src/remotedesktop.cpp:126
 #, kde-kuit-format
@@ -490,6 +487,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Aplikacija <application>%1</application> je poskusila zagnati sejo "
+"oddaljenega namizja, vendar oddaljeno namizje v tem sistemu ni na voljo. "
+"Prepričajte se, da izvajate sejo Wayland z združljivim upravljalnikom oken, "
+"kot je KWin."
 
 #: src/remotedesktop.cpp:130
 #, kde-kuit-format
@@ -499,6 +500,9 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Aplikacija <application>%1</application> je poskusila zagnati sejo "
+"oddaljenega namizja, vendar oddaljeno namizje ni na voljo v sejah X11. "
+"Preklopite na sejo Wayland in poskusite znova."
 
 #: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
@@ -620,11 +624,10 @@ msgid "Deny"
 msgstr "Zavrni"
 
 #: src/screencast.cpp:155
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "Deljenje zaslonov"
+msgstr "Deljenje zaslonov ni na voljo"
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -635,6 +638,9 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Aplikacija <application>%1</application> je poskusila začeti sejo deljenja "
+"zaslona, ​​vendar deljenje zaslona v tem sistemu ni na voljo. Prepričajte se, "
+"da izvajate sejo Wayland z združljivim upravljalnikom oken, kot je KWin."
 
 #: src/screencast.cpp:161
 #, kde-kuit-format
@@ -644,6 +650,9 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Aplikacija <application>%1</application> je poskusila začeti sejo deljenja "
+"zaslona, ​​vendar deljenje zaslona ni na voljo v sejah X11. Preklopite na sejo "
+"Wayland in poskusite znova."
 
 #: src/screencast.cpp:296
 #, kde-format

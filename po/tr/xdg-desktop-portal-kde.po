@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-21 00:47+0000\n"
-"PO-Revision-Date: 2026-01-14 19:18+0300\n"
+"PO-Revision-Date: 2026-01-21 11:14+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -466,13 +466,10 @@ msgid "Left-click and drag"
 msgstr "Sol tıkla ve sürükle"
 
 #: src/remotedesktop.cpp:124
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "Uzak Masaüstü"
+msgstr "Uzak Masaüstü Kullanılamıyor"
 
 #: src/remotedesktop.cpp:126
 #, kde-kuit-format
@@ -483,6 +480,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"<application>%1</application> uygulaması bir uzak masaüstü oturumu "
+"başlatmaya çalıştı; ancak bu sistemde uzak masaüstü kullanılamıyor. Lütfen "
+"KWin gibi uyumlu bir pencere yöneticisiyle bir Wayland oturumu "
+"çalıştırdığınızdan emin olun."
 
 #: src/remotedesktop.cpp:130
 #, kde-kuit-format
@@ -492,6 +493,9 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"<application>%1</application> uygulaması bir uzak masaüstü oturumu "
+"başlatmaya çalıştı; ancak uzak masaüstü X11 oturumlarında kullanılamıyor. "
+"Lütfen bir Wayland oturumuna geçiş yapın ve yeniden deneyin."
 
 #: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
@@ -613,11 +617,10 @@ msgid "Deny"
 msgstr "Reddet"
 
 #: src/screencast.cpp:155
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "Ekran Paylaşımı"
+msgstr "Ekran Paylaşımı Kullanılamıyor"
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -628,6 +631,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"<application>%1</application> uygulaması bir ekran paylaşımı oturumu "
+"başlatmaya çalıştı; ancak bu sistemde ekran paylaşımı kullanılamıyor. Lütfen "
+"KWin gibi uyumlu bir pencere yöneticisiyle bir Wayland oturumu "
+"çalıştırdığınızdan emin olun."
 
 #: src/screencast.cpp:161
 #, kde-kuit-format
@@ -637,6 +644,9 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"<application>%1</application> uygulaması bir ekran paylaşımı oturumu "
+"başlatmaya çalıştı; ancak ekran paylaşımı X11 oturumlarında kullanılamıyor. "
+"Lütfen bir Wayland oturumuna geçiş yapın ve yeniden deneyin."
 
 #: src/screencast.cpp:296
 #, kde-format

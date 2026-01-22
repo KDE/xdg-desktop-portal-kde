@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-21 00:47+0000\n"
-"PO-Revision-Date: 2026-01-14 05:11+0100\n"
+"PO-Revision-Date: 2026-01-21 04:27+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -468,13 +468,10 @@ msgid "Left-click and drag"
 msgstr "მარცხენა-წკაპი და გადათრევა"
 
 #: src/remotedesktop.cpp:124
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "დაშორებული სამუშაო მაგიდა"
+msgstr "დაშორებული სამუშაო მაგიდა ხელმისაწვდომი არაა"
 
 #: src/remotedesktop.cpp:126
 #, kde-kuit-format
@@ -485,6 +482,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"აპლიკაციამ <application>%1</application> სცადა, გაეშვა დაშორებული სამუშაო "
+"მაგიდის სესია, მაგრამ ამ სისტემაზე დაშორებული სამუშაო მაგიდა ხელმისაწვდომი "
+"არაა. დარწმუნდით, რომ გაშვებული გაქვთ Wayland-ის სესია ისეთი თავსებადი "
+"ფანჯრების მმართველიც, როგორიცაა KWin."
 
 #: src/remotedesktop.cpp:130
 #, kde-kuit-format
@@ -494,6 +495,9 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"აპლიკაციამ <application>%1</application> სცადა, გაეშვა დაშორებული მაგიდის "
+"სესია, მაგრამ ის ხელმისაწვდომი არაა X11-ის სესიებში. გადაერთეთ Wayland-ის "
+"სესიაზე და თავიდან სცადეთ."
 
 #: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
@@ -615,11 +619,10 @@ msgid "Deny"
 msgstr "უარყოფა"
 
 #: src/screencast.cpp:155
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "ეკრანის გაზიარება"
+msgstr "ეკრანის გაზიარება ხელმისაწვდომი არაა"
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -630,6 +633,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"აპლიკაციამ <application>%1</application> სცადა, ეკრანის გაზიარების სესია "
+"დაეწყო, მაგრამ ეკრანის გაზიარება ამ სისტემაზე ხელმისაწვდომი არაა. "
+"დარწმუნდით, რომ გაშვებული გაქვთ Wayland-ის სესია ისეთი თავსებადი ფანჯრების "
+"მმართველით, როგორიცაა KWin."
 
 #: src/screencast.cpp:161
 #, kde-kuit-format
@@ -639,6 +646,9 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"აპლიკაციამ <application>%1</application> სცადა, გაეშვა ეკრანის გაზიარების "
+"სესია, მაგრამ ის ხელმისაწვდომი არაა X11-ის სესიებში. გადაერთეთ Wayland-ის "
+"სესიაზე და თავიდან სცადეთ."
 
 #: src/screencast.cpp:296
 #, kde-format
