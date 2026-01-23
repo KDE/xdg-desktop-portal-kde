@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-21 00:47+0000\n"
-"PO-Revision-Date: 2026-01-20 21:03+0100\n"
+"PO-Revision-Date: 2026-01-22 21:50+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -467,13 +467,10 @@ msgid "Left-click and drag"
 msgstr "Vänsterklicka och dra"
 
 #: src/remotedesktop.cpp:124
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "Fjärrskrivbord"
+msgstr "Fjärrskrivbord inte tillgängligt"
 
 #: src/remotedesktop.cpp:126
 #, kde-kuit-format
@@ -484,6 +481,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Programmet <application>%1</application> försökte starta en "
+"fjärrskrivbordssession men fjärrskrivbord är inte tillgängligt på det här "
+"systemet. Se till att du kör en Wayland-session med en kompatibel "
+"fönsterhanterare som Kwin."
 
 #: src/remotedesktop.cpp:130
 #, kde-kuit-format
@@ -493,6 +494,9 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Programmet <application>%1</application> försökte starta en "
+"fjärrskrivbordssession men fjärrskrivbordet är inte tillgängligt i X11-"
+"sessioner. Byt till en Wayland-session och försök igen."
 
 #: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
@@ -614,11 +618,10 @@ msgid "Deny"
 msgstr "Neka"
 
 #: src/screencast.cpp:155
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "Skärmdelning"
+msgstr "Skärmdelning inte tillgänglig"
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -629,6 +632,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Programmet <application>%1</application> försökte starta en "
+"skärmdelningssession men skärmdelning är inte tillgängligt på det här "
+"systemet. Se till att du kör en Wayland-session med en kompatibel "
+"fönsterhanterare som Kwin."
 
 #: src/screencast.cpp:161
 #, kde-kuit-format
@@ -638,6 +645,9 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Programmet <application>%1</application> försökte starta en "
+"skärmdelningssession men skärmdelning är inte tillgängligt i X11-sessioner. "
+"Byt till en Wayland-session och försök igen."
 
 #: src/screencast.cpp:296
 #, kde-format

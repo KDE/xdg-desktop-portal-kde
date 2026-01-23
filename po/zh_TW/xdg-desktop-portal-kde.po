@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-21 00:47+0000\n"
-"PO-Revision-Date: 2026-01-15 01:05+0900\n"
+"PO-Revision-Date: 2026-01-23 05:00+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 26.03.70\n"
+"X-Generator: Lokalize 25.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -458,13 +458,10 @@ msgid "Left-click and drag"
 msgstr "點擊並拖曳滑鼠左鍵"
 
 #: src/remotedesktop.cpp:124
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "遠端桌面"
+msgstr "遠端桌面無法使用"
 
 #: src/remotedesktop.cpp:126
 #, kde-kuit-format
@@ -475,6 +472,8 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"應用程式 <application>%1</application> 嘗試使用遠端桌面功能，但遠端桌面功能在"
+"本系統無法使用。請確定您使用 Wayland 工作階段與支援的視窗管理員，像是 KWin。"
 
 #: src/remotedesktop.cpp:130
 #, kde-kuit-format
@@ -484,6 +483,8 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"應用程式 <application>%1</application> 嘗試使用遠端桌面功能，但遠端桌面功能"
+"在 X11 工作階段無法使用。請切換到 Wayland 工作階段之後再試一次。"
 
 #: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
@@ -605,11 +606,10 @@ msgid "Deny"
 msgstr "拒絕"
 
 #: src/screencast.cpp:155
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "螢幕分享"
+msgstr "螢幕分享無法使用"
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -620,6 +620,8 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"應用程式 <application>%1</application> 嘗試進行螢幕分享，但螢幕分享在本系統無"
+"法使用。請確定您使用 Wayland 工作階段與支援的視窗管理員，像是 KWin。"
 
 #: src/screencast.cpp:161
 #, kde-kuit-format
@@ -629,6 +631,8 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"應用程式 <application>%1</application> 嘗試進行螢幕分享，但螢幕分享在 X11 工"
+"作階段無法使用。請切換到 Wayland 工作階段之後再試一次。"
 
 #: src/screencast.cpp:296
 #, kde-format

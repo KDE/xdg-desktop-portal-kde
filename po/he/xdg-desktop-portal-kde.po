@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-21 00:47+0000\n"
-"PO-Revision-Date: 2026-01-21 09:00+0200\n"
+"PO-Revision-Date: 2026-01-22 09:06+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -488,6 +488,9 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"היישום <application>%1</application> ניסה להקים הפעלת שולחן עבודה מרוחק אבל "
+"אין תמיכה בשולחן עבודה מרוחק בהפעלות X11. נא לעבור להפעלה של Wayland ולנסות "
+"שוב."
 
 #: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format

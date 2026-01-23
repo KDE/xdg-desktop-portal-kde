@@ -458,11 +458,10 @@ msgid "Left-click and drag"
 msgstr "左键点击并拖动"
 
 #: src/remotedesktop.cpp:124
-#, fuzzy, kde-format
-#| msgid "Remote desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "远程桌面"
+msgstr ""
 
 #: src/remotedesktop.cpp:126
 #, kde-kuit-format
