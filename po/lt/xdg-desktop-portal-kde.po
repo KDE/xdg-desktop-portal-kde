@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-21 00:47+0000\n"
-"PO-Revision-Date: 2026-01-15 14:40+0200\n"
+"PO-Revision-Date: 2026-01-23 14:23+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -474,13 +474,10 @@ msgid "Left-click and drag"
 msgstr "Kairysis pelės mygtukas ir tempti"
 
 #: src/remotedesktop.cpp:124
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "Nuotolinis darbalaukis"
+msgstr "Nuotolinis darbalaukis neprieinamas"
 
 #: src/remotedesktop.cpp:126
 #, kde-kuit-format
@@ -491,6 +488,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Programa <application>%1</application> mėgino pradėti nuotolinio darbalaukio "
+"seansą, bet nuotolinis darbalaukis šioje sistemoje yra neprieinamas. "
+"Įsitikinkite, kad naudojate Wayland seansą, kartu su suderinama langų "
+"tvarkytuve, tokia kaip KWin."
 
 #: src/remotedesktop.cpp:130
 #, kde-kuit-format
@@ -500,6 +501,9 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Programa <application>%1</application> mėgino pradėti nuotolinio darbalaukio "
+"seansą, bet nuotolinis darbalaukis neprieinamas X11 seansuose. Perjunkite į "
+"Wayland seansą ir bandykite dar kartą."
 
 #: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
@@ -621,11 +625,10 @@ msgid "Deny"
 msgstr "Drausti"
 
 #: src/screencast.cpp:155
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "Ekrano bendrinimas"
+msgstr "Ekrano bendrinimas neprieinamas"
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -636,6 +639,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Programa <application>%1</application> mėgino pradėti ekrano bendrinimo "
+"seansą, bet ekrano bendrinimas šioje sistemoje yra neprieinamas. "
+"Įsitikinkite, kad naudojate Wayland seansą, kartu su suderinama langų "
+"tvarkytuve, tokia kaip KWin."
 
 #: src/screencast.cpp:161
 #, kde-kuit-format
@@ -645,6 +652,9 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Programa <application>%1</application> mėgino pradėti ekrano bendrinimo "
+"seansą, bet ekrano bendrinimas neprieinamas X11 seansuose. Perjunkite į "
+"Wayland seansą ir bandykite dar kartą."
 
 #: src/screencast.cpp:296
 #, kde-format

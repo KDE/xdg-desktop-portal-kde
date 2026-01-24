@@ -461,7 +461,7 @@ msgstr "左键点击并拖动"
 #, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr ""
+msgstr "远程桌面不可用"
 
 #: src/remotedesktop.cpp:126
 #, kde-kuit-format
@@ -472,6 +472,8 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"应用程序 <application>%1</application> 尝试启动远程桌面会话，但远程桌面在此系"
+"统上不可用。请确保您正在使用 KWin 等兼容的窗口管理器来运行 Wayland 会话。"
 
 #: src/remotedesktop.cpp:130
 #, kde-kuit-format
@@ -481,6 +483,8 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"应用程序 <application>%1</application> 尝试启动远程桌面会话，但远程桌面在 "
+"X11 会话中不可用。请切换到 Wayland 会话后重试。"
 
 #: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
@@ -605,7 +609,7 @@ msgstr "拒绝"
 #, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr ""
+msgstr "屏幕共享不可用"
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -616,6 +620,8 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"应用程序 <application>%1</application> 尝试启动屏幕共享会话，但屏幕共享在此系"
+"统上不可用。请确保您正在使用 KWin 等兼容的窗口管理器来运行 Wayland 会话。"
 
 #: src/screencast.cpp:161
 #, kde-kuit-format
@@ -625,6 +631,8 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"应用程序 <application>%1</application> 尝试启动屏幕共享会话，但屏幕共享在 "
+"X11 会话中不可用。请切换到 Wayland 会话后重试。"
 
 #: src/screencast.cpp:296
 #, kde-format
