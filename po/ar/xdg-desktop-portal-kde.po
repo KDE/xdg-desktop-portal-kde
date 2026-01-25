@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-21 00:47+0000\n"
-"PO-Revision-Date: 2026-01-15 08:49+0400\n"
+"PO-Revision-Date: 2026-01-24 12:19+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -469,13 +469,10 @@ msgid "Left-click and drag"
 msgstr "النقر اليسار والسحب"
 
 #: src/remotedesktop.cpp:124
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "سطح المكتب بعيد"
+msgstr "سطح المكتب بعيد غير متاح"
 
 #: src/remotedesktop.cpp:126
 #, kde-kuit-format
@@ -486,6 +483,9 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"حاول التطبيق <application>%1</application> بدء جلسة سطح مكتب بعيد، لكن سطح "
+"المكتب البعيد غير متاح على هذا النظام. يرجى التأكد من تشغيل جلسة ويلاند "
+"باستخدام مدير نوافذ متوافق مثل كوين."
 
 #: src/remotedesktop.cpp:130
 #, kde-kuit-format
@@ -495,6 +495,9 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"حاول التطبيق <application>%1</application> بدء جلسة سطح مكتب بعيد، لكن سطح "
+"المكتب البعيد غير متاح في جلسات X11. يرجى التبديل إلى جلسة ويلاند والمحاولة "
+"مرة أخرى."
 
 #: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
@@ -616,11 +619,10 @@ msgid "Deny"
 msgstr "امنع"
 
 #: src/screencast.cpp:155
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "مشاركة الشاشة"
+msgstr "مشاركة الشاشة غير متاحة"
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -631,6 +633,9 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"حاول التطبيق <application>%1</application> بدء جلسة مشاركة شاشة، لكن مشاركة "
+"الشاشة غير متاحة على هذا النظام. يرجى التأكد من تشغيل جلسة ويلاند باستخدام "
+"مدير نوافذ متوافق مثل كوين."
 
 #: src/screencast.cpp:161
 #, kde-kuit-format
@@ -640,6 +645,9 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"حاول التطبيق <application>%1</application> بدء جلسة مشاركة الشاشة، لكن "
+"مشاركة الشاشة غير متاحة في جلسات X11. يرجى التبديل إلى جلسة ويلاند والمحاولة "
+"مرة أخرى."
 
 #: src/screencast.cpp:296
 #, kde-format

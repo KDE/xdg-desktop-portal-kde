@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-21 00:47+0000\n"
-"PO-Revision-Date: 2026-01-22 09:06+0200\n"
+"PO-Revision-Date: 2026-01-23 09:51+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -465,7 +465,7 @@ msgstr "לחיצה שמאלית וגרירה"
 #, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "שולחן עבודה מרוחק לא זמין"
+msgstr "שולחן עבודה מרחוק לא זמין"
 
 #: src/remotedesktop.cpp:126
 #, kde-kuit-format
@@ -476,7 +476,7 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
-"היישום <application>%1</application> ניסה לפתוח הפעלת שולחן עבודה מרחוקאבל "
+"היישום <application>%1</application> ניסה להקים הפעלת שולחן עבודה מרחוק אבל "
 "אין תמיכה בשליטה בשולחן עבודה מרחוק במערכת בזאת. נא לוודא שהפעלת ה־Wayland "
 "רצה עם מנהל חלונות תואם כגון KWin."
 
@@ -488,8 +488,8 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
-"היישום <application>%1</application> ניסה להקים הפעלת שולחן עבודה מרוחק אבל "
-"אין תמיכה בשולחן עבודה מרוחק בהפעלות X11. נא לעבור להפעלה של Wayland ולנסות "
+"היישום <application>%1</application> ניסה להקים הפעלת שולחן עבודה מרחוק אבל "
+"אין תמיכה בשולחן עבודה מרחוק בהפעלות X11. נא לעבור להפעלה של Wayland ולנסות "
 "שוב."
 
 #: src/remotedesktop.cpp:194 src/screencast.cpp:236
@@ -626,6 +626,9 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"היישום <application>%1</application> ניסה להקים הפעלת שיתוף מסך אבל שיתוף "
+"מסך לא זמין במערכת הזה. נא לוודא שהפעלת ה־Wayland רצה עם מנהל חלונות תואם "
+"כגון KWin."
 
 #: src/screencast.cpp:161
 #, kde-kuit-format
@@ -635,6 +638,8 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"היישום <application>%1</application> ניסה להקים הפעלת שיתוף מסך אבל אין "
+"תמיכה בשיתוף מסך בהפעלות X11. נא לעבור להפעלה של Wayland ולנסות שוב."
 
 #: src/screencast.cpp:296
 #, kde-format
@@ -940,7 +945,7 @@ msgstr "התחלת הסרטת מסך נכשלה"
 #: src/waylandintegration.cpp:477
 #, kde-format
 msgid "Remote desktop"
-msgstr "שולחן עבודה מרוחק"
+msgstr "שולחן עבודה מרחוק"
 
 #~ msgid "Screens"
 #~ msgstr "מסכים"
