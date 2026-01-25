@@ -1,11 +1,11 @@
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
-# SPDX-FileCopyrightText: 2024, 2025 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-20 03:01+0000\n"
-"PO-Revision-Date: 2025-11-27 11:48+0200\n"
+"PO-Revision-Date: 2026-01-23 09:51+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -878,7 +878,7 @@ msgstr "התחלת הסרטת מסך נכשלה"
 #: src/waylandintegration.cpp:477
 #, kde-format
 msgid "Remote desktop"
-msgstr "שולחן עבודה מרוחק"
+msgstr "שולחן עבודה מרחוק"
 
 #~ msgid "Screen Sharing"
 #~ msgstr "שיתוף מסך"
