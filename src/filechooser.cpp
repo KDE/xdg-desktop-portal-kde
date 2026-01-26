@@ -14,6 +14,7 @@
 #include <QDBusArgument>
 #include <QDBusMetaType>
 #include <QDialogButtonBox>
+#include <QDir>
 #include <QFile>
 #include <QFileDialog>
 #include <QFileInfo>
@@ -156,41 +157,54 @@ FileChooserPortal::FileChooserPortal(QObject *parent)
     qDBusRegisterMetaType<OptionList>();
 }
 
+static QUrl translateToLocalUrl(const QUrl &url, OrgKdeKIOFuseVFSInterface *kiofuse_iface)
+{
+    if (!url.isValid() || url.isLocalFile() || url.scheme().isEmpty() || !kiofuse_iface) {
+        return url;
+    }
+
+    // Portal callers generally expect local file paths; translate KIO URLs via KIO-FUSE when available.
+    const QUrl dirUrl = url.adjusted(QUrl::RemoveFilename);
+    const QString relPath = dirUrl.isParentOf(url) ? QDir(dirUrl.path()).relativeFilePath(url.path()) : url.fileName();
+
+    auto reply = kiofuse_iface->mountUrl(dirUrl.toString());
+    reply.waitForFinished();
+    if (reply.isError()) {
+        qCDebug(XdgDesktopPortalKdeFileChooser) << "FUSE request failed:" << reply.error();
+        return url;
+    }
+    const QString mountPath = reply.value();
+    if (mountPath.isEmpty()) {
+        qCDebug(XdgDesktopPortalKdeFileChooser) << "FUSE request returned empty mount path for" << url;
+        return url;
+    }
+
+    QString localPath = mountPath;
+    if (!relPath.isEmpty()) {
+        localPath = QDir(mountPath).filePath(relPath);
+    }
+    QUrl localUrl = QUrl::fromLocalFile(localPath);
+    qCDebug(XdgDesktopPortalKdeFileChooser) << "Translated remote url to local url" << url << localUrl;
+    return localUrl;
+}
+
 static QStringList fuseRedirect(QList<QUrl> urls)
 {
     qCDebug(XdgDesktopPortalKdeFileChooser) << "mounting urls with fuse" << urls;
 
-    OrgKdeKIOFuseVFSInterface kiofuse_iface(QStringLiteral("org.kde.KIOFuse"), QStringLiteral("/org/kde/KIOFuse"), QDBusConnection::sessionBus());
-    struct MountRequest {
-        QDBusPendingReply<QString> reply;
-        int urlIndex;
-        QString basename;
-    };
-    QList<MountRequest> requests;
-    requests.reserve(urls.count());
-    for (int i = 0; i < urls.count(); ++i) {
-        QUrl url = urls.at(i);
-        if (!url.isLocalFile()) {
-            const QString path(url.path());
-            const int slashes = path.count(QLatin1Char('/'));
-            QString basename;
-            if (slashes > 1) {
-                url.setPath(path.section(QLatin1Char('/'), 0, slashes - 1));
-                basename = path.section(QLatin1Char('/'), slashes, slashes);
-            }
-            requests.push_back({kiofuse_iface.mountUrl(url.toString()), i, basename});
-        }
+    const bool kioFuseAvailable = isKIOFuseAvailable();
+    if (!kioFuseAvailable) {
+        qCDebug(XdgDesktopPortalKdeFileChooser) << "KIOFuse not available, returning original urls";
+        return QUrl::toStringList(urls, QUrl::FullyEncoded);
     }
 
-    for (auto &request : requests) {
-        request.reply.waitForFinished();
-        if (request.reply.isError()) {
-            qWarning() << "FUSE request failed:" << request.reply.error();
-            continue;
-        }
+    OrgKdeKIOFuseVFSInterface kiofuse_iface(QStringLiteral("org.kde.KIOFuse"), QStringLiteral("/org/kde/KIOFuse"), QDBusConnection::sessionBus());
 
-        urls[request.urlIndex] = QUrl::fromLocalFile(request.reply.value() + QLatin1Char('/') + request.basename);
-    };
+    for (int i = 0; i < urls.count(); ++i) {
+        if (!urls.at(i).isLocalFile()) {
+            urls[i] = translateToLocalUrl(urls.at(i), &kiofuse_iface);
+        }
+    }
 
     qCDebug(XdgDesktopPortalKdeFileChooser) << "mounted urls with fuse, maybe" << urls;
 
