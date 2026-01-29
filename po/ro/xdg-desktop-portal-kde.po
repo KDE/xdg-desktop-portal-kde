@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the xdg-desktop-portal-kde package.
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024, 2025 Sergiu Bivol <sergiu@cip.md>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024, 2025, 2026 Sergiu Bivol <sergiu@cip.md>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-21 00:47+0000\n"
-"PO-Revision-Date: 2025-12-12 10:50+0000\n"
+"PO-Revision-Date: 2026-01-28 19:43+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -472,13 +472,10 @@ msgid "Left-click and drag"
 msgstr "Apăsați clic stâng și trageți"
 
 #: src/remotedesktop.cpp:124
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "Birou distant"
+msgstr "Biroul distant nu e disponibil"
 
 #: src/remotedesktop.cpp:126
 #, kde-kuit-format
@@ -489,6 +486,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Aplicația <application>%1</application> a încercat să pornească o sesiune de "
+"birou distant, dar biroul distant nu e disponibil pe acest sistem. Asigurați-"
+"vă că rulați o sesiune Wayland cu un gestionar de ferestre compatibil, cum "
+"ar fi KWin."
 
 #: src/remotedesktop.cpp:130
 #, kde-kuit-format
@@ -498,6 +499,9 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Aplicația <application>%1</application> a încercat să pornească o sesiune de "
+"birou distant, dar biroul distant nu e disponibil în sesiuni X11. Treceți la "
+"o sesiune Wayland și încercați din nou."
 
 #: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
@@ -619,11 +623,10 @@ msgid "Deny"
 msgstr "Refuză"
 
 #: src/screencast.cpp:155
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "Partajarea ecranului"
+msgstr "Partajarea ecranului nu e disponibilă"
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -634,6 +637,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Aplicația <application>%1</application> a încercat să pornească o sesiune de "
+"partajare a ecranului, dar partajarea ecranului nu e disponibilă pe acest "
+"sistem. Asigurați-vă că rulați o sesiune Wayland cu un gestionar de ferestre "
+"compatibil, cum ar fi KWin."
 
 #: src/screencast.cpp:161
 #, kde-kuit-format
@@ -643,6 +650,9 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Aplicația <application>%1</application> a încercat să pornească o sesiune de "
+"partajare a ecranului, dar partajarea ecranului nu e disponibilă în sesiuni "
+"X11. Treceți la o sesiune Wayland și încercați din nou."
 
 #: src/screencast.cpp:296
 #, kde-format
@@ -762,7 +772,7 @@ msgstr "Alegeți ce să fie partajat cu %1:"
 #, kde-format
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
-msgstr ""
+msgstr "Caută…"
 
 #: src/ScreenChooserDialog.qml:167
 #, kde-format
