@@ -3,13 +3,13 @@
 #
 # SPDX-FileCopyrightText: 2017, 2018, 2024 Kiszel Kristóf <kiszel.kristof@gmail.com>
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2019, 2020, 2021.
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Kristof Kiszel <ulysses@fsf.hu>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025, 2026 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-21 00:47+0000\n"
-"PO-Revision-Date: 2025-11-06 21:10+0100\n"
+"PO-Revision-Date: 2026-01-30 21:13+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -53,14 +53,11 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Válasszon egy alkalmazást a(z) <filename>%1</filename> megnyitásához"
 
 #: src/AppChooserDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Find some more apps that can open this content using the Discover app"
-#| msgid "Find More in Discover"
+#, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "Továbbiak keresése a Discoverben"
+msgstr "Továbbiak keresése a Discoverben…"
 
 #: src/AppChooserDialog.qml:40
 #, kde-format
@@ -395,21 +392,19 @@ msgid "Select"
 msgstr "Kiválasztás"
 
 #: src/outputsmodel.cpp:21
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "Megosztja ezt a képernyőt ezzel: %1?"
+msgstr "Virtuális képernyő megosztása"
 
 #: src/outputsmodel.cpp:25
 #, kde-format
 msgid "Share region"
-msgstr ""
+msgstr "Terület megosztása"
 
 #: src/outputsmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "Teljes munkaterület"
+msgstr "Teljes munkaterület megosztása"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
@@ -420,19 +415,19 @@ msgstr "Laptop képernyő"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "A teljes munkaterület megosztása az összes képernyőn"
 
 #: src/outputsmodel.cpp:252
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgstr "Létrehoz egy képernyőt egy ablakban, majd megosztja"
 
 #: src/outputsmodel.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "Kivág egy adott területet a képernyőjéről"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
@@ -526,33 +521,29 @@ msgid "Remote control session started"
 msgstr "Távvezérelt munkamenet elindítva"
 
 #: src/remotedesktop.cpp:592
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Control"
-msgstr "Távvezérlési kérés"
+msgstr "Távoli hozzáférés"
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr "Távvezérlési kérés"
+msgstr "Távoli hozzáférés"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "@info"
 msgid "An application is asking for special privileges:\n"
-msgstr ""
+msgstr "Egy alkalmazás különleges jogosultságokat kér:\n"
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "@info"
 msgid "%1 is asking for special privileges:"
-msgstr ""
+msgstr "A(z) %1 különleges jogosultságokat kér:"
 
 #: src/remotedesktopdialog.cpp:50
 #, kde-format
@@ -563,32 +554,32 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - A képernyő tartalmának megtekintése"
 
 #: src/remotedesktopdialog.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application requested access to control input devices'. '-' "
 "is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - Beviteli eszközök\n"
+msgstr ""
+"\n"
+" - Beviteli eszközök vezérlése"
 
 #: src/remotedesktopdialog.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "@info"
 msgid "An application is exercising special permissions:\n"
-msgstr "Egy alkalmazás hozzáférést kér a következőkhöz:\n"
+msgstr "Egy alkalmazás különleges jogosultságokat gyakorol:\n"
 
 #: src/remotedesktopdialog.cpp:63
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising special privileges:"
-msgstr ""
+msgstr "A(z) %1 különleges jogosultságokat gyakorol:"
 
 #: src/remotedesktopdialog.cpp:67
 #, kde-format
@@ -599,18 +590,20 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - A képernyő tartalmának megtekintése"
 
 #: src/remotedesktopdialog.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application is exercising privileges to control input "
 "devices'. '-' is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - Beviteli eszközök\n"
+msgstr ""
+"\n"
+" - Beviteli eszközök vezérlése"
 
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:190
 #, kde-format
@@ -621,13 +614,13 @@ msgstr "Visszaállíthatóság engedélyezése a jövőbeli munkamenetekben"
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
-msgstr ""
+msgstr "Elfogad"
 
 #: src/RemoteDesktopDialog.qml:39
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr ""
+msgstr "Elutasít"
 
 #: src/screencast.cpp:155
 #, fuzzy, kde-format
@@ -683,11 +676,10 @@ msgid "Screen casting"
 msgstr "Képernyőmegosztás"
 
 #: src/screenchooserdialog.cpp:158
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
-msgstr "Megosztja ezt a képernyőt ezzel: %1?"
+msgstr "Képernyő megosztása ezzel: %1"
 
 #: src/screenchooserdialog.cpp:205
 #, kde-format
@@ -779,8 +771,7 @@ msgid "Search…"
 msgstr "Keresés"
 
 #: src/ScreenChooserDialog.qml:167
-#, fuzzy, kde-format
-#| msgid "Windows"
+#, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
@@ -862,38 +853,29 @@ msgstr "Készítés"
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
-msgstr ""
+msgstr "Hozzáférés kérve USB-eszközökhöz"
 
 #: src/UsbDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
 msgid_plural "An application wants to access the following devices:"
-msgstr[0] ""
-"Egy alkalmazás a következő billentyűparancsot szeretné regisztrálni:"
-msgstr[1] ""
-"Egy alkalmazás a következő %1 billentyűparancsot szeretné regisztrálni:"
+msgstr[0] "Egy alkalmazás a következő eszközhöz szeretne hozzáférni:"
+msgstr[1] "Egy alkalmazás a következő eszközökhöz szeretne hozzáférni:"
 
 #: src/UsbDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
 msgid_plural "%2 wants to access the following devices:"
-msgstr[0] "A(z) %2 a következő billentyűparancsot szeretné regisztrálni:"
-msgstr[1] "A(z) %2 a következő %1 billentyűparancsot szeretné regisztrálni:"
+msgstr[0] "A(z) %2 a következő eszközhöz szeretne hozzáférni:"
+msgstr[1] "A(z) %2 a következő eszközökhöz szeretne hozzáférni:"
 
 #: src/userinfodialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Share User Information with %1"
+#, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
-msgstr "Felhasználó-információk megosztása ezzel: %1"
+msgstr "Felhasználóadatok megosztása ezzel: %1"
 
 #: src/userinfodialog.cpp:54
 #, kde-format
@@ -902,12 +884,14 @@ msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
 msgstr ""
+"Lehetővé teszi a felhasználónév, a teljes név és a profilkép használatát az "
+"alkalmazás számára."
 
 #: src/UserInfoDialog.qml:18
 #, kde-format
 msgctxt "@action:button"
 msgid "Share user info"
-msgstr ""
+msgstr "Felhasználóadatok megosztása"
 
 #: src/UserInfoDialog.qml:76
 #, kde-format
