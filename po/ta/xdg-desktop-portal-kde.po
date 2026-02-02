@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the xdg-desktop-portal-kde package.
 #
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025, 2026 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-21 00:47+0000\n"
-"PO-Revision-Date: 2025-11-30 13:07+0530\n"
+"PO-Revision-Date: 2026-02-01 18:39+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -465,13 +465,10 @@ msgid "Left-click and drag"
 msgstr "இடது கிளிக் செய்து இழுக்கவும்"
 
 #: src/remotedesktop.cpp:124
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "தொலையியக்கு பணிமேடை"
+msgstr "பணிமேடை தொலையியக்கம் இயங்கவில்லை"
 
 #: src/remotedesktop.cpp:126
 #, kde-kuit-format
@@ -482,6 +479,9 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"<application>%1</application> ஓர் தொலையியக்கு பணிமேடை அமர்வைத் துவக்க முயற்சித்தது, "
+"ஆனால் இந்த அமர்வில் அந்த அம்சம் இயங்காது. Wayland அமர்வில் இருப்பதையும் பணிமேடை "
+"தொலையியக்கத்தை ஆதரிக்கும் சாளரநிரலை (எ.கா. கேவின்) பயன்படுத்துவதையும் உறுதி செய்யவும்."
 
 #: src/remotedesktop.cpp:130
 #, kde-kuit-format
@@ -491,6 +491,8 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"<application>%1</application> ஓர் தொலையியக்கு பணிமேடை அமர்வைத் துவக்க முயற்சித்தது, "
+"ஆனால் X11 அமர்வுகளில் அந்த அம்சம் இயங்காது. Wayland அமர்வுக்கு மாறி மீண்டும் முயற்சிக்கவும்."
 
 #: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
@@ -612,11 +614,10 @@ msgid "Deny"
 msgstr "நிராகரி"
 
 #: src/screencast.cpp:155
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "திரை பகிர்வு"
+msgstr "திரைப் பகிர்வு இயங்கவில்லை"
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -627,6 +628,9 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"<application>%1</application> திரைப்பகிர்வைத் துவக்க முயற்சித்தது, ஆனால் இந்த அமர்வில் "
+"அந்த அம்சம் இயங்காது. Wayland அமர்வில் இருப்பதையும் பணிமேடை தொலையியக்கத்தை ஆதரிக்கும் "
+"சாளரநிரலை (எ.கா. கேவின்) பயன்படுத்துவதையும் உறுதி செய்யவும்."
 
 #: src/screencast.cpp:161
 #, kde-kuit-format
@@ -636,6 +640,8 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"<application>%1</application> திரைப்பகிர்வைத் துவக்க முயற்சித்தது, ஆனால் இந்த அமர்வில் "
+"அந்த அம்சம் இயங்காது. Wayland அமர்வுக்கு மாறி மீண்டும் முயற்சிக்கவும்."
 
 #: src/screencast.cpp:296
 #, kde-format
@@ -754,7 +760,7 @@ msgstr "%1 உடன் எதை பகிர வேண்டுமென்ப
 #, kde-format
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
-msgstr ""
+msgstr "தேடு…"
 
 #: src/ScreenChooserDialog.qml:167
 #, kde-format
