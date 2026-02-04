@@ -42,7 +42,9 @@ public:
         if (!m_formats.contains(mimetype)) {
             return QVariant();
         }
-        return m_portal->fetchData(m_session, mimetype);
+        QVariant result;
+        QMetaObject::invokeMethod(m_portal, &ClipboardPortal::fetchData, Qt::BlockingQueuedConnection, qReturnArg(result), m_session, mimetype);
+        return result;
     }
     QStringList m_formats;
     ClipboardPortal *m_portal;
