@@ -1,5 +1,7 @@
 /*
     SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
+    SPDX-FileCopyrightText: 2020 David Edmundson <davidedmundson@kde.org>
+    SPDX-FileCopyrightText: 2021 Méven Car <meven.car@enioka.com>
     SPDX-FileCopyrightText: 2024 David Redondo <kde@david-redondo.de>
 */
 
@@ -12,9 +14,9 @@
 #include <KSystemClipboard>
 
 #include <QDBusConnection>
-#include <QMimeData>
-#include <QSocketNotifier>
-#include <QTimer>
+#include <QWaylandClientExtensionTemplate>
+
+#include <qwayland-ext-data-control-v1.h>
 
 #include <fcntl.h>
 #include <unistd.h>
@@ -22,38 +24,184 @@
 using namespace Qt::StringLiterals;
 using namespace std::chrono_literals;
 
-class PortalMimeData : public QMimeData
+class DataControlManager : public QWaylandClientExtensionTemplate<DataControlManager>, public QtWayland::ext_data_control_manager_v1
 {
+    Q_OBJECT
 public:
-    PortalMimeData(const QStringList &formats, ClipboardPortal *portal, Session *session)
-        : m_formats(formats)
-        , m_portal(portal)
-        , m_session(session)
+    DataControlManager()
+        : QWaylandClientExtensionTemplate<DataControlManager>(1)
     {
-    }
-    QStringList formats() const override
-    {
-        return m_formats;
+        initialize();
     }
 
-    QVariant retrieveData(const QString &mimetype, QMetaType preferredType) const override
+    ~DataControlManager() override
     {
-        Q_UNUSED(preferredType);
-        if (!m_formats.contains(mimetype)) {
-            return QVariant();
-        }
-        QVariant result;
-        QMetaObject::invokeMethod(m_portal, &ClipboardPortal::fetchData, Qt::BlockingQueuedConnection, qReturnArg(result), m_session, mimetype);
-        return result;
+        destroy();
     }
-    QStringList m_formats;
-    ClipboardPortal *m_portal;
-    Session *m_session;
+
+    void instantiate()
+    {
+        initialize();
+    }
+};
+
+class DataControlOffer : public QtWayland::ext_data_control_offer_v1
+{
+public:
+    DataControlOffer(::ext_data_control_offer_v1 *id)
+        : QtWayland::ext_data_control_offer_v1(id)
+    {
+    }
+
+    ~DataControlOffer() override
+    {
+        destroy();
+    }
+
+    QStringList formats() const
+    {
+        return m_receivedFormats;
+    }
+
+    static DataControlOffer *get(::ext_data_control_offer_v1 *object)
+    {
+        auto derivated = QtWayland::ext_data_control_offer_v1::fromObject(object);
+        return dynamic_cast<DataControlOffer *>(derivated); // dynamic because of the dual inheritance
+    }
+
+protected:
+    void ext_data_control_offer_v1_offer(const QString &mime_type) override
+    {
+        if (!m_receivedFormats.contains(mime_type)) {
+            m_receivedFormats << mime_type;
+        }
+    }
+
+private:
+    QStringList m_receivedFormats;
+};
+
+class DataControlSource : public QObject, public QtWayland::ext_data_control_source_v1
+{
+    Q_OBJECT
+public:
+    DataControlSource(::ext_data_control_source_v1 *id, Session *session, const QStringList &mimeTypes)
+        : ext_data_control_source_v1(id)
+        , owner(session)
+    {
+        for (const QString &format : mimeTypes) {
+            offer(format);
+        }
+    }
+    ~DataControlSource() override
+    {
+        destroy();
+    }
+
+    const Session *owner;
+
+Q_SIGNALS:
+    void cancelled();
+    void dataRequested(const DataControlSource &source, const QString &mime_type, int fd);
+
+protected:
+    void ext_data_control_source_v1_send(const QString &mime_type, int32_t fd) override
+    {
+        Q_EMIT dataRequested(*this, mime_type, fd);
+    }
+    void ext_data_control_source_v1_cancelled() override
+    {
+        Q_EMIT cancelled();
+    }
+};
+
+class DataControlDevice : public QObject, public QtWayland::ext_data_control_device_v1
+{
+    Q_OBJECT
+public:
+    DataControlDevice(struct ::ext_data_control_device_v1 *id)
+        : QtWayland::ext_data_control_device_v1(id)
+    {
+    }
+
+    ~DataControlDevice()
+    {
+        destroy();
+    }
+
+    void setSource(std::unique_ptr<DataControlSource> source)
+    {
+        set_selection(source ? source->object() : nullptr);
+        // Note the previous selection is destroyed after the set_selection request.
+        m_source = std::move(source);
+        if (m_source) {
+            connect(m_source.get(), &DataControlSource::cancelled, this, [this]() {
+                m_source.reset();
+            });
+        }
+    }
+
+    DataControlOffer *currentOffer()
+    {
+        return m_currentOffer.get();
+    }
+    DataControlSource *source()
+    {
+        return m_source.get();
+    }
+
+Q_SIGNALS:
+    void offerChanged();
+
+protected:
+    void ext_data_control_device_v1_data_offer(::ext_data_control_offer_v1 *id) override
+    {
+        // this will become memory managed when we retrieve the selection event
+        // a compositor calling data_offer without doing that would be a bug
+        new DataControlOffer(id);
+    }
+
+    void ext_data_control_device_v1_selection(::ext_data_control_offer_v1 *id) override
+    {
+        if (!id) {
+            m_source.reset();
+        } else {
+            m_currentOffer.reset(DataControlOffer::get(id));
+        }
+        Q_EMIT offerChanged();
+    }
+
+    void ext_data_control_device_v1_primary_selection(::ext_data_control_offer_v1 *id) override
+    {
+        if (!id) {
+            return;
+        }
+        delete DataControlOffer::get(id);
+    }
+
+private:
+    std::unique_ptr<DataControlSource> m_source;
+    std::unique_ptr<DataControlOffer> m_currentOffer;
 };
 
 ClipboardPortal::ClipboardPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
+    , m_dataControlManager(std::make_unique<DataControlManager>())
 {
+    auto waylandApp = qGuiApp->nativeInterface<QNativeInterface::QWaylandApplication>();
+    if (!waylandApp) {
+        qCWarning(XdgDesktopPortalKdeClipboard) << "Couldn't resolve QWaylandApplication - clipboard will not work";
+        return;
+    }
+    if (!m_dataControlManager->isActive()) {
+        qCWarning(XdgDesktopPortalKdeClipboard) << "Couldn't bind data control - clipboard will not work";
+        return;
+    }
+    auto seat = waylandApp->seat();
+    if (!seat) {
+        return;
+    }
+    m_dataControlDevice = std::make_unique<DataControlDevice>(m_dataControlManager->get_data_device(seat));
 }
 
 void ClipboardPortal::RequestClipboard(const QDBusObjectPath &session_handle, const QVariantMap &options)
@@ -69,27 +217,28 @@ void ClipboardPortal::RequestClipboard(const QDBusObjectPath &session_handle, co
                                                 << session->type();
         return;
     }
+
+    if (!m_dataControlDevice) {
+        qCWarning(XdgDesktopPortalKdeClipboard) << "Data control is not active - not enabling clipboard";
+        return;
+    }
+
     remoteDesktopSession->setClipboardEnabled(true);
 
-    connect(session, &Session::closed, KSystemClipboard::instance(), [session] {
-        auto clipboard = KSystemClipboard::instance()->mimeData(QClipboard::Clipboard);
-        if (auto portalSource = dynamic_cast<const PortalMimeData *>(clipboard); portalSource && portalSource->m_session == session) {
+    connect(session, &Session::closed, m_dataControlDevice.get(), [session, this] {
+        if (m_dataControlDevice->source() && m_dataControlDevice->source()->owner == session) {
             qCDebug(XdgDesktopPortalKdeClipboard) << "Session closed while owning the clipboard, unsetting clipboard";
-            KSystemClipboard::instance()->clear(QClipboard::Clipboard);
+            m_dataControlDevice->setSource(nullptr);
         }
     });
 
-    connect(KSystemClipboard::instance(), &KSystemClipboard::changed, session, [session, this](QClipboard::Mode mode) {
-        if (mode != QClipboard::Clipboard) {
-            return;
-        }
-        auto clipboard = KSystemClipboard::instance()->mimeData(QClipboard::Clipboard);
-        auto portalSource = dynamic_cast<const PortalMimeData *>(clipboard);
-        Q_EMIT SelectionOwnerChanged(QDBusObjectPath(session->handle()),
-                                     {
-                                         {u"mime_types"_s, clipboard ? clipboard->formats() : QStringList()},
-                                         {u"session_is_owner"_s, portalSource && portalSource->m_session == session},
-                                     });
+    connect(m_dataControlDevice.get(), &DataControlDevice::offerChanged, this, [session, this] {
+        Q_EMIT SelectionOwnerChanged(
+            QDBusObjectPath(session->handle()),
+            {
+                {u"mime_types"_s, m_dataControlDevice->currentOffer() ? m_dataControlDevice->currentOffer()->formats() : QStringList()},
+                {u"session_is_owner"_s, m_dataControlDevice->source() && m_dataControlDevice->source()->owner == session},
+            });
     });
 }
 
@@ -107,6 +256,12 @@ QDBusUnixFileDescriptor ClipboardPortal::SelectionRead(const QDBusObjectPath &se
         return QDBusUnixFileDescriptor();
     }
 
+    if (!m_dataControlDevice->currentOffer()->formats().contains(mime_type)) {
+        auto error = message.createErrorReply(QDBusError::InvalidArgs, u"requesting not offered format"_s);
+        qCWarning(XdgDesktopPortalKdeClipboard) << error.errorMessage();
+        return QDBusUnixFileDescriptor();
+    }
+
     int pipeFds[2];
     if (pipe2(pipeFds, O_CLOEXEC) != 0) {
         auto error = message.createErrorReply(QDBusError::Failed, u"Failed to create pipe"_s);
@@ -114,24 +269,13 @@ QDBusUnixFileDescriptor ClipboardPortal::SelectionRead(const QDBusObjectPath &se
         QDBusConnection::sessionBus().send(error);
         return QDBusUnixFileDescriptor();
     }
-
-    auto dbusFd = QDBusUnixFileDescriptor(pipeFds[0]);
-    const auto mimeData = KSystemClipboard::instance()->mimeData(QClipboard::Clipboard);
-    auto data = mimeData ? mimeData->data(mime_type) : QByteArray();
-
-    auto notifier = new QSocketNotifier(pipeFds[1], QSocketNotifier::Write);
-    connect(notifier, &QSocketNotifier::activated, this, [data, fd = pipeFds[1], notifier]() mutable {
-        ssize_t bytesWritten = write(fd, data.data(), data.size());
-        if (bytesWritten <= 0 || bytesWritten == data.size()) {
-            close(fd);
-            notifier->setEnabled(false);
-            notifier->deleteLater();
-        } else {
-            data = data.sliced(bytesWritten);
-        }
+    auto _ = qScopeGuard([pipeFds] {
+        close(pipeFds[0]);
+        close(pipeFds[1]);
     });
 
-    close(pipeFds[0]);
+    auto dbusFd = QDBusUnixFileDescriptor(pipeFds[0]);
+    m_dataControlDevice->currentOffer()->receive(mime_type, pipeFds[1]);
     return dbusFd;
 }
 
@@ -149,60 +293,21 @@ void ClipboardPortal::SetSelection(const QDBusObjectPath &session_handle, const 
 
     auto mimeTypes = options.value(u"mime_types"_s).toStringList();
     if (mimeTypes.empty()) {
-        KSystemClipboard::instance()->clear(QClipboard::Clipboard);
+        m_dataControlDevice->setSource(nullptr);
         return;
     }
-    KSystemClipboard::instance()->setMimeData(new PortalMimeData(mimeTypes, this, remoteDesktopSession), QClipboard::Clipboard);
+
+    auto dataSource = std::make_unique<DataControlSource>(m_dataControlManager->create_data_source(), remoteDesktopSession, mimeTypes);
+    connect(dataSource.get(), &DataControlSource::dataRequested, this, &ClipboardPortal::dataRequested);
+    m_dataControlDevice->setSource(std::move(dataSource));
 }
 
-QVariant ClipboardPortal::fetchData(Session *session, const QString &mimetype)
+void ClipboardPortal::dataRequested(const DataControlSource &source, const QString &mimeType, int fd)
 {
     static uint transferSerialCounter = 0;
     const uint transferSerial = transferSerialCounter++;
-    Q_EMIT SelectionTransfer(QDBusObjectPath(session->handle()), mimetype, transferSerial);
-
-    QEventLoop loop;
-    m_pendingTransfers.emplace(transferSerial, Transfer{.loop = loop, .fd = -1, .data = {}});
-
-    connect(session, &Session::closed, &loop, [&loop] {
-        qCInfo(XdgDesktopPortalKdeClipboard) << "Session closed while transfer was in progress";
-        loop.exit(1);
-    });
-    QTimer::singleShot(1s, &loop, [&loop] {
-        qCWarning(XdgDesktopPortalKdeClipboard) << "Timeout waiting for data";
-        KSystemClipboard::instance()->clear(QClipboard::Clipboard);
-        loop.exit(1);
-    });
-
-    int error = loop.exec();
-
-    auto completedTransfer = m_pendingTransfers.extract(transferSerial);
-    int fd = completedTransfer.mapped().fd;
-    auto closeFd = qScopeGuard([fd] {
-        if (fd != -1) {
-            close(fd);
-        }
-    });
-
-    if (error || fd == -1) {
-        return QVariant();
-    }
-    // Read outstanding data
-    auto &data = completedTransfer.mapped().data;
-    char buffer[4096];
-    while (true) {
-        auto bytesRead = read(fd, buffer, sizeof(buffer));
-        if (bytesRead < 0) {
-            qCWarning(XdgDesktopPortalKdeClipboard) << "Error reading" << strerror(errno);
-            return QVariant();
-            break;
-        } else if (bytesRead == 0) {
-            break;
-        } else {
-            data.append(buffer, bytesRead);
-        }
-    }
-    return data;
+    m_pendingTransfers.push_back({.serial = transferSerial, .fd = fd});
+    Q_EMIT SelectionTransfer(QDBusObjectPath(source.owner->handle()), mimeType, transferSerial);
 }
 
 QDBusUnixFileDescriptor ClipboardPortal::SelectionWrite(const QDBusObjectPath &session_handle, uint serial, const QDBusMessage &message)
@@ -219,7 +324,7 @@ QDBusUnixFileDescriptor ClipboardPortal::SelectionWrite(const QDBusObjectPath &s
         return QDBusUnixFileDescriptor();
     }
 
-    auto transfer = m_pendingTransfers.find(serial);
+    auto transfer = std::ranges::find(m_pendingTransfers, serial, &Transfer::serial);
     if (transfer == m_pendingTransfers.end()) {
         auto error = message.createErrorReply(QDBusError::InvalidArgs, u"No pending transfer with this serial"_s);
         qCWarning(XdgDesktopPortalKdeClipboard) << error.errorMessage() << serial;
@@ -227,38 +332,7 @@ QDBusUnixFileDescriptor ClipboardPortal::SelectionWrite(const QDBusObjectPath &s
         return QDBusUnixFileDescriptor();
     }
 
-    int pipeFds[2];
-    if (pipe2(pipeFds, O_CLOEXEC | O_NONBLOCK) != 0) {
-        auto error = message.createErrorReply(QDBusError::Failed, u"Failed to create pipe"_s);
-        qCWarning(XdgDesktopPortalKdeClipboard) << error.errorMessage();
-        QDBusConnection::sessionBus().send(error);
-        transfer->second.loop.exit(1);
-        return QDBusUnixFileDescriptor();
-    }
-
-    QDBusUnixFileDescriptor dbusFd(pipeFds[1]);
-    close(pipeFds[1]);
-
-    transfer->second.fd = pipeFds[0];
-
-    connect(new QSocketNotifier(pipeFds[0], QSocketNotifier::Read, &transfer->second.loop), &QSocketNotifier::activated, [transfer] {
-        char buffer[4096];
-        while (true) {
-            auto bytesRead = read(transfer->second.fd, buffer, sizeof(buffer));
-            if (bytesRead < 0 && errno != EAGAIN) {
-                qCWarning(XdgDesktopPortalKdeClipboard) << "Error reading" << strerror(errno);
-                transfer->second.data.clear();
-                transfer->second.loop.exit(1);
-                break;
-            } else if (bytesRead == 0) {
-                break;
-            } else if (bytesRead > 0) {
-                transfer->second.data.append(buffer, bytesRead);
-            }
-        }
-    });
-
-    return dbusFd;
+    return QDBusUnixFileDescriptor(transfer->fd);
 }
 
 void ClipboardPortal::SelectionWriteDone(const QDBusObjectPath &session_handle, uint serial, bool success, const QDBusMessage &message)
@@ -276,15 +350,16 @@ void ClipboardPortal::SelectionWriteDone(const QDBusObjectPath &session_handle, 
         return;
     }
 
-    auto transfer = m_pendingTransfers.find(serial);
+    auto transfer = std::ranges::find(m_pendingTransfers, serial, &Transfer::serial);
     if (transfer == m_pendingTransfers.end()) {
         auto error = message.createErrorReply(QDBusError::InvalidArgs, u"No pending transfer with this serial"_s);
         qCWarning(XdgDesktopPortalKdeClipboard) << error.errorMessage() << serial;
         QDBusConnection::sessionBus().send(error);
         return;
     }
-
-    transfer->second.loop.exit(success ? 0 : 1);
+    close(transfer->fd);
+    m_pendingTransfers.erase(transfer);
 }
 
+#include "clipboard.moc"
 #include "moc_clipboard.cpp"
