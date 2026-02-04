@@ -105,7 +105,10 @@ uint AppChooserPortal::ChooseApplicationPrivate(const QString &parent_window,
     Utils::setParentWindow(appDialog->windowHandle(), parent_window);
     msg.setDelayedReply(true);
 
-    appDialog->m_appChooserData->setHistory(options.value("history"_L1).toStringList());
+    const auto history = options.value("history"_L1).toStringList();
+    auto services = history | std::views::transform(&KService::serviceByDesktopName) | std::views::filter(&KService::Ptr::data);
+    auto names = services | std::views::transform(&KService::name);
+    appDialog->m_appChooserData->setHistory(QStringList(names.begin(), names.end()));
     appDialog->m_appChooserData->setShellAccess(KAuthorized::authorize(KAuthorized::SHELL_ACCESS));
 
     QDBusServiceWatcher watcher(msg.service(), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForUnregistration);
