@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-20 03:01+0000\n"
-"PO-Revision-Date: 2025-10-12 13:01+0200\n"
+"PO-Revision-Date: 2026-02-04 00:45+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -51,14 +51,11 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "<filename>%1</filename>을(를) 열 앱 선택"
 
 #: src/AppChooserDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Find some more apps that can open this content using the Discover app"
-#| msgid "Find More in Discover"
+#, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "Discover에서 앱 찾기"
+msgstr "Discover에서 더 찾기…"
 
 #: src/AppChooserDialog.qml:40
 #, kde-format
@@ -381,21 +378,19 @@ msgid "Select"
 msgstr "선택"
 
 #: src/outputsmodel.cpp:21
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "%1와(과) 이 화면을 공유하시겠습니까?"
+msgstr "가상 화면 공유"
 
 #: src/outputsmodel.cpp:25
 #, kde-format
 msgid "Share region"
-msgstr ""
+msgstr "영역 공유"
 
 #: src/outputsmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "전체 작업 공간"
+msgstr "전체 작업 공간 공유"
 
 #: src/outputsmodel.cpp:76
 #, kde-format
@@ -406,19 +401,19 @@ msgstr "노트북 화면"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "모든 화면에 걸친 전체 작업 공간 공유"
 
 #: src/outputsmodel.cpp:252
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgstr "창 안에 화면을 만들고 그 화면 공유"
 
 #: src/outputsmodel.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "내 화면의 지정한 영역 잘라내기"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
@@ -484,33 +479,29 @@ msgid "Remote control session started"
 msgstr "원격 제어 세션 시작됨"
 
 #: src/remotedesktop.cpp:580
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Control"
-msgstr "원격 제어 요청됨"
+msgstr "원격 제어"
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr "원격 제어 요청됨"
+msgstr "원격 제어"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "@info"
 msgid "An application is asking for special privileges:\n"
-msgstr ""
+msgstr "앱에서 특수 권한을 요청합니다:\n"
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "@info"
 msgid "%1 is asking for special privileges:"
-msgstr ""
+msgstr "%1에서 특수 권한을 요청합니다:"
 
 #: src/remotedesktopdialog.cpp:50
 #, kde-format
@@ -521,32 +512,32 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - 화면에 있는 내용 보기"
 
 #: src/remotedesktopdialog.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application requested access to control input devices'. '-' "
 "is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - 입력 장치\n"
+msgstr ""
+"\n"
+" - 입력 장치 제어"
 
 #: src/remotedesktopdialog.cpp:62
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "@info"
 msgid "An application is exercising special permissions:\n"
-msgstr "프로그램에서 다음에 접근을 요청함:\n"
+msgstr "프로그램에서 특수 권한을 사용하는 중:\n"
 
 #: src/remotedesktopdialog.cpp:63
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising special privileges:"
-msgstr ""
+msgstr "%1에서 특수 권한을 사용하는 중:"
 
 #: src/remotedesktopdialog.cpp:67
 #, kde-format
@@ -557,18 +548,20 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - 화면에 있는 내용 보기"
 
 #: src/remotedesktopdialog.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "Will allow the app to send input events, in markdown"
-#| msgid " - Input devices\n"
+#, kde-format
 msgctxt ""
 "@info As in, 'an application is exercising privileges to control input "
 "devices'. '-' is Markdown, do not translate"
 msgid ""
 "\n"
 " - Control input devices"
-msgstr " - 입력 장치\n"
+msgstr ""
+"\n"
+" - 입력 장치 제어"
 
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:189
 #, kde-format
@@ -579,13 +572,13 @@ msgstr "향후 세션에서 복원 허용"
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
-msgstr ""
+msgstr "승인"
 
 #: src/RemoteDesktopDialog.qml:39
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr ""
+msgstr "거부"
 
 #: src/screencast.cpp:284
 #, kde-format
@@ -614,11 +607,10 @@ msgid "Screen casting"
 msgstr "스크린 캐스팅"
 
 #: src/screenchooserdialog.cpp:158
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
-msgstr "%1와(과) 이 화면을 공유하시겠습니까?"
+msgstr "%1와(과) 이 화면 공유|/|%1$[와과 %1] 이 화면 공유"
 
 #: src/screenchooserdialog.cpp:205
 #, kde-format
@@ -701,8 +693,7 @@ msgid "Choose what to share with %1:"
 msgstr "%1와(과) 공유할 항목 선택:"
 
 #: src/ScreenChooserDialog.qml:166
-#, fuzzy, kde-format
-#| msgid "Windows"
+#, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
@@ -783,31 +774,24 @@ msgstr "찍기"
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
-msgstr ""
+msgstr "USB 장치 접근 요청됨"
 
 #: src/UsbDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
 msgid_plural "An application wants to access the following devices:"
-msgstr[0] "앱에서 다음 단축키 %1개를 등록하려고 합니다:"
+msgstr[0] "앱에서 다음 장치에 접근하려고 합니다:"
 
 #: src/UsbDialog.qml:25
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
 msgid_plural "%2 wants to access the following devices:"
-msgstr[0] "%2에서 다음 단축키 %1개를 등록하려고 합니다:"
+msgstr[0] "%2에서 다음 장치에 접근하려고 합니다:"
 
 #: src/userinfodialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Share User Information with %1"
+#, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
 msgstr "%1와(과) 사용자 정보 공유"
@@ -819,12 +803,13 @@ msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
 msgstr ""
+"사용자 이름, 전체 이름, 프로필 사진을 앱에서 사용할 수 있도록 허용합니다."
 
 #: src/UserInfoDialog.qml:18
 #, kde-format
 msgctxt "@action:button"
 msgid "Share user info"
-msgstr ""
+msgstr "사용자 정보 공유"
 
 #: src/UserInfoDialog.qml:76
 #, kde-format
