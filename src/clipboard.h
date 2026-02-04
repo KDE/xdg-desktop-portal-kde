@@ -9,9 +9,11 @@
 #include <QDBusMessage>
 #include <QDBusObjectPath>
 #include <QDBusUnixFileDescriptor>
-#include <QEventLoop>
 
 class Session;
+class DataControlManager;
+class DataControlDevice;
+class DataControlSource;
 
 class ClipboardPortal : public QDBusAbstractAdaptor
 {
@@ -19,6 +21,7 @@ class ClipboardPortal : public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Clipboard")
 public:
     explicit ClipboardPortal(QObject *parent);
+    ~ClipboardPortal() override;
 
     QVariant fetchData(Session *session, const QString &mimetype);
 
@@ -29,15 +32,19 @@ public Q_SLOTS:
     void SelectionWriteDone(const QDBusObjectPath &session_handle, uint serial, bool success, const QDBusMessage &message);
     QDBusUnixFileDescriptor SelectionRead(const QDBusObjectPath &session_handle, const QString &mime_type, const QDBusMessage &message);
 
+private:
+    void dataRequested(const DataControlSource &source, const QString &mimeType, int fd);
+
 Q_SIGNALS:
     void SelectionOwnerChanged(const QDBusObjectPath &session_handle, const QVariantMap &options);
     void SelectionTransfer(const QDBusObjectPath &session_handle, const QString &mimeType, uint serial);
 
 private:
     struct Transfer {
-        QEventLoop &loop;
+        uint serial = -1;
         int fd = -1;
-        QByteArray data;
     };
-    std::map<uint, Transfer> m_pendingTransfers;
+    std::vector<Transfer> m_pendingTransfers;
+    std::unique_ptr<DataControlManager> m_dataControlManager;
+    std::unique_ptr<DataControlDevice> m_dataControlDevice;
 };
