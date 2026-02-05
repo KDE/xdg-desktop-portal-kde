@@ -64,13 +64,14 @@ PortalDialog {
                     if (showingTerminalCommand) {
                         root.appChooserData.applicationSelected(searchField.text, root.remember)
                     } else {
-                        grid.currentItem.activate();
+                        (grid.currentItem as QQC2.ItemDelegate).click()
                     }
                 }
 
                 implicitWidth: Kirigami.Units.gridUnit * 20
                 Layout.fillWidth: true
                 editable: true
+                currentIndex: -1
 
                 Keys.onDownPressed: {
                     grid.forceActiveFocus();
@@ -85,10 +86,16 @@ PortalDialog {
                     if (!ready) {
                         return
                     }
-                    root.appModel.filter = editText;
-                    if (editText.length > 0 && grid.count === 1) {
-                        grid.currentIndex = 0;
-                    }
+                    root.appModel.filter = editText
+                    // delay the auto-selection to allow the GridView to update
+                    Qt.callLater(() => {
+                        if (!ready) {
+                            return
+                        }
+                        if (editText.length > 0 && grid.count === 1) {
+                            grid.currentIndex = 0
+                        }
+                    })
                 }
 
                 Connections {
@@ -169,6 +176,7 @@ PortalDialog {
             height: grid.cellHeight
             width: grid.cellWidth
 
+            highlighted: GridView.view.currentItem === this
             display: QQC2.AbstractButton.TextUnderIcon
 
             icon.name: delegate.model.applicationIcon
