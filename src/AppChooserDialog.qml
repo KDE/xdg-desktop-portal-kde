@@ -64,7 +64,7 @@ PortalDialog {
                     if (showingTerminalCommand) {
                         root.appChooserData.applicationSelected(searchField.text, root.remember)
                     } else {
-                        (grid.currentItem as QQC2.ItemDelegate).click()
+                        grid.currentItemDelegate.click()
                     }
                 }
 
@@ -149,6 +149,7 @@ PortalDialog {
         readonly property int gridDelegateIconSize: Kirigami.Units.iconSizes.huge
         readonly property int gridDelegateWidth: gridDelegateIconSize + (Kirigami.Units.gridUnit * 4)
         readonly property int gridDelegateHeight: gridDelegateWidth + Kirigami.Units.gridUnit
+        readonly property QQC2.ItemDelegate currentItemDelegate: currentItem as QQC2.ItemDelegate
 
         activeFocusOnTab: true
         onFocusChanged: {
@@ -158,8 +159,8 @@ PortalDialog {
         }
         clip: true
 
-        Keys.onReturnPressed: currentItem.click();
-        Keys.onEnterPressed: currentItem.click();
+        Keys.onReturnPressed: currentItemDelegate.click()
+        Keys.onEnterPressed: currentItemDelegate.click()
 
         currentIndex: -1 // Don't pre-select anything as that doesn't make sense here
 
