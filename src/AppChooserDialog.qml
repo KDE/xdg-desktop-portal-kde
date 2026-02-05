@@ -108,6 +108,11 @@ PortalDialog {
                 }
                 onAccepted: acceptResult()
 
+                Shortcut {
+                    sequences: [ StandardKey.Find ]
+                    onActivated: searchField.forceActiveFocus()
+                }
+
                 // PortalDialog manages focus automatically, forcefully claim it here
                 Component.onCompleted: forceActiveFocus()
             }
