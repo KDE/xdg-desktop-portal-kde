@@ -70,7 +70,6 @@ PortalDialog {
 
                 implicitWidth: Kirigami.Units.gridUnit * 20
                 Layout.fillWidth: true
-                focus: true
                 editable: true
 
                 Keys.onDownPressed: {
@@ -101,6 +100,9 @@ PortalDialog {
                     }
                 }
                 onAccepted: acceptResult()
+
+                // PortalDialog manages focus automatically, forcefully claim it here
+                Component.onCompleted: forceActiveFocus()
             }
 
             QQC2.Button {
