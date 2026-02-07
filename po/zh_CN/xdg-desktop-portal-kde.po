@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 03:01+0000\n"
+"POT-Creation-Date: 2026-02-07 02:37+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -70,53 +70,53 @@ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr "设置为打开 %1 文件的默认应用"
 
-#: src/AppChooserDialog.qml:108
+#: src/AppChooserDialog.qml:122
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "显示所有已安装的应用"
 
-#: src/AppChooserDialog.qml:121
+#: src/AppChooserDialog.qml:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "选择其他…"
 
-#: src/AppChooserDialog.qml:178
+#: src/AppChooserDialog.qml:194
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>此文件类型的默认应用</emphasis>"
 
-#: src/AppChooserDialog.qml:180
+#: src/AppChooserDialog.qml:196
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>上次打开此文件类型的应用</emphasis>"
 
-#: src/AppChooserDialog.qml:202
+#: src/AppChooserDialog.qml:218
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "使用 <command>%1</command> 打开吗？"
 
-#: src/AppChooserDialog.qml:204
+#: src/AppChooserDialog.qml:220
 #, kde-format
 msgid "No matches"
 msgstr "没有匹配项目"
 
-#: src/AppChooserDialog.qml:206
+#: src/AppChooserDialog.qml:222
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "没有任何已安装的应用能够打开 <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:225
+#: src/AppChooserDialog.qml:241
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "在终端中运行"
 
-#: src/AppChooserDialog.qml:233
+#: src/AppChooserDialog.qml:249
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
