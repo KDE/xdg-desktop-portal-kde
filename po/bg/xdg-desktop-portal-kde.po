@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-21 00:47+0000\n"
-"PO-Revision-Date: 2026-01-19 22:48+0100\n"
+"POT-Creation-Date: 2026-02-07 00:46+0000\n"
+"PO-Revision-Date: 2026-01-29 23:33+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -69,54 +69,54 @@ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr "Зададено като стандартно приложение за отваряне на файлове %1"
 
-#: src/AppChooserDialog.qml:108
+#: src/AppChooserDialog.qml:122
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "Показване на всички инсталирани приложения"
 
-#: src/AppChooserDialog.qml:121
+#: src/AppChooserDialog.qml:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "Избор на друго…"
 
-#: src/AppChooserDialog.qml:178
+#: src/AppChooserDialog.qml:194
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>Стандартно приложение за този тип файлове</emphasis>"
 
-#: src/AppChooserDialog.qml:180
+#: src/AppChooserDialog.qml:196
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr ""
 "%1<nl/><emphasis>Последно използвано приложение за този вид файл</emphasis>"
 
-#: src/AppChooserDialog.qml:202
+#: src/AppChooserDialog.qml:218
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Отваряне с <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:204
+#: src/AppChooserDialog.qml:220
 #, kde-format
 msgid "No matches"
 msgstr "Няма съвпадения"
 
-#: src/AppChooserDialog.qml:206
+#: src/AppChooserDialog.qml:222
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Няма инсталирано приложение за отваряне на <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:225
+#: src/AppChooserDialog.qml:241
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Изпълняване в терминал"
 
-#: src/AppChooserDialog.qml:233
+#: src/AppChooserDialog.qml:249
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -470,13 +470,10 @@ msgid "Left-click and drag"
 msgstr "Щракване с ляв бутон и завличане"
 
 #: src/remotedesktop.cpp:124
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "Отдалечен работен плот"
+msgstr "Не е наличен отдалечен работен плот"
 
 #: src/remotedesktop.cpp:126
 #, kde-kuit-format
@@ -617,11 +614,10 @@ msgid "Deny"
 msgstr "Забраняване"
 
 #: src/screencast.cpp:155
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "Споделяне на екрана"
+msgstr "Не е налично споделяне на екрана"
 
 #: src/screencast.cpp:157
 #, kde-kuit-format

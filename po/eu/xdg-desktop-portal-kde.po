@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-21 00:47+0000\n"
+"POT-Creation-Date: 2026-02-07 00:46+0000\n"
 "PO-Revision-Date: 2025-12-07 22:43+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -72,25 +72,25 @@ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr "Ezarri %1 fitxategiak irekitzeko aplikazio lehenetsi gisa"
 
-#: src/AppChooserDialog.qml:108
+#: src/AppChooserDialog.qml:122
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "Erakutsi instalatutako aplikazio guztiak"
 
-#: src/AppChooserDialog.qml:121
+#: src/AppChooserDialog.qml:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "Aukeratu beste…"
 
-#: src/AppChooserDialog.qml:178
+#: src/AppChooserDialog.qml:194
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr ""
 "%1<nl/><emphasis>Fitxategi-mota honetarako aplikazio lehenetsia</emphasis>"
 
-#: src/AppChooserDialog.qml:180
+#: src/AppChooserDialog.qml:196
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
@@ -98,31 +98,31 @@ msgstr ""
 "%1<nl/><emphasis>Fitxategi-mota honetarako erabilitako azken aplikazioa</"
 "emphasis>"
 
-#: src/AppChooserDialog.qml:202
+#: src/AppChooserDialog.qml:218
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "<command>%1</command>(e)kin ireki?"
 
-#: src/AppChooserDialog.qml:204
+#: src/AppChooserDialog.qml:220
 #, kde-format
 msgid "No matches"
 msgstr "Ez dago bat datorrenik"
 
-#: src/AppChooserDialog.qml:206
+#: src/AppChooserDialog.qml:222
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
 "Ez dago instalatuta <filename>%1</filename> ireki dezakeen aplikaziorik"
 
-#: src/AppChooserDialog.qml:225
+#: src/AppChooserDialog.qml:241
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Exekutatu terminalean"
 
-#: src/AppChooserDialog.qml:233
+#: src/AppChooserDialog.qml:249
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
