@@ -2,15 +2,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Alexander Potashev <aspotashev@gmail.com>, 2017, 2018.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2022, 2023, 2024.
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024, 2026 Alexander Yavorsky <kekcuha@gmail.com>
 # Мария Шикунова <translation-team@basealt.ru>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:19+0000\n"
-"PO-Revision-Date: 2024-02-20 16:43+0300\n"
-"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
+"PO-Revision-Date: 2026-02-07 20:28+0200\n"
+"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -197,7 +197,7 @@ msgid "Save File"
 msgstr "Сохранение файла"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
-#, fuzzy, kde-format
+#, kde-format
 msgid "Create new folder"
 msgstr "Создание папки"
 
@@ -232,10 +232,9 @@ msgid "Select"
 msgstr "Выбрать"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:57
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgid "Create folder"
-msgstr "Выбор папки"
+msgstr "Создать папку"
 
 #: src/kirigami-filepicker/declarative/FilePickerWindow.qml:66
 #, kde-format
