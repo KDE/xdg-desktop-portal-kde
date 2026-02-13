@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-07 00:46+0000\n"
-"PO-Revision-Date: 2026-01-29 23:33+0100\n"
+"PO-Revision-Date: 2026-02-12 22:08+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -484,6 +484,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Приложението <application>%1</application> се опита да стартира отдалечена "
+"сесия на работния плот, но такава сесия не е на разположение. Моля, уверете "
+"се, че се изпълнява сесия на Wayland със съвместим мениджър на прозорци като "
+"KWin."
 
 #: src/remotedesktop.cpp:130
 #, kde-kuit-format
@@ -493,6 +497,9 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Приложението <application>%1</application> се опита да стартира сесия на "
+"отдалечен работен плот, но отдалеченият работен плот не е наличен в X11 "
+"сесии. Моля, превключете към Wayland сесия и опитайте отново."
 
 #: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
@@ -628,6 +635,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Приложението <application>%1</application> се опита да стартира сесия за "
+"споделяне на екрана, но споделянето на екрана не е налично на тази система. "
+"Моля, уверете се, че изпълнявате Wayland сесия със съвместим мениджър на "
+"прозорци, като например KWin."
 
 #: src/screencast.cpp:161
 #, kde-kuit-format
@@ -637,6 +648,9 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Приложението <application>%1</application> се опита да стартира сесия за "
+"споделяне на екрана, но споделянето на екрана не е достъпно в X11 сесии. "
+"Моля, превключете към Wayland сесия и опитайте отново."
 
 #: src/screencast.cpp:296
 #, kde-format
