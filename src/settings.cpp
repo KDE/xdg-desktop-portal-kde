@@ -16,7 +16,6 @@
 #include <QDBusMessage>
 #include <QDBusMetaType>
 #include <QPalette>
-#include <QStyleHints>
 
 #include <KConfigGroup>
 #include <KConfigWatcher>
@@ -260,15 +259,18 @@ public:
 private:
     QDBusVariant readFdoColorScheme()
     {
-        switch (QGuiApplication::styleHints()->colorScheme()) {
-        case Qt::ColorScheme::Dark:
-            return QDBusVariant(1U);
-        case Qt::ColorScheme::Light:
-            return QDBusVariant(2U);
-        case Qt::ColorScheme::Unknown:
-            break;
+        const QPalette palette = QApplication::palette();
+        const int windowBackgroundGray = qGray(palette.window().color().rgb());
+
+        uint result = 0; // no preference
+
+        if (windowBackgroundGray < 192) {
+            result = 1; // prefer dark
+        } else {
+            result = 2; // prefer light
         }
-        return QDBusVariant(0U); // no preference
+
+        return QDBusVariant(result);
     }
 
     /**
