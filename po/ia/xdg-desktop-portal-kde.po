@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-07 02:37+0000\n"
-"PO-Revision-Date: 2026-02-05 17:24+0100\n"
+"PO-Revision-Date: 2026-02-23 16:35+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -812,6 +812,8 @@ msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
 msgstr ""
+"Permitte que tu nomine de usator, nomine complete, e imagine de profilo sea "
+"usate per le application."
 
 #: src/UserInfoDialog.qml:18
 #, kde-format
@@ -835,37 +837,39 @@ msgstr "Fixa Tapete de papiro"
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the desktop background?"
-msgstr ""
+msgstr "Permitte que un application assigna le fundo de scriptorio?"
 
 #: src/WallpaperDialog.qml:27
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the lock screen background?"
-msgstr ""
+msgstr "Permitte que un application assigna le fundo de schermo de bloco?"
 
 #: src/WallpaperDialog.qml:29
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set desktop and lock screen backgrounds?"
 msgstr ""
+"Permitte que un application assigna fundos de scriptorio e de schermo de "
+"bloco?"
 
 #: src/WallpaperDialog.qml:34
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the desktop background?"
-msgstr ""
+msgstr "Permitte que %1 assigna le fundo de scriptorio?"
 
 #: src/WallpaperDialog.qml:36
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the lock screen background?"
-msgstr ""
+msgstr "Permitte que %1assigna le fundo de bloco de schermo?"
 
 #: src/WallpaperDialog.qml:38
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
-msgstr ""
+msgstr "Permitte que %1 assigna fundos de scriptorio e de schermo de bloco?"
 
 #: src/waylandintegration.cpp:268 src/waylandintegration.cpp:326
 #, kde-format
