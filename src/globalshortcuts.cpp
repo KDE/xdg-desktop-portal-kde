@@ -209,15 +209,15 @@ uint GlobalShortcutsPortal::CreateSession(const QDBusObjectPath &handle,
 
     session->loadActions();
 
-    connect(session, &GlobalShortcutsSession::shortcutsChanged, this, [this, session, session_handle] {
-        Q_EMIT ShortcutsChanged(session_handle, session->shortcutDescriptions());
+    connect(session, &GlobalShortcutsSession::shortcutsChanged, this, [session, session_handle] {
+        sendSignal(&GlobalShortcutsPortal::ShortcutsChanged, session_handle, session->shortcutDescriptions());
     });
 
     connect(session, &GlobalShortcutsSession::shortcutActivated, this, [this, session](const QString &shortcutName, qlonglong timestamp) {
-        Q_EMIT Activated(QDBusObjectPath(session->handle()), shortcutName, timestamp);
+        sendSignal(&GlobalShortcutsPortal::Activated, QDBusObjectPath(session->handle()), shortcutName, timestamp, QVariantMap());
     });
     connect(session, &GlobalShortcutsSession::shortcutDeactivated, this, [this, session](const QString &shortcutName, qlonglong timestamp) {
-        Q_EMIT Deactivated(QDBusObjectPath(session->handle()), shortcutName, timestamp);
+        sendSignal(&GlobalShortcutsPortal::Deactivated, QDBusObjectPath(session->handle()), shortcutName, timestamp, QVariantMap());
     });
 
     Q_UNUSED(results);

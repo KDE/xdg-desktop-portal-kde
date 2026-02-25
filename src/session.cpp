@@ -49,7 +49,10 @@ Session::~Session()
 
 bool Session::close()
 {
-    QDBusMessage reply = QDBusMessage::createSignal(m_path, QStringLiteral("org.freedesktop.impl.portal.Session"), QStringLiteral("Closed"));
+    QDBusMessage reply = QDBusMessage::createTargetedSignal(QStringLiteral("org.freedesktop.portal.Desktop"),
+                                                            m_path,
+                                                            QStringLiteral("org.freedesktop.impl.portal.Session"),
+                                                            QStringLiteral("Closed"));
     const bool result = QDBusConnection::sessionBus().send(reply);
 
     Q_EMIT closed();

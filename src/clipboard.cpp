@@ -6,8 +6,9 @@
 #include "clipboard.h"
 
 #include "clipboard_debug.h"
-#include "session.h"
+#include "dbushelpers.h"
 #include "remotedesktop.h"
+#include "session.h"
 
 #include <KSystemClipboard>
 
@@ -85,11 +86,12 @@ void ClipboardPortal::RequestClipboard(const QDBusObjectPath &session_handle, co
         }
         auto clipboard = KSystemClipboard::instance()->mimeData(QClipboard::Clipboard);
         auto portalSource = dynamic_cast<const PortalMimeData *>(clipboard);
-        Q_EMIT SelectionOwnerChanged(QDBusObjectPath(session->handle()),
-                                     {
-                                         {u"mime_types"_s, clipboard ? clipboard->formats() : QStringList()},
-                                         {u"session_is_owner"_s, portalSource && portalSource->m_session == session},
-                                     });
+        sendSignal(&ClipboardPortal::SelectionOwnerChanged,
+                   QDBusObjectPath(session->handle()),
+                   QVariantMap{
+                       {u"mime_types"_s, clipboard ? clipboard->formats() : QStringList()},
+                       {u"session_is_owner"_s, portalSource && portalSource->m_session == session},
+                   });
     });
 }
 
@@ -159,7 +161,7 @@ QVariant ClipboardPortal::fetchData(Session *session, const QString &mimetype)
 {
     static uint transferSerialCounter = 0;
     const uint transferSerial = transferSerialCounter++;
-    Q_EMIT SelectionTransfer(QDBusObjectPath(session->handle()), mimetype, transferSerial);
+    sendSignal(&ClipboardPortal::SelectionTransfer, QDBusObjectPath(session->handle()), mimetype, transferSerial);
 
     QEventLoop loop;
     m_pendingTransfers.emplace(transferSerial, Transfer{.loop = loop, .fd = -1, .data = {}});

@@ -501,7 +501,9 @@ SettingsPortal::SettingsPortal(DesktopPortal *parent)
     m_settings.push_back(std::make_unique<TabletModeSettings>(this));
     m_settings.push_back(std::make_unique<KDEGlobalsSettings>(this));
     for (const auto &setting : std::as_const(m_settings)) {
-        connect(setting.get(), &SettingsModule::settingChanged, this, &SettingsPortal::SettingChanged);
+        connect(setting.get(), &SettingsModule::settingChanged, this, [](const QString &group, const QString &key, const QDBusVariant &value) {
+            sendSignal(&SettingsPortal::SettingChanged, group, key, value);
+        });
     }
     qDBusRegisterMetaType<VariantMapMap>();
 }

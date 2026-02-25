@@ -251,18 +251,18 @@ void BackgroundPortal::addWindow(KWayland::Client::PlasmaWindow *window)
 
         if (!windows) {
             m_appStates.remove(appId);
-            Q_EMIT RunningApplicationsChanged();
+            sendSignal(&BackgroundPortal::RunningApplicationsChanged);
         }
     });
 
-    Q_EMIT RunningApplicationsChanged();
+    sendSignal(&BackgroundPortal::RunningApplicationsChanged);
 }
 
 void BackgroundPortal::setActiveWindow(const QString &appId, bool active)
 {
     m_appStates[appId] = QVariant::fromValue<uint>(active ? Active : Running);
 
-    Q_EMIT RunningApplicationsChanged();
+    sendSignal(&BackgroundPortal::RunningApplicationsChanged);
 }
 
 #include "moc_background.cpp"

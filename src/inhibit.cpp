@@ -291,7 +291,7 @@ void InhibitPortal::updateState(SessionStateMonitorSession *session, LockScreenS
     data[QStringLiteral("screensaver-active")] = (lockState == LockScreenActive);
     data[QStringLiteral("session-state")] = static_cast<uint>(sessionState);
 
-    Q_EMIT StateChanged(QDBusObjectPath(session->handle()), data);
+    sendSignal(&InhibitPortal::StateChanged, QDBusObjectPath(session->handle()), data);
 }
 
 SessionStateMonitorSession::SessionStateMonitorSession(QObject *parent, const QString &appId, const QString &path)

@@ -11,14 +11,18 @@
 
 #include "quickdialog.h"
 
+#include <QDBusAbstractAdaptor>
 #include <QDBusArgument>
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDialog>
 #include <QMap>
+#include <QMetaMethod>
 #include <QString>
 
 #include "utils.h"
+
+#include <source_location>
 
 // not an enum class so it can convert to uint implicitelly when returning from a dbus handling slot
 namespace PortalResponse
@@ -91,4 +95,52 @@ inline void delayReply(const QDBusMessage &message, auto *dialog, auto *contextO
         const auto reply = message.createReply(std::invoke(callback, result));
         QDBusConnection::sessionBus().send(reply);
     });
+}
+
+template<typename Function>
+struct member_function_traits;
+template<typename C, typename R, typename... Args>
+struct member_function_traits<R (C::*)(Args...)> {
+    using Class = C;
+    using Return = R;
+    using Arguments = std::tuple<Args...>;
+};
+
+template<typename Signal, typename... Args>
+void sendSignal(Signal &&function, Args &&...args)
+    requires std::is_member_function_pointer_v<Signal> && std::derived_from<typename member_function_traits<Signal>::Class, QDBusAbstractAdaptor>
+    && std::invocable<Signal, typename member_function_traits<Signal>::Class, Args...>
+{
+    using namespace Qt::StringLiterals;
+    const auto metaSignal = QMetaMethod::fromSignal(function);
+    if (!metaSignal.isValid()) {
+        qWarning() << "function passed is not a signal" << std::source_location::current().function_name();
+        return;
+    }
+    const QMetaObject &metaObject = member_function_traits<Signal>::Class::staticMetaObject;
+    const int interfaceInfoIndex = metaObject.indexOfClassInfo("D-Bus Interface");
+    if (interfaceInfoIndex < 0) {
+        qWarning() << metaObject.className() << "does not have 'D-Bus Interface' class info";
+        return;
+    }
+    const QByteArrayView interface = metaObject.classInfo(interfaceInfoIndex).value();
+    if (interface.isEmpty()) {
+        qWarning() << "Didn't find dbus interface for class" << metaObject.className();
+        return;
+    }
+    auto message = QDBusMessage::createTargetedSignal(u"org.freedesktop.portal.Desktop"_s,
+                                                      u"/org/freedesktop/portal/desktop"_s,
+                                                      QString::fromUtf8(interface),
+                                                      QString::fromUtf8(metaSignal.name()));
+    if constexpr (sizeof...(Args) > 0) {
+        auto addArguments = [&message, &args...]<size_t... I>(std::index_sequence<I...>) {
+            auto makeVariant = []<size_t index, typename T>(T &&value) {
+                using targetType = std::remove_cvref_t<typename std::tuple_element_t<index, typename member_function_traits<Signal>::Arguments>>;
+                return QVariant::fromValue<targetType>(std::forward<T>(value));
+            };
+            (message << ... << makeVariant.template operator()<I>(std::forward<Args>(args)));
+        };
+        addArguments(std::make_index_sequence<sizeof...(Args)>());
+    }
+    QDBusConnection::sessionBus().send(message);
 }

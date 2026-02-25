@@ -91,15 +91,15 @@ bool InputCapturePortal::setupInputCaptureSession(InputCaptureSession *session, 
         msg << session->kwinInputCapture();
         QDBusConnection::sessionBus().call(msg, QDBus::Block, kwinDBusTimeout);
     });
-    connect(session, &InputCaptureSession::disabled, this, [this, session] {
+    connect(session, &InputCaptureSession::disabled, this, [session] {
         session->state = State::Disabled;
         qCDebug(XdgDesktopPortalKdeInputCapture) << "Disabled session" << session->handle();
-        Q_EMIT Disabled(QDBusObjectPath(session->handle()), {});
+        sendSignal(&InputCapturePortal::Disabled, QDBusObjectPath(session->handle()), QVariantMap{});
     });
     connect(session, &InputCaptureSession::deactivated, this, [this, session](uint activationId) {
         session->state = State::Deactivated;
         qCDebug(XdgDesktopPortalKdeInputCapture) << "Deactivated session" << session->handle() << "acitvation_id" << activationId;
-        Q_EMIT Deactivated(QDBusObjectPath(session->handle()), {{u"activation_id"_s, activationId}});
+        sendSignal(&InputCapturePortal::Deactivated, QDBusObjectPath(session->handle()), QVariantMap{{u"activation_id"_s, activationId}});
     });
     connect(session, &InputCaptureSession::activated, this, [this, session](uint activationId, const QPointF &cursorPosition) {
         session->state = State::Activated;
@@ -127,7 +127,9 @@ bool InputCapturePortal::setupInputCaptureSession(InputCaptureSession *session, 
         connect(session, &InputCaptureSession::deactivated, notification, &KNotification::close);
         notification->sendEvent();
 
-        Q_EMIT Activated(QDBusObjectPath(session->handle()), {{u"activation_id"_s, activationId}, {u"cursor_position"_s, cursorPosition}});
+        sendSignal(&InputCapturePortal::Activated,
+                   QDBusObjectPath(session->handle()),
+                   QVariantMap{{u"activation_id"_s, activationId}, {u"cursor_position"_s, cursorPosition}});
     });
     return true;
 }
@@ -211,7 +213,7 @@ uint InputCapturePortal::GetZones(const QDBusObjectPath &handle,
         session->clearBarriers();
         qCDebug(XdgDesktopPortalKdeInputCapture) << "Sending  zones changed" << session->handle();
         ++m_zoneId;
-        Q_EMIT ZonesChanged(QDBusObjectPath(session->handle()), {{u"zone_set"_s, m_zoneId}});
+        sendSignal(&InputCapturePortal::ZonesChanged, QDBusObjectPath(session->handle()), QVariantMap{{u"zone_set"_s, m_zoneId}});
     };
 
     results.insert(u"zone_set"_s, m_zoneId);
