@@ -1,14 +1,14 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the xdg-desktop-portal-kde package.
 #
-# SPDX-FileCopyrightText: 2024, 2025 Sveinn í Felli <sv1@fellsnet.is>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Sveinn í Felli <sv1@fellsnet.is>
 # SPDX-FileCopyrightText: 2024 Gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-07 00:46+0000\n"
-"PO-Revision-Date: 2025-12-02 10:54+0000\n"
+"PO-Revision-Date: 2026-02-25 14:46+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -470,13 +470,10 @@ msgid "Left-click and drag"
 msgstr "Vinstrismella og draga"
 
 #: src/remotedesktop.cpp:124
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "Fjartengt skjáborð"
+msgstr "Fjartengt skjáborð ekki tiltækt"
 
 #: src/remotedesktop.cpp:126
 #, kde-kuit-format
@@ -617,11 +614,10 @@ msgid "Deny"
 msgstr "Hafna"
 
 #: src/screencast.cpp:155
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "Samnýting á skjá"
+msgstr "Skjádeiling ekki tiltæk"
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -760,7 +756,7 @@ msgstr "Velja hvað á að samnýta með %1:"
 #, kde-format
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
-msgstr ""
+msgstr "Leita…"
 
 #: src/ScreenChooserDialog.qml:167
 #, kde-format
