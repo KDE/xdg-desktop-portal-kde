@@ -131,7 +131,7 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
     Session *session = new RemoteDesktopSession(this, app_id, session_handle.path());
 
     if (!session->isValid()) {
-        session->deleteLater();
+        delete session;
         return PortalResponse::OtherError;
     }
 

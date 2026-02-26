@@ -162,7 +162,7 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
     Session *session = new ScreenCastSession(this, app_id, session_handle.path(), QStringLiteral("media-record"));
 
     if (!session->isValid()) {
-        session->deleteLater();
+        delete session;
         return PortalResponse::OtherError;
     }
 
