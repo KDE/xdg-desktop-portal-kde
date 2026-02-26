@@ -142,12 +142,6 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    options: " << options;
 
-    Session *session = new ScreenCastSession(this, app_id, session_handle.path(), QStringLiteral("media-record"));
-
-    if (!session->isValid()) {
-        return PortalResponse::OtherError;
-    }
-
     if (!WaylandIntegration::isStreamingAvailable()) {
         qCWarning(XdgDesktopPortalKdeScreenCast) << "zkde_screencast_unstable_v1 does not seem to be available";
         auto appName = Utils::applicationName(app_id);
@@ -162,6 +156,13 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
                               "X11 sessions. Please switch to a Wayland session and try again.",
                               appName),
         });
+        return PortalResponse::OtherError;
+    }
+
+    Session *session = new ScreenCastSession(this, app_id, session_handle.path(), QStringLiteral("media-record"));
+
+    if (!session->isValid()) {
+        session->deleteLater();
         return PortalResponse::OtherError;
     }
 

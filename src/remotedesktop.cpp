@@ -111,12 +111,6 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    app_id: " << app_id;
     qCDebug(XdgDesktopPortalKdeRemoteDesktop) << "    options: " << options;
 
-    Session *session = new RemoteDesktopSession(this, app_id, session_handle.path());
-
-    if (!session->isValid()) {
-        return PortalResponse::OtherError;
-    }
-
     if (!WaylandIntegration::isStreamingAvailable()) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "zkde_screencast_unstable_v1 does not seem to be available";
         auto appName = Utils::applicationName(app_id);
@@ -131,6 +125,13 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
                               "X11 sessions. Please switch to a Wayland session and try again.",
                               appName),
         });
+        return PortalResponse::OtherError;
+    }
+
+    Session *session = new RemoteDesktopSession(this, app_id, session_handle.path());
+
+    if (!session->isValid()) {
+        session->deleteLater();
         return PortalResponse::OtherError;
     }
 

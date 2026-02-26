@@ -37,10 +37,16 @@ Session::Session(QObject *parent, const QString &appId, const QString &path)
     , m_path(path)
 {
     new SessionAdaptor(this);
-    if (QDBusConnection::sessionBus().registerObject(path, this)) {
-        m_valid = true;
-        sessionList.insert(path, this);
+    auto sessionBus = QDBusConnection::sessionBus();
+    if (!sessionBus.registerObject(path, this)) {
+        const auto dbusError = sessionBus.lastError();
+        qCWarning(XdgSessionKdeSession) << "Failed to register session object at" << path << "for app_id" << appId << "DBus error:"
+                                        << dbusError.name() << dbusError.message();
+        return;
     }
+
+    m_valid = true;
+    sessionList.insert(path, this);
 }
 
 Session::~Session()
