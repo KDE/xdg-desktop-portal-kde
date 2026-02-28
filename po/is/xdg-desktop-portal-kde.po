@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-07 00:46+0000\n"
-"PO-Revision-Date: 2026-02-25 14:46+0000\n"
+"PO-Revision-Date: 2026-02-27 10:52+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -484,6 +484,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Forritið <application>%1</application> reyndi að ræsa fjartengda "
+"skjáborðssetu en fjartengt skjáborð finnst ekki á þessu kerfi. Gakktu úr "
+"skugga um að þú sért að keyra Wayland-setu með samhæfðum gluggastjóra á borð "
+"við KWin."
 
 #: src/remotedesktop.cpp:130
 #, kde-kuit-format
@@ -493,6 +497,9 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Forritið <application>%1</application> reyndi að ræsa fjartengda "
+"skjáborðssetu en fjartengt skjáborð er ekki í boði á X11-setum. Gakktu úr "
+"skugga um að þú sért að keyra Wayland-setu og prófaðu svo aftur."
 
 #: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
@@ -628,6 +635,9 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Forritið <application>%1</application> reyndi að ræsa skjádeilingarsetu en "
+"skjádeiling er ekki í boði á þessu kerfi. Gakktu úr skugga um að þú sért að "
+"keyra Wayland-setu með samhæfðum gluggastjóra á borð við KWin."
 
 #: src/screencast.cpp:161
 #, kde-kuit-format
@@ -637,6 +647,9 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Forritið <application>%1</application> reyndi að ræsa skjádeilingarsetu en "
+"skjádeiling er ekki í boði á X11-setum. Skiptu yfir í Wayland-setu og "
+"prófaðu svo aftur."
 
 #: src/screencast.cpp:296
 #, kde-format
