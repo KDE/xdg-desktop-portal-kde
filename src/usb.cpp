@@ -16,36 +16,6 @@
 
 using namespace Qt::StringLiterals;
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 10, 0)
-template<typename... T>
-QDBusArgument &operator<<(QDBusArgument &argument, const std::tuple<T...> &tuple)
-{
-    static_assert(std::tuple_size_v<std::tuple<T...>> != 0, "D-Bus doesn't allow empty structs");
-    argument.beginStructure();
-    std::apply(
-        [&argument](const auto &...elements) {
-            (argument << ... << elements);
-        },
-        tuple);
-    argument.endStructure();
-    return argument;
-}
-
-template<typename... T>
-const QDBusArgument &operator>>(const QDBusArgument &argument, std::tuple<T...> &tuple)
-{
-    static_assert(std::tuple_size_v<std::tuple<T...>> != 0, "D-Bus doesn't allow empty structs");
-    argument.beginStructure();
-    std::apply(
-        [&argument](auto &...elements) {
-            (argument >> ... >> elements);
-        },
-        tuple);
-    argument.endStructure();
-    return argument;
-}
-#endif
-
 struct Device {
     Q_GADGET
     Q_PROPERTY(QString id MEMBER id CONSTANT)
