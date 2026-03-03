@@ -17,14 +17,9 @@ class AccountPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Account")
-    Q_PROPERTY(uint version READ version CONSTANT)
-
 public:
     explicit AccountPortal(QObject *parent);
-    uint version() const
-    {
-        return 2;
-    }
+
 public Q_SLOTS:
     void GetUserInformation(const QDBusObjectPath &handle, //
                             const QString &app_id,
@@ -33,17 +28,6 @@ public Q_SLOTS:
                             const QDBusMessage &message,
                             uint &replyResponse,
                             QVariantMap &replyResults);
-
-    void GetParentalControls(const QDBusObjectPath &handle,
-                             const QString &app_id,
-                             const QString &parent_window,
-                             uint gate1,
-                             uint gate2,
-                             uint gate3,
-                             const QVariantMap &options,
-                             const QDBusMessage &message,
-                             uint &replyResponse,
-                             QVariantMap &replyResults);
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_ACCOUNT_H
