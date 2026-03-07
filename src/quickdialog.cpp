@@ -5,7 +5,7 @@
 */
 
 #include "quickdialog.h"
-#include <KLocalizedString>
+#include <KLocalizedQmlContext>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickWindow>
@@ -26,9 +26,7 @@ QuickDialog::~QuickDialog() noexcept
 void QuickDialog::create(const QString &componentName, const QVariantMap &props)
 {
     auto engine = new QQmlApplicationEngine(this);
-    auto context = new KLocalizedContext(engine);
-    context->setTranslationDomain(QStringLiteral(TRANSLATION_DOMAIN));
-    engine->rootContext()->setContextObject(context);
+    KLocalization::setupLocalizedContext(engine);
 
     engine->setInitialProperties(props);
     engine->loadFromModule("org.kde.xdgdesktopportal"_L1, componentName);
