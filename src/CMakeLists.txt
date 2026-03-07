@@ -102,6 +102,7 @@ set(xdg_desktop_portal_kde_SRCS
     region-select/SelectionEditor.h
     region-select/SelectionEditor.cpp
     wallpaper.cpp
+    serviceaddon.cpp
 )
 
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
@@ -351,6 +352,7 @@ PRIVATE
     KF6::GlobalAccel
     KF6::GuiAddons
     KF6::I18n
+    KF6::I18nQml
     KF6::KIOFileWidgets
     KF6::Notifications
     KF6::Service

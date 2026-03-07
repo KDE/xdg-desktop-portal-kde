@@ -52,6 +52,8 @@ Kirigami.CardsLayout {
                 }
                 return 0
             }
+            isOutput: view.model.sourceModel instanceof OutputsModel
+            geometry: model.geometry ?? Qt.rect(0, 0, 0, 0)
 
             activeFocusOnTab: true
             highlighted: activeFocus
