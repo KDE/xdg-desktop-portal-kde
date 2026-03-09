@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021 Burkhard Lück <lueck@hube-lueck.de>
-# SPDX-FileCopyrightText: 2020, 2022, 2023 Frederik Schwarzer <schwarzer@kde.org>
+# SPDX-FileCopyrightText: 2017-2021 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2020, 2022-2023 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2022 Frank Steinmetzger <dev-kde@felsenfleischer.de>
 # SPDX-FileCopyrightText: 2024 Alois Spitzbart <spitz234@hotmail.com>
-# SPDX-FileCopyrightText: 2024, 2025 Johannes Obermayr <johannesobermayr@gmx.de>
+# SPDX-FileCopyrightText: 2024-2025 Johannes Obermayr <johannesobermayr@gmx.de>
 # SPDX-FileCopyrightText: 2026 Alexander Becker <alex-at-kde-l10n-de@freenet.de>
 # SPDX-FileCopyrightText: 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-07 00:46+0000\n"
-"PO-Revision-Date: 2026-01-20 00:25+0100\n"
+"PO-Revision-Date: 2026-03-05 20:53+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -474,13 +474,10 @@ msgid "Left-click and drag"
 msgstr "Linksklick und ziehen"
 
 #: src/remotedesktop.cpp:124
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "Entfernte Arbeitsflächen"
+msgstr "Entfernte Arbeitsfläche nicht verfügbar"
 
 #: src/remotedesktop.cpp:126
 #, kde-kuit-format
@@ -491,6 +488,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Die Anwendung <application>%1</application> hat versucht, eine entfernte "
+"Arbeitsflächensitzung zu starten, aber diese Funktion ist auf diesem System "
+"nicht verfügbar. Bitte stellen Sie sicher, dass Sie eine Wayland-Sitzung mit "
+"einem kompatiblen Fenstermanager wie KWin ausführen."
 
 #: src/remotedesktop.cpp:130
 #, kde-kuit-format
@@ -500,6 +501,10 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Die Anwendung <application>%1</application> hat versucht, eine entfernte "
+"Arbeitsflächensitzung zu starten, aber diese Funktion ist in X11-Sitzungen "
+"nicht verfügbar. Bitte wechseln Sie zu einer Wayland-Sitzung und versuchen "
+"Sie es erneut."
 
 #: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
@@ -621,11 +626,10 @@ msgid "Deny"
 msgstr "Verweigern"
 
 #: src/screencast.cpp:155
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "Bildschirmübertragung"
+msgstr "Bildschirmübertragung nicht verfügbar"
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -636,6 +640,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Die Anwendung <application>%1</application> hat versucht, eine "
+"Bildschirmübertragung zu starten, aber diese Funktion ist auf diesem System "
+"nicht verfügbar. Bitte stellen Sie sicher, dass Sie eine Wayland-Sitzung mit "
+"einem kompatiblen Fenstermanager wie KWin ausführen."
 
 #: src/screencast.cpp:161
 #, kde-kuit-format
@@ -645,6 +653,10 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Die Anwendung <application>%1</application> hat versucht, eine "
+"Bildschirmübertragung zu starten, aber diese Funktion ist in X11-Sitzungen "
+"nicht verfügbar. Bitte wechseln Sie zu einer Wayland-Sitzung und versuchen "
+"Sie es erneut."
 
 #: src/screencast.cpp:296
 #, kde-format

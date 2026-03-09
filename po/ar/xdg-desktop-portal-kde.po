@@ -115,7 +115,7 @@ msgstr "لا يوجد تطبيق قادر على فتح '<filename>%1</filename>
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
-msgstr "شغّل في الطّرفيّة"
+msgstr "شغّل في الطرفية"
 
 #: src/AppChooserDialog.qml:249
 #, kde-format
