@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-07 00:46+0000\n"
-"PO-Revision-Date: 2026-01-16 20:03+0200\n"
-"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"PO-Revision-Date: 2026-03-09 18:45+0200\n"
+"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -467,13 +467,10 @@ msgid "Left-click and drag"
 msgstr "Kreisais klikšķis un vilkšana"
 
 #: src/remotedesktop.cpp:124
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "Attālinātā darbvirsma"
+msgstr "Attālā darbvirsma nav pieejama"
 
 #: src/remotedesktop.cpp:126
 #, kde-kuit-format
@@ -484,6 +481,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Lietojumprogramma „<application>%1</application>“ mēģināja palaista attālu "
+"darbvirsmas sesiju, tomēr attālā darbvirsma šajā sistēmā nav pieejama. "
+"Pārliecinieties, ka darbināt „Wayland“ sesiju ar saderīgu logu pārvaldnieku, "
+"piemēram, „KWin“."
 
 #: src/remotedesktop.cpp:130
 #, kde-kuit-format
@@ -493,6 +494,9 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Lietojumprogramma „<application>%1</application>“ mēģināja palaist attālu "
+"darbvirsmas sesiju, tomēr X11 neatbalsta attālas darbvirsmas. Pārslēdzieties "
+"uz „Wayland“ sesiju un mēģiniet vēlreiz."
 
 #: src/remotedesktop.cpp:194 src/screencast.cpp:236
 #, kde-format
@@ -614,11 +618,10 @@ msgid "Deny"
 msgstr "Neļaut"
 
 #: src/screencast.cpp:155
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "Ekrāna kopīgošana"
+msgstr "Ekrāna kopīgošana nav pieejama"
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -629,6 +632,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Lietojumprogramma „<application>%1</application>“ mēģināja uzsākt ekrāna "
+"kopīgošanas sesiju, tomēr ekrāna kopīgošana šajā sistēmā nav pieejama. "
+"Pārliecinieties, ka darbināt „Wayland“ sesiju ar saderīgu logu pārvaldnieku, "
+"piemēram, „KWin“."
 
 #: src/screencast.cpp:161
 #, kde-kuit-format
@@ -638,6 +645,9 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Lietojumprogramma „<application>%1</application>“ mēģināja palaist ekrāna "
+"kopīgošanas sesiju, tomēr X11 neatbalsta ekrāna kopīgošanu. Pārslēdzieties "
+"uz „Wayland“ sesiju un mēģiniet vēlreiz."
 
 #: src/screencast.cpp:296
 #, kde-format
@@ -941,7 +951,7 @@ msgstr "Neizdevās sākt ekrāna ierakstīšanu"
 #: src/waylandintegration.cpp:477
 #, kde-format
 msgid "Remote desktop"
-msgstr "Attālinātā darbvirsma"
+msgstr "Attālā darbvirsma"
 
 #~ msgid "Screens"
 #~ msgstr "Ekrāni"
