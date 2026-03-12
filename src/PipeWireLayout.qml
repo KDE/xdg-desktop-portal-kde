@@ -5,6 +5,7 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
+import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.taskmanager as TaskManager
 
@@ -87,6 +88,22 @@ Kirigami.CardsLayout {
                 if (root.dialog.multiple) {
                     selectAndAccept()
                 }
+            }
+
+            Layout.columnSpan: {
+                const defaultSpan = 1
+
+                if (index !== 0) {
+                    return defaultSpan
+                }
+
+                let model = view.model.sourceModel as OutputsModel
+                if (!model) { // not an output
+                    return defaultSpan
+                }
+
+                let evenOutputs = model.outputCount % 2 === 0
+                return !evenOutputs ? 2 : defaultSpan
             }
         }
     }
