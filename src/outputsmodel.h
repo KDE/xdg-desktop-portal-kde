@@ -9,7 +9,10 @@
 #include <QAbstractListModel>
 #include <QScreen>
 #include <QSet>
+#include <QUrl>
 #include <QtQmlIntegration/qqmlintegration.h>
+
+class QTemporaryFile;
 
 class Output
 {
@@ -24,12 +27,18 @@ public:
         Region,
     };
 
-    Output(OutputType outputType, QScreen *screen, const QString &display, const QString &uniqueId, const QString &name)
+    Output(OutputType outputType,
+           QScreen *screen,
+           const QString &display,
+           const QString &uniqueId,
+           const QString &name,
+           const std::shared_ptr<QTemporaryFile> &temporaryFile)
         : m_outputType(outputType)
         , m_screen(screen)
         , m_display(display)
         , m_uniqueId(uniqueId)
         , m_name(name)
+        , m_temporaryFile(temporaryFile)
     {
     }
 
@@ -62,12 +71,26 @@ public:
         return m_outputType;
     }
 
+    /*! Returns the image associated with the output (may be isNull() if it is unknown)*/
+    [[nodiscard]] QUrl imageUrl() const
+    {
+        return m_image;
+    }
+
+    /*! Sets a new image. Don't forget to update the model! */
+    void setImage(const QUrl &image)
+    {
+        m_image = image;
+    }
+
 private:
     OutputType m_outputType;
     QScreen *m_screen = nullptr;
     QString m_display;
     QString m_uniqueId;
     QString m_name;
+    QUrl m_image;
+    std::shared_ptr<QTemporaryFile> m_temporaryFile;
 };
 
 class OutputsModel : public QAbstractListModel
@@ -94,6 +117,7 @@ public:
         IsSyntheticRole,
         DescriptionRole,
         GeometryRole,
+        ImageUrlRole,
     };
     Q_ENUM(Roles)
 

@@ -5,6 +5,7 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
+import QtQuick.Effects
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
@@ -29,6 +30,8 @@ Kirigami.AbstractCard {
     required property bool isOutput
     /*! The geometry of the output or window. Primarily for mapping tasks to outputs. */
     required property rect geometry
+    /*! The background image to use for the card. Should only be set for outputs! Applied via onCompleted. */
+    required property url backgroundImage
 
     function selectAndAccept(): void {
         // To be implemented by the user of the delegate. Depends entirely on context (dialog, model, etc).
@@ -38,6 +41,71 @@ Kirigami.AbstractCard {
     Accessible.name: itemName
     hoverEnabled: true
     showClickFeedback: true
+
+
+    Component {
+        id: checkboxComponent
+        QQC2.CheckBox {
+            checked: root.checked
+            onToggled: root.checked = checked
+        }
+    }
+
+    Component {
+        id: radioComponent
+        QQC2.RadioButton {
+            checked: root.checked
+            onToggled: root.checked = checked
+        }
+    }
+
+    property Component selectorComponent: exclusive ? radioComponent : checkboxComponent
+
+    Component {
+        id: outputBackgroundComponent
+
+        Item {
+            // A blurred translucent wallpaper as primary background.
+            Kirigami.ShadowedImage {
+                id: wallpaperImage
+
+                anchors.fill: parent
+                radius: Kirigami.Units.cornerRadius
+
+                fillMode: Image.PreserveAspectCrop
+                source: root.backgroundImage
+
+                opacity: {
+                    if (root.checked) {
+                        return 0.40
+                    }
+                    if (root.hovered) {
+                        return 0.30
+                    }
+                    return 0.20
+                }
+
+                layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software
+                layer.effect: MultiEffect {
+                    blurEnabled: true
+                    blur: 1.0
+                    blurMax: 32
+                }
+            }
+
+            // Above the wallpaper is a rectangle with just a border. The border of the wallpaper would get blurred too
+            // if these were combined!
+            Kirigami.ShadowedImage {
+                anchors.fill: wallpaperImage
+                radius: wallpaperImage.radius
+
+                shadow.size: 1
+                border.color: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor, Kirigami.Theme.textColor, Kirigami.Theme.frameContrast)
+                border.width: 1
+                color: "transparent"
+            }
+        }
+    }
 
     header: GridLayout {
         columnSpacing: Kirigami.Units.smallSpacing
@@ -56,26 +124,8 @@ Kirigami.AbstractCard {
             Layout.fillWidth: true
         }
         Loader {
-            id: checkboxLoader
             active: root.checkable
-
-            Component {
-                id: checkboxComponent
-                QQC2.CheckBox {
-                    checked: root.checked
-                    onToggled: root.checked = checked
-                }
-            }
-
-            Component {
-                id: radioComponent
-                QQC2.RadioButton {
-                    checked: root.checked
-                    onToggled: root.checked = checked
-                }
-            }
-
-            sourceComponent: root.exclusive ? radioComponent : checkboxComponent
+            sourceComponent: root.selectorComponent
         }
 
         Item { // spacer
@@ -203,9 +253,17 @@ Kirigami.AbstractCard {
             // We may end up using a row layout when space permits so this is built using components even though
             // technically not necessary.
             ColumnLayout {
-                Heading {
+                RowLayout {
                     Layout.fillWidth: true
-                    Layout.alignment: Qt.AlignHCenter
+                    Heading {
+                        Layout.fillWidth: true
+                        Layout.alignment: Qt.AlignHCenter
+                    }
+                    Loader {
+                        Layout.alignment: Qt.AlignTop
+                        active: root.checkable
+                        sourceComponent: root.selectorComponent
+                    }
                 }
                 Tasks {}
             }
@@ -239,4 +297,17 @@ Kirigami.AbstractCard {
     }
 
     Layout.preferredHeight: contentItem?.Layout?.preferredHeight ?? -1
+
+    Component.onCompleted: {
+        // Awkwardly apply a conditional background. By default we want the default impl for the card background
+        // for highlighting logic etc. But! When we have a background image we want to use that instead.
+        // So we store the default background and then conditionally apply one or the other.
+        const defaultBackground = background
+        background = Qt.binding(function () {
+            if (isOutput && !synthetic && backgroundImage && backgroundImage !== "") {
+                return outputBackgroundComponent.createObject(null) as Item
+            }
+            return defaultBackground
+        })
+    }
 }
