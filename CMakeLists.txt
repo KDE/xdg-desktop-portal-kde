@@ -10,7 +10,7 @@ set(PROJECT_DEP_VERSION "6.5.90")
 set(QT_MIN_VERSION "6.10.0")
 set(KF6_MIN_VERSION "6.22.0")
 set(KDE_COMPILERSETTINGS_LEVEL "6.10.0")
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ################# set KDE specific information #################
