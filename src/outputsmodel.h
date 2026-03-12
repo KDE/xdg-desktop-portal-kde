@@ -99,6 +99,7 @@ class OutputsModel : public QAbstractListModel
     QML_ELEMENT
     QML_UNCREATABLE("OutputsModel is passed in through the root properties")
     Q_PROPERTY(bool hasSelection READ hasSelection NOTIFY hasSelectionChanged)
+    Q_PROPERTY(qsizetype outputCount READ outputCount CONSTANT)
     Q_PROPERTY(qsizetype syntheticCount READ syntheticCount CONSTANT)
 public:
     enum Option {
@@ -154,6 +155,13 @@ public:
         // An intersection is actually not called for here.
         // In theory two outputs can overlap partially, so let's not look for intersection but equality.
         return data(index, GeometryRole).toRect() == geometry;
+    }
+
+    [[nodiscard]] qsizetype outputCount() const
+    {
+        return std::ranges::count_if(m_outputs, [](const auto &output) {
+            return !output.isSynthetic();
+        });
     }
 
     [[nodiscard]] qsizetype syntheticCount() const
