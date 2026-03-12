@@ -417,40 +417,6 @@ void FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
 
     // Use QFileDialog for most directory requests to utilize
     // plasma-integration's KDirSelectDialog
-    if (directory && !options.contains(QStringLiteral("choices"))) {
-        auto dirDialog = new QFileDialog;
-        dirDialog->setWindowTitle(title);
-        dirDialog->setFileMode(QFileDialog::Directory);
-        dirDialog->setOptions(QFileDialog::ShowDirsOnly);
-        if (!isKIOFuseAvailable()) {
-            dirDialog->setSupportedSchemes(QStringList{QStringLiteral("file")});
-        }
-        if (!acceptLabel.isEmpty()) {
-            dirDialog->setLabelText(QFileDialog::Accept, acceptLabel);
-        }
-        if (!translatedCurrentFolderUrl.isEmpty()) {
-            dirDialog->setDirectoryUrl(translatedCurrentFolderUrl);
-        }
-
-        dirDialog->winId(); // Trigger window creation
-        Utils::setParentWindow(dirDialog, parent_window);
-        Request::makeClosableDialogRequest(handle, dirDialog);
-        dirDialog->setWindowModality(modalDialog ? Qt::WindowModal : Qt::NonModal);
-
-        delayReply(message, dirDialog, this, [dirDialog](int result) -> QVariantList {
-            dirDialog->deleteLater();
-            if (result != QDialog::Accepted) {
-                return {PortalResponse::Cancelled, QVariantMap{}};
-            }
-            const auto urls = dirDialog->selectedUrls();
-            if (urls.empty()) {
-                return {PortalResponse::OtherError, QVariantMap{}};
-            }
-            return {PortalResponse::Success, QVariantMap{{QStringLiteral("uris"), fuseRedirect(urls)}, {QStringLiteral("writable"), true}}};
-        });
-        dirDialog->open();
-        return;
-    }
 
     // for handling of options - choices
     QWidget *optionsWidget = nullptr;
@@ -476,11 +442,25 @@ void FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     }
     fileDialog->m_fileWidget->okButton()->setText(!acceptLabel.isEmpty() ? acceptLabel : i18n("Open"));
 
+    fileDialog->m_fileWidget->setFilters(filters, currentFilter);
+
+    if (directory) {
+        // We want to always have detail tree view in folder mode
+        fileDialog->m_fileWidget->setViewMode(KFile::DetailTree);
+        // If we're not provided with filters, set it to directory and disable the widget
+        // so it cant be accidentally changed
+        if (currentFilter.isEmpty()) {
+            fileDialog->m_fileWidget->setFilters({KFileFilter::fromMimeType(QStringLiteral("inode/directory"))});
+            fileDialog->m_fileWidget->filterWidget()->setDisabled(true);
+        }
+    } else {
+        // Default icon view for files and such
+        fileDialog->m_fileWidget->setViewMode(KFile::Simple);
+    }
+
     if (!translatedCurrentFolderUrl.isEmpty()) {
         fileDialog->m_fileWidget->setUrl(translatedCurrentFolderUrl);
     }
-
-    fileDialog->m_fileWidget->setFilters(filters, currentFilter);
 
     if (optionsWidget) {
         fileDialog->m_fileWidget->setCustomWidget({}, optionsWidget);
