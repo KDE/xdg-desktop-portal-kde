@@ -21,11 +21,11 @@ using namespace Qt::StringLiterals;
 
 AccessDialog::AccessDialog(QObject *parent)
     : QuickDialog(parent)
+    , m_props{
+          {u"iconName"_s, u"dialog-question"_s},
+          {u"title"_s, i18n("Request device access")},
+      }
 {
-    m_props = {
-        {u"iconName"_s, u"dialog-question"_s},
-        {u"title"_s, i18n("Request device access")},
-    };
 }
 
 void AccessDialog::setAcceptLabel(const QString &label)

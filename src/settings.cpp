@@ -349,9 +349,9 @@ class KDEGlobalsSettings : public SettingsModule
 public:
     explicit KDEGlobalsSettings(QObject *parent = nullptr)
         : SettingsModule(parent)
-    {
-        m_kdeglobals = KSharedConfig::openConfig();
+        , m_kdeglobals(KSharedConfig::openConfig())
 
+    {
         QDBusConnection::sessionBus().connect(QString(),
                                               QStringLiteral("/KDEPlatformTheme"),
                                               QStringLiteral("org.kde.KDEPlatformTheme"),
