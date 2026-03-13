@@ -39,3 +39,6 @@ Options:
   require-passing-tests-on: ['Linux', 'FreeBSD']
   run-qmllint: true
   enable-lsan: True
+  cppcheck-arguments:
+    - '--enable=warning,style,performance'
+    - '--suppress-xml=cppcheck-suppressions.xml'
