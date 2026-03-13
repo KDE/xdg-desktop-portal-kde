@@ -99,8 +99,6 @@ public:
     explicit RemoteDesktopSession(QObject *parent, const QString &appId, const QString &path);
     ~RemoteDesktopSession() override;
 
-    void setOptions(const QVariantMap &options);
-
     RemoteDesktopPortal::DeviceTypes deviceTypes() const;
     void setDeviceTypes(RemoteDesktopPortal::DeviceTypes deviceTypes);
 

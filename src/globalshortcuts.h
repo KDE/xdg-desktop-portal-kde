@@ -54,11 +54,6 @@ public:
         return m_appId.isEmpty() ? QLatin1String("token_") + m_token : m_appId;
     }
 
-    QString appId() const
-    {
-        return m_appId;
-    }
-
 Q_SIGNALS:
     void shortcutsChanged();
     void shortcutActivated(const QString &shortcutName, qlonglong timestamp);

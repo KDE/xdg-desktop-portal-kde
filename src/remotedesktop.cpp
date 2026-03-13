@@ -534,10 +534,6 @@ RemoteDesktopSession::~RemoteDesktopSession()
 {
 }
 
-void RemoteDesktopSession::setOptions(const QVariantMap &options)
-{
-}
-
 RemoteDesktopPortal::DeviceTypes RemoteDesktopSession::deviceTypes() const
 {
     return m_deviceTypes;
