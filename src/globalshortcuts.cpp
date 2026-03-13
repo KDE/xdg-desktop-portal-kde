@@ -120,8 +120,8 @@ public:
             if (auto conflicts = m_internalConflictDetector.values(shortcut.keySequence); conflicts.size() != 1) {
                 QStringList descriptions;
                 std::ranges::sort(conflicts); // Want same order as the main view
-                for (const auto index : conflicts) {
-                    descriptions.push_back(m_shortcuts.at(index).description);
+                for (const auto conflict : conflicts) {
+                    descriptions.push_back(m_shortcuts.at(conflict).description);
                 }
                 return xi18nc("@info:tooltip %1 is a list of actions",
                               "The shortcut is assigned to multiple actions (<interface>%1</interface>)",

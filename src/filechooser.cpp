@@ -197,19 +197,19 @@ static QStringList fuseRedirect(QList<QUrl> urls)
     return QUrl::toStringList(urls, QUrl::FullyEncoded);
 }
 
-FileChooserPortal::FilterList FileChooserPortal::fileFilterToFilterList(const KFileFilter &filter)
+FileChooserPortal::FilterList FileChooserPortal::fileFilterToFilterList(const KFileFilter &fileFilter)
 {
     FilterList filterList;
-    filterList.userVisibleName = filter.label();
+    filterList.userVisibleName = fileFilter.label();
 
-    for (const QString &mimeFilter : filter.mimePatterns()) {
+    for (const QString &mimeFilter : fileFilter.mimePatterns()) {
         Filter filter;
         filter.filterString = mimeFilter;
         filter.type = 1;
         filterList.filters << filter;
     }
 
-    for (const QString &nameFilter : filter.filePatterns()) {
+    for (const QString &nameFilter : fileFilter.filePatterns()) {
         Filter filter;
         filter.filterString = nameFilter;
         filter.type = 0;

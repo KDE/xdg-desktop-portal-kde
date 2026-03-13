@@ -280,8 +280,8 @@ private:
      */
     QDBusVariant readAccentColor() const
     {
-        const QColor accentColor = qGuiApp->palette().highlight().color();
-        return QDBusVariant(AccentColorArray{accentColor.redF(), accentColor.greenF(), accentColor.blueF()});
+        const QColor color = qGuiApp->palette().highlight().color();
+        return QDBusVariant(AccentColorArray{color.redF(), color.greenF(), color.blueF()});
     }
 
     QDBusVariant readReducedMotion() const
