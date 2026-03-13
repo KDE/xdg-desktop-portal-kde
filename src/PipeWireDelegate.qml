@@ -42,7 +42,6 @@ Kirigami.AbstractCard {
     hoverEnabled: true
     showClickFeedback: true
 
-
     Component {
         id: checkboxComponent
         QQC2.CheckBox {
@@ -245,27 +244,59 @@ Kirigami.AbstractCard {
                 text: KI18n.i18nc("@title %1 refers to a screen name", "Share “%1”", root.itemName)
             }
 
+            component Selector : Loader {
+                Layout.alignment: Qt.AlignTop
+                active: root.checkable
+                sourceComponent: root.selectorComponent
+            }
+
             Layout.fillWidth: true
             Layout.fillHeight: true
 
             spacing: Kirigami.Units.smallSpacing
 
-            // We may end up using a row layout when space permits so this is built using components even though
-            // technically not necessary.
-            ColumnLayout {
+            // This is the column presentation of the output delegate.
+            Component { // Note that Loader doesn't like proper inline components for some reason
+                id: labelsColumn
+                ColumnLayout {
+                    RowLayout {
+                        Layout.fillWidth: true
+                        Heading {
+                            Layout.fillWidth: true
+                            Layout.alignment: Qt.AlignHCenter
+                        }
+                        Selector {}
+                    }
+                    Tasks {}
+                }
+            }
+
+            // This is the row presentation of the output delegate (spanning two columns).
+            Component { // Note that Loader doesn't like proper inline components for some reason
+                id: labelsRow
                 RowLayout {
                     Layout.fillWidth: true
-                    Heading {
+                    Item {
                         Layout.fillWidth: true
-                        Layout.alignment: Qt.AlignHCenter
                     }
-                    Loader {
-                        Layout.alignment: Qt.AlignTop
-                        active: root.checkable
-                        sourceComponent: root.selectorComponent
+                    Heading {
+                        Layout.alignment: Qt.AlignRight
+                        maximumLineCount: undefined
+                        lineHeight: 1.0 // no need to pretend it is two lines we have plenty of space
                     }
+                    Tasks {
+                        Layout.alignment: Qt.AlignLeft
+                    }
+                    Item {
+                        Layout.fillWidth: true
+                    }
+                    Selector {}
                 }
-                Tasks {}
+            }
+
+            Loader {
+                Layout.fillWidth: true
+                sourceComponent: root.Layout.columnSpan > 1 ? labelsRow : labelsColumn
             }
 
             Loader {
