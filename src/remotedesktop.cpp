@@ -275,7 +275,6 @@ void RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
     }
 
     const ScreenCastPortal::PersistMode persist = session->persistMode();
-    QList<Output> selectedOutputs;
 
     bool restored = false;
 

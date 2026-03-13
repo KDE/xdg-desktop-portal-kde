@@ -65,8 +65,6 @@ public:
             return false;
         }
 
-        using KWayland::Client::PlasmaWindowModel;
-        const QString uuid = index.data(PlasmaWindowModel::Uuid).toString();
         if (value == Qt::Checked) {
             m_selected.insert(index);
         } else {
