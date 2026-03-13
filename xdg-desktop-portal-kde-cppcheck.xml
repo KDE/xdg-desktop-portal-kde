@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<def format="2">
+    <define name="Q_DISABLE_COPY_MOVE(C)" value="Class(const &amp;C)=delete;C&amp; operator=(const &amp;C)=delete;C(C&amp;&amp;)=delete;C&amp; operator=(C&amp;&amp;)=delete;" />
+</def>
