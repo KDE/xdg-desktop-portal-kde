@@ -51,7 +51,7 @@ public:
         InternalConflict,
         ConflictText,
     };
-    ShortcutsModel(const QList<ShortcutInfo> &shortcuts, QObject *parent = nullptr)
+    explicit ShortcutsModel(const QList<ShortcutInfo> &shortcuts, QObject *parent = nullptr)
         : QAbstractListModel(parent)
         , m_shortcuts(shortcuts)
     {

@@ -17,7 +17,7 @@ class QuickDialog : public QObject
 {
     Q_OBJECT
 public:
-    QuickDialog(QObject *parent = nullptr);
+    explicit QuickDialog(QObject *parent = nullptr);
     ~QuickDialog() override;
 
     QWindow *windowHandle() const

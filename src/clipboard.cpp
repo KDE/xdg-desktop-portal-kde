@@ -43,7 +43,7 @@ public:
 class DataControlOffer : public QtWayland::ext_data_control_offer_v1
 {
 public:
-    DataControlOffer(::ext_data_control_offer_v1 *id)
+    explicit DataControlOffer(::ext_data_control_offer_v1 *id)
         : QtWayland::ext_data_control_offer_v1(id)
     {
     }
@@ -114,7 +114,7 @@ class DataControlDevice : public QObject, public QtWayland::ext_data_control_dev
 {
     Q_OBJECT
 public:
-    DataControlDevice(struct ::ext_data_control_device_v1 *id)
+    explicit DataControlDevice(struct ::ext_data_control_device_v1 *id)
         : QtWayland::ext_data_control_device_v1(id)
     {
     }

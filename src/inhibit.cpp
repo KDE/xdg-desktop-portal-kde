@@ -24,7 +24,7 @@ class SessionStateMonitorSession : public Session
 {
     Q_OBJECT
 public:
-    SessionStateMonitorSession(QObject *parent = nullptr, const QString &appId = QString(), const QString &path = QString());
+    explicit SessionStateMonitorSession(QObject *parent = nullptr, const QString &appId = QString(), const QString &path = QString());
     ~SessionStateMonitorSession() = default;
     SessionType type() const override
     {
