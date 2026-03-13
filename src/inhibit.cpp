@@ -94,7 +94,7 @@ static void releaseInhibition(uint cookie)
 class InhibitionRequest : public Request
 {
 public:
-    InhibitionRequest(const QDBusObjectPath &handle, uint policies, const QString app_id, const QString &reason, QObject *parent = nullptr)
+    InhibitionRequest(const QDBusObjectPath &handle, uint policies, const QString &app_id, const QString &reason, QObject *parent = nullptr)
         : Request(handle, parent)
     {
         QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
