@@ -31,7 +31,7 @@ class ScreencastingStream : public QObject
 {
     Q_OBJECT
 public:
-    ScreencastingStream(QObject *parent);
+    explicit ScreencastingStream(QObject *parent);
     ~ScreencastingStream() override;
 
     quint32 nodeid() const;

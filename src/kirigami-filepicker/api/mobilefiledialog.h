@@ -16,7 +16,7 @@ class MobileFileDialog : public QObject
     Q_OBJECT
 
 public:
-    MobileFileDialog(QObject *parent);
+    explicit MobileFileDialog(QObject *parent);
     ~MobileFileDialog() override = default;
 
     // Reset all fields for a new mobile file dialog session

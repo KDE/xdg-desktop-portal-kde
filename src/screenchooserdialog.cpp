@@ -31,7 +31,7 @@ class FilteredWindowModel : public QSortFilterProxyModel
     Q_OBJECT
     Q_PROPERTY(bool hasSelection READ hasSelection NOTIFY hasSelectionChanged)
 public:
-    FilteredWindowModel(QObject *parent)
+    explicit FilteredWindowModel(QObject *parent)
         : QSortFilterProxyModel(parent)
     {
     }

@@ -23,7 +23,7 @@ using namespace KWayland::Client;
 class ScreencastingStreamPrivate : public QtWayland::zkde_screencast_stream_unstable_v1
 {
 public:
-    ScreencastingStreamPrivate(ScreencastingStream *q)
+    explicit ScreencastingStreamPrivate(ScreencastingStream *q)
         : q(q)
     {
     }

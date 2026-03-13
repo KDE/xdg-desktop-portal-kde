@@ -22,7 +22,7 @@ class FileChooserQmlCallback : public QObject
     Q_PROPERTY(bool selectFolder READ selectFolder WRITE setSelectFolder NOTIFY selectFolderChanged)
 
 public:
-    FileChooserQmlCallback(QObject *parent = nullptr);
+    explicit FileChooserQmlCallback(QObject *parent = nullptr);
 
     void reset();
     void requestReloadWindow();

@@ -11,7 +11,7 @@ class FilePlacesModel : public KFilePlacesModel
     Q_OBJECT
 
 public:
-    FilePlacesModel(QObject *parent = nullptr);
+    explicit FilePlacesModel(QObject *parent = nullptr);
 
     QHash<int, QByteArray> roleNames() const override;
 };

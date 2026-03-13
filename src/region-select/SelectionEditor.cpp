@@ -11,7 +11,7 @@
 class SelectionEditorPrivate
 {
 public:
-    SelectionEditorPrivate(SelectionEditor *q);
+    explicit SelectionEditorPrivate(SelectionEditor *q);
     ~SelectionEditorPrivate();
 
     SelectionEditor *const q;

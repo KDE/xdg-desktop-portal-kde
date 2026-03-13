@@ -13,7 +13,7 @@ class XdgShortcutTest : public QObject
 {
     Q_OBJECT
 public:
-    XdgShortcutTest(QObject *parent = nullptr)
+    explicit XdgShortcutTest(QObject *parent = nullptr)
         : QObject(parent)
     {
         QStandardPaths::setTestModeEnabled(true);
