@@ -242,19 +242,49 @@ Kirigami.AbstractCard {
                 text: KI18n.i18nc("@title %1 refers to a screen name", "Share “%1”", root.itemName)
             }
 
+            Component { // Note that Loader doesn't like proper inline components for some reason
+                id: labelsColumn
+                ColumnLayout {
+                    Heading {
+                        Layout.fillWidth: true
+                        Layout.alignment: Qt.AlignHCenter
+                    }
+                    Tasks {}
+                }
+            }
+
+            Component { // Note that Loader doesn't like proper inline components for some reason
+                id: labelsRow
+                RowLayout {
+                    Layout.fillWidth: true
+                    Item {
+                        Layout.fillWidth: true
+                    }
+                    Heading {
+                        Layout.alignment: Qt.AlignRight
+                        maximumLineCount: undefined
+                        lineHeight: 1.0 // no need to pretend it is two lines we have plenty of space
+                    }
+                    Tasks {
+                        Layout.alignment: Qt.AlignLeft
+                    }
+                    Item {
+                        Layout.fillWidth: true
+                    }
+                }
+            }
+
             Layout.fillWidth: true
             Layout.fillHeight: true
 
             spacing: Kirigami.Units.smallSpacing
 
-            // We may end up using a row layout when space permits so this is built using components even though
-            // technically not necessary.
-            ColumnLayout {
-                Heading {
-                    Layout.fillWidth: true
-                    Layout.alignment: Qt.AlignHCenter
+            Loader {
+                Layout.fillWidth: true
+                sourceComponent: {
+                    console.warn("Layout column span is", root.Layout.columnSpan)
+                    return root.Layout.columnSpan > 1 ? labelsRow : labelsColumn
                 }
-                Tasks {}
             }
 
             Loader {
