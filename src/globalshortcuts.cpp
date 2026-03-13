@@ -230,7 +230,7 @@ uint GlobalShortcutsPortal::ListShortcuts(const QDBusObjectPath &handle, const Q
     qCDebug(XdgDesktopPortalKdeGlobalShortcuts) << "    handle: " << handle.path();
     qCDebug(XdgDesktopPortalKdeGlobalShortcuts) << "    session_handle: " << session_handle.path();
 
-    auto session = Session::getSession<GlobalShortcutsSession>(session_handle.path());
+    const auto *const session = Session::getSession<GlobalShortcutsSession>(session_handle.path());
     if (!session) {
         return PortalResponse::OtherError;
     }
@@ -339,7 +339,7 @@ void GlobalShortcutsPortal::ConfigureShortcuts(const QDBusObjectPath &session_ha
     qCDebug(XdgDesktopPortalKdeGlobalShortcuts) << "    session_handle: " << session_handle.path();
     qCDebug(XdgDesktopPortalKdeGlobalShortcuts) << "    options: " << options;
 
-    auto session = Session::getSession<GlobalShortcutsSession>(session_handle.path());
+    const auto *const session = Session::getSession<GlobalShortcutsSession>(session_handle.path());
     if (!session) {
         return;
     }

@@ -271,7 +271,7 @@ ScreenChooserDialog::~ScreenChooserDialog() = default;
 
 QList<Output> ScreenChooserDialog::selectedOutputs() const
 {
-    OutputsModel *model = dynamic_cast<OutputsModel *>(m_theDialog->property("outputsModel").value<QObject *>());
+    const OutputsModel *const model = dynamic_cast<OutputsModel *>(m_theDialog->property("outputsModel").value<QObject *>());
     if (!model) {
         return {};
     }
@@ -280,7 +280,7 @@ QList<Output> ScreenChooserDialog::selectedOutputs() const
 
 QList<KWayland::Client::PlasmaWindow *> ScreenChooserDialog::selectedWindows() const
 {
-    FilteredWindowModel *model = dynamic_cast<FilteredWindowModel *>(m_theDialog->property("windowsModel").value<QObject *>());
+    const FilteredWindowModel *const model = dynamic_cast<FilteredWindowModel *>(m_theDialog->property("windowsModel").value<QObject *>());
     if (!model) {
         return {};
     }

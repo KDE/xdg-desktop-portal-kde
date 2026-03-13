@@ -250,7 +250,7 @@ QDBusUnixFileDescriptor ClipboardPortal::SelectionRead(const QDBusObjectPath &se
     qCDebug(XdgDesktopPortalKdeClipboard) << "    session_handle: " << session_handle.path();
     qCDebug(XdgDesktopPortalKdeClipboard) << "    mime_type: " << mime_type;
 
-    auto remoteDesktopSession = Session::getSession<RemoteDesktopSession>(session_handle.path());
+    const auto *const remoteDesktopSession = Session::getSession<RemoteDesktopSession>(session_handle.path());
     if (!remoteDesktopSession || !remoteDesktopSession->clipboardEnabled()) {
         auto error = message.createErrorReply(QDBusError::InvalidArgs, u"Not a clipboard enabled session"_s);
         qCWarning(XdgDesktopPortalKdeClipboard) << error.errorMessage();
@@ -258,7 +258,7 @@ QDBusUnixFileDescriptor ClipboardPortal::SelectionRead(const QDBusObjectPath &se
         return QDBusUnixFileDescriptor();
     }
 
-    const auto offer = m_dataControlDevice->currentOffer();
+    const auto *const offer = m_dataControlDevice->currentOffer();
     if (!offer || !offer->formats().contains(mime_type)) {
         auto error = message.createErrorReply(QDBusError::InvalidArgs, u"requesting not offered format"_s);
         qCWarning(XdgDesktopPortalKdeClipboard) << error.errorMessage();
@@ -319,7 +319,7 @@ QDBusUnixFileDescriptor ClipboardPortal::SelectionWrite(const QDBusObjectPath &s
     qCDebug(XdgDesktopPortalKdeClipboard) << "    session_handle: " << session_handle.path();
     qCDebug(XdgDesktopPortalKdeClipboard) << "    uint: " << serial;
 
-    auto remoteDesktopSession = Session::getSession<RemoteDesktopSession>(session_handle.path());
+    const auto *const remoteDesktopSession = Session::getSession<RemoteDesktopSession>(session_handle.path());
     if (!remoteDesktopSession || !remoteDesktopSession->clipboardEnabled()) {
         auto error = message.createErrorReply(QDBusError::InvalidArgs, u"Not a clipboard enabled session"_s);
         qCWarning(XdgDesktopPortalKdeClipboard) << error.errorMessage();
@@ -345,7 +345,7 @@ void ClipboardPortal::SelectionWriteDone(const QDBusObjectPath &session_handle, 
     qCDebug(XdgDesktopPortalKdeClipboard) << "    uint: " << serial;
     qCDebug(XdgDesktopPortalKdeClipboard) << "    success: " << success;
 
-    auto remoteDesktopSession = Session::getSession<RemoteDesktopSession>(session_handle.path());
+    const auto *const remoteDesktopSession = Session::getSession<RemoteDesktopSession>(session_handle.path());
     if (!remoteDesktopSession || !remoteDesktopSession->clipboardEnabled()) {
         auto error = message.createErrorReply(QDBusError::InvalidArgs, u"Not a clipboard enabled session"_s);
         qCWarning(XdgDesktopPortalKdeClipboard) << error.errorMessage() << session_handle.path();

@@ -108,7 +108,7 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
 
     const KService::Ptr app = KService::serviceByDesktopName(app_id);
 
-    QObject *obj = QObject::parent();
+    const QObject *const obj = QObject::parent();
 
     if (!obj) {
         qCWarning(XdgDesktopPortalKdeBackground) << "Failed to get dbus context";
