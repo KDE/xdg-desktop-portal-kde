@@ -20,10 +20,6 @@ public:
     }
 
 private Q_SLOTS:
-    void initTestCase()
-    {
-    }
-
     void testCheckShortcut_data()
     {
         QTest::addColumn<QString>("expression");
