@@ -38,3 +38,7 @@ RuntimeDependencies:
 Options:
   require-passing-tests-on: ['Linux', 'FreeBSD']
   enable-lsan: True
+  cppcheck-arguments:
+    - '--enable=warning,style,performance'
+    - '--suppress-xml=cppcheck-suppressions.xml'
+    - '--library=xdg-desktop-portal-kde-cppcheck.xml'

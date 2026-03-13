@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<suppressions>
+<suppress>
+<id>returnByReference</id>
+</suppress>
+<suppress>
+<id>constVariablePointer</id>
+</suppress>
+<suppress>
+<id>functionStatic</id>
+</suppress>
+</suppressions>
