@@ -76,7 +76,7 @@ int levenshteinDistance(const QString &a, const QString &b)
     return v0[b.size()];
 }
 
-QList<KWayland::Client::PlasmaWindow *> tryMatchWindows(const QList<WindowRestoreInfo> toRestore)
+QList<KWayland::Client::PlasmaWindow *> tryMatchWindows(const QList<WindowRestoreInfo> &toRestore)
 {
     QList<KWayland::Client::PlasmaWindow *> matches;
 
@@ -210,7 +210,7 @@ uint ScreenCastPortal::SelectSources(const QDBusObjectPath &handle,
 std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(ScreenCastSession *session,
                                                                           const QList<Output> &selectedOutputs,
                                                                           const QRect &selectedRegion,
-                                                                          QList<KWayland::Client::PlasmaWindow *> selectedWindows,
+                                                                          const QList<KWayland::Client::PlasmaWindow *> &selectedWindows,
                                                                           bool allowRestore)
 {
     QVariantList outputs;
