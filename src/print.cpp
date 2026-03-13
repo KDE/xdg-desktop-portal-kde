@@ -774,7 +774,7 @@ QStringList PrintPortal::optionPageMargins(const QPrinter *printer)
 QStringList PrintPortal::optionCupsProperties(const QPrinter *printer)
 {
     QStringList dialogOptions = printer->printEngine()->property(QPrintEngine::PrintEnginePropertyKey(0xfe00)).toStringList();
-    QStringList cupsOptions;
+    QStringList options;
 
     for (int i = 0; i < dialogOptions.count(); i = i + 2) {
         // Ignore some cups properties as the pdf we get is already formatted using these
@@ -783,13 +783,13 @@ QStringList PrintPortal::optionCupsProperties(const QPrinter *printer)
         }
 
         if (dialogOptions[i + 1].isEmpty()) {
-            cupsOptions << QStringLiteral("-o") << dialogOptions[i];
+            options << QStringLiteral("-o") << dialogOptions[i];
         } else {
-            cupsOptions << QStringLiteral("-o") << dialogOptions[i] + QLatin1Char('=') + dialogOptions[i + 1];
+            options << QStringLiteral("-o") << dialogOptions[i] + QLatin1Char('=') + dialogOptions[i + 1];
         }
     }
 
-    return cupsOptions;
+    return options;
 }
 
 QStringList PrintPortal::optionMedia(const QPrinter *printer)

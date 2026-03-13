@@ -169,10 +169,10 @@ ApplicationItem::ApplicationItem(const QString &name, const KService::Ptr &servi
     , m_applicationService(service)
     , m_applicationCategory(AllApplications)
 {
-    const QStringList names = service->mimeTypes();
+    const QStringList mimeTypes = service->mimeTypes();
     const QMimeDatabase database;
-    for (const QString &name : names) {
-        QMimeType mime = database.mimeTypeForName(name);
+    for (const QString &mimeName : mimeTypes) {
+        QMimeType mime = database.mimeTypeForName(mimeName);
         if (mime.isValid()) {
             m_supportedMimeTypes.append(mime);
         }
