@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-07 00:46+0000\n"
+"POT-Creation-Date: 2026-03-14 00:46+0000\n"
 "PO-Revision-Date: 2026-01-23 05:00+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -411,6 +411,24 @@ msgctxt "@info"
 msgid "Crops a specific area of your screens"
 msgstr "裁剪您的螢幕的某個區域"
 
+#: src/PipeWireDelegate.qml:177
+#, kde-format
+msgctxt "@info:status"
+msgid "No windows open"
+msgstr ""
+
+#: src/PipeWireDelegate.qml:182
+#, kde-format
+msgctxt "%1 is a number of elided icon entries"
+msgid "+%1"
+msgstr ""
+
+#: src/PipeWireDelegate.qml:195
+#, kde-format
+msgctxt "@title %1 refers to a screen name"
+msgid "Share “%1”"
+msgstr ""
+
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
 msgid "Start streaming:"
@@ -457,13 +475,13 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "點擊並拖曳滑鼠左鍵"
 
-#: src/remotedesktop.cpp:124
+#: src/remotedesktop.cpp:118
 #, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
 msgstr "遠端桌面無法使用"
 
-#: src/remotedesktop.cpp:126
+#: src/remotedesktop.cpp:120
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -475,7 +493,7 @@ msgstr ""
 "應用程式 <application>%1</application> 嘗試使用遠端桌面功能，但遠端桌面功能在"
 "本系統無法使用。請確定您使用 Wayland 工作階段與支援的視窗管理員，像是 KWin。"
 
-#: src/remotedesktop.cpp:130
+#: src/remotedesktop.cpp:124
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -486,24 +504,24 @@ msgstr ""
 "應用程式 <application>%1</application> 嘗試使用遠端桌面功能，但遠端桌面功能"
 "在 X11 工作階段無法使用。請切換到 Wayland 工作階段之後再試一次。"
 
-#: src/remotedesktop.cpp:194 src/screencast.cpp:236
+#: src/remotedesktop.cpp:195 src/screencast.cpp:237
 #, kde-format
 msgid "Virtual Output"
 msgstr "虛擬輸出"
 
-#: src/remotedesktop.cpp:195 src/screencast.cpp:237
+#: src/remotedesktop.cpp:196 src/screencast.cpp:238
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "虛擬輸出（與 %1 共享）"
 
-#: src/remotedesktop.cpp:303
+#: src/remotedesktop.cpp:304
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "已開始遠端控制工作階段"
 
-#: src/remotedesktop.cpp:592
+#: src/remotedesktop.cpp:593
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -605,13 +623,13 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "拒絕"
 
-#: src/screencast.cpp:155
+#: src/screencast.cpp:149
 #, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
 msgstr "螢幕分享無法使用"
 
-#: src/screencast.cpp:157
+#: src/screencast.cpp:151
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -623,7 +641,7 @@ msgstr ""
 "應用程式 <application>%1</application> 嘗試進行螢幕分享，但螢幕分享在本系統無"
 "法使用。請確定您使用 Wayland 工作階段與支援的視窗管理員，像是 KWin。"
 
-#: src/screencast.cpp:161
+#: src/screencast.cpp:155
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -634,26 +652,26 @@ msgstr ""
 "應用程式 <application>%1</application> 嘗試進行螢幕分享，但螢幕分享在 X11 工"
 "作階段無法使用。請切換到 Wayland 工作階段之後再試一次。"
 
-#: src/screencast.cpp:296
+#: src/screencast.cpp:297
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "正在分享螢幕"
 
-#: src/screencast.cpp:404
+#: src/screencast.cpp:405
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "結束"
 
-#: src/screencast.cpp:457
+#: src/screencast.cpp:458
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
 msgstr[0] "正在分享 %1 個影像串流給 %2"
 
-#: src/screencast.cpp:461
+#: src/screencast.cpp:462
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"

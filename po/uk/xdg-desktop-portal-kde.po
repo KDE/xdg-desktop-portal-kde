@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-07 00:46+0000\n"
+"POT-Creation-Date: 2026-03-14 00:46+0000\n"
 "PO-Revision-Date: 2026-01-21 22:15+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -427,6 +427,24 @@ msgctxt "@info"
 msgid "Crops a specific area of your screens"
 msgstr "Обрізати певну область ваших екранів"
 
+#: src/PipeWireDelegate.qml:177
+#, kde-format
+msgctxt "@info:status"
+msgid "No windows open"
+msgstr ""
+
+#: src/PipeWireDelegate.qml:182
+#, kde-format
+msgctxt "%1 is a number of elided icon entries"
+msgid "+%1"
+msgstr ""
+
+#: src/PipeWireDelegate.qml:195
+#, kde-format
+msgctxt "@title %1 refers to a screen name"
+msgid "Share “%1”"
+msgstr ""
+
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
 msgid "Start streaming:"
@@ -473,13 +491,13 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Клацання лівою і перетягування"
 
-#: src/remotedesktop.cpp:124
+#: src/remotedesktop.cpp:118
 #, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
 msgstr "Віддалена стільниця недоступна"
 
-#: src/remotedesktop.cpp:126
+#: src/remotedesktop.cpp:120
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -493,7 +511,7 @@ msgstr ""
 "що ви запускаєте сеанс Wayland із сумісним засобом керування вікнами, таким "
 "як KWin."
 
-#: src/remotedesktop.cpp:130
+#: src/remotedesktop.cpp:124
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -505,24 +523,24 @@ msgstr ""
 "стільниці, але віддалена стільниця у цій системі недоступна у сеансах X11. "
 "Будь ласка, перемкніться на сеанс Wayland і повторіть спробу."
 
-#: src/remotedesktop.cpp:194 src/screencast.cpp:236
+#: src/remotedesktop.cpp:195 src/screencast.cpp:237
 #, kde-format
 msgid "Virtual Output"
 msgstr "Віртуальне виведення"
 
-#: src/remotedesktop.cpp:195 src/screencast.cpp:237
+#: src/remotedesktop.cpp:196 src/screencast.cpp:238
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Віртуальне виведення (оприлюднено за допомогою %1)"
 
-#: src/remotedesktop.cpp:303
+#: src/remotedesktop.cpp:304
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "Запущено сеанс віддаленого керування"
 
-#: src/remotedesktop.cpp:592
+#: src/remotedesktop.cpp:593
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -624,13 +642,13 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "Заборонити"
 
-#: src/screencast.cpp:155
+#: src/screencast.cpp:149
 #, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
 msgstr "Оприлюднення екрана недоступне"
 
-#: src/screencast.cpp:157
+#: src/screencast.cpp:151
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -644,7 +662,7 @@ msgstr ""
 "Переконайтеся, що ви запускаєте сеанс Wayland із сумісним засобом керування "
 "вікнами, таким як KWin."
 
-#: src/screencast.cpp:161
+#: src/screencast.cpp:155
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -656,19 +674,19 @@ msgstr ""
 "використання екрана, але спільне використання екрана недоступне у сеансах "
 "X11. Будь ласка, перемкніться на сеанс Wayland і повторіть спробу."
 
-#: src/screencast.cpp:296
+#: src/screencast.cpp:297
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Надається доступ до екрана"
 
-#: src/screencast.cpp:404
+#: src/screencast.cpp:405
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Завершити"
 
-#: src/screencast.cpp:457
+#: src/screencast.cpp:458
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -678,7 +696,7 @@ msgstr[1] "%1 відеопотоки до %2"
 msgstr[2] "%1 відеопотоків до %2"
 msgstr[3] "%1 відеопотік до %2"
 
-#: src/screencast.cpp:461
+#: src/screencast.cpp:462
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"

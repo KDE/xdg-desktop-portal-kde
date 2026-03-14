@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-07 00:46+0000\n"
+"POT-Creation-Date: 2026-03-14 00:46+0000\n"
 "PO-Revision-Date: 2026-01-21 07:02+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -426,6 +426,24 @@ msgctxt "@info"
 msgid "Crops a specific area of your screens"
 msgstr "Obreži določena območja vaših zaslonov"
 
+#: src/PipeWireDelegate.qml:177
+#, kde-format
+msgctxt "@info:status"
+msgid "No windows open"
+msgstr ""
+
+#: src/PipeWireDelegate.qml:182
+#, kde-format
+msgctxt "%1 is a number of elided icon entries"
+msgid "+%1"
+msgstr ""
+
+#: src/PipeWireDelegate.qml:195
+#, kde-format
+msgctxt "@title %1 refers to a screen name"
+msgid "Share “%1”"
+msgstr ""
+
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
 msgid "Start streaming:"
@@ -472,13 +490,13 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Lev klik in poteg"
 
-#: src/remotedesktop.cpp:124
+#: src/remotedesktop.cpp:118
 #, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
 msgstr "Oddaljeno namizje ni na voljo"
 
-#: src/remotedesktop.cpp:126
+#: src/remotedesktop.cpp:120
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -492,7 +510,7 @@ msgstr ""
 "Prepričajte se, da izvajate sejo Wayland z združljivim upravljalnikom oken, "
 "kot je KWin."
 
-#: src/remotedesktop.cpp:130
+#: src/remotedesktop.cpp:124
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -504,24 +522,24 @@ msgstr ""
 "oddaljenega namizja, vendar oddaljeno namizje ni na voljo v sejah X11. "
 "Preklopite na sejo Wayland in poskusite znova."
 
-#: src/remotedesktop.cpp:194 src/screencast.cpp:236
+#: src/remotedesktop.cpp:195 src/screencast.cpp:237
 #, kde-format
 msgid "Virtual Output"
 msgstr "Navidezni izhod"
 
-#: src/remotedesktop.cpp:195 src/screencast.cpp:237
+#: src/remotedesktop.cpp:196 src/screencast.cpp:238
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Navidezni izhod (deljeno z %1)"
 
-#: src/remotedesktop.cpp:303
+#: src/remotedesktop.cpp:304
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "Zagnana seja oddaljenega nadzora"
 
-#: src/remotedesktop.cpp:592
+#: src/remotedesktop.cpp:593
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -623,13 +641,13 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "Zavrni"
 
-#: src/screencast.cpp:155
+#: src/screencast.cpp:149
 #, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
 msgstr "Deljenje zaslonov ni na voljo"
 
-#: src/screencast.cpp:157
+#: src/screencast.cpp:151
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -642,7 +660,7 @@ msgstr ""
 "zaslona, ​​vendar deljenje zaslona v tem sistemu ni na voljo. Prepričajte se, "
 "da izvajate sejo Wayland z združljivim upravljalnikom oken, kot je KWin."
 
-#: src/screencast.cpp:161
+#: src/screencast.cpp:155
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -654,19 +672,19 @@ msgstr ""
 "zaslona, ​​vendar deljenje zaslona ni na voljo v sejah X11. Preklopite na sejo "
 "Wayland in poskusite znova."
 
-#: src/screencast.cpp:296
+#: src/screencast.cpp:297
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Deljenje zaslonov v teku"
 
-#: src/screencast.cpp:404
+#: src/screencast.cpp:405
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Konec"
 
-#: src/screencast.cpp:457
+#: src/screencast.cpp:458
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -676,7 +694,7 @@ msgstr[1] "%1 video tokova z %2"
 msgstr[2] "%1 video tokov z %2"
 msgstr[3] "%1 video tokov z %2"
 
-#: src/screencast.cpp:461
+#: src/screencast.cpp:462
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"

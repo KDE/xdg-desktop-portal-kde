@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-07 00:46+0000\n"
+"POT-Creation-Date: 2026-03-14 00:46+0000\n"
 "PO-Revision-Date: 2024-03-24 11:38+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -427,6 +427,24 @@ msgctxt "@info"
 msgid "Crops a specific area of your screens"
 msgstr ""
 
+#: src/PipeWireDelegate.qml:177
+#, kde-format
+msgctxt "@info:status"
+msgid "No windows open"
+msgstr ""
+
+#: src/PipeWireDelegate.qml:182
+#, kde-format
+msgctxt "%1 is a number of elided icon entries"
+msgid "+%1"
+msgstr ""
+
+#: src/PipeWireDelegate.qml:195
+#, kde-format
+msgctxt "@title %1 refers to a screen name"
+msgid "Share “%1”"
+msgstr ""
+
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
 msgid "Start streaming:"
@@ -473,7 +491,7 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr ""
 
-#: src/remotedesktop.cpp:124
+#: src/remotedesktop.cpp:118
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "SNI title that indicates there's a process remotely controlling the system"
@@ -482,7 +500,7 @@ msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
 msgstr "Vzdialená pracovná plocha"
 
-#: src/remotedesktop.cpp:126
+#: src/remotedesktop.cpp:120
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -492,7 +510,7 @@ msgid ""
 "such as KWin."
 msgstr ""
 
-#: src/remotedesktop.cpp:130
+#: src/remotedesktop.cpp:124
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -501,26 +519,26 @@ msgid ""
 "switch to a Wayland session and try again."
 msgstr ""
 
-#: src/remotedesktop.cpp:194 src/screencast.cpp:236
+#: src/remotedesktop.cpp:195 src/screencast.cpp:237
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgid "Virtual Output"
 msgstr "Nový virtuálny výstup"
 
-#: src/remotedesktop.cpp:195 src/screencast.cpp:237
+#: src/remotedesktop.cpp:196 src/screencast.cpp:238
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Nový virtuálny výstup"
 
-#: src/remotedesktop.cpp:303
+#: src/remotedesktop.cpp:304
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "Spustené sedenie diaľkového ovládania"
 
-#: src/remotedesktop.cpp:592
+#: src/remotedesktop.cpp:593
 #, fuzzy, kde-format
 #| msgctxt "Title of the dialog that requests remote input privileges"
 #| msgid "Remote control requested"
@@ -622,14 +640,14 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr ""
 
-#: src/screencast.cpp:155
+#: src/screencast.cpp:149
 #, fuzzy, kde-format
 #| msgid "Screen Sharing"
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
 msgstr "Zdieľanie obrazovky"
 
-#: src/screencast.cpp:157
+#: src/screencast.cpp:151
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -639,7 +657,7 @@ msgid ""
 "such as KWin."
 msgstr ""
 
-#: src/screencast.cpp:161
+#: src/screencast.cpp:155
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -648,19 +666,19 @@ msgid ""
 "switch to a Wayland session and try again."
 msgstr ""
 
-#: src/screencast.cpp:296
+#: src/screencast.cpp:297
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Prebieha zdieľanie obrazovky"
 
-#: src/screencast.cpp:404
+#: src/screencast.cpp:405
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Koniec"
 
-#: src/screencast.cpp:457
+#: src/screencast.cpp:458
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -669,7 +687,7 @@ msgstr[0] "Zdieľam obsah do %2"
 msgstr[1] "%1 video prúdy do %2"
 msgstr[2] "%1 video prúdov do %2"
 
-#: src/screencast.cpp:461
+#: src/screencast.cpp:462
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"

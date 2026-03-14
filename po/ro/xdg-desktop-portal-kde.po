@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-07 00:46+0000\n"
+"POT-Creation-Date: 2026-03-14 00:46+0000\n"
 "PO-Revision-Date: 2026-01-28 19:43+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -425,6 +425,24 @@ msgctxt "@info"
 msgid "Crops a specific area of your screens"
 msgstr "Decupează o anumită zonă a ecranelor"
 
+#: src/PipeWireDelegate.qml:177
+#, kde-format
+msgctxt "@info:status"
+msgid "No windows open"
+msgstr ""
+
+#: src/PipeWireDelegate.qml:182
+#, kde-format
+msgctxt "%1 is a number of elided icon entries"
+msgid "+%1"
+msgstr ""
+
+#: src/PipeWireDelegate.qml:195
+#, kde-format
+msgctxt "@title %1 refers to a screen name"
+msgid "Share “%1”"
+msgstr ""
+
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
 msgid "Start streaming:"
@@ -471,13 +489,13 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Apăsați clic stâng și trageți"
 
-#: src/remotedesktop.cpp:124
+#: src/remotedesktop.cpp:118
 #, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
 msgstr "Biroul distant nu e disponibil"
 
-#: src/remotedesktop.cpp:126
+#: src/remotedesktop.cpp:120
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -491,7 +509,7 @@ msgstr ""
 "vă că rulați o sesiune Wayland cu un gestionar de ferestre compatibil, cum "
 "ar fi KWin."
 
-#: src/remotedesktop.cpp:130
+#: src/remotedesktop.cpp:124
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -503,24 +521,24 @@ msgstr ""
 "birou distant, dar biroul distant nu e disponibil în sesiuni X11. Treceți la "
 "o sesiune Wayland și încercați din nou."
 
-#: src/remotedesktop.cpp:194 src/screencast.cpp:236
+#: src/remotedesktop.cpp:195 src/screencast.cpp:237
 #, kde-format
 msgid "Virtual Output"
 msgstr "Ieșire virtuală"
 
-#: src/remotedesktop.cpp:195 src/screencast.cpp:237
+#: src/remotedesktop.cpp:196 src/screencast.cpp:238
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Ieșire virtuală (partajată cu %1)"
 
-#: src/remotedesktop.cpp:303
+#: src/remotedesktop.cpp:304
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "Sesiunea de control de la distanță a început"
 
-#: src/remotedesktop.cpp:592
+#: src/remotedesktop.cpp:593
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -622,13 +640,13 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "Refuză"
 
-#: src/screencast.cpp:155
+#: src/screencast.cpp:149
 #, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
 msgstr "Partajarea ecranului nu e disponibilă"
 
-#: src/screencast.cpp:157
+#: src/screencast.cpp:151
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -642,7 +660,7 @@ msgstr ""
 "sistem. Asigurați-vă că rulați o sesiune Wayland cu un gestionar de ferestre "
 "compatibil, cum ar fi KWin."
 
-#: src/screencast.cpp:161
+#: src/screencast.cpp:155
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -654,19 +672,19 @@ msgstr ""
 "partajare a ecranului, dar partajarea ecranului nu e disponibilă în sesiuni "
 "X11. Treceți la o sesiune Wayland și încercați din nou."
 
-#: src/screencast.cpp:296
+#: src/screencast.cpp:297
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Se partajează ecranul"
 
-#: src/screencast.cpp:404
+#: src/screencast.cpp:405
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Termină"
 
-#: src/screencast.cpp:457
+#: src/screencast.cpp:458
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -675,7 +693,7 @@ msgstr[0] "Se partajează conținutul cu %2"
 msgstr[1] "%1 fluxuri video cu %2"
 msgstr[2] "%1 de fluxuri video cu %2"
 
-#: src/screencast.cpp:461
+#: src/screencast.cpp:462
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
