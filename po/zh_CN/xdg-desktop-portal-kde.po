@@ -415,19 +415,19 @@ msgstr "裁剪屏幕的一个特定区域"
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
-msgstr ""
+msgstr "没有打开的窗口"
 
 #: src/PipeWireDelegate.qml:182
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
-msgstr ""
+msgstr "+%1"
 
 #: src/PipeWireDelegate.qml:195
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
-msgstr ""
+msgstr "共享“%1”"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
