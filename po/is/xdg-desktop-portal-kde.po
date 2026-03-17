@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-14 00:46+0000\n"
-"PO-Revision-Date: 2026-02-27 10:52+0000\n"
+"PO-Revision-Date: 2026-03-16 16:50+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -427,19 +427,19 @@ msgstr "Utansníður tiltekið svæði af skjáunum þínum"
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
-msgstr ""
+msgstr "Engir gluggar opnir"
 
 #: src/PipeWireDelegate.qml:182
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
-msgstr ""
+msgstr "+%1"
 
 #: src/PipeWireDelegate.qml:195
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
-msgstr ""
+msgstr "Deila “%1”"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format

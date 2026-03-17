@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-14 00:46+0000\n"
-"PO-Revision-Date: 2026-01-22 18:16+0100\n"
+"PO-Revision-Date: 2026-03-15 17:46+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -431,19 +431,19 @@ msgstr "Rogne une zone spécifique de vos écrans"
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
-msgstr ""
+msgstr "Aucune fenêtre ouverte"
 
 #: src/PipeWireDelegate.qml:182
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
-msgstr ""
+msgstr "+ %1"
 
 #: src/PipeWireDelegate.qml:195
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
-msgstr ""
+msgstr "Partager « %1 »"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
