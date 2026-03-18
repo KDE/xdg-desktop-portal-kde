@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-14 00:46+0000\n"
-"PO-Revision-Date: 2026-01-21 23:53+0100\n"
+"PO-Revision-Date: 2026-03-17 23:33+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -426,19 +426,19 @@ msgstr "Ritaglia un'area specificata dello schermo"
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
-msgstr ""
+msgstr "Nessuna finestra aperta"
 
 #: src/PipeWireDelegate.qml:182
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
-msgstr ""
+msgstr "+%1"
 
 #: src/PipeWireDelegate.qml:195
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
-msgstr ""
+msgstr "Condividi «%1»"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
