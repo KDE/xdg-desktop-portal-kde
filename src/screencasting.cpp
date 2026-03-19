@@ -29,7 +29,6 @@ public:
     ~ScreencastingStreamPrivate() override
     {
         close();
-        q->deleteLater();
     }
 
     void zkde_screencast_stream_unstable_v1_created(uint32_t node) override

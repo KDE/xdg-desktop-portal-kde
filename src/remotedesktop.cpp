@@ -128,7 +128,7 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
         return PortalResponse::OtherError;
     }
 
-    Session *session = new RemoteDesktopSession(this, app_id, session_handle.path());
+    RemoteDesktopSession *session = new RemoteDesktopSession(this, app_id, session_handle.path());
 
     if (!session->isValid()) {
         delete session;
@@ -136,16 +136,9 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
     }
 
     connect(session, &Session::closed, [session] {
-        auto remoteDesktopSession = qobject_cast<RemoteDesktopSession *>(session);
-        const auto streams = remoteDesktopSession->streams();
-        for (const WaylandIntegration::StreamWithMetaData &stream : streams) {
-            if (stream.stream) {
-                WaylandIntegration::stopStreaming(stream.stream->nodeid());
-            }
-        }
-        if (remoteDesktopSession->eisCookie()) {
+        if (session->eisCookie()) {
             auto msg = QDBusMessage::createMethodCall(kwinService(), kwinRemoteDesktopPath(), kwinRemoteDesktopInterface(), QStringLiteral("disconnect"));
-            msg.setArguments({remoteDesktopSession->eisCookie()});
+            msg.setArguments({session->eisCookie()});
             QDBusConnection::sessionBus().send(msg);
         }
     });
@@ -191,7 +184,7 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
     QVariantMap results;
     QPointer<RemoteDesktopSession> guardedSession(session);
     if (session->screenSharingEnabled()) {
-        WaylandIntegration::Streams streams;
+        std::vector<WaylandIntegration::StreamWithMetaData> streams;
         if (session->types() == ScreenCastPortal::Virtual) {
             const QString outputName = session->appId().isEmpty()
                 ? i18n("Virtual Output")
@@ -203,7 +196,7 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
             if (!stream.stream || !guardedSession) {
                 return {PortalResponse::OtherError, {}};
             }
-            streams << stream;
+            streams.push_back(std::move(stream));
         } else {
             const auto screens = qGuiApp->screens();
             if (session->multipleSources() || screens.count() == 1) {
@@ -212,10 +205,10 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
                     if (!stream.stream || !guardedSession) {
                         return {PortalResponse::OtherError, {}};
                     }
-                    streams << stream;
+                    streams.push_back(std::move(stream));
                 }
             } else {
-                streams << WaylandIntegration::startStreamingWorkspace(Screencasting::CursorMode(session->cursorMode()));
+                streams.push_back(WaylandIntegration::startStreamingWorkspace(Screencasting::CursorMode(session->cursorMode())));
             }
         }
 
@@ -223,8 +216,9 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
             return {PortalResponse::OtherError, {}};
         }
 
-        session->setStreams(streams);
-        results.insert(QStringLiteral("streams"), QVariant::fromValue<WaylandIntegration::Streams>(streams));
+        session->setStreams(std::move(streams));
+        QDBusArgument streamsResult;
+        results.insert(QStringLiteral("streams"), QVariant::fromValue(streamsResult << session->streams()));
     } else {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop()) << "Only stream input";
         session->refreshDescription();
@@ -361,7 +355,11 @@ void RemoteDesktopPortal::NotifyPointerMotionAbsolute(const QDBusObjectPath &ses
         return;
     }
 
-    WaylandIntegration::requestPointerMotionAbsolute(stream, QPointF(x, y));
+    auto it = std::ranges::find_if(session->streams(), [nodeId = stream](const WaylandIntegration::StreamWithMetaData &stream) {
+        return stream.stream->nodeid() == nodeId;
+    });
+
+    WaylandIntegration::requestPointerMotionAbsolute(it != session->streams().end() ? it->stream.get() : nullptr, QPointF(x, y));
 }
 
 void RemoteDesktopPortal::NotifyPointerButton(const QDBusObjectPath &session_handle, const QVariantMap &options, int button, uint state)

@@ -125,11 +125,6 @@ WaylandIntegration::StreamWithMetaData WaylandIntegration::startStreamingWindow(
     return globalWaylandIntegration->startStreamingWindow(window, mode);
 }
 
-void WaylandIntegration::stopStreaming(uint node)
-{
-    globalWaylandIntegration->stopStreaming(node);
-}
-
 void WaylandIntegration::requestPointerButtonPress(quint32 linuxButton)
 {
     globalWaylandIntegration->requestPointerButtonPress(linuxButton);
@@ -145,7 +140,7 @@ void WaylandIntegration::requestPointerMotion(const QSizeF &delta)
     globalWaylandIntegration->requestPointerMotion(delta);
 }
 
-void WaylandIntegration::requestPointerMotionAbsolute(uint stream, const QPointF &pos)
+void WaylandIntegration::requestPointerMotionAbsolute(ScreencastingStream *const stream, const QPointF &pos)
 {
     globalWaylandIntegration->requestPointerMotionAbsolute(stream, pos);
 }
@@ -202,8 +197,10 @@ WaylandIntegration::WaylandIntegrationPrivate::WaylandIntegrationPrivate()
     , m_fakeInput(nullptr)
     , m_screencasting(nullptr)
 {
-    qDBusRegisterMetaType<StreamWithMetaData>();
-    qDBusRegisterMetaType<Streams>();
+    // QVariant and by extension Qt-D-Bus cannot cope with move only types so we have to do this manual registration
+    QDBusArgument argument;
+    argument << StreamWithMetaData();
+    QDBusMetaType::registerCustomType(QMetaType::fromType<StreamWithMetaData>(), argument.currentSignature().toLatin1());
 }
 
 WaylandIntegration::WaylandIntegrationPrivate::~WaylandIntegrationPrivate() = default;
@@ -314,14 +311,8 @@ WaylandIntegration::StreamWithMetaData WaylandIntegration::WaylandIntegrationPri
         loop.quit();
     });
     connect(stream, &ScreencastingStream::created, &loop, [&](uint32_t nodeid) {
-        ret.stream = stream;
+        ret.stream.reset(stream);
         ret.metaData = streamOptions;
-        m_streams.append(ret);
-
-        connect(stream, &ScreencastingStream::closed, this, [this, nodeid] {
-            stopStreaming(nodeid);
-        });
-        Q_ASSERT(ret.stream);
 
         loop.quit();
     });
@@ -331,22 +322,6 @@ WaylandIntegration::StreamWithMetaData WaylandIntegration::WaylandIntegrationPri
     });
     loop.exec();
     return ret;
-}
-
-void WaylandIntegration::StreamWithMetaData::close()
-{
-    stream->deleteLater();
-}
-
-void WaylandIntegration::WaylandIntegrationPrivate::stopStreaming(uint32_t nodeid)
-{
-    for (auto it = m_streams.begin(), itEnd = m_streams.end(); it != itEnd; ++it) {
-        if (it->stream && it->stream->nodeid() == nodeid) {
-            it->close();
-            m_streams.erase(it);
-            break;
-        }
-    }
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::requestPointerButtonPress(quint32 linuxButton)
@@ -370,16 +345,14 @@ void WaylandIntegration::WaylandIntegrationPrivate::requestPointerMotion(const Q
     }
 }
 
-void WaylandIntegration::WaylandIntegrationPrivate::requestPointerMotionAbsolute(uint streamNodeId, const QPointF &pos)
+void WaylandIntegration::WaylandIntegrationPrivate::requestPointerMotionAbsolute(ScreencastingStream *const stream, const QPointF &pos)
 {
-    if (m_fakeInput && m_fakeInput->isActive()) {
-        for (auto stream : std::as_const(m_streams)) {
-            if (stream.stream && stream.stream->nodeid() == streamNodeId) {
-                m_fakeInput->pointer_motion_absolute(wl_fixed_from_double(pos.x() + stream.stream->geometry().x()),
-                                                     wl_fixed_from_double(pos.y() + stream.stream->geometry().y()));
-                return;
-            }
-        }
+    if (!m_fakeInput || !m_fakeInput->isActive()) {
+        return;
+    }
+    if (stream) {
+        m_fakeInput->pointer_motion_absolute(wl_fixed_from_double(pos.x() + stream->geometry().x()), wl_fixed_from_double(pos.y() + stream->geometry().y()));
+    } else {
         // If no stream is found, just send it as absolute coordinates relative to the workspace.
         m_fakeInput->pointer_motion_absolute(wl_fixed_from_double(pos.x()), wl_fixed_from_double(pos.y()));
     }

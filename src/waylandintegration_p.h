@@ -75,12 +75,11 @@ public:
     StreamWithMetaData startStreamingWorkspace(Screencasting::CursorMode mode);
     StreamWithMetaData startStreamingRegion(const QRect region, Screencasting::CursorMode mode);
     StreamWithMetaData startStreamingVirtualOutput(const QString &name, const QString &description, const QSize &size, Screencasting::CursorMode mode);
-    void stopStreaming(uint32_t nodeid);
 
     void requestPointerButtonPress(quint32 linuxButton);
     void requestPointerButtonRelease(quint32 linuxButton);
     void requestPointerMotion(const QSizeF &delta);
-    void requestPointerMotionAbsolute(uint stream, const QPointF &pos);
+    void requestPointerMotionAbsolute(ScreencastingStream *const stream, const QPointF &pos);
     void requestPointerAxis(qreal x, qreal y);
     void requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta);
     void requestKeyboardKeycode(int keycode, bool state);
@@ -96,9 +95,6 @@ private:
 
     uint m_streamInput = 0;
     bool m_waylandAuthenticationRequested = false;
-
-    QDateTime m_lastFrameTime;
-    QList<StreamWithMetaData> m_streams;
 
     std::unique_ptr<FakeInput> m_fakeInput;
     Screencasting *m_screencasting = nullptr;

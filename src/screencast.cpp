@@ -166,13 +166,6 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
         return PortalResponse::OtherError;
     }
 
-    connect(session, &Session::closed, [session] {
-        auto screencastSession = qobject_cast<ScreenCastSession *>(session);
-        const auto streams = screencastSession->streams();
-        for (const WaylandIntegration::StreamWithMetaData &stream : streams) {
-            WaylandIntegration::stopStreaming(stream.stream->nodeid());
-        }
-    });
     return PortalResponse::Success;
 }
 
@@ -220,7 +213,7 @@ std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(Screen
 {
     QVariantList outputs;
     QList<WindowRestoreInfo> windows;
-    WaylandIntegration::Streams streams;
+    std::vector<WaylandIntegration::StreamWithMetaData> streams;
     QPointer<ScreenCastSession> guardedSession(session);
     Screencasting::CursorMode cursorMode = Screencasting::CursorMode(session->cursorMode());
     for (const auto &output : std::as_const(selectedOutputs)) {
@@ -252,7 +245,7 @@ std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(Screen
         if (allowRestore) {
             outputs += output.uniqueId();
         }
-        streams << stream;
+        streams.push_back(std::move(stream));
     }
     for (const auto win : std::as_const(selectedWindows)) {
         WaylandIntegration::StreamWithMetaData stream = WaylandIntegration::startStreamingWindow(win, cursorMode);
@@ -264,10 +257,10 @@ std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(Screen
         if (allowRestore) {
             windows += WindowRestoreInfo{.appId = win->appId(), .title = win->title()};
         }
-        streams << stream;
+        streams.push_back(std::move(stream));
     }
 
-    if (streams.isEmpty()) {
+    if (streams.empty()) {
         qCWarning(XdgDesktopPortalKdeScreenCast) << "Pipewire stream is not ready to be streamed";
         return {PortalResponse::OtherError, {}};
     }
@@ -276,9 +269,11 @@ std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(Screen
         return {PortalResponse::OtherError, {}};
     }
 
-    session->setStreams(streams);
+    session->setStreams(std::move(streams));
+
     QVariantMap results;
-    results.insert(QStringLiteral("streams"), QVariant::fromValue<WaylandIntegration::Streams>(streams));
+    QDBusArgument streamsResult;
+    results.insert(QStringLiteral("streams"), QVariant::fromValue(streamsResult << session->streams()));
     if (allowRestore) {
         results.insert(u"persist_mode"_s, quint32(session->persistMode()));
         if (session->persistMode() != ScreenCastPortal::NoPersist) {
@@ -443,11 +438,10 @@ void ScreenCastSession::setOptions(const QVariantMap &options)
     }
 }
 
-
-void ScreenCastSession::setStreams(const WaylandIntegration::Streams &streams)
+void ScreenCastSession::setStreams(std::vector<WaylandIntegration::StreamWithMetaData> &&streams)
 {
-    Q_ASSERT(!streams.isEmpty());
-    m_streams = streams;
+    Q_ASSERT(!streams.empty());
+    m_streams = std::move(streams);
 
     m_item->setStandardActionsEnabled(false);
     if (qobject_cast<RemoteDesktopSession *>(this)) {
@@ -457,7 +451,7 @@ void ScreenCastSession::setStreams(const WaylandIntegration::Streams &streams)
         m_item->setToolTipSubTitle(i18ncp("%1 number of screens, %2 the app that receives them",
                                           "Sharing contents to %2",
                                           "%1 video streams to %2",
-                                          m_streams.count(),
+                                          m_streams.size(),
                                           Utils::applicationName(m_appId)));
         m_item->setTitle(i18nc("SNI title that indicates there's a process seeing our windows or screens", "Screen casting"));
         if (isWindow) {
@@ -470,7 +464,7 @@ void ScreenCastSession::setStreams(const WaylandIntegration::Streams &streams)
     m_item->setToolTipTitle(m_item->title());
 
     for (const auto &s : streams) {
-        connect(s.stream, &ScreencastingStream::closed, this, &ScreenCastSession::streamClosed);
+        connect(s.stream.get(), &ScreencastingStream::closed, this, &ScreenCastSession::streamClosed);
     }
     m_item->setStatus(KStatusNotifierItem::Active);
 }
@@ -483,12 +477,12 @@ void ScreenCastSession::setDescription(const QString &description)
 void ScreenCastSession::streamClosed()
 {
     ScreencastingStream *stream = qobject_cast<ScreencastingStream *>(sender());
-    auto it = std::remove_if(m_streams.begin(), m_streams.end(), [stream](const WaylandIntegration::StreamWithMetaData &s) {
-        return s.stream == stream;
+    auto [first, last] = std::ranges::remove_if(m_streams, [stream](const WaylandIntegration::StreamWithMetaData &s) {
+        return s.stream.get() == stream;
     });
-    m_streams.erase(it, m_streams.end());
+    m_streams.erase(first, last);
 
-    if (m_streams.isEmpty()) {
+    if (m_streams.empty()) {
         close();
     }
 }

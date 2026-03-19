@@ -34,12 +34,9 @@ namespace WaylandIntegration
 {
 
 struct StreamWithMetaData {
-    ScreencastingStream *stream = nullptr;
+    std::unique_ptr<ScreencastingStream> stream;
     QVariantMap metaData;
-
-    void close();
 };
-typedef QList<StreamWithMetaData> Streams;
 
 class WaylandIntegration : public QObject
 {
@@ -57,12 +54,11 @@ StreamWithMetaData startStreamingWorkspace(Screencasting::CursorMode mode);
 StreamWithMetaData startStreamingVirtual(const QString &name, const QString &description, const QSize &size, Screencasting::CursorMode mode);
 StreamWithMetaData startStreamingWindow(KWayland::Client::PlasmaWindow *window, Screencasting::CursorMode mode);
 StreamWithMetaData startStreamingRegion(const QRect &region, Screencasting::CursorMode mode);
-void stopStreaming(uint node);
 
 void requestPointerButtonPress(quint32 linuxButton);
 void requestPointerButtonRelease(quint32 linuxButton);
 void requestPointerMotion(const QSizeF &delta);
-void requestPointerMotionAbsolute(uint stream, const QPointF &pos);
+void requestPointerMotionAbsolute(ScreencastingStream *const stream, const QPointF &pos);
 void requestPointerAxis(qreal x, qreal y);
 void requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta);
 
