@@ -54,37 +54,29 @@ FakeInput::~FakeInput()
     }
 }
 
-QDebug operator<<(QDebug dbg, const Stream &c)
+QDebug operator<<(QDebug dbg, const StreamWithMetaData &c)
 {
-    dbg.nospace() << "Stream(" << c.map << ", " << c.nodeId << ")";
+    dbg.nospace() << "Stream(" << c.metaData << ", " << c.stream->nodeid() << ")";
     return dbg.space();
 }
 
-const QDBusArgument &operator>>(const QDBusArgument &arg, Stream &stream)
+// This whole operator is just to satisfy QtDBus, we never need to read in a stream
+const QDBusArgument &operator>>(const QDBusArgument &arg, StreamWithMetaData &stream)
 {
     arg.beginStructure();
-    arg >> stream.nodeId;
-
-    arg.beginMap();
-    while (!arg.atEnd()) {
-        QString key;
-        QVariant map;
-        arg.beginMapEntry();
-        arg >> key >> map;
-        arg.endMapEntry();
-        stream.map.insert(key, map);
-    }
-    arg.endMap();
+    int nodeId;
+    arg >> nodeId;
+    arg >> stream.metaData;
     arg.endStructure();
 
     return arg;
 }
 
-const QDBusArgument &operator<<(QDBusArgument &arg, const Stream &stream)
+const QDBusArgument &operator<<(QDBusArgument &arg, const StreamWithMetaData &stream)
 {
     arg.beginStructure();
-    arg << stream.nodeId;
-    arg << stream.map;
+    arg << (stream.stream ? stream.stream->nodeid() : 0);
+    arg << stream.metaData;
     arg.endStructure();
 
     return arg;
@@ -107,28 +99,28 @@ void WaylandIntegration::acquireStreamingInput(bool acquire)
     globalWaylandIntegration->acquireStreamingInput(acquire);
 }
 
-WaylandIntegration::Stream WaylandIntegration::startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode)
+WaylandIntegration::StreamWithMetaData WaylandIntegration::startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode)
 {
     return globalWaylandIntegration->startStreamingOutput(screen, mode);
 }
 
-WaylandIntegration::Stream WaylandIntegration::startStreamingWorkspace(Screencasting::CursorMode mode)
+WaylandIntegration::StreamWithMetaData WaylandIntegration::startStreamingWorkspace(Screencasting::CursorMode mode)
 {
     return globalWaylandIntegration->startStreamingWorkspace(mode);
 }
 
-WaylandIntegration::Stream WaylandIntegration::startStreamingRegion(const QRect &region, Screencasting::CursorMode mode)
+WaylandIntegration::StreamWithMetaData WaylandIntegration::startStreamingRegion(const QRect &region, Screencasting::CursorMode mode)
 {
     return globalWaylandIntegration->startStreamingRegion(region, mode);
 }
 
-WaylandIntegration::Stream
+WaylandIntegration::StreamWithMetaData
 WaylandIntegration::startStreamingVirtual(const QString &name, const QString &description, const QSize &size, Screencasting::CursorMode mode)
 {
     return globalWaylandIntegration->startStreamingVirtualOutput(name, description, size, mode);
 }
 
-WaylandIntegration::Stream WaylandIntegration::startStreamingWindow(KWayland::Client::PlasmaWindow *window, Screencasting::CursorMode mode)
+WaylandIntegration::StreamWithMetaData WaylandIntegration::startStreamingWindow(KWayland::Client::PlasmaWindow *window, Screencasting::CursorMode mode)
 {
     return globalWaylandIntegration->startStreamingWindow(window, mode);
 }
@@ -210,7 +202,7 @@ WaylandIntegration::WaylandIntegrationPrivate::WaylandIntegrationPrivate()
     , m_fakeInput(nullptr)
     , m_screencasting(nullptr)
 {
-    qDBusRegisterMetaType<Stream>();
+    qDBusRegisterMetaType<StreamWithMetaData>();
     qDBusRegisterMetaType<Streams>();
 }
 
@@ -242,14 +234,14 @@ void WaylandIntegration::WaylandIntegrationPrivate::acquireStreamingInput(bool a
     }
 }
 
-WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingWindow(KWayland::Client::PlasmaWindow *window,
-                                                                                               Screencasting::CursorMode cursorMode)
+WaylandIntegration::StreamWithMetaData WaylandIntegration::WaylandIntegrationPrivate::startStreamingWindow(KWayland::Client::PlasmaWindow *window,
+                                                                                                           Screencasting::CursorMode cursorMode)
 {
     return startStreaming(m_screencasting->createWindowStream(window, cursorMode),
                           {{QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Window)}});
 }
 
-WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode)
+WaylandIntegration::StreamWithMetaData WaylandIntegration::WaylandIntegrationPrivate::startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode)
 {
     auto stream = m_screencasting->createOutputStream(screen, mode);
     if (!stream) {
@@ -269,7 +261,7 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
                           });
 }
 
-WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingWorkspace(Screencasting::CursorMode mode)
+WaylandIntegration::StreamWithMetaData WaylandIntegration::WaylandIntegrationPrivate::startStreamingWorkspace(Screencasting::CursorMode mode)
 {
     QRect workspace;
     const auto screens = qGuiApp->screens();
@@ -283,7 +275,7 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
                           });
 }
 
-WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingRegion(const QRect region, Screencasting::CursorMode mode)
+WaylandIntegration::StreamWithMetaData WaylandIntegration::WaylandIntegrationPrivate::startStreamingRegion(const QRect region, Screencasting::CursorMode mode)
 {
     return startStreaming(m_screencasting->createRegionStream(region, 0, mode),
                           {
@@ -292,10 +284,10 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
                           });
 }
 
-WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreamingVirtualOutput(const QString &name,
-                                                                                                      const QString &description,
-                                                                                                      const QSize &size,
-                                                                                                      Screencasting::CursorMode mode)
+WaylandIntegration::StreamWithMetaData WaylandIntegration::WaylandIntegrationPrivate::startStreamingVirtualOutput(const QString &name,
+                                                                                                                  const QString &description,
+                                                                                                                  const QSize &size,
+                                                                                                                  Screencasting::CursorMode mode)
 {
     return startStreaming(m_screencasting->createVirtualOutputStream(name, description, size, 1, mode),
                           {
@@ -304,10 +296,11 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
                           });
 }
 
-WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startStreaming(ScreencastingStream *stream, const QVariantMap &streamOptions)
+WaylandIntegration::StreamWithMetaData WaylandIntegration::WaylandIntegrationPrivate::startStreaming(ScreencastingStream *stream,
+                                                                                                     const QVariantMap &streamOptions)
 {
     QEventLoop loop;
-    Stream ret;
+    StreamWithMetaData ret;
 
     connect(stream, &ScreencastingStream::failed, &loop, [&](const QString &error) {
         qCWarning(XdgDesktopPortalKdeWaylandIntegration) << "failed to start streaming" << stream << error;
@@ -322,14 +315,13 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
     });
     connect(stream, &ScreencastingStream::created, &loop, [&](uint32_t nodeid) {
         ret.stream = stream;
-        ret.nodeId = nodeid;
-        ret.map = streamOptions;
+        ret.metaData = streamOptions;
         m_streams.append(ret);
 
         connect(stream, &ScreencastingStream::closed, this, [this, nodeid] {
             stopStreaming(nodeid);
         });
-        Q_ASSERT(ret.isValid());
+        Q_ASSERT(ret.stream);
 
         loop.quit();
     });
@@ -341,7 +333,7 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
     return ret;
 }
 
-void WaylandIntegration::Stream::close()
+void WaylandIntegration::StreamWithMetaData::close()
 {
     stream->deleteLater();
 }
@@ -349,7 +341,7 @@ void WaylandIntegration::Stream::close()
 void WaylandIntegration::WaylandIntegrationPrivate::stopStreaming(uint32_t nodeid)
 {
     for (auto it = m_streams.begin(), itEnd = m_streams.end(); it != itEnd; ++it) {
-        if (it->nodeId == nodeid) {
+        if (it->stream && it->stream->nodeid() == nodeid) {
             it->close();
             m_streams.erase(it);
             break;
@@ -382,7 +374,7 @@ void WaylandIntegration::WaylandIntegrationPrivate::requestPointerMotionAbsolute
 {
     if (m_fakeInput && m_fakeInput->isActive()) {
         for (auto stream : std::as_const(m_streams)) {
-            if (stream.nodeId == streamNodeId) {
+            if (stream.stream && stream.stream->nodeid() == streamNodeId) {
                 m_fakeInput->pointer_motion_absolute(wl_fixed_from_double(pos.x() + stream.stream->geometry().x()),
                                                      wl_fixed_from_double(pos.y() + stream.stream->geometry().y()));
                 return;

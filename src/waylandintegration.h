@@ -33,18 +33,13 @@ class QWindow;
 namespace WaylandIntegration
 {
 
-struct Stream {
+struct StreamWithMetaData {
     ScreencastingStream *stream = nullptr;
-    uint nodeId;
-    QVariantMap map;
-    bool isValid() const
-    {
-        return stream != nullptr;
-    }
+    QVariantMap metaData;
 
     void close();
 };
-typedef QList<Stream> Streams;
+typedef QList<StreamWithMetaData> Streams;
 
 class WaylandIntegration : public QObject
 {
@@ -57,11 +52,11 @@ Q_SIGNALS:
 bool isStreamingAvailable();
 
 void acquireStreamingInput(bool acquire);
-Stream startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode);
-Stream startStreamingWorkspace(Screencasting::CursorMode mode);
-Stream startStreamingVirtual(const QString &name, const QString &description, const QSize &size, Screencasting::CursorMode mode);
-Stream startStreamingWindow(KWayland::Client::PlasmaWindow *window, Screencasting::CursorMode mode);
-Stream startStreamingRegion(const QRect &region, Screencasting::CursorMode mode);
+StreamWithMetaData startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode);
+StreamWithMetaData startStreamingWorkspace(Screencasting::CursorMode mode);
+StreamWithMetaData startStreamingVirtual(const QString &name, const QString &description, const QSize &size, Screencasting::CursorMode mode);
+StreamWithMetaData startStreamingWindow(KWayland::Client::PlasmaWindow *window, Screencasting::CursorMode mode);
+StreamWithMetaData startStreamingRegion(const QRect &region, Screencasting::CursorMode mode);
 void stopStreaming(uint node);
 
 void requestPointerButtonPress(quint32 linuxButton);
@@ -84,13 +79,10 @@ KWayland::Client::PlasmaWindowManagement *plasmaWindowManagement();
 
 WaylandIntegration *waylandIntegration();
 
-QDebug operator<<(QDebug dbg, const Stream &c);
+QDebug operator<<(QDebug dbg, const StreamWithMetaData &c);
 
-const QDBusArgument &operator<<(QDBusArgument &arg, const Stream &stream);
-const QDBusArgument &operator>>(const QDBusArgument &arg, Stream &stream);
+const QDBusArgument &operator<<(QDBusArgument &arg, const StreamWithMetaData &stream);
+const QDBusArgument &operator>>(const QDBusArgument &arg, StreamWithMetaData &stream);
 }
-
-Q_DECLARE_METATYPE(WaylandIntegration::Stream)
-Q_DECLARE_METATYPE(WaylandIntegration::Streams)
 
 #endif // XDG_DESKTOP_PORTAL_KDE_WAYLAND_INTEGRATION_H

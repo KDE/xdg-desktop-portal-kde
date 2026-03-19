@@ -138,8 +138,10 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
     connect(session, &Session::closed, [session] {
         auto remoteDesktopSession = qobject_cast<RemoteDesktopSession *>(session);
         const auto streams = remoteDesktopSession->streams();
-        for (const WaylandIntegration::Stream &stream : streams) {
-            WaylandIntegration::stopStreaming(stream.nodeId);
+        for (const WaylandIntegration::StreamWithMetaData &stream : streams) {
+            if (stream.stream) {
+                WaylandIntegration::stopStreaming(stream.stream->nodeid());
+            }
         }
         if (remoteDesktopSession->eisCookie()) {
             auto msg = QDBusMessage::createMethodCall(kwinService(), kwinRemoteDesktopPath(), kwinRemoteDesktopInterface(), QStringLiteral("disconnect"));
@@ -198,7 +200,7 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
                                                                     outputName,
                                                                     {1920, 1080},
                                                                     Screencasting::CursorMode(session->cursorMode()));
-            if (!stream.isValid() || !guardedSession) {
+            if (!stream.stream || !guardedSession) {
                 return {PortalResponse::OtherError, {}};
             }
             streams << stream;
@@ -207,7 +209,7 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
             if (session->multipleSources() || screens.count() == 1) {
                 for (const auto &screen : screens) {
                     auto stream = WaylandIntegration::startStreamingOutput(screen, Screencasting::CursorMode(session->cursorMode()));
-                    if (!stream.isValid() || !guardedSession) {
+                    if (!stream.stream || !guardedSession) {
                         return {PortalResponse::OtherError, {}};
                     }
                     streams << stream;
