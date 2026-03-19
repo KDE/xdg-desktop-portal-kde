@@ -471,10 +471,6 @@ void ScreenCastSession::setStreams(const WaylandIntegration::Streams &streams)
 
     for (const auto &s : streams) {
         connect(s.stream, &ScreencastingStream::closed, this, &ScreenCastSession::streamClosed);
-        connect(s.stream, &ScreencastingStream::failed, this, [this](const QString &error) {
-            qCWarning(XdgDesktopPortalKdeScreenCast) << "ScreenCast session failed" << error;
-            streamClosed();
-        });
     }
     m_item->setStatus(KStatusNotifierItem::Active);
 }
