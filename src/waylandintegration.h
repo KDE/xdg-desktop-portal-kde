@@ -54,7 +54,6 @@ Q_SIGNALS:
     void plasmaWindowManagementInitialized();
 };
 
-bool isStreamingEnabled();
 bool isStreamingAvailable();
 
 void acquireStreamingInput(bool acquire);

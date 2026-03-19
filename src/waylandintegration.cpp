@@ -97,11 +97,6 @@ void WaylandIntegration::init()
     globalWaylandIntegration->initWayland();
 }
 
-bool WaylandIntegration::isStreamingEnabled()
-{
-    return globalWaylandIntegration->isStreamingEnabled();
-}
-
 bool WaylandIntegration::isStreamingAvailable()
 {
     return globalWaylandIntegration->isStreamingAvailable();
@@ -220,11 +215,6 @@ WaylandIntegration::WaylandIntegrationPrivate::WaylandIntegrationPrivate()
 }
 
 WaylandIntegration::WaylandIntegrationPrivate::~WaylandIntegrationPrivate() = default;
-
-bool WaylandIntegration::WaylandIntegrationPrivate::isStreamingEnabled() const
-{
-    return !m_streams.isEmpty();
-}
 
 bool WaylandIntegration::WaylandIntegrationPrivate::isStreamingAvailable() const
 {

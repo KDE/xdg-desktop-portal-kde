@@ -66,7 +66,6 @@ private:
 public:
     void authenticate();
 
-    bool isStreamingEnabled() const;
     bool isStreamingAvailable() const;
 
     void acquireStreamingInput(bool acquire);
