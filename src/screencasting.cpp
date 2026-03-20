@@ -6,6 +6,7 @@
 
 #include "screencasting.h"
 #include "qwayland-zkde-screencast-unstable-v1.h"
+#include "screencast.h"
 #include "screencast_debug.h"
 
 #include <KWayland/Client/output.h>
@@ -49,6 +50,7 @@ public:
 
     uint m_nodeid = 0;
     QRect m_geometry;
+    QVariantMap metaData;
     QPointer<ScreencastingStream> q;
 };
 
@@ -68,6 +70,11 @@ quint32 ScreencastingStream::nodeid() const
 QRect ScreencastingStream::geometry() const
 {
     return d->m_geometry;
+}
+
+QVariantMap ScreencastingStream::metaData() const
+{
+    return d->metaData;
 }
 
 class ScreencastingPrivate : public QtWayland::zkde_screencast_unstable_v1
@@ -123,6 +130,11 @@ ScreencastingStream *Screencasting::createOutputStream(QScreen *screen, CursorMo
     connect(screen, &QScreen::geometryChanged, stream, [stream](const QRect &geometry) {
         stream->d->m_geometry = geometry;
     });
+    stream->d->metaData = {
+        {QLatin1String("position"), screen->geometry().topLeft()},
+        {QLatin1String("size"), screen->size()},
+        {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
+    };
     return stream;
 }
 
@@ -134,6 +146,7 @@ ScreencastingStream *Screencasting::createWindowStream(const KWayland::Client::P
     connect(window, &KWayland::Client::PlasmaWindow::geometryChanged, stream, [window, stream] {
         stream->d->m_geometry = window->geometry();
     });
+    stream->d->metaData = {{QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Window)}};
     return stream;
 }
 
@@ -142,6 +155,10 @@ ScreencastingStream *Screencasting::createRegionStream(const QRect &g, qreal sca
     auto stream = new ScreencastingStream(this);
     stream->d->init(d->stream_region(g.x(), g.y(), g.width(), g.height(), wl_fixed_from_double(scale), mode));
     stream->d->m_geometry = g;
+    stream->d->metaData = {
+        {QLatin1String("size"), g.size()},
+        {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
+    };
     return stream;
 }
 
@@ -163,6 +180,10 @@ Screencasting::createVirtualOutputStream(const QString &name, const QString &des
             });
         }
     });
+    stream->d->metaData = {
+        {QLatin1String("size"), s},
+        {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Virtual)},
+    };
     return stream;
 }
 

@@ -37,6 +37,7 @@ public:
     quint32 nodeid() const;
     QRect geometry() const;
 
+    QVariantMap metaData() const;
 Q_SIGNALS:
     void created(quint32 nodeid);
     void failed(const QString &error);

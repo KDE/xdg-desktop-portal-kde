@@ -184,7 +184,7 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
     QVariantMap results;
     QPointer<RemoteDesktopSession> guardedSession(session);
     if (session->screenSharingEnabled()) {
-        std::vector<WaylandIntegration::StreamWithMetaData> streams;
+        std::vector<std::unique_ptr<ScreencastingStream>> streams;
         if (session->types() == ScreenCastPortal::Virtual) {
             const QString outputName = session->appId().isEmpty()
                 ? i18n("Virtual Output")
@@ -193,7 +193,7 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
                                                                     outputName,
                                                                     {1920, 1080},
                                                                     Screencasting::CursorMode(session->cursorMode()));
-            if (!stream.stream || !guardedSession) {
+            if (!stream || !guardedSession) {
                 return {PortalResponse::OtherError, {}};
             }
             streams.push_back(std::move(stream));
@@ -202,7 +202,7 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
             if (session->multipleSources() || screens.count() == 1) {
                 for (const auto &screen : screens) {
                     auto stream = WaylandIntegration::startStreamingOutput(screen, Screencasting::CursorMode(session->cursorMode()));
-                    if (!stream.stream || !guardedSession) {
+                    if (!stream || !guardedSession) {
                         return {PortalResponse::OtherError, {}};
                     }
                     streams.push_back(std::move(stream));
@@ -217,8 +217,10 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
         }
 
         session->setStreams(std::move(streams));
-        QDBusArgument streamsResult;
-        results.insert(QStringLiteral("streams"), QVariant::fromValue(streamsResult << session->streams()));
+        QList<std::pair<uint, QVariantMap>> dbusResultForStreams;
+        std::ranges::transform(session->streams(), std::back_inserter(dbusResultForStreams), [](const std::unique_ptr<ScreencastingStream> &stream) {
+            return std::pair{stream->nodeid(), stream->metaData()};
+        });
     } else {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop()) << "Only stream input";
         session->refreshDescription();
@@ -355,11 +357,11 @@ void RemoteDesktopPortal::NotifyPointerMotionAbsolute(const QDBusObjectPath &ses
         return;
     }
 
-    auto it = std::ranges::find_if(session->streams(), [nodeId = stream](const WaylandIntegration::StreamWithMetaData &stream) {
-        return stream.stream->nodeid() == nodeId;
+    auto it = std::ranges::find_if(session->streams(), [nodeId = stream](const std::unique_ptr<ScreencastingStream> &stream) {
+        return stream->nodeid() == nodeId;
     });
 
-    WaylandIntegration::requestPointerMotionAbsolute(it != session->streams().end() ? it->stream.get() : nullptr, QPointF(x, y));
+    WaylandIntegration::requestPointerMotionAbsolute(it != session->streams().end() ? it->get() : nullptr, QPointF(x, y));
 }
 
 void RemoteDesktopPortal::NotifyPointerButton(const QDBusObjectPath &session_handle, const QVariantMap &options, int button, uint state)

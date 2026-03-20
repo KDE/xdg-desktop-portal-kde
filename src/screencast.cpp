@@ -109,6 +109,8 @@ ScreenCastPortal::ScreenCastPortal(QObject *parent)
 {
     qDBusRegisterMetaType<RestoreData>();
     qRegisterMetaType<QList<WindowRestoreInfo>>();
+    qDBusRegisterMetaType<std::pair<uint, QVariantMap>>();
+    qDBusRegisterMetaType<QList<std::pair<uint, QVariantMap>>>();
 }
 
 ScreenCastPortal::~ScreenCastPortal()
@@ -213,11 +215,11 @@ std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(Screen
 {
     QVariantList outputs;
     QList<WindowRestoreInfo> windows;
-    std::vector<WaylandIntegration::StreamWithMetaData> streams;
+    std::vector<std::unique_ptr<ScreencastingStream>> streams;
     QPointer<ScreenCastSession> guardedSession(session);
     Screencasting::CursorMode cursorMode = Screencasting::CursorMode(session->cursorMode());
     for (const auto &output : std::as_const(selectedOutputs)) {
-        WaylandIntegration::StreamWithMetaData stream;
+        std::unique_ptr<ScreencastingStream> stream;
         switch (output.outputType()) {
         case Output::Region:
             stream = WaylandIntegration::startStreamingRegion(selectedRegion, cursorMode);
@@ -237,7 +239,7 @@ std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(Screen
             break;
         }
 
-        if (!stream.stream) {
+        if (!stream) {
             qCWarning(XdgDesktopPortalKdeScreenCast) << "Invalid screen!" << output.outputType() << output.uniqueId();
             return {PortalResponse::OtherError, {}};
         }
@@ -248,8 +250,8 @@ std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(Screen
         streams.push_back(std::move(stream));
     }
     for (const auto win : std::as_const(selectedWindows)) {
-        WaylandIntegration::StreamWithMetaData stream = WaylandIntegration::startStreamingWindow(win, cursorMode);
-        if (!stream.stream) {
+        std::unique_ptr<ScreencastingStream> stream = WaylandIntegration::startStreamingWindow(win, cursorMode);
+        if (!stream) {
             qCWarning(XdgDesktopPortalKdeScreenCast) << "Invalid window!" << win;
             return {PortalResponse::OtherError, {}};
         }
@@ -272,8 +274,11 @@ std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(Screen
     session->setStreams(std::move(streams));
 
     QVariantMap results;
-    QDBusArgument streamsResult;
-    results.insert(QStringLiteral("streams"), QVariant::fromValue(streamsResult << session->streams()));
+    QList<std::pair<uint, QVariantMap>> dbusResultForStreams;
+    std::ranges::transform(session->streams(), std::back_inserter(dbusResultForStreams), [](const std::unique_ptr<ScreencastingStream> &stream) {
+        return std::pair{stream->nodeid(), stream->metaData()};
+    });
+    results.insert(QStringLiteral("streams"), QVariant::fromValue(dbusResultForStreams));
     if (allowRestore) {
         results.insert(u"persist_mode"_s, quint32(session->persistMode()));
         if (session->persistMode() != ScreenCastPortal::NoPersist) {
@@ -438,7 +443,7 @@ void ScreenCastSession::setOptions(const QVariantMap &options)
     }
 }
 
-void ScreenCastSession::setStreams(std::vector<WaylandIntegration::StreamWithMetaData> &&streams)
+void ScreenCastSession::setStreams(std::vector<std::unique_ptr<ScreencastingStream>> &&streams)
 {
     Q_ASSERT(!streams.empty());
     m_streams = std::move(streams);
@@ -447,7 +452,7 @@ void ScreenCastSession::setStreams(std::vector<WaylandIntegration::StreamWithMet
     if (qobject_cast<RemoteDesktopSession *>(this)) {
         refreshDescription();
     } else {
-        const bool isWindow = m_streams[0].metaData[QLatin1String("source_type")] == ScreenCastPortal::Window;
+        const bool isWindow = m_streams[0]->metaData()[QLatin1String("source_type")] == ScreenCastPortal::Window;
         m_item->setToolTipSubTitle(i18ncp("%1 number of screens, %2 the app that receives them",
                                           "Sharing contents to %2",
                                           "%1 video streams to %2",
@@ -464,7 +469,7 @@ void ScreenCastSession::setStreams(std::vector<WaylandIntegration::StreamWithMet
     m_item->setToolTipTitle(m_item->title());
 
     for (const auto &s : streams) {
-        connect(s.stream.get(), &ScreencastingStream::closed, this, &ScreenCastSession::streamClosed);
+        connect(s.get(), &ScreencastingStream::closed, this, &ScreenCastSession::streamClosed);
     }
     m_item->setStatus(KStatusNotifierItem::Active);
 }
@@ -477,10 +482,9 @@ void ScreenCastSession::setDescription(const QString &description)
 void ScreenCastSession::streamClosed()
 {
     ScreencastingStream *stream = qobject_cast<ScreencastingStream *>(sender());
-    auto [first, last] = std::ranges::remove_if(m_streams, [stream](const WaylandIntegration::StreamWithMetaData &s) {
-        return s.stream.get() == stream;
+    std::erase_if(m_streams, [stream](const std::unique_ptr<ScreencastingStream> &s) {
+        return s.get() == stream;
     });
-    m_streams.erase(first, last);
 
     if (m_streams.empty()) {
         close();

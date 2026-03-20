@@ -122,11 +122,11 @@ public:
         return m_persistMode;
     }
 
-    const std::vector<WaylandIntegration::StreamWithMetaData> &streams() const
+    const std::vector<std::unique_ptr<ScreencastingStream>> &streams() const
     {
         return m_streams;
     }
-    void setStreams(std::vector<WaylandIntegration::StreamWithMetaData> &&streams);
+    void setStreams(std::vector<std::unique_ptr<ScreencastingStream>> &&streams);
     virtual void refreshDescription()
     {
     }
@@ -144,7 +144,7 @@ private:
 
     void streamClosed();
 
-    std::vector<WaylandIntegration::StreamWithMetaData> m_streams;
+    std::vector<std::unique_ptr<ScreencastingStream>> m_streams;
     friend class RemoteDesktopPortal;
 };
 

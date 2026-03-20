@@ -33,11 +33,6 @@ class QWindow;
 namespace WaylandIntegration
 {
 
-struct StreamWithMetaData {
-    std::unique_ptr<ScreencastingStream> stream;
-    QVariantMap metaData;
-};
-
 class WaylandIntegration : public QObject
 {
     Q_OBJECT
@@ -49,11 +44,11 @@ Q_SIGNALS:
 bool isStreamingAvailable();
 
 void acquireStreamingInput(bool acquire);
-StreamWithMetaData startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode);
-StreamWithMetaData startStreamingWorkspace(Screencasting::CursorMode mode);
-StreamWithMetaData startStreamingVirtual(const QString &name, const QString &description, const QSize &size, Screencasting::CursorMode mode);
-StreamWithMetaData startStreamingWindow(KWayland::Client::PlasmaWindow *window, Screencasting::CursorMode mode);
-StreamWithMetaData startStreamingRegion(const QRect &region, Screencasting::CursorMode mode);
+std::unique_ptr<ScreencastingStream> startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode);
+std::unique_ptr<ScreencastingStream> startStreamingWorkspace(Screencasting::CursorMode mode);
+std::unique_ptr<ScreencastingStream> startStreamingVirtual(const QString &name, const QString &description, const QSize &size, Screencasting::CursorMode mode);
+std::unique_ptr<ScreencastingStream> startStreamingWindow(KWayland::Client::PlasmaWindow *window, Screencasting::CursorMode mode);
+std::unique_ptr<ScreencastingStream> startStreamingRegion(const QRect &region, Screencasting::CursorMode mode);
 
 void requestPointerButtonPress(quint32 linuxButton);
 void requestPointerButtonRelease(quint32 linuxButton);
@@ -74,11 +69,6 @@ void init();
 KWayland::Client::PlasmaWindowManagement *plasmaWindowManagement();
 
 WaylandIntegration *waylandIntegration();
-
-QDebug operator<<(QDebug dbg, const StreamWithMetaData &c);
-
-const QDBusArgument &operator<<(QDBusArgument &arg, const StreamWithMetaData &stream);
-const QDBusArgument &operator>>(const QDBusArgument &arg, StreamWithMetaData &stream);
 }
 
 #endif // XDG_DESKTOP_PORTAL_KDE_WAYLAND_INTEGRATION_H
