@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-14 00:46+0000\n"
+"POT-Creation-Date: 2026-03-24 00:46+0000\n"
 "PO-Revision-Date: 2026-02-04 00:45+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -510,24 +510,24 @@ msgstr ""
 "X11 세션에서는 원격 데스크톱을 사용할 수 없습니다. Wayland 세션으로 전환하고 "
 "다시 시도하십시오."
 
-#: src/remotedesktop.cpp:195 src/screencast.cpp:237
+#: src/remotedesktop.cpp:190 src/screencast.cpp:232
 #, kde-format
 msgid "Virtual Output"
 msgstr "가상 출력"
 
-#: src/remotedesktop.cpp:196 src/screencast.cpp:238
+#: src/remotedesktop.cpp:191 src/screencast.cpp:233
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "가상 출력(%1와(과) 공유됨)"
 
-#: src/remotedesktop.cpp:304
+#: src/remotedesktop.cpp:302
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "원격 제어 세션 시작됨"
 
-#: src/remotedesktop.cpp:593
+#: src/remotedesktop.cpp:595
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -629,13 +629,13 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "거부"
 
-#: src/screencast.cpp:149
+#: src/screencast.cpp:151
 #, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
 msgstr "화면 공유를 사용할 수 없음"
 
-#: src/screencast.cpp:151
+#: src/screencast.cpp:153
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -648,7 +648,7 @@ msgstr ""
 "스템에서 화면 공유를 사용할 수 없습니다. Wayland 세션을 실행 중이고 KWin과 같"
 "은 호환 가능한 창 관리자를 실행 중인지 확인하십시오."
 
-#: src/screencast.cpp:155
+#: src/screencast.cpp:157
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -672,14 +672,14 @@ msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "종료"
 
-#: src/screencast.cpp:458
+#: src/screencast.cpp:457
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
 msgstr[0] "비디오 %1개가 %2에 스트림 중"
 
-#: src/screencast.cpp:462
+#: src/screencast.cpp:461
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
@@ -945,12 +945,12 @@ msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
 msgstr "%1에서 바탕 화면과 잠금 화면 배경 그림을 설정하도록 허용하시겠습니까?"
 
-#: src/waylandintegration.cpp:268 src/waylandintegration.cpp:326
+#: src/waylandintegration.cpp:213 src/waylandintegration.cpp:254
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "스크린캐스팅을 시작할 수 없음"
 
-#: src/waylandintegration.cpp:477
+#: src/waylandintegration.cpp:378
 #, kde-format
 msgid "Remote desktop"
 msgstr "원격 데스크톱"

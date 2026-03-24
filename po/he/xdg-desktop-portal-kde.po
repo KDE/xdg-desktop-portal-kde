@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-14 00:46+0000\n"
+"POT-Creation-Date: 2026-03-24 00:46+0000\n"
 "PO-Revision-Date: 2026-03-14 13:02+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -510,24 +510,24 @@ msgstr ""
 "אין תמיכה בשולחן עבודה מרחוק בהפעלות X11. נא לעבור להפעלה של Wayland ולנסות "
 "שוב."
 
-#: src/remotedesktop.cpp:195 src/screencast.cpp:237
+#: src/remotedesktop.cpp:190 src/screencast.cpp:232
 #, kde-format
 msgid "Virtual Output"
 msgstr "פלט וירטואלי"
 
-#: src/remotedesktop.cpp:196 src/screencast.cpp:238
+#: src/remotedesktop.cpp:191 src/screencast.cpp:233
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "פלט וירטואלי (משותף עם %1)"
 
-#: src/remotedesktop.cpp:304
+#: src/remotedesktop.cpp:302
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "החלה שליטה מרחוק"
 
-#: src/remotedesktop.cpp:593
+#: src/remotedesktop.cpp:595
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -629,13 +629,13 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "לסרב"
 
-#: src/screencast.cpp:149
+#: src/screencast.cpp:151
 #, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
 msgstr "שיתוף מסך לא זמין"
 
-#: src/screencast.cpp:151
+#: src/screencast.cpp:153
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -648,7 +648,7 @@ msgstr ""
 "מסך לא זמין במערכת הזה. נא לוודא שהפעלת ה־Wayland רצה עם מנהל חלונות תואם "
 "כגון KWin."
 
-#: src/screencast.cpp:155
+#: src/screencast.cpp:157
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -671,7 +671,7 @@ msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "סיום"
 
-#: src/screencast.cpp:458
+#: src/screencast.cpp:457
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -681,7 +681,7 @@ msgstr[1] "%1 תזרימי וידאו אל %2"
 msgstr[2] "%1 תזרימי וידאו אל %2"
 msgstr[3] "%1 תזרימי וידאו אל %2"
 
-#: src/screencast.cpp:462
+#: src/screencast.cpp:461
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
@@ -955,12 +955,12 @@ msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
 msgstr "לאפשר ל־%1 להגדיר את תמונות הרקע של שולחן העבודה ומסך הנעילה?"
 
-#: src/waylandintegration.cpp:268 src/waylandintegration.cpp:326
+#: src/waylandintegration.cpp:213 src/waylandintegration.cpp:254
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "התחלת הסרטת מסך נכשלה"
 
-#: src/waylandintegration.cpp:477
+#: src/waylandintegration.cpp:378
 #, kde-format
 msgid "Remote desktop"
 msgstr "שולחן עבודה מרחוק"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-14 00:46+0000\n"
+"POT-Creation-Date: 2026-03-24 00:46+0000\n"
 "PO-Revision-Date: 2026-03-14 06:31+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -517,24 +517,24 @@ msgstr ""
 "სესია, მაგრამ ის ხელმისაწვდომი არაა X11-ის სესიებში. გადაერთეთ Wayland-ის "
 "სესიაზე და თავიდან სცადეთ."
 
-#: src/remotedesktop.cpp:195 src/screencast.cpp:237
+#: src/remotedesktop.cpp:190 src/screencast.cpp:232
 #, kde-format
 msgid "Virtual Output"
 msgstr "ვირტუალური გამოტანა"
 
-#: src/remotedesktop.cpp:196 src/screencast.cpp:238
+#: src/remotedesktop.cpp:191 src/screencast.cpp:233
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "ვირტუალური გამოტანა (გაზიარებულია %1-სთან)"
 
-#: src/remotedesktop.cpp:304
+#: src/remotedesktop.cpp:302
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "დაშორებული მართვის სესია დაიწყო"
 
-#: src/remotedesktop.cpp:593
+#: src/remotedesktop.cpp:595
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -636,13 +636,13 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "უარყოფა"
 
-#: src/screencast.cpp:149
+#: src/screencast.cpp:151
 #, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
 msgstr "ეკრანის გაზიარება ხელმისაწვდომი არაა"
 
-#: src/screencast.cpp:151
+#: src/screencast.cpp:153
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -656,7 +656,7 @@ msgstr ""
 "დარწმუნდით, რომ გაშვებული გაქვთ Wayland-ის სესია ისეთი თავსებადი ფანჯრების "
 "მმართველით, როგორიცაა KWin."
 
-#: src/screencast.cpp:155
+#: src/screencast.cpp:157
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -680,7 +680,7 @@ msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "დასრულება"
 
-#: src/screencast.cpp:458
+#: src/screencast.cpp:457
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -688,7 +688,7 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "%2-სთან შემცველობის გაზიარება"
 msgstr[1] "%1 ვიდეონაკადი %2-მდე"
 
-#: src/screencast.cpp:462
+#: src/screencast.cpp:461
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
@@ -962,12 +962,12 @@ msgstr ""
 "მივცე %1-ს ნებართვა, ჩაკეტილი ეკრანის და სამუშაო მაგიდის ფონის სურათ "
 "დააყენოს?"
 
-#: src/waylandintegration.cpp:268 src/waylandintegration.cpp:326
+#: src/waylandintegration.cpp:213 src/waylandintegration.cpp:254
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "ეკრანის გადაცემის დაწყების შეცდომა"
 
-#: src/waylandintegration.cpp:477
+#: src/waylandintegration.cpp:378
 #, kde-format
 msgid "Remote desktop"
 msgstr "დაშორებული სამუშაო მაგიდა"

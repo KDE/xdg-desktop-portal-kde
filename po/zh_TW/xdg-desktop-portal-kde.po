@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-14 00:46+0000\n"
+"POT-Creation-Date: 2026-03-24 00:46+0000\n"
 "PO-Revision-Date: 2026-03-16 16:30+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -504,24 +504,24 @@ msgstr ""
 "應用程式 <application>%1</application> 嘗試使用遠端桌面功能，但遠端桌面功能"
 "在 X11 工作階段無法使用。請切換到 Wayland 工作階段之後再試一次。"
 
-#: src/remotedesktop.cpp:195 src/screencast.cpp:237
+#: src/remotedesktop.cpp:190 src/screencast.cpp:232
 #, kde-format
 msgid "Virtual Output"
 msgstr "虛擬輸出"
 
-#: src/remotedesktop.cpp:196 src/screencast.cpp:238
+#: src/remotedesktop.cpp:191 src/screencast.cpp:233
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "虛擬輸出（與 %1 共享）"
 
-#: src/remotedesktop.cpp:304
+#: src/remotedesktop.cpp:302
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "已開始遠端控制工作階段"
 
-#: src/remotedesktop.cpp:593
+#: src/remotedesktop.cpp:595
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -623,13 +623,13 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "拒絕"
 
-#: src/screencast.cpp:149
+#: src/screencast.cpp:151
 #, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
 msgstr "螢幕分享無法使用"
 
-#: src/screencast.cpp:151
+#: src/screencast.cpp:153
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -641,7 +641,7 @@ msgstr ""
 "應用程式 <application>%1</application> 嘗試進行螢幕分享，但螢幕分享在本系統無"
 "法使用。請確定您使用 Wayland 工作階段與支援的視窗管理員，像是 KWin。"
 
-#: src/screencast.cpp:155
+#: src/screencast.cpp:157
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -664,14 +664,14 @@ msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "結束"
 
-#: src/screencast.cpp:458
+#: src/screencast.cpp:457
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
 msgstr[0] "正在分享 %1 個影像串流給 %2"
 
-#: src/screencast.cpp:462
+#: src/screencast.cpp:461
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
@@ -936,12 +936,12 @@ msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
 msgstr "要允許 %1 設定桌面和鎖定螢幕的背景嗎？"
 
-#: src/waylandintegration.cpp:268 src/waylandintegration.cpp:326
+#: src/waylandintegration.cpp:213 src/waylandintegration.cpp:254
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "無法開始螢幕錄製"
 
-#: src/waylandintegration.cpp:477
+#: src/waylandintegration.cpp:378
 #, kde-format
 msgid "Remote desktop"
 msgstr "遠端桌面"
