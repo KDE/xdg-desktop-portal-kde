@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-24 00:46+0000\n"
+"POT-Creation-Date: 2026-03-25 00:47+0000\n"
 "PO-Revision-Date: 2026-02-01 18:39+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -380,57 +380,57 @@ msgstr "மறைந்துள்ள கோப்புகளைக் கா�
 msgid "Select"
 msgstr "தேர்ந்தெடு"
 
-#: src/outputsmodel.cpp:21
+#: src/outputsmodel.cpp:46
 #, kde-format
 msgid "Share virtual screen"
 msgstr "மெய்நிகர் திரையைப் பகிர்"
 
-#: src/outputsmodel.cpp:25
+#: src/outputsmodel.cpp:50
 #, kde-format
 msgid "Share region"
 msgstr "திரையின் பகுதியைப் பகிர்"
 
-#: src/outputsmodel.cpp:36
+#: src/outputsmodel.cpp:61
 #, kde-format
 msgid "Share full Workspace"
 msgstr "முழுப் பணிமேடையைப் பகிர்"
 
-#: src/outputsmodel.cpp:76
+#: src/outputsmodel.cpp:101
 #, kde-format
 msgid "Laptop screen"
 msgstr "மடிக்கணினித் திரை"
 
-#: src/outputsmodel.cpp:250
+#: src/outputsmodel.cpp:317
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "முழுப் பணிமேடையையும் (அனைத்து திரைகளிலுள்ளவற்றையும்) பகிரும்"
 
-#: src/outputsmodel.cpp:252
+#: src/outputsmodel.cpp:319
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr "தனிப்பட்ட சாளரத்தை மட்டும் காட்டும் மெய்நிகர் திரையை உருவாக்கி, அதைப் பகிரும்"
 
-#: src/outputsmodel.cpp:254
+#: src/outputsmodel.cpp:321
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
 msgstr "திரையின் குறிப்பிட்ட பகுதியை மட்டும் பகிரும்"
 
-#: src/PipeWireDelegate.qml:177
+#: src/PipeWireDelegate.qml:227
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
 msgstr ""
 
-#: src/PipeWireDelegate.qml:182
+#: src/PipeWireDelegate.qml:232
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
 msgstr ""
 
-#: src/PipeWireDelegate.qml:195
+#: src/PipeWireDelegate.qml:245
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"

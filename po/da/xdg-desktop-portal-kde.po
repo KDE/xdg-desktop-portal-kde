@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-24 00:46+0000\n"
+"POT-Creation-Date: 2026-03-25 00:47+0000\n"
 "PO-Revision-Date: 2024-07-18 12:45+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -384,59 +384,59 @@ msgstr "Vis skjulte filer"
 msgid "Select"
 msgstr "Vælg"
 
-#: src/outputsmodel.cpp:21
+#: src/outputsmodel.cpp:46
 #, fuzzy, kde-format
 #| msgid "Share this screen with %1?"
 msgid "Share virtual screen"
 msgstr "Del denne skærm med %1?"
 
-#: src/outputsmodel.cpp:25
+#: src/outputsmodel.cpp:50
 #, kde-format
 msgid "Share region"
 msgstr ""
 
-#: src/outputsmodel.cpp:36
+#: src/outputsmodel.cpp:61
 #, fuzzy, kde-format
 #| msgid "Full Workspace"
 msgid "Share full Workspace"
 msgstr "Fuld arbejdsområde"
 
-#: src/outputsmodel.cpp:76
+#: src/outputsmodel.cpp:101
 #, kde-format
 msgid "Laptop screen"
 msgstr "Bærbarskærm"
 
-#: src/outputsmodel.cpp:250
+#: src/outputsmodel.cpp:317
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr ""
 
-#: src/outputsmodel.cpp:252
+#: src/outputsmodel.cpp:319
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr ""
 
-#: src/outputsmodel.cpp:254
+#: src/outputsmodel.cpp:321
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
 msgstr ""
 
-#: src/PipeWireDelegate.qml:177
+#: src/PipeWireDelegate.qml:227
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
 msgstr ""
 
-#: src/PipeWireDelegate.qml:182
+#: src/PipeWireDelegate.qml:232
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
 msgstr ""
 
-#: src/PipeWireDelegate.qml:195
+#: src/PipeWireDelegate.qml:245
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"

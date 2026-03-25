@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-24 00:46+0000\n"
+"POT-Creation-Date: 2026-03-25 00:47+0000\n"
 "PO-Revision-Date: 2026-03-16 16:30+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -373,57 +373,57 @@ msgstr "顯示隱藏檔案"
 msgid "Select"
 msgstr "選取"
 
-#: src/outputsmodel.cpp:21
+#: src/outputsmodel.cpp:46
 #, kde-format
 msgid "Share virtual screen"
 msgstr "分享虛擬螢幕"
 
-#: src/outputsmodel.cpp:25
+#: src/outputsmodel.cpp:50
 #, kde-format
 msgid "Share region"
 msgstr "分享螢幕範圍"
 
-#: src/outputsmodel.cpp:36
+#: src/outputsmodel.cpp:61
 #, kde-format
 msgid "Share full Workspace"
 msgstr "分享完整作業空間"
 
-#: src/outputsmodel.cpp:76
+#: src/outputsmodel.cpp:101
 #, kde-format
 msgid "Laptop screen"
 msgstr "筆電螢幕"
 
-#: src/outputsmodel.cpp:250
+#: src/outputsmodel.cpp:317
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "分享整個工作空間，包含所有螢幕"
 
-#: src/outputsmodel.cpp:252
+#: src/outputsmodel.cpp:319
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr "在一個視窗裡建立虛擬螢幕，然後分享它"
 
-#: src/outputsmodel.cpp:254
+#: src/outputsmodel.cpp:321
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
 msgstr "裁剪您的螢幕的某個區域"
 
-#: src/PipeWireDelegate.qml:177
+#: src/PipeWireDelegate.qml:227
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
 msgstr "沒有開啟視窗"
 
-#: src/PipeWireDelegate.qml:182
+#: src/PipeWireDelegate.qml:232
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
 msgstr "+%1"
 
-#: src/PipeWireDelegate.qml:195
+#: src/PipeWireDelegate.qml:245
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
