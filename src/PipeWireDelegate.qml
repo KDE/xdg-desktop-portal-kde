@@ -22,7 +22,8 @@ Kirigami.AbstractCard {
     required property string itemDescription
     // Whether or not this is a synthetic "fake" output (e.g. an action to create a region)
     required property bool synthetic
-    required property int nodeId
+    // should be uin64 but is not supported in qml
+    required property var objectSerial
     required property bool exclusive
     /*! The count of synthetic outputs in the model this delegate belongs to */
     required property int syntheticCount
@@ -159,7 +160,7 @@ Kirigami.AbstractCard {
             PipeWire.PipeWireSourceItem {
                 id: pipeWireSourceItem
                 anchors.fill: parent
-                nodeId: root.nodeId
+                objectSerial: root.objectSerial
             }
 
             ShaderEffectSource {
@@ -183,7 +184,7 @@ Kirigami.AbstractCard {
 
             Kirigami.Icon {
                 anchors.fill: parent
-                visible: pipeWireSourceItem.nodeId === 0
+                visible: pipeWireSourceItem.objectSerial === 0
                 source: root.iconSource
             }
         }

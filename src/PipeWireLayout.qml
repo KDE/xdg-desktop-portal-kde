@@ -45,7 +45,7 @@ Kirigami.CardsLayout {
             exclusive: false
             autoExclusive: exclusive
             checked: model.checked === Qt.Checked
-            nodeId: waylandItem.nodeId
+            objectSerial: waylandItem.objectSerial
             syntheticCount: {
                 let model = view.model.sourceModel
                 if (model instanceof OutputsModel) {
