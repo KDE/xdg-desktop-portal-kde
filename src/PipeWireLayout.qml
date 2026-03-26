@@ -45,8 +45,8 @@ Kirigami.CardsLayout {
             exclusive: false
             autoExclusive: exclusive
             checked: model.checked === Qt.Checked
-            nodeId: waylandItem.nodeId
             showResolutionPicker: model.uniqueId === "Virtual"
+            objectSerial: waylandItem.objectSerial
             syntheticCount: {
                 let model = repeater.model.sourceModel
                 if (model instanceof OutputsModel) {
