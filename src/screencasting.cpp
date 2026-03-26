@@ -19,6 +19,7 @@
 #include <qpa/qplatformnativeinterface.h>
 
 using namespace KWayland::Client;
+using namespace Qt::StringLiterals;
 
 constexpr int implementedVersion = 6;
 
@@ -43,6 +44,7 @@ public:
     void zkde_screencast_stream_unstable_v1_serial(uint32_t object_serial_hi, uint32_t object_serial_low) override
     {
         m_objectSerial = static_cast<quint64>(object_serial_hi) << 32 | object_serial_low;
+        metaData.insert(u"pipewire-serial"_s, m_objectSerial);
     }
 
     void zkde_screencast_stream_unstable_v1_closed() override

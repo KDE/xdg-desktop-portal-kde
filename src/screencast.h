@@ -52,7 +52,7 @@ public:
 
     uint version() const
     {
-        return 5;
+        return 6;
     }
     uint AvailableSourceTypes() const
     {
