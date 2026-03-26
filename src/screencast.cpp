@@ -276,7 +276,9 @@ std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(Screen
     QVariantMap results;
     QList<std::pair<uint, QVariantMap>> dbusResultForStreams;
     std::ranges::transform(session->streams(), std::back_inserter(dbusResultForStreams), [](const std::unique_ptr<ScreencastingStream> &stream) {
-        return std::pair{stream->nodeid(), stream->metaData()};
+        QVariantMap map = stream->metaData();
+        map.insert(u"pipewire-serial"_s, stream->objectSerial());
+        return std::pair{stream->nodeid(), map};
     });
     results.insert(QStringLiteral("streams"), QVariant::fromValue(dbusResultForStreams));
     if (allowRestore) {
