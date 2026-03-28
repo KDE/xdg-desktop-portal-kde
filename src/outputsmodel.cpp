@@ -129,7 +129,7 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
         QString dirPath = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation) + u"/xdg-desktop-portal-kde/screen-grabs";
         QDir().mkpath(dirPath);
         QString path = dirPath + u"/%1.XXXXXX.webp"_s.arg(uniqueId);
-        auto temporaryFile = std::make_shared<QTemporaryFile>(path, this);
+        auto temporaryFile = std::make_shared<QTemporaryFile>(path);
         if (!temporaryFile->open()) {
             qCWarning(XdgDesktopPortalKde) << "Failed to create temporary file for screen grab of output" << uniqueId << ":" << temporaryFile->errorString();
             continue;
