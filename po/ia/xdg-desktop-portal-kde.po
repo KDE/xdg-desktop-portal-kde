@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-25 00:47+0000\n"
-"PO-Revision-Date: 2026-03-19 11:11+0100\n"
+"PO-Revision-Date: 2026-03-27 10:52+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -498,6 +498,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Le application <application>%1</application> tentava initiar un session de  "
+"scriptorio remote, sed le scriptorio remote non es disponibile in iste "
+"systema.  Per favor, assecura te que tu executa un session de Wayland con un "
+"gerente  de fenestras compatibile tal como KWin."
 
 #: src/remotedesktop.cpp:124
 #, kde-kuit-format
@@ -507,6 +511,9 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Le application <application>%1</application> tentava initiar un session de "
+"scriptorio remote, sed le scriptorio remote non es disponibile in sessiones "
+"de X11. Per favor, cambia a un session Wayland e tenta de novo."
 
 #: src/remotedesktop.cpp:190 src/screencast.cpp:232
 #, kde-format
@@ -642,6 +649,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Le application <application>%1</application> tentava initiar un session de "
+"compartir schermo, sed le compartir schermo non es disponibile in iste "
+"systema.  Per favor, assecura te que tu executa un session de Wayland con un "
+"gerente  de fenestras compatibile tal como KWin."
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -651,6 +662,9 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Le application <application>%1</application> tentava initiar un session de "
+"compartir le schermo, sed le compartir de schermo non es disponibile  in "
+"sessiones de X11. Per favor, cambia a un session Wayland e tenta de novo."
 
 #: src/screencast.cpp:297
 #, kde-format
