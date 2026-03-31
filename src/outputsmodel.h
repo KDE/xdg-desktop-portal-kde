@@ -177,9 +177,13 @@ public Q_SLOTS:
 Q_SIGNALS:
     void hasSelectionChanged();
 
+private Q_SLOTS:
+    void onOutputsChanged();
+
 private:
     QList<Output> m_outputs;
     QSet<quint32> m_selectedRows;
+    std::unique_ptr<class OutputOrder> m_outputOrder;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(OutputsModel::Options)
