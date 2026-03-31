@@ -219,7 +219,7 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
         session->setStreams(std::move(streams));
         QList<std::pair<uint, QVariantMap>> dbusResultForStreams;
         std::ranges::transform(session->streams(), std::back_inserter(dbusResultForStreams), [](const std::unique_ptr<ScreencastingStream> &stream) {
-            return std::pair{stream->nodeid(), stream->metaData()};
+            return std::pair{stream->nodeId, stream->metaData};
         });
     } else {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop()) << "Only stream input";
@@ -358,7 +358,7 @@ void RemoteDesktopPortal::NotifyPointerMotionAbsolute(const QDBusObjectPath &ses
     }
 
     auto it = std::ranges::find_if(session->streams(), [nodeId = stream](const std::unique_ptr<ScreencastingStream> &stream) {
-        return stream->nodeid() == nodeId;
+        return stream->nodeId == nodeId;
     });
 
     WaylandIntegration::requestPointerMotionAbsolute(it != session->streams().end() ? it->get() : nullptr, QPointF(x, y));

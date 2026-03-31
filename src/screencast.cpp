@@ -145,7 +145,7 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeScreenCast) << "    options: " << options;
 
     if (!WaylandIntegration::isStreamingAvailable()) {
-        qCWarning(XdgDesktopPortalKdeScreenCast) << "zkde_screencast_unstable_v1 does not seem to be available";
+        qCWarning(XdgDesktopPortalKdeScreenCast) << "kde_screencast_v2 does not seem to be available";
         auto appName = Utils::applicationName(app_id);
         Utils::warnNoStreaming({
             .title = i18nc("@title:window", "Screen Sharing Not Available"),
@@ -276,7 +276,7 @@ std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(Screen
     QVariantMap results;
     QList<std::pair<uint, QVariantMap>> dbusResultForStreams;
     std::ranges::transform(session->streams(), std::back_inserter(dbusResultForStreams), [](const std::unique_ptr<ScreencastingStream> &stream) {
-        return std::pair{stream->nodeid(), stream->metaData()};
+        return std::pair{stream->nodeId, stream->metaData};
     });
     results.insert(QStringLiteral("streams"), QVariant::fromValue(dbusResultForStreams));
     if (allowRestore) {
@@ -452,7 +452,7 @@ void ScreenCastSession::setStreams(std::vector<std::unique_ptr<ScreencastingStre
     if (qobject_cast<RemoteDesktopSession *>(this)) {
         refreshDescription();
     } else {
-        const bool isWindow = m_streams[0]->metaData()[QLatin1String("source_type")] == ScreenCastPortal::Window;
+        const bool isWindow = m_streams[0]->metaData[QLatin1String("source_type")] == ScreenCastPortal::Window;
         m_item->setToolTipSubTitle(i18ncp("%1 number of screens, %2 the app that receives them",
                                           "Sharing contents to %2",
                                           "%1 video streams to %2",

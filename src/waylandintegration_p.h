@@ -98,7 +98,7 @@ private:
     bool m_waylandAuthenticationRequested = false;
 
     std::unique_ptr<FakeInput> m_fakeInput;
-    Screencasting *m_screencasting = nullptr;
+    std::unique_ptr<Screencasting> m_screencasting;
 };
 
 }

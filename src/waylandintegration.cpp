@@ -166,7 +166,7 @@ WaylandIntegration::WaylandIntegrationPrivate::WaylandIntegrationPrivate()
     , m_registryInitialized(false)
     , m_registry(nullptr)
     , m_fakeInput(nullptr)
-    , m_screencasting(nullptr)
+    , m_screencasting(std::make_unique<Screencasting>())
 {
 }
 
@@ -174,7 +174,7 @@ WaylandIntegration::WaylandIntegrationPrivate::~WaylandIntegrationPrivate() = de
 
 bool WaylandIntegration::WaylandIntegrationPrivate::isStreamingAvailable() const
 {
-    return m_screencasting;
+    return m_screencasting->isActive();
 }
 
 void WaylandIntegration::WaylandIntegrationPrivate::acquireStreamingInput(bool acquire)
@@ -297,7 +297,7 @@ void WaylandIntegration::WaylandIntegrationPrivate::requestPointerMotionAbsolute
         return;
     }
     if (stream) {
-        m_fakeInput->pointer_motion_absolute(wl_fixed_from_double(pos.x() + stream->geometry().x()), wl_fixed_from_double(pos.y() + stream->geometry().y()));
+        m_fakeInput->pointer_motion_absolute(wl_fixed_from_double(pos.x() + stream->geometry.x()), wl_fixed_from_double(pos.y() + stream->geometry.y()));
     } else {
         // If no stream is found, just send it as absolute coordinates relative to the workspace.
         m_fakeInput->pointer_motion_absolute(wl_fixed_from_double(pos.x()), wl_fixed_from_double(pos.y()));
@@ -395,11 +395,6 @@ void WaylandIntegration::WaylandIntegrationPrivate::initWayland()
 
     m_registry = new KWayland::Client::Registry(this);
 
-    connect(m_registry, &KWayland::Client::Registry::interfaceAnnounced, this, [this](const QByteArray &interfaceName, quint32 name, quint32 version) {
-        if (interfaceName != "zkde_screencast_unstable_v1")
-            return;
-        m_screencasting = new Screencasting(m_registry, name, version, this);
-    });
     connect(m_registry, &KWayland::Client::Registry::plasmaWindowManagementAnnounced, this, [this](quint32 name, quint32 version) {
         m_windowManagement = m_registry->createPlasmaWindowManagement(name, version, this);
         Q_EMIT waylandIntegration()->plasmaWindowManagementInitialized();
