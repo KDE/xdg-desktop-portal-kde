@@ -306,6 +306,7 @@ qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde
     FILES
         ${PLASMA_WAYLAND_PROTOCOLS_DIR}/zkde-screencast-unstable-v1.xml
         ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml
+        ${PLASMA_WAYLAND_PROTOCOLS_DIR}/kde-output-order-v1.xml
         ${Wayland_DATADIR}/wayland.xml
         ${WaylandProtocols_DATADIR}/staging/ext-data-control/ext-data-control-v1.xml
 )
