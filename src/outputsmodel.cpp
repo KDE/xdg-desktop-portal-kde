@@ -15,11 +15,13 @@
 #include <QIcon>
 #include <QStandardPaths>
 #include <QTemporaryFile>
+#include <QWaylandClientExtensionTemplate>
 
 #include <algorithm>
 #include <ranges>
 
 #include "debug.h"
+#include "qwayland-kde-output-order-v1.h"
 
 using namespace Qt::StringLiterals;
 
@@ -39,9 +41,59 @@ Output narrow(Input i)
 }
 } // namespace
 
+class OutputOrder : public QWaylandClientExtensionTemplate<OutputOrder, &QtWayland::kde_output_order_v1::destroy>, public QtWayland::kde_output_order_v1
+{
+    Q_OBJECT
+public:
+    using QWaylandClientExtensionTemplate::QWaylandClientExtensionTemplate;
+
+    bool m_streaming = false;
+    std::optional<QList<QString>> m_outputs;
+
+Q_SIGNALS:
+    void outputsChanged();
+
+protected:
+    void kde_output_order_v1_output(const QString &output_name) override
+    {
+        if (!m_streaming) {
+            m_outputs = QList<QString>(); // (re)set
+            m_streaming = true;
+        }
+        m_outputs->append(output_name);
+    }
+
+    void kde_output_order_v1_done() override
+    {
+        Q_ASSERT(m_streaming);
+        m_streaming = false;
+        Q_EMIT outputsChanged();
+    }
+};
+
 OutputsModel::OutputsModel(Options o, QObject *parent)
     : QAbstractListModel(parent)
+    , m_outputOrder(std::make_unique<OutputOrder>(1))
 {
+    connect(m_outputOrder.get(), &OutputOrder::outputsChanged, this, [this] {
+        const auto order = m_outputOrder->m_outputs;
+        if (!order) {
+            return;
+        }
+
+        // Order doesn't change nearly enough to justify a more surgical approach.
+        beginResetModel();
+        std::ranges::stable_sort(m_outputs, [&order](const Output &a, const Output &b) {
+            const auto indexA = std::ranges::find(*order, a.name());
+            const auto indexB = std::ranges::find(*order, b.name());
+            if (indexA == order->end() || indexB == order->end()) {
+                return false;
+            }
+            return std::distance(order->begin(), indexA) < std::distance(order->begin(), indexB);
+        });
+        endResetModel();
+    });
+
     if (o & VirtualIncluded) {
         m_outputs << Output{Output::Virtual, nullptr, i18n("Share virtual screen"), QStringLiteral("Virtual"), {}, nullptr};
     }
@@ -346,3 +398,4 @@ bool Output::isSynthetic() const
 }
 
 #include "moc_outputsmodel.cpp"
+#include "outputsmodel.moc"
