@@ -42,12 +42,14 @@ Kirigami.AbstractCard {
     hoverEnabled: true
     showClickFeedback: true
 
-
     Component {
         id: checkboxComponent
         QQC2.CheckBox {
             checked: root.checked
-            onToggled: root.checked = checked
+            onToggled: {
+                root.checked = checked
+                root.toggled()
+            }
         }
     }
 
@@ -55,7 +57,10 @@ Kirigami.AbstractCard {
         id: radioComponent
         QQC2.RadioButton {
             checked: root.checked
-            onToggled: root.checked = checked
+            onToggled: {
+                root.checked = checked
+                root.toggled()
+            }
         }
     }
 
