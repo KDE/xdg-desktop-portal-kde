@@ -221,6 +221,7 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
         std::ranges::transform(session->streams(), std::back_inserter(dbusResultForStreams), [](const std::unique_ptr<ScreencastingStream> &stream) {
             return std::pair{stream->nodeid(), stream->metaData()};
         });
+        results.insert(QStringLiteral("streams"), QVariant::fromValue(dbusResultForStreams));
     } else {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop()) << "Only stream input";
         session->refreshDescription();
