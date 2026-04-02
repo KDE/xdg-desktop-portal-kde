@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-25 00:47+0000\n"
+"POT-Creation-Date: 2026-04-02 00:46+0000\n"
 "PO-Revision-Date: 2026-02-04 00:45+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -521,13 +521,13 @@ msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "가상 출력(%1와(과) 공유됨)"
 
-#: src/remotedesktop.cpp:302
+#: src/remotedesktop.cpp:303
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "원격 제어 세션 시작됨"
 
-#: src/remotedesktop.cpp:595
+#: src/remotedesktop.cpp:596
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
