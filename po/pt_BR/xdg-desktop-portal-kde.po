@@ -5,15 +5,15 @@
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2018, 2019, 2020.
 # SPDX-FileCopyrightText: 2023, 2024, 2025 Geraldo Simiao <geraldosimiao@fedoraproject.org>
-# SPDX-FileCopyrightText: 2025 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
+# SPDX-FileCopyrightText: 2025, 2026 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
 # SPDX-FileCopyrightText: 2025, 2026 Marcus Gama <marcus.gama@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-02 00:46+0000\n"
-"PO-Revision-Date: 2026-03-14 09:54-0300\n"
-"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
+"PO-Revision-Date: 2026-04-05 03:59-0300\n"
+"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -628,7 +628,7 @@ msgstr ""
 #: src/RemoteDesktopDialog.qml:31 src/ScreenChooserDialog.qml:190
 #, kde-format
 msgid "Allow restoring on future sessions"
-msgstr "Permite restaurar em sessões futuras"
+msgstr "Permitir restaurar em sessões futuras"
 
 #: src/RemoteDesktopDialog.qml:38
 #, kde-format
@@ -771,22 +771,22 @@ msgstr "Escolher qual janela para compartilhar com %1:"
 #, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
 msgstr ""
-"Criar um novo display virtual para compartilhar com o aplicativo solicitante:"
+"Criar um novo monitor virtual para compartilhar com o aplicativo solicitante:"
 
 #: src/screenchooserdialog.cpp:253
 #, kde-format
 msgid "Create a new virtual display to share with %1:"
-msgstr "Criar um novo display virtual para compartilhar com %1:"
+msgstr "Criar um novo monitor virtual para compartilhar com %1:"
 
 #: src/screenchooserdialog.cpp:259
 #, kde-format
 msgid "Choose what to share with the requesting application:"
-msgstr "Escolher o que compartilhar com o aplicativo solicitado:"
+msgstr "Escolha o que compartilhar com o aplicativo solicitado:"
 
 #: src/screenchooserdialog.cpp:261
 #, kde-format
 msgid "Choose what to share with %1:"
-msgstr "Escolher o que compartilhar com %1:"
+msgstr "Escolha o que compartilhar com %1:"
 
 #: src/ScreenChooserDialog.qml:121
 #, kde-format
