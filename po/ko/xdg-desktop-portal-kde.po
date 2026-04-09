@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-02 00:46+0000\n"
+"POT-Creation-Date: 2026-04-09 00:47+0000\n"
 "PO-Revision-Date: 2026-02-04 00:45+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -415,19 +415,19 @@ msgctxt "@info"
 msgid "Crops a specific area of your screens"
 msgstr "내 화면의 지정한 영역 잘라내기"
 
-#: src/PipeWireDelegate.qml:227
+#: src/PipeWireDelegate.qml:226
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
 msgstr ""
 
-#: src/PipeWireDelegate.qml:232
+#: src/PipeWireDelegate.qml:231
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
 msgstr ""
 
-#: src/PipeWireDelegate.qml:245
+#: src/PipeWireDelegate.qml:244
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
