@@ -426,7 +426,7 @@ msgstr "Crops a specific area of your screens"
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
-msgstr ""
+msgstr "Žiadne otvorené okná"
 
 #: src/PipeWireDelegate.qml:231
 #, kde-format
@@ -438,7 +438,7 @@ msgstr "+%1"
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
-msgstr ""
+msgstr "Zdieľať „%1“"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
@@ -501,6 +501,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"The application <application>%1</application> tried to start a remote "
+"desktop session but remote desktop is not available on this system. Please "
+"ensure you are running a Wayland session with a compatible window manager "
+"such as KWin."
 
 #: src/remotedesktop.cpp:124
 #, kde-kuit-format
@@ -510,6 +514,9 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"The application <application>%1</application> tried to start a remote "
+"desktop session but remote desktop is not available in X11 sessions. Please "
+"switch to a Wayland session and try again."
 
 #: src/remotedesktop.cpp:190 src/screencast.cpp:232
 #, kde-format
@@ -645,6 +652,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"The application <application>%1</application> tried to start a screen "
+"sharing session but screen sharing is not available on this system. Please "
+"ensure you are running a Wayland session with a compatible window manager "
+"such as KWin."
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -654,6 +665,9 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"The application <application>%1</application> tried to start a screen "
+"sharing session but screen sharing is not available in X11 sessions. Please "
+"switch to a Wayland session and try again."
 
 #: src/screencast.cpp:297
 #, kde-format
