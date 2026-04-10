@@ -55,7 +55,7 @@ static int readData(int fd, QByteArray &data)
                 return -1;
             } else if (n == 0) {
                 return 0;
-            } else if (n > 0) {
+            } else { // (n > 0)
                 data.append(buffer, n);
             }
         } else if (pfds[0].revents & POLLHUP) {
