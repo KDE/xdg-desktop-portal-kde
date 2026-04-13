@@ -98,18 +98,8 @@ SelectionEditor::SelectionEditor(QObject *parent)
     connect(qApp, &QGuiApplication::screenRemoved, this, &SelectionEditor::showViews);
     connect(qApp, &QGuiApplication::primaryScreenChanged, this, &SelectionEditor::showViews);
     connect(qApp, &QGuiApplication::focusWindowChanged, this, [this](QWindow *newWindow) {
-        bool focusLost = true;
-
-        if (newWindow) {
-            for (auto *view : m_views) {
-                if (view && newWindow->winId() == view->winId()) {
-                    focusLost = false;
-                    break;
-                }
-            }
-        }
-        if (focusLost) {
-            this->reject();
+        if (!m_views.contains(newWindow)) {
+            reject();
         }
     });
 }

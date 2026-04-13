@@ -357,10 +357,8 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
             if (restoreRegion.isValid()) {
                 selectedRegion = restoreRegion;
                 const auto screens = QGuiApplication::screens();
-                QRegion fullWorkspace;
-                for (const auto screen : screens) {
-                    fullWorkspace += screen->geometry();
-                }
+                const auto geometries = std::views::transform(screens, &QScreen::geometry);
+                const QRect fullWorkspace = std::ranges::fold_left(geometries, QRect(), &QRect::united);
                 valid = fullWorkspace.contains(selectedRegion);
             }
 

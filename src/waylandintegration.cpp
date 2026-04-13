@@ -221,11 +221,9 @@ std::unique_ptr<ScreencastingStream> WaylandIntegration::WaylandIntegrationPriva
 
 std::unique_ptr<ScreencastingStream> WaylandIntegration::WaylandIntegrationPrivate::startStreamingWorkspace(Screencasting::CursorMode mode)
 {
-    QRect workspace;
     const auto screens = qGuiApp->screens();
-    for (QScreen *screen : screens) {
-        workspace |= screen->geometry();
-    }
+    const auto geometries = std::views::transform(screens, &QScreen::geometry);
+    const QRect workspace = std::ranges::fold_left(geometries, QRect(), &QRect::united);
     return startStreaming(m_screencasting->createRegionStream(workspace, 1, mode));
 }
 

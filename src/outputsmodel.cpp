@@ -81,19 +81,17 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
             QLatin1String("LCD"),
         };
 
-        for (const auto &prefix : embedded) {
-            if (screen->name().startsWith(prefix, Qt::CaseInsensitive)) {
-                type = Output::OutputType::Laptop;
-                break;
-            }
+        if (std::ranges::any_of(embedded, [screen](const QString &prefix) {
+                return screen->name().startsWith(prefix, Qt::CaseInsensitive);
+            })) {
+            type = Output::OutputType::Laptop;
+            break;
         }
 
-        if (type == Output::OutputType::Unknown) {
-            if (screen->name().contains(QLatin1String("TV"))) {
-                type = Output::OutputType::Television;
-            } else {
-                type = Output::OutputType::Monitor;
-            }
+        if (screen->name().contains(QLatin1String("TV"))) {
+            type = Output::OutputType::Television;
+        } else {
+            type = Output::OutputType::Monitor;
         }
 
         QString displayText;

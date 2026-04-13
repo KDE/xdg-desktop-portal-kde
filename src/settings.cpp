@@ -104,10 +104,8 @@ public:
     QVariant read(const QString &group, const QString &key) final
     {
         Q_UNUSED(group);
-        for (const auto &keyIt : KEYS) {
-            if (key == keyIt) {
-                return readInternal(key);
-            }
+        if (std::ranges::contains(KEYS, key)) {
+            return readInternal(key);
         }
         return {};
     }

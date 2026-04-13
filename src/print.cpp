@@ -189,12 +189,12 @@ static const StandardPageSize qt_pageSizes[] = {
 // Return key name for PageSize
 static QString qt_keyForPageSizeId(QPageSize::PageSizeId id)
 {
-    for (const auto &pagesize : qt_pageSizes) {
-        if (id == pagesize.id) {
-            return QString::fromLatin1(pagesize.mediaOption);
-        }
+    auto pageSize = std::ranges::find(qt_pageSizes, id, [](const StandardPageSize &pageSize) {
+        return pageSize.id;
+    });
+    if (pageSize != std::ranges::end(qt_pageSizes)) {
+        return QString::fromLatin1(pageSize->mediaOption);
     }
-
     return QLatin1String("Custom");
 }
 
@@ -205,10 +205,11 @@ static QPageSize::PageSizeId qt_idForPpdKey(const QString &ppdKey)
         return QPageSize::Custom;
     }
 
-    for (int i = 0; i <= int(QPageSize::LastPageSize); ++i) {
-        if (QLatin1String(qt_pageSizes[i].mediaOption) == ppdKey) {
-            return qt_pageSizes[i].id;
-        }
+    auto pageSize = std::ranges::find(qt_pageSizes, ppdKey, [](const StandardPageSize &pageSize) {
+        return QLatin1StringView(pageSize.mediaOption);
+    });
+    if (pageSize != std::ranges::end(qt_pageSizes)) {
+        return pageSize->id;
     }
     return QPageSize::Custom;
 }

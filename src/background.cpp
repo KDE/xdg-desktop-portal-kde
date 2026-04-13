@@ -240,14 +240,11 @@ void BackgroundPortal::addWindow(KWayland::Client::PlasmaWindow *window)
         setActiveWindow(window->appId(), window->isActive());
     });
     connect(window, &KWayland::Client::PlasmaWindow::unmapped, this, [this, window]() {
-        uint windows = 0;
         const QString appId = window->appId();
         const auto plasmaWindows = WaylandIntegration::plasmaWindowManagement()->windows();
-        for (KWayland::Client::PlasmaWindow *otherWindow : plasmaWindows) {
-            if (otherWindow->appId() == appId && otherWindow->uuid() != window->uuid()) {
-                windows++;
-            }
-        }
+        const uint windows = std::ranges::count_if(plasmaWindows, [&appId, window](KWayland::Client::PlasmaWindow *w) {
+            return w->appId() == appId && w->uuid() != window->uuid();
+        });
 
         if (!windows) {
             m_appStates.remove(appId);
