@@ -121,6 +121,7 @@ public:
                 QStringList descriptions;
                 std::ranges::sort(conflicts); // Want same order as the main view
                 for (const auto conflict : conflicts) {
+                    // cppcheck-suppress useStlAlgorithm
                     descriptions.push_back(m_shortcuts.at(conflict).description);
                 }
                 return xi18nc("@info:tooltip %1 is a list of actions",
