@@ -23,7 +23,7 @@ std::optional<QKeySequence> XdgShortcut::parse(const QString &shortcutString)
     };
 
     xkb_keysym_t identifier = XKB_KEY_NoSymbol;
-    QStringList modifiers;
+    Qt::KeyboardModifiers modifiers;
 
     QStringView remaining(shortcutString);
     while (!remaining.isEmpty()) {
@@ -50,21 +50,17 @@ std::optional<QKeySequence> XdgShortcut::parse(const QString &shortcutString)
             break;
         } else { // A modifier
             auto modifier = remaining.left(nextPlus);
-            if (!allowedModifiers.contains(modifier.toString())) {
+            auto it = allowedModifiers.find(modifier.toString());
+            if (it == allowedModifiers.cend()) {
                 qWarning() << "Unknown modifier" << modifier;
                 return {};
             }
 
-            modifiers << modifier.toString();
+            modifiers |= it.value();
             remaining = remaining.mid(nextPlus + 1);
         }
     }
 
-    int keys = 0;
-    for (const QString &modifier : std::as_const(modifiers)) {
-        keys |= allowedModifiers[modifier];
-    }
-
-    keys |= QXkbCommon::keysymToQtKey(identifier, Qt::NoModifier, nullptr, XKB_KEYCODE_INVALID);
-    return QKeySequence(keys);
+    int keys = QXkbCommon::keysymToQtKey(identifier, Qt::NoModifier, nullptr, XKB_KEYCODE_INVALID);
+    return QKeySequence(modifiers | keys);
 }
