@@ -363,9 +363,14 @@ void FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
 
     if (options.contains(QStringLiteral("current_folder"))) {
         currentFolder = decodeFileName(options.value(QStringLiteral("current_folder")).toByteArray());
+
         if (QDir::isRelativePath(currentFolder)) {
             qCInfo(XdgDesktopPortalKdeFileChooser) << "ignoring non absolute path" << currentFolder;
             currentFolder.clear();
+        }
+
+        if (!currentFolder.isEmpty() && !currentFolder.endsWith(QLatin1Char('/'))) {
+            currentFolder += QLatin1Char('/');
         }
     }
 
@@ -542,9 +547,14 @@ void FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
 
     if (options.contains(QStringLiteral("current_folder"))) {
         currentFolder = decodeFileName(options.value(QStringLiteral("current_folder")).toByteArray());
+
         if (QDir::isRelativePath(currentFolder)) {
             qCInfo(XdgDesktopPortalKdeFileChooser) << "ignoring non absolute path" << currentFolder;
             currentFolder.clear();
+        }
+
+        if (!currentFolder.isEmpty() && !currentFolder.endsWith(QLatin1Char('/'))) {
+            currentFolder += QLatin1Char('/');
         }
     }
 
