@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-14 00:46+0000\n"
+"POT-Creation-Date: 2026-04-15 00:49+0000\n"
 "PO-Revision-Date: 2026-03-17 23:33+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "luigi.toscano@tiscali.it"
 
-#: src/accessdialog.cpp:27
+#: src/accessdialog.cpp:26
 #, kde-format
 msgid "Request device access"
 msgstr "Richiesta di accesso a dispositivo"
@@ -241,14 +241,14 @@ msgid ""
 msgstr ""
 "La scorciatoia è già assegnata all'azione standard <interface>%1</interface>."
 
-#: src/globalshortcuts.cpp:127
+#: src/globalshortcuts.cpp:128
 #, kde-kuit-format
 msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
 msgstr "La scorciatoia è assegnata a più azioni (<interface>%1</interface>)"
 
-#: src/globalshortcuts.cpp:507
+#: src/globalshortcuts.cpp:508
 #, kde-format
 msgid ", "
 msgstr ", "
@@ -399,24 +399,24 @@ msgstr "Condividi regione"
 msgid "Share full Workspace"
 msgstr "Condividi l'intero spazio di lavoro"
 
-#: src/outputsmodel.cpp:101
+#: src/outputsmodel.cpp:99
 #, kde-format
 msgid "Laptop screen"
 msgstr "Schermo di portatile"
 
-#: src/outputsmodel.cpp:317
+#: src/outputsmodel.cpp:315
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "Condivide l'intero spazio di lavoro da tutti gli schermi"
 
-#: src/outputsmodel.cpp:319
+#: src/outputsmodel.cpp:317
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr "Crea uno schermo dentro una finestra, quindi lo condivide"
 
-#: src/outputsmodel.cpp:321
+#: src/outputsmodel.cpp:319
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
@@ -529,13 +529,13 @@ msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Uscita virtuale (condivisa con %1)"
 
-#: src/remotedesktop.cpp:303
+#: src/remotedesktop.cpp:302
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "Sessione di controllo remoto avviata"
 
-#: src/remotedesktop.cpp:596
+#: src/remotedesktop.cpp:591
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -676,13 +676,13 @@ msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Condivisione dello schermo in corso"
 
-#: src/screencast.cpp:405
+#: src/screencast.cpp:403
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Termina"
 
-#: src/screencast.cpp:457
+#: src/screencast.cpp:455
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -690,96 +690,96 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "Condivisione contenuti con %2"
 msgstr[1] "%1 flussi video con %2"
 
-#: src/screencast.cpp:461
+#: src/screencast.cpp:459
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
 msgstr "Trasmissione dello schermo"
 
-#: src/screenchooserdialog.cpp:158
+#: src/screenchooserdialog.cpp:156
 #, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
 msgstr "Condividi schermo con %1"
 
-#: src/screenchooserdialog.cpp:205
+#: src/screenchooserdialog.cpp:203
 #, kde-format
 msgid "Share this screen with the requesting application?"
 msgstr "Condividi lo schermo con l'applicazione richiedente?"
 
-#: src/screenchooserdialog.cpp:207
+#: src/screenchooserdialog.cpp:205
 #, kde-format
 msgid "Share this screen with %1?"
 msgstr "Condividi questo schermo con %1?"
 
-#: src/screenchooserdialog.cpp:212
+#: src/screenchooserdialog.cpp:210
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr "Scegli gli schermi da condividere con l'applicazione richiedente:"
 
-#: src/screenchooserdialog.cpp:214
+#: src/screenchooserdialog.cpp:212
 #, kde-format
 msgid "Choose screens to share with %1:"
 msgstr "Scegli gli schermi da condividere con %1:"
 
-#: src/screenchooserdialog.cpp:218
+#: src/screenchooserdialog.cpp:216
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr "Scegli lo schermo da condividere con l'applicazione richiedente:"
 
-#: src/screenchooserdialog.cpp:220
+#: src/screenchooserdialog.cpp:218
 #, kde-format
 msgid "Choose which screen to share with %1:"
 msgstr "Scegli lo schermo da condividere con %1:"
 
-#: src/screenchooserdialog.cpp:229
+#: src/screenchooserdialog.cpp:227
 #, kde-format
 msgid "Share this window with the requesting application?"
 msgstr "Condividi questa finestra con l'applicazione richiedente?"
 
-#: src/screenchooserdialog.cpp:231
+#: src/screenchooserdialog.cpp:229
 #, kde-format
 msgid "Share this window with %1?"
 msgstr "Condividi questa finestra con %1?"
 
-#: src/screenchooserdialog.cpp:236
+#: src/screenchooserdialog.cpp:234
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr "Scegli le finestre da condividere con l'applicazione richiedente:"
 
-#: src/screenchooserdialog.cpp:238
+#: src/screenchooserdialog.cpp:236
 #, kde-format
 msgid "Choose windows to share with %1:"
 msgstr "Scegli le finestre da condividere con %1:"
 
-#: src/screenchooserdialog.cpp:242
+#: src/screenchooserdialog.cpp:240
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
 msgstr "Scegli quale finestra condividere con l'applicazione richiedente:"
 
-#: src/screenchooserdialog.cpp:244
+#: src/screenchooserdialog.cpp:242
 #, kde-format
 msgid "Choose which window to share with %1:"
 msgstr "Scegli quale finestra condividere con %1:"
 
-#: src/screenchooserdialog.cpp:251
+#: src/screenchooserdialog.cpp:249
 #, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
 msgstr ""
 "Crea un nuovo schermo virtuale da condividere con l'applicazione richiedente:"
 
-#: src/screenchooserdialog.cpp:253
+#: src/screenchooserdialog.cpp:251
 #, kde-format
 msgid "Create a new virtual display to share with %1:"
 msgstr "Crea un nuovo schermo virtuale da condividere con %1:"
 
-#: src/screenchooserdialog.cpp:259
+#: src/screenchooserdialog.cpp:257
 #, kde-format
 msgid "Choose what to share with the requesting application:"
 msgstr "Scegli cosa condividere con l'applicazione richiedente:"
 
-#: src/screenchooserdialog.cpp:261
+#: src/screenchooserdialog.cpp:259
 #, kde-format
 msgid "Choose what to share with %1:"
 msgstr "Scegli cosa condividere con %1:"
@@ -966,12 +966,12 @@ msgstr ""
 "Autorizzare %1 ad impostare lo sfondo del desktop e della schermata di "
 "blocco?"
 
-#: src/waylandintegration.cpp:213 src/waylandintegration.cpp:254
+#: src/waylandintegration.cpp:213 src/waylandintegration.cpp:252
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Connessione alla registrazione dello schermo non riuscita"
 
-#: src/waylandintegration.cpp:378
+#: src/waylandintegration.cpp:376
 #, kde-format
 msgid "Remote desktop"
 msgstr "Desktop remoto"
