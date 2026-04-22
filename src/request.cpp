@@ -45,11 +45,11 @@ bool Request::handleMessage(const QDBusMessage &message, const QDBusConnection &
     if (message.interface() == QLatin1String("org.freedesktop.impl.portal.Request")) {
         if (message.member() == QLatin1String("Close")) {
             Q_EMIT closeRequested();
-            connection.send(message.createReply());
+            return connection.send(message.createReply());
         }
     }
 
-    return true;
+    return false;
 }
 
 QString Request::introspect(const QString &path) const
