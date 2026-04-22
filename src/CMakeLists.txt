@@ -80,6 +80,7 @@ set(xdg_desktop_portal_kde_SRCS
     screenshotdialog.cpp
     screenshotdialog.h
     screenshot.h
+    secret.cpp
     session.cpp
     session.h
     settings.cpp

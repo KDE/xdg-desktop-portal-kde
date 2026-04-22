@@ -24,6 +24,7 @@
 #include "remotedesktop.h"
 #include "screencast.h"
 #include "screenshot.h"
+#include "secret.h"
 #include "settings.h"
 #include "usb.h"
 #include "wallpaper.h"
@@ -52,6 +53,7 @@ DesktopPortal::DesktopPortal(QObject *parent)
         new InputCapturePortal(this);
         new ClipboardPortal(this);
         new WallpaperPortal(this);
+        new SecretPortal(this);
         WaylandIntegration::init();
     }
     new UsbPortal(this);
