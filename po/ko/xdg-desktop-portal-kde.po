@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-15 00:49+0000\n"
-"PO-Revision-Date: 2026-02-04 00:45+0100\n"
+"PO-Revision-Date: 2026-04-26 22:18+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -419,19 +419,19 @@ msgstr "내 화면의 지정한 영역 잘라내기"
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
-msgstr ""
+msgstr "열린 창 없음"
 
 #: src/PipeWireDelegate.qml:237
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
-msgstr ""
+msgstr "+%1개"
 
 #: src/PipeWireDelegate.qml:250
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
-msgstr ""
+msgstr "\"%1\" 공유"
 
 #: src/region-select/RegionSelectOverlay.qml:147
 #, kde-format
@@ -844,7 +844,7 @@ msgstr "커서 포인터 포함"
 #: src/ScreenshotDialog.qml:61
 #, kde-format
 msgid "Include window borders"
-msgstr "창 경계선 포함"
+msgstr "창 테두리 포함"
 
 #: src/ScreenshotDialog.qml:77
 #, kde-format
