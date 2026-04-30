@@ -20,6 +20,8 @@
 
 using namespace KWayland::Client;
 
+constexpr int implementedVersion = 6;
+
 class ScreencastingStreamPrivate : public QtWayland::zkde_screencast_stream_unstable_v1
 {
 public:
@@ -38,6 +40,11 @@ public:
         Q_EMIT q->created(node);
     }
 
+    void zkde_screencast_stream_unstable_v1_serial(uint32_t object_serial_hi, uint32_t object_serial_low) override
+    {
+        m_objectSerial = static_cast<quint64>(object_serial_hi) << 32 | object_serial_low;
+    }
+
     void zkde_screencast_stream_unstable_v1_closed() override
     {
         Q_EMIT q->closed();
@@ -49,6 +56,7 @@ public:
     }
 
     uint m_nodeid = 0;
+    quint64 m_objectSerial = -1;
     QRect m_geometry;
     QVariantMap metaData;
     QPointer<ScreencastingStream> q;
@@ -67,6 +75,11 @@ quint32 ScreencastingStream::nodeid() const
     return d->m_nodeid;
 }
 
+quint64 ScreencastingStream::objectSerial() const
+{
+    return d->m_objectSerial;
+}
+
 QRect ScreencastingStream::geometry() const
 {
     return d->m_geometry;
@@ -81,7 +94,7 @@ class ScreencastingPrivate : public QtWayland::zkde_screencast_unstable_v1
 {
 public:
     ScreencastingPrivate(Registry *registry, int id, int version, Screencasting *q)
-        : QtWayland::zkde_screencast_unstable_v1(*registry, id, version)
+        : QtWayland::zkde_screencast_unstable_v1(*registry, id, std::min(version, implementedVersion))
         , q(q)
     {
     }
