@@ -35,6 +35,7 @@ public:
     ~ScreencastingStream() override;
 
     quint32 nodeid() const;
+    quint64 objectSerial() const;
     QRect geometry() const;
 
     QVariantMap metaData() const;
