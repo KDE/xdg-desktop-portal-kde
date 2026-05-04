@@ -31,6 +31,8 @@
 
 #include <KWayland/Client/plasmawindowmanagement.h>
 
+using namespace Qt::StringLiterals;
+
 BackgroundPortal::BackgroundPortal(QObject *parent, QDBusContext *context)
     : QDBusAbstractAdaptor(parent)
     , m_context(context)
@@ -230,20 +232,28 @@ bool BackgroundPortal::EnableAutostart(const QString &app_id, bool enable, const
     return true;
 }
 
+QString lookUpAppId(KWayland::Client::PlasmaWindow *window)
+{
+    const QString flatpakInfoPath = u"/proc/"_s + QString::number(window->pid()) + u"/root/.flatpak-info"_s;
+    const QSettings flatpakInfo(flatpakInfoPath, QSettings::IniFormat);
+    const auto appId = flatpakInfo.value("Application/name"_L1, window->appId()).toString();
+    return appId;
+}
+
 void BackgroundPortal::addWindow(KWayland::Client::PlasmaWindow *window)
 {
-    const QString appId = window->appId();
+    const QString appId = lookUpAppId(window);
+    window->setProperty("appId", appId);
     const bool isActive = window->isActive();
     m_appStates[appId] = QVariant::fromValue<uint>(isActive ? Active : Running);
 
     connect(window, &KWayland::Client::PlasmaWindow::activeChanged, this, [this, window]() {
         setActiveWindow(window->appId(), window->isActive());
     });
-    connect(window, &KWayland::Client::PlasmaWindow::unmapped, this, [this, window]() {
-        const QString appId = window->appId();
+    connect(window, &KWayland::Client::PlasmaWindow::unmapped, this, [this, window, appId]() {
         const auto plasmaWindows = WaylandIntegration::plasmaWindowManagement()->windows();
         const uint windows = std::ranges::count_if(plasmaWindows, [&appId, window](KWayland::Client::PlasmaWindow *w) {
-            return w->appId() == appId && w->uuid() != window->uuid();
+            return w->property("appId").toString() == appId && w->uuid() != window->uuid();
         });
 
         if (!windows) {
