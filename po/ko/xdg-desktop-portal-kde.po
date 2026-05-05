@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:49+0000\n"
+"POT-Creation-Date: 2026-05-05 00:46+0000\n"
 "PO-Revision-Date: 2026-04-26 22:18+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -121,12 +121,12 @@ msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "명령이 끝나도 닫지 않기"
 
-#: src/background.cpp:132
+#: src/background.cpp:134
 #, kde-format
 msgid "Background Activity"
 msgstr "백그라운드 활동"
 
-#: src/background.cpp:135
+#: src/background.cpp:137
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -136,20 +136,20 @@ msgstr ""
 "%1에서 표시되는 창이 없을 때에도 계속 실행되기를 요청하고 있습니다. 이를 금지"
 "하면 마지막 창을 닫을 때 앱을 끝냅니다."
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:143 src/background.cpp:160
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "허용"
 
-#: src/background.cpp:148
+#: src/background.cpp:150
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "금지"
 
-#: src/background.cpp:152
+#: src/background.cpp:154
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -157,7 +157,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "백그라운드 앱 사용"
 
-#: src/background.cpp:154
+#: src/background.cpp:156
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -168,7 +168,7 @@ msgstr ""
 "마지막 창을 닫았을 때 %1을(를) 강제로 종료합니다. 앱에 저장되지 않은 데이터"
 "가 있는 경우 손실됩니다."
 
-#: src/background.cpp:159
+#: src/background.cpp:161
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -377,39 +377,39 @@ msgstr "숨겨진 파일 표시"
 msgid "Select"
 msgstr "선택"
 
-#: src/outputsmodel.cpp:46
+#: src/outputsmodel.cpp:83
 #, kde-format
 msgid "Share virtual screen"
 msgstr "가상 화면 공유"
 
-#: src/outputsmodel.cpp:50
+#: src/outputsmodel.cpp:87
 #, kde-format
 msgid "Share region"
 msgstr "영역 공유"
 
-#: src/outputsmodel.cpp:61
+#: src/outputsmodel.cpp:98
 #, kde-format
 msgid "Share full Workspace"
 msgstr "전체 작업 공간 공유"
 
-#: src/outputsmodel.cpp:99
+#: src/outputsmodel.cpp:136
 #, kde-format
 msgid "Laptop screen"
 msgstr "노트북 화면"
 
-#: src/outputsmodel.cpp:315
+#: src/outputsmodel.cpp:372
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "모든 화면에 걸친 전체 작업 공간 공유"
 
-#: src/outputsmodel.cpp:317
+#: src/outputsmodel.cpp:374
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr "창 안에 화면을 만들고 그 화면 공유"
 
-#: src/outputsmodel.cpp:319
+#: src/outputsmodel.cpp:376
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"

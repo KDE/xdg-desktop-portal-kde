@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:49+0000\n"
+"POT-Creation-Date: 2026-05-05 00:46+0000\n"
 "PO-Revision-Date: 2025-01-11 11:55+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -129,12 +129,12 @@ msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "Pozostaw otwartym po zakończeniu polecenia"
 
-#: src/background.cpp:132
+#: src/background.cpp:134
 #, kde-format
 msgid "Background Activity"
 msgstr "Aktywność w tle"
 
-#: src/background.cpp:135
+#: src/background.cpp:137
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -144,20 +144,20 @@ msgstr ""
 "%1 chce działać w tle, tzn. gdy żadne z jego okien nie jest widoczne. Jeśli "
 "zabronisz tego, to zostanie zamknięty z zamknięciem ostatniego okna."
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:143 src/background.cpp:160
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Zezwól"
 
-#: src/background.cpp:148
+#: src/background.cpp:150
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "Zabroń"
 
-#: src/background.cpp:152
+#: src/background.cpp:154
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -165,7 +165,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Użycie aplikacji w tle"
 
-#: src/background.cpp:154
+#: src/background.cpp:156
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -177,7 +177,7 @@ msgstr ""
 "okno. Może to spowodować utratę danych, gdy aplikacja ich nie zapisała, "
 "zanim to nastąpi."
 
-#: src/background.cpp:159
+#: src/background.cpp:161
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -387,41 +387,41 @@ msgstr "Pokaż ukryte pliki"
 msgid "Select"
 msgstr "Wybierz"
 
-#: src/outputsmodel.cpp:46
+#: src/outputsmodel.cpp:83
 #, fuzzy, kde-format
 #| msgid "Share this screen with %1?"
 msgid "Share virtual screen"
 msgstr "Czy udostępnić ten ekran %1?"
 
-#: src/outputsmodel.cpp:50
+#: src/outputsmodel.cpp:87
 #, kde-format
 msgid "Share region"
 msgstr ""
 
-#: src/outputsmodel.cpp:61
+#: src/outputsmodel.cpp:98
 #, fuzzy, kde-format
 #| msgid "Full Workspace"
 msgid "Share full Workspace"
 msgstr "Pełna przestrzeń pracy"
 
-#: src/outputsmodel.cpp:99
+#: src/outputsmodel.cpp:136
 #, kde-format
 msgid "Laptop screen"
 msgstr "Ekran laptopa"
 
-#: src/outputsmodel.cpp:315
+#: src/outputsmodel.cpp:372
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr ""
 
-#: src/outputsmodel.cpp:317
+#: src/outputsmodel.cpp:374
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr ""
 
-#: src/outputsmodel.cpp:319
+#: src/outputsmodel.cpp:376
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:49+0000\n"
+"POT-Creation-Date: 2026-05-05 00:46+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -129,12 +129,12 @@ msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "यदा आदेशः निर्गच्छति तदा न पिधातु"
 
-#: src/background.cpp:132
+#: src/background.cpp:134
 #, kde-format
 msgid "Background Activity"
 msgstr "पृष्ठभूमि क्रियाकलाप"
 
-#: src/background.cpp:135
+#: src/background.cpp:137
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -144,20 +144,20 @@ msgstr ""
 "%1 यदा तस्य दृश्यविण्डोः नास्ति तदा चालितं तिष्ठतुम् इच्छति । यदि भवान् एतत् निषिद्धं "
 "करोति तर्हि अनुप्रयोगः यदा तस्य अन्तिमविण्डो पिहितः भवति तदा निर्गमिष्यति ।"
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:143 src/background.cpp:160
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "अनुमन्यताम्‌"
 
-#: src/background.cpp:148
+#: src/background.cpp:150
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "निषेधं कुरुत"
 
-#: src/background.cpp:152
+#: src/background.cpp:154
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -165,7 +165,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "पृष्ठभूमि एप्लिकेशन उपयोग"
 
-#: src/background.cpp:154
+#: src/background.cpp:156
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -177,7 +177,7 @@ msgstr ""
 "दत्तांशहानिः भवितुम् अर्हति यदि अनुप्रयोगे यदा एतत् भवति तदा किमपि अरक्षितं परिवर्तनं "
 "भवति ।"
 
-#: src/background.cpp:159
+#: src/background.cpp:161
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -382,41 +382,41 @@ msgstr "गुप्तसञ्चिकाः दर्शयतु"
 msgid "Select"
 msgstr "विचि"
 
-#: src/outputsmodel.cpp:46
+#: src/outputsmodel.cpp:83
 #, fuzzy, kde-format
 #| msgid "Share this screen with %1?"
 msgid "Share virtual screen"
 msgstr "%1 इत्यनेन सह एतत् पटलं साझां कुर्वन्तु?"
 
-#: src/outputsmodel.cpp:50
+#: src/outputsmodel.cpp:87
 #, kde-format
 msgid "Share region"
 msgstr ""
 
-#: src/outputsmodel.cpp:61
+#: src/outputsmodel.cpp:98
 #, fuzzy, kde-format
 #| msgid "Full Workspace"
 msgid "Share full Workspace"
 msgstr "पूर्ण कार्यक्षेत्र"
 
-#: src/outputsmodel.cpp:99
+#: src/outputsmodel.cpp:136
 #, kde-format
 msgid "Laptop screen"
 msgstr "लैपटॉप स्क्रीन"
 
-#: src/outputsmodel.cpp:315
+#: src/outputsmodel.cpp:372
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr ""
 
-#: src/outputsmodel.cpp:317
+#: src/outputsmodel.cpp:374
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr ""
 
-#: src/outputsmodel.cpp:319
+#: src/outputsmodel.cpp:376
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"

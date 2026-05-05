@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:49+0000\n"
+"POT-Creation-Date: 2026-05-05 00:46+0000\n"
 "PO-Revision-Date: 2026-03-14 13:38+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -126,12 +126,12 @@ msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "Не закривати після завершення виконання програми"
 
-#: src/background.cpp:132
+#: src/background.cpp:134
 #, kde-format
 msgid "Background Activity"
 msgstr "Фонова робота"
 
-#: src/background.cpp:135
+#: src/background.cpp:137
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -142,20 +142,20 @@ msgstr ""
 "продовження роботи, роботу програми буде припинено, щойно буде закрито її "
 "останнє вікно."
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:143 src/background.cpp:160
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Дозволити"
 
-#: src/background.cpp:148
+#: src/background.cpp:150
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "Заборонити"
 
-#: src/background.cpp:152
+#: src/background.cpp:154
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -163,7 +163,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Використання фонової роботи"
 
-#: src/background.cpp:154
+#: src/background.cpp:156
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -175,7 +175,7 @@ msgstr ""
 "останнього вікна програми. Це може призвести до втрати даних, якщо у "
 "програмі лишаються незбережені дані на момент завершення роботи."
 
-#: src/background.cpp:159
+#: src/background.cpp:161
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -389,39 +389,39 @@ msgstr "Показати приховані файли"
 msgid "Select"
 msgstr "Вибрати"
 
-#: src/outputsmodel.cpp:46
+#: src/outputsmodel.cpp:83
 #, kde-format
 msgid "Share virtual screen"
 msgstr "Поділитися віртуальним екраном"
 
-#: src/outputsmodel.cpp:50
+#: src/outputsmodel.cpp:87
 #, kde-format
 msgid "Share region"
 msgstr "Поділитися ділянкою"
 
-#: src/outputsmodel.cpp:61
+#: src/outputsmodel.cpp:98
 #, kde-format
 msgid "Share full Workspace"
 msgstr "Поділитися усім робочим простором"
 
-#: src/outputsmodel.cpp:99
+#: src/outputsmodel.cpp:136
 #, kde-format
 msgid "Laptop screen"
 msgstr "Екран ноутбука"
 
-#: src/outputsmodel.cpp:315
+#: src/outputsmodel.cpp:372
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "Оприлюднювати увесь робочий простір на усіх екранах"
 
-#: src/outputsmodel.cpp:317
+#: src/outputsmodel.cpp:374
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr "Створити екран у вікні, потім поширити"
 
-#: src/outputsmodel.cpp:319
+#: src/outputsmodel.cpp:376
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"

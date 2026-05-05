@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:49+0000\n"
+"POT-Creation-Date: 2026-05-05 00:46+0000\n"
 "PO-Revision-Date: 2023-01-19 03:02+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -122,13 +122,13 @@ msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr ""
 
-#: src/background.cpp:132
+#: src/background.cpp:134
 #, fuzzy, kde-format
 #| msgid "Background activity"
 msgid "Background Activity"
 msgstr "Actividade em segundo plano"
 
-#: src/background.cpp:135
+#: src/background.cpp:137
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -136,21 +136,21 @@ msgid ""
 "this, the application will quit when its last window is closed."
 msgstr ""
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:143 src/background.cpp:160
 #, fuzzy, kde-format
 #| msgid "Allow"
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Permitir"
 
-#: src/background.cpp:148
+#: src/background.cpp:150
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr ""
 
-#: src/background.cpp:152
+#: src/background.cpp:154
 #, fuzzy, kde-format
 #| msgid "Background activity"
 msgctxt ""
@@ -159,7 +159,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Actividade em segundo plano"
 
-#: src/background.cpp:154
+#: src/background.cpp:156
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -168,7 +168,7 @@ msgid ""
 "happens."
 msgstr ""
 
-#: src/background.cpp:159
+#: src/background.cpp:161
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -379,41 +379,41 @@ msgstr "Mostrar os Ficheiros Escondidos"
 msgid "Select"
 msgstr "Seleccionar a Pasta"
 
-#: src/outputsmodel.cpp:46
+#: src/outputsmodel.cpp:83
 #, fuzzy, kde-format
 #| msgid "Share this screen with %1?"
 msgid "Share virtual screen"
 msgstr "Partilhar este ecrã com o %1?"
 
-#: src/outputsmodel.cpp:50
+#: src/outputsmodel.cpp:87
 #, kde-format
 msgid "Share region"
 msgstr ""
 
-#: src/outputsmodel.cpp:61
+#: src/outputsmodel.cpp:98
 #, fuzzy, kde-format
 #| msgid "Full Workspace"
 msgid "Share full Workspace"
 msgstr "Área de Trabalho Completa"
 
-#: src/outputsmodel.cpp:99
+#: src/outputsmodel.cpp:136
 #, kde-format
 msgid "Laptop screen"
 msgstr "Ecrã do portátil"
 
-#: src/outputsmodel.cpp:315
+#: src/outputsmodel.cpp:372
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr ""
 
-#: src/outputsmodel.cpp:317
+#: src/outputsmodel.cpp:374
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr ""
 
-#: src/outputsmodel.cpp:319
+#: src/outputsmodel.cpp:376
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"

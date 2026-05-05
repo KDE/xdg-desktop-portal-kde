@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:49+0000\n"
+"POT-Creation-Date: 2026-05-05 00:46+0000\n"
 "PO-Revision-Date: 2026-03-14 12:06+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -122,12 +122,12 @@ msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "Niet sluiten als het commando eindigt"
 
-#: src/background.cpp:132
+#: src/background.cpp:134
 #, kde-format
 msgid "Background Activity"
 msgstr "Achtergrondactiviteit"
 
-#: src/background.cpp:135
+#: src/background.cpp:137
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -138,20 +138,20 @@ msgstr ""
 "verbiedt zal de toepassing afsluiten wanneer zijn laatste venster is "
 "gesloten."
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:143 src/background.cpp:160
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "Toestaan"
 
-#: src/background.cpp:148
+#: src/background.cpp:150
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "Verbieden"
 
-#: src/background.cpp:152
+#: src/background.cpp:154
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -159,7 +159,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "Gebruik van achtergrondtoepassing"
 
-#: src/background.cpp:154
+#: src/background.cpp:156
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -171,7 +171,7 @@ msgstr ""
 "gesloten. Dit zou verlies van gegevens kunnen betekenen als de toepassing "
 "enige niet opgeslagen wijzigingen heeft wanneer dat gebeurt."
 
-#: src/background.cpp:159
+#: src/background.cpp:161
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -385,39 +385,39 @@ msgstr "Verborgen bestanden tonen"
 msgid "Select"
 msgstr "Selecteren:"
 
-#: src/outputsmodel.cpp:46
+#: src/outputsmodel.cpp:83
 #, kde-format
 msgid "Share virtual screen"
 msgstr "Virtueel scherm delen"
 
-#: src/outputsmodel.cpp:50
+#: src/outputsmodel.cpp:87
 #, kde-format
 msgid "Share region"
 msgstr "Gebied delen"
 
-#: src/outputsmodel.cpp:61
+#: src/outputsmodel.cpp:98
 #, kde-format
 msgid "Share full Workspace"
 msgstr "Volledige werkruimte delen"
 
-#: src/outputsmodel.cpp:99
+#: src/outputsmodel.cpp:136
 #, kde-format
 msgid "Laptop screen"
 msgstr "Laptopscherm"
 
-#: src/outputsmodel.cpp:315
+#: src/outputsmodel.cpp:372
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "De gehele werkruimte over all schermen delen"
 
-#: src/outputsmodel.cpp:317
+#: src/outputsmodel.cpp:374
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr "Maakt een scherm binnen een venster, daarna delen"
 
-#: src/outputsmodel.cpp:319
+#: src/outputsmodel.cpp:376
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:49+0000\n"
+"POT-Creation-Date: 2026-05-05 00:46+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -122,12 +122,12 @@ msgctxt "@option:check"
 msgid "Do not close when command exits"
 msgstr "命令退出时不关闭终端"
 
-#: src/background.cpp:132
+#: src/background.cpp:134
 #, kde-format
 msgid "Background Activity"
 msgstr "后台活动"
 
-#: src/background.cpp:135
+#: src/background.cpp:137
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
@@ -137,20 +137,20 @@ msgstr ""
 "%1 请求在不显示可见窗口的情况下继续运行。如果您禁止此请求，该应用程序将在它的"
 "最后一个窗口关闭时退出。"
 
-#: src/background.cpp:141 src/background.cpp:158
+#: src/background.cpp:143 src/background.cpp:160
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
 msgstr "允许"
 
-#: src/background.cpp:148
+#: src/background.cpp:150
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
 msgstr "禁止"
 
-#: src/background.cpp:152
+#: src/background.cpp:154
 #, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
@@ -158,7 +158,7 @@ msgctxt ""
 msgid "Background App Usage"
 msgstr "应用程序后台运行请求"
 
-#: src/background.cpp:154
+#: src/background.cpp:156
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid ""
@@ -169,7 +169,7 @@ msgstr ""
 "请注意：这将强制 %1 在它的最后一个窗口关闭时退出。如果该应用程序被强制退出时"
 "有未保存的更改，这可能会造成数据丢失。"
 
-#: src/background.cpp:159
+#: src/background.cpp:161
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
@@ -373,39 +373,39 @@ msgstr "显示隐藏文件"
 msgid "Select"
 msgstr "选择"
 
-#: src/outputsmodel.cpp:46
+#: src/outputsmodel.cpp:83
 #, kde-format
 msgid "Share virtual screen"
 msgstr "共享虚拟屏幕"
 
-#: src/outputsmodel.cpp:50
+#: src/outputsmodel.cpp:87
 #, kde-format
 msgid "Share region"
 msgstr "共享屏幕区域"
 
-#: src/outputsmodel.cpp:61
+#: src/outputsmodel.cpp:98
 #, kde-format
 msgid "Share full Workspace"
 msgstr "共享完整工作区"
 
-#: src/outputsmodel.cpp:99
+#: src/outputsmodel.cpp:136
 #, kde-format
 msgid "Laptop screen"
 msgstr "笔记本屏幕"
 
-#: src/outputsmodel.cpp:315
+#: src/outputsmodel.cpp:372
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "共享全部屏幕的完整工作区"
 
-#: src/outputsmodel.cpp:317
+#: src/outputsmodel.cpp:374
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr "创建一个位于窗口内部的虚拟屏幕然后共享"
 
-#: src/outputsmodel.cpp:319
+#: src/outputsmodel.cpp:376
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
