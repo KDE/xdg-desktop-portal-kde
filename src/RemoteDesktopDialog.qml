@@ -19,17 +19,16 @@ PortalDialog {
     height: contentHeight
     iconName: "krfb"
 
-    ColumnLayout {
-        QQC2.Label {
-            id: desc
-            textFormat: Text.MarkdownText
-            Layout.fillHeight: true
-        }
-        QQC2.CheckBox {
-            id: allowRestoreItem
-            checked: true
-            text: i18n("Allow restoring on future sessions")
-        }
+    QQC2.Label {
+        id: desc
+        textFormat: Text.MarkdownText
+        Layout.fillHeight: true
+    }
+
+    footerItem: QQC2.CheckBox {
+        id: allowRestoreItem
+        checked: true
+        text: i18n("Allow restoring on future sessions")
     }
 
     standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
