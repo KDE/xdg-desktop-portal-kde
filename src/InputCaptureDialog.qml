@@ -18,8 +18,6 @@ PortalDialog {
     width: contentWidth
     height: contentHeight
 
-    standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
-
     Component.onCompleted:  dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18nc("@action:button", "Allow")
 }
 

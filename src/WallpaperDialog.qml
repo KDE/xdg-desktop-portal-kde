@@ -49,6 +49,4 @@ PortalDialog
             source: root.image
         }
     }
-
-    standardButtons: QQC.DialogButtonBox.Ok | QQC.DialogButtonBox.Cancel
 }

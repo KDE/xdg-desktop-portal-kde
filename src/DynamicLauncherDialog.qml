@@ -80,6 +80,8 @@ PortalDialog {
         }
     }
 
+    standardButtons: QQC2.DialogButtonBox.NoButton
+
     Loader {
         sourceComponent: root.edit ? editComponent : displayComponent
     }

@@ -58,8 +58,6 @@ PortalDialog {
         }
     }
 
-    standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
-
     Component.onCompleted: {
         if (root.acceptLabel.length > 0) {
             dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = Qt.binding(() => root.acceptLabel);
