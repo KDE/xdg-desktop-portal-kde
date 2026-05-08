@@ -35,7 +35,6 @@ PortalDialog {
     width: Kirigami.Units.gridUnit * 28
     height: Kirigami.Units.gridUnit * 30
 
-    standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
     ColumnLayout {
         spacing: 0
 

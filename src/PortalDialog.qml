@@ -68,7 +68,7 @@ Kirigami.AbstractApplicationWindow {
      *
      * Useful to be able to set it as dialogButtonBox will be null as the object gets built
      */
-    property alias standardButtons: footerButtonBox.standardButtons
+    property var standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
 
     /**
      * An optional content item that will be placed left of the action buttons in the footer of the dialog.
@@ -420,7 +420,7 @@ Kirigami.AbstractApplicationWindow {
                                 Layout.minimumHeight: implicitHeight
 
                                 padding: 0
-                                visible: count > 0
+                                visible: count > 0 || root.actions.length > 0
 
                                 standardButtons: {
                                     if (Kirigami.Settings.isMobile) {
