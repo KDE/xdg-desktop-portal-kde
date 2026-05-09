@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-07 02:37+0000\n"
+"POT-Creation-Date: 2026-05-09 02:42+0000\n"
 "PO-Revision-Date: 2025-11-30 13:07+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -193,19 +193,19 @@ msgctxt "@label name of a launcher/application"
 msgid "Name"
 msgstr "பெயர்"
 
-#: src/DynamicLauncherDialog.qml:92
+#: src/DynamicLauncherDialog.qml:94
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
 msgstr "விவரங்களை திருத்து…"
 
-#: src/DynamicLauncherDialog.qml:98
+#: src/DynamicLauncherDialog.qml:100
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
 msgstr "ஏற்றுக்கொள்"
 
-#: src/DynamicLauncherDialog.qml:103
+#: src/DynamicLauncherDialog.qml:105
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
@@ -271,13 +271,13 @@ msgid_plural "%2 wants to register the following %1 shortcuts:"
 msgstr[0] "%2 பின்வரும் சுருக்குவழியைப் பதிவுசெய்ய விரும்புகிறது:"
 msgstr[1] "%2 பின்வரும் %1 சுருக்குவழிகளைப் பதிவுசெய்ய விரும்புகிறது:"
 
-#: src/GlobalShortcutsDialog.qml:88
+#: src/GlobalShortcutsDialog.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
 msgstr "மற்ற சுருக்குவழிகளைக் காட்டு…"
 
-#: src/GlobalShortcutsDialog.qml:89
+#: src/GlobalShortcutsDialog.qml:88
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
@@ -324,7 +324,7 @@ msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
 msgstr "அனைத்து உள்ளீட்டு செயல்களையும் கையாளும் அனுமதியை %1 கோரியுள்ளது"
 
-#: src/InputCaptureDialog.qml:23
+#: src/InputCaptureDialog.qml:21
 #, kde-format
 msgctxt "@action:button"
 msgid "Allow"
@@ -571,13 +571,13 @@ msgstr ""
 msgid "Allow restoring on future sessions"
 msgstr "வருங்கால அமர்வுகளில் மீட்டமைக்கவிடு"
 
-#: src/RemoteDesktopDialog.qml:38
+#: src/RemoteDesktopDialog.qml:36
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
 msgstr "ஒப்புக்கொள்"
 
-#: src/RemoteDesktopDialog.qml:39
+#: src/RemoteDesktopDialog.qml:37
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
@@ -765,12 +765,12 @@ msgstr "சுட்டிக்குறியை உட்படுத்த�
 msgid "Include window borders"
 msgstr "சாளர விளிம்புகளை உட்படுத்து"
 
-#: src/ScreenshotDialog.qml:77
+#: src/ScreenshotDialog.qml:75
 #, kde-format
 msgid "Save"
 msgstr "சேமி"
 
-#: src/ScreenshotDialog.qml:87
+#: src/ScreenshotDialog.qml:85
 #, kde-format
 msgid "Take"
 msgstr "எடு"
@@ -817,7 +817,7 @@ msgctxt "@action:button"
 msgid "Share user info"
 msgstr "பயனரின் விவரங்களை பகிர்"
 
-#: src/UserInfoDialog.qml:76
+#: src/UserInfoDialog.qml:74
 #, kde-format
 msgctxt "@action:button"
 msgid "Share"
