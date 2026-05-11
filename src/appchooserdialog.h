@@ -191,6 +191,8 @@ private:
 class AppModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
     Q_PROPERTY(bool hasPreferredApps MEMBER m_hasPreferredApps NOTIFY hasPreferredAppsChanged)
 public:
     enum ItemRoles {
