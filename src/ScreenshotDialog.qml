@@ -9,6 +9,7 @@ import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.ki18n
+import org.kde.xdgdesktopportal
 
 PortalDialog {
     id: root
@@ -18,7 +19,7 @@ PortalDialog {
     property alias screenshotImage: screenshot.source
     property alias withCursor: hasCursor.checked
     property alias withBorders: hasWindowBorders.checked
-    property QtObject app
+    property ScreenshotDialogCpp app
 
     title: KI18n.i18n("Request Screenshot")
     iconName: "preferences-system-windows-effect-screenshot"
