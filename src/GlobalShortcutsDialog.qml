@@ -44,7 +44,7 @@ PortalDialog {
             Layout.fillWidth: true
             Layout.fillHeight: true
             implicitHeight: contentHeight
-            model: newShortcuts
+            model: root.newShortcuts
             delegate: QQC2.ItemDelegate {
                 id: delegate
                 required property var model
@@ -55,14 +55,14 @@ PortalDialog {
                     spacing: Kirigami.Units.smallSpacing
                     Kirigami.TitleSubtitle {
                         Layout.fillWidth: true
-                        title: model.display
+                        title: delegate.model.display
                         font: delegate.font
                     }
                         Kirigami.Icon {
                         id: conflictIcon
-                        visible: model.globalConflict || model.standardConflict || model.internalConflict
+                        visible: delegate.model.globalConflict || delegate.model.standardConflict || delegate.model.internalConflict
                         source: "data-warning"
-                        QQC2.ToolTip.text:  model.conflictText ?? ""
+                        QQC2.ToolTip.text:  delegate.model.conflictText ?? ""
                         QQC2.ToolTip.visible: hoverHandler.hovered
                         HoverHandler {
                             id: hoverHandler
@@ -72,9 +72,9 @@ PortalDialog {
                         id: keySequenceItem
                         Layout.alignment: Qt.AlignRight
                         showCancelButton: true
-                        keySequence: model.keySequence
+                        keySequence: delegate.model.keySequence
                         onKeySequenceModified: {
-                            model.keySequence = keySequence
+                            delegate.model.keySequence = keySequence
                         }
                     }
                 }
@@ -83,17 +83,17 @@ PortalDialog {
         QQC2.Button {
             parent: root.dialogButtonBox
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.HelpRole
-            visible: returningShortcuts.length != 0
+            visible: root.returningShortcuts.length != 0
             icon.name: "systemsettings"
             text: KI18n.i18nc("@action:button", "See Other Shortcuts…")
             QQC2.ToolTip.text: KI18n.i18nc("@info:tooltip", "View other shortcuts registered by this application")
             QQC2.ToolTip.visible: hovered
-            onClicked: KCMUtils.KCMLauncher.openSystemSettings("kcm_keys", component)
+            onClicked: KCMUtils.KCMLauncher.openSystemSettings("kcm_keys", root.component)
         }
         Binding {
             delayed: true
             target: root.dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok)
-            value: !(newShortcuts.hasGlobalConflict || newShortcuts.hasInternalConflict)
+            value: !(root.newShortcuts.hasGlobalConflict || root.newShortcuts.hasInternalConflict)
             property: "enabled"
         }
     }

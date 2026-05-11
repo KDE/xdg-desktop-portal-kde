@@ -15,7 +15,6 @@ PortalDialog {
 
     iconName: "dialog-input-devices"
     title: KI18n.i18nc("@title:window", "Input Capture Requested")
-
     subtitle: app === "" ? KI18n.i18nc("The application is unknown", "An application requested to capture input events") : KI18n.i18nc("%1 is the name of the application", "%1 requested to capture input events", app)
 
     footerItem: QQC2.CheckBox {
