@@ -87,7 +87,6 @@ SelectionEditor::SelectionEditor(QObject *parent)
     , m_engine(new QQmlApplicationEngine(this))
 {
     KLocalization::setupLocalizedContext(m_engine);
-    m_engine->rootContext()->setContextProperty(QStringLiteral("SelectionEditor"), QVariant::fromValue<QObject *>(this));
 
     setObjectName(QStringLiteral("selectionEditor"));
 
@@ -116,6 +115,7 @@ void SelectionEditor::showViews()
         view->create();
         view->setScreen(screen);
 
+        view->setInitialProperties({{QStringLiteral("selectionEditor"), QVariant::fromValue(this)}});
         view->loadFromModule("org.kde.xdgdesktopportal", "RegionSelectOverlay");
         view->installEventFilter(this);
 

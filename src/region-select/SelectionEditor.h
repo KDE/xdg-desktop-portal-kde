@@ -14,6 +14,8 @@ class SelectionEditorPrivate;
 class SelectionEditor : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("")
 
     Q_PROPERTY(QRect rect READ rect NOTIFY rectChanged FINAL)
     Q_PROPERTY(bool isDragging READ isDragging NOTIFY isDraggingChanged FINAL)
