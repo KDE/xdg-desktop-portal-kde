@@ -123,7 +123,7 @@ PortalDialog {
 
                 checkable: true
                 checked: !root.appModel.showOnlyPreferredApps
-                visible: root.appModel.sourceModel.hasPreferredApps
+                visible: (root.appModel.sourceModel as AppModel).hasPreferredApps
                 onVisibleChanged: root.appModel.showOnlyPreferredApps = visible
 
                 onToggled: root.appModel.showOnlyPreferredApps = !root.appModel.showOnlyPreferredApps
