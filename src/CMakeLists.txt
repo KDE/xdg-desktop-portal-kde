@@ -102,6 +102,9 @@ set(xdg_desktop_portal_kde_SRCS
     wallpaper.cpp
 )
 
+# Otherwise qml tooling cant find the include
+target_include_directories(xdg-desktop-portal-kde PRIVATE region-select)
+
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeBackground"
     CATEGORY_NAME "xdp-kde-background"
