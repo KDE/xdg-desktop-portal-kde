@@ -62,7 +62,7 @@ PortalDialog {
                 property string text: editText
 
                 function acceptResult() {
-                    if (showingTerminalCommand) {
+                    if (root.showingTerminalCommand) {
                         root.appChooserData.applicationSelected(searchField.text, root.remember)
                     } else {
                         grid.currentItemDelegate.click()
@@ -192,9 +192,9 @@ PortalDialog {
 
             text: switch (delegate.model.applicationDesktopFile) {
                 case root.appChooserData.defaultApp:
-                    return xi18nc("@info", "%1<nl/><emphasis>Default app for this file type</emphasis>", delegate.model.applicationName);
+                    return KI18n.xi18nc("@info", "%1<nl/><emphasis>Default app for this file type</emphasis>", delegate.model.applicationName);
                 case root.appChooserData.lastUsedApp:
-                    return xi18nc("@info", "%1<nl/><emphasis>Last used app for this file type</emphasis>", delegate.model.applicationName);
+                    return KI18n.xi18nc("@info", "%1<nl/><emphasis>Last used app for this file type</emphasis>", delegate.model.applicationName);
                 default:
                     return delegate.model.applicationName;
             }
@@ -216,11 +216,11 @@ PortalDialog {
                 icon.name: root.showingTerminalCommand ? "system-run": "edit-none"
                 text: {
                     if (root.showingTerminalCommand) {
-                        return xi18nc("@info", "Open with <command>%1</command>?", searchField.editText)
+                        return KI18n.xi18nc("@info", "Open with <command>%1</command>?", searchField.editText)
                     } else if (searchField.editText.length > 0) {
                         return KI18n.i18n("No matches")
                     } else {
-                        return xi18nc("@info", "No installed applications can open <filename>%1</filename>", root.appChooserData.fileName)
+                        return KI18n.xi18nc("@info", "No installed applications can open <filename>%1</filename>", root.appChooserData.fileName)
                     }
                 }
 

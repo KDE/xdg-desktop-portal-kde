@@ -13,6 +13,8 @@ import QtQuick.Templates as T
 import org.kde.kirigami as Kirigami
 import Qt5Compat.GraphicalEffects
 
+pragma ComponentBehavior: Bound
+
 Kirigami.AbstractApplicationWindow {
     id: root
 
@@ -298,7 +300,7 @@ Kirigami.AbstractApplicationWindow {
                     id: contentComponent
 
                     QQC2.Control {
-                        topPadding: contentPadding ? root.edgeSpacing : undefined
+                        topPadding: root.contentPadding ? root.edgeSpacing : undefined
                         bottomPadding: topPadding
                         leftPadding: topPadding
                         rightPadding: topPadding
