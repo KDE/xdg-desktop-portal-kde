@@ -6,6 +6,7 @@ import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.iconthemes as KIconThemes
+import org.kde.ki18n
 
 PortalDialog {
     id: root
@@ -67,7 +68,7 @@ PortalDialog {
             }
 
             QQC2.Label {
-                text: i18nc("@label name of a launcher/application", "Name")
+                text: KI18n.i18nc("@label name of a launcher/application", "Name")
                 Layout.fillWidth: true
             }
             QQC2.TextField {
@@ -91,18 +92,18 @@ PortalDialog {
 
     actions: [
         Kirigami.Action {
-            text: i18nc("@action edit launcher name/icon", "Edit Info…")
+            text: KI18n.i18nc("@action edit launcher name/icon", "Edit Info…")
             icon.name: "document-edit"
             onCheckedChanged: root.edit = checked
             checkable: true
         },
         Kirigami.Action {
-            text: i18nc("@action accept dialog and create launcher", "Accept")
+            text: KI18n.i18nc("@action accept dialog and create launcher", "Accept")
             icon.name: "dialog-ok"
             onTriggered: accept()
         },
         Kirigami.Action {
-            text: i18nc("@action", "Cancel")
+            text: KI18n.i18nc("@action", "Cancel")
             icon.name: "dialog-cancel"
             onTriggered: reject()
         }

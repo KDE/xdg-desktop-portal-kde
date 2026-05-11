@@ -8,6 +8,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 PortalDialog {
     id: root
@@ -19,7 +20,7 @@ PortalDialog {
     property alias withBorders: hasWindowBorders.checked
     property QtObject app
 
-    title: i18n("Request Screenshot")
+    title: KI18n.i18n("Request Screenshot")
     iconName: "preferences-system-windows-effect-screenshot"
     acceptable: screenshot.valid
 
@@ -31,34 +32,34 @@ PortalDialog {
 
         Kirigami.FormLayout {
             Kirigami.Heading {
-                text: i18n("Capture Mode")
+                text: KI18n.i18n("Capture Mode")
             }
             QQC2.ComboBox {
                 id: areaCombo
-                Kirigami.FormData.label: i18n("Area:")
+                Kirigami.FormData.label: KI18n.i18n("Area:")
                 textRole: "display"
             }
             QQC2.SpinBox {
                 id: delayTime
-                Kirigami.FormData.label: i18n("Delay:")
+                Kirigami.FormData.label: KI18n.i18n("Delay:")
                 from: 0
                 to: 60
                 stepSize: 1
-                textFromValue: (value, locale) => i18np("%1 second", "%1 seconds", value)
+                textFromValue: (value, locale) => KI18n.i18np("%1 second", "%1 seconds", value)
                 valueFromText: (text, locale) => parseInt(text);
             }
 
             Kirigami.Heading {
-                text: i18n("Content Options")
+                text: KI18n.i18n("Content Options")
             }
             QQC2.CheckBox {
                 id: hasCursor
-                text: i18n("Include cursor pointer")
+                text: KI18n.i18n("Include cursor pointer")
                 checked: true
             }
             QQC2.CheckBox {
                 id: hasWindowBorders
-                text: i18n("Include window borders")
+                text: KI18n.i18n("Include window borders")
                 enabled: areaCombo.currentIndex === 2
                 checked: true
             }
@@ -72,7 +73,7 @@ PortalDialog {
     }
 
     Component.onCompleted: {
-        dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18n("Save")
+        dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = KI18n.i18n("Save")
     }
 
     actions: [
@@ -82,7 +83,7 @@ PortalDialog {
                 interval: delayTime.value * 1000
                 onTriggered: root.app.takeScreenshotInteractive()
             }
-            text: i18n("Take")
+            text: KI18n.i18n("Take")
             enabled: !takeTimer.running
             onTriggered: takeTimer.restart()
         }

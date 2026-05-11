@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 MouseArea {
     // This needs to be a mousearea in orcer for the proper mouse events to be correctly filtered
@@ -144,29 +145,29 @@ MouseArea {
         contentItem: RowLayout {
             ColumnLayout {
                 QQC2.Label {
-                    text: i18n("Start streaming:")
+                    text: KI18n.i18n("Start streaming:")
                     Layout.alignment: Qt.AlignRight
                 }
                 QQC2.Label {
-                    text: i18n("Clear selection:")
+                    text: KI18n.i18n("Clear selection:")
                     Layout.alignment: Qt.AlignRight
                 }
                 QQC2.Label {
-                    text: i18n("Cancel:")
+                    text: KI18n.i18n("Cancel:")
                     Layout.alignment: Qt.AlignRight
                 }
             }
             ColumnLayout {
                 QQC2.Label {
-                    text: i18nc("Mouse action", "Release left-click")
+                    text: KI18n.i18nc("Mouse action", "Release left-click")
                     Layout.alignment: Qt.AlignLeft
                 }
                 QQC2.Label {
-                    text: i18nc("Mouse action", "Right-click")
+                    text: KI18n.i18nc("Mouse action", "Right-click")
                     Layout.alignment: Qt.AlignLeft
                 }
                 QQC2.Label {
-                    text: i18nc("Keyboard action", "Escape")
+                    text: KI18n.i18nc("Keyboard action", "Escape")
                     Layout.alignment: Qt.AlignLeft
                 }
             }
@@ -192,21 +193,21 @@ MouseArea {
         contentItem: RowLayout {
             ColumnLayout {
                 QQC2.Label {
-                    text: i18n("Create selection:")
+                    text: KI18n.i18n("Create selection:")
                     Layout.alignment: Qt.AlignRight
                 }
                 QQC2.Label {
-                    text: i18n("Cancel:")
+                    text: KI18n.i18n("Cancel:")
                     Layout.alignment: Qt.AlignRight
                 }
             }
             ColumnLayout {
                 QQC2.Label {
-                    text: i18nc("Mouse action", "Left-click and drag")
+                    text: KI18n.i18nc("Mouse action", "Left-click and drag")
                     Layout.alignment: Qt.AlignLeft
                 }
                 QQC2.Label {
-                    text: i18nc("Keyboard action", "Escape")
+                    text: KI18n.i18nc("Keyboard action", "Escape")
                     Layout.alignment: Qt.AlignLeft
                 }
             }

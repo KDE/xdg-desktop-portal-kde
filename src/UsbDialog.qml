@@ -7,6 +7,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 pragma ComponentBehavior: Bound
 
@@ -17,12 +18,12 @@ PortalDialog {
     required property list<var> devices
 
     iconName: "drive-removable-media-usb"
-    title: i18nc("@title:window", "Access to USB Devices Requested")
+    title: KI18n.i18nc("@title:window", "Access to USB Devices Requested")
     subtitle: {
         if (app === "") {
-            return  i18ncp("The application is unknown", "An application wants to access the following device:", "An application wants to access the following devices:", devices.length)
+            return  KI18n.i18ncp("The application is unknown", "An application wants to access the following device:", "An application wants to access the following devices:", devices.length)
         }
-        return i18ncp("%2 is the name of the application", "%2 wants to access the following device:", "%2 wants to access the following devices:", devices.length, app)
+        return KI18n.i18ncp("%2 is the name of the application", "%2 wants to access the following device:", "%2 wants to access the following devices:", devices.length, app)
     }
     scrollable: true
     contentPadding: false

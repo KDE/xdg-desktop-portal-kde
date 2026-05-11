@@ -11,11 +11,12 @@ import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.components as KirigamiComponents
+import org.kde.ki18n
 
 PortalDialog {
     id: root
 
-    title: i18nc("@action:button", "Share user info")
+    title: KI18n.i18nc("@action:button", "Share user info")
     required property string realname
     required property string username
     property alias avatar: avatar.source
@@ -71,6 +72,6 @@ PortalDialog {
     }
 
     Component.onCompleted: {
-        dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18nc("@action:button", "Share")
+        dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = KI18n.i18nc("@action:button", "Share")
     }
 }
