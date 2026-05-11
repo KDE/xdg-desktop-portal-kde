@@ -10,7 +10,7 @@ MouseArea {
     id: root
 
     anchors.fill: parent
-    LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
+    LayoutMirroring.enabled: Application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
     focus: true
