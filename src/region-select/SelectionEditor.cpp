@@ -1,6 +1,6 @@
 #include "SelectionEditor.h"
 
-#include <KLocalizedContext>
+#include <KLocalizedQmlContext>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
@@ -86,9 +86,7 @@ SelectionEditor::SelectionEditor(QObject *parent)
     , d(new SelectionEditorPrivate(this))
     , m_engine(new QQmlApplicationEngine(this))
 {
-    auto context = new KLocalizedContext(m_engine);
-    context->setTranslationDomain(QStringLiteral(TRANSLATION_DOMAIN));
-    m_engine->rootContext()->setContextObject(context);
+    KLocalization::setupLocalizedContext(m_engine);
     m_engine->rootContext()->setContextProperty(QStringLiteral("SelectionEditor"), QVariant::fromValue<QObject *>(this));
 
     setObjectName(QStringLiteral("selectionEditor"));
