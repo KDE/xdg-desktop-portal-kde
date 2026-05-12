@@ -15,13 +15,13 @@ Kirigami.CardsLayout {
     required property ScreenChooserDialogTemplate dialog
     required property var model
 
-    readonly property alias view: view
+    readonly property alias view: repeater
 
     uniformCellWidths: true
     visible: view.count > 0
 
     Repeater {
-        id: view
+        id: repeater
 
         model: root.model
 
@@ -33,7 +33,7 @@ Kirigami.CardsLayout {
 
             function selectAndAccept(): void {
                 root.dialog.clearSelection()
-                view.model.setData(view.model.index(model.row, 0), Qt.Checked, Qt.CheckStateRole)
+                repeater.model.setData(repeater.model.index(model.row, 0), Qt.Checked, Qt.CheckStateRole)
                 root.dialog.dialogButtonBox.accepted()
             }
 
@@ -47,13 +47,13 @@ Kirigami.CardsLayout {
             checked: model.checked === Qt.Checked
             nodeId: waylandItem.nodeId
             syntheticCount: {
-                let model = view.model.sourceModel
+                let model = repeater.model.sourceModel
                 if (model instanceof OutputsModel) {
                     return (model as OutputsModel).syntheticCount
                 }
                 return 0
             }
-            isOutput: view.model.sourceModel instanceof OutputsModel
+            isOutput: repeater.model.sourceModel instanceof OutputsModel
             geometry: model.geometry ?? Qt.rect(0, 0, 0, 0)
             backgroundImage: model.imageUrl ?? ""
 
@@ -71,7 +71,7 @@ Kirigami.CardsLayout {
             // Only active if this is a multi-select dialog
             onToggled: {
                 const to = model.checked !== Qt.Checked ? Qt.Checked : Qt.Unchecked;
-                view.model.setData(view.model.index(model.row, 0), to, Qt.CheckStateRole)
+                repeater.model.setData(repeater.model.index(model.row, 0), to, Qt.CheckStateRole)
             }
 
             // If this is isn't a multi-select dialog, accept on click
@@ -97,7 +97,7 @@ Kirigami.CardsLayout {
                     return defaultSpan
                 }
 
-                let model = view.model.sourceModel as OutputsModel
+                let model = repeater.model.sourceModel as OutputsModel
                 if (!model) { // not an output
                     return defaultSpan
                 }

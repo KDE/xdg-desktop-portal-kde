@@ -85,7 +85,7 @@ MouseArea {
     Rectangle {
         id: selectionRectangle
         color: "transparent"
-        border.color: palette.highlight
+        border.color: systemPalette.highlight
         border.width: 1
         visible: root.selectionEditor.rect.height > 0 && root.selectionEditor.rect.width > 0
         x: root.selectionEditor.rect.x - border.width - Screen.virtualX
@@ -96,7 +96,7 @@ MouseArea {
         LayoutMirroring.childrenInherit: true
 
         SystemPalette {
-            id: palette
+            id: systemPalette
             colorGroup: Kirigami.Theme.Active
         }
     }
@@ -106,7 +106,7 @@ MouseArea {
         visible: false
     }
     FontMetrics {
-        id: fontMetrics
+        id: metrics
         font: metricsLabel.font
     }
 
@@ -119,7 +119,7 @@ MouseArea {
             verticalCenter: selectionRectangle.verticalCenter
         }
 
-        fontMetrics: fontMetrics
+        fontMetrics: metrics
         visible: selectionRectangle.visible && dragSizeBox.height < selectionRectangle.height && dragSizeBox.width < selectionRectangle.width
         opacity: 1
         contentItem: QQC2.Label {
