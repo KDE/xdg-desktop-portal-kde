@@ -18,7 +18,6 @@ ScreenChooserDialogTemplate {
 
     required property var outputsModel
     required property var windowsModel
-    property bool multiple: false
     property alias allowRestore: allowRestoreItem.checked
 
     /* The geometries of the selected chips */
