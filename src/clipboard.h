@@ -19,11 +19,14 @@ class ClipboardPortal : public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Clipboard")
+    Q_PROPERTY(uint version MEMBER version CONSTANT)
 public:
     explicit ClipboardPortal(QObject *parent);
     ~ClipboardPortal() override;
 
     QVariant fetchData(Session *session, const QString &mimetype);
+
+    static constexpr uint version = 1;
 
 public Q_SLOTS:
     void RequestClipboard(const QDBusObjectPath &session_handle, const QVariantMap &options);
