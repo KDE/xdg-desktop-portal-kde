@@ -504,7 +504,7 @@ SettingsPortal::SettingsPortal(DesktopPortal *parent)
     qDBusRegisterMetaType<VariantMapMap>();
 }
 
-void SettingsPortal::ReadAll(const QStringList &groups)
+VariantMapMap SettingsPortal::ReadAll(const QStringList &groups)
 {
     qCDebug(XdgDesktopPortalKdeSettings) << "ReadAll called with parameters:";
     qCDebug(XdgDesktopPortalKdeSettings) << "    groups: " << groups;
@@ -517,40 +517,36 @@ void SettingsPortal::ReadAll(const QStringList &groups)
         }
     }
 
-    QDBusMessage message = m_parent->message();
-    QDBusMessage reply = message.createReply(QVariant::fromValue(result));
-    QDBusConnection::sessionBus().send(reply);
+    return result;
 }
 
-void SettingsPortal::Read(const QString &group, const QString &key)
+QDBusVariant SettingsPortal::Read(const QString &group, const QString &key)
 {
     qCDebug(XdgDesktopPortalKdeSettings) << "Read called with parameters:";
     qCDebug(XdgDesktopPortalKdeSettings) << "    group: " << group;
     qCDebug(XdgDesktopPortalKdeSettings) << "    key: " << key;
 
-    QDBusMessage message = m_parent->message();
+    auto sendError = [m = m_parent->message()](QDBusError::ErrorType error, const QString &message) {
+        const auto reply = m.createErrorReply(error, message);
+        QDBusConnection::sessionBus().send(reply);
+    };
 
-    const auto sentMesssage = std::any_of(m_settings.cbegin(), m_settings.cend(), [&message, &group, &key](const auto &setting) {
-        if (group.startsWith(setting->group())) {
-            const QVariant result = setting->read(group, key);
-            QDBusMessage reply;
-            if (result.isNull()) {
-                reply = message.createErrorReply(QDBusError::UnknownProperty, QStringLiteral("Property doesn't exist"));
-            } else {
-                reply = message.createReply(QVariant::fromValue(QDBusVariant(result)));
-            }
-            QDBusConnection::sessionBus().send(reply);
-            return true;
-        }
-        return false;
+    auto setting = std::ranges::find(m_settings, group, [](const auto &setting) {
+        return setting->group();
     });
-    if (sentMesssage) {
-        return;
+    if (setting == std::ranges::end(m_settings)) {
+        qCWarning(XdgDesktopPortalKdeSettings) << "Namespace " << group << " is not supported";
+        sendError(QDBusError::UnknownProperty, QStringLiteral("Namespace is not supported"));
+        return {};
     }
 
-    qCWarning(XdgDesktopPortalKdeSettings) << "Namespace " << group << " is not supported";
-    QDBusMessage reply = message.createErrorReply(QDBusError::UnknownProperty, QStringLiteral("Namespace is not supported"));
-    QDBusConnection::sessionBus().send(reply);
+    const QVariant result = (*setting)->read(group, key);
+    if (result.isNull()) {
+        sendError(QDBusError::UnknownProperty, QStringLiteral("Property doesn't exist"));
+        return {};
+    }
+
+    return QDBusVariant(result);
 }
 
 #include "moc_settings.cpp"
