@@ -122,7 +122,6 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
                 return screen->name().startsWith(prefix, Qt::CaseInsensitive);
             })) {
             type = Output::OutputType::Laptop;
-            break;
         }
 
         if (screen->name().contains(QLatin1String("TV"))) {
