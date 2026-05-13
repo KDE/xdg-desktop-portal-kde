@@ -48,8 +48,8 @@ public:
     }
 
 public Q_SLOTS:
-    void ReadAll(const QStringList &groups);
-    void Read(const QString &group, const QString &key);
+    VariantMapMap ReadAll(const QStringList &groups);
+    QDBusVariant Read(const QString &group, const QString &key);
 
 Q_SIGNALS:
     void SettingChanged(const QString &group, const QString &key, const QDBusVariant &value);
