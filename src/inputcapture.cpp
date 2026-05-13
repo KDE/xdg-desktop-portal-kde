@@ -16,6 +16,7 @@
 #include "inputcapturebarrier.h"
 #include "inputcapturedialog.h"
 #include "request.h"
+#include "restoredata.h"
 #include "session.h"
 #include "utils.h"
 
@@ -203,11 +204,46 @@ void InputCapturePortal::Start(const QDBusObjectPath &handle,
         return;
     }
 
-    auto dialog = new InputCaptureDialog(app_id, (requestedCapabilities), this);
+    auto persistMode = PersistMode{options.value(u"persist_mode"_s, std::to_underlying(PersistMode::None)).toUInt()};
+    const auto restoreDataEntry = options.constFind(u"restore_data"_s);
+    const auto restoreData = restoreDataEntry != options.cend() ? qdbus_cast<RestoreData>(restoreDataEntry->value<QDBusArgument>()) : RestoreData{};
+    if (persistMode != PersistMode::None && restoreData.session == "KDE"_L1 && restoreData.version == RestoreData::currentRestoreDataVersion()) {
+        const auto allowedCapabilities = Capabilities::fromInt(restoreData.payload.value(u"capabilities"_s).toUInt());
+        const auto clipboardAllowed = restoreData.payload.value(u"clipboard_enabled"_s).toBool();
+        const bool canRestoreCapabilities = (allowedCapabilities | requestedCapabilities) == allowedCapabilities;
+        const bool canRestoreClipboard = clipboardAllowed || !session->clipboardEnabled();
+        if (canRestoreCapabilities && canRestoreClipboard) {
+            if (!setupInputCaptureSession(session, requestedCapabilities)) {
+                replyResponse = PortalResponse::OtherError;
+                return;
+            }
+
+            const QString applicationName = Utils::applicationName(app_id);
+            auto notification = new KNotification(u"inputcapturesrestored"_s, KNotification::CloseOnTimeout);
+            notification->setTitle(i18nc("@title:nofication, set up as in established", "Input Capture Set-Up"));
+            QString description = applicationName.isEmpty() ? i18nc("@info", "An application will be able to manage input in the future.")
+                                                            : i18nc("@info", "%1 will be able to manage input in the future.", applicationName);
+            notification->setText(description);
+            notification->setIconName(u"dialog-input-devices"_s);
+            notification->sendEvent();
+            connect(session, &Session::closed, notification, &KNotification::close);
+
+            replyResponse = PortalResponse::Success;
+            replyResults = {{u"capabilities"_s, static_cast<uint>(requestedCapabilities)},
+                            {u"clipboard_enabled"_s, session->clipboardEnabled()},
+                            {u"persist_mode"_s, std::to_underlying(persistMode)},
+                            {u"restore_data"_s, QVariant::fromValue(restoreData)}};
+            return;
+        }
+    } else {
+        // In the future we might need to handle prior versions
+    }
+
+    auto dialog = new InputCaptureDialog(app_id, requestedCapabilities, persistMode, this);
     Utils::setParentWindow(dialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequestWithSession(handle, dialog, session);
 
-    delayReply(message, dialog, this, [this, session, requestedCapabilities](DialogResult result) {
+    delayReply(message, dialog, this, [this, session, requestedCapabilities, persistMode, dialog](DialogResult result) {
         auto response = PortalResponse::fromDialogResult(result);
         QVariantMap results;
         if (result == DialogResult::Accepted) {
@@ -216,6 +252,11 @@ void InputCapturePortal::Start(const QDBusObjectPath &handle,
             } else {
                 results.insert(u"capabilities"_s, static_cast<uint>(requestedCapabilities));
                 results.insert(u"clipboard_enabled"_s, session->clipboardEnabled());
+                if (persistMode != PersistMode::None && dialog->allowRestore()) {
+                    const RestoreData restoreData{.session = u"KDE"_s, .version = RestoreData::currentRestoreDataVersion(), .payload = results};
+                    results.insert(u"restore_data"_s, QVariant::fromValue(restoreData));
+                    results.insert(u"persist_mode"_s, std::to_underlying(persistMode));
+                }
             }
         }
         return QVariantList{response, results};

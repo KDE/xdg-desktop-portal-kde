@@ -13,7 +13,11 @@ class InputCaptureDialog : public QuickDialog
 {
     Q_OBJECT
 public:
-    InputCaptureDialog(const QString &appId, InputCapturePortal::Capabilities capabilities, QObject *parent = nullptr);
+    InputCaptureDialog(const QString &appId,
+                       InputCapturePortal::Capabilities capabilities,
+                       InputCapturePortal::PersistMode persistence,
+                       QObject *parent = nullptr);
+    [[nodiscard]] bool allowRestore() const;
 };
 
 #endif
