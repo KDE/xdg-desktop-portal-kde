@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-12 00:47+0000\n"
+"POT-Creation-Date: 2026-05-14 00:46+0000\n"
 "PO-Revision-Date: 2026-03-16 16:12+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -289,13 +289,13 @@ msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
 msgstr "Vedeți alte scurtături înregistrate de către această aplicație"
 
-#: src/inputcapture.cpp:115
+#: src/inputcapture.cpp:116
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
 msgstr "A început capturarea introducerii"
 
-#: src/inputcapture.cpp:118
+#: src/inputcapture.cpp:119
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
@@ -303,7 +303,7 @@ msgstr ""
 "Introducerea e gestionată de către %1. Apăsați <shortcut>%2</shortcut> "
 "pentru a dezactiva."
 
-#: src/inputcapture.cpp:123
+#: src/inputcapture.cpp:124
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -313,25 +313,54 @@ msgstr ""
 "Introducerea e gestionată de către o aplicație. Apăsați <shortcut>%1</"
 "shortcut> pentru a dezactiva."
 
-#: src/InputCaptureDialog.qml:16
+#: src/inputcapture.cpp:223
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Input Capture Requested"
+msgctxt "@title:nofication, set up as in established"
+msgid "Input Capture Set-Up"
+msgstr "Se cere capturarea intrării"
+
+#: src/inputcapture.cpp:224
+#, fuzzy, kde-format
+#| msgctxt "The application is unknown"
+#| msgid "An application requested to capture input events"
+msgctxt "@info"
+msgid "An application will be able to manage input in the future."
+msgstr "O aplicație a cerut să captureze evenimentele de intrare"
+
+#: src/inputcapture.cpp:225
+#, kde-format
+msgctxt "@info"
+msgid "%1 will be able to manage input in the future."
+msgstr ""
+
+#: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
 msgstr "Se cere capturarea intrării"
 
-#: src/InputCaptureDialog.qml:17
+#: src/InputCaptureDialog.qml:19
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
 msgstr "O aplicație a cerut să captureze evenimentele de intrare"
 
-#: src/InputCaptureDialog.qml:17
+#: src/InputCaptureDialog.qml:19
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
 msgstr "%1 a cerut să captureze evenimentele de intrare"
 
-#: src/InputCaptureDialog.qml:22
+#: src/InputCaptureDialog.qml:24
+#, fuzzy, kde-format
+#| msgid "Allow restoring on future sessions"
+msgctxt "@option:check"
+msgid "Allow restoring on future sessions"
+msgstr "Permite restabilirea în sesiuni viitoare"
+
+#: src/InputCaptureDialog.qml:30
 #, kde-format
 msgctxt "@action:button"
 msgid "Allow"
@@ -402,24 +431,24 @@ msgstr "Partajează regiune"
 msgid "Share full Workspace"
 msgstr "Partajează spațiul de lucru complet"
 
-#: src/outputsmodel.cpp:136
+#: src/outputsmodel.cpp:133
 #, kde-format
 msgid "Laptop screen"
 msgstr "Ecranul laptopului"
 
-#: src/outputsmodel.cpp:372
+#: src/outputsmodel.cpp:369
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "Partajează întregul spațiu de lucru de pe toate ecranele"
 
-#: src/outputsmodel.cpp:374
+#: src/outputsmodel.cpp:371
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr "Creează un ecran într-o fereastră, apoi partajează"
 
-#: src/outputsmodel.cpp:376
+#: src/outputsmodel.cpp:373
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"

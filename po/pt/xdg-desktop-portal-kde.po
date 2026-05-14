@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-12 00:47+0000\n"
+"POT-Creation-Date: 2026-05-14 00:46+0000\n"
 "PO-Revision-Date: 2023-01-19 03:02+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -278,19 +278,19 @@ msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
 msgstr ""
 
-#: src/inputcapture.cpp:115
+#: src/inputcapture.cpp:116
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
 msgstr ""
 
-#: src/inputcapture.cpp:118
+#: src/inputcapture.cpp:119
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr ""
 
-#: src/inputcapture.cpp:123
+#: src/inputcapture.cpp:124
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -298,13 +298,33 @@ msgid ""
 "disable."
 msgstr ""
 
-#: src/InputCaptureDialog.qml:16
+#: src/inputcapture.cpp:223
+#, kde-format
+msgctxt "@title:nofication, set up as in established"
+msgid "Input Capture Set-Up"
+msgstr ""
+
+#: src/inputcapture.cpp:224
+#, fuzzy, kde-format
+#| msgctxt "Unordered list with privileges granted to an external process"
+#| msgid "Requested access to:\n"
+msgctxt "@info"
+msgid "An application will be able to manage input in the future."
+msgstr "Foi pedido o acesso a:\n"
+
+#: src/inputcapture.cpp:225
+#, kde-format
+msgctxt "@info"
+msgid "%1 will be able to manage input in the future."
+msgstr ""
+
+#: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
 msgstr ""
 
-#: src/InputCaptureDialog.qml:17
+#: src/InputCaptureDialog.qml:19
 #, fuzzy, kde-format
 #| msgctxt "Unordered list with privileges granted to an external process"
 #| msgid "Requested access to:\n"
@@ -312,13 +332,19 @@ msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
 msgstr "Foi pedido o acesso a:\n"
 
-#: src/InputCaptureDialog.qml:17
+#: src/InputCaptureDialog.qml:19
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
 msgstr ""
 
-#: src/InputCaptureDialog.qml:22
+#: src/InputCaptureDialog.qml:24
+#, kde-format
+msgctxt "@option:check"
+msgid "Allow restoring on future sessions"
+msgstr ""
+
+#: src/InputCaptureDialog.qml:30
 #, fuzzy, kde-format
 #| msgid "Allow"
 msgctxt "@action:button"
@@ -396,24 +422,24 @@ msgstr ""
 msgid "Share full Workspace"
 msgstr "Área de Trabalho Completa"
 
-#: src/outputsmodel.cpp:136
+#: src/outputsmodel.cpp:133
 #, kde-format
 msgid "Laptop screen"
 msgstr "Ecrã do portátil"
 
-#: src/outputsmodel.cpp:372
+#: src/outputsmodel.cpp:369
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr ""
 
-#: src/outputsmodel.cpp:374
+#: src/outputsmodel.cpp:371
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr ""
 
-#: src/outputsmodel.cpp:376
+#: src/outputsmodel.cpp:373
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"

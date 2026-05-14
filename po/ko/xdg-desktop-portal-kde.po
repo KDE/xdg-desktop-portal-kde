@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-12 00:47+0000\n"
+"POT-Creation-Date: 2026-05-14 00:46+0000\n"
 "PO-Revision-Date: 2026-04-26 22:18+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -279,13 +279,13 @@ msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
 msgstr "이 앱에서 등록한 다른 단축키 보기"
 
-#: src/inputcapture.cpp:115
+#: src/inputcapture.cpp:116
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
 msgstr "입력 캡처 시작됨"
 
-#: src/inputcapture.cpp:118
+#: src/inputcapture.cpp:119
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
@@ -293,7 +293,7 @@ msgstr ""
 "%1에서 입력을 관리하고 있습니다. 비활성화하려면 <shortcut>%2</shortcut> 키를 "
 "누르십시오."
 
-#: src/inputcapture.cpp:123
+#: src/inputcapture.cpp:124
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -303,25 +303,54 @@ msgstr ""
 "다른 앱에서 입력을 관리하고 있습니다. 비활성화하려면 <shortcut>%1</shortcut> "
 "키를 누르십시오."
 
-#: src/InputCaptureDialog.qml:16
+#: src/inputcapture.cpp:223
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Input Capture Requested"
+msgctxt "@title:nofication, set up as in established"
+msgid "Input Capture Set-Up"
+msgstr "입력 캡처 요청됨"
+
+#: src/inputcapture.cpp:224
+#, fuzzy, kde-format
+#| msgctxt "The application is unknown"
+#| msgid "An application requested to capture input events"
+msgctxt "@info"
+msgid "An application will be able to manage input in the future."
+msgstr "앱에서 입력 이벤트 캡처를 요청함"
+
+#: src/inputcapture.cpp:225
+#, kde-format
+msgctxt "@info"
+msgid "%1 will be able to manage input in the future."
+msgstr ""
+
+#: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
 msgstr "입력 캡처 요청됨"
 
-#: src/InputCaptureDialog.qml:17
+#: src/InputCaptureDialog.qml:19
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
 msgstr "앱에서 입력 이벤트 캡처를 요청함"
 
-#: src/InputCaptureDialog.qml:17
+#: src/InputCaptureDialog.qml:19
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
 msgstr "%1에서 입력 이벤트 캡처를 요청함"
 
-#: src/InputCaptureDialog.qml:22
+#: src/InputCaptureDialog.qml:24
+#, fuzzy, kde-format
+#| msgid "Allow restoring on future sessions"
+msgctxt "@option:check"
+msgid "Allow restoring on future sessions"
+msgstr "향후 세션에서 복원 허용"
+
+#: src/InputCaptureDialog.qml:30
 #, kde-format
 msgctxt "@action:button"
 msgid "Allow"
@@ -392,24 +421,24 @@ msgstr "영역 공유"
 msgid "Share full Workspace"
 msgstr "전체 작업 공간 공유"
 
-#: src/outputsmodel.cpp:136
+#: src/outputsmodel.cpp:133
 #, kde-format
 msgid "Laptop screen"
 msgstr "노트북 화면"
 
-#: src/outputsmodel.cpp:372
+#: src/outputsmodel.cpp:369
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "모든 화면에 걸친 전체 작업 공간 공유"
 
-#: src/outputsmodel.cpp:374
+#: src/outputsmodel.cpp:371
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr "창 안에 화면을 만들고 그 화면 공유"
 
-#: src/outputsmodel.cpp:376
+#: src/outputsmodel.cpp:373
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"

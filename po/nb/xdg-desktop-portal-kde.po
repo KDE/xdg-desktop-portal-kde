@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-12 00:47+0000\n"
+"POT-Creation-Date: 2026-05-14 00:46+0000\n"
 "PO-Revision-Date: 2026-01-18 17:01+0100\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -287,19 +287,19 @@ msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
 msgstr "Se andre hurtigtaster tildelt av dette programmet"
 
-#: src/inputcapture.cpp:115
+#: src/inputcapture.cpp:116
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
 msgstr "Startet registrering av inndata"
 
-#: src/inputcapture.cpp:118
+#: src/inputcapture.cpp:119
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr "Inndata behandles av %1. Trykk <shortcut>%2</shortcut> for å slå av."
 
-#: src/inputcapture.cpp:123
+#: src/inputcapture.cpp:124
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -308,25 +308,54 @@ msgid ""
 msgstr ""
 "Inndata behandles av et program. Trykk <shortcut>%1</shortcut> for å slå av."
 
-#: src/InputCaptureDialog.qml:16
+#: src/inputcapture.cpp:223
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Input Capture Requested"
+msgctxt "@title:nofication, set up as in established"
+msgid "Input Capture Set-Up"
+msgstr "Registrering av inndata forespurt"
+
+#: src/inputcapture.cpp:224
+#, fuzzy, kde-format
+#| msgctxt "The application is unknown"
+#| msgid "An application requested to capture input events"
+msgctxt "@info"
+msgid "An application will be able to manage input in the future."
+msgstr "Et program har bedt om å få registrere inndata-hendelser"
+
+#: src/inputcapture.cpp:225
+#, kde-format
+msgctxt "@info"
+msgid "%1 will be able to manage input in the future."
+msgstr ""
+
+#: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
 msgstr "Registrering av inndata forespurt"
 
-#: src/InputCaptureDialog.qml:17
+#: src/InputCaptureDialog.qml:19
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
 msgstr "Et program har bedt om å få registrere inndata-hendelser"
 
-#: src/InputCaptureDialog.qml:17
+#: src/InputCaptureDialog.qml:19
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
 msgstr "%1 har bedt om å få registrere inndata-hendelser"
 
-#: src/InputCaptureDialog.qml:22
+#: src/InputCaptureDialog.qml:24
+#, fuzzy, kde-format
+#| msgid "Allow restoring on future sessions"
+msgctxt "@option:check"
+msgid "Allow restoring on future sessions"
+msgstr "Tillat gjenoppretting ved fremtidige økter"
+
+#: src/InputCaptureDialog.qml:30
 #, kde-format
 msgctxt "@action:button"
 msgid "Allow"
@@ -397,24 +426,24 @@ msgstr "Del område"
 msgid "Share full Workspace"
 msgstr "Del hele arbeidsområdet"
 
-#: src/outputsmodel.cpp:136
+#: src/outputsmodel.cpp:133
 #, kde-format
 msgid "Laptop screen"
 msgstr "Skjerm på bærbar"
 
-#: src/outputsmodel.cpp:372
+#: src/outputsmodel.cpp:369
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "Del hele arbeidsområdet på tvers av alle skjermene"
 
-#: src/outputsmodel.cpp:374
+#: src/outputsmodel.cpp:371
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
 msgstr "Lager en skjerm i et vindu, deler etterpå"
 
-#: src/outputsmodel.cpp:376
+#: src/outputsmodel.cpp:373
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
