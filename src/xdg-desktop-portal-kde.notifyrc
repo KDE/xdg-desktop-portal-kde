@@ -358,5 +358,23 @@ Urgency=High
 
 [Event/inputcapturesessionrestored]
 Name=Input Capture Session Started
+Name[ca]=S'ha iniciat la sessió de captura de l'entrada
+Name[es]=Sesión de captura de entrada iniciada
+Name[he]=החלה הפעלת לכידת קלט
+Name[ia]=Session de Captura de Ingresso Initiate
+Name[ka]=შეყვანის ჩაჭერის სესია დაიწყო
+Name[pt_BR]=Sessão de captura de entrada iniciada
+Name[sl]=Začetek seje zajemanja vnosa
+Name[tr]=Giriş Yakalama Başlatıldı
+Name[uk]=Розпочато сеанс перехоплення введення
 Comment=An application has started an input capture session
+Comment[ca]=Una aplicació ha iniciat una sessió de captura de l'entrada
+Comment[es]=Una aplicación ha iniciado una sesión de captura de entrada
+Comment[he]=יישום החל בהפעלת לכידת קלט
+Comment[ia]=Un application ha initiate un sesion de captura de ingresso
+Comment[ka]=აპლიკაციამ დაიწყო შეყვანის ჩაჭერის სესია
+Comment[pt_BR]=Um aplicativo iniciou uma sessão de captura de entrada
+Comment[sl]=Aplikacija je začela sejo zajemanja vnosa
+Comment[tr]=Bir uygulama, bir giriş yakalama oturumu başlattı
+Comment[uk]=Програмою розпочато сеанс перехоплення введення
 Action=Popup
