@@ -22,9 +22,7 @@ Kirigami.ApplicationWindow {
 
     globalDrawer: PlacesGlobalDrawer {
         onPlaceOpenRequested: {
-            if (filePickerLoader.item) {
-                filePickerLoader.item.folder = place;
-            }
+            callback.folder = place;
             close()
         }
     }
