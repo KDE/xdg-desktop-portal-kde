@@ -1,11 +1,11 @@
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
-# SPDX-FileCopyrightText: 2024, 2025, 2026 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2024-2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-14 00:46+0000\n"
-"PO-Revision-Date: 2026-03-14 13:02+0200\n"
+"PO-Revision-Date: 2026-05-14 08:56+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -304,26 +304,22 @@ msgid ""
 msgstr "הקלט מנוהל על ידי יישום. לחיצה על <shortcut>%1</shortcut> תשבית את זה."
 
 #: src/inputcapture.cpp:223
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
-msgstr "התבקשה לכידת קלט"
+msgstr "הגדרת לכידת קלט"
 
 #: src/inputcapture.cpp:224
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application requested to capture input events"
+#, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
-msgstr "יישום ביקש ללכוד אירועי קלט"
+msgstr "יישום יוכל לנהל קלט בעתיד."
 
 #: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."
-msgstr ""
+msgstr "%1 יוכל לנהל קלט בעתיד."
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
@@ -344,8 +340,7 @@ msgid "%1 requested to capture input events"
 msgstr "התקבלה בקשה מצד %1 ללכוד אירועי קלט"
 
 #: src/InputCaptureDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Allow restoring on future sessions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow restoring on future sessions"
 msgstr "לאפשר שחזור בהפעלות עתידיות"

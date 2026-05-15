@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-14 00:46+0000\n"
-"PO-Revision-Date: 2026-03-14 06:31+0100\n"
+"PO-Revision-Date: 2026-05-14 04:30+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -310,26 +310,22 @@ msgstr ""
 "შეყვანას მართავს პროგრამა. გასათიშად დაწექით ღილაკს <shortcut>%1</shortcut>."
 
 #: src/inputcapture.cpp:223
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
-msgstr "მოთხოვნილია შეყვანის გადაღება"
+msgstr "შეყვანის ჩაჭერის მორგება"
 
 #: src/inputcapture.cpp:224
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application requested to capture input events"
+#, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
-msgstr "აპლიკაციას შეყვანის მოვლენების ჩაჭერა სურს"
+msgstr "აპლიკაციას ექნება საშუალება, მომავალში შეყვანა მართოს."
 
 #: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."
-msgstr ""
+msgstr "%1-ს ექნება საშუალება, მომავალში შეყვანა მართოს."
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
@@ -350,8 +346,7 @@ msgid "%1 requested to capture input events"
 msgstr "%1-მა მოითხოვა შეყვანის მოვლენების გადაღება"
 
 #: src/InputCaptureDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Allow restoring on future sessions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow restoring on future sessions"
 msgstr "მომავალ სესიებზე აღდგენის დაშვება"
@@ -1000,157 +995,3 @@ msgstr "ეკრანის გადაცემის დაწყები�
 #, kde-format
 msgid "Remote desktop"
 msgstr "დაშორებული სამუშაო მაგიდა"
-
-#~ msgid "Screens"
-#~ msgstr "ეკრანები"
-
-#~ msgctxt "@title:group"
-#~ msgid "Terminal Options"
-#~ msgstr "ტერმინალის პარამეტრები"
-
-#~ msgctxt "@title:group"
-#~ msgid "Discover More Applications"
-#~ msgstr "აღმოაჩინეთ მეტი აპლიკაცია"
-
-#~ msgctxt "@info"
-#~ msgid "Don't see the right app? Find more in <link>Discover</link>."
-#~ msgstr "ვერ ხედავთ სწორ აპს? აღმოაჩინეთ მეტი აპი <link>Discover-ში</link>."
-
-#~ msgctxt "Unordered list with privileges granted to an external process"
-#~ msgid "An application requested access to remotely control:\n"
-#~ msgstr "აპლიკაციამ მოითხოვა წვდომა დაშორებულ კონტროლზე:\n"
-
-#~ msgctxt ""
-#~ "Unordered list with privileges granted to an external process, included "
-#~ "the app's name"
-#~ msgid "%1 requested access to remotely control:\n"
-#~ msgstr "%1-მა დაშორებული მართვა გთხოვათ:\n"
-
-#~ msgctxt "Will allow the app to see what's on the outputs, in markdown"
-#~ msgid " - Screens\n"
-#~ msgstr " - ეკრანი\n"
-
-#~ msgid "New Virtual Output"
-#~ msgstr "ახალი ვირტუალური გამოტანა"
-
-#~ msgid "Rectangular Region"
-#~ msgstr "მართკუთხედი რეგიონი"
-
-#~ msgid "%1 wants access to your user info."
-#~ msgstr "%1-ს თქვენი მომხმარებლის ინფორმაციასთან წვდომა სურს."
-
-#~ msgid "This app will be given access to your avatar and name."
-#~ msgstr "ამ აპს ექნება წვდომა თქვენს ავატართან და სახელთან."
-
-#~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
-#~ msgid "Always open %1 files with the chosen app"
-#~ msgstr "%1 ფაილების ყოველთვის არჩეული აპით გახსნა"
-
-#~ msgid "Share your personal information with the requesting application?"
-#~ msgstr "გავუზიარო თქვენი პირადი ინფორმაცია მომთხოვნ აპლიკაციას?"
-
-#~ msgid "Create new folder in %1"
-#~ msgstr "%1-ში ახალი საქაღალდის შექმნა"
-
-#~ msgid "OK"
-#~ msgstr "ოკ"
-
-#~ msgid "Cancel"
-#~ msgstr "შეწყვეტა"
-
-#~ msgctxt "Virtual Output (shared with %1)"
-#~ msgid "%1 is the application name"
-#~ msgstr "%1 აპლიკაციის სახელია"
-
-#~ msgid ""
-#~ "Laptop screen\n"
-#~ "Model: %1"
-#~ msgstr ""
-#~ "ნოუთბუქის ეკრანი\n"
-#~ "მოდელი: %1"
-
-#~ msgid ""
-#~ "Manufacturer: %1\n"
-#~ "Model: %2"
-#~ msgstr ""
-#~ "მწარმოებელი: %1\n"
-#~ "მოდელი: %2"
-
-#~ msgid "%1 is running in the background."
-#~ msgstr "%1 ფონურადაა გაშვებული."
-
-#~ msgid "Find out more"
-#~ msgstr "მეტის გაგება"
-
-#~ msgid "%1 is running in the background"
-#~ msgstr "%1 წინა პლანზეა გაშვებული"
-
-#~ msgid ""
-#~ "This might be for a legitimate reason, but the application has not "
-#~ "provided one.\n"
-#~ "\n"
-#~ "Note that forcing an application to quit might cause data loss."
-#~ msgstr ""
-#~ "ეს შეიძლება კანონიერი მიზეზიც კი იყოს, მაგრამ აპლიკაციას ეს "
-#~ "გათვალისწინებული არ აქვს.\n"
-#~ "\n"
-#~ "გაითვალისწინეთ, რომ აპლიკაციის ძალით დახურვამ შეიძლება მონაცემების "
-#~ "კარგვაც გამოიწვიოს."
-
-#~ msgid "Force quit"
-#~ msgstr "ძალით გასვლა"
-
-#~ msgid "Portal"
-#~ msgstr "Portal"
-
-#~ msgctxt "Will allow the app to see what's on the outputs"
-#~ msgid ""
-#~ " <li>Screens\n"
-#~ "</li>"
-#~ msgstr ""
-#~ " <li>ეკრანი\n"
-#~ "</li>"
-
-#~ msgctxt "@action:inmenu stops screen/window sharing"
-#~ msgid "Terminate"
-#~ msgstr "შეწყვეტა"
-
-#~ msgid "Select what to share with the requesting application"
-#~ msgstr "აირჩიეთ, რისი გაზიარება გსურთ მომთხოვნი აპლიკაციისთვის"
-
-#~ msgid "Select what to share with %1"
-#~ msgstr "აირჩიეთ, რისი გაზიარება გსურთ %1-თვის"
-
-#~ msgid "Recording window \"%1\"..."
-#~ msgstr "მიმდინარეობს ფანჯრის ჩაწერა: \"%1\"..."
-
-#~ msgid "Recording screen \"%1\"..."
-#~ msgstr "ფანჯრის ჩაწერა: \"%1\"..."
-
-#~ msgid "Recording workspace..."
-#~ msgstr "სამუშაო მაგიდის ჩაწერა...."
-
-#~ msgid "Recording virtual output '%1'..."
-#~ msgstr "\"%1\"-ის ვირტუალური გამოტანის ჩაწერა...."
-
-#~ msgctxt "@action:inmenu stops screen/window recording"
-#~ msgid "Stop Recording"
-#~ msgstr "ჩაწერის გაჩერება"
-
-#~ msgid "Dialog"
-#~ msgstr "ფანჯარა"
-
-#~ msgid "Allow access to:"
-#~ msgstr "წვდომის მიცემა:"
-
-#~ msgid "Pointer"
-#~ msgstr "კურსორი"
-
-#~ msgid "Keyboard"
-#~ msgstr "კლავიატურა"
-
-#~ msgid "Touch screen"
-#~ msgstr "სენსორული ეკრანი"
-
-#~ msgid "Press to cancel"
-#~ msgstr "დააწექით გასაუქმებლად"

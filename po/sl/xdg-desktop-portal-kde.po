@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-14 00:46+0000\n"
-"PO-Revision-Date: 2026-03-14 07:45+0100\n"
+"PO-Revision-Date: 2026-05-14 07:47+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -315,26 +315,22 @@ msgstr ""
 "Vnos upravlja aplikacija. Pritisnite <shortcut>%1</shortcut>, da onemogočite."
 
 #: src/inputcapture.cpp:223
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
-msgstr "Zahtevan zajem vnosa"
+msgstr "Nastavitev zajemanja vhodnih podatkov"
 
 #: src/inputcapture.cpp:224
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application requested to capture input events"
+#, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
-msgstr "Aplikacija je zahtevala zajem vhodnih dogodkov"
+msgstr "Aplikacija bo v prihodnje lahko upravljala vnos."
 
 #: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."
-msgstr ""
+msgstr "%1 bo v prihodnje lahko upravljala vnos."
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
@@ -355,8 +351,7 @@ msgid "%1 requested to capture input events"
 msgstr "%1 je zahtevala zajem vhodnih dogodkov"
 
 #: src/InputCaptureDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Allow restoring on future sessions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow restoring on future sessions"
 msgstr "Dovoli obnovo v naslednjih sejah"

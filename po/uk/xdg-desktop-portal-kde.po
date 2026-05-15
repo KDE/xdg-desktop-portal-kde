@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-14 00:46+0000\n"
-"PO-Revision-Date: 2026-03-14 13:38+0200\n"
+"PO-Revision-Date: 2026-05-14 08:28+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -316,26 +316,22 @@ msgstr ""
 "вимкнути."
 
 #: src/inputcapture.cpp:223
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
-msgstr "Запит щодо перехоплення введення"
+msgstr "Налаштовування перехоплення введення"
 
 #: src/inputcapture.cpp:224
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application requested to capture input events"
+#, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
-msgstr "Програмою надіслано запит щодо перехоплення подій введення даних"
+msgstr "Надалі програма зможе керувати введенням."
 
 #: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."
-msgstr ""
+msgstr "%1 надалі зможе керувати введенням."
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
@@ -356,8 +352,7 @@ msgid "%1 requested to capture input events"
 msgstr "%1 надіслано запит щодо перехоплення подій введення даних"
 
 #: src/InputCaptureDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Allow restoring on future sessions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow restoring on future sessions"
 msgstr "Дозволити відновлення у майбутніх сеансах"

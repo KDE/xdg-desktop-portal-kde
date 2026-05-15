@@ -6,21 +6,21 @@
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2018, 2019, 2020.
 # SPDX-FileCopyrightText: 2023, 2024, 2025 Geraldo Simiao <geraldosimiao@fedoraproject.org>
 # SPDX-FileCopyrightText: 2025, 2026 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
-# SPDX-FileCopyrightText: 2025, 2026 Marcus Gama <marcus.gama@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Marcus Gama <marcus.gama@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-14 00:46+0000\n"
-"PO-Revision-Date: 2026-04-05 03:59-0300\n"
-"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
+"PO-Revision-Date: 2026-05-14 06:34-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -316,26 +316,22 @@ msgstr ""
 "shortcut> para desativar."
 
 #: src/inputcapture.cpp:223
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
-msgstr "Captura de entrada solicitada"
+msgstr "Configuração de captura de entrada"
 
 #: src/inputcapture.cpp:224
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application requested to capture input events"
+#, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
-msgstr "Um aplicativo solicitou para capturar eventos de entrada "
+msgstr "No futuro, um aplicativo poderá gerenciar entradas."
 
 #: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."
-msgstr ""
+msgstr "%1 poderá gerenciar a entrada no futuro."
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
@@ -356,8 +352,7 @@ msgid "%1 requested to capture input events"
 msgstr "%1 solicitou para capturar eventos de entrada"
 
 #: src/InputCaptureDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Allow restoring on future sessions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow restoring on future sessions"
 msgstr "Permitir restaurar em sessões futuras"
