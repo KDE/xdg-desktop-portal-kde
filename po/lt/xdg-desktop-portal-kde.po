@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-14 00:46+0000\n"
-"PO-Revision-Date: 2026-03-15 22:18+0200\n"
+"PO-Revision-Date: 2026-05-16 01:33+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -316,26 +316,22 @@ msgstr ""
 "Įvestį valdo programa. Paspauskite <shortcut>%1</shortcut> norėdami išjungti."
 
 #: src/inputcapture.cpp:223
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
-msgstr "Paprašyta įvesties užvaldymo"
+msgstr "Įvedimo užvaldymas paruoštas"
 
 #: src/inputcapture.cpp:224
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application requested to capture input events"
+#, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
-msgstr "Programa paprašė užvaldyti įvesties įvykius"
+msgstr "Programa ateityje galės tvarkyti įvedimą."
 
 #: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."
-msgstr ""
+msgstr "%1 ateityje galės tvarkyti įvedimą."
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
@@ -356,11 +352,10 @@ msgid "%1 requested to capture input events"
 msgstr "%1 paprašė užvaldyti įvesties įvykius"
 
 #: src/InputCaptureDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Allow restoring on future sessions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow restoring on future sessions"
-msgstr "Leisti būsimuosiuose seansuose atkurti"
+msgstr "Leisti atkurti būsimuosiuose seansuose"
 
 #: src/InputCaptureDialog.qml:30
 #, kde-format
