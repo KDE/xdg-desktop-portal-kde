@@ -14,9 +14,9 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/xdg-desktop-portal-kde/xdg-desktop-"
+"X-Crowdin-File: /kf6-stable/messages/xdg-desktop-portal-kde/xdg-desktop-"
 "portal-kde.pot\n"
-"X-Crowdin-File-ID: 43565\n"
+"X-Crowdin-File-ID: 52876\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -300,20 +300,16 @@ msgid ""
 msgstr "输入正在由某个应用程序管理。按 <shortcut>%1</shortcut> 禁用。"
 
 #: src/inputcapture.cpp:223
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
-msgstr "已请求输入捕获"
+msgstr ""
 
 #: src/inputcapture.cpp:224
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application requested to capture input events"
+#, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
-msgstr "一个应用程序已请求捕获输入事件"
+msgstr ""
 
 #: src/inputcapture.cpp:225
 #, kde-format
@@ -340,8 +336,7 @@ msgid "%1 requested to capture input events"
 msgstr "%1 已请求捕获输入事件"
 
 #: src/InputCaptureDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Allow restoring on future sessions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow restoring on future sessions"
 msgstr "允许在未来会话中恢复"
