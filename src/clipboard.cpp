@@ -12,8 +12,6 @@
 #include "remotedesktop.h"
 #include "session.h"
 
-#include <KSystemClipboard>
-
 #include <QDBusConnection>
 #include <QWaylandClientExtensionTemplate>
 

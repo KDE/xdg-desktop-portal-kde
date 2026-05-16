@@ -56,7 +56,6 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
     CoreAddons
     Config
     I18n
-    GuiAddons
     GlobalAccel
     KIO
     Kirigami
