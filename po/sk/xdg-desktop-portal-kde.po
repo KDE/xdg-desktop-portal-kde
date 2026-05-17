@@ -311,26 +311,22 @@ msgstr ""
 "disable."
 
 #: src/inputcapture.cpp:223
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
-msgstr "Input Capture Requested"
+msgstr "Nastavenie zachytávania vstupu"
 
 #: src/inputcapture.cpp:224
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application requested to capture input events"
+#, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
-msgstr "Požadovaný prístup k:"
+msgstr "Aplikácia bude môcť v budúcnosti spravovať vstup."
 
 #: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."
-msgstr ""
+msgstr "%1 bude môcť v budúcnosti spravovať vstup."
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
@@ -351,11 +347,10 @@ msgid "%1 requested to capture input events"
 msgstr "%1 requested to capture input events"
 
 #: src/InputCaptureDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Allow restoring on future sessions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow restoring on future sessions"
-msgstr "Povoliť obnovenie v budúcich sedeniach"
+msgstr "Povoliť obnovenie v budúcich reláciách"
 
 #: src/InputCaptureDialog.qml:30
 #, kde-format
