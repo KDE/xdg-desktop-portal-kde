@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-14 00:46+0000\n"
-"PO-Revision-Date: 2026-04-14 23:29+0200\n"
+"PO-Revision-Date: 2026-05-16 22:03+0200\n"
 "Last-Translator: Jan Papez (honyczek) <honyczek@centrum.cz>\n"
 "Language-Team: Czech <kde-i18n-cs@kde.org>\n"
 "Language: cs\n"
@@ -17,17 +17,21 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.03.90\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Vít Pelčák"
+msgstr ""
+"Vít Pelčák\n"
+"Jan Papež (honyczek)"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "vit@pelcak.org"
+msgstr ""
+"vit@pelcak.org\n"
+"honyczek@centrum.cz"
 
 #: src/accessdialog.cpp:26
 #, kde-format
@@ -57,7 +61,7 @@ msgstr "Vyberte aplikaci pro otevření <filename>%1</filename>"
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr ""
+msgstr "Najít další v Discoveru..."
 
 #: src/AppChooserDialog.qml:41
 #, kde-format
@@ -69,7 +73,7 @@ msgstr "Otevřít"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
-msgstr ""
+msgstr "Nastavit jako výchozí aplikaci pro otevírání souborů %1"
 
 #: src/AppChooserDialog.qml:123
 #, kde-format
@@ -86,13 +90,14 @@ msgstr "Vyberte jiný…"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
-msgstr ""
+msgstr "%1<nl/><emphasis> Výchozí aplikace pro tento typ souboru</emphasis>"
 
 #: src/AppChooserDialog.qml:197
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr ""
+"%1<nl/><emphasis>Naposledy použitá aplikace pro tento typ souborů</emphasis>"
 
 #: src/AppChooserDialog.qml:219
 #, kde-kuit-format
@@ -135,6 +140,8 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
+"%1 chce zůstat spuštěno, i když nemá žádná viditelná okna. Pokud toto "
+"zakážete, aplikace se při uzavření posledního okna ukončí."
 
 #: src/background.cpp:143 src/background.cpp:160
 #, kde-format
@@ -165,6 +172,9 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
+"Poznámka: toto způsobí, že aplikace %1 bude ukončena, když její poslední "
+"okno bude uzavřeno. V případě neuložených změn v aplikaci může dojít ke "
+"ztrátě dat."
 
 #: src/background.cpp:161
 #, kde-format
@@ -222,6 +232,9 @@ msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
 "<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
+"Tato zkratka je již přiřazena k akci <interface>%1</interface> z aplikace "
+"<application>%2</application>. Zadejte ji sem, pokud chcete tuto akci "
+"přepsat."
 
 #: src/globalshortcuts.cpp:114
 #, kde-kuit-format
@@ -230,13 +243,14 @@ msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
 msgstr ""
+"Tato zkratka je již přiřazena ke standardní akci <interface>%1</interface>."
 
 #: src/globalshortcuts.cpp:128
 #, kde-kuit-format
 msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
-msgstr ""
+msgstr "Tato zkratka je přiřazena k vícero akcím (<interface>%1</interface>)"
 
 #: src/globalshortcuts.cpp:508
 #, kde-format
@@ -247,49 +261,52 @@ msgstr ", "
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "Požadované globální zkratky"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following %1 shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Aplikace si chce zaregistrovat následující klávesovou zkratku:"
+msgstr[1] "Aplikace si chce zaregistrovat následující %1 klávesové zkratky:"
 msgstr[2] ""
+"Aplikace si chce zaregistrovat následujících %1 klávesových zkratek:"
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2 si chce zaregistrovat následující klávesovou zkratku:"
+msgstr[1] "%2 si chce zaregistrovat následující %1 klávesové zkratky:"
+msgstr[2] "%2 si chce zaregistrovat následujících %1 klávesových zkratek:"
 
 #: src/GlobalShortcutsDialog.qml:88
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
-msgstr ""
+msgstr "Zobrazit jiné klávesové zkratky..."
 
 #: src/GlobalShortcutsDialog.qml:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "Zobrazit jiné klávesové zkratky zaregistrované touto aplikací"
 
 #: src/inputcapture.cpp:116
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr ""
+msgstr "Zachytávání vstupu spuštěno"
 
 #: src/inputcapture.cpp:119
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr ""
+"Vstup je spravován aplikací %1. Pro zablokování stiskněte <shortcut>%2</"
+"shortcut>."
 
 #: src/inputcapture.cpp:124
 #, kde-kuit-format
@@ -298,49 +315,50 @@ msgid ""
 "Input is being managed by an application. Press <shortcut>%1</shortcut> to "
 "disable."
 msgstr ""
+"Vstup je spravován nějakou aplikací. Pro zablokování stiskněte <shortcut>%1</"
+"shortcut>."
 
 #: src/inputcapture.cpp:223
 #, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
-msgstr ""
+msgstr "Nastavení zachytávání vstupu"
 
 #: src/inputcapture.cpp:224
 #, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
-msgstr ""
+msgstr "Aplikace bude moci spravovat vstup v budoucnu."
 
 #: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."
-msgstr ""
+msgstr "Aplikace %1 bude moci spravovat vstup v budoucnu."
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
-msgstr ""
+msgstr "Požadováno zachytávání vstupu"
 
 #: src/InputCaptureDialog.qml:19
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
-msgstr ""
+msgstr "Nějaká aplikace si požádala o zachycování událostí vstupu"
 
 #: src/InputCaptureDialog.qml:19
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
-msgstr ""
+msgstr "%1 požaduje zachycování událostí vstupu"
 
 #: src/InputCaptureDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Allow restoring on future sessions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow restoring on future sessions"
-msgstr "Umožnit návrat k předchozím verzím"
+msgstr "Umožnit obnovení v budoucích sezeních"
 
 #: src/InputCaptureDialog.qml:30
 #, kde-format
@@ -401,17 +419,17 @@ msgstr "Vybrat"
 #: src/outputsmodel.cpp:83
 #, kde-format
 msgid "Share virtual screen"
-msgstr ""
+msgstr "Sdílet virtuální obrazovku"
 
 #: src/outputsmodel.cpp:87
 #, kde-format
 msgid "Share region"
-msgstr ""
+msgstr "Sdílet oblast"
 
 #: src/outputsmodel.cpp:98
 #, kde-format
 msgid "Share full Workspace"
-msgstr ""
+msgstr "Sdílet celou pracovní plochu"
 
 #: src/outputsmodel.cpp:133
 #, kde-format
@@ -422,37 +440,37 @@ msgstr "Obrazovka notebooku"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "Sdílet celou pracovní plochu napříč všemi obrazovkami"
 
 #: src/outputsmodel.cpp:371
 #, kde-format
 msgctxt "@info"
 msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgstr "Vytvoří obrazovku uvnitř okna a pak ji nasdílí"
 
 #: src/outputsmodel.cpp:373
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "Ořízne určenou oblast na vašich obrazovkách"
 
 #: src/PipeWireDelegate.qml:232
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
-msgstr ""
+msgstr "Nejsou otevřena žádná okna"
 
 #: src/PipeWireDelegate.qml:237
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
-msgstr ""
+msgstr "+%1"
 
 #: src/PipeWireDelegate.qml:250
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
-msgstr ""
+msgstr "Sdílet „%1“"
 
 #: src/region-select/RegionSelectOverlay.qml:148
 #, kde-format
@@ -501,11 +519,10 @@ msgid "Left-click and drag"
 msgstr "Klikněte levým tlačítkem a táhněte"
 
 #: src/remotedesktop.cpp:118
-#, fuzzy, kde-format
-#| msgid "Remote desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "Vzdálená plocha"
+msgstr "Vzdálená pracovní plocha není dostupná"
 
 #: src/remotedesktop.cpp:120
 #, kde-kuit-format
@@ -516,6 +533,9 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Aplikace <application>%1</application> se pokusila spustit sezení vzdálené "
+"plochy, ale vzdálená plocha není na tomto systému k dispozici. Ujistěte se, "
+"že používáte sezení Wayland s kompatibilním správcem oken, jako je KWin."
 
 #: src/remotedesktop.cpp:124
 #, kde-kuit-format
@@ -525,50 +545,51 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Aplikace <application>%1</application> se pokusila spustit sezení vzdálené "
+"plochy, ale vzdálená plocha není v sezeních X11 k dispozici. Přepněte se "
+"prosím do sezení Wayland a zkuste to znovu."
 
 #: src/remotedesktop.cpp:190 src/screencast.cpp:232
 #, kde-format
 msgid "Virtual Output"
-msgstr ""
+msgstr "Virtuální výstup"
 
 #: src/remotedesktop.cpp:191 src/screencast.cpp:233
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
-msgstr ""
+msgstr "Virtuální výstup (sdílený s %1)"
 
 #: src/remotedesktop.cpp:302
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
-msgstr ""
+msgstr "Sezení vzdáleného ovládání spuštěno"
 
 #: src/remotedesktop.cpp:591
-#, fuzzy, kde-format
-#| msgid "Remote desktop"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Control"
-msgstr "Vzdálená plocha"
+msgstr "Vzdálené ovládání"
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgid "Remote desktop"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr "Vzdálená plocha"
+msgstr "Vzdálené ovládání"
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "@info"
 msgid "An application is asking for special privileges:\n"
-msgstr ""
+msgstr "Aplikace požaduje zvláštní oprávnění:\n"
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "@info"
 msgid "%1 is asking for special privileges:"
-msgstr ""
+msgstr "%1 požaduje zvláštní oprávnění:"
 
 #: src/remotedesktopdialog.cpp:50
 #, kde-format
@@ -579,6 +600,8 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - Vidět, co je na obrazovce"
 
 #: src/remotedesktopdialog.cpp:54
 #, kde-format
@@ -589,18 +612,20 @@ msgid ""
 "\n"
 " - Control input devices"
 msgstr ""
+"\n"
+" - Ovládat vstupní zařízení"
 
 #: src/remotedesktopdialog.cpp:62
 #, kde-format
 msgctxt "@info"
 msgid "An application is exercising special permissions:\n"
-msgstr ""
+msgstr "Aplikace využívá zvláštní oprávnění:\n"
 
 #: src/remotedesktopdialog.cpp:63
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising special privileges:"
-msgstr ""
+msgstr "%1 využívá zvláštní oprávnění:"
 
 #: src/remotedesktopdialog.cpp:67
 #, kde-format
@@ -611,6 +636,8 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - Vidět, co je na obrazovce"
 
 #: src/remotedesktopdialog.cpp:71
 #, kde-format
@@ -621,29 +648,31 @@ msgid ""
 "\n"
 " - Control input devices"
 msgstr ""
+"\n"
+" - Ovládat vstupní zařízení"
 
 #: src/RemoteDesktopDialog.qml:32 src/ScreenChooserDialog.qml:191
 #, kde-format
 msgid "Allow restoring on future sessions"
-msgstr "Umožnit návrat k předchozím verzím"
+msgstr "Umožnit obnovení v budoucích sezeních"
 
 #: src/RemoteDesktopDialog.qml:36
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
-msgstr ""
+msgstr "Schválit"
 
 #: src/RemoteDesktopDialog.qml:37
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr ""
+msgstr "Odepřít"
 
 #: src/screencast.cpp:151
 #, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr ""
+msgstr "Sdílení obrazovky není dostupné"
 
 #: src/screencast.cpp:153
 #, kde-kuit-format
@@ -654,6 +683,9 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Aplikace <application>%1</application> se pokusila spustit sezení sdílené "
+"obrazovky, ale sdílení obrazovky není na tomto systému k dispozici. Ujistěte "
+"se, že používáte sezení Wayland s kompatibilním správcem oken, jako je KWin."
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -663,6 +695,9 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Aplikace <application>%1</application> se pokusila spustit sezení sdílené "
+"obrazovky, ale sdílení obrazovky není v sezeních X11 k dispozici. Přepněte "
+"se prosím do sezení Wayland a zkuste to znovu."
 
 #: src/screencast.cpp:297
 #, kde-format
@@ -681,102 +716,104 @@ msgstr "Konec"
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Sdílení obsahu pro %2"
+msgstr[1] "%1 sdílené obsahy pro %2"
+msgstr[2] "%1 sdílených obsahů pro %2"
 
 #: src/screencast.cpp:459
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
-msgstr "Sdílení obrazovky"
+msgstr "Vysílání obrazovky"
 
 #: src/screenchooserdialog.cpp:156
 #, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
-msgstr ""
+msgstr "Sdílet obrazovku s %1"
 
 #: src/screenchooserdialog.cpp:203
 #, kde-format
 msgid "Share this screen with the requesting application?"
-msgstr ""
+msgstr "Chcete sdílet tuto obrazovku s aplikací, která to požaduje?"
 
 #: src/screenchooserdialog.cpp:205
 #, kde-format
 msgid "Share this screen with %1?"
-msgstr ""
+msgstr "Sdílet tuto obrazovku s %1?"
 
 #: src/screenchooserdialog.cpp:210
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
-msgstr ""
+msgstr "Vyberte obrazovky, které chcete sdílet s aplikací, která to požaduje:"
 
 #: src/screenchooserdialog.cpp:212
 #, kde-format
 msgid "Choose screens to share with %1:"
-msgstr ""
+msgstr "Vyberte obrazovky, které chcete sdílet s %1:"
 
 #: src/screenchooserdialog.cpp:216
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr ""
+"Vyberte kterou obrazovku, kterou chcete sdílet s aplikací, která to požaduje:"
 
 #: src/screenchooserdialog.cpp:218
 #, kde-format
 msgid "Choose which screen to share with %1:"
-msgstr ""
+msgstr "Vyberte obrazovku, které chcete sdílet s %1:"
 
 #: src/screenchooserdialog.cpp:227
 #, kde-format
 msgid "Share this window with the requesting application?"
-msgstr ""
+msgstr "Chcete sdílet toto okno s aplikací, která to požaduje?"
 
 #: src/screenchooserdialog.cpp:229
 #, kde-format
 msgid "Share this window with %1?"
-msgstr ""
+msgstr "Sdílet toto okno s %1?"
 
 #: src/screenchooserdialog.cpp:234
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
-msgstr ""
+msgstr "Vyberte okna, která chcete sdílet s aplikací, která to požaduje:"
 
 #: src/screenchooserdialog.cpp:236
 #, kde-format
 msgid "Choose windows to share with %1:"
-msgstr ""
+msgstr "Vyberte okna, která chcete sdílet s %1:"
 
 #: src/screenchooserdialog.cpp:240
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
-msgstr ""
+msgstr "Vyberte která okna chcete sdílet s aplikací, která to požaduje:"
 
 #: src/screenchooserdialog.cpp:242
 #, kde-format
 msgid "Choose which window to share with %1:"
-msgstr ""
+msgstr "Vyberte okno, které chcete sdílet s %1:"
 
 #: src/screenchooserdialog.cpp:249
 #, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
 msgstr ""
+"Vytvořit nový virtuální displej pro sdílení aplikací, která to vyžaduje:"
 
 #: src/screenchooserdialog.cpp:251
 #, kde-format
 msgid "Create a new virtual display to share with %1:"
-msgstr ""
+msgstr "Vytvořit nový virtuální displej pro sdílení s %1:"
 
 #: src/screenchooserdialog.cpp:257
 #, kde-format
 msgid "Choose what to share with the requesting application:"
-msgstr ""
+msgstr "Vyberte co chcete sdílet s aplikací, která to požaduje:"
 
 #: src/screenchooserdialog.cpp:259
 #, kde-format
 msgid "Choose what to share with %1:"
-msgstr ""
+msgstr "Vyberte, co chcete sdílet s %1:"
 
 #: src/ScreenChooserDialog.qml:122
 #, kde-format
@@ -785,12 +822,11 @@ msgid "Search…"
 msgstr "Hledat…"
 
 #: src/ScreenChooserDialog.qml:168
-#, fuzzy, kde-format
-#| msgid "Active Window"
+#, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
-msgstr "Aktivní okno"
+msgstr "Okna"
 
 #: src/ScreenChooserDialog.qml:196
 #, kde-format
@@ -863,37 +899,37 @@ msgstr "Uložit"
 #: src/ScreenshotDialog.qml:86
 #, kde-format
 msgid "Take"
-msgstr ""
+msgstr "Sejmout"
 
 #: src/UsbDialog.qml:21
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
-msgstr ""
+msgstr "Požadován přístup k zařízení USB"
 
 #: src/UsbDialog.qml:24
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
 msgid_plural "An application wants to access the following devices:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Aplikace chce přistupovat k následujícímu zařízení:"
+msgstr[1] "Aplikace chce přistupovat k následujícím zařízením:"
+msgstr[2] "Aplikace chce přistupovat k následujícím zařízením:"
 
 #: src/UsbDialog.qml:26
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
 msgid_plural "%2 wants to access the following devices:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%2 chce přistupovat k následujícímu zařízení:"
+msgstr[1] "%2 chce přistupovat k následujícím zařízením:"
+msgstr[2] "%2 chce přistupovat k následujícím zařízením:"
 
 #: src/userinfodialog.cpp:52
 #, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
-msgstr ""
+msgstr "Sdílet informace o uživateli s %1"
 
 #: src/userinfodialog.cpp:54
 #, kde-format
@@ -902,12 +938,14 @@ msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
 msgstr ""
+"Povoluje aplikaci používat vaše uživatelské jméno, celé jméno a profilový "
+"obrázek."
 
 #: src/UserInfoDialog.qml:19
 #, kde-format
 msgctxt "@action:button"
 msgid "Share user info"
-msgstr ""
+msgstr "Sdílet informace o uživateli"
 
 #: src/UserInfoDialog.qml:75
 #, kde-format
@@ -919,48 +957,48 @@ msgstr "Sdílet"
 #, kde-format
 msgctxt "@title:window"
 msgid "Set Wallpaper"
-msgstr ""
+msgstr "Nastavit tapetu pozadí"
 
 #: src/WallpaperDialog.qml:26
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the desktop background?"
-msgstr ""
+msgstr "Umožnit aplikaci nastavit pozadí pracovní plochy?"
 
 #: src/WallpaperDialog.qml:28
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the lock screen background?"
-msgstr ""
+msgstr "Umožnit aplikaci nastavit pozadí zamykací obrazovky?"
 
 #: src/WallpaperDialog.qml:30
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set desktop and lock screen backgrounds?"
-msgstr ""
+msgstr "Umožnit aplikaci nastavit pozadí pracovní plochy a zamykací obrazovky?"
 
 #: src/WallpaperDialog.qml:35
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the desktop background?"
-msgstr ""
+msgstr "Povolit %1 nastavit pozadí pracovní plochy?"
 
 #: src/WallpaperDialog.qml:37
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the lock screen background?"
-msgstr ""
+msgstr "Povolit %1 nastavit pozadí zamykací obrazovky?"
 
 #: src/WallpaperDialog.qml:39
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
-msgstr ""
+msgstr "Povolit %1 nastavit pozadí pracovní plochy a zamykací obrazovky?"
 
 #: src/waylandintegration.cpp:213 src/waylandintegration.cpp:252
 #, kde-format
 msgid "Failed to start screencasting"
-msgstr ""
+msgstr "Spuštění vysílání obrazovky selhalo"
 
 #: src/waylandintegration.cpp:376
 #, kde-format
