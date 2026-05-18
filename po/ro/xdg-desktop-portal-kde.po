@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-14 00:46+0000\n"
-"PO-Revision-Date: 2026-03-16 16:12+0000\n"
+"PO-Revision-Date: 2026-05-16 20:34+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -314,48 +314,43 @@ msgstr ""
 "shortcut> pentru a dezactiva."
 
 #: src/inputcapture.cpp:223
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
-msgstr "Se cere capturarea intrării"
+msgstr "S-a configurat capturarea introducerii"
 
 #: src/inputcapture.cpp:224
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application requested to capture input events"
+#, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
-msgstr "O aplicație a cerut să captureze evenimentele de intrare"
+msgstr "O aplicație va putea să gestioneze introducerea pe viitor."
 
 #: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."
-msgstr ""
+msgstr "%1 va putea să gestioneze introducerea pe viitor."
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
-msgstr "Se cere capturarea intrării"
+msgstr "Se cere capturarea introducerii"
 
 #: src/InputCaptureDialog.qml:19
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
-msgstr "O aplicație a cerut să captureze evenimentele de intrare"
+msgstr "O aplicație a cerut să captureze evenimentele de introducere"
 
 #: src/InputCaptureDialog.qml:19
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
-msgstr "%1 a cerut să captureze evenimentele de intrare"
+msgstr "%1 a cerut să captureze evenimentele de introducere"
 
 #: src/InputCaptureDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Allow restoring on future sessions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow restoring on future sessions"
 msgstr "Permite restabilirea în sesiuni viitoare"
@@ -614,7 +609,7 @@ msgid ""
 " - Control input devices"
 msgstr ""
 "\n"
-" - Să controleze dispozitivele de intrare"
+" - Să controleze dispozitivele de introducere"
 
 #: src/remotedesktopdialog.cpp:62
 #, kde-format
@@ -650,7 +645,7 @@ msgid ""
 " - Control input devices"
 msgstr ""
 "\n"
-" - Să controleze dispozitivele de intrare"
+" - Controlează dispozitivele de introducere"
 
 #: src/RemoteDesktopDialog.qml:32 src/ScreenChooserDialog.qml:191
 #, kde-format
