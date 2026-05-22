@@ -9,29 +9,25 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-14 00:46+0000\n"
-"PO-Revision-Date: 2026-05-16 22:03+0200\n"
-"Last-Translator: Jan Papez (honyczek) <honyczek@centrum.cz>\n"
+"PO-Revision-Date: 2026-05-21 23:41+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-cs@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
-"Vít Pelčák\n"
-"Jan Papež (honyczek)"
+msgstr "Vít Pelčák,Jan Papež"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
-"vit@pelcak.org\n"
-"honyczek@centrum.cz"
+msgstr "vit@pelcak.org,honyczek@centrum.cz"
 
 #: src/accessdialog.cpp:26
 #, kde-format
@@ -61,7 +57,7 @@ msgstr "Vyberte aplikaci pro otevření <filename>%1</filename>"
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "Najít další v Discoveru..."
+msgstr "Najít další v Discoveru…"
 
 #: src/AppChooserDialog.qml:41
 #, kde-format
@@ -206,7 +202,7 @@ msgstr "Název"
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr "Upravit informace"
+msgstr "Upravit informace…"
 
 #: src/DynamicLauncherDialog.qml:101
 #, kde-format
@@ -286,7 +282,7 @@ msgstr[2] "%2 si chce zaregistrovat následujících %1 klávesových zkratek:"
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
-msgstr "Zobrazit jiné klávesové zkratky..."
+msgstr "Zobrazit jiné klávesové zkratky…"
 
 #: src/GlobalShortcutsDialog.qml:89
 #, kde-format
@@ -475,7 +471,7 @@ msgstr "Sdílet „%1“"
 #: src/region-select/RegionSelectOverlay.qml:148
 #, kde-format
 msgid "Start streaming:"
-msgstr "Zahájit streamování"
+msgstr "Zahájit streamování:"
 
 #: src/region-select/RegionSelectOverlay.qml:152
 #, kde-format
