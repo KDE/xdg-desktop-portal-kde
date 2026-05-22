@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-14 00:46+0000\n"
-"PO-Revision-Date: 2026-03-14 10:02+0100\n"
+"PO-Revision-Date: 2026-05-14 10:45+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -319,26 +319,22 @@ msgstr ""
 "per a desactivar-ho."
 
 #: src/inputcapture.cpp:223
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
-msgstr "S'ha sol·licitat la captura d'entrada"
+msgstr "Establiment de la captura d'entrada"
 
 #: src/inputcapture.cpp:224
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application requested to capture input events"
+#, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
-msgstr "Una aplicació ha demanat capturar esdeveniments d'entrada"
+msgstr "Una aplicació podrà gestionar l'entrada en el futur."
 
 #: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."
-msgstr ""
+msgstr "%1 podrà gestionar l'entrada en el futur."
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
@@ -359,8 +355,7 @@ msgid "%1 requested to capture input events"
 msgstr "%1 ha demanat capturar esdeveniments d'entrada"
 
 #: src/InputCaptureDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Allow restoring on future sessions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow restoring on future sessions"
 msgstr "Permet la restauració en sessions futures"
@@ -607,7 +602,7 @@ msgid ""
 " - See what’s on the screen"
 msgstr ""
 "\n"
-" - Veure què hi ha a la pantalla"
+" – Veure què hi ha a la pantalla"
 
 #: src/remotedesktopdialog.cpp:54
 #, kde-format
@@ -619,7 +614,7 @@ msgid ""
 " - Control input devices"
 msgstr ""
 "\n"
-" - Dispositius d'entrada de control"
+" – Dispositius d'entrada de control"
 
 #: src/remotedesktopdialog.cpp:62
 #, kde-format
@@ -643,7 +638,7 @@ msgid ""
 " - See what’s on the screen"
 msgstr ""
 "\n"
-" - Veure què hi ha a la pantalla"
+" – Veure què hi ha a la pantalla"
 
 #: src/remotedesktopdialog.cpp:71
 #, kde-format
@@ -655,7 +650,7 @@ msgid ""
 " - Control input devices"
 msgstr ""
 "\n"
-" - Dispositius d'entrada de control"
+" – Dispositius d'entrada de control"
 
 #: src/RemoteDesktopDialog.qml:32 src/ScreenChooserDialog.qml:191
 #, kde-format

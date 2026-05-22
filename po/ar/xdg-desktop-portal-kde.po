@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-14 00:46+0000\n"
-"PO-Revision-Date: 2026-03-15 09:35+0400\n"
+"PO-Revision-Date: 2026-05-21 11:31+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -311,26 +311,22 @@ msgid ""
 msgstr "يدار الإدخال بواسطة تطبيق. اضغط على <shortcut>%1</shortcut> لتعطيله."
 
 #: src/inputcapture.cpp:223
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
-msgstr "طُلب التقاط الإدخال"
+msgstr "تهيئة التقاط الإدخال"
 
 #: src/inputcapture.cpp:224
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application requested to capture input events"
+#, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
-msgstr "طلب برنامج أن يلتقط أحداث الإدخال"
+msgstr "تطبيق سيتمكن من إدارة الإدخال في المستقبل."
 
 #: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."
-msgstr ""
+msgstr "سيتمكن %1 من إدارة المدخلات مستقبلاً."
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
@@ -351,8 +347,7 @@ msgid "%1 requested to capture input events"
 msgstr "طلب %1 أن يلتقط أحداث الإدخال"
 
 #: src/InputCaptureDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Allow restoring on future sessions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow restoring on future sessions"
 msgstr "اسمح بالاستعادة في الجلسات القادمة"
