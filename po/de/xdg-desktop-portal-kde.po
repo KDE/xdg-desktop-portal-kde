@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-23 00:47+0000\n"
-"PO-Revision-Date: 2026-04-12 13:34+0200\n"
-"Last-Translator: Alexander Becker <alex-at-kde-l10n-de@freenet.de>\n"
+"PO-Revision-Date: 2026-05-21 14:45+0200\n"
+"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -295,7 +295,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "Eingabeaufzeichnung gestartet"
+msgstr "Eingabeerfassung gestartet"
 
 #: src/inputcapture.cpp:119
 #, kde-kuit-format
@@ -316,51 +316,46 @@ msgstr ""
 "%1</shortcut> wird dies deaktiviert."
 
 #: src/inputcapture.cpp:223
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
-msgstr "Eingabeaufzeichnung angefordert"
+msgstr "Eingabeerfassung eingerichtet"
 
 #: src/inputcapture.cpp:224
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application requested to capture input events"
+#, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
-msgstr "Eine Anwendung fordert die Aufzeichnung von Eingabeereignissen"
+msgstr "Eine Anwendung kann die Eingabe in Zukunft verwalten."
 
 #: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."
-msgstr ""
+msgstr "%1 kann die Eingabe in Zukunft verwalten."
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
-msgstr "Eingabeaufzeichnung angefordert"
+msgstr "Eingabeerfassung angefordert"
 
 #: src/InputCaptureDialog.qml:19
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
-msgstr "Eine Anwendung fordert die Aufzeichnung von Eingabeereignissen"
+msgstr "Eine Anwendung fordert die Erfassung von Eingabeereignissen an"
 
 #: src/InputCaptureDialog.qml:19
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
-msgstr "%1 möchte Eingabeereignisse aufzeichnen"
+msgstr "%1 möchte Eingabeereignisse erfassen"
 
 #: src/InputCaptureDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Allow restoring on future sessions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow restoring on future sessions"
-msgstr "Wiederherstellung bei künftigen Sitzungen aktivieren"
+msgstr "Wiederherstellung bei künftigen Sitzungen ermöglichen"
 
 #: src/InputCaptureDialog.qml:30
 #, kde-format
@@ -862,7 +857,7 @@ msgstr "Bildschirmfoto anfordern"
 #: src/ScreenshotDialog.qml:35
 #, kde-format
 msgid "Capture Mode"
-msgstr "Aufnahmemodus"
+msgstr "Erfassungsmodus"
 
 #: src/ScreenshotDialog.qml:39
 #, kde-format
