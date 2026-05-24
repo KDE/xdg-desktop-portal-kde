@@ -368,7 +368,7 @@ QString Output::description() const
     case Workspace:
         return i18nc("@info", "Share the entire workspace across all screens");
     case Virtual:
-        return i18nc("@info", "Creates a screen inside a window, then share");
+        return i18nc("@info", "Create a virtual screen, then share");
     case Region:
         return i18nc("@info", "Crops a specific area of your screens");
     case Laptop:
