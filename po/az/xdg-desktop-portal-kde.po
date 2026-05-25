@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-23 00:47+0000\n"
+"POT-Creation-Date: 2026-05-25 00:46+0000\n"
 "PO-Revision-Date: 2022-08-24 17:55+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -444,10 +444,11 @@ msgid "Share the entire workspace across all screens"
 msgstr ""
 
 #: src/outputsmodel.cpp:371
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Choose windows to share with %1:"
 msgctxt "@info"
-msgid "Creates a screen inside a window, then share"
-msgstr ""
+msgid "Create a virtual screen, then share"
+msgstr "%1 ilə nəyi paylaşacağınız pəncərələri seçin:"
 
 #: src/outputsmodel.cpp:373
 #, kde-format

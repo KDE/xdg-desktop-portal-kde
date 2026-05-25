@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-23 00:47+0000\n"
+"POT-Creation-Date: 2026-05-25 00:46+0000\n"
 "PO-Revision-Date: 2026-05-21 00:30+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -424,9 +424,11 @@ msgid "Share the entire workspace across all screens"
 msgstr "分享整個工作空間，包含所有螢幕"
 
 #: src/outputsmodel.cpp:371
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Creates a screen inside a window, then share"
 msgctxt "@info"
-msgid "Creates a screen inside a window, then share"
+msgid "Create a virtual screen, then share"
 msgstr "在一個視窗裡建立虛擬螢幕，然後分享它"
 
 #: src/outputsmodel.cpp:373

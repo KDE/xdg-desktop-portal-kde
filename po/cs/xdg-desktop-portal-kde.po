@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-23 00:47+0000\n"
+"POT-Creation-Date: 2026-05-25 00:46+0000\n"
 "PO-Revision-Date: 2026-05-21 23:41+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-cs@kde.org>\n"
@@ -439,9 +439,11 @@ msgid "Share the entire workspace across all screens"
 msgstr "Sdílet celou pracovní plochu napříč všemi obrazovkami"
 
 #: src/outputsmodel.cpp:371
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Creates a screen inside a window, then share"
 msgctxt "@info"
-msgid "Creates a screen inside a window, then share"
+msgid "Create a virtual screen, then share"
 msgstr "Vytvoří obrazovku uvnitř okna a pak ji nasdílí"
 
 #: src/outputsmodel.cpp:373
