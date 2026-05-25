@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-23 02:41+0000\n"
+"POT-Creation-Date: 2026-05-25 02:37+0000\n"
 "PO-Revision-Date: 2026-05-16 01:33+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
@@ -440,9 +440,11 @@ msgid "Share the entire workspace across all screens"
 msgstr "Bendrinti visą darbo sritį skersai visus ekranus"
 
 #: src/outputsmodel.cpp:371
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Creates a screen inside a window, then share"
 msgctxt "@info"
-msgid "Creates a screen inside a window, then share"
+msgid "Create a virtual screen, then share"
 msgstr "Sukuria ekraną lango viduje, tada bendrina"
 
 #: src/outputsmodel.cpp:373
