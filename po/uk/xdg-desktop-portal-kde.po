@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-25 00:46+0000\n"
-"PO-Revision-Date: 2026-05-14 08:28+0300\n"
+"PO-Revision-Date: 2026-05-25 08:12+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -440,12 +440,10 @@ msgid "Share the entire workspace across all screens"
 msgstr "Оприлюднювати увесь робочий простір на усіх екранах"
 
 #: src/outputsmodel.cpp:371
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Creates a screen inside a window, then share"
+#, kde-format
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
-msgstr "Створити екран у вікні, потім поширити"
+msgstr "Створити, потім оприлюднити віртуальний екран"
 
 #: src/outputsmodel.cpp:373
 #, kde-format

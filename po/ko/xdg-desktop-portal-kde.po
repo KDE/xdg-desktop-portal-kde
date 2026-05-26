@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-25 00:46+0000\n"
-"PO-Revision-Date: 2026-04-26 22:18+0200\n"
+"PO-Revision-Date: 2026-05-25 21:14+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -304,26 +304,22 @@ msgstr ""
 "키를 누르십시오."
 
 #: src/inputcapture.cpp:223
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
-msgstr "입력 캡처 요청됨"
+msgstr "입력 캡처 설정됨"
 
 #: src/inputcapture.cpp:224
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application requested to capture input events"
+#, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
-msgstr "앱에서 입력 이벤트 캡처를 요청함"
+msgstr "향후에 앱에서 입력을 관리할 수 있습니다."
 
 #: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."
-msgstr ""
+msgstr "%1에서 향후에 입력을 관리할 수 있습니다."
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
@@ -344,8 +340,7 @@ msgid "%1 requested to capture input events"
 msgstr "%1에서 입력 이벤트 캡처를 요청함"
 
 #: src/InputCaptureDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Allow restoring on future sessions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow restoring on future sessions"
 msgstr "향후 세션에서 복원 허용"
@@ -433,12 +428,10 @@ msgid "Share the entire workspace across all screens"
 msgstr "모든 화면에 걸친 전체 작업 공간 공유"
 
 #: src/outputsmodel.cpp:371
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Creates a screen inside a window, then share"
+#, kde-format
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
-msgstr "창 안에 화면을 만들고 그 화면 공유"
+msgstr "가상 화면을 만들고 공유"
 
 #: src/outputsmodel.cpp:373
 #, kde-format

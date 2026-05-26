@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-25 00:46+0000\n"
-"PO-Revision-Date: 2026-05-14 13:04+0300\n"
+"PO-Revision-Date: 2026-05-25 17:38+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -432,12 +432,10 @@ msgid "Share the entire workspace across all screens"
 msgstr "Çalışma alanının tamamını tüm ekranlar arasında paylaşır"
 
 #: src/outputsmodel.cpp:371
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Creates a screen inside a window, then share"
+#, kde-format
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
-msgstr "Bir pencerenin içinde bir ekran oluşturup onu paylaşır"
+msgstr "Sanal bir ekran oluştur ve sonrasında paylaş"
 
 #: src/outputsmodel.cpp:373
 #, kde-format

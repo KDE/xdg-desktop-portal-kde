@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-25 00:46+0000\n"
-"PO-Revision-Date: 2026-05-14 04:30+0200\n"
+"PO-Revision-Date: 2026-05-25 05:11+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -434,12 +434,10 @@ msgid "Share the entire workspace across all screens"
 msgstr "სამუშაო სივრცის სრულად გაზიარება ყველა ეკრანზე"
 
 #: src/outputsmodel.cpp:371
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Creates a screen inside a window, then share"
+#, kde-format
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
-msgstr "ეკრანის შექმნა ფანჯარაში და შემდეგ გაზიარება"
+msgstr "ვირტუალური ეკრანის შექმნა, შემდეგ კი გაზიარება"
 
 #: src/outputsmodel.cpp:373
 #, kde-format
