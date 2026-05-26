@@ -424,12 +424,10 @@ msgid "Share the entire workspace across all screens"
 msgstr "共享全部屏幕的完整工作区"
 
 #: src/outputsmodel.cpp:371
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Creates a screen inside a window, then share"
+#, kde-format
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
-msgstr "创建一个位于窗口内部的虚拟屏幕然后共享"
+msgstr ""
 
 #: src/outputsmodel.cpp:373
 #, kde-format
