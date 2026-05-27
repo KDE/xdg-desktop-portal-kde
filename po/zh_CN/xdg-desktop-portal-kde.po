@@ -427,7 +427,7 @@ msgstr "共享全部屏幕的完整工作区"
 #, kde-format
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
-msgstr ""
+msgstr "创建虚拟屏幕并共享"
 
 #: src/outputsmodel.cpp:373
 #, kde-format
