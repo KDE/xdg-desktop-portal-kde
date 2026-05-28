@@ -3,13 +3,13 @@
 #
 # SPDX-FileCopyrightText: 2017, 2018, 2024 Kiszel Kristóf <kiszel.kristof@gmail.com>
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2019, 2020, 2021.
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025, 2026 Kristof Kiszel <ulysses@fsf.hu>
+# SPDX-FileCopyrightText: 2021-2026 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-25 02:37+0000\n"
-"PO-Revision-Date: 2026-01-30 21:13+0100\n"
+"PO-Revision-Date: 2026-05-27 22:43+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -318,26 +318,22 @@ msgstr ""
 "kombinációt a kikapcsoláshoz."
 
 #: src/inputcapture.cpp:223
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
-msgstr "Bevitelrögzítési kérés"
+msgstr "Bevételrögzítés beállítva"
 
 #: src/inputcapture.cpp:224
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application requested to capture input events"
+#, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
-msgstr "Egy alkalmazás a beviteli események rögzítését kéri"
+msgstr "Egy alkalmazás kezelheti a bemeneteket a jövőben."
 
 #: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."
-msgstr ""
+msgstr "A(z) %1 kezelheti a bemeneteket a jövőben."
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
@@ -358,8 +354,7 @@ msgid "%1 requested to capture input events"
 msgstr "A(z) %1 beviteli események rögzítését kéri"
 
 #: src/InputCaptureDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Allow restoring on future sessions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow restoring on future sessions"
 msgstr "Visszaállíthatóság engedélyezése a jövőbeli munkamenetekben"
@@ -447,12 +442,10 @@ msgid "Share the entire workspace across all screens"
 msgstr "A teljes munkaterület megosztása az összes képernyőn"
 
 #: src/outputsmodel.cpp:371
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Creates a screen inside a window, then share"
+#, kde-format
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
-msgstr "Létrehoz egy képernyőt egy ablakban, majd megosztja"
+msgstr "Létrehoz egy virtuális képernyőt, majd megosztja"
 
 #: src/outputsmodel.cpp:373
 #, kde-format
@@ -464,19 +457,19 @@ msgstr "Kivág egy adott területet a képernyőjéről"
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
-msgstr ""
+msgstr "Nincsenek megnyitott ablakok"
 
 #: src/PipeWireDelegate.qml:237
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
-msgstr ""
+msgstr "+%1"
 
 #: src/PipeWireDelegate.qml:250
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
-msgstr ""
+msgstr "A(z) „%1” megosztása"
 
 #: src/region-select/RegionSelectOverlay.qml:148
 #, kde-format
@@ -525,13 +518,10 @@ msgid "Left-click and drag"
 msgstr "Balkattintás és húzás"
 
 #: src/remotedesktop.cpp:118
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "Távoli asztal"
+msgstr "Távoli asztal nem érhető el"
 
 #: src/remotedesktop.cpp:120
 #, kde-kuit-format
@@ -813,11 +803,10 @@ msgid "Choose what to share with %1:"
 msgstr "Válassza ki, mit oszt meg ezzel: %1:"
 
 #: src/ScreenChooserDialog.qml:122
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
-msgstr "Keresés"
+msgstr "Keresés…"
 
 #: src/ScreenChooserDialog.qml:168
 #, kde-format
