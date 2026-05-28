@@ -17,7 +17,7 @@ class ScreenshotDialog : public QuickDialog
 {
     Q_OBJECT
 public:
-    explicit ScreenshotDialog(QObject *parent = nullptr);
+    explicit ScreenshotDialog(const QString &appName, QObject *parent = nullptr);
 
     enum Flags {
         Borders = 1,

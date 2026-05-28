@@ -134,31 +134,32 @@ uint BackgroundPortal::NotifyBackground(const QDBusObjectPath &handle, const QSt
     notify->setTitle(i18n("Background Activity"));
     notify->setText(
         i18nc("@info %1 is the name of an application",
-              "%1 wants to remain running when it has no visible windows. If you forbid this, the application will quit when its last window is closed.",
+              "%1 wants to remain running when it has no visible windows. If you deny this request, the application will quit when its last window is closed.",
               appName));
     notify->setProperty("activated", false);
 
     message.setDelayedReply(true);
 
-    auto allowAction = notify->addAction(i18nc("@action:button Allow the app to keep running with no open windows", "Allow"));
+    auto allowAction = notify->addAction(i18nc("@action:button Allow the application to keep running with no open windows", "Allow"));
 
     connect(allowAction, &KNotificationAction::activated, this, [allow, notify] {
         allow();
         notify->setProperty("activated", true);
     });
 
-    auto forbidAction = notify->addAction(i18nc("@action:button Don't allow the app to keep running without any open windows", "Forbid"));
+    auto forbidAction = notify->addAction(i18nc("@action:button Don't allow the application to keep running without any open windows", "Deny"));
 
     connect(forbidAction, &KNotificationAction::activated, this, [this, appName, allow, forbid, notify] {
         const QString title =
-            i18nc("@title title of a dialog to confirm whether to allow an app to remain running with no visible windows", "Background App Usage");
-        const QString text = i18nc("%1 is the name of an application",
-                                   "Note that this will force %1 to quit when its last window is closed. This could cause data loss if the application has "
+            i18nc("@title title of a dialog to confirm whether to allow an application to remain running with no visible windows", "Deny Background Usage?");
+        const QString text = i18nc("@info %1 is the name of an application",
+                                   "This will force %1 to quit when its last window is closed. This could cause data loss if the application has "
                                    "any unsaved changes when it happens.",
                                    appName);
         auto messageBox = new QMessageBox(QMessageBox::Question, title, text);
-        messageBox->addButton(i18nc("@action:button Allow the app to keep running with no open windows", "Allow"), QMessageBox::AcceptRole);
-        messageBox->addButton(i18nc("@action:button Don't allow the app to keep running without any open windows", "Forbid Anyway"), QMessageBox::RejectRole);
+        messageBox->addButton(i18nc("@action:button Allow the application to keep running with no open windows", "Allow"), QMessageBox::AcceptRole);
+        messageBox->addButton(i18nc("@action:button Don't allow the application to keep running without any open windows", "Deny Anyway"),
+                              QMessageBox::RejectRole);
         messageBox->show();
 
         connect(messageBox, &QMessageBox::accepted, this, [messageBox, allow]() {

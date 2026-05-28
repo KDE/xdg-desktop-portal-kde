@@ -184,11 +184,15 @@ ScreenChooserDialogTemplate {
         }
     }
 
+    title: KI18n.i18nc("@title:window", "Screen Sharing Requested")
+    // mainText and subtitle are set in C++ because we need to know some details
+    // that the QML side doesn't know about
+
     standardButtons: root.multiple ? QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel : QQC2.DialogButtonBox.NoButton
     dialogButtonBoxLeftItem: QQC2.CheckBox {
         id: allowRestoreItem
         checked: true
-        text: KI18n.i18n("Allow restoring on future sessions")
+        text: KI18n.i18nc("@option:check", "Allow the application to do this without asking next time")
     }
 
     Component.onCompleted: {

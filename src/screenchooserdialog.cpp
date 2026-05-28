@@ -153,7 +153,6 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
     Q_ASSERT(types != 0);
 
     QVariantMap props = {
-        {u"title"_s, i18nc("@title:window %1 is an application name (e.g. Falkon)", "Share screen with %1", Utils::applicationName(appName))},
         {u"multiple"_s, multiple},
     };
 
@@ -195,27 +194,26 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
 
     QString mainText;
 
-
     // App only asked for monitors
     if (types == ScreenCastPortal::Monitor) {
         if (numberOfMonitors == 1) {
             if (appName.isEmpty()) {
-                mainText = i18n("Share this screen with the requesting application?");
+                mainText = i18n("Share this screen with an unidentifiable application?");
             } else {
                 mainText = i18n("Share this screen with %1?", applicationName);
             }
         } else {
             if (multiple) {
                 if (appName.isEmpty()) {
-                    mainText = i18n("Choose screens to share with the requesting application:");
+                    mainText = i18n("Choose screens to share with an unidentifiable application:");
                 } else {
                     mainText = i18n("Choose screens to share with %1:", applicationName);
                 }
             } else {
                 if (appName.isEmpty()) {
-                    mainText = i18n("Choose which screen to share with the requesting application:");
+                    mainText = i18n("Choose a screen to share with an unidentifiable application:");
                 } else {
-                    mainText = i18n("Choose which screen to share with %1:", applicationName);
+                    mainText = i18n("Choose a screen to share with %1:", applicationName);
                 }
             }
         }
@@ -224,29 +222,29 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
     else if (types == ScreenCastPortal::Window) {
         if (numberOfWindows == 1) {
             if (appName.isEmpty()) {
-                mainText = i18n("Share this window with the requesting application?");
+                mainText = i18n("Share this window with an unidentifiable application?");
             } else {
                 mainText = i18n("Share this window with %1?", applicationName);
             }
         } else {
             if (multiple) {
                 if (appName.isEmpty()) {
-                    mainText = i18n("Choose windows to share with the requesting application:");
+                    mainText = i18n("Choose windows to share with an unidentifiable application:");
                 } else {
                     mainText = i18n("Choose windows to share with %1:", applicationName);
                 }
             } else {
                 if (appName.isEmpty()) {
-                    mainText = i18n("Choose which window to share with the requesting application:");
+                    mainText = i18n("Choose a window to share with an unidentifiable application:");
                 } else {
-                    mainText = i18n("Choose which window to share with %1:", applicationName);
+                    mainText = i18n("Choose a window to share with %1:", applicationName);
                 }
             }
         }
     }
     else if (types == ScreenCastPortal::Virtual) {
         if (appName.isEmpty()) {
-            mainText = i18n("Create a new virtual display to share with the requesting application:");
+            mainText = i18n("Create a new virtual display to share with an unidentifiable application:");
         } else {
             mainText = i18n("Create a new virtual display to share with %1:", applicationName);
         }
@@ -254,12 +252,16 @@ ScreenChooserDialog::ScreenChooserDialog(const QString &appName, bool multiple, 
     // Any other combination
     else {
         if (appName.isEmpty()) {
-            mainText = i18n("Choose what to share with the requesting application:");
+            mainText = i18n("Choose what to share with an unidentifiable application:");
         } else {
             mainText = i18n("Choose what to share with %1:", applicationName);
         }
     }
     props.insert(u"mainText"_s, mainText);
+
+    if (appName.isEmpty()) {
+        props.insert(u"subtitle"_s, i18nc("@info:usagetip", "Only share anything if you know which application made the request."));
+    }
 
     create(QStringLiteral("ScreenChooserDialog"), props);
     connect(m_theDialog, SIGNAL(clearSelection()), this, SIGNAL(clearSelection()));

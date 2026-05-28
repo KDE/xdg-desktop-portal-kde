@@ -117,11 +117,11 @@ uint RemoteDesktopPortal::CreateSession(const QDBusObjectPath &handle,
         Utils::warnNoStreaming({
             .title = i18nc("@title:window", "Remote Desktop Not Available"),
             .genericText = xi18nc("@info",
-                                  "The application <application>%1</application> tried to start a remote desktop session but remote desktop is not available "
+                                  "The application <application>%1</application> tried to start a remote desktop session, but remote desktop is not available "
                                   "on this system. Please ensure you are running a Wayland session with a compatible window manager such as KWin.",
                                   appName),
             .x11Text = xi18nc("@info",
-                              "The application <application>%1</application> tried to start a remote desktop session but remote desktop is not available in "
+                              "The application <application>%1</application> tried to start a remote desktop session, but remote desktop is not available in "
                               "X11 sessions. Please switch to a Wayland session and try again.",
                               appName),
         });
@@ -297,7 +297,7 @@ void RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
 
     if (restored || isAppMegaAuthorized(app_id)) {
         auto notification = new KNotification(QStringLiteral("remotedesktopstarted"), KNotification::CloseOnTimeout);
-        notification->setTitle(i18nc("title of notification about input systems taken over", "Remote control session started"));
+        notification->setTitle(i18nc("@title:window title of notification about input systems taken over", "Remote Control Started"));
         notification->setText(RemoteDesktopDialog::buildNotificationDescription(app_id, session->deviceTypes(), session->screenSharingEnabled()));
         notification->setIconName(QStringLiteral("krfb"));
         notification->sendEvent();

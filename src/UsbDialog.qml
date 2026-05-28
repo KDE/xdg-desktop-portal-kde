@@ -18,13 +18,13 @@ PortalDialog {
     required property list<var> devices
 
     iconName: "drive-removable-media-usb"
-    title: KI18n.i18nc("@title:window", "Access to USB Devices Requested")
-    subtitle: {
-        if (app === "") {
-            return  KI18n.i18ncp("The application is unknown", "An application wants to access the following device:", "An application wants to access the following devices:", devices.length)
-        }
-        return KI18n.i18ncp("%2 is the name of the application", "%2 wants to access the following device:", "%2 wants to access the following devices:", devices.length, app)
-    }
+    title: KI18n.i18nc("@title:window", "Device Access Requested")
+    mainText: app === ""
+        ? KI18n.i18ncp("@info", "Allow an unidentifiable application to access the following device?", "Allow an unidentifiable application to access the following devices?", devices.length)
+        : KI18n.i18ncp("@info %2 is the name of the application", "Allow %2 to access the following device?", "Allow %2 to access the following devices?", devices.length, app)
+    subtitle: app === ""
+        ? KI18n.i18nc("@info:usagetip", "Only allow if you know which application made the request.")
+        : ""
     scrollable: true
     contentPadding: false
 
@@ -61,6 +61,11 @@ PortalDialog {
                 }
             }
         }
+    }
+
+    Component.onCompleted: {
+        dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = KI18n.i18nc("@action:button Allow the application to access devices", "Allow")
+        dialogButtonBox.standardButton(QQC2.DialogButtonBox.Cancel).text = KI18n.i18nc("@action:button Deny the application's request to access devices", "Deny")
     }
 }
 

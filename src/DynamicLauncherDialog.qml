@@ -27,7 +27,7 @@ PortalDialog {
             }
 
             Kirigami.Heading {
-                Layout.alignment: Qt.AlignHCenter
+                horizontalAlignment: Text.AlignHCenter
                 Layout.fillWidth: true
                 level: 3
                 wrapMode: Text.Wrap
@@ -38,7 +38,7 @@ PortalDialog {
             Kirigami.LinkButton {
                 Layout.fillWidth: true
                 visible: text.length > 0
-                Layout.alignment: Qt.AlignHCenter
+                horizontalAlignment: Text.AlignHCenter
                 elide: Text.ElideMiddle
                 text: launcherURL
                 onClicked: Qt.openUrlExternally(launcherURL)
@@ -73,13 +73,16 @@ PortalDialog {
             }
             QQC2.TextField {
                 verticalAlignment: Qt.AlignTop
-                Layout.alignment: Qt.AlignHCenter
                 Layout.fillWidth: true
                 onTextChanged: dialog.name = text
                 Component.onCompleted: text = dialog.name
             }
         }
     }
+
+    title: KI18n.i18nc("@title Something asked to create a launcher for an app or a website", "Launcher Requested");
+    // mainText and subtitle are set in C++ because we need to know the type,
+    // and the QML side doesn't know that
 
     standardButtons: QQC2.DialogButtonBox.NoButton
 
@@ -98,7 +101,7 @@ PortalDialog {
             checkable: true
         },
         Kirigami.Action {
-            text: KI18n.i18nc("@action accept dialog and create launcher", "Accept")
+            text: KI18n.i18nc("@action accept dialog and create launcher", "Create")
             icon.name: "dialog-ok"
             onTriggered: accept()
         },

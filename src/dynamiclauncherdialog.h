@@ -11,7 +11,12 @@ class DynamicLauncherDialog : public QuickDialog
 {
     Q_OBJECT
 public:
-    explicit DynamicLauncherDialog(const QString &title, const QIcon &icon, const QString &name, const QUrl &launcherURL, QObject *parent = nullptr);
+    explicit DynamicLauncherDialog(const QString &mainText,
+                                   const QString &subtitle,
+                                   const QIcon &icon,
+                                   const QString &name,
+                                   const QUrl &launcherURL,
+                                   QObject *parent = nullptr);
 
     Q_PROPERTY(QString name MEMBER m_name NOTIFY nameChanged)
     Q_SIGNAL void nameChanged();

@@ -23,13 +23,16 @@ PortalDialog {
 
     iconName: "preferences-desktop-keyboard-shortcut"
     title: KI18n.i18nc("@title:window", "Global Shortcuts Requested")
-    subtitle: {
+    mainText: {
         const count = newShortcuts.rowCount()
         if (app === "") {
-            return  KI18n.i18ncp("The application is unknown", "An application wants to register the following shortcut:", "An application wants to register the following %1 shortcuts:", count)
+            return  KI18n.i18ncp("@info", "An unidentifiable application wants to register the following shortcut.", "An unidentifiable application wants to register the following %1 shortcuts.", count)
         }
-        return KI18n.i18ncp("%2 is the name of the application", "%2 wants to register the following shortcut:", "%2 wants to register the following %1 shortcuts:", count, app)
+        return KI18n.i18ncp("@info %2 is the name of the application", "%2 wants to register the following shortcut:", "%2 wants to register the following %1 shortcuts:", count, app)
     }
+    subtitle: app === ""
+        ? KI18n.i18ncp("@info:usagetip", "Only allow if you know which application made the request.")
+        : ""
     scrollable: true
     contentPadding: false
 

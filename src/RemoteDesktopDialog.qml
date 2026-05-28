@@ -29,11 +29,11 @@ PortalDialog {
     footerItem: QQC2.CheckBox {
         id: allowRestoreItem
         checked: true
-        text: KI18n.i18n("Allow restoring on future sessions")
+        text: KI18n.i18nc("@option:check", "Allow the application to do this without asking next time")
     }
 
     Component.onCompleted: {
-        dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = KI18n.i18nc("@action:button Approve the application gaining extra privileges", "Approve")
+        dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = KI18n.i18nc("@action:button Allow the application to gain extra privileges", "Allow")
         dialogButtonBox.standardButton(QQC2.DialogButtonBox.Cancel).text = KI18n.i18nc("@action:button Deny the application gaining extra privileges", "Deny")
     }
 }

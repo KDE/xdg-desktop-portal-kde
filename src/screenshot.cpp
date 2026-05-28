@@ -91,7 +91,7 @@ void ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeScreenshot) << "    parent_window: " << parent_window;
     qCDebug(XdgDesktopPortalKdeScreenshot) << "    options: " << options;
 
-    QPointer<ScreenshotDialog> screenshotDialog = new ScreenshotDialog;
+    QPointer<ScreenshotDialog> screenshotDialog = new ScreenshotDialog(app_id);
     Utils::setParentWindow(screenshotDialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequest(handle, screenshotDialog.data());
 

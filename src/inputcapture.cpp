@@ -113,15 +113,16 @@ bool InputCapturePortal::setupInputCaptureSession(InputCaptureSession *session, 
         const QKeySequence disableSequence = disableShortcuts.value(0, QKeySequence(Qt::META | Qt::SHIFT | Qt::Key_Escape));
 
         auto notification = new KNotification(u"inputcapturestarted"_s, KNotification::CloseOnTimeout | KNotification::Persistent, this);
-        notification->setTitle(i18nc("@title:notification", "Input Capture started"));
+        notification->setTitle(i18nc("@title:notification", "Input Capture Started"));
         if (const QString appName = Utils::applicationName(session->appId()); !appName.isEmpty()) {
             notification->setText(xi18nc("@info %1 is the name of the application",
-                                         "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable.",
+                                         "%1 has taken over the pointer and keyboard. Press <shortcut>%2</shortcut> to stop this.",
                                          appName,
                                          disableSequence.toString(QKeySequence::NativeText)));
         } else {
             notification->setText(xi18nc("@info",
-                                         "Input is being managed by an application. Press <shortcut>%1</shortcut> to disable.",
+                                         "An unidentifiable application has taken over the pointer and keyboard. Press "
+                                         "<shortcut>%1</shortcut> to stop this.",
                                          disableSequence.toString(QKeySequence::NativeText)));
         }
         notification->setIconName(u"dialog-input-devices"_s);
@@ -221,9 +222,10 @@ void InputCapturePortal::Start(const QDBusObjectPath &handle,
 
             const QString applicationName = Utils::applicationName(app_id);
             auto notification = new KNotification(u"inputcapturesrestored"_s, KNotification::CloseOnTimeout);
-            notification->setTitle(i18nc("@title:nofication, set up as in established", "Input Capture Set-Up"));
-            QString description = applicationName.isEmpty() ? i18nc("@info", "An application will be able to manage input in the future.")
-                                                            : i18nc("@info", "%1 will be able to manage input in the future.", applicationName);
+            notification->setTitle(i18nc("@title:nofication", "Input Capture Approved"));
+            QString description = applicationName.isEmpty()
+                ? i18nc("@info", "An unidentifiable application will be able to take over the pointer and keyboard in the future.")
+                : i18nc("@info", "%1 will be able to take over the pointer and keyboard in the future.", applicationName);
             notification->setText(description);
             notification->setIconName(u"dialog-input-devices"_s);
             notification->sendEvent();

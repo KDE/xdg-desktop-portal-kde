@@ -7,14 +7,20 @@
 
 #include "dynamiclauncherdialog_debug.h"
 
-DynamicLauncherDialog::DynamicLauncherDialog(const QString &title, const QIcon &icon, const QString &name, const QUrl &launcherURL, QObject *parent)
+DynamicLauncherDialog::DynamicLauncherDialog(const QString &mainText,
+                                             const QString &subtitle,
+                                             const QIcon &icon,
+                                             const QString &name,
+                                             const QUrl &launcherURL,
+                                             QObject *parent)
     : QuickDialog(parent)
     , m_name(name)
     , m_icon(icon)
 {
     create(QStringLiteral("DynamicLauncherDialog"),
            {
-               {QStringLiteral("title"), title},
+               {QStringLiteral("mainText"), mainText},
+               {QStringLiteral("subtitle"), subtitle},
                {QStringLiteral("launcherName"), name},
                {QStringLiteral("launcherIcon"), icon},
                {QStringLiteral("launcherURL"), launcherURL},

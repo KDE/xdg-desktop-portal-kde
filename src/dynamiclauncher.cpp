@@ -71,16 +71,28 @@ QIcon static extractIcon(const QDBusVariant &iconVariant)
     return {};
 }
 
-static QString typeToTitle(uint type)
+static QString typeToMainText(uint type)
 {
     switch (static_cast<DynamicLauncherPortal::Type>(type)) {
     case DynamicLauncherPortal::Type::Webapp:
-        return i18nc("@title", "Add Web Application…");
+        return i18nc("@info", "Create Web Application Launcher?");
     case DynamicLauncherPortal::Type::Application:
         break;
     }
     // Default value is Application; we treat all unmapped, possibly future, types as generic Application.
-    return i18nc("@title", "Add Application…");
+    return i18nc("@info", "Create Application Launcher?");
+}
+
+static QString typeToSubtitle(uint type)
+{
+    switch (static_cast<DynamicLauncherPortal::Type>(type)) {
+    case DynamicLauncherPortal::Type::Webapp:
+        return i18nc("@info", "A launcher to open the following website will appear in application launchers:");
+    case DynamicLauncherPortal::Type::Application:
+        break;
+    }
+    // Default value is Application; we treat all unmapped, possibly future, types as generic Application.
+    return i18nc("@info", "A launcher to open the following application will appear in application launchers:");
 }
 
 static QByteArray iconFromName(const QString &name)
@@ -124,7 +136,11 @@ void DynamicLauncherPortal::PrepareInstall(const QDBusObjectPath &handle,
 
     const auto icon = extractIcon(iconVariant);
 
-    auto dialog = new DynamicLauncherDialog(typeToTitle(launcherType), icon, name, optionalTarget ? QUrl(optionalTarget.value()) : QUrl());
+    auto dialog = new DynamicLauncherDialog(typeToMainText(launcherType),
+                                            typeToSubtitle(launcherType),
+                                            icon,
+                                            name,
+                                            optionalTarget ? QUrl(optionalTarget.value()) : QUrl());
     dialog->windowHandle()->setModality(modal ? Qt::WindowModal : Qt::NonModal);
     Utils::setParentWindow(dialog->windowHandle(), parent_window);
     Request::makeClosableDialogRequest(handle, dialog);

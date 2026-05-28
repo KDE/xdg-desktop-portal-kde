@@ -110,7 +110,7 @@ static QImage readImage(int pipeFd, const QVariantMap &metadata)
     return result;
 }
 
-ScreenshotDialog::ScreenshotDialog(QObject *parent)
+ScreenshotDialog::ScreenshotDialog(const QString &appName, QObject *parent)
     : QuickDialog(parent)
 {
     QStandardItemModel *model = new QStandardItemModel(this);
@@ -120,6 +120,7 @@ ScreenshotDialog::ScreenshotDialog(QObject *parent)
     create(QStringLiteral("ScreenshotDialog"),
            {
                {u"app"_s, QVariant::fromValue<QObject *>(this)},
+               {u"appName"_s, Utils::applicationName(appName)},
                {u"screenshotTypesModel"_s, QVariant::fromValue<QObject *>(model)},
            });
 }

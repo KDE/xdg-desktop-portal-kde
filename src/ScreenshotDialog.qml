@@ -19,9 +19,15 @@ PortalDialog {
     property alias withCursor: hasCursor.checked
     property alias withBorders: hasWindowBorders.checked
     property QtObject app
+    required property string appName
 
-    title: KI18n.i18n("Request Screenshot")
     iconName: "preferences-system-windows-effect-screenshot"
+    title: KI18n.i18nc("@title:window", "Screenshot Requested")
+    mainText: appName === ""
+        ? KI18n.i18nc("@info", "Allow an unidentifiable application to take a screenshot?")
+        : KI18n.i18nc("@info %1 is the name of an application", "Allow %1 to take a screenshot?", appName)
+    subtitle: appName === "" ? KI18n.i18nc("@info:usagetip", "Only allow if you know which application made the request.") : undefined
+
     acceptable: screenshot.valid
 
     width: Kirigami.Units.gridUnit * 28
@@ -54,7 +60,7 @@ PortalDialog {
             }
             QQC2.CheckBox {
                 id: hasCursor
-                text: KI18n.i18n("Include cursor pointer")
+                text: KI18n.i18nc("@option:check Refers to the on-screen 'mouse pointer'", "Include pointer")
                 checked: true
             }
             QQC2.CheckBox {
@@ -73,7 +79,8 @@ PortalDialog {
     }
 
     Component.onCompleted: {
-        dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = KI18n.i18n("Save")
+        dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = KI18n.i18nc("@action:button Allow the application to use the screenshot", "Allow")
+        dialogButtonBox.standardButton(QQC2.DialogButtonBox.Cancel).text = KI18n.i18nc("@action:button Deny the application's request to take a screenshot", "Deny")
     }
 
     actions: [
@@ -83,7 +90,8 @@ PortalDialog {
                 interval: delayTime.value * 1000
                 onTriggered: root.app.takeScreenshotInteractive()
             }
-            text: KI18n.i18n("Take")
+            text: KI18n.i18nc("@action:button", "Take Screenshot")
+            icon.name: "camera-photo-symbolic"
             enabled: !takeTimer.running
             onTriggered: takeTimer.restart()
         }

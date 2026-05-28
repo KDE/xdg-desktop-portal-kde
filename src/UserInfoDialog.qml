@@ -16,7 +16,8 @@ import org.kde.ki18n
 PortalDialog {
     id: root
 
-    title: KI18n.i18nc("@action:button", "Share user info")
+    title: KI18n.i18nc("@title:window", "User Information Requested")
+    //mainText and subtitle are set in C++
     required property string realname
     required property string username
     property alias avatar: avatar.source
