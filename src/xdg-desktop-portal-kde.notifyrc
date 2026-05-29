@@ -364,6 +364,7 @@ Urgency=High
 [Event/inputcapturesessionrestored]
 Name=Input Capture Session Started
 Name[ar]=بدأت جلسة التقاط الإدخال
+Name[bg]=Стартирано улавяне на входни данни
 Name[ca]=S'ha iniciat la sessió de captura de l'entrada
 Name[ca@valencia]=S'ha iniciat la sessió de captura de l'entrada
 Name[cs]=Spuštěna relace zachycování vstupu
@@ -388,6 +389,7 @@ Name[zh_CN]=输入捕获会话已开始
 Name[zh_TW]=輸入擷取工作階段已開始
 Comment=An application has started an input capture session
 Comment[ar]=بدأ أحد التطبيقات جلسة التقاط إدخال.
+Comment[bg]=Приложението започна сесия за улавяне на входни данни.
 Comment[ca]=Una aplicació ha iniciat una sessió de captura de l'entrada
 Comment[ca@valencia]=Una aplicació ha iniciat una sessió de captura de l'entrada
 Comment[cs]=Aplikace zahájila relaci zachycování vstupu
