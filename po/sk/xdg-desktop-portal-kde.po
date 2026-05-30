@@ -435,12 +435,10 @@ msgid "Share the entire workspace across all screens"
 msgstr "Share the entire workspace across all screens"
 
 #: src/outputsmodel.cpp:371
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Creates a screen inside a window, then share"
+#, kde-format
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
-msgstr "Creates a screen inside a window, then share"
+msgstr "Vytvorí virtuálnu obrazovku, potom zdieľa"
 
 #: src/outputsmodel.cpp:373
 #, kde-format
