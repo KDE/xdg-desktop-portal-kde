@@ -2,6 +2,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2023, 2024 Vít Pelčák <vit@pelcak.org>
 # SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 #
 # SPDX-FileCopyrightText: 2026 Jan Papez (honyczek)
 msgid ""
@@ -9,15 +10,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-25 02:37+0000\n"
-"PO-Revision-Date: 2026-05-21 23:41+0200\n"
+"PO-Revision-Date: 2026-05-31 11:46+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
-"Language-Team: Czech <kde-i18n-cs@kde.org>\n"
+"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -439,12 +440,10 @@ msgid "Share the entire workspace across all screens"
 msgstr "Sdílet celou pracovní plochu napříč všemi obrazovkami"
 
 #: src/outputsmodel.cpp:371
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Creates a screen inside a window, then share"
+#, kde-format
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
-msgstr "Vytvoří obrazovku uvnitř okna a pak ji nasdílí"
+msgstr "Vytvoří obrazovku a pak ji nasdílí"
 
 #: src/outputsmodel.cpp:373
 #, kde-format
