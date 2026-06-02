@@ -1,132 +1,131 @@
-# Copyright (C) 2024 This file is copyright:
+# Uyghur translation for xdg-desktop-portal-kde.
+# Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the xdg-desktop-portal-kde package.
+# Abduqadir Abliz <sahranbay@gmail.com>, 2026., YEAR.
 #
-# SPDX-FileCopyrightText: 2024, 2025, 2026 Sveinn í Felli <sv1@fellsnet.is>
-# SPDX-FileCopyrightText: 2024 Gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-25 00:46+0000\n"
-"PO-Revision-Date: 2026-06-01 16:54+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic\n"
-"Language: is\n"
+"PO-Revision-Date: 2026-06-01 18:59-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
+"Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Sveinn í Felli, Guðmundur Erlingsson"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sv1@fellsnet.is, gudmundure@gmail.com"
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 
 #: src/accessdialog.cpp:26
 #, kde-format
 msgid "Request device access"
-msgstr "Biðja um aðgang að tæki"
+msgstr ""
 
 #: src/appchooser.cpp:98
 #, kde-format
 msgctxt "count of files to open"
 msgid "%1 files"
-msgstr "%1 skrár"
+msgstr "%1 ھۆججەت"
 
 #: src/appchooserdialog.cpp:43
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Application"
-msgstr "Velja forrit"
+msgstr "پىروگرامما تاللا"
 
 #: src/appchooserdialog.cpp:46
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
-msgstr "Veldu forrit til að opna <b>%1</b>"
+msgstr ""
 
 #: src/AppChooserDialog.qml:36
 #, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "Finna meira í Discover…"
+msgstr ""
 
 #: src/AppChooserDialog.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
-msgstr "Opna"
+msgstr "ئاچ"
 
 #: src/AppChooserDialog.qml:49
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
-msgstr "Setja sem sjálfgefið forrit til að opna %1 skrár"
+msgstr ""
 
 #: src/AppChooserDialog.qml:123
 #, kde-format
 msgid "Show All Installed Applications"
-msgstr "Sýna öll uppsett forrit"
+msgstr ""
 
 #: src/AppChooserDialog.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
-msgstr "Velja annað…"
+msgstr ""
 
 #: src/AppChooserDialog.qml:195
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
-msgstr "%1<nl/><emphasis>Sjálfgefið forrit fyrir þessa skráartegund</emphasis>"
+msgstr ""
 
 #: src/AppChooserDialog.qml:197
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr ""
-"%1<nl/><emphasis>Forrit notað síðast fyrir þessa skráartegund</emphasis>"
 
 #: src/AppChooserDialog.qml:219
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
-msgstr "Opna með <command>%1</command>?"
+msgstr ""
 
 #: src/AppChooserDialog.qml:221
 #, kde-format
 msgid "No matches"
-msgstr "Engar samsvaranir"
+msgstr "ماس كەلگىنى يوق"
 
 #: src/AppChooserDialog.qml:223
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
-msgstr "Engin uppsett forrit geta opnað <filename>%1</filename>"
+msgstr ""
 
 #: src/AppChooserDialog.qml:242
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
-msgstr "Keyra í skjáhermi"
+msgstr "تېرمىنالدا ئىجرا قىل"
 
 #: src/AppChooserDialog.qml:250
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
-msgstr "Ekki loka þegar skipunin hættir keyrslu"
+msgstr "بۇيرۇقتىن چېكىنگەندە ياپمايدۇ"
 
 #: src/background.cpp:134
 #, kde-format
 msgid "Background Activity"
-msgstr "Bakgrunnsvirkni"
+msgstr ""
 
 #: src/background.cpp:137
 #, kde-format
@@ -135,21 +134,19 @@ msgid ""
 "%1 wants to remain running when it has no visible windows. If you forbid "
 "this, the application will quit when its last window is closed."
 msgstr ""
-"%1 vill haldast í gangi þegar það er ekki með neina sýnilega glugga. Ef þú "
-"bannar þetta lokast forritið þegar síðasti gluggi þess lokast."
 
 #: src/background.cpp:143 src/background.cpp:160
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
-msgstr "Leyfa"
+msgstr "يول قوي"
 
 #: src/background.cpp:150
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid"
-msgstr "Banna"
+msgstr ""
 
 #: src/background.cpp:154
 #, kde-format
@@ -157,7 +154,7 @@ msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
 msgid "Background App Usage"
-msgstr "Bakgrunnsnotkun forrits"
+msgstr ""
 
 #: src/background.cpp:156
 #, kde-format
@@ -167,57 +164,54 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
-"Athugaðu að þetta veldur því að %1 lokast alveg þegar síðasta glugga þess er "
-"lokað. Þá geta gögn tapast ef ekki er búið að vista breytingar sem hafa "
-"verið gerðar í forritinu."
 
 #: src/background.cpp:161
 #, kde-format
 msgctxt ""
 "@action:button Don't allow the app to keep running without any open windows"
 msgid "Forbid Anyway"
-msgstr "Banna samt"
+msgstr ""
 
 #: src/dynamiclauncher.cpp:78
 #, kde-format
 msgctxt "@title"
 msgid "Add Web Application…"
-msgstr "Bæta við vefforriti…"
+msgstr ""
 
 #: src/dynamiclauncher.cpp:83
 #, kde-format
 msgctxt "@title"
 msgid "Add Application…"
-msgstr "Bæta við forriti…"
+msgstr ""
 
 #: src/DynamicLauncherDialog.qml:71
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
-msgstr "Heiti"
+msgstr "ئاتى"
 
 #: src/DynamicLauncherDialog.qml:95
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr "Breyta upplýsingum…"
+msgstr ""
 
 #: src/DynamicLauncherDialog.qml:101
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Accept"
-msgstr "Samþykkja"
+msgstr "قوشۇل"
 
 #: src/DynamicLauncherDialog.qml:106
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
-msgstr "Hætta við"
+msgstr "ۋاز كەچ"
 
 #: src/filechooser.cpp:477
 #, kde-format
 msgid "Open"
-msgstr "Opna"
+msgstr "ئاچ"
 
 #: src/globalshortcuts.cpp:107
 #, kde-kuit-format
@@ -226,9 +220,6 @@ msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
 "<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
-"Flýtileiðinni er þegar úthlutað á aðgerðina <interface>%1</interface> í "
-"<application>%2</application>. Settu hana aftur inn hér til að taka yfir þá "
-"aðgerð."
 
 #: src/globalshortcuts.cpp:114
 #, kde-kuit-format
@@ -237,8 +228,6 @@ msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
 msgstr ""
-"Flýtileiðinni er þegar úthlutað á stöðluðu aðgerðina <interface>%1</"
-"interface>."
 
 #: src/globalshortcuts.cpp:128
 #, kde-kuit-format
@@ -246,60 +235,55 @@ msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
 msgstr ""
-"Flýtileiðinni er úthlutað á margar aðgerðir (<interface>%1</interface>)."
 
 #: src/globalshortcuts.cpp:508
 #, kde-format
 msgid ", "
-msgstr ", "
+msgstr "، "
 
 #: src/GlobalShortcutsDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr "Beðið um víðværar flýtileiðir"
+msgstr ""
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following %1 shortcuts:"
-msgstr[0] "Forrit bað um að skrá eftirfarandi flýtileið:"
-msgstr[1] "Forrit bað um að skrá eftirfarandi %1 flýtileiðir:"
+msgstr[0] ""
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
-msgstr[0] "%2 bað um að skrá eftirfarandi flýtileið:"
-msgstr[1] "%2 bað um að skrá eftirfarandi %1 flýtileiðir:"
+msgstr[0] ""
 
 #: src/GlobalShortcutsDialog.qml:88
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
-msgstr "Sjá aðrar flýtileiðir…"
+msgstr ""
 
 #: src/GlobalShortcutsDialog.qml:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr "Skoða aðrar flýtileiðir skráðar af þessu forriti"
+msgstr ""
 
 #: src/inputcapture.cpp:116
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "Móttaka inntaks hafin"
+msgstr ""
 
 #: src/inputcapture.cpp:119
 #, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
 msgstr ""
-"Inntaki er stýrt af %1. Ýttu á <shortcut>%2</shortcut> til að gera það "
-"óvirkt."
 
 #: src/inputcapture.cpp:124
 #, kde-kuit-format
@@ -308,150 +292,148 @@ msgid ""
 "Input is being managed by an application. Press <shortcut>%1</shortcut> to "
 "disable."
 msgstr ""
-"Inntaki er stýrt af forriti. Ýttu á <shortcut>%1</shortcut> til að gera það "
-"óvirkt."
 
 #: src/inputcapture.cpp:223
 #, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
-msgstr "Uppsetning á móttöku inntaks"
+msgstr ""
 
 #: src/inputcapture.cpp:224
 #, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
-msgstr "Forrit mun stýra komandi inntaksatvikum."
+msgstr ""
 
 #: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."
-msgstr "%1 mun geta stýrt komandi inntaksatvikum."
+msgstr ""
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
-msgstr "Beðið um móttöku inntaks"
+msgstr ""
 
 #: src/InputCaptureDialog.qml:19
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
-msgstr "Forrit bað um að fá að taka við inntaksatvikum"
+msgstr ""
 
 #: src/InputCaptureDialog.qml:19
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
-msgstr "%1 bað um að fá að taka við inntaksatvikum"
+msgstr ""
 
 #: src/InputCaptureDialog.qml:24
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow restoring on future sessions"
-msgstr "Leyfa endurheimtu í framtíðarsetum"
+msgstr ""
 
 #: src/InputCaptureDialog.qml:30
 #, kde-format
 msgctxt "@action:button"
 msgid "Allow"
-msgstr "Leyfa"
+msgstr "يول قوي"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:113
 #, kde-format
 msgid "Select Folder"
-msgstr "Velja möppu"
+msgstr "قىسقۇچ تاللا"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:116
 #, kde-format
 msgid "Open File"
-msgstr "Opna skrá"
+msgstr "ھۆججەت ئاچ"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:118
 #, kde-format
 msgid "Save File"
-msgstr "Vista skrá"
+msgstr "ھۆججەت ساقلا"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
 msgid "Create New Folder"
-msgstr "Búa til nýja möppu"
+msgstr "يېڭى قىسقۇچ قۇر"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:32
 #, kde-format
 msgid "Folder name"
-msgstr "Heiti möppu"
+msgstr ""
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:101
 #, kde-format
 msgid "File name"
-msgstr "Skráarheiti"
+msgstr "ھۆججەت ئىسمى"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:117
 #, kde-format
 msgid "Create Folder"
-msgstr "Búa til möppu"
+msgstr "قىسقۇچ قۇر"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:127
 #, kde-format
 msgid "Filter Filetype"
-msgstr "Sía skráartegund"
+msgstr ""
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:131
 #, kde-format
 msgid "Show Hidden Files"
-msgstr "Sýna faldar skrár"
+msgstr "يوشۇرۇن ھۆججەتنى كۆرسەت"
 
 #: src/kirigami-filepicker/declarative/FilePicker.qml:139
 #, kde-format
 msgid "Select"
-msgstr "Velja"
+msgstr "تاللا"
 
 #: src/outputsmodel.cpp:83
 #, kde-format
 msgid "Share virtual screen"
-msgstr "Samnýta sýndarskjá"
+msgstr ""
 
 #: src/outputsmodel.cpp:87
 #, kde-format
 msgid "Share region"
-msgstr "Samnýta svæði"
+msgstr ""
 
 #: src/outputsmodel.cpp:98
 #, kde-format
 msgid "Share full Workspace"
-msgstr "Samnýta allt vinnusvæðið"
+msgstr ""
 
 #: src/outputsmodel.cpp:133
 #, kde-format
 msgid "Laptop screen"
-msgstr "Fartölvuskjár"
+msgstr ""
 
 #: src/outputsmodel.cpp:369
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr "Samnýta allt vinnusvæðið yfir alla skjái"
+msgstr ""
 
 #: src/outputsmodel.cpp:371
 #, kde-format
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
-msgstr "Útbúa sýndarskjá, deila síðan"
+msgstr ""
 
 #: src/outputsmodel.cpp:373
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr "Utansníður tiltekið svæði af skjáunum þínum"
+msgstr ""
 
 #: src/PipeWireDelegate.qml:232
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
-msgstr "Engir gluggar opnir"
+msgstr ""
 
 #: src/PipeWireDelegate.qml:237
 #, kde-format
@@ -463,35 +445,35 @@ msgstr "+%1"
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
-msgstr "Deila “%1”"
+msgstr ""
 
 #: src/region-select/RegionSelectOverlay.qml:148
 #, kde-format
 msgid "Start streaming:"
-msgstr "Hefja streymi:"
+msgstr ""
 
 #: src/region-select/RegionSelectOverlay.qml:152
 #, kde-format
 msgid "Clear selection:"
-msgstr "Hreinsa val:"
+msgstr ""
 
 #: src/region-select/RegionSelectOverlay.qml:156
 #: src/region-select/RegionSelectOverlay.qml:200
 #, kde-format
 msgid "Cancel:"
-msgstr "Hætta við:"
+msgstr ""
 
 #: src/region-select/RegionSelectOverlay.qml:162
 #, kde-format
 msgctxt "Mouse action"
 msgid "Release left-click"
-msgstr "Vinstrismella og sleppa"
+msgstr ""
 
 #: src/region-select/RegionSelectOverlay.qml:166
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
-msgstr "Hægrismella"
+msgstr ""
 
 #: src/region-select/RegionSelectOverlay.qml:170
 #: src/region-select/RegionSelectOverlay.qml:210
@@ -503,19 +485,19 @@ msgstr "Escape"
 #: src/region-select/RegionSelectOverlay.qml:196
 #, kde-format
 msgid "Create selection:"
-msgstr "Búa til val:"
+msgstr ""
 
 #: src/region-select/RegionSelectOverlay.qml:206
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
-msgstr "Vinstrismella og draga"
+msgstr ""
 
 #: src/remotedesktop.cpp:118
 #, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "Fjartengt skjáborð ekki tiltækt"
+msgstr ""
 
 #: src/remotedesktop.cpp:120
 #, kde-kuit-format
@@ -526,10 +508,6 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
-"Forritið <application>%1</application> reyndi að ræsa fjartengda "
-"skjáborðssetu en fjartengt skjáborð finnst ekki á þessu kerfi. Gakktu úr "
-"skugga um að þú sért að keyra Wayland-setu með samhæfðum gluggastjóra á borð "
-"við KWin."
 
 #: src/remotedesktop.cpp:124
 #, kde-kuit-format
@@ -539,51 +517,48 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
-"Forritið <application>%1</application> reyndi að ræsa fjartengda "
-"skjáborðssetu en fjartengt skjáborð er ekki í boði á X11-setum. Gakktu úr "
-"skugga um að þú sért að keyra Wayland-setu og prófaðu svo aftur."
 
 #: src/remotedesktop.cpp:190 src/screencast.cpp:232
 #, kde-format
 msgid "Virtual Output"
-msgstr "Sýndarúttak"
+msgstr ""
 
 #: src/remotedesktop.cpp:191 src/screencast.cpp:233
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
-msgstr "Sýndarúttak (samnýtt með %1)"
+msgstr ""
 
 #: src/remotedesktop.cpp:300
 #, kde-format
 msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
-msgstr "Fjarstýringarseta hafin"
+msgstr ""
 
 #: src/remotedesktop.cpp:592
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Control"
-msgstr "Fjarstýring"
+msgstr ""
 
 #: src/remotedesktopdialog.cpp:26
 #, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control"
-msgstr "Fjarstýring"
+msgstr ""
 
 #: src/remotedesktopdialog.cpp:41
 #, kde-format
 msgctxt "@info"
 msgid "An application is asking for special privileges:\n"
-msgstr "Forrit er að biðja um sérstakar heimildir:\n"
+msgstr ""
 
 #: src/remotedesktopdialog.cpp:42
 #, kde-format
 msgctxt "@info"
 msgid "%1 is asking for special privileges:"
-msgstr "%1 er að biðja um sérstakar heimildir:"
+msgstr ""
 
 #: src/remotedesktopdialog.cpp:50
 #, kde-format
@@ -594,8 +569,6 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
-"\n"
-" - Sjá hvað er á skjánum"
 
 #: src/remotedesktopdialog.cpp:54
 #, kde-format
@@ -606,20 +579,18 @@ msgid ""
 "\n"
 " - Control input devices"
 msgstr ""
-"\n"
-" - Stýra inntakstækjum"
 
 #: src/remotedesktopdialog.cpp:62
 #, kde-format
 msgctxt "@info"
 msgid "An application is exercising special permissions:\n"
-msgstr "Forrit er að nota sérstakar heimildir:\n"
+msgstr ""
 
 #: src/remotedesktopdialog.cpp:63
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising special privileges:"
-msgstr "%1 er að nota sérstakar heimildir:"
+msgstr ""
 
 #: src/remotedesktopdialog.cpp:67
 #, kde-format
@@ -630,8 +601,6 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
-"\n"
-" - Sjá hvað er á skjánum"
 
 #: src/remotedesktopdialog.cpp:71
 #, kde-format
@@ -642,31 +611,29 @@ msgid ""
 "\n"
 " - Control input devices"
 msgstr ""
-"\n"
-" - Stýra inntakstækjum"
 
 #: src/RemoteDesktopDialog.qml:32 src/ScreenChooserDialog.qml:191
 #, kde-format
 msgid "Allow restoring on future sessions"
-msgstr "Leyfa endurheimtu í framtíðarsetum"
+msgstr ""
 
 #: src/RemoteDesktopDialog.qml:36
 #, kde-format
 msgctxt "@action:button Approve the application gaining extra privileges"
 msgid "Approve"
-msgstr "Samþykkja"
+msgstr ""
 
 #: src/RemoteDesktopDialog.qml:37
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr "Hafna"
+msgstr "رەت قىل"
 
 #: src/screencast.cpp:151
 #, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "Skjádeiling ekki tiltæk"
+msgstr ""
 
 #: src/screencast.cpp:153
 #, kde-kuit-format
@@ -677,9 +644,6 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
-"Forritið <application>%1</application> reyndi að ræsa skjádeilingarsetu en "
-"skjádeiling er ekki í boði á þessu kerfi. Gakktu úr skugga um að þú sért að "
-"keyra Wayland-setu með samhæfðum gluggastjóra á borð við KWin."
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -689,236 +653,228 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
-"Forritið <application>%1</application> reyndi að ræsa skjádeilingarsetu en "
-"skjádeiling er ekki í boði á X11-setum. Skiptu yfir í Wayland-setu og "
-"prófaðu svo aftur."
 
 #: src/screencast.cpp:297
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
-msgstr "Samnýting á skjá í gangi"
+msgstr ""
 
 #: src/screencast.cpp:403
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
-msgstr "Ljúka"
+msgstr "ئاخىر"
 
 #: src/screencast.cpp:455
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
-msgstr[0] "Samnýti efni með %2"
-msgstr[1] "%1 myndstraumar til %2"
+msgstr[0] ""
 
 #: src/screencast.cpp:459
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
 msgid "Screen casting"
-msgstr "Skjávörpun"
+msgstr ""
 
 #: src/screenchooserdialog.cpp:156
 #, kde-format
 msgctxt "@title:window %1 is an application name (e.g. Falkon)"
 msgid "Share screen with %1"
-msgstr "Samnýta skjá með %1"
+msgstr ""
 
 #: src/screenchooserdialog.cpp:203
 #, kde-format
 msgid "Share this screen with the requesting application?"
-msgstr "Samnýta þennan skjá með forritinu sem sendir beiðnina?"
+msgstr ""
 
 #: src/screenchooserdialog.cpp:205
 #, kde-format
 msgid "Share this screen with %1?"
-msgstr "Samnýta þennan skjá með %1?"
+msgstr ""
 
 #: src/screenchooserdialog.cpp:210
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
-msgstr "Veldu skjá til að samnýta með forritinu sem sendir beiðnina:"
+msgstr ""
 
 #: src/screenchooserdialog.cpp:212
 #, kde-format
 msgid "Choose screens to share with %1:"
-msgstr "Veldu hvaða skjái eigi að samnýta með %1:"
+msgstr ""
 
 #: src/screenchooserdialog.cpp:216
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
-msgstr "Veldu hvaða skjá á að samnýta með forritinu sem sendir beiðnina:"
+msgstr ""
 
 #: src/screenchooserdialog.cpp:218
 #, kde-format
 msgid "Choose which screen to share with %1:"
-msgstr "Veldu hvaða skjá eigi að deila með %1:"
+msgstr ""
 
 #: src/screenchooserdialog.cpp:227
 #, kde-format
 msgid "Share this window with the requesting application?"
-msgstr "Samnýta þennan glugga með forritinu sem sendir beiðnina?"
+msgstr ""
 
 #: src/screenchooserdialog.cpp:229
 #, kde-format
 msgid "Share this window with %1?"
-msgstr "Samnýta þennan glugga með %1?"
+msgstr ""
 
 #: src/screenchooserdialog.cpp:234
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
-msgstr "Veldu glugga til að samnýta með forritinu sem sendir beiðnina:"
+msgstr ""
 
 #: src/screenchooserdialog.cpp:236
 #, kde-format
 msgid "Choose windows to share with %1:"
-msgstr "Veldu glugga til að samnýta með %1:"
+msgstr ""
 
 #: src/screenchooserdialog.cpp:240
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
-msgstr "Veldu hvaða glugga á að samnýta með forritinu sem sendir beiðnina:"
+msgstr ""
 
 #: src/screenchooserdialog.cpp:242
 #, kde-format
 msgid "Choose which window to share with %1:"
-msgstr "Veldu hvaða glugga á að samnýta með %1:"
+msgstr ""
 
 #: src/screenchooserdialog.cpp:249
 #, kde-format
 msgid "Create a new virtual display to share with the requesting application:"
 msgstr ""
-"Búa til nýjan sýndarskjá til að samnýta með forritinu sem sendir beiðnina:"
 
 #: src/screenchooserdialog.cpp:251
 #, kde-format
 msgid "Create a new virtual display to share with %1:"
-msgstr "Búa til nýjan sýndarskjá til að samnýta með %1:"
+msgstr ""
 
 #: src/screenchooserdialog.cpp:257
 #, kde-format
 msgid "Choose what to share with the requesting application:"
-msgstr "Velja hvað á að samnýta með forritinu sem sendir beiðnina:"
+msgstr ""
 
 #: src/screenchooserdialog.cpp:259
 #, kde-format
 msgid "Choose what to share with %1:"
-msgstr "Velja hvað á að samnýta með %1:"
+msgstr ""
 
 #: src/ScreenChooserDialog.qml:122
 #, kde-format
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
-msgstr "Leita…"
+msgstr "ئىزدە…"
 
 #: src/ScreenChooserDialog.qml:168
 #, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
-msgstr "Gluggar"
+msgstr "Windows"
 
 #: src/ScreenChooserDialog.qml:196
 #, kde-format
 msgid "Share"
-msgstr "Samnýta"
+msgstr "ھەمبەھىر"
 
 #: src/screenshotdialog.cpp:117
 #, kde-format
 msgid "Full Screen"
-msgstr "Fylla skjáinn"
+msgstr "تولۇق ئېكران"
 
 #: src/screenshotdialog.cpp:118
 #, kde-format
 msgid "Current Screen"
-msgstr "Núverandi skjár"
+msgstr "نۆۋەتتىكى ئېكران"
 
 #: src/screenshotdialog.cpp:119
 #, kde-format
 msgid "Active Window"
-msgstr "Virkur gluggi"
+msgstr ""
 
 #: src/ScreenshotDialog.qml:23
 #, kde-format
 msgid "Request Screenshot"
-msgstr "Biðja um skjámynd"
+msgstr ""
 
 #: src/ScreenshotDialog.qml:35
 #, kde-format
 msgid "Capture Mode"
-msgstr "Tökustilling"
+msgstr ""
 
 #: src/ScreenshotDialog.qml:39
 #, kde-format
 msgid "Area:"
-msgstr "Svæði:"
+msgstr "رايون:"
 
 #: src/ScreenshotDialog.qml:44
 #, kde-format
 msgid "Delay:"
-msgstr "Töf:"
+msgstr "كېچىكىش:"
 
 #: src/ScreenshotDialog.qml:48
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] "%1 sekúnda"
-msgstr[1] "%1 sekúndur"
+msgstr[0] "%1 سېكۇنت"
 
 #: src/ScreenshotDialog.qml:53
 #, kde-format
 msgid "Content Options"
-msgstr "Valkostir innihalds"
+msgstr ""
 
 #: src/ScreenshotDialog.qml:57
 #, kde-format
 msgid "Include cursor pointer"
-msgstr "Hafa músarbendil með"
+msgstr ""
 
 #: src/ScreenshotDialog.qml:62
 #, kde-format
 msgid "Include window borders"
-msgstr "Hafa gluggaramma með"
+msgstr ""
 
 #: src/ScreenshotDialog.qml:76
 #, kde-format
 msgid "Save"
-msgstr "Vista"
+msgstr "ساقلا"
 
 #: src/ScreenshotDialog.qml:86
 #, kde-format
 msgid "Take"
-msgstr "Taka"
+msgstr ""
 
 #: src/UsbDialog.qml:21
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
-msgstr "Beðið um aðgang að USB-tækjum"
+msgstr ""
 
 #: src/UsbDialog.qml:24
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to access the following device:"
 msgid_plural "An application wants to access the following devices:"
-msgstr[0] "Forrit bað um aðgang að eftirfarandi tæki:"
-msgstr[1] "Forrit bað um aðgang að eftirfarandi tækjum:"
+msgstr[0] ""
 
 #: src/UsbDialog.qml:26
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to access the following device:"
 msgid_plural "%2 wants to access the following devices:"
-msgstr[0] "%2 bað um aðgang að eftirfarandi tæki:"
-msgstr[1] "%2 bað um aðgang að eftirfarandi tækjum:"
+msgstr[0] ""
 
 #: src/userinfodialog.cpp:52
 #, kde-format
 msgctxt "@title"
 msgid "Share user info with %1"
-msgstr "Deila notandaupplýsingum með %1"
+msgstr ""
 
 #: src/userinfodialog.cpp:54
 #, kde-format
@@ -927,125 +883,67 @@ msgid ""
 "Allows your username, full name, and profile picture to be used by the "
 "application."
 msgstr ""
-"Leyfir að notandanafn þitt, fullt nafn og auðkennismynd séu notuð af "
-"forritinu."
 
 #: src/UserInfoDialog.qml:19
 #, kde-format
 msgctxt "@action:button"
 msgid "Share user info"
-msgstr "Deila notandaupplýsingum"
+msgstr ""
 
 #: src/UserInfoDialog.qml:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Share"
-msgstr "Samnýta"
+msgstr "ھەمبەھىر"
 
 #: src/WallpaperDialog.qml:21
 #, kde-format
 msgctxt "@title:window"
 msgid "Set Wallpaper"
-msgstr "Setja bakgrunnsmynd"
+msgstr ""
 
 #: src/WallpaperDialog.qml:26
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the desktop background?"
-msgstr "Leyfa að forritið setji bakgrunn skjáborðs?"
+msgstr ""
 
 #: src/WallpaperDialog.qml:28
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set the lock screen background?"
-msgstr "Leyfa að forritið setji bakgrunn læsiskjás?"
+msgstr ""
 
 #: src/WallpaperDialog.qml:30
 #, kde-format
 msgctxt "the app is unknown"
 msgid "Allow an application to set desktop and lock screen backgrounds?"
-msgstr "Leyfa að forritið setji bakgrunni skjáborðs og læsiskjás?"
+msgstr ""
 
 #: src/WallpaperDialog.qml:35
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the desktop background?"
-msgstr "Leyfa að %1 setji bakgrunn skjáborðs?"
+msgstr ""
 
 #: src/WallpaperDialog.qml:37
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set the lock screen background?"
-msgstr "Leyfa að %1 setji bakgrunn læsiskjás?"
+msgstr ""
 
 #: src/WallpaperDialog.qml:39
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Allow %1 to set desktop and lock screen backgrounds?"
-msgstr "Leyfa að %1 setji bakgrunni skjáborðs og læsiskjás?"
+msgstr ""
 
 #: src/waylandintegration.cpp:213 src/waylandintegration.cpp:252
 #, kde-format
 msgid "Failed to start screencasting"
-msgstr "Mistókst að ræsa skjávörpun"
+msgstr ""
 
 #: src/waylandintegration.cpp:376
 #, kde-format
 msgid "Remote desktop"
-msgstr "Fjartengt skjáborð"
-
-#~ msgid "Screens"
-#~ msgstr "Skjáir"
-
-#~ msgctxt "@title:group"
-#~ msgid "Terminal Options"
-#~ msgstr "Valkostir skjáhermis"
-
-#~ msgctxt "@title:group"
-#~ msgid "Discover More Applications"
-#~ msgstr "Uppgötva fleiri forrit"
-
-#~ msgctxt "@info"
-#~ msgid "Don't see the right app? Find more in <link>Discover</link>."
-#~ msgstr "Sérðu ekki rétta forritið? Leitaðu í <link>Discover</link>."
-
-#, fuzzy
-#~| msgctxt ""
-#~| "Unordered list with privileges granted to an external process, included "
-#~| "the app's name"
-#~| msgid "%1 requested access to remotely control:\n"
-#~ msgctxt "Unordered list with privileges granted to an external process"
-#~ msgid "An application requested access to remotely control:\n"
-#~ msgstr "%1 bað um aðgang að fjarstýringu:\n"
-
-#~ msgctxt ""
-#~ "Unordered list with privileges granted to an external process, included "
-#~ "the app's name"
-#~ msgid "%1 requested access to remotely control:\n"
-#~ msgstr "%1 bað um aðgang að fjarstýringu:\n"
-
-#~ msgctxt "Will allow the app to see what's on the outputs, in markdown"
-#~ msgid " - Screens\n"
-#~ msgstr " - Skjáir\n"
-
-#~ msgid "New Virtual Output"
-#~ msgstr "Nýtt sýndarúttak"
-
-#~ msgid "Rectangular Region"
-#~ msgstr "Ferhyrnt svæði"
-
-#~ msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
-#~ msgid "Always open %1 files with the chosen app"
-#~ msgstr "Opna alltaf %1-skrár með valda forritinu"
-
-#~ msgid "Share your personal information with the requesting application?"
-#~ msgstr "Deila persónuupplýsingum þínum með forritinu sem sendir beiðnina?"
-
-#~ msgid "Create new folder in %1"
-#~ msgstr "Búa til nýja möppu í %1"
-
-#~ msgid "OK"
-#~ msgstr "Í lagi"
-
-#~ msgid "Cancel"
-#~ msgstr "Hætta við"
+msgstr ""
