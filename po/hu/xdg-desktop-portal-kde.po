@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-25 02:37+0000\n"
-"PO-Revision-Date: 2026-05-27 22:43+0200\n"
+"PO-Revision-Date: 2026-06-03 21:33+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -515,7 +515,7 @@ msgstr "Kijelölés módja:"
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
-msgstr "Balkattintás és húzás"
+msgstr "Bal kattintás és húzás"
 
 #: src/remotedesktop.cpp:118
 #, kde-format
@@ -532,6 +532,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"A(z) <application>%1</application> alkalmazás megpróbált távoli asztali "
+"munkamenetet indítani, de a távoli asztal ezen a rendszeren nem érhető el. "
+"Ellenőrizze, hogy Wayland munkamenetet futtat-e egy kompatibilis "
+"ablakkezelővel, például a KWinnel."
 
 #: src/remotedesktop.cpp:124
 #, kde-kuit-format
@@ -541,6 +545,9 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"A(z) <application>%1</application> alkalmazás megpróbált elindítani egy "
+"távoli asztali munkamenetet, de a távoli asztal funkció X11 munkamenetekben "
+"nem érhető el. Váltson Wayland-munkamenetre, és próbálja meg újra."
 
 #: src/remotedesktop.cpp:190 src/screencast.cpp:232
 #, kde-format
@@ -662,11 +669,10 @@ msgid "Deny"
 msgstr "Elutasít"
 
 #: src/screencast.cpp:151
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "Képernyőmegosztás"
+msgstr "A képernyőmegosztás nem érhető el"
 
 #: src/screencast.cpp:153
 #, kde-kuit-format
@@ -677,6 +683,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"A(z) <application>%1</application> alkalmazás megpróbált elindítani egy "
+"képernyőmegosztási munkamenetet, de a képernyőmegosztás ezen a rendszeren "
+"nem érhető el. Ellenőrizze, hogy Wayland munkamenetet futtat-e egy "
+"kompatibilis ablakkezelővel, például a KWinnel."
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -686,6 +696,9 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"A(z) <application>%1</application> alkalmazás megpróbált elindítani egy "
+"képernyőmegosztási munkamenetet, de a képernyőmegosztás X11 munkamenetekben "
+"nem érhető el. Váltson Wayland munkamenetre, és próbálja meg újra."
 
 #: src/screencast.cpp:297
 #, kde-format
