@@ -356,6 +356,16 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
         }
     }
 
+    // If steam is trying to stream and we don't have any valid restore data,
+    // allow streaming all screens.
+    if (app_id == u"steam" && !valid) {
+        OutputsModel model(OutputsModel::WorkspaceIncluded, this);
+        for (int i = 0, c = model.rowCount(); i < c; ++i) {
+            selectedOutputs << model.outputAt(i);
+        }
+        valid = true;
+    }
+
     if (valid) {
         std::tie(replyResponse, replyResults) = continueStartAfterDialog(session, selectedOutputs, selectedRegion, selectedWindows, true);
         return;
