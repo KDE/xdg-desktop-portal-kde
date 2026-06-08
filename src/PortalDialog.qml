@@ -133,6 +133,16 @@ Kirigami.AbstractApplicationWindow {
         value: root.acceptable
     }
 
+    Component.onCompleted: {
+        if (root.standardButtons & QQC2.DialogButtonBox.Ok && root.acceptable) {
+            // Ensure visualFocus with TabFocusReason
+            footerButtonBox.standardButton(QQC2.DialogButtonBox.Ok)
+                .forceActiveFocus(Qt.TabFocusReason);
+        } else {
+            contentLayout.forceActiveFocus();
+        }
+    }
+
     Item {
         id: contentLayout
 
@@ -141,9 +151,6 @@ Kirigami.AbstractApplicationWindow {
         implicitWidth: control.implicitWidth
         implicitHeight: control.implicitHeight
 
-        focus: true
-        Keys.onEnterPressed: root.accept()
-        Keys.onReturnPressed: root.accept()
         Keys.onEscapePressed: root.reject()
 
         Item {
