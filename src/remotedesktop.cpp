@@ -295,30 +295,28 @@ void RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
         }
     }
 
-    if (restored) {
+    if (restored || isAppMegaAuthorized(app_id)) {
         auto notification = new KNotification(QStringLiteral("remotedesktopstarted"), KNotification::CloseOnTimeout);
         notification->setTitle(i18nc("title of notification about input systems taken over", "Remote control session started"));
         notification->setText(RemoteDesktopDialog::buildNotificationDescription(app_id, session->deviceTypes(), session->screenSharingEnabled()));
         notification->setIconName(QStringLiteral("krfb"));
         notification->sendEvent();
     } else {
-        if (!isAppMegaAuthorized(app_id)) { // authorize right away
-            auto remoteDesktopDialog = new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled(), session->persistMode());
-            Utils::setParentWindow(remoteDesktopDialog->windowHandle(), parent_window);
-            Request::makeClosableDialogRequestWithSession(handle, remoteDesktopDialog, session);
-            delayReply(message, remoteDesktopDialog, this, [session, remoteDesktopDialog](DialogResult dialogResult) {
-                auto response = PortalResponse::fromDialogResult(dialogResult);
-                QVariantMap results;
-                if (dialogResult == DialogResult::Accepted) {
-                    if (!remoteDesktopDialog->allowRestore()) {
-                        session->setPersistMode(ScreenCastPortal::PersistMode::NoPersist);
-                    }
-                    std::tie(response, results) = continueStart(session);
+        auto remoteDesktopDialog = new RemoteDesktopDialog(app_id, session->deviceTypes(), session->screenSharingEnabled(), session->persistMode());
+        Utils::setParentWindow(remoteDesktopDialog->windowHandle(), parent_window);
+        Request::makeClosableDialogRequestWithSession(handle, remoteDesktopDialog, session);
+        delayReply(message, remoteDesktopDialog, this, [session, remoteDesktopDialog](DialogResult dialogResult) {
+            auto response = PortalResponse::fromDialogResult(dialogResult);
+            QVariantMap results;
+            if (dialogResult == DialogResult::Accepted) {
+                if (!remoteDesktopDialog->allowRestore()) {
+                    session->setPersistMode(ScreenCastPortal::PersistMode::NoPersist);
                 }
-                return QVariantList{response, results};
-            });
-            return;
-        }
+                std::tie(response, results) = continueStart(session);
+            }
+            return QVariantList{response, results};
+        });
+        return;
     }
 
     std::tie(replyResponse, replyResults) = continueStart(session);
