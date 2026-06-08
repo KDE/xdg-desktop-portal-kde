@@ -407,7 +407,10 @@ Kirigami.AbstractApplicationWindow {
                                 Layout.fillHeight: true // make sure the content gets placed centered by making sure we occupy the available height
                                 Layout.minimumHeight: implicitHeight
 
-                                padding: 0
+                                leftPadding: 0
+                                rightPadding: 0
+                                topPadding: 0
+                                bottomPadding: 0
                                 contentItem: root.dialogButtonBoxLeftItem
                                 visible: root.dialogButtonBoxLeftItem?.visible ?? false
                             }
@@ -419,7 +422,10 @@ Kirigami.AbstractApplicationWindow {
                                 Layout.minimumWidth: implicitWidth
                                 Layout.minimumHeight: implicitHeight
 
-                                padding: 0
+                                leftPadding: 0
+                                rightPadding: 0
+                                topPadding: 0
+                                bottomPadding: 0
                                 visible: count > 0 || root.actions.length > 0
 
                                 standardButtons: {
