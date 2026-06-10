@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-25 00:46+0000\n"
+"POT-Creation-Date: 2026-06-10 00:48+0000\n"
 "PO-Revision-Date: 2026-06-01 18:59-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -535,7 +535,7 @@ msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr ""
 
-#: src/remotedesktop.cpp:592
+#: src/remotedesktop.cpp:590
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"

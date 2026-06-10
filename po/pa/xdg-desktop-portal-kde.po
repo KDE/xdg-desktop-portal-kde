@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-25 00:46+0000\n"
+"POT-Creation-Date: 2026-06-10 00:48+0000\n"
 "PO-Revision-Date: 2025-02-28 11:01-0600\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
@@ -557,7 +557,7 @@ msgctxt "title of notification about input systems taken over"
 msgid "Remote control session started"
 msgstr "ਰਿਮੋਟ ਕੰਟਰੋਲ ਸ਼ੈਸ਼ਨ ਸ਼ੁਰੂ ਹੋਇਆ"
 
-#: src/remotedesktop.cpp:592
+#: src/remotedesktop.cpp:590
 #, fuzzy, kde-format
 #| msgctxt "Title of the dialog that requests remote input privileges"
 #| msgid "Remote control requested"
