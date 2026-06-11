@@ -24,7 +24,6 @@ namespace KWayland
 namespace Client
 {
 class PlasmaWindowManagement;
-class ScreencastingSource;
 }
 }
 
@@ -37,7 +36,6 @@ class WaylandIntegration : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:
-    void newBuffer(uint8_t *screenData);
     void plasmaWindowManagementInitialized();
 };
 

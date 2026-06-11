@@ -68,13 +68,6 @@ public:
     ScreencastingStream *createRegionStream(const QRect &geometry, qreal scale, CursorMode mode);
     ScreencastingStream *createVirtualOutputStream(const QString &name, const QString &description, const QSize &size, qreal scale, CursorMode mode);
 
-    void setup(zkde_screencast_unstable_v1 *screencasting);
-    void destroy();
-
-Q_SIGNALS:
-    void removed();
-    void sourcesChanged();
-
 private:
     QScopedPointer<ScreencastingPrivate> d;
 };

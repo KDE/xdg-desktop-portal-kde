@@ -86,12 +86,6 @@ public:
     {
     }
 
-    ScreencastingPrivate(::zkde_screencast_unstable_v1 *screencasting, Screencasting *q)
-        : QtWayland::zkde_screencast_unstable_v1(screencasting)
-        , q(q)
-    {
-    }
-
     ~ScreencastingPrivate() override
     {
         destroy();
@@ -185,16 +179,6 @@ Screencasting::createVirtualOutputStream(const QString &name, const QString &des
         {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Virtual)},
     };
     return stream;
-}
-
-void Screencasting::setup(::zkde_screencast_unstable_v1 *screencasting)
-{
-    d.reset(new ScreencastingPrivate(screencasting, this));
-}
-
-void Screencasting::destroy()
-{
-    d.reset(nullptr);
 }
 
 #include "moc_screencasting.cpp"
