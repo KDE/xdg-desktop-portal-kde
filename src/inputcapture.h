@@ -137,7 +137,7 @@ public:
 
     QDBusPendingReply<QDBusUnixFileDescriptor> connectToEIS();
 
-    void addBarrier(const QPair<QPoint, QPoint> &barriers);
+    void addBarrier(uint id, const QPair<QPoint, QPoint> &barriers);
     void clearBarriers();
 
     [[nodiscard]] bool clipboardEnabled() const;
@@ -145,13 +145,13 @@ public:
 
 Q_SIGNALS:
     void disabled();
-    void activated(uint activationId, const QPointF &cursorPosition);
+    void activated(uint activationId, uint barrier, const QPointF &cursorPosition);
     void deactivated(uint activationId);
 
 private:
     bool m_clipboardEnabled = false;
     QDBusObjectPath m_kwinInputCapture;
-    QList<QPair<QPoint, QPoint>> m_barriers;
+    QList<std::tuple<uint, QPoint, QPoint>> m_barriers;
 };
 
 #endif

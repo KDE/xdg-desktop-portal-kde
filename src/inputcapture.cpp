@@ -72,8 +72,8 @@ InputCapturePortal::InputCapturePortal(QObject *parent)
     qDBusRegisterMetaType<zone>();
     qDBusRegisterMetaType<QList<zone>>();
     qDBusRegisterMetaType<QList<QMap<QString, QVariant>>>();
-    qDBusRegisterMetaType<QPair<QPoint, QPoint>>();
-    qDBusRegisterMetaType<QList<QPair<QPoint, QPoint>>>();
+    qDBusRegisterMetaType<std::tuple<uint, QPoint, QPoint>>();
+    qDBusRegisterMetaType<QList<std::tuple<uint, QPoint, QPoint>>>();
 }
 
 bool InputCapturePortal::setupInputCaptureSession(InputCaptureSession *session, Capabilities capabilities)
@@ -102,7 +102,7 @@ bool InputCapturePortal::setupInputCaptureSession(InputCaptureSession *session, 
         qCDebug(XdgDesktopPortalKdeInputCapture) << "Deactivated session" << session->handle() << "acitvation_id" << activationId;
         Q_EMIT Deactivated(QDBusObjectPath(session->handle()), {{u"activation_id"_s, activationId}});
     });
-    connect(session, &InputCaptureSession::activated, this, [this, session](uint activationId, const QPointF &cursorPosition) {
+    connect(session, &InputCaptureSession::activated, this, [this, session](uint activationId, uint barrier, const QPointF &cursorPosition) {
         session->state = State::Activated;
         qCDebug(XdgDesktopPortalKdeInputCapture) << "Activated session" << session->handle() << "acitvation_id" << activationId << "cursor_position"
                                                  << cursorPosition;
@@ -128,7 +128,8 @@ bool InputCapturePortal::setupInputCaptureSession(InputCaptureSession *session, 
         connect(session, &InputCaptureSession::deactivated, notification, &KNotification::close);
         notification->sendEvent();
 
-        Q_EMIT Activated(QDBusObjectPath(session->handle()), {{u"activation_id"_s, activationId}, {u"cursor_position"_s, cursorPosition}});
+        Q_EMIT Activated(QDBusObjectPath(session->handle()),
+                         {{u"activation_id"_s, activationId}, {u"cursor_position"_s, cursorPosition}, {u"barrier_id"_s, barrier}});
     });
     return true;
 }
@@ -408,7 +409,7 @@ uint InputCapturePortal::SetPointerBarriers(const QDBusObjectPath &handle,
             }
             failedBarriers.append(id);
         } else {
-            session->addBarrier(std::get<1>(barrierOrFailure));
+            session->addBarrier(id, std::get<1>(barrierOrFailure));
         }
     }
     results.insert(u"failed_barriers"_s, QVariant::fromValue(failedBarriers));
@@ -555,9 +556,9 @@ InputCaptureSession::InputCaptureSession(QObject *parent, const QString &appId, 
 
 InputCaptureSession::~InputCaptureSession() = default;
 
-void InputCaptureSession::addBarrier(const QPair<QPoint, QPoint> &barrier)
+void InputCaptureSession::addBarrier(uint id, const QPair<QPoint, QPoint> &barrier)
 {
-    m_barriers.push_back(barrier);
+    m_barriers.push_back({id, barrier.first, barrier.second});
 }
 
 void InputCaptureSession::clearBarriers()
@@ -577,7 +578,7 @@ void InputCaptureSession::connect(const QDBusObjectPath &path)
         QDBusConnection::sessionBus().connect(kwinService(), m_kwinInputCapture.path(), kwinInputCaptureInterface(), signalName, this, slot);
     };
     connectSignal(u"disabled"_s, SIGNAL(disabled()));
-    connectSignal(u"activated"_s, SIGNAL(activated(uint, QPointF)));
+    connectSignal(u"activated"_s, SIGNAL(activated(uint, uint, QPointF)));
     connectSignal(u"deactivated"_s, SIGNAL(deactivated(uint)));
 }
 
