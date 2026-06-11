@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-10 00:48+0000\n"
+"POT-Creation-Date: 2026-06-11 00:46+0000\n"
 "PO-Revision-Date: 2025-06-21 13:04+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -426,7 +426,7 @@ msgstr "Compartir esta pantalla con %1?"
 msgid "Share region"
 msgstr ""
 
-#: src/outputsmodel.cpp:98
+#: src/outputsmodel.cpp:98 src/screencast.cpp:352
 #, fuzzy, kde-format
 #| msgid "Full Workspace"
 msgid "Share full Workspace"
@@ -701,13 +701,13 @@ msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Compartición de pantalla en progreso"
 
-#: src/screencast.cpp:403
+#: src/screencast.cpp:405
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Rematar"
 
-#: src/screencast.cpp:455
+#: src/screencast.cpp:457
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -715,7 +715,7 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "Compartindo o contido con %2"
 msgstr[1] "Compartindo %1 retransmisións de vídeo con %2"
 
-#: src/screencast.cpp:459
+#: src/screencast.cpp:461
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
