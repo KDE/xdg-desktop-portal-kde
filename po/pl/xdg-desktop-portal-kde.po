@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-10 02:40+0000\n"
+"POT-Creation-Date: 2026-06-11 02:35+0000\n"
 "PO-Revision-Date: 2025-01-11 11:55+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -427,7 +427,7 @@ msgstr "Czy udostępnić ten ekran %1?"
 msgid "Share region"
 msgstr ""
 
-#: src/outputsmodel.cpp:98
+#: src/outputsmodel.cpp:98 src/screencast.cpp:352
 #, fuzzy, kde-format
 #| msgid "Full Workspace"
 msgid "Share full Workspace"
@@ -700,13 +700,13 @@ msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Udostępnianie ekranu w trakcie"
 
-#: src/screencast.cpp:403
+#: src/screencast.cpp:405
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Koniec"
 
-#: src/screencast.cpp:455
+#: src/screencast.cpp:457
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -715,7 +715,7 @@ msgstr[0] "Udostępnianie zawartości %2"
 msgstr[1] "%1 strumienie obrazu %2"
 msgstr[2] "%1 strumieni obrazu %2"
 
-#: src/screencast.cpp:459
+#: src/screencast.cpp:461
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
