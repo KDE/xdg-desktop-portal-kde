@@ -527,6 +527,7 @@ QDBusVariant SettingsPortal::Read(const QString &group, const QString &key)
     qCDebug(XdgDesktopPortalKdeSettings) << "    key: " << key;
 
     auto sendError = [m = m_parent->message()](QDBusError::ErrorType error, const QString &message) {
+        m.setDelayedReply(true);
         const auto reply = m.createErrorReply(error, message);
         QDBusConnection::sessionBus().send(reply);
     };
