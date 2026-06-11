@@ -328,13 +328,15 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
             const QVariantMap restoreDataPayload = restoreData.payload;
             const QVariantList restoreOutputs = restoreDataPayload[QStringLiteral("outputs")].toList();
             if (!restoreOutputs.isEmpty()) {
-                OutputsModel model(OutputsModel::WorkspaceIncluded | OutputsModel::RegionIncluded | OutputsModel::VirtualIncluded, this);
+                OutputsModel model(OutputsModel::RegionIncluded | OutputsModel::VirtualIncluded, this);
+                const auto outputsView = std::views::iota(0, model.rowCount()) | std::views::transform([&model](int i) {
+                                             return model.outputAt(i);
+                                         });
                 for (const auto &outputUniqueId : restoreOutputs) {
-                    for (int i = 0, c = model.rowCount(); i < c; ++i) {
-                        const Output &iOutput = model.outputAt(i);
-                        if (iOutput.uniqueId() == outputUniqueId) {
-                            selectedOutputs << iOutput;
-                        }
+                    if (auto it = std::ranges::find(outputsView, outputUniqueId, &Output::uniqueId); it != outputsView.end()) {
+                        selectedOutputs << *it;
+                    } else if (outputUniqueId == "Workspace"_L1) {
+                        selectedOutputs << Output{Output::Workspace, nullptr, i18n("Share full Workspace"), u"Workspace"_s, {}};
                     }
                 }
                 valid = selectedOutputs.count() == restoreOutputs.count();
