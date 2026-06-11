@@ -15,6 +15,7 @@
 #include "session.h"
 #include "utils.h"
 #include "waylandintegration.h"
+
 #include <KLocalizedString>
 #include <KNotification>
 #include <KStatusNotifierItem>
@@ -25,10 +26,149 @@
 #include <QGuiApplication>
 #include <QRegion>
 #include <QScreen>
+#include <QWaylandClientExtensionTemplate>
+
+#include <qwayland-fake-input.h>
+#include <wayland-wayland-client-protocol.h>
 
 #include "permission_store.h"
 
 using namespace Qt::StringLiterals;
+
+class FakeInput : public QWaylandClientExtensionTemplate<FakeInput>, public QtWayland::org_kde_kwin_fake_input
+{
+public:
+    static std::shared_ptr<FakeInput> instance()
+    {
+        static std::weak_ptr<FakeInput> weakInstance;
+        auto instance = weakInstance.lock();
+        if (!instance) {
+            instance = std::shared_ptr<FakeInput>(new FakeInput);
+            if (!instance->isActive()) {
+                qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "org_kde_kwin_fake_input protocol is unsupported by the compositor";
+            } else {
+                instance->authenticate(QCoreApplication::applicationName(), QStringLiteral("Remote desktop session input"));
+            }
+            weakInstance = instance;
+        }
+        return instance;
+    }
+
+    ~FakeInput() override
+    {
+        if (isActive()) {
+            destroy();
+        }
+    }
+    void requestPointerButtonPress(quint32 linuxButton)
+    {
+        if (isActive()) {
+            button(linuxButton, WL_POINTER_BUTTON_STATE_PRESSED);
+        }
+    }
+
+    void requestPointerButtonRelease(quint32 linuxButton)
+    {
+        if (isActive()) {
+            button(linuxButton, WL_POINTER_BUTTON_STATE_RELEASED);
+        }
+    }
+
+    void requestPointerMotion(const QSizeF &delta)
+    {
+        if (isActive()) {
+            pointer_motion(wl_fixed_from_double(delta.width()), wl_fixed_from_double(delta.height()));
+        }
+    }
+
+    void requestPointerMotionAbsolute(ScreencastingStream *const stream, const QPointF &pos)
+    {
+        if (!isActive()) {
+            return;
+        }
+        if (stream) {
+            pointer_motion_absolute(wl_fixed_from_double(pos.x() + stream->geometry().x()), wl_fixed_from_double(pos.y() + stream->geometry().y()));
+        } else {
+            // If no stream is found, just send it as absolute coordinates relative to the workspace.
+            pointer_motion_absolute(wl_fixed_from_double(pos.x()), wl_fixed_from_double(pos.y()));
+        }
+    }
+
+    void requestPointerAxisDiscrete(Qt::Orientation direction, qreal delta)
+    {
+        if (isActive()) {
+            switch (direction) {
+            case Qt::Horizontal:
+                axis(WL_POINTER_AXIS_HORIZONTAL_SCROLL, wl_fixed_from_double(delta));
+                break;
+            case Qt::Vertical:
+                axis(WL_POINTER_AXIS_VERTICAL_SCROLL, wl_fixed_from_double(delta));
+                break;
+            }
+        }
+    }
+    void requestPointerAxis(qreal x, qreal y)
+    {
+        if (isActive()) {
+            if (x != 0) {
+                axis(WL_POINTER_AXIS_HORIZONTAL_SCROLL, wl_fixed_from_double(x));
+            }
+            if (y != 0) {
+                axis(WL_POINTER_AXIS_VERTICAL_SCROLL, wl_fixed_from_double(-y));
+            }
+        }
+    }
+
+    void requestKeyboardKeycode(int keycode, bool state)
+    {
+        if (isActive()) {
+            if (state) {
+                keyboard_key(keycode, WL_KEYBOARD_KEY_STATE_PRESSED);
+            } else {
+                keyboard_key(keycode, WL_KEYBOARD_KEY_STATE_RELEASED);
+            }
+        }
+    }
+
+    void requestKeyboardKeysym(int keysym, bool state)
+    {
+        if (isActive()) {
+            if (state) {
+                keyboard_keysym(keysym, WL_KEYBOARD_KEY_STATE_PRESSED);
+            } else {
+                keyboard_keysym(keysym, WL_KEYBOARD_KEY_STATE_RELEASED);
+            }
+        }
+    }
+
+    void requestTouchDown(quint32 touchPoint, const QPointF &pos)
+    {
+        if (isActive()) {
+            touch_down(touchPoint, wl_fixed_from_double(pos.x()), wl_fixed_from_double(pos.y()));
+        }
+    }
+
+    void requestTouchMotion(quint32 touchPoint, const QPointF &pos)
+    {
+        if (isActive()) {
+            touch_motion(touchPoint, wl_fixed_from_double(pos.x()), wl_fixed_from_double(pos.y()));
+        }
+    }
+
+    void requestTouchUp(quint32 touchPoint)
+    {
+        if (isActive()) {
+            touch_up(touchPoint);
+        }
+    }
+
+private:
+    FakeInput()
+        : QWaylandClientExtensionTemplate<FakeInput>(6)
+    {
+        initialize();
+    }
+};
 
 namespace
 {
@@ -337,7 +477,7 @@ void RemoteDesktopPortal::NotifyPointerMotion(const QDBusObjectPath &session_han
         return;
     }
 
-    WaylandIntegration::requestPointerMotion(QSizeF(dx, dy));
+    session->fakeInput().requestPointerMotion(QSizeF(dx, dy));
 }
 
 void RemoteDesktopPortal::NotifyPointerMotionAbsolute(const QDBusObjectPath &session_handle, const QVariantMap &options, uint stream, double x, double y)
@@ -360,7 +500,7 @@ void RemoteDesktopPortal::NotifyPointerMotionAbsolute(const QDBusObjectPath &ses
         return stream->nodeid() == nodeId;
     });
 
-    WaylandIntegration::requestPointerMotionAbsolute(it != session->streams().end() ? it->get() : nullptr, QPointF(x, y));
+    session->fakeInput().requestPointerMotionAbsolute(it != session->streams().end() ? it->get() : nullptr, QPointF(x, y));
 }
 
 void RemoteDesktopPortal::NotifyPointerButton(const QDBusObjectPath &session_handle, const QVariantMap &options, int button, uint state)
@@ -379,9 +519,9 @@ void RemoteDesktopPortal::NotifyPointerButton(const QDBusObjectPath &session_han
     }
 
     if (state) {
-        WaylandIntegration::requestPointerButtonPress(button);
+        session->fakeInput().requestPointerButtonPress(button);
     } else {
-        WaylandIntegration::requestPointerButtonRelease(button);
+        session->fakeInput().requestPointerButtonRelease(button);
     }
 }
 
@@ -400,7 +540,7 @@ void RemoteDesktopPortal::NotifyPointerAxis(const QDBusObjectPath &session_handl
         return;
     }
 
-    WaylandIntegration::requestPointerAxis(dx, dy);
+    session->fakeInput().requestPointerAxis(dx, dy);
 }
 
 void RemoteDesktopPortal::NotifyPointerAxisDiscrete(const QDBusObjectPath &session_handle, const QVariantMap &options, uint axis, int steps)
@@ -418,7 +558,7 @@ void RemoteDesktopPortal::NotifyPointerAxisDiscrete(const QDBusObjectPath &sessi
         return;
     }
 
-    WaylandIntegration::requestPointerAxisDiscrete(!axis ? Qt::Vertical : Qt::Horizontal, steps);
+    session->fakeInput().requestPointerAxisDiscrete(!axis ? Qt::Vertical : Qt::Horizontal, steps);
 }
 
 void RemoteDesktopPortal::NotifyKeyboardKeysym(const QDBusObjectPath &session_handle, const QVariantMap &options, int keysym, uint state)
@@ -432,7 +572,7 @@ void RemoteDesktopPortal::NotifyKeyboardKeysym(const QDBusObjectPath &session_ha
         return;
     }
 
-    WaylandIntegration::requestKeyboardKeysym(keysym, state != 0);
+    session->fakeInput().requestKeyboardKeysym(keysym, state != 0);
 }
 
 void RemoteDesktopPortal::NotifyKeyboardKeycode(const QDBusObjectPath &session_handle, const QVariantMap &options, int keycode, uint state)
@@ -450,7 +590,7 @@ void RemoteDesktopPortal::NotifyKeyboardKeycode(const QDBusObjectPath &session_h
         return;
     }
 
-    WaylandIntegration::requestKeyboardKeycode(keycode, state != 0);
+    session->fakeInput().requestKeyboardKeycode(keycode, state != 0);
 }
 
 void RemoteDesktopPortal::NotifyTouchDown(const QDBusObjectPath &session_handle, const QVariantMap &options, uint stream, uint slot, double x, double y)
@@ -463,7 +603,7 @@ void RemoteDesktopPortal::NotifyTouchDown(const QDBusObjectPath &session_handle,
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerAxisDiscrete on non-existing session " << session_handle.path();
         return;
     }
-    WaylandIntegration::requestTouchDown(slot, QPointF(x, y));
+    session->fakeInput().requestTouchDown(slot, QPointF(x, y));
 }
 
 void RemoteDesktopPortal::NotifyTouchMotion(const QDBusObjectPath &session_handle, const QVariantMap &options, uint stream, uint slot, double x, double y)
@@ -476,7 +616,7 @@ void RemoteDesktopPortal::NotifyTouchMotion(const QDBusObjectPath &session_handl
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerAxisDiscrete on non-existing session " << session_handle.path();
         return;
     }
-    WaylandIntegration::requestTouchMotion(slot, QPointF(x, y));
+    session->fakeInput().requestTouchMotion(slot, QPointF(x, y));
 }
 
 void RemoteDesktopPortal::NotifyTouchUp(const QDBusObjectPath &session_handle, const QVariantMap &options, uint slot)
@@ -489,7 +629,7 @@ void RemoteDesktopPortal::NotifyTouchUp(const QDBusObjectPath &session_handle, c
         return;
     }
 
-    WaylandIntegration::requestTouchUp(slot);
+    session->fakeInput().requestTouchUp(slot);
 }
 
 QDBusUnixFileDescriptor
@@ -524,11 +664,6 @@ RemoteDesktopSession::RemoteDesktopSession(QObject *parent, const QString &appId
     , m_screenSharingEnabled(false)
     , m_clipboardEnabled(false)
 {
-    connect(this, &RemoteDesktopSession::closed, this, [this] {
-        if (m_acquired) {
-            WaylandIntegration::acquireStreamingInput(false);
-        }
-    });
 }
 
 RemoteDesktopSession::~RemoteDesktopSession()
@@ -581,8 +716,7 @@ int RemoteDesktopSession::eisCookie() const
 
 void RemoteDesktopSession::acquireStreamingInput()
 {
-    WaylandIntegration::acquireStreamingInput(true);
-    m_acquired = true;
+    m_fakeInput = FakeInput::instance();
 }
 
 void RemoteDesktopSession::refreshDescription()

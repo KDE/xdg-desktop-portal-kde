@@ -16,6 +16,7 @@
 #include "screencast.h"
 
 class QDBusMessage;
+class FakeInput;
 
 class RemoteDesktopPortal : public QDBusAbstractAdaptor
 {
@@ -119,12 +120,18 @@ public:
         return SessionType::RemoteDesktop;
     }
 
+    FakeInput &fakeInput() const
+    {
+        return *m_fakeInput;
+    }
+
 private:
     bool m_screenSharingEnabled;
     bool m_clipboardEnabled;
     RemoteDesktopPortal::DeviceTypes m_deviceTypes;
     bool m_acquired = false;
     int m_cookie = 0;
+    std::shared_ptr<FakeInput> m_fakeInput;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_H

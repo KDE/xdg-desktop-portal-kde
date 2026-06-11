@@ -43,26 +43,11 @@ Q_SIGNALS:
 
 bool isStreamingAvailable();
 
-void acquireStreamingInput(bool acquire);
 std::unique_ptr<ScreencastingStream> startStreamingOutput(QScreen *screen, Screencasting::CursorMode mode);
 std::unique_ptr<ScreencastingStream> startStreamingWorkspace(Screencasting::CursorMode mode);
 std::unique_ptr<ScreencastingStream> startStreamingVirtual(const QString &name, const QString &description, const QSize &size, Screencasting::CursorMode mode);
 std::unique_ptr<ScreencastingStream> startStreamingWindow(KWayland::Client::PlasmaWindow *window, Screencasting::CursorMode mode);
 std::unique_ptr<ScreencastingStream> startStreamingRegion(const QRect &region, Screencasting::CursorMode mode);
-
-void requestPointerButtonPress(quint32 linuxButton);
-void requestPointerButtonRelease(quint32 linuxButton);
-void requestPointerMotion(const QSizeF &delta);
-void requestPointerMotionAbsolute(ScreencastingStream *const stream, const QPointF &pos);
-void requestPointerAxis(qreal x, qreal y);
-void requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta);
-
-void requestKeyboardKeycode(int keycode, bool state);
-void requestKeyboardKeysym(int keysym, bool state);
-
-void requestTouchDown(quint32 touchPoint, const QPointF &pos);
-void requestTouchMotion(quint32 touchPoint, const QPointF &pos);
-void requestTouchUp(quint32 touchPoint);
 
 void init();
 

@@ -39,13 +39,6 @@ class QWindow;
 namespace WaylandIntegration
 {
 
-class FakeInput : public QWaylandClientExtensionTemplate<FakeInput>, public QtWayland::org_kde_kwin_fake_input
-{
-public:
-    FakeInput();
-    ~FakeInput() override;
-};
-
 class WaylandIntegrationPrivate : public WaylandIntegration::WaylandIntegration
 {
     Q_OBJECT
@@ -97,7 +90,6 @@ private:
     uint m_streamInput = 0;
     bool m_waylandAuthenticationRequested = false;
 
-    std::unique_ptr<FakeInput> m_fakeInput;
     Screencasting *m_screencasting = nullptr;
 };
 
