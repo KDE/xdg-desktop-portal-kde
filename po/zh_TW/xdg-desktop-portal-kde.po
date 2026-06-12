@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-11 02:35+0000\n"
+"POT-Creation-Date: 2026-06-12 02:40+0000\n"
 "PO-Revision-Date: 2026-06-07 16:04+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -299,19 +299,19 @@ msgid ""
 "disable."
 msgstr "輸入正被應用程式管理。按下 <shortcut>%1</shortcut> 來停用。"
 
-#: src/inputcapture.cpp:223
+#: src/inputcapture.cpp:224
 #, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
 msgstr "輸入擷取設定"
 
-#: src/inputcapture.cpp:224
+#: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
 msgstr "某應用程式未來將能夠管理輸入。"
 
-#: src/inputcapture.cpp:225
+#: src/inputcapture.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."

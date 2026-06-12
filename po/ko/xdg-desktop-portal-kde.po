@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-11 02:35+0000\n"
+"POT-Creation-Date: 2026-06-12 02:40+0000\n"
 "PO-Revision-Date: 2026-05-25 21:14+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -303,19 +303,19 @@ msgstr ""
 "다른 앱에서 입력을 관리하고 있습니다. 비활성화하려면 <shortcut>%1</shortcut> "
 "키를 누르십시오."
 
-#: src/inputcapture.cpp:223
+#: src/inputcapture.cpp:224
 #, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
 msgstr "입력 캡처 설정됨"
 
-#: src/inputcapture.cpp:224
+#: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
 msgstr "향후에 앱에서 입력을 관리할 수 있습니다."
 
-#: src/inputcapture.cpp:225
+#: src/inputcapture.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."

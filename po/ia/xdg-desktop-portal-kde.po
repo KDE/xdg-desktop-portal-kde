@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-11 02:35+0000\n"
+"POT-Creation-Date: 2026-06-12 02:40+0000\n"
 "PO-Revision-Date: 2026-05-25 16:47+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-it@kde.org>\n"
@@ -307,19 +307,19 @@ msgstr ""
 "Ingresso es gerite per un application. Pressa <shortcut>%1</shortcut> per "
 "dishabilitar."
 
-#: src/inputcapture.cpp:223
+#: src/inputcapture.cpp:224
 #, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
 msgstr "Configura Captura de Ingresso"
 
-#: src/inputcapture.cpp:224
+#: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
 msgstr "Un application potera gerer ingresso in le futuro."
 
-#: src/inputcapture.cpp:225
+#: src/inputcapture.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-11 02:35+0000\n"
+"POT-Creation-Date: 2026-06-12 02:40+0000\n"
 "PO-Revision-Date: 2026-06-05 11:52+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -310,19 +310,19 @@ msgid ""
 "disable."
 msgstr "يدار الإدخال بواسطة تطبيق. اضغط على <shortcut>%1</shortcut> لتعطيله."
 
-#: src/inputcapture.cpp:223
+#: src/inputcapture.cpp:224
 #, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
 msgstr "تهيئة التقاط الإدخال"
 
-#: src/inputcapture.cpp:224
+#: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
 msgstr "تطبيق سيتمكن من إدارة الإدخال في المستقبل."
 
-#: src/inputcapture.cpp:225
+#: src/inputcapture.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."

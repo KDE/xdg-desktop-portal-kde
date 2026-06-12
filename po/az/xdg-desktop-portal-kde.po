@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-11 02:35+0000\n"
+"POT-Creation-Date: 2026-06-12 02:40+0000\n"
 "PO-Revision-Date: 2022-08-24 17:55+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -304,20 +304,20 @@ msgid ""
 "disable."
 msgstr ""
 
-#: src/inputcapture.cpp:223
+#: src/inputcapture.cpp:224
 #, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
 msgstr ""
 
-#: src/inputcapture.cpp:224
+#: src/inputcapture.cpp:225
 #, fuzzy, kde-format
 #| msgid "Request device access"
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
 msgstr "Cihaza giriş tələb etmək"
 
-#: src/inputcapture.cpp:225
+#: src/inputcapture.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."

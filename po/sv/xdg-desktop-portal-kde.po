@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-11 02:35+0000\n"
+"POT-Creation-Date: 2026-06-12 02:40+0000\n"
 "PO-Revision-Date: 2026-01-22 21:50+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -308,7 +308,7 @@ msgstr ""
 "Inmatning hanteras av ett program. Tryck på <shortcut>%1</shortcut> för att "
 "inaktivera."
 
-#: src/inputcapture.cpp:223
+#: src/inputcapture.cpp:224
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Input Capture Requested"
@@ -316,7 +316,7 @@ msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
 msgstr "Inmatningshämtning begärd"
 
-#: src/inputcapture.cpp:224
+#: src/inputcapture.cpp:225
 #, fuzzy, kde-format
 #| msgctxt "The application is unknown"
 #| msgid "An application requested to capture input events"
@@ -324,7 +324,7 @@ msgctxt "@info"
 msgid "An application will be able to manage input in the future."
 msgstr "Ett program begärde att få hämta inmatningshändelser"
 
-#: src/inputcapture.cpp:225
+#: src/inputcapture.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."

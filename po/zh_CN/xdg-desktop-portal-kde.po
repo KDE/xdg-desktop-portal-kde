@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-11 02:35+0000\n"
+"POT-Creation-Date: 2026-06-12 02:40+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -299,19 +299,19 @@ msgid ""
 "disable."
 msgstr "输入正在由某个应用程序管理。按 <shortcut>%1</shortcut> 禁用。"
 
-#: src/inputcapture.cpp:223
+#: src/inputcapture.cpp:224
 #, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
 msgstr "输入捕获已建立"
 
-#: src/inputcapture.cpp:224
+#: src/inputcapture.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
 msgstr "应用程序此后将能够管理输入。"
 
-#: src/inputcapture.cpp:225
+#: src/inputcapture.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."
