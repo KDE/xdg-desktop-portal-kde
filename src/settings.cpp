@@ -526,24 +526,18 @@ QDBusVariant SettingsPortal::Read(const QString &group, const QString &key)
     qCDebug(XdgDesktopPortalKdeSettings) << "    group: " << group;
     qCDebug(XdgDesktopPortalKdeSettings) << "    key: " << key;
 
-    auto sendError = [m = m_parent->message()](QDBusError::ErrorType error, const QString &message) {
-        m.setDelayedReply(true);
-        const auto reply = m.createErrorReply(error, message);
-        QDBusConnection::sessionBus().send(reply);
-    };
-
     auto setting = std::ranges::find(m_settings, group, [](const auto &setting) {
         return setting->group();
     });
     if (setting == std::ranges::end(m_settings)) {
         qCWarning(XdgDesktopPortalKdeSettings) << "Namespace " << group << " is not supported";
-        sendError(QDBusError::UnknownProperty, QStringLiteral("Namespace is not supported"));
+        m_parent->sendErrorReply(QDBusError::UnknownProperty, QStringLiteral("Namespace is not supported"));
         return {};
     }
 
     const QVariant result = (*setting)->read(group, key);
     if (result.isNull()) {
-        sendError(QDBusError::UnknownProperty, QStringLiteral("Property doesn't exist"));
+        m_parent->sendErrorReply(QDBusError::UnknownProperty, QStringLiteral("Property doesn't exist"));
         return {};
     }
 
