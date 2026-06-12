@@ -6,10 +6,12 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
+import org.kde.ki18n
 
 PortalDialog {
     id: root
 
+    required property string appName
     property alias body: bodyLabel.text
     property string acceptLabel
     property string rejectLabel
@@ -18,6 +20,10 @@ PortalDialog {
 
     width: contentWidth
     height: contentHeight
+
+    title: KI18n.i18nc("@title:window", "Access Request")
+    mainText: KI18n.i18nc("@info:usagetip %1 is the name of an app", "Allow %1 to perform the following action?", appName)
+    subtitle: KI18n.i18nc("@info:usagetip", "Only allow this if you trust the application.")
 
     QQC2.Label {
         id: bodyLabel

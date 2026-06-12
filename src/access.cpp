@@ -43,7 +43,7 @@ void AccessPortal::AccessDialog(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeAccess) << "    body: " << body;
     qCDebug(XdgDesktopPortalKdeAccess) << "    options: " << options;
 
-    auto accessDialog = new ::AccessDialog();
+    auto accessDialog = new ::AccessDialog(app_id);
     accessDialog->setBody(body);
     accessDialog->setTitle(title);
     accessDialog->setSubtitle(subtitle);

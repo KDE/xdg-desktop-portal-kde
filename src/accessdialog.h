@@ -17,7 +17,7 @@ class AccessDialog : public QuickDialog
 {
     Q_OBJECT
 public:
-    explicit AccessDialog(QObject *parent = nullptr);
+    explicit AccessDialog(const QString &appName, QObject *parent = nullptr);
 
     void setAcceptLabel(const QString &label);
     void setBody(const QString &body);
@@ -32,7 +32,12 @@ public:
     void createDialog();
 
 private:
+    QString buildBodyText();
+
     QVariantMap m_props;
+    QString m_bodyTextTitle;
+    QString m_bodyTextSubtitle;
+    QString m_bodyTextBody;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_ACCESS_DIALOG_H
