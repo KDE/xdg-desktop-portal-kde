@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-12 02:40+0000\n"
-"PO-Revision-Date: 2026-05-25 09:23+0200\n"
+"PO-Revision-Date: 2026-06-12 10:22+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -264,7 +264,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr "Dreceres globals requerides"
+msgstr "S'han sol·licitat dreceres globals"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
@@ -340,7 +340,7 @@ msgstr "%1 podrà gestionar l'entrada en el futur."
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
-msgstr "S'ha sol·licitat la captura d'entrada"
+msgstr "S'ha sol·licitat captura d'entrada"
 
 #: src/InputCaptureDialog.qml:19
 #, kde-format
@@ -667,7 +667,7 @@ msgstr "Aproveu"
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr "Denegueu"
+msgstr "Denega"
 
 #: src/screencast.cpp:151
 #, kde-format

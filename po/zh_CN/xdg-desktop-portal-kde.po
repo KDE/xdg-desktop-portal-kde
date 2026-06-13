@@ -141,7 +141,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
-msgstr "允许"
+msgstr ""
 
 #: src/background.cpp:150
 #, kde-format
@@ -265,7 +265,7 @@ msgstr[0] "一个应用程序想要注册以下 %1 个快捷方式："
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
-msgstr[0] "%2 想要注册以下 %1 个快捷方式："
+msgstr[0] ""
 
 #: src/GlobalShortcutsDialog.qml:88
 #, kde-format
@@ -345,7 +345,7 @@ msgstr "允许在未来会话中恢复"
 #, kde-format
 msgctxt "@action:button"
 msgid "Allow"
-msgstr "允许"
+msgstr ""
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:113
 #, kde-format
