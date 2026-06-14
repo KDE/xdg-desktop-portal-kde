@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-12 00:46+0000\n"
-"PO-Revision-Date: 2026-06-12 08:47+0300\n"
+"PO-Revision-Date: 2026-06-12 11:55+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -213,6 +213,8 @@ msgid ""
 "A launcher to open the following application will appear in application "
 "launchers:"
 msgstr ""
+"Засіб запуску для відкриття вказаної нижче програми з'явиться у засобах "
+"запуску програм:"
 
 #: src/DynamicLauncherDialog.qml:71
 #, kde-format
@@ -287,18 +289,19 @@ msgid "Global Shortcuts Requested"
 msgstr "Запит щодо загальних скорочень"
 
 #: src/GlobalShortcutsDialog.qml:29
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to register the following shortcut:"
-#| msgid_plural "An application wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "@info"
 msgid "An unidentifiable application wants to register the following shortcut."
 msgid_plural ""
 "An unidentifiable application wants to register the following %1 shortcuts."
-msgstr[0] "Програмі потрібно зареєструвати таке %1 скорочення:"
-msgstr[1] "Програмі потрібно зареєструвати такі %1 скорочення:"
-msgstr[2] "Програмі потрібно зареєструвати такі %1 скорочень:"
-msgstr[3] "Програмі потрібно зареєструвати таке скорочення:"
+msgstr[0] ""
+"Невизначеній програмі потрібно зареєструвати вказані нижче %1 скорочення."
+msgstr[1] ""
+"Невизначеній програмі потрібно зареєструвати вказані нижче %1 скорочення."
+msgstr[2] ""
+"Невизначеній програмі потрібно зареєструвати вказані нижче %1 скорочень."
+msgstr[3] ""
+"Невизначеній програмі потрібно зареєструвати вказане нижче скорочення."
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
@@ -329,16 +332,14 @@ msgid "Input Capture Started"
 msgstr "Розпочато захоплення введення"
 
 #: src/inputcapture.cpp:119
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info %1 is the name of the application"
-#| msgid ""
-#| "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
+#, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid ""
 "%1 has taken over the pointer and keyboard. Press <shortcut>%2</shortcut> to "
 "stop this."
 msgstr ""
-"Вхідними даними керує %1. Натисніть <shortcut>%2</shortcut>, щоб вимкнути."
+"%1 перехоплено керування вказівником і клавіатурою. Натисніть <shortcut>%2</"
+"shortcut>, щоб припинити це."
 
 #: src/inputcapture.cpp:124
 #, kde-kuit-format
@@ -347,6 +348,8 @@ msgid ""
 "An unidentifiable application has taken over the pointer and keyboard. Press "
 "<shortcut>%1</shortcut> to stop this."
 msgstr ""
+"Невизначеною програмою перехоплено керування вказівником і клавіатурою. "
+"Натисніть <shortcut>%1</shortcut>, щоб припинити це."
 
 #: src/inputcapture.cpp:225
 #, kde-format
@@ -355,22 +358,20 @@ msgid "Input Capture Approved"
 msgstr "Захоплення вхідних даних підтверджено"
 
 #: src/inputcapture.cpp:227
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "An application will be able to manage input in the future."
+#, kde-format
 msgctxt "@info"
 msgid ""
 "An unidentifiable application will be able to take over the pointer and "
 "keyboard in the future."
-msgstr "Надалі програма зможе керувати введенням."
+msgstr ""
+"Невизначена програма і надалі зможе перехоплювати керування вказівником і "
+"клавіатурою."
 
 #: src/inputcapture.cpp:228
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "%1 will be able to manage input in the future."
+#, kde-format
 msgctxt "@info"
 msgid "%1 will be able to take over the pointer and keyboard in the future."
-msgstr "%1 надалі зможе керувати введенням."
+msgstr "%1 і надалі зможе перехоплювати керування вказівником і клавіатурою."
 
 #: src/InputCaptureDialog.qml:18
 #, kde-format
@@ -384,12 +385,14 @@ msgctxt "@info"
 msgid ""
 "An unidentifiable application wants to take over the pointer and keyboard."
 msgstr ""
+"Невизначеній програмі потрібно перехопити керування вказівником і "
+"клавіатурою."
 
 #: src/InputCaptureDialog.qml:21
 #, kde-format
 msgctxt "@info %1 is the name of the application"
 msgid "%1 wants take over the pointer and keyboard."
-msgstr ""
+msgstr "%1 потрібно перехопити керування вказівником і клавіатурою."
 
 #: src/InputCaptureDialog.qml:23
 #, kde-kuit-format
@@ -399,6 +402,9 @@ msgid ""
 "pointer yourself or type on the keyboard.<nl/><nl/>Only allow if you know "
 "which application made the request."
 msgstr ""
+"Доки програма керує введенням, ви не зможете власноруч пересувати вказівник "
+"або вводити дані з клавіатури.<nl/><nl/>Дозволяйте, лише якщо програма, яка "
+"надсилає запит вам добре відома."
 
 #: src/InputCaptureDialog.qml:24
 #, kde-format
@@ -407,6 +413,8 @@ msgid ""
 "While the application is capturing input, you will not be able to move the "
 "pointer yourself or type on the keyboard."
 msgstr ""
+"Доки програма керує введенням, ви не зможете власноруч пересувати вказівник "
+"або вводити дані з клавіатури."
 
 #: src/InputCaptureDialog.qml:29 src/RemoteDesktopDialog.qml:32
 #: src/ScreenChooserDialog.qml:195
@@ -646,12 +654,13 @@ msgstr "Надіслано запит щодо дистанційного кер
 msgctxt "@info"
 msgid "Allow an unidentifiable application to gain remote control privileges?"
 msgstr ""
+"Дозволити невизначеній програмі отримувати привілеї дистанційного керування?"
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
 msgctxt "@info"
 msgid "Allow %1 to gain remote control privileges?"
-msgstr ""
+msgstr "Дозволити %1 отримувати привілеї дистанційного керування?"
 
 #: src/remotedesktopdialog.cpp:49
 #, kde-format
@@ -669,7 +678,7 @@ msgstr "Програма зможе:"
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to:"
-msgstr ""
+msgstr "%1 зможе:"
 
 #: src/remotedesktopdialog.cpp:60
 #, kde-format
@@ -692,6 +701,8 @@ msgid ""
 "\n"
 " - Move the pointer and type keystrokes"
 msgstr ""
+"\n"
+" - Пересувати вказівник і вводити дані з клавіатури"
 
 #: src/remotedesktopdialog.cpp:72
 #, kde-format
@@ -726,6 +737,8 @@ msgid ""
 "\n"
 " - Move the pointer and type keystrokes"
 msgstr ""
+"\n"
+" - Пересувати вказівник і вводити дані з клавіатури"
 
 #: src/RemoteDesktopDialog.qml:36
 #, kde-format
@@ -938,20 +951,16 @@ msgid "Screenshot Requested"
 msgstr "Запит щодо знімка екрана"
 
 #: src/ScreenshotDialog.qml:27
-#, fuzzy, kde-format
-#| msgctxt "the app is unknown"
-#| msgid "Allow an application to set the lock screen background?"
+#, kde-format
 msgctxt "@info"
 msgid "Allow an unidentifiable application to take a screenshot?"
-msgstr "Дозволити програмі блокувати фонове зображення екрана?"
+msgstr "Дозволити невизначеній програмі зробити знімок екрана?"
 
 #: src/ScreenshotDialog.qml:28
-#, fuzzy, kde-format
-#| msgctxt "%1 is the application name"
-#| msgid "Allow %1 to set the lock screen background?"
+#, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid "Allow %1 to take a screenshot?"
-msgstr "Дозволити %1 блокувати фонове зображення екрана?"
+msgstr "Дозволити %1 зробити знімок екрана?"
 
 #: src/ScreenshotDialog.qml:29 src/UsbDialog.qml:26 src/WallpaperDialog.qml:44
 #, kde-format
@@ -1024,18 +1033,19 @@ msgid "Device Access Requested"
 msgstr "Надіслано запит щодо доступу до пристрою"
 
 #: src/UsbDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application wants to access the following device:"
-#| msgid_plural "An application wants to access the following devices:"
+#, kde-format
 msgctxt "@info"
 msgid "Allow an unidentifiable application to access the following device?"
 msgid_plural ""
 "Allow an unidentifiable application to access the following devices?"
-msgstr[0] "Програмі потрібен доступ до таких пристроїв:"
-msgstr[1] "Програмі потрібен доступ до таких пристроїв:"
-msgstr[2] "Програмі потрібен доступ до таких пристроїв:"
-msgstr[3] "Програмі потрібен доступ до такого пристрою:"
+msgstr[0] ""
+"Дозволити невизначеній програмі отримати доступ до вказаних нижче пристроїв?"
+msgstr[1] ""
+"Дозволити невизначеній програмі отримати доступ до вказаних нижче пристроїв?"
+msgstr[2] ""
+"Дозволити невизначеній програмі отримати доступ до вказаних нижче пристроїв?"
+msgstr[3] ""
+"Дозволити невизначеній програмі отримати доступ до вказаного нижче пристрою?"
 
 #: src/UsbDialog.qml:24
 #, kde-format
@@ -1141,12 +1151,10 @@ msgid "Allow %1 to change the lock screen wallpaper?"
 msgstr "Дозволити %1 змінювати фонове зображення екрана вітання?"
 
 #: src/WallpaperDialog.qml:40
-#, fuzzy, kde-format
-#| msgctxt "%1 is the application name"
-#| msgid "Allow %1 to set desktop and lock screen backgrounds?"
+#, kde-format
 msgctxt "@info %1 is the application name"
 msgid "Allow %1 to change desktop and lock screen wallpapers?"
-msgstr "Дозволити %1 встановлювати і блокувати фонове зображення екрана?"
+msgstr "Дозволити %1 змінювати фонове зображення стільниці і екрана вітання?"
 
 #: src/WallpaperDialog.qml:57
 #, kde-format
