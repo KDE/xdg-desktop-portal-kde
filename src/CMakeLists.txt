@@ -356,6 +356,8 @@ PRIVATE
     KirigamiFilepicker
     Wayland::Client
     PkgConfig::XKB
+    K::KPipeWireMonitor
+    PkgConfig::PipeWire
 )
 target_link_libraries(xdg-desktop-portal-kde PRIVATE Qt::PrintSupportPrivate Qt::GuiPrivate)
 

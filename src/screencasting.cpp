@@ -18,6 +18,8 @@
 #include <QGuiApplication>
 #include <qpa/qplatformnativeinterface.h>
 
+#include <pipewire/core.h>
+
 using namespace KWayland::Client;
 
 constexpr int implementedVersion = 6;
@@ -56,7 +58,7 @@ public:
     }
 
     uint m_nodeid = 0;
-    quint64 m_objectSerial = -1;
+    quint64 m_objectSerial = PW_ID_ANY;
     QRect m_geometry;
     QVariantMap metaData;
     QPointer<ScreencastingStream> q;

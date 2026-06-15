@@ -15,6 +15,7 @@
 #include "waylandintegration.h"
 
 class QDBusMessage;
+class MediaMonitor;
 
 class ScreenCastPortal : public QDBusAbstractAdaptor
 {
@@ -63,6 +64,11 @@ public:
         return Hidden | Embedded | Metadata;
     };
 
+    MediaMonitor *mediamonitor()
+    {
+        return m_mediaMonitor.get();
+    }
+
 public Q_SLOTS:
     uint CreateSession(const QDBusObjectPath &handle,
                        const QDBusObjectPath &session_handle,
@@ -84,6 +90,9 @@ public Q_SLOTS:
                const QDBusMessage &message,
                uint &replyResponse,
                QVariantMap &replyResults);
+
+private:
+    std::unique_ptr<MediaMonitor> m_mediaMonitor;
 };
 
 
@@ -141,6 +150,7 @@ private:
     QVariant m_restoreData;
 
     void streamClosed();
+    void updateSniVisiblity();
 
     std::vector<std::unique_ptr<ScreencastingStream>> m_streams;
     friend class RemoteDesktopPortal;
