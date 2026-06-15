@@ -141,7 +141,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button Allow the app to keep running with no open windows"
 msgid "Allow"
-msgstr ""
+msgstr "允许"
 
 #: src/background.cpp:150
 #, kde-format
@@ -240,32 +240,32 @@ msgstr "此快捷键已分配给 <interface>%1</interface> 标准操作。"
 msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
-msgstr "该快捷方式被分配给了多个操作 (<interface>%1</interface>)"
+msgstr "此快捷键已分配给了多个操作 (<interface>%1</interface>)"
 
 #: src/globalshortcuts.cpp:508
 #, kde-format
 msgid ", "
-msgstr ", "
+msgstr "，"
 
 #: src/GlobalShortcutsDialog.qml:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr "已请求全局快捷方式"
+msgstr "全局快捷键权限请求"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following %1 shortcuts:"
-msgstr[0] "一个应用程序想要注册以下 %1 个快捷方式："
+msgstr[0] "一个应用程序想要注册以下 %1 个快捷键："
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
-msgstr[0] ""
+msgstr[0] "%2 想要注册以下 %1 个快捷键："
 
 #: src/GlobalShortcutsDialog.qml:88
 #, kde-format
@@ -277,13 +277,13 @@ msgstr "查看其他快捷键…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr "查看此应用程序注册的其他快捷方式"
+msgstr "查看此应用程序注册的其他快捷键"
 
 #: src/inputcapture.cpp:116
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "输入捕获已开始"
+msgstr "输入接管已开始"
 
 #: src/inputcapture.cpp:119
 #, kde-kuit-format
@@ -321,19 +321,19 @@ msgstr "%1 此后将能够管理输入。"
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
-msgstr "已请求输入捕获"
+msgstr "输入接管权限请求"
 
 #: src/InputCaptureDialog.qml:19
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application requested to capture input events"
-msgstr "一个应用程序已请求捕获输入事件"
+msgstr "一个应用程序已请求接管输入事件"
 
 #: src/InputCaptureDialog.qml:19
 #, kde-format
 msgctxt "%1 is the name of the application"
 msgid "%1 requested to capture input events"
-msgstr "%1 已请求捕获输入事件"
+msgstr "%1 请求捕获输入事件"
 
 #: src/InputCaptureDialog.qml:24
 #, kde-format
@@ -345,7 +345,7 @@ msgstr "允许在未来会话中恢复"
 #, kde-format
 msgctxt "@action:button"
 msgid "Allow"
-msgstr ""
+msgstr "允许"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:113
 #, kde-format
@@ -876,7 +876,7 @@ msgstr "截图"
 #, kde-format
 msgctxt "@title:window"
 msgid "Access to USB Devices Requested"
-msgstr "程序请求访问 USB 设备"
+msgstr "访问 USB 设备权限请求"
 
 #: src/UsbDialog.qml:24
 #, kde-format
