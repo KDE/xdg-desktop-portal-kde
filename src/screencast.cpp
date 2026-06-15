@@ -10,6 +10,7 @@
 #include "screencast.h"
 #include "dbushelpers.h"
 #include "notificationinhibition.h"
+#include "remotedesktop.h"
 #include "request.h"
 #include "restoredata.h"
 #include "screencast_debug.h"
@@ -17,13 +18,13 @@
 #include "session.h"
 #include "utils.h"
 #include "waylandintegration.h"
-#include "remotedesktop.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <KWayland/Client/plasmawindowmanagement.h>
 #include <KWayland/Client/plasmawindowmodel.h>
+#include <MediaMonitor>
 
 #include <QDBusArgument>
 #include <QDBusConnection>
@@ -106,11 +107,13 @@ QList<KWayland::Client::PlasmaWindow *> tryMatchWindows(const QList<WindowRestor
 
 ScreenCastPortal::ScreenCastPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
+    , m_mediaMonitor(std::make_unique<MediaMonitor>())
 {
     qDBusRegisterMetaType<RestoreData>();
     qRegisterMetaType<QList<WindowRestoreInfo>>();
     qDBusRegisterMetaType<std::pair<uint, QVariantMap>>();
     qDBusRegisterMetaType<QList<std::pair<uint, QVariantMap>>>();
+    m_mediaMonitor->setRole(MediaRole::All);
 }
 
 ScreenCastPortal::~ScreenCastPortal()
@@ -276,7 +279,6 @@ QFuture<QVariantList> continueStartAfterDialog(ScreenCastSession *session,
                 streams.push_back(std::move(stream));
             }
             session->setStreams(std::move(streams));
-            session->showStatusNotifier();
             QList<std::pair<uint, QVariantMap>> dbusResultForStreams;
             std::ranges::transform(session->streams(), std::back_inserter(dbusResultForStreams), [](const std::unique_ptr<ScreencastingStream> &stream) {
                 return std::pair{stream->nodeid(), stream->metaData()};
@@ -304,7 +306,6 @@ QFuture<QVariantList> continueStartAfterDialog(ScreenCastSession *session,
             qCDebug(XdgDesktopPortalKdeScreenCast) << "Screencast started successfully";
             return {PortalResponse::Success, results};
         });
-
 }
 
 void ScreenCastPortal::Start(const QDBusObjectPath &handle,
@@ -424,6 +425,11 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
 ScreenCastSession::ScreenCastSession(QObject *parent, const QString &appId, const QString &path)
     : Session(parent, appId, path)
 {
+    if (type() == Session::ScreenCast) {
+        connect(static_cast<ScreenCastPortal *>(parent)->mediamonitor(), &MediaMonitor::countChanged, this, &ScreenCastSession::updateSniVisiblity);
+        connect(static_cast<ScreenCastPortal *>(parent)->mediamonitor(), &MediaMonitor::dataChanged, this, &ScreenCastSession::updateSniVisiblity);
+        updateSniVisiblity();
+    }
 }
 
 ScreenCastSession::~ScreenCastSession()
@@ -514,8 +520,35 @@ void ScreenCastSession::streamClosed()
         return s.get() == stream;
     });
 
+    if (type() == Session::ScreenCast) {
+        updateSniVisiblity();
+    }
+
     if (m_streams.empty()) {
         close();
+    }
+}
+
+void ScreenCastSession::updateSniVisiblity()
+{
+    auto mediaMonitor = static_cast<ScreenCastPortal *>(parent())->mediamonitor();
+    const bool shouldShowSni = std::ranges::any_of(
+        m_streams,
+        [mediaMonitor](quint64 serial) {
+            const auto index = mediaMonitor->match(mediaMonitor->index(0, 0), MediaMonitor::ObjectSerialRole, serial, 1, Qt::MatchExactly);
+            if (index.isEmpty() || !index.at(0).isValid()) {
+                return true;
+            }
+            const auto state = index.at(0).data(MediaMonitor::StateRole);
+            // If we can't fetch state show it to be on the safe side
+            return !state.isValid() || state == NodeState::Running;
+        },
+        &ScreencastingStream::objectSerial);
+
+    if (shouldShowSni && !m_item) {
+        showStatusNotifier();
+    } else if (!shouldShowSni && m_item) {
+        m_item.reset();
     }
 }
 
