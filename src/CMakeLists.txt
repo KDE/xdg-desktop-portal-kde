@@ -59,6 +59,7 @@ set(xdg_desktop_portal_kde_SRCS
     notificationinhibition.cpp
     notificationinhibition.h
     outputsmodel.cpp outputsmodel.h
+    pipewirecore.cpp pipewirecore.h
     print.cpp
     print.h
     quickdialog.cpp quickdialog.h
@@ -356,6 +357,7 @@ PRIVATE
     KirigamiFilepicker
     Wayland::Client
     PkgConfig::XKB
+    PkgConfig::PipeWire
 )
 target_link_libraries(xdg-desktop-portal-kde PRIVATE Qt::PrintSupportPrivate Qt::GuiPrivate)
 

@@ -10,6 +10,8 @@
 #include "screencast.h"
 #include "dbushelpers.h"
 #include "notificationinhibition.h"
+#include "pipewirecore.h"
+#include "remotedesktop.h"
 #include "request.h"
 #include "restoredata.h"
 #include "screencast_debug.h"
@@ -17,7 +19,6 @@
 #include "session.h"
 #include "utils.h"
 #include "waylandintegration.h"
-#include "remotedesktop.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -104,8 +105,11 @@ QList<KWayland::Client::PlasmaWindow *> tryMatchWindows(const QList<WindowRestor
     return matches;
 }
 
+#include <pipewirecore.h>
+
 ScreenCastPortal::ScreenCastPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
+    , m_pipewire(std::make_unique<PipeWireCore>())
 {
     qDBusRegisterMetaType<RestoreData>();
     qRegisterMetaType<QList<WindowRestoreInfo>>();
@@ -432,6 +436,22 @@ void ScreenCastSession::setOptions(const QVariantMap &options)
     }
 }
 
+void ScreenCastSession::refreshDescription()
+{
+    const bool isWindow = m_streams[0]->metaData()[QLatin1String("source_type")] == ScreenCastPortal::Window;
+    m_item->setToolTipSubTitle(i18ncp("%1 number of screens, %2 the app that receives them",
+                                      "Sharing contents to %2",
+                                      "%1 video streams to %2",
+                                      m_streams.size(),
+                                      Utils::applicationName(m_appId)));
+    m_item->setTitle(i18nc("SNI title that indicates there's a process seeing our windows or screens", "Screen casting"));
+    if (isWindow) {
+        m_item->setOverlayIconByName(QStringLiteral("window"));
+    } else {
+        m_item->setOverlayIconByName(QStringLiteral("monitor"));
+    }
+}
+
 void ScreenCastSession::createSni()
 {
     m_item = std::make_unique<KStatusNotifierItem>();
@@ -442,7 +462,10 @@ void ScreenCastSession::createSni()
     connect(stopAction, &QAction::triggered, this, &Session::close);
     m_item->setContextMenu(menu);
     m_item->setIsMenu(true);
-    m_item->setStandardActionsEnabled(false);
+    refreshDescription();
+    m_item->setToolTipIconByName(m_item->overlayIconName());
+    m_item->setToolTipTitle(m_item->title());
+    m_item->setStatus(KStatusNotifierItem::Active);
 }
 
 void ScreenCastSession::setStreams(std::vector<std::unique_ptr<ScreencastingStream>> &&streams)
@@ -450,31 +473,17 @@ void ScreenCastSession::setStreams(std::vector<std::unique_ptr<ScreencastingStre
     Q_ASSERT(!streams.empty());
     m_streams = std::move(streams);
 
-    createSni();
 
     if (qobject_cast<RemoteDesktopSession *>(this)) {
-        refreshDescription();
+        createSni();
     } else {
-        const bool isWindow = m_streams[0]->metaData()[QLatin1String("source_type")] == ScreenCastPortal::Window;
-        m_item->setToolTipSubTitle(i18ncp("%1 number of screens, %2 the app that receives them",
-                                          "Sharing contents to %2",
-                                          "%1 video streams to %2",
-                                          m_streams.size(),
-                                          Utils::applicationName(m_appId)));
-        m_item->setTitle(i18nc("SNI title that indicates there's a process seeing our windows or screens", "Screen casting"));
-        if (isWindow) {
-            m_item->setOverlayIconByName(QStringLiteral("window"));
-        } else {
-            m_item->setOverlayIconByName(QStringLiteral("monitor"));
-        }
+        connect(static_cast<ScreenCastPortal *>(parent())->pipewire(), &PipeWireCore::nodeStateChange, this, &ScreenCastSession::updateSniVisiblity);
+        updateSniVisiblity();
     }
-    m_item->setToolTipIconByName(m_item->overlayIconName());
-    m_item->setToolTipTitle(m_item->title());
 
     for (const auto &s : m_streams) {
         connect(s.get(), &ScreencastingStream::closed, this, &ScreenCastSession::streamClosed);
     }
-    m_item->setStatus(KStatusNotifierItem::Active);
 }
 
 void ScreenCastSession::streamClosed()
@@ -484,8 +493,28 @@ void ScreenCastSession::streamClosed()
         return s.get() == stream;
     });
 
+    updateSniVisiblity();
+
     if (m_streams.empty()) {
         close();
+    }
+}
+
+void ScreenCastSession::updateSniVisiblity()
+{
+    const bool shouldShowSni = std::ranges::any_of(
+        m_streams,
+        [this](uint id) {
+            const auto nodeState = static_cast<ScreenCastPortal *>(parent())->pipewire()->getStreamState(id);
+            // If we can't fetch state show it to be on the safe side
+            return !nodeState || nodeState == pw_node_state::PW_NODE_STATE_RUNNING;
+        },
+        &ScreencastingStream::nodeid);
+
+    if (shouldShowSni && !m_item) {
+        createSni();
+    } else if (!shouldShowSni && m_item) {
+        m_item.reset();
     }
 }
 

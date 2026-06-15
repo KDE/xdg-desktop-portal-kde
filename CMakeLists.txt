@@ -88,6 +88,9 @@ set_package_properties(KIOFuse PROPERTIES
 pkg_check_modules(XKB IMPORTED_TARGET xkbcommon REQUIRED)
 add_feature_info(XKB XKB_FOUND "Required for converting keysyms into keycodes")
 
+
+pkg_check_modules(PipeWire REQUIRED IMPORTED_TARGET libpipewire-0.3>=1.0.9)
+
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX XDPK
     VERSION_HEADER ${CMAKE_BINARY_DIR}/version.h)

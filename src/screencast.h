@@ -15,6 +15,7 @@
 #include "waylandintegration.h"
 
 class QDBusMessage;
+class PipeWireCore;
 
 class ScreenCastPortal : public QDBusAbstractAdaptor
 {
@@ -63,6 +64,11 @@ public:
         return Hidden | Embedded | Metadata;
     };
 
+    PipeWireCore *pipewire()
+    {
+        return m_pipewire.get();
+    }
+
 public Q_SLOTS:
     uint CreateSession(const QDBusObjectPath &handle,
                        const QDBusObjectPath &session_handle,
@@ -84,6 +90,9 @@ public Q_SLOTS:
                const QDBusMessage &message,
                uint &replyResponse,
                QVariantMap &replyResults);
+
+private:
+    std::unique_ptr<PipeWireCore> m_pipewire;
 };
 
 
@@ -127,9 +136,7 @@ public:
         return m_streams;
     }
     void setStreams(std::vector<std::unique_ptr<ScreencastingStream>> &&streams);
-    virtual void refreshDescription()
-    {
-    }
+    virtual void refreshDescription();
 
 protected:
     std::unique_ptr<KStatusNotifierItem> m_item;
@@ -143,6 +150,7 @@ private:
 
     void streamClosed();
     void createSni();
+    void updateSniVisiblity();
 
     std::vector<std::unique_ptr<ScreencastingStream>> m_streams;
     friend class RemoteDesktopPortal;
