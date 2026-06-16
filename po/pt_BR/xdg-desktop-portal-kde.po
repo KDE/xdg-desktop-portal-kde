@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-12 00:46+0000\n"
-"PO-Revision-Date: 2026-06-12 06:17-0300\n"
+"PO-Revision-Date: 2026-06-15 06:21-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -333,8 +333,8 @@ msgid ""
 "%1 has taken over the pointer and keyboard. Press <shortcut>%2</shortcut> to "
 "stop this."
 msgstr ""
-"%1 assumiu o controle do ponteiro e do teclado. Pressione <atalho>%2</"
-"atalho> para interromper isso."
+"%1 assumiu o controle do ponteiro e do teclado. Pressione <shortcut>%2</"
+"shortcut> para interromper isso."
 
 #: src/inputcapture.cpp:124
 #, kde-kuit-format
@@ -344,7 +344,7 @@ msgid ""
 "<shortcut>%1</shortcut> to stop this."
 msgstr ""
 "Um aplicativo não identificado assumiu o controle do ponteiro e do teclado. "
-"Pressione <atalho>%1</atalho> para interromper isso."
+"Pressione <shortcut>%1</shortcut> para interromper isso."
 
 #: src/inputcapture.cpp:225
 #, kde-format
