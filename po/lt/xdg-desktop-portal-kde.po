@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-12 02:40+0000\n"
-"PO-Revision-Date: 2026-06-02 14:42+0300\n"
+"PO-Revision-Date: 2026-06-16 01:13+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -104,7 +104,7 @@ msgstr "Atverti naudojant <command>%1</command>?"
 #: src/AppChooserDialog.qml:221
 #, kde-format
 msgid "No matches"
-msgstr "Nėra atitikmenų"
+msgstr "Nėra atitikčių"
 
 #: src/AppChooserDialog.qml:223
 #, kde-kuit-format
@@ -116,7 +116,7 @@ msgstr "Jokia įdiegta programa negali atverti <filename>%1</filename>"
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
-msgstr "Vykdyti terminale"
+msgstr "Paleisti terminale"
 
 #: src/AppChooserDialog.qml:250
 #, kde-format
@@ -228,7 +228,7 @@ msgid ""
 "<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
 "Spartusis klavišas jau yra priskirtas veiksmui <interface>%1</interface>, "
-"programoje <application>%2</application>. Iš naujo įveskite jį čia, norėdami "
+"programoje <application>%2</application>. Įveskite jį čia iš naujo, norėdami "
 "tą veiksmą nustelbti."
 
 #: src/globalshortcuts.cpp:114
@@ -259,7 +259,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr "Užklausta visuotinių sparčiųjų klavišų"
+msgstr "Paprašyta visuotinių sparčiųjų klavišų"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
@@ -337,7 +337,7 @@ msgstr "%1 ateityje galės tvarkyti įvedimą."
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
-msgstr "Paprašyta įvesties užvaldymo"
+msgstr "Paprašyta užvaldyti įvedimą"
 
 #: src/InputCaptureDialog.qml:19
 #, kde-format
@@ -431,7 +431,7 @@ msgstr "Bendrinti visą darbo sritį"
 #: src/outputsmodel.cpp:133
 #, kde-format
 msgid "Laptop screen"
-msgstr "Nešiojamasis kompiuteris"
+msgstr "Nešiojamojo kompiuterio ekranas"
 
 #: src/outputsmodel.cpp:369
 #, kde-format
@@ -472,7 +472,7 @@ msgstr "Bendrinti „%1“"
 #: src/region-select/RegionSelectOverlay.qml:148
 #, kde-format
 msgid "Start streaming:"
-msgstr "Pradėti transliavimą:"
+msgstr "Pradėti transliuoti:"
 
 #: src/region-select/RegionSelectOverlay.qml:152
 #, kde-format
@@ -550,13 +550,13 @@ msgstr ""
 #: src/remotedesktop.cpp:190 src/screencast.cpp:232
 #, kde-format
 msgid "Virtual Output"
-msgstr "Virtualioji išvestis"
+msgstr "Virtualus išvedimas"
 
 #: src/remotedesktop.cpp:191 src/screencast.cpp:233
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
-msgstr "Virtualioji išvestis (bendrinama su %1)"
+msgstr "Virtualus išvedimas (bendrinamas su %1)"
 
 #: src/remotedesktop.cpp:300
 #, kde-format
