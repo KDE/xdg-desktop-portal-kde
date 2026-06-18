@@ -276,7 +276,7 @@ void RemoteDesktopPortal::Start(const QDBusObjectPath &handle,
 
     bool restored = false;
 
-    if (persist != ScreenCastPortal::NoPersist && session->restoreData().isValid()) {
+    if (session->restoreData().isValid()) {
         const RestoreData restoreData = qdbus_cast<RestoreData>(session->restoreData().value<QDBusArgument>());
         if (restoreData.session == QLatin1String("KDE") && restoreData.version == RestoreData::currentRestoreDataVersion()) {
             // check we asked for the same key content both times; if not, don't restore

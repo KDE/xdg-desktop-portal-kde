@@ -330,12 +330,11 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
         return;
     }
 
-    const PersistMode persist = session->persistMode();
     bool valid = false;
     QList<Output> selectedOutputs;
     QList<KWayland::Client::PlasmaWindow *> selectedWindows;
     QRect selectedRegion;
-    if (persist != NoPersist && session->restoreData().isValid()) {
+    if (session->restoreData().isValid()) {
         const RestoreData restoreData = qdbus_cast<RestoreData>(session->restoreData().value<QDBusArgument>());
         if (restoreData.session == QLatin1String("KDE") && restoreData.version == RestoreData::currentRestoreDataVersion()) {
             const QVariantMap restoreDataPayload = restoreData.payload;

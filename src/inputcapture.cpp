@@ -209,7 +209,7 @@ void InputCapturePortal::Start(const QDBusObjectPath &handle,
     auto persistMode = PersistMode{options.value(u"persist_mode"_s, std::to_underlying(PersistMode::None)).toUInt()};
     const auto restoreDataEntry = options.constFind(u"restore_data"_s);
     const auto restoreData = restoreDataEntry != options.cend() ? qdbus_cast<RestoreData>(restoreDataEntry->value<QDBusArgument>()) : RestoreData{};
-    if (persistMode != PersistMode::None && restoreData.session == "KDE"_L1 && restoreData.version == RestoreData::currentRestoreDataVersion()) {
+    if (restoreData.session == "KDE"_L1 && restoreData.version == RestoreData::currentRestoreDataVersion()) {
         const auto allowedCapabilities = Capabilities::fromInt(restoreData.payload.value(u"capabilities"_s).toUInt());
         const auto clipboardAllowed = restoreData.payload.value(u"clipboard_enabled"_s).toBool();
         const bool canRestoreCapabilities = (allowedCapabilities | requestedCapabilities) == allowedCapabilities;
