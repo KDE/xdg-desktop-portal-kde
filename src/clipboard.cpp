@@ -178,6 +178,17 @@ private:
     std::unique_ptr<DataControlOffer> m_currentOffer;
 };
 
+bool isClipboardEnabledSession(const QDBusObjectPath &path)
+{
+    if (auto remoteDesktopSession = Session::getSession<RemoteDesktopSession>(path.path())) {
+        return remoteDesktopSession->clipboardEnabled();
+    }
+    if (auto inputCaptureSession = Session::getSession<InputCaptureSession>(path.path())) {
+        return inputCaptureSession->clipboardEnabled();
+    }
+    return false;
+}
+
 ClipboardPortal::ClipboardPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
     , m_dataControlManager(std::make_unique<DataControlManager>())
@@ -250,8 +261,7 @@ QDBusUnixFileDescriptor ClipboardPortal::SelectionRead(const QDBusObjectPath &se
     qCDebug(XdgDesktopPortalKdeClipboard) << "    session_handle: " << session_handle.path();
     qCDebug(XdgDesktopPortalKdeClipboard) << "    mime_type: " << mime_type;
 
-    auto remoteDesktopSession = Session::getSession<RemoteDesktopSession>(session_handle.path());
-    if (!remoteDesktopSession || !remoteDesktopSession->clipboardEnabled()) {
+    if (!isClipboardEnabledSession(session_handle)) {
         auto error = message.createErrorReply(QDBusError::InvalidArgs, u"Not a clipboard enabled session"_s);
         qCWarning(XdgDesktopPortalKdeClipboard) << error.errorMessage();
         QDBusConnection::sessionBus().send(error);
@@ -288,8 +298,7 @@ void ClipboardPortal::SetSelection(const QDBusObjectPath &session_handle, const 
     qCDebug(XdgDesktopPortalKdeClipboard) << "    session_handle: " << session_handle.path();
     qCDebug(XdgDesktopPortalKdeClipboard) << "    options: " << options;
 
-    auto remoteDesktopSession = Session::getSession<RemoteDesktopSession>(session_handle.path());
-    if (!remoteDesktopSession || !remoteDesktopSession->clipboardEnabled()) {
+    if (!isClipboardEnabledSession(session_handle)) {
         qCWarning(XdgDesktopPortalKdeClipboard) << "Not a clipboard enabled session" << session_handle.path();
         return;
     }
@@ -300,7 +309,7 @@ void ClipboardPortal::SetSelection(const QDBusObjectPath &session_handle, const 
         return;
     }
 
-    auto dataSource = std::make_unique<DataControlSource>(m_dataControlManager->create_data_source(), remoteDesktopSession, mimeTypes);
+    auto dataSource = std::make_unique<DataControlSource>(m_dataControlManager->create_data_source(), Session::getSession(session_handle.path()), mimeTypes);
     connect(dataSource.get(), &DataControlSource::dataRequested, this, &ClipboardPortal::dataRequested);
     m_dataControlDevice->setSource(std::move(dataSource));
 }
@@ -319,8 +328,7 @@ QDBusUnixFileDescriptor ClipboardPortal::SelectionWrite(const QDBusObjectPath &s
     qCDebug(XdgDesktopPortalKdeClipboard) << "    session_handle: " << session_handle.path();
     qCDebug(XdgDesktopPortalKdeClipboard) << "    uint: " << serial;
 
-    auto remoteDesktopSession = Session::getSession<RemoteDesktopSession>(session_handle.path());
-    if (!remoteDesktopSession || !remoteDesktopSession->clipboardEnabled()) {
+    if (!isClipboardEnabledSession(session_handle)) {
         auto error = message.createErrorReply(QDBusError::InvalidArgs, u"Not a clipboard enabled session"_s);
         qCWarning(XdgDesktopPortalKdeClipboard) << error.errorMessage();
         QDBusConnection::sessionBus().send(error);
@@ -345,8 +353,7 @@ void ClipboardPortal::SelectionWriteDone(const QDBusObjectPath &session_handle, 
     qCDebug(XdgDesktopPortalKdeClipboard) << "    uint: " << serial;
     qCDebug(XdgDesktopPortalKdeClipboard) << "    success: " << success;
 
-    auto remoteDesktopSession = Session::getSession<RemoteDesktopSession>(session_handle.path());
-    if (!remoteDesktopSession || !remoteDesktopSession->clipboardEnabled()) {
+    if (!isClipboardEnabledSession(session_handle)) {
         auto error = message.createErrorReply(QDBusError::InvalidArgs, u"Not a clipboard enabled session"_s);
         qCWarning(XdgDesktopPortalKdeClipboard) << error.errorMessage() << session_handle.path();
         QDBusConnection::sessionBus().send(error);
