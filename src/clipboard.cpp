@@ -234,7 +234,7 @@ void ClipboardPortal::RequestClipboard(const QDBusObjectPath &session_handle, co
         }
     });
 
-    connect(m_dataControlDevice.get(), &DataControlDevice::offerChanged, this, [session, this] {
+    connect(m_dataControlDevice.get(), &DataControlDevice::offerChanged, session, [session, this] {
         Q_EMIT SelectionOwnerChanged(
             QDBusObjectPath(session->handle()),
             {
