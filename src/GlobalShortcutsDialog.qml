@@ -3,7 +3,6 @@
     SPDX-FileCopyrightText: 2025 David Redondo <kde@david-redondo.de>
 */
 
-
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
@@ -14,7 +13,6 @@ import org.kde.ki18n
 import org.kde.kitemmodels as KItemModels
 
 PortalDialog {
-
     id: root
 
     required property string app
@@ -25,11 +23,11 @@ PortalDialog {
     iconName: "preferences-desktop-keyboard-shortcut"
     title: KI18n.i18nc("@title:window", "Global Shortcuts Requested")
     mainText: {
-        const count = newShortcuts.rowCount()
+        const count = newShortcuts.rowCount();
         if (app === "") {
-            return  KI18n.i18ncp("@info", "An unidentifiable application wants to register the following shortcut.", "An unidentifiable application wants to register the following %1 shortcuts.", count)
+            return KI18n.i18ncp("@info", "An unidentifiable application wants to register the following shortcut.", "An unidentifiable application wants to register the following %1 shortcuts.", count);
         }
-        return KI18n.i18ncp("@info %2 is the name of the application", "%2 wants to register the following shortcut:", "%2 wants to register the following %1 shortcuts:", count, app)
+        return KI18n.i18ncp("@info %2 is the name of the application", "%2 wants to register the following shortcut:", "%2 wants to register the following %1 shortcuts:", count, app);
     }
     subtitle: app === ""
         ? KI18n.i18ncp("@info:usagetip", "Only allow if you know which application made the request.")
@@ -83,11 +81,11 @@ PortalDialog {
                         title: model.display
                         font: delegate.font
                     }
-                        Kirigami.Icon {
+                    Kirigami.Icon {
                         id: conflictIcon
                         visible: model.globalConflict || model.standardConflict || model.internalConflict
                         source: "data-warning"
-                        QQC2.ToolTip.text:  model.conflictText ?? ""
+                        QQC2.ToolTip.text: model.conflictText ?? ""
                         QQC2.ToolTip.visible: hoverHandler.hovered
                         HoverHandler {
                             id: hoverHandler
@@ -99,7 +97,7 @@ PortalDialog {
                         showCancelButton: true
                         keySequence: model.keySequence
                         onKeySequenceModified: {
-                            model.keySequence = keySequence
+                            model.keySequence = keySequence;
                         }
                     }
                 }
@@ -123,4 +121,3 @@ PortalDialog {
         }
     }
 }
-
