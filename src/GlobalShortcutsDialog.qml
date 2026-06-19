@@ -11,6 +11,7 @@ import org.kde.kquickcontrols as KQC
 import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCMUtils
 import org.kde.ki18n
+import org.kde.kitemmodels as KItemModels
 
 PortalDialog {
 
@@ -39,6 +40,11 @@ PortalDialog {
     width: Kirigami.Units.gridUnit * 28
     height: Kirigami.Units.gridUnit * 30
 
+    headerItem: Kirigami.SearchField {
+        id: searchField
+        onTextChanged: filterModel.invalidateFilter()
+    }
+
     ColumnLayout {
         spacing: 0
 
@@ -47,7 +53,23 @@ PortalDialog {
             Layout.fillWidth: true
             Layout.fillHeight: true
             implicitHeight: contentHeight
-            model: newShortcuts
+            model: KItemModels.KSortFilterProxyModel {
+                id: filterModel
+                sourceModel: newShortcuts
+                filterRowCallback: row => {
+                    const index = sourceModel.index(row, 0);
+
+                    if (searchField.length > 0) {
+                        const searchText = searchField.text.toLowerCase();
+                        const shortcutText = sourceModel.data(index, Qt.DisplayRole).toLowerCase();
+                        if (!shortcutText.includes(searchText)) {
+                            return false;
+                        }
+                    }
+
+                    return true;
+                }
+            }
             delegate: QQC2.ItemDelegate {
                 id: delegate
                 required property var model
