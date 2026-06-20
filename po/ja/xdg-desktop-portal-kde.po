@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:19+0000\n"
-"PO-Revision-Date: 2026-06-07 12:26+0900\n"
+"PO-Revision-Date: 2026-06-14 21:33+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
 "Language: ja\n"
@@ -490,7 +490,7 @@ msgstr "終了"
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Desktop"
-msgstr ""
+msgstr "リモートデスクトップ"
 
 #: src/session.cpp:271
 #, kde-format
