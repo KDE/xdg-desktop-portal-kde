@@ -1147,34 +1147,3 @@ msgstr ""
 #, kde-format
 msgid "Remote desktop"
 msgstr ""
-
-#~ msgctxt "@title"
-#~ msgid "Add Web Application…"
-#~ msgstr "ウェブアプリケーションを追加..."
-
-#~ msgctxt "@title"
-#~ msgid "Add Application…"
-#~ msgstr "アプリケーションを追加..."
-
-#~ msgctxt "@action accept dialog and create launcher"
-#~ msgid "Accept"
-#~ msgstr "許可"
-
-#~ msgctxt "@option:check"
-#~ msgid "Allow restoring on future sessions"
-#~ msgstr "次回以降のセッションで自動選択を許可する"
-
-#, fuzzy
-#~| msgid "Allow"
-#~ msgctxt "@action:button"
-#~ msgid "Allow"
-#~ msgstr "許可"
-
-#~ msgid "Allow restoring on future sessions"
-#~ msgstr "次回以降のセッションで自動選択を許可する"
-
-#~ msgid "Choose which screen to share with %1:"
-#~ msgstr "%1 に共有する画面を選択してください。"
-
-#~ msgid "Choose which window to share with %1:"
-#~ msgstr "%1 に共有するウィンドウを選択してください。"
