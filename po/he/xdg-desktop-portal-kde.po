@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-12 00:46+0000\n"
-"PO-Revision-Date: 2026-06-13 16:54+0300\n"
+"PO-Revision-Date: 2026-06-16 09:30+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -339,6 +339,8 @@ msgid ""
 "An unidentifiable application has taken over the pointer and keyboard. Press "
 "<shortcut>%1</shortcut> to stop this."
 msgstr ""
+"יישום לא מזוהה השתלט על הסמן והמקלדת. לחיצה על <shortcut>%1</shortcut> תעצור "
+"את זה."
 
 #: src/inputcapture.cpp:225
 #, kde-format
@@ -371,13 +373,13 @@ msgstr "התבקשה לכידת קלט"
 msgctxt "@info"
 msgid ""
 "An unidentifiable application wants to take over the pointer and keyboard."
-msgstr ""
+msgstr "יישום לא מזוהה רוצה להשתלט על הסמן ועל המקלדת."
 
 #: src/InputCaptureDialog.qml:21
 #, kde-format
 msgctxt "@info %1 is the name of the application"
 msgid "%1 wants take over the pointer and keyboard."
-msgstr ""
+msgstr "%1 רוצה להשתלט על הסמן והמקלדת."
 
 #: src/InputCaptureDialog.qml:23
 #, kde-kuit-format
@@ -792,10 +794,9 @@ msgid "Screen casting"
 msgstr "שידור המסך"
 
 #: src/screenchooserdialog.cpp:201
-#, fuzzy, kde-format
-#| msgid "Share this screen with the requesting application?"
+#, kde-format
 msgid "Share this screen with an unidentifiable application?"
-msgstr "לשתף את המסך עם היישום שביקש?"
+msgstr "לשתף את המסך עם יישום לא מזוהה?"
 
 #: src/screenchooserdialog.cpp:203
 #, kde-format
@@ -803,10 +804,9 @@ msgid "Share this screen with %1?"
 msgstr "לשתף את המסך עם %1?"
 
 #: src/screenchooserdialog.cpp:208
-#, fuzzy, kde-format
-#| msgid "Choose screens to share with the requesting application:"
+#, kde-format
 msgid "Choose screens to share with an unidentifiable application:"
-msgstr "בחירת מסכים לשיתוף עם היישומים שמבקשים:"
+msgstr "בחירת מסכים לשיתוף עם יישום לא מזוהה:"
 
 #: src/screenchooserdialog.cpp:210
 #, kde-format
@@ -824,10 +824,9 @@ msgid "Choose a screen to share with %1:"
 msgstr "נא לבחור מסך לשיתוף עם %1:"
 
 #: src/screenchooserdialog.cpp:225
-#, fuzzy, kde-format
-#| msgid "Share this window with the requesting application?"
+#, kde-format
 msgid "Share this window with an unidentifiable application?"
-msgstr "לשתף את החלון הזה עם היישום שביקש?"
+msgstr "לשתף את החלון הזה עם יישום לא מזוהה?"
 
 #: src/screenchooserdialog.cpp:227
 #, kde-format
@@ -835,10 +834,9 @@ msgid "Share this window with %1?"
 msgstr "לשתף את החלון הזה עם %1?"
 
 #: src/screenchooserdialog.cpp:232
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with the requesting application:"
+#, kde-format
 msgid "Choose windows to share with an unidentifiable application:"
-msgstr "נא לבחור חלונות לשיתוף עם היישום שביקש:"
+msgstr "נא לבחור חלונות לשיתוף עם יישום לא מזוהה:"
 
 #: src/screenchooserdialog.cpp:234
 #, kde-format
@@ -846,10 +844,9 @@ msgid "Choose windows to share with %1:"
 msgstr "בחירת חלונות לשיתוף עם %1:"
 
 #: src/screenchooserdialog.cpp:238
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with the requesting application:"
+#, kde-format
 msgid "Choose a window to share with an unidentifiable application:"
-msgstr "נא לבחור חלונות לשיתוף עם היישום שביקש:"
+msgstr "נא לבחור חלון לשיתוף עם יישום לא מזוהה:"
 
 #: src/screenchooserdialog.cpp:240
 #, kde-format
@@ -857,12 +854,10 @@ msgid "Choose a window to share with %1:"
 msgstr "בחירת חלון לשיתוף עם %1:"
 
 #: src/screenchooserdialog.cpp:247
-#, fuzzy, kde-format
-#| msgid ""
-#| "Create a new virtual display to share with the requesting application:"
+#, kde-format
 msgid ""
 "Create a new virtual display to share with an unidentifiable application:"
-msgstr "יצירת תצוגה וירטואלית חדשה לשיתוף עם היישום המבוקש:"
+msgstr "יצירת תצוגה וירטואלית חדשה לשיתוף עם יישום לא מזוהה:"
 
 #: src/screenchooserdialog.cpp:249
 #, kde-format
