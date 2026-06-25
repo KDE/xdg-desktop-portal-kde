@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-12 02:40+0000\n"
-"PO-Revision-Date: 2026-06-18 18:06+0200\n"
+"PO-Revision-Date: 2026-06-24 23:34+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -25,12 +25,13 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Мария Шикунова,Олеся Герасименко"
+msgstr "Мария Шикунова,Олеся Герасименко,Александр Яворский"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "translation-team@basealt.ru,translation-team@basealt.ru"
+msgstr ""
+"translation-team@basealt.ru,translation-team@basealt.ru,kekcuha@gmail.com"
 
 #: src/accessdialog.cpp:26
 #, kde-format
