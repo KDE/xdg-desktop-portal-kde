@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-12 00:46+0000\n"
+"POT-Creation-Date: 2026-06-26 00:48+0000\n"
 "PO-Revision-Date: 2022-08-24 17:55+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -480,7 +480,7 @@ msgstr "Bu ekran %1 ilə paylaşılsın?"
 msgid "Share region"
 msgstr ""
 
-#: src/outputsmodel.cpp:98 src/screencast.cpp:352
+#: src/outputsmodel.cpp:98 src/screencast.cpp:351
 #, fuzzy, kde-format
 #| msgid "Full Workspace"
 msgid "Share full Workspace"
@@ -768,13 +768,13 @@ msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Ekran paylaşımı icra olunur"
 
-#: src/screencast.cpp:405
+#: src/screencast.cpp:404
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr ""
 
-#: src/screencast.cpp:457
+#: src/screencast.cpp:456
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -782,7 +782,7 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/screencast.cpp:461
+#: src/screencast.cpp:460
 #, fuzzy, kde-format
 #| msgid "Screen Sharing"
 msgctxt ""

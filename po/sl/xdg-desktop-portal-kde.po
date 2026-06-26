@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-12 00:46+0000\n"
+"POT-Creation-Date: 2026-06-26 00:48+0000\n"
 "PO-Revision-Date: 2026-06-12 07:42+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -490,7 +490,7 @@ msgstr "Deli navidezni zaslon"
 msgid "Share region"
 msgstr "Deli območje"
 
-#: src/outputsmodel.cpp:98 src/screencast.cpp:352
+#: src/outputsmodel.cpp:98 src/screencast.cpp:351
 #, kde-format
 msgid "Share full Workspace"
 msgstr "Deli celotni delovni prostor"
@@ -784,13 +784,13 @@ msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Deljenje zaslonov v teku"
 
-#: src/screencast.cpp:405
+#: src/screencast.cpp:404
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Konec"
 
-#: src/screencast.cpp:457
+#: src/screencast.cpp:456
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -800,7 +800,7 @@ msgstr[1] "%1 video tokova z %2"
 msgstr[2] "%1 video tokov z %2"
 msgstr[3] "%1 video tokov z %2"
 
-#: src/screencast.cpp:461
+#: src/screencast.cpp:460
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
