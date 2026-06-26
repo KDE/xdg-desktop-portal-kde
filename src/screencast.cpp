@@ -467,7 +467,7 @@ void ScreenCastSession::setStreams(std::vector<std::unique_ptr<ScreencastingStre
     m_item->setToolTipIconByName(m_item->overlayIconName());
     m_item->setToolTipTitle(m_item->title());
 
-    for (const auto &s : streams) {
+    for (const auto &s : m_streams) {
         connect(s.get(), &ScreencastingStream::closed, this, &ScreenCastSession::streamClosed);
     }
     m_item->setStatus(KStatusNotifierItem::Active);
