@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-12 02:40+0000\n"
-"PO-Revision-Date: 2026-06-24 23:34+0200\n"
+"PO-Revision-Date: 2026-06-25 14:59+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -607,7 +607,7 @@ msgid ""
 " - See what’s on the screen"
 msgstr ""
 "\n"
-" - Просмотр содержимого экрана"
+" - Просматривать содержимого экрана"
 
 #: src/remotedesktopdialog.cpp:54
 #, kde-format
