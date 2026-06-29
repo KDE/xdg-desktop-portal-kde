@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-12 02:40+0000\n"
-"PO-Revision-Date: 2025-03-23 21:24+0100\n"
+"PO-Revision-Date: 2026-06-28 12:03+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 26.07.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -53,14 +53,11 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Vel eit program for å opna <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Find some more apps that can open this content using the Discover app"
-#| msgid "Find More in Discover"
+#, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "Finn fleire i Discover"
+msgstr "Finn fleire i Discover …"
 
 #: src/AppChooserDialog.qml:41
 #, kde-format
@@ -72,7 +69,7 @@ msgstr "Opna"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
-msgstr ""
+msgstr "Bruk som standardprogram for opning av %1-filer"
 
 #: src/AppChooserDialog.qml:123
 #, kde-format
@@ -86,19 +83,16 @@ msgid "Choose Other…"
 msgstr "Vel anna …"
 
 #: src/AppChooserDialog.qml:195
-#, fuzzy, kde-kuit-format
-#| msgid "Default app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
-msgstr "Standardprogram for denne filtypen"
+msgstr "%1<nl/><emphasis>Standardprogram for denne filtypen</emphasis>"
 
 #: src/AppChooserDialog.qml:197
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Last used app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
-msgstr "Siste brukte program for denne filtypen"
+msgstr "%1<nl/><emphasis>Siste brukte program for denne filtypen</emphasis>"
 
 #: src/AppChooserDialog.qml:219
 #, kde-kuit-format
@@ -164,7 +158,7 @@ msgctxt ""
 "@title title of a dialog to confirm whether to allow an app to remain "
 "running with no visible windows"
 msgid "Background App Usage"
-msgstr "Bruk av bakgrunnsprogram"
+msgstr "Køyring i bakgrunnen"
 
 #: src/background.cpp:156
 #, kde-format
@@ -174,9 +168,8 @@ msgid ""
 "could cause data loss if the application has any unsaved changes when it "
 "happens."
 msgstr ""
-"Merk at dette vil tvangs­avslutta %1 når det siste program­vindauget vert "
-"lukka. Dette kan føra til datatap viss programmet har ulagra endringar når "
-"dette skjer."
+"Dette vil tvangs­avslutta %1 når det siste program­vindauget vert lukka. Dette "
+"kan føra til datatap viss programmet har ulagra endringar når dette skjer."
 
 #: src/background.cpp:161
 #, kde-format
