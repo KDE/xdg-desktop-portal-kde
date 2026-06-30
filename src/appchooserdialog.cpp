@@ -33,7 +33,11 @@
 
 using namespace Qt::StringLiterals;
 
-AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &lastUsedApp, const QString &fileName, const QString &mimeName, bool autoRemember)
+AppChooserDialog::AppChooserDialog(const QStringList &choices,
+                                   const QString &lastUsedApp,
+                                   const QString &fileDisplay,
+                                   const QString &mimeName,
+                                   bool autoRemember)
     : QuickDialog(nullptr)
     , m_model(new AppModel(this))
     , m_appChooserData(new AppChooserData(this))
@@ -41,15 +45,13 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &la
 {
     QVariantMap props = {
         {u"title"_s, i18nc("@title:window", "Choose Application")},
-        // fileName is actually the full path, confusingly enough. But showing the
-        // whole thing is overkill; let's just show the user the file itself
-        {u"mainText"_s, xi18nc("@info", "Choose an application to open <filename>%1</filename>", QUrl::fromLocalFile(fileName).fileName())},
+        {u"mainText"_s, xi18nc("@info", "Choose an application to open <filename>%1</filename>", fileDisplay)},
     };
 
     auto filterModel = new AppFilterModel(this);
     filterModel->setSourceModel(m_model);
 
-    m_appChooserData->setFileName(fileName);
+    m_appChooserData->setFileName(fileDisplay);
     m_appChooserData->setLastUsedApp(lastUsedApp);
     filterModel->setLastUsedApp(lastUsedApp);
 
@@ -77,20 +79,7 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &la
         m_model->setPreferredApps(choices);
     };
 
-    if (mimeName.isEmpty()) {
-        auto job = new KIO::MimeTypeFinderJob(QUrl::fromUserInput(fileName));
-        job->setAuthenticationPromptEnabled(false);
-        connect(job, &KIO::MimeTypeFinderJob::result, this, [this, job, findDefaultApp, findPreferredApps]() {
-            if (job->error() == KJob::NoError) {
-                m_appChooserData->setMimeName(job->mimeType());
-                findDefaultApp();
-                findPreferredApps();
-            } else {
-                qCWarning(XdgDesktopPortalKdeAppChooser) << "couldn't get mimetype:" << job->errorString();
-            }
-        });
-        job->start();
-    } else {
+    if (!mimeName.isEmpty()) {
         m_appChooserData->setMimeName(mimeName);
         findDefaultApp();
         findPreferredApps();
@@ -103,6 +92,10 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices, const QString &la
 
     connect(m_appChooserData, &AppChooserData::openDiscover, this, &AppChooserDialog::onOpenDiscover);
     connect(m_appChooserData, &AppChooserData::applicationSelected, this, &AppChooserDialog::onApplicationSelected);
+    connect(m_appChooserData, &AppChooserData::mimeNameChanged, this, [this, findDefaultApp, findPreferredApps] {
+        findDefaultApp();
+        findPreferredApps();
+    });
 
     connect(KSycoca::self(), &KSycoca::databaseChanged, this, [this, findDefaultApp, findPreferredApps] {
         m_model->loadApplications();
