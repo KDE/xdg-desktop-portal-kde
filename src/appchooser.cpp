@@ -13,7 +13,9 @@
 #include "utils.h"
 
 #include <KAuthorized>
+#include <KIO/MimeTypeFinderJob>
 #include <KLocalizedString>
+
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusServiceWatcher>
@@ -49,7 +51,7 @@ void AppChooserPortal::ChooseApplication(const QDBusObjectPath &handle,
 
     QVariant itemName = options.value(QStringLiteral("filename"));
     if (!itemName.isValid()) {
-        itemName = options.value(QStringLiteral("content_type"));
+        itemName = options.value(QStringLiteral("uri"));
     }
     auto appDialog = new AppChooserDialog(choices, latestChoice, itemName.toString(), options.value(QStringLiteral("content_type")).toString(), true);
     m_appChooserDialogs.insert(handle.path(), appDialog);
@@ -95,17 +97,25 @@ uint AppChooserPortal::ChooseApplicationPrivate(const QString &parent_window,
         return 1;
     }
 
-    const QString itemName = urls.size() == 1 ? urls.at(0) : i18nc("count of files to open", "%1 files", urls.size());
+    const auto firstUrl = QUrl::fromUserInput(urls.at(0));
+    const QString itemName = urls.size() == 1 ? firstUrl.fileName() : i18nc("count of files to open", "%1 files", urls.size());
+    const QStringList history = options.value("history"_L1).toStringList();
 
-    auto appDialog = new AppChooserDialog({},
-                                          options.value(QStringLiteral("last_choice")).toString(),
-                                          itemName,
-                                          options.value(QStringLiteral("content_type")).toString(),
-                                          false);
+    auto appDialog = new AppChooserDialog({}, options.value(QStringLiteral("last_choice")).toString(), itemName, QString(), false);
     Utils::setParentWindow(appDialog->windowHandle(), parent_window);
     msg.setDelayedReply(true);
 
-    const auto history = options.value("history"_L1).toStringList();
+    auto job = new KIO::MimeTypeFinderJob(firstUrl);
+    job->setAuthenticationPromptEnabled(false);
+    connect(job, &KIO::MimeTypeFinderJob::result, appDialog, [appDialog, job] {
+        if (job->error() != KJob::NoError) {
+            qCWarning(XdgDesktopPortalKdeAppChooser) << "couldn't get mimetype:" << job->errorString();
+            return;
+        }
+        appDialog->m_appChooserData->setMimeName(job->mimeType());
+    });
+    job->start();
+
     auto services = history | std::views::transform(&KService::serviceByDesktopName) | std::views::filter(&KService::Ptr::data);
     auto names = services | std::views::transform(&KService::name);
     appDialog->m_appChooserData->setHistory(QStringList(names.begin(), names.end()));
@@ -126,6 +136,7 @@ uint AppChooserPortal::ChooseApplicationPrivate(const QString &parent_window,
         }
         return QVariantList{PortalResponse::fromDialogResult(result), results};
     });
+
     return PortalResponse::Success;
 }
 
