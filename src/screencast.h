@@ -132,7 +132,6 @@ public:
     }
 
 protected:
-    void setDescription(const QString &description);
     KStatusNotifierItem *const m_item;
 
 private:
