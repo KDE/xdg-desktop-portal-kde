@@ -222,11 +222,10 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
             return std::pair{stream->nodeid(), stream->metaData()};
         });
         results.insert(QStringLiteral("streams"), QVariant::fromValue(dbusResultForStreams));
-    } else {
-        qCWarning(XdgDesktopPortalKdeRemoteDesktop()) << "Only stream input";
-        session->refreshDescription();
     }
+
     session->acquireStreamingInput();
+    session->showStatusNotifier();
 
     results.insert(QStringLiteral("devices"), QVariant::fromValue<uint>(session->deviceTypes()));
     results.insert(QStringLiteral("clipboard_enabled"), session->clipboardEnabled());
@@ -520,7 +519,7 @@ RemoteDesktopPortal::ConnectToEIS(const QDBusObjectPath &session_handle, const Q
 }
 
 RemoteDesktopSession::RemoteDesktopSession(QObject *parent, const QString &appId, const QString &path)
-    : ScreenCastSession(parent, appId, path, QStringLiteral("krfb"))
+    : ScreenCastSession(parent, appId, path)
     , m_screenSharingEnabled(false)
     , m_clipboardEnabled(false)
 {
@@ -585,8 +584,9 @@ void RemoteDesktopSession::acquireStreamingInput()
     m_acquired = true;
 }
 
-void RemoteDesktopSession::refreshDescription()
+void RemoteDesktopSession::setupStatusNotifier()
 {
+    m_item->setIconByName(u"krfb"_s);
     m_item->setTitle(i18nc("SNI title that indicates there's a process remotely controlling the system", "Remote Control"));
     m_item->setToolTipTitle(m_item->title());
     m_item->setToolTipSubTitle(RemoteDesktopDialog::buildNotificationDescription(m_appId, deviceTypes(), screenSharingEnabled()));

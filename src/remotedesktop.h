@@ -109,7 +109,7 @@ public:
     void setClipboardEnabled(bool enabled);
 
     void acquireStreamingInput();
-    void refreshDescription() override;
+    void setupStatusNotifier() override;
 
     void setEisCookie(int cookie);
     int eisCookie() const;

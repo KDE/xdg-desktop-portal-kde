@@ -91,7 +91,7 @@ class ScreenCastSession : public Session
 {
     Q_OBJECT
 public:
-    explicit ScreenCastSession(QObject *parent, const QString &appId, const QString &path, const QString &iconName);
+    explicit ScreenCastSession(QObject *parent, const QString &appId, const QString &path);
     ~ScreenCastSession() override;
 
     void setOptions(const QVariantMap &options);
@@ -127,12 +127,11 @@ public:
         return m_streams;
     }
     void setStreams(std::vector<std::unique_ptr<ScreencastingStream>> &&streams);
-    virtual void refreshDescription()
-    {
-    }
+    virtual void setupStatusNotifier();
+    void showStatusNotifier();
 
 protected:
-    KStatusNotifierItem *const m_item;
+    std::unique_ptr<KStatusNotifierItem> m_item;
 
 private:
     bool m_multipleSources = false;
