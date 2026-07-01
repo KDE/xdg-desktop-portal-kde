@@ -473,11 +473,6 @@ void ScreenCastSession::setStreams(std::vector<std::unique_ptr<ScreencastingStre
     m_item->setStatus(KStatusNotifierItem::Active);
 }
 
-void ScreenCastSession::setDescription(const QString &description)
-{
-    m_item->setToolTipSubTitle(description);
-}
-
 void ScreenCastSession::streamClosed()
 {
     ScreencastingStream *stream = qobject_cast<ScreencastingStream *>(sender());
