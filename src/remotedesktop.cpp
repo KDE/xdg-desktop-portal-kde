@@ -520,7 +520,7 @@ RemoteDesktopPortal::ConnectToEIS(const QDBusObjectPath &session_handle, const Q
 }
 
 RemoteDesktopSession::RemoteDesktopSession(QObject *parent, const QString &appId, const QString &path)
-    : ScreenCastSession(parent, appId, path, QStringLiteral("krfb"))
+    : ScreenCastSession(parent, appId, path)
     , m_screenSharingEnabled(false)
     , m_clipboardEnabled(false)
 {
@@ -587,6 +587,7 @@ void RemoteDesktopSession::acquireStreamingInput()
 
 void RemoteDesktopSession::refreshDescription()
 {
+    m_item->setIconByName(u"krfb"_s);
     m_item->setTitle(i18nc("SNI title that indicates there's a process remotely controlling the system", "Remote Control"));
     m_item->setToolTipTitle(m_item->title());
     m_item->setToolTipSubTitle(RemoteDesktopDialog::buildNotificationDescription(m_appId, deviceTypes(), screenSharingEnabled()));

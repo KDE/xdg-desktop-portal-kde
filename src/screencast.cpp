@@ -161,7 +161,7 @@ uint ScreenCastPortal::CreateSession(const QDBusObjectPath &handle,
         return PortalResponse::OtherError;
     }
 
-    Session *session = new ScreenCastSession(this, app_id, session_handle.path(), QStringLiteral("media-record"));
+    Session *session = new ScreenCastSession(this, app_id, session_handle.path());
 
     if (!session->isValid()) {
         delete session;
@@ -392,19 +392,9 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
     });
 }
 
-
-ScreenCastSession::ScreenCastSession(QObject *parent, const QString &appId, const QString &path, const QString &iconName)
+ScreenCastSession::ScreenCastSession(QObject *parent, const QString &appId, const QString &path)
     : Session(parent, appId, path)
-    , m_item(new KStatusNotifierItem(this))
 {
-    m_item->setStandardActionsEnabled(false);
-    m_item->setIconByName(iconName);
-
-    auto menu = new QMenu;
-    auto stopAction = menu->addAction(QIcon::fromTheme(QStringLiteral("process-stop")), i18nc("@action:inmenu stops screen/window sharing", "End"));
-    connect(stopAction, &QAction::triggered, this, &Session::close);
-    m_item->setContextMenu(menu);
-    m_item->setIsMenu(true);
 }
 
 ScreenCastSession::~ScreenCastSession()
@@ -442,12 +432,26 @@ void ScreenCastSession::setOptions(const QVariantMap &options)
     }
 }
 
+void ScreenCastSession::createSni()
+{
+    m_item = std::make_unique<KStatusNotifierItem>();
+    m_item->setStandardActionsEnabled(false);
+    m_item->setIconByName(u"media-record"_s);
+    auto menu = new QMenu;
+    auto stopAction = menu->addAction(QIcon::fromTheme(QStringLiteral("process-stop")), i18nc("@action:inmenu stops screen/window sharing", "End"));
+    connect(stopAction, &QAction::triggered, this, &Session::close);
+    m_item->setContextMenu(menu);
+    m_item->setIsMenu(true);
+    m_item->setStandardActionsEnabled(false);
+}
+
 void ScreenCastSession::setStreams(std::vector<std::unique_ptr<ScreencastingStream>> &&streams)
 {
     Q_ASSERT(!streams.empty());
     m_streams = std::move(streams);
 
-    m_item->setStandardActionsEnabled(false);
+    createSni();
+
     if (qobject_cast<RemoteDesktopSession *>(this)) {
         refreshDescription();
     } else {

@@ -91,7 +91,7 @@ class ScreenCastSession : public Session
 {
     Q_OBJECT
 public:
-    explicit ScreenCastSession(QObject *parent, const QString &appId, const QString &path, const QString &iconName);
+    explicit ScreenCastSession(QObject *parent, const QString &appId, const QString &path);
     ~ScreenCastSession() override;
 
     void setOptions(const QVariantMap &options);
@@ -132,7 +132,7 @@ public:
     }
 
 protected:
-    KStatusNotifierItem *const m_item;
+    std::unique_ptr<KStatusNotifierItem> m_item;
 
 private:
     bool m_multipleSources = false;
@@ -142,6 +142,7 @@ private:
     QVariant m_restoreData;
 
     void streamClosed();
+    void createSni();
 
     std::vector<std::unique_ptr<ScreencastingStream>> m_streams;
     friend class RemoteDesktopPortal;
