@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-26 00:48+0000\n"
-"PO-Revision-Date: 2026-06-16 09:30+0300\n"
+"PO-Revision-Date: 2026-06-30 09:22+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -322,15 +322,12 @@ msgid "Input Capture Started"
 msgstr "החלה לכידת קלט"
 
 #: src/inputcapture.cpp:119
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info %1 is the name of the application"
-#| msgid ""
-#| "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
+#, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid ""
 "%1 has taken over the pointer and keyboard. Press <shortcut>%2</shortcut> to "
 "stop this."
-msgstr "הקלט מנוהל על ידי %1. לחיצה על <shortcut>%2</shortcut> תשבית את זה."
+msgstr "%1 השתלט על הסמן והמקלדת. לחיצה על <shortcut>%2</shortcut> תעצור אותו."
 
 #: src/inputcapture.cpp:124
 #, kde-kuit-format
@@ -649,12 +646,10 @@ msgid "Only allow if you know which application made the request."
 msgstr ""
 
 #: src/remotedesktopdialog.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "An application will be able to manage input in the future."
+#, kde-format
 msgctxt "@info"
 msgid "The application will be able to:"
-msgstr "יישום יוכל לנהל קלט בעתיד."
+msgstr "היישום יוכל:"
 
 #: src/remotedesktopdialog.cpp:56
 #, kde-format
@@ -685,20 +680,16 @@ msgid ""
 msgstr ""
 
 #: src/remotedesktopdialog.cpp:72
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "An application is asking for special privileges:\n"
+#, kde-format
 msgctxt "@info"
 msgid "An unidentifiable application is exercising remote control privileges:"
-msgstr "יישום מבקש הרשאות מיוחדות:\n"
+msgstr "יישום לא מזוהה מנצל הרשאות גישה מרחוק:"
 
 #: src/remotedesktopdialog.cpp:73
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "%1 is exercising special privileges:"
+#, kde-format
 msgctxt "@info"
 msgid "%1 is exercising remote control privileges:"
-msgstr "%1 מנצל הרשאות מיוחדות:"
+msgstr "%1 מנצל הרשאות גישה מרחוק:"
 
 #: src/remotedesktopdialog.cpp:77
 #, kde-format
