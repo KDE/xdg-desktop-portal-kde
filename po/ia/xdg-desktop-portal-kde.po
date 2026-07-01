@@ -943,7 +943,7 @@ msgstr "Comparti"
 #, kde-format
 msgctxt "@title:window"
 msgid "Set Wallpaper"
-msgstr "Assigna Tapete de papiro"
+msgstr "Assigna Fundo de schermo"
 
 #: src/WallpaperDialog.qml:26
 #, kde-format
