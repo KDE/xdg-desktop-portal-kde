@@ -204,14 +204,12 @@ QFuture<QVariantList> continueStart(RemoteDesktopSession *session)
                 streams.push_back(WaylandIntegration::startStreamingWorkspace(Screencasting::CursorMode(session->cursorMode())));
             }
         }
-    } else {
-        qCWarning(XdgDesktopPortalKdeRemoteDesktop()) << "Only stream input";
-        session->refreshDescription();
     }
 
     session->acquireStreamingInput();
     auto all = QtFuture::whenAll(streams.begin(), streams.end());
     return all.then(session, [session](QList<QFuture<std::unique_ptr<ScreencastingStream>>> streamFutures) -> QVariantList {
+        session->showStatusNotifier();
         QVariantMap results;
         std::vector<std::unique_ptr<ScreencastingStream>> streams;
         for (auto &future : streamFutures) {
@@ -532,7 +530,7 @@ RemoteDesktopPortal::ConnectToEIS(const QDBusObjectPath &session_handle, const Q
 }
 
 RemoteDesktopSession::RemoteDesktopSession(QObject *parent, const QString &appId, const QString &path)
-    : ScreenCastSession(parent, appId, path, QStringLiteral("krfb"))
+    : ScreenCastSession(parent, appId, path)
     , m_screenSharingEnabled(false)
     , m_clipboardEnabled(false)
 {
@@ -597,8 +595,9 @@ void RemoteDesktopSession::acquireStreamingInput()
     m_acquired = true;
 }
 
-void RemoteDesktopSession::refreshDescription()
+void RemoteDesktopSession::setupStatusNotifier()
 {
+    m_item->setIconByName(u"krfb"_s);
     m_item->setTitle(i18nc("SNI title that indicates there's a process remotely controlling the system", "Remote Control"));
     m_item->setToolTipTitle(m_item->title());
     m_item->setToolTipSubTitle(RemoteDesktopDialog::buildNotificationDescription(m_appId, deviceTypes(), screenSharingEnabled()));
