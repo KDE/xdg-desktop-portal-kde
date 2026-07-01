@@ -589,7 +589,7 @@ void RemoteDesktopSession::refreshDescription()
 {
     m_item->setTitle(i18nc("SNI title that indicates there's a process remotely controlling the system", "Remote Control"));
     m_item->setToolTipTitle(m_item->title());
-    setDescription(RemoteDesktopDialog::buildNotificationDescription(m_appId, deviceTypes(), screenSharingEnabled()));
+    m_item->setToolTipSubTitle(RemoteDesktopDialog::buildNotificationDescription(m_appId, deviceTypes(), screenSharingEnabled()));
 }
 
 #include "moc_remotedesktop.cpp"
