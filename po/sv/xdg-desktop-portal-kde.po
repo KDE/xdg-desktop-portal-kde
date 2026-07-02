@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-12 02:40+0000\n"
-"PO-Revision-Date: 2026-01-22 21:50+0100\n"
+"PO-Revision-Date: 2026-07-01 16:57+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -288,7 +288,7 @@ msgstr "Visa andra genvägar registrerade av programmet"
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "Inmatningshämtning startad"
+msgstr "Inmatningshantering startad"
 
 #: src/inputcapture.cpp:119
 #, kde-kuit-format
@@ -309,32 +309,28 @@ msgstr ""
 "inaktivera."
 
 #: src/inputcapture.cpp:224
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
-msgstr "Inmatningshämtning begärd"
+msgstr "Inställning av inmatningslagring"
 
 #: src/inputcapture.cpp:225
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application requested to capture input events"
+#, kde-format
 msgctxt "@info"
 msgid "An application will be able to manage input in the future."
-msgstr "Ett program begärde att få hämta inmatningshändelser"
+msgstr "Ett program kommer att kunna hantera inmatning i fortsättningen."
 
 #: src/inputcapture.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."
-msgstr ""
+msgstr "%1 kommer att kunna hantera inmatning i fortsättningen."
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Input Capture Requested"
-msgstr "Inmatningshämtning begärd"
+msgstr "Inmatningshantering begärd"
 
 #: src/InputCaptureDialog.qml:19
 #, kde-format
@@ -349,11 +345,10 @@ msgid "%1 requested to capture input events"
 msgstr "%1 begärde att få hämta inmatningshändelser"
 
 #: src/InputCaptureDialog.qml:24
-#, fuzzy, kde-format
-#| msgid "Allow restoring on future sessions"
+#, kde-format
 msgctxt "@option:check"
 msgid "Allow restoring on future sessions"
-msgstr "Tillåt att återställa vid framtida sessioner"
+msgstr "Tillåt att återställa i framtida sessioner"
 
 #: src/InputCaptureDialog.qml:30
 #, kde-format
@@ -438,12 +433,10 @@ msgid "Share the entire workspace across all screens"
 msgstr "Dela hela arbetsytan över alla skärmar"
 
 #: src/outputsmodel.cpp:371
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Creates a screen inside a window, then share"
+#, kde-format
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
-msgstr "Skapar en skärm inne i ett fönster, och delar den sedan"
+msgstr "Skapar en virtuell skärm, och delar den sedan"
 
 #: src/outputsmodel.cpp:373
 #, kde-format
@@ -455,19 +448,19 @@ msgstr "Beskär ett specifikt område på dina skärmar"
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
-msgstr ""
+msgstr "Inga fönster öppna"
 
 #: src/PipeWireDelegate.qml:237
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
-msgstr ""
+msgstr "+%1"
 
 #: src/PipeWireDelegate.qml:250
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
-msgstr ""
+msgstr "Dela “%1”"
 
 #: src/region-select/RegionSelectOverlay.qml:148
 #, kde-format
