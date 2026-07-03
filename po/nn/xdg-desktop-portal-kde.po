@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-12 02:40+0000\n"
-"PO-Revision-Date: 2026-06-28 12:03+0200\n"
+"PO-Revision-Date: 2026-07-02 21:09+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -251,41 +251,41 @@ msgstr ", "
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "Globale snøggtastar førespurd"
 
 #: src/GlobalShortcutsDialog.qml:29
 #, kde-format
 msgctxt "The application is unknown"
 msgid "An application wants to register the following shortcut:"
 msgid_plural "An application wants to register the following %1 shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Eit program ønskjer å registrera følgjande snøggtast:"
+msgstr[1] "Eit program ønskjer å registrera dei følgjande %1 snøggtastane:"
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "%2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2 ønskjer å registrera følgjande snøggtast:"
+msgstr[1] "%2 ønskjer å registrera dei følgjande %1 snøggtastane:"
 
 #: src/GlobalShortcutsDialog.qml:88
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
-msgstr ""
+msgstr "Sjå andre snøggtastar …"
 
 #: src/GlobalShortcutsDialog.qml:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "Vis andre snøggtastar registrerte av programmet"
 
 #: src/inputcapture.cpp:116
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture started"
-msgstr "Registrering av inndata førespurd"
+msgstr "Starta registrering av inndata"
 
 #: src/inputcapture.cpp:119
 #, kde-kuit-format
@@ -302,12 +302,10 @@ msgid ""
 msgstr ""
 
 #: src/inputcapture.cpp:224
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:nofication, set up as in established"
 msgid "Input Capture Set-Up"
-msgstr "Registrering av inndata førespurd"
+msgstr "Oppsett av registrering av inndata"
 
 #: src/inputcapture.cpp:225
 #, fuzzy, kde-format
