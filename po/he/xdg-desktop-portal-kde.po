@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-26 00:48+0000\n"
-"PO-Revision-Date: 2026-06-30 09:22+0300\n"
+"PO-Revision-Date: 2026-07-02 08:40+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -126,17 +126,13 @@ msgid "Background Activity"
 msgstr "פעילות רקע"
 
 #: src/background.cpp:137
-#, fuzzy, kde-format
-#| msgctxt "@info %1 is the name of an application"
-#| msgid ""
-#| "%1 wants to remain running when it has no visible windows. If you forbid "
-#| "this, the application will quit when its last window is closed."
+#, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
 "%1 wants to remain running when it has no visible windows. If you deny this "
 "request, the application will quit when its last window is closed."
 msgstr ""
-"%1 רוצה להישאר פעיל כשאין לו חלונות פעילים. איסור על כך, יסגור את היישום עם "
+"%1 רוצה להישאר פעיל כשאין לו חלונות גלויים. דחיית הבקשה, תסגור את היישום עם "
 "סגירת החלון האחרון."
 
 #: src/background.cpp:143 src/background.cpp:160
@@ -291,10 +287,7 @@ msgstr[2] "יישום לא מזוהה מעוניין לרשום את %1 קיצו
 msgstr[3] "יישום לא מזוהה מעוניין לרשום את %1 קיצורי המקשים הבאים:"
 
 #: src/GlobalShortcutsDialog.qml:31
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "@info %2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
@@ -386,6 +379,8 @@ msgid ""
 "pointer yourself or type on the keyboard.<nl/><nl/>Only allow if you know "
 "which application made the request."
 msgstr ""
+"בזמן שהיישום לוכד קלט, לא תהיה לך אפשרות להזיז את הסמן בעצמך או להקליד "
+"במקלדת.<nl/><nl/>יש לאשר רק אם ברור לך איזה יישום יזם את הבקשה."
 
 #: src/InputCaptureDialog.qml:24
 #, kde-format
@@ -394,6 +389,8 @@ msgid ""
 "While the application is capturing input, you will not be able to move the "
 "pointer yourself or type on the keyboard."
 msgstr ""
+"בזמן שהיישום לוכד קלט, לא תהיה לך אפשרות להזיז את הסמן בעצמך או להקליד "
+"במקלדת."
 
 #: src/InputCaptureDialog.qml:29 src/RemoteDesktopDialog.qml:32
 #: src/ScreenChooserDialog.qml:195
@@ -631,19 +628,19 @@ msgstr "התבקשה שליטה מרחוק"
 #, kde-format
 msgctxt "@info"
 msgid "Allow an unidentifiable application to gain remote control privileges?"
-msgstr ""
+msgstr "לאפשר ליישום לא מזוהה להשיג הרשאות שליטה מרחוק?"
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
 msgctxt "@info"
 msgid "Allow %1 to gain remote control privileges?"
-msgstr ""
+msgstr "לאפשר ל־%1 להשיג הרשאות שליטה מרחוק?"
 
 #: src/remotedesktopdialog.cpp:49
 #, kde-format
 msgctxt "@info"
 msgid "Only allow if you know which application made the request."
-msgstr ""
+msgstr "יש לאשר רק אם ברור לך איזה יישום יזם את הבקשה."
 
 #: src/remotedesktopdialog.cpp:56
 #, kde-format
@@ -678,6 +675,8 @@ msgid ""
 "\n"
 " - Move the pointer and type keystrokes"
 msgstr ""
+"\n"
+" - להזיז את סמן העכבר ולבצע הקלדות"
 
 #: src/remotedesktopdialog.cpp:72
 #, kde-format
@@ -712,6 +711,8 @@ msgid ""
 "\n"
 " - Move the pointer and type keystrokes"
 msgstr ""
+"\n"
+" - להזיז את סמן העכבר ולבצע הקלדות"
 
 #: src/RemoteDesktopDialog.qml:36
 #, kde-format
@@ -869,7 +870,7 @@ msgstr "נא לבחור מה לשתף עם %1:"
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Only share anything if you know which application made the request."
-msgstr ""
+msgstr "מותר לשתף משהו רק אם ידוע לך איזה יישום יזם את הבקשה."
 
 #: src/ScreenChooserDialog.qml:122
 #, kde-format
@@ -932,7 +933,7 @@ msgstr "לאפשר ל־%1 לצלם את המסך?"
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Only allow if you know which application made the request."
-msgstr ""
+msgstr "יש לאשר רק אם ברור לך איזה יישום יזם את הבקשה."
 
 #: src/ScreenshotDialog.qml:41
 #, kde-format
@@ -1054,6 +1055,8 @@ msgid ""
 "The application will be able to see your username, full name, and profile "
 "picture.<nl/><nl/>Reason: “%1”"
 msgstr ""
+"היישום יוכל לראות את שם המשתמש, השם המלא ואת תמונת הפרופיל שלך.<nl/><nl/"
+">סיבה: „%1”"
 
 #: src/UserInfoDialog.qml:19
 #, kde-format
