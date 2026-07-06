@@ -290,6 +290,18 @@ void GlobalShortcutsPortal::BindShortcuts(const QDBusObjectPath &handle,
     newShortcutInfos.reserve(newShortcuts.size());
     std::ranges::transform(newShortcuts, std::back_inserter(newShortcutInfos), toShortcutInfo);
 
+    std::ranges::sort(newShortcutInfos, [](const ShortcutInfo &a, const ShortcutInfo &b) {
+        // show shortcuts that have a default key sequence first
+        const bool aEmpty = a.keySequence.isEmpty();
+        const bool bEmpty = b.keySequence.isEmpty();
+        if (!aEmpty && bEmpty)
+            return true;
+        if (!bEmpty && aEmpty)
+            return false;
+
+        return QString::compare(a.description, b.description, Qt::CaseInsensitive) < 0;
+    });
+
     QList<ShortcutInfo> returningShortcutInfos;
     returningShortcutInfos.reserve(returningShortcuts.size());
     std::ranges::transform(returningShortcuts, std::back_inserter(returningShortcutInfos), toShortcutInfo);
