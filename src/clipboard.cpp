@@ -44,6 +44,9 @@ public:
         }
         QVariant result;
         QMetaObject::invokeMethod(m_portal, &ClipboardPortal::fetchData, Qt::BlockingQueuedConnection, qReturnArg(result), m_session, mimetype);
+        if (!result.isValid()) {
+            KSystemClipboard::instance()->clear(QClipboard::Clipboard);
+        }
         return result;
     }
     QStringList m_formats;
@@ -170,7 +173,6 @@ QVariant ClipboardPortal::fetchData(Session *session, const QString &mimetype)
     });
     QTimer::singleShot(1s, &loop, [&loop] {
         qCWarning(XdgDesktopPortalKdeClipboard) << "Timeout waiting for data";
-        KSystemClipboard::instance()->clear(QClipboard::Clipboard);
         loop.exit(1);
     });
 
