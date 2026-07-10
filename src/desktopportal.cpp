@@ -29,6 +29,8 @@
 #include "wallpaper.h"
 #include "waylandintegration.h"
 
+#include <KWindowSystem>
+
 DesktopPortal::DesktopPortal(QObject *parent)
     : QObject(parent)
     , m_access(new AccessPortal(this))
@@ -45,7 +47,9 @@ DesktopPortal::DesktopPortal(QObject *parent)
     if (xdgCurrentDesktop.compare("KDE", Qt::CaseInsensitive) == 0) {
         new GlobalShortcutsPortal(this);
 
-        m_background = new BackgroundPortal(this, this);
+        if (!KWindowSystem::isPlatformX11()) {
+            m_background = new BackgroundPortal(this, this);
+        }
         m_screenCast = new ScreenCastPortal(this);
         m_remoteDesktop = new RemoteDesktopPortal(this);
         m_screenshot = new ScreenshotPortal(this);
