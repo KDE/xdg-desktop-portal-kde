@@ -13,6 +13,12 @@
 
 #include <QDBusArgument>
 #include <QDBusMetaType>
+#include <QDBusInterface>
+#include <QDBusReply>
+#include <QDialog>
+#include <QDir>
+#include <QImage>
+#include <QDateTime>
 #include <QDialogButtonBox>
 #include <QFile>
 #include <QFileDialog>
@@ -20,11 +26,16 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QPushButton>
+#include <QProcess>
 #include <QQmlApplicationEngine>
 #include <QStandardPaths>
 #include <QUrl>
 #include <QVBoxLayout>
 #include <QWindow>
+#include <QClipboard>
+#include <QGuiApplication>
+#include <QKeyEvent>
+#include <QMimeData>
 
 #include <KFileFilterCombo>
 #include <KFileWidget>
@@ -105,6 +116,76 @@ static QString decodeFileName(const QByteArray &name)
     return QFile::decodeName(decodedName);
 }
 
+class ClipboardEventFilter : public QObject {
+public:
+    ClipboardEventFilter(QObject *parent = nullptr) : QObject(parent) {}
+
+    bool eventFilter(QObject *watched, QEvent *event) override {
+        if (event->type() == QEvent::KeyPress) {
+            QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+            if (keyEvent->key() == Qt::Key_V && (keyEvent->modifiers() & Qt::ControlModifier)) {
+                auto mimeData = QGuiApplication::clipboard()->mimeData();
+                QUrl urlToSelect;
+                
+                QString textStr;
+                if (mimeData) {
+                    if (mimeData->hasUrls() && !mimeData->urls().isEmpty()) {
+                        urlToSelect = mimeData->urls().first();
+                    } else if (mimeData->hasText() || !mimeData->text().isEmpty()) {
+                        textStr = mimeData->text().trimmed();
+                    }
+                }
+                
+                // Fallback to Klipper DBus if Qt's clipboard is empty (common Wayland bug for background services)
+                if (!urlToSelect.isValid() && textStr.isEmpty()) {
+                    QDBusInterface klipper(QStringLiteral("org.kde.klipper"), QStringLiteral("/klipper"), QStringLiteral("org.kde.klipper.klipper"));
+                    if (klipper.isValid()) {
+                        QDBusReply<QString> reply = klipper.call(QStringLiteral("getClipboardContents"));
+                        if (reply.isValid()) {
+                            textStr = reply.value().trimmed();
+                        }
+                    }
+                }
+                
+                if (!urlToSelect.isValid() && !textStr.isEmpty()) {
+                    if (textStr.startsWith(QLatin1String("/"))) {
+                        urlToSelect = QUrl::fromLocalFile(textStr);
+                    } else if (textStr.startsWith(QLatin1String("file://"))) {
+                        urlToSelect = QUrl(textStr);
+                    }
+                }
+                
+                // Support for pasting raw images (e.g. screenshots) directly!
+                if (!urlToSelect.isValid() && mimeData && mimeData->hasImage()) {
+                    QImage image = qvariant_cast<QImage>(mimeData->imageData());
+                    if (!image.isNull()) {
+                        QString tmpPath = QDir::tempPath() + QStringLiteral("/clipboard_image_%1.png").arg(QDateTime::currentMSecsSinceEpoch());
+                        if (image.save(tmpPath, "PNG")) {
+                            urlToSelect = QUrl::fromLocalFile(tmpPath);
+                        }
+                    }
+                }
+                
+                if (urlToSelect.isValid()) {
+                    if (QWidget *widget = qobject_cast<QWidget *>(watched)) {
+                        QWidget *window = widget->window();
+                        if (auto fileWidgetDialog = qobject_cast<FileDialog *>(window)) {
+                            fileWidgetDialog->setProperty("forced_url", urlToSelect);
+                            fileWidgetDialog->accept();
+                            return true;
+                        } else if (auto qtDialog = qobject_cast<QFileDialog *>(window)) {
+                            qtDialog->setProperty("forced_url", urlToSelect);
+                            static_cast<QDialog *>(qtDialog)->accept();
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return QObject::eventFilter(watched, event);
+    }
+};
+
 FileDialog::FileDialog(QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)
     , m_fileWidget(new KFileWidget(QUrl(), this))
@@ -154,6 +235,7 @@ FileChooserPortal::FileChooserPortal(QObject *parent)
     qDBusRegisterMetaType<Choices>();
     qDBusRegisterMetaType<Option>();
     qDBusRegisterMetaType<OptionList>();
+    qApp->installEventFilter(new ClipboardEventFilter(qApp));
 }
 
 static QStringList fuseRedirect(QList<QUrl> urls)
@@ -442,8 +524,14 @@ void FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
             if (result != QDialog::Accepted) {
                 return {PortalResponse::Cancelled, QVariantMap{}};
             }
-            const auto urls = dirDialog->selectedUrls();
-            if (urls.empty()) {
+            auto urls = dirDialog->selectedUrls();
+            if (urls.isEmpty()) {
+                QUrl forcedUrl = dirDialog->property("forced_url").toUrl();
+                if (forcedUrl.isValid()) {
+                    urls.append(forcedUrl);
+                }
+            }
+            if (urls.isEmpty()) {
                 return {PortalResponse::OtherError, QVariantMap{}};
             }
             return {PortalResponse::Success, QVariantMap{{QStringLiteral("uris"), fuseRedirect(urls)}, {QStringLiteral("writable"), true}}};
@@ -490,7 +578,13 @@ void FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
         fileDialog->deleteLater();
         QVariantMap results;
         if (dialogResult == QDialog::Accepted) {
-            const auto urls = fileDialog->m_fileWidget->selectedUrls();
+            auto urls = fileDialog->m_fileWidget->selectedUrls();
+            if (urls.isEmpty()) {
+                QUrl forcedUrl = fileDialog->property("forced_url").toUrl();
+                if (forcedUrl.isValid()) {
+                    urls.append(forcedUrl);
+                }
+            }
             if (urls.isEmpty()) {
                 return {PortalResponse::Cancelled, results};
             }
