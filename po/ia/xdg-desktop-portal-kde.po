@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-17 00:46+0000\n"
-"PO-Revision-Date: 2026-06-30 16:32+0200\n"
+"PO-Revision-Date: 2026-07-17 16:59+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -149,9 +149,7 @@ msgid "Allow"
 msgstr "Permitte"
 
 #: src/background.cpp:150
-#, fuzzy, kde-format
-#| msgctxt "@action:button Deny the application gaining extra privileges"
-#| msgid "Deny"
+#, kde-format
 msgctxt ""
 "@action:button Don't allow the application to keep running without any open "
 "windows"
@@ -159,16 +157,12 @@ msgid "Deny"
 msgstr "Nega"
 
 #: src/background.cpp:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title title of a dialog to confirm whether to allow an app to remain "
-#| "running with no visible windows"
-#| msgid "Background App Usage"
+#, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an application to "
 "remain running with no visible windows"
 msgid "Deny Background Usage?"
-msgstr "Uso de App de Fundo"
+msgstr "Nega Uso de Fundo (secunde plano)?"
 
 #: src/background.cpp:156
 #, fuzzy, kde-format
@@ -201,12 +195,10 @@ msgid "Create Web Application Launcher?"
 msgstr ""
 
 #: src/dynamiclauncher.cpp:83
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgctxt "@info"
 msgid "Create Application Launcher?"
-msgstr "Selige application "
+msgstr "Crea lanceator de application?"
 
 #: src/dynamiclauncher.cpp:90
 #, kde-format
@@ -245,8 +237,7 @@ msgid "Edit Info…"
 msgstr "Modifica Info..."
 
 #: src/DynamicLauncherDialog.qml:104
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Create"
 msgstr "Crea"
@@ -359,12 +350,10 @@ msgid ""
 msgstr ""
 
 #: src/inputcapture.cpp:225
-#, fuzzy, kde-format
-#| msgctxt "@title:notification"
-#| msgid "Input Capture started"
+#, kde-format
 msgctxt "@title:nofication"
 msgid "Input Capture Approved"
-msgstr "Captura de Ingresso Initiava"
+msgstr "Captura de Ingresso Approvate"
 
 #: src/inputcapture.cpp:227
 #, fuzzy, kde-format
@@ -436,9 +425,7 @@ msgid "Allow"
 msgstr "Permitte"
 
 #: src/InputCaptureDialog.qml:37
-#, fuzzy, kde-format
-#| msgctxt "@action:button Deny the application gaining extra privileges"
-#| msgid "Deny"
+#, kde-format
 msgctxt "@action:button Deny the application's request to monitor input"
 msgid "Deny"
 msgstr "Nega"
@@ -1052,9 +1039,7 @@ msgid "Allow"
 msgstr "Permitte"
 
 #: src/ScreenshotDialog.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:button Deny the application gaining extra privileges"
-#| msgid "Deny"
+#, kde-format
 msgctxt "@action:button Deny the application's request to take a screenshot"
 msgid "Deny"
 msgstr "Nega"
@@ -1104,9 +1089,7 @@ msgid "Allow"
 msgstr "Permitte"
 
 #: src/UsbDialog.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@action:button Deny the application gaining extra privileges"
-#| msgid "Deny"
+#, kde-format
 msgctxt "@action:button Deny the application's request to access devices"
 msgid "Deny"
 msgstr "Nega"
@@ -1221,9 +1204,7 @@ msgid "Allow"
 msgstr "Permitte"
 
 #: src/WallpaperDialog.qml:58
-#, fuzzy, kde-format
-#| msgctxt "@action:button Deny the application gaining extra privileges"
-#| msgid "Deny"
+#, kde-format
 msgctxt ""
 "@action:button Deny the applicatinon's request to change the wallpaper"
 msgid "Deny"
