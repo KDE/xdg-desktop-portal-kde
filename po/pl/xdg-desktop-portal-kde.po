@@ -2,36 +2,38 @@
 # This file is distributed under the same license as the PACKAGE package.
 # SPDX-FileCopyrightText: 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 # Ignacy Kajdan <ignacy.kajdan@gmail.com>, 2020.
+# SPDX-FileCopyrightText: 2026 davro <david.brwinow@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-17 00:46+0000\n"
-"PO-Revision-Date: 2025-01-11 11:55+0100\n"
-"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
-"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2026-07-11 16:54+0200\n"
+"Last-Translator: davro <david.brwinow@gmail.com>\n"
+"Language-Team: pl\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Łukasz Wojniłowicz"
+msgstr "Łukasz Wojniłowicz, David Vardanyan"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "lukasz.wojnilowicz@gmail.com"
+msgstr "lukasz.wojnilowicz@gmail.com, david.brwinow@gmail.com"
 
 #: src/accessdialog.cpp:26
 #, kde-format
 msgid "Request device access"
-msgstr "Zażądano dostępu do urządzenia"
+msgstr "Zażądaj dostępu do urządzenia"
 
 #: src/appchooser.cpp:101
 #, kde-format
@@ -49,17 +51,14 @@ msgstr "Wybór programu"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
-msgstr "Wybierz aplikację do otwarcia <filename>%1</filename>"
+msgstr "Wybierz program do otwarcia <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Find some more apps that can open this content using the Discover app"
-#| msgid "Find More in Discover"
+#, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "Poszukaj więcej w Odkrywcy"
+msgstr "Znajdź więcej w Discover…"
 
 #: src/AppChooserDialog.qml:41
 #, kde-format
@@ -71,12 +70,12 @@ msgstr "Otwórz"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
-msgstr ""
+msgstr "Ustaw jako domyślny program do otwierania plików %1"
 
 #: src/AppChooserDialog.qml:123
 #, kde-format
 msgid "Show All Installed Applications"
-msgstr "Pokaż wszystkie wgrane aplikacje"
+msgstr "Pokaż wszystkie wgrane programy"
 
 #: src/AppChooserDialog.qml:136
 #, kde-format
@@ -85,19 +84,17 @@ msgid "Choose Other…"
 msgstr "Wybierz inne…"
 
 #: src/AppChooserDialog.qml:195
-#, fuzzy, kde-kuit-format
-#| msgid "Default app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
-msgstr "Domyślny program dla tego rodzaju plików"
+msgstr "%1<nl/><emphasis>Domyślny program dla tego rodzaju plików</emphasis>"
 
 #: src/AppChooserDialog.qml:197
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "Last used app for this file type"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
-msgstr "Ostatnio użyty program dla tego rodzaju plików"
+msgstr ""
+"%1<nl/><emphasis>Ostatnio użyty program dla tego rodzaju plików</emphasis>"
 
 #: src/AppChooserDialog.qml:219
 #, kde-kuit-format
@@ -115,7 +112,7 @@ msgstr "Nie znaleziono żadnego odpowiadającego wyrażenia"
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
-"Żadna z wgranych aplikacji nie jest w stanie otworzyć <filename>%1</filename>"
+"Żaden z wgranych programów nie jest w stanie otworzyć <filename>%1</filename>"
 
 #: src/AppChooserDialog.qml:242
 #, kde-format
@@ -135,23 +132,17 @@ msgid "Background Activity"
 msgstr "Aktywność w tle"
 
 #: src/background.cpp:137
-#, fuzzy, kde-format
-#| msgctxt "@info %1 is the name of an application"
-#| msgid ""
-#| "%1 wants to remain running when it has no visible windows. If you forbid "
-#| "this, the application will quit when its last window is closed."
+#, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
 "%1 wants to remain running when it has no visible windows. If you deny this "
 "request, the application will quit when its last window is closed."
 msgstr ""
 "%1 chce działać w tle, tzn. gdy żadne z jego okien nie jest widoczne. Jeśli "
-"zabronisz tego, to zostanie zamknięty z zamknięciem ostatniego okna."
+"odmówisz, to program zostanie zamknięty z zamknięciem ostatniego okna."
 
 #: src/background.cpp:143 src/background.cpp:160
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt ""
 "@action:button Allow the application to keep running with no open windows"
 msgid "Allow"
@@ -163,35 +154,25 @@ msgctxt ""
 "@action:button Don't allow the application to keep running without any open "
 "windows"
 msgid "Deny"
-msgstr ""
+msgstr "Odmów"
 
 #: src/background.cpp:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title title of a dialog to confirm whether to allow an app to remain "
-#| "running with no visible windows"
-#| msgid "Background App Usage"
+#, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an application to "
 "remain running with no visible windows"
 msgid "Deny Background Usage?"
-msgstr "Użycie aplikacji w tle"
+msgstr "Odmówić użycia programu w tle?"
 
 #: src/background.cpp:156
-#, fuzzy, kde-format
-#| msgctxt "%1 is the name of an application"
-#| msgid ""
-#| "Note that this will force %1 to quit when its last window is closed. This "
-#| "could cause data loss if the application has any unsaved changes when it "
-#| "happens."
+#, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid ""
 "This will force %1 to quit when its last window is closed. This could cause "
 "data loss if the application has any unsaved changes when it happens."
 msgstr ""
-"Pamiętaj, że to wymusi zamknięcie %1, gdy zamknięte zostanie jego ostanie "
-"okno. Może to spowodować utratę danych, gdy aplikacja ich nie zapisała, "
-"zanim to nastąpi."
+"To wymusi zamknięcie %1, gdy zamknięte zostanie jego ostatnie okno. Może to "
+"spowodować utratę danych, gdy program ich nie zapisał, zanim to nastąpi."
 
 #: src/background.cpp:161
 #, kde-format
@@ -199,21 +180,19 @@ msgctxt ""
 "@action:button Don't allow the application to keep running without any open "
 "windows"
 msgid "Deny Anyway"
-msgstr ""
+msgstr "Odmów mimo tego"
 
 #: src/dynamiclauncher.cpp:78
 #, kde-format
 msgctxt "@info"
 msgid "Create Web Application Launcher?"
-msgstr ""
+msgstr "Utworzyć program uruchamiający do tej aplikacji sieciowej?"
 
 #: src/dynamiclauncher.cpp:83
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgctxt "@info"
 msgid "Create Application Launcher?"
-msgstr "Wybór programu"
+msgstr "Utworzyć program uruchamiający do tego programu?"
 
 #: src/dynamiclauncher.cpp:90
 #, kde-format
@@ -222,6 +201,8 @@ msgid ""
 "A launcher to open the following website will appear in application "
 "launchers:"
 msgstr ""
+"Skrót do otwarcia następującej strony sieciowej pojawi się w skrótach do "
+"programów:"
 
 #: src/dynamiclauncher.cpp:95
 #, kde-format
@@ -230,6 +211,7 @@ msgid ""
 "A launcher to open the following application will appear in application "
 "launchers:"
 msgstr ""
+"Skrót do otwarcia następującego programu pojawi się w skrótach do programów:"
 
 #: src/DynamicLauncherDialog.qml:71
 #, kde-format
@@ -238,25 +220,22 @@ msgid "Name"
 msgstr "Nazwa"
 
 #: src/DynamicLauncherDialog.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title Something asked to create a launcher for an app or a website"
 msgid "Launcher Requested"
-msgstr "Poproszono o nagrywanie urządzenia wejściowego"
+msgstr "Poproszono o utworzenie programu uruchamiającego"
 
 #: src/DynamicLauncherDialog.qml:98
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
-msgstr "Edytuj szczegóły…"
+msgstr "Edytuj informacje…"
 
 #: src/DynamicLauncherDialog.qml:104
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Create"
-msgstr "Utwórz katalog"
+msgstr "Utwórz"
 
 #: src/DynamicLauncherDialog.qml:109
 #, kde-format
@@ -276,6 +255,9 @@ msgid ""
 "The shortcut is already assigned to the action <interface>%1</interface> of "
 "<application>%2</application>. Re-enter it here to override that action."
 msgstr ""
+"Skrót jest już przypisany do akcji <interface>%1</interface> należącej do "
+"<application>%2</application>. Wprowadź go tu ponownie, aby nadpisać tę "
+"akcję."
 
 #: src/globalshortcuts.cpp:114
 #, kde-kuit-format
@@ -284,13 +266,14 @@ msgid ""
 "The shortcut is already assigned to the <interface>%1</interface> standard "
 "action."
 msgstr ""
+"Skrót jest już przypisany do standardowej akcji <interface>%1</interface>."
 
 #: src/globalshortcuts.cpp:128
 #, kde-kuit-format
 msgctxt "@info:tooltip %1 is a list of actions"
 msgid ""
 "The shortcut is assigned to multiple actions (<interface>%1</interface>)"
-msgstr ""
+msgstr "Skrót jest przypisany do wielu działań (<interface>%1</interface>)"
 
 #: src/globalshortcuts.cpp:506
 #, kde-format
@@ -301,63 +284,56 @@ msgstr ", "
 #, kde-format
 msgctxt "@title:window"
 msgid "Global Shortcuts Requested"
-msgstr ""
+msgstr "Poproszono o skróty globalne"
 
 #: src/GlobalShortcutsDialog.qml:29
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "@info"
 msgid "An unidentifiable application wants to register the following shortcut."
 msgid_plural ""
 "An unidentifiable application wants to register the following %1 shortcuts."
-msgstr[0] "Aplikacja zażądała dostępu do:\n"
-msgstr[1] "Aplikacja zażądała dostępu do:\n"
-msgstr[2] "Aplikacja zażądała dostępu do:\n"
+msgstr[0] "Nierozpoznawalny program chce zarejestrować następujący skrót."
+msgstr[1] ""
+"Niezidentyfikowany program chce zarejestrować następujące %1 skróty."
+msgstr[2] ""
+"Niezidentyfikowany program chce zarejestrować następujące %1 skrótów."
 
 #: src/GlobalShortcutsDialog.qml:31
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "@info %2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
-msgstr[0] "Aplikacja zażądała dostępu do:\n"
-msgstr[1] "Aplikacja zażądała dostępu do:\n"
-msgstr[2] "Aplikacja zażądała dostępu do:\n"
+msgstr[0] "%2 chce zarejestrować następujący skrót:"
+msgstr[1] "%2 chce zarejestrować następujące %1 skróty:"
+msgstr[2] "%2 chce zarejestrować następujące %1 skrótów:"
 
 #: src/GlobalShortcutsDialog.qml:91
 #, kde-format
 msgctxt "@action:button"
 msgid "See Other Shortcuts…"
-msgstr ""
+msgstr "Zobacz inne skróty…"
 
 #: src/GlobalShortcutsDialog.qml:92
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr ""
+msgstr "Zobacz inne skróty zarejestrowane przez ten program"
 
 #: src/inputcapture.cpp:116
-#, fuzzy, kde-format
-#| msgctxt "@title:notification"
-#| msgid "Input Capture started"
+#, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture Started"
 msgstr "Rozpoczęto nagrywanie urządzenia wejściowego"
 
 #: src/inputcapture.cpp:119
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info %1 is the name of the application"
-#| msgid ""
-#| "Input is being managed by %1. Press <shortcut>%2</shortcut> to disable."
+#, kde-kuit-format
 msgctxt "@info %1 is the name of the application"
 msgid ""
 "%1 has taken over the pointer and keyboard. Press <shortcut>%2</shortcut> to "
 "stop this."
 msgstr ""
-"Urządzenie wejściowe jest zarządzane przez %1. Naciśnij <shortcut>%2</"
-"shortcut>, aby wyłączyć."
+"%1 przejął wskaźnik myszy i klawiaturę. Naciśnij <shortcut>%2</shortcut>, "
+"aby wyłączyć."
 
 #: src/inputcapture.cpp:124
 #, kde-kuit-format
@@ -366,32 +342,30 @@ msgid ""
 "An unidentifiable application has taken over the pointer and keyboard. Press "
 "<shortcut>%1</shortcut> to stop this."
 msgstr ""
+"Nierozpoznawalny program przejął wskaźnik myszy i klawiaturę. Naciśnij "
+"<shortcut>%1</shortcut>, aby wyłączyć."
 
 #: src/inputcapture.cpp:225
-#, fuzzy, kde-format
-#| msgctxt "@title:notification"
-#| msgid "Input Capture started"
+#, kde-format
 msgctxt "@title:nofication"
 msgid "Input Capture Approved"
-msgstr "Rozpoczęto nagrywanie urządzenia wejściowego"
+msgstr "Zatwierdzono nagrywanie urządzenia wejściowego"
 
 #: src/inputcapture.cpp:227
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application requested to capture input events"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "An unidentifiable application will be able to take over the pointer and "
 "keyboard in the future."
-msgstr "Aplikacja poprosiła o nagrywanie zdarzeń urządzenia wejściowego"
+msgstr ""
+"Nierozpoznawalny program będzie mógł przejąć wskaźnik myszy i klawiaturę w "
+"przyszłości."
 
 #: src/inputcapture.cpp:228
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application requested to capture input events"
+#, kde-format
 msgctxt "@info"
 msgid "%1 will be able to take over the pointer and keyboard in the future."
-msgstr "Aplikacja poprosiła o nagrywanie zdarzeń urządzenia wejściowego"
+msgstr "%1 będzie mógł przejąć wskaźnik myszy i klawiaturę w przyszłości."
 
 #: src/InputCaptureDialog.qml:18
 #, kde-format
@@ -404,13 +378,13 @@ msgstr "Poproszono o nagrywanie urządzenia wejściowego"
 msgctxt "@info"
 msgid ""
 "An unidentifiable application wants to take over the pointer and keyboard."
-msgstr ""
+msgstr "Nierozpoznawalny program chce przejąć wskaźnik myszy i klawiaturę."
 
 #: src/InputCaptureDialog.qml:21
 #, kde-format
 msgctxt "@info %1 is the name of the application"
 msgid "%1 wants take over the pointer and keyboard."
-msgstr ""
+msgstr "%1 chce przejąć wskaźnik myszy i klawiaturę."
 
 #: src/InputCaptureDialog.qml:23
 #, kde-kuit-format
@@ -420,6 +394,9 @@ msgid ""
 "pointer yourself or type on the keyboard.<nl/><nl/>Only allow if you know "
 "which application made the request."
 msgstr ""
+"Gdy program nagrywa urządzenia wejściowe, nie będziesz mógł poruszać "
+"wskaźnikiem myszy, ani pisać na klawiaturze.<nl/><nl/>Zezwól tylko, jeśli "
+"wiesz, który program wysłał żądanie."
 
 #: src/InputCaptureDialog.qml:24
 #, kde-format
@@ -428,18 +405,18 @@ msgid ""
 "While the application is capturing input, you will not be able to move the "
 "pointer yourself or type on the keyboard."
 msgstr ""
+"Gdy program nagrywa urządzenia wejściowe, nie będziesz mógł poruszać "
+"wskaźnikiem myszy, ani pisać na klawiaturze."
 
 #: src/InputCaptureDialog.qml:29 src/RemoteDesktopDialog.qml:32
 #: src/ScreenChooserDialog.qml:195
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow the application to do this without asking next time"
-msgstr ""
+msgstr "Zezwól programowi na to bez pytania w przyszłości"
 
 #: src/InputCaptureDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the application to monitor input"
 msgid "Allow"
 msgstr "Zezwól"
@@ -448,7 +425,7 @@ msgstr "Zezwól"
 #, kde-format
 msgctxt "@action:button Deny the application's request to monitor input"
 msgid "Deny"
-msgstr ""
+msgstr "Odmów"
 
 #: src/kirigami-filepicker/api/mobilefiledialog.cpp:113
 #, kde-format
@@ -501,21 +478,19 @@ msgid "Select"
 msgstr "Wybierz"
 
 #: src/outputsmodel.cpp:83
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "Czy udostępnić ten ekran %1?"
+msgstr "Udostępnij ekran wirtualny"
 
 #: src/outputsmodel.cpp:87
 #, kde-format
 msgid "Share region"
-msgstr ""
+msgstr "Udostępnij region"
 
 #: src/outputsmodel.cpp:98 src/screencast.cpp:351
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "Pełna przestrzeń pracy"
+msgstr "Udostępnij całą przestrzeń roboczą"
 
 #: src/outputsmodel.cpp:133
 #, kde-format
@@ -526,38 +501,37 @@ msgstr "Ekran laptopa"
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
-msgstr ""
+msgstr "Udostępnij całą przestrzeń roboczą z wszystkich ekranów"
 
 #: src/outputsmodel.cpp:371
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with %1:"
+#, kde-format
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
-msgstr "Wybierz okna do udostępnienia %1:"
+msgstr "Utwórz ekran wirtualny i udostępnij"
 
 #: src/outputsmodel.cpp:373
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
-msgstr ""
+msgstr "Przycina wybraną część twoich ekranów"
 
 #: src/PipeWireDelegate.qml:232
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
-msgstr ""
+msgstr "Brak otwartych okien"
 
 #: src/PipeWireDelegate.qml:237
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
-msgstr ""
+msgstr "+%1"
 
 #: src/PipeWireDelegate.qml:250
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
-msgstr ""
+msgstr "Udostępnij \"%1\""
 
 #: src/region-select/RegionSelectOverlay.qml:148
 #, kde-format
@@ -592,7 +566,7 @@ msgstr "Kliknięcie prawym"
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
-msgstr "Wyjdź"
+msgstr "Escape"
 
 #: src/region-select/RegionSelectOverlay.qml:196
 #, kde-format
@@ -603,16 +577,13 @@ msgstr "Utwórz zaznaczenie:"
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
-msgstr "Naciśnij lewym i przeciągnij"
+msgstr "Naciśnij lewym przyciskiem myszy i przeciągnij"
 
 #: src/remotedesktop.cpp:118
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "Pulpit zdalny"
+msgstr "Pulpit zdalny jest niedostępny"
 
 #: src/remotedesktop.cpp:120
 #, kde-kuit-format
@@ -623,6 +594,9 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Program <application>%1</application> próbował rozpocząć sesję zdalnego "
+"pulpitu, ale zdalny pulpit jest niedostępny na tym urządzeniu. Upewnij się, "
+"że korzystasz z sesji Wayland z zgodnym menedżerem okien, na przykład KWin."
 
 #: src/remotedesktop.cpp:124
 #, kde-kuit-format
@@ -632,6 +606,9 @@ msgid ""
 "desktop session, but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Program <application>%1</application> próbował rozpocząć sesję zdalnego "
+"pulpitu, ale zdalny pulpit jest niedostępny w sesjach X11. Przełącz się na "
+"sesję Wayland i spróbuj ponownie."
 
 #: src/remotedesktop.cpp:190 src/screencast.cpp:232
 #, kde-format
@@ -645,26 +622,20 @@ msgid "Virtual Output (shared with %1)"
 msgstr "Wyjście wirtualne (udostępnione dla %1)"
 
 #: src/remotedesktop.cpp:300
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
-msgstr "Zażądano sterowania zdalnego"
+msgstr "Rozpoczęto zdalne sterowanie"
 
 #: src/remotedesktop.cpp:590
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Control"
-msgstr "Zażądano sterowania zdalnego"
+msgstr "Zdalne sterowanie"
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control Requested"
 msgstr "Zażądano sterowania zdalnego"
@@ -674,32 +645,32 @@ msgstr "Zażądano sterowania zdalnego"
 msgctxt "@info"
 msgid "Allow an unidentifiable application to gain remote control privileges?"
 msgstr ""
+"Czy zezwolić nierozpoznawalnemu programowi na uzyskanie uprawnień do "
+"zdalnego sterowania?"
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
 msgctxt "@info"
 msgid "Allow %1 to gain remote control privileges?"
-msgstr ""
+msgstr "Czy zezwolić %1 na uzyskanie uprawnień do zdalnego sterowania?"
 
 #: src/remotedesktopdialog.cpp:49
 #, kde-format
 msgctxt "@info"
 msgid "Only allow if you know which application made the request."
-msgstr ""
+msgstr "Zezwól tylko, jeśli wiesz, który program wysłał żądanie."
 
 #: src/remotedesktopdialog.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "The application is unknown"
-#| msgid "An application requested to capture input events"
+#, kde-format
 msgctxt "@info"
 msgid "The application will be able to:"
-msgstr "Aplikacja poprosiła o nagrywanie zdarzeń urządzenia wejściowego"
+msgstr "Program będzie mógł:"
 
 #: src/remotedesktopdialog.cpp:56
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to:"
-msgstr ""
+msgstr "%1 będzie mógł:"
 
 #: src/remotedesktopdialog.cpp:60
 #, kde-format
@@ -710,6 +681,8 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - Zobaczyć co jest na ekranie"
 
 #: src/remotedesktopdialog.cpp:64
 #, kde-format
@@ -720,18 +693,21 @@ msgid ""
 "\n"
 " - Move the pointer and type keystrokes"
 msgstr ""
+"\n"
+" - Poruszać wskaźnikiem myszy i wstawiać znaki"
 
 #: src/remotedesktopdialog.cpp:72
 #, kde-format
 msgctxt "@info"
 msgid "An unidentifiable application is exercising remote control privileges:"
 msgstr ""
+"Nierozpoznawalny program wykorzystuje uprawnienia do zdalnego sterowania:"
 
 #: src/remotedesktopdialog.cpp:73
 #, kde-format
 msgctxt "@info"
 msgid "%1 is exercising remote control privileges:"
-msgstr ""
+msgstr "%1 wykorzystuje uprawnienia do zdalnego sterowania:"
 
 #: src/remotedesktopdialog.cpp:77
 #, kde-format
@@ -742,6 +718,8 @@ msgid ""
 "\n"
 " - See what’s on the screen"
 msgstr ""
+"\n"
+" - Zobaczyć co jest na ekranie"
 
 #: src/remotedesktopdialog.cpp:81
 #, kde-format
@@ -752,11 +730,11 @@ msgid ""
 "\n"
 " - Move the pointer and type keystrokes"
 msgstr ""
+"\n"
+" - Poruszać wskaźnikiem myszy i wstawiać znaki"
 
 #: src/RemoteDesktopDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the application to gain extra privileges"
 msgid "Allow"
 msgstr "Zezwól"
@@ -765,14 +743,13 @@ msgstr "Zezwól"
 #, kde-format
 msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
-msgstr ""
+msgstr "Odmów"
 
 #: src/screencast.cpp:151
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "Udostępnianie ekranu"
+msgstr "Udostępnianie ekranu niedostępne"
 
 #: src/screencast.cpp:153
 #, kde-kuit-format
@@ -783,6 +760,10 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Program <application>%1</application> próbował rozpocząć sesję udostępniania "
+"ekranu, ale udostępnianie ekranu jest niedostępne na tym urządzeniu. Upewnij "
+"się, że korzystasz z sesji Wayland z zgodnym menedżerem okien, na przykład "
+"KWin."
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -792,6 +773,9 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Program <application>%1</application> próbował rozpocząć sesję udostępniania "
+"ekranu, ale udostępnianie ekranu jest niedostępne w sesjach X11. Przełącz "
+"się na sesję Wayland i spróbuj ponownie."
 
 #: src/screencast.cpp:297
 #, kde-format
@@ -822,10 +806,9 @@ msgid "Screen casting"
 msgstr "Przesyłanie ekranu"
 
 #: src/screenchooserdialog.cpp:201
-#, fuzzy, kde-format
-#| msgid "Share this screen with the requesting application?"
+#, kde-format
 msgid "Share this screen with an unidentifiable application?"
-msgstr "Czy udostępnić ten ekran pytającej aplikacji?"
+msgstr "Czy udostępnić ten ekran nierozpoznawalnemu programowi?"
 
 #: src/screenchooserdialog.cpp:203
 #, kde-format
@@ -833,10 +816,9 @@ msgid "Share this screen with %1?"
 msgstr "Czy udostępnić ten ekran %1?"
 
 #: src/screenchooserdialog.cpp:208
-#, fuzzy, kde-format
-#| msgid "Choose screens to share with the requesting application:"
+#, kde-format
 msgid "Choose screens to share with an unidentifiable application:"
-msgstr "Wybierz jakie ekrany udostępnić pytającej aplikacji:"
+msgstr "Wybierz ekrany do udostępnienia nierozpoznawalnemu programowi:"
 
 #: src/screenchooserdialog.cpp:210
 #, kde-format
@@ -844,22 +826,19 @@ msgid "Choose screens to share with %1:"
 msgstr "Wybierz ekrany do udostępnienia %1:"
 
 #: src/screenchooserdialog.cpp:214
-#, fuzzy, kde-format
-#| msgid "Choose screens to share with the requesting application:"
+#, kde-format
 msgid "Choose a screen to share with an unidentifiable application:"
-msgstr "Wybierz jakie ekrany udostępnić pytającej aplikacji:"
+msgstr "Wybierz ekran do udostępnienia nierozpoznawalnemu programowi:"
 
 #: src/screenchooserdialog.cpp:216
-#, fuzzy, kde-format
-#| msgid "Choose screens to share with %1:"
+#, kde-format
 msgid "Choose a screen to share with %1:"
-msgstr "Wybierz ekrany do udostępnienia %1:"
+msgstr "Wybierz ekran do udostępnienia %1:"
 
 #: src/screenchooserdialog.cpp:225
-#, fuzzy, kde-format
-#| msgid "Share this window with the requesting application?"
+#, kde-format
 msgid "Share this window with an unidentifiable application?"
-msgstr "Czy udostępnić to okno pytającej aplikacji?"
+msgstr "Czy udostępnić to okno nierozpoznawalnemu programowi?"
 
 #: src/screenchooserdialog.cpp:227
 #, kde-format
@@ -867,10 +846,9 @@ msgid "Share this window with %1?"
 msgstr "Czy udostępnić to okno %1?"
 
 #: src/screenchooserdialog.cpp:232
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with the requesting application:"
+#, kde-format
 msgid "Choose windows to share with an unidentifiable application:"
-msgstr "Wybierz jakie okna udostępnić pytającej aplikacji:"
+msgstr "Wybierz okna do udostępnienia nierozpoznawalnemu programowi:"
 
 #: src/screenchooserdialog.cpp:234
 #, kde-format
@@ -878,35 +856,31 @@ msgid "Choose windows to share with %1:"
 msgstr "Wybierz okna do udostępnienia %1:"
 
 #: src/screenchooserdialog.cpp:238
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with the requesting application:"
+#, kde-format
 msgid "Choose a window to share with an unidentifiable application:"
-msgstr "Wybierz jakie okna udostępnić pytającej aplikacji:"
+msgstr "Wybierz okno do udostępnienia nierozpoznawalnemu programowi:"
 
 #: src/screenchooserdialog.cpp:240
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with %1:"
+#, kde-format
 msgid "Choose a window to share with %1:"
-msgstr "Wybierz okna do udostępnienia %1:"
+msgstr "Wybierz okno do udostępnienia %1:"
 
 #: src/screenchooserdialog.cpp:247
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with the requesting application:"
+#, kde-format
 msgid ""
 "Create a new virtual display to share with an unidentifiable application:"
-msgstr "Wybierz jakie okna udostępnić pytającej aplikacji:"
+msgstr ""
+"Utwórz nowy ekran wirtualny do udostępnienia nierozpoznawalnemu programowi:"
 
 #: src/screenchooserdialog.cpp:249
-#, fuzzy, kde-format
-#| msgid "Choose windows to share with %1:"
+#, kde-format
 msgid "Create a new virtual display to share with %1:"
-msgstr "Wybierz okna do udostępnienia %1:"
+msgstr "Utwórz nowy ekran wirtualny do udostępnienia %1:"
 
 #: src/screenchooserdialog.cpp:255
-#, fuzzy, kde-format
-#| msgid "Choose what to share with the requesting application:"
+#, kde-format
 msgid "Choose what to share with an unidentifiable application:"
-msgstr "Wybierz co udostępnić pytającej aplikacji:"
+msgstr "Wybierz co udostępnić nierozpoznawalnemu programowi:"
 
 #: src/screenchooserdialog.cpp:257
 #, kde-format
@@ -917,29 +891,26 @@ msgstr "Wybierz co udostępnić %1:"
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Only share anything if you know which application made the request."
-msgstr ""
+msgstr "Udostępnij tylko, jeśli wiesz, który program wysłał żądanie."
 
 #: src/ScreenChooserDialog.qml:122
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
-msgstr "Znajdź"
+msgstr "Wyszukaj…"
 
 #: src/ScreenChooserDialog.qml:168
-#, fuzzy, kde-format
-#| msgid "Windows"
+#, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "Okna"
 
 #: src/ScreenChooserDialog.qml:187
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Requested"
-msgstr "Udostępnianie ekranu"
+msgstr "Zażądano udostępniania ekranu"
 
 #: src/ScreenChooserDialog.qml:200
 #, kde-format
@@ -965,26 +936,25 @@ msgstr "Bieżącego okna"
 #, kde-format
 msgctxt "@title:window"
 msgid "Screenshot Requested"
-msgstr ""
+msgstr "Poproszono o zrzut ekranu"
 
 #: src/ScreenshotDialog.qml:27
 #, kde-format
 msgctxt "@info"
 msgid "Allow an unidentifiable application to take a screenshot?"
-msgstr ""
+msgstr "Zezwolić niezidentyfikowanemu programowi na wykonanie zrzutu ekranu?"
 
 #: src/ScreenshotDialog.qml:28
-#, fuzzy, kde-format
-#| msgid "Take screenshot"
+#, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid "Allow %1 to take a screenshot?"
-msgstr "Wykonaj zrzut ekranu"
+msgstr "Czy zezwolić %1 na wykonanie zrzutu ekranu?"
 
 #: src/ScreenshotDialog.qml:29 src/UsbDialog.qml:26 src/WallpaperDialog.qml:44
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Only allow if you know which application made the request."
-msgstr ""
+msgstr "Zezwól tylko, jeśli wiesz, który program wysłał żądanie."
 
 #: src/ScreenshotDialog.qml:41
 #, kde-format
@@ -1015,8 +985,7 @@ msgid "Content Options"
 msgstr "Ustawienia treści"
 
 #: src/ScreenshotDialog.qml:63
-#, fuzzy, kde-format
-#| msgid "Include cursor pointer"
+#, kde-format
 msgctxt "@option:check Refers to the on-screen 'mouse pointer'"
 msgid "Include pointer"
 msgstr "Ze wskaźnikiem myszy"
@@ -1027,9 +996,7 @@ msgid "Include window borders"
 msgstr "Z obramowaniami okien"
 
 #: src/ScreenshotDialog.qml:82
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the application to use the screenshot"
 msgid "Allow"
 msgstr "Zezwól"
@@ -1038,48 +1005,44 @@ msgstr "Zezwól"
 #, kde-format
 msgctxt "@action:button Deny the application's request to take a screenshot"
 msgid "Deny"
-msgstr ""
+msgstr "Odmów"
 
 #: src/ScreenshotDialog.qml:93
-#, fuzzy, kde-format
-#| msgid "Take screenshot"
+#, kde-format
 msgctxt "@action:button"
 msgid "Take Screenshot"
-msgstr "Wykonaj zrzut ekranu"
+msgstr "Zrób zrzut ekranu"
 
 #: src/UsbDialog.qml:21
 #, kde-format
 msgctxt "@title:window"
 msgid "Device Access Requested"
-msgstr ""
+msgstr "Zażądano dostępu do urządzenia"
 
 #: src/UsbDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "@info"
 msgid "Allow an unidentifiable application to access the following device?"
 msgid_plural ""
 "Allow an unidentifiable application to access the following devices?"
-msgstr[0] "Aplikacja zażądała dostępu do:\n"
-msgstr[1] "Aplikacja zażądała dostępu do:\n"
-msgstr[2] "Aplikacja zażądała dostępu do:\n"
+msgstr[0] ""
+"Zezwolić nierozpoznawalnemu programowi na dostęp do następującego urządzenia?"
+msgstr[1] ""
+"Zezwolić niezidentyfikowanemu programowi na dostęp do następujących urządzeń?"
+msgstr[2] ""
+"Zezwolić niezidentyfikowanemu programowi na dostęp do następujących urządzeń?"
 
 #: src/UsbDialog.qml:24
-#, fuzzy, kde-format
-#| msgctxt "Unordered list with privileges granted to an external process"
-#| msgid "An application requested access to:\n"
+#, kde-format
 msgctxt "@info %2 is the name of the application"
 msgid "Allow %2 to access the following device?"
 msgid_plural "Allow %2 to access the following devices?"
-msgstr[0] "Aplikacja zażądała dostępu do:\n"
-msgstr[1] "Aplikacja zażądała dostępu do:\n"
-msgstr[2] "Aplikacja zażądała dostępu do:\n"
+msgstr[0] "Zezwolić %2 na dostęp do następującego urządzenia?"
+msgstr[1] "Zezwolić %2 na dostęp do następujących urządzeń?"
+msgstr[2] "Zezwolić %2 na dostęp do następujących urządzeń?"
 
 #: src/UsbDialog.qml:67
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the application to access devices"
 msgid "Allow"
 msgstr "Zezwól"
@@ -1088,14 +1051,13 @@ msgstr "Zezwól"
 #, kde-format
 msgctxt "@action:button Deny the application's request to access devices"
 msgid "Deny"
-msgstr ""
+msgstr "Odmów"
 
 #: src/userinfodialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Share Information"
+#, kde-format
 msgctxt "@title"
 msgid "Share user info with %1?"
-msgstr "Udostępnij informacje"
+msgstr "Udostępnić informacje użytkownika z %1?"
 
 #: src/userinfodialog.cpp:56
 #, kde-kuit-format
@@ -1104,6 +1066,8 @@ msgid ""
 "The application will be able to see your username, full name, and profile "
 "picture.<nl/><nl/>The application did not provide a reason."
 msgstr ""
+"Program będzie mógł zobaczyć twoją nazwę użytkownika, pełne imię i zdjęcie "
+"profilowe.<nl/><nl/>Program nie podał powodu."
 
 #: src/userinfodialog.cpp:57
 #, kde-kuit-format
@@ -1112,33 +1076,32 @@ msgid ""
 "The application will be able to see your username, full name, and profile "
 "picture.<nl/><nl/>Reason: “%1”"
 msgstr ""
+"Program będzie mógł zobaczyć twoją nazwę użytkownika, pełne imię i zdjęcie "
+"profilowe.<nl/><nl/>Powód: \"%1\""
 
 #: src/UserInfoDialog.qml:19
 #, kde-format
 msgctxt "@title:window"
 msgid "User Information Requested"
-msgstr ""
+msgstr "Zażądano informacji użytkownika"
 
 #: src/UserInfoDialog.qml:76
-#, fuzzy, kde-format
-#| msgid "Share"
+#, kde-format
 msgctxt "@action:button"
 msgid "Share"
 msgstr "Udostępnij"
 
 #: src/WallpaperDialog.qml:22
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Input Capture Requested"
+#, kde-format
 msgctxt "@title:window"
 msgid "Wallpaper Change Requested"
-msgstr "Poproszono o nagrywanie urządzenia wejściowego"
+msgstr "Poproszono o zmianę tapety"
 
 #: src/WallpaperDialog.qml:27
 #, kde-format
 msgctxt "@info"
 msgid "Allow an unidentifiable application to change the desktop wallpaper?"
-msgstr ""
+msgstr "Czy zezwolić nierozpoznawalnemu programowi na zmianę tapety pulpitu?"
 
 #: src/WallpaperDialog.qml:29
 #, kde-format
@@ -1146,6 +1109,7 @@ msgctxt "@info"
 msgid ""
 "Allow an unidentifiable application to change the lock screen wallpaper?"
 msgstr ""
+"Czy zezwolić nierozpoznawalnemu programowi na zmianę tapety ekranu blokady?"
 
 #: src/WallpaperDialog.qml:31
 #, kde-format
@@ -1154,29 +1118,29 @@ msgid ""
 "Allow an unidentifiable application to change desktop and lock screen "
 "wallpapers?"
 msgstr ""
+"Czy zezwolić nierozpoznawalnemu programowi na zmianę tapet pulpitu i ekranu "
+"blokady?"
 
 #: src/WallpaperDialog.qml:36
 #, kde-format
 msgctxt "@info %1 is the application name"
 msgid "Allow %1 to change the desktop wallpaper?"
-msgstr ""
+msgstr "Czy zezwolić %1 na zmianę tapety pulpitu?"
 
 #: src/WallpaperDialog.qml:38
 #, kde-format
 msgctxt "@info %1 is the application name"
 msgid "Allow %1 to change the lock screen wallpaper?"
-msgstr ""
+msgstr "Czy zezwolić %1 na zmianę tapety ekranu blokady?"
 
 #: src/WallpaperDialog.qml:40
 #, kde-format
 msgctxt "@info %1 is the application name"
 msgid "Allow %1 to change desktop and lock screen wallpapers?"
-msgstr ""
+msgstr "Czy zezwolić %1 na zmianę tapet pulpitu i ekranu blokady?"
 
 #: src/WallpaperDialog.qml:57
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the application to change the wallpaper"
 msgid "Allow"
 msgstr "Zezwól"
@@ -1186,7 +1150,7 @@ msgstr "Zezwól"
 msgctxt ""
 "@action:button Deny the applicatinon's request to change the wallpaper"
 msgid "Deny"
-msgstr ""
+msgstr "Odmów"
 
 #: src/waylandintegration.cpp:213 src/waylandintegration.cpp:252
 #, kde-format
