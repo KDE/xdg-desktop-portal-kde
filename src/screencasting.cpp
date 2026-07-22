@@ -134,6 +134,7 @@ ScreencastingStream *Screencasting::createOutputStream(QScreen *screen, CursorMo
         {QLatin1String("position"), screen->geometry().topLeft()},
         {QLatin1String("size"), screen->size()},
         {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Monitor)},
+        {QLatin1String("mapping_id"), screen->name()},
     };
     return stream;
 }
@@ -171,9 +172,10 @@ Screencasting::createVirtualOutputStream(const QString &name, const QString &des
     } else {
         stream->d->init(d->stream_virtual_output(name, s.width(), s.height(), wl_fixed_from_double(scale), mode));
     }
-    connect(qGuiApp, &QGuiApplication::screenAdded, stream, [stream, name](const QScreen *screen) {
-        // KWin adds "Virtual-" to virtual screen naems
-        if (screen->name() == QLatin1StringView("Virtual-") + name) {
+    // KWin adds "Virtual-" to virtual screen naems
+    const QString screenId = QLatin1StringView("Virtual-") + name;
+    connect(qGuiApp, &QGuiApplication::screenAdded, stream, [stream, screenId](const QScreen *screen) {
+        if (screen->name() == screenId) {
             stream->d->m_geometry = screen->geometry();
             connect(screen, &QScreen::geometryChanged, stream, [stream](const QRect &geometry) {
                 stream->d->m_geometry = geometry;
@@ -183,6 +185,7 @@ Screencasting::createVirtualOutputStream(const QString &name, const QString &des
     stream->d->metaData = {
         {QLatin1String("size"), s},
         {QLatin1String("source_type"), static_cast<uint>(ScreenCastPortal::Virtual)},
+        {QLatin1String("mapping_id"), screenId}
     };
     return stream;
 }
