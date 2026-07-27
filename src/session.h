@@ -39,6 +39,7 @@ public:
     virtual SessionType type() const = 0;
 
     static Session *getSession(const QString &sessionHandle);
+    static void closeAll();
     template<typename T>
     static T *getSession(const QString &sessionHandle)
     {
