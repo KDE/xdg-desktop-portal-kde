@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-17 00:46+0000\n"
+"POT-Creation-Date: 2026-07-30 00:47+0000\n"
 "PO-Revision-Date: 2026-06-12 07:25+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -51,60 +51,60 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "აირჩიეთ <filename>%1</filename>-ის გასახსნელი აპლიკაცია"
 
-#: src/AppChooserDialog.qml:36
+#: src/AppChooserDialog.qml:35
 #, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
 msgstr "იპოვეთ მეტი Discover-ში…"
 
-#: src/AppChooserDialog.qml:41
+#: src/AppChooserDialog.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "გახსნა"
 
-#: src/AppChooserDialog.qml:49
+#: src/AppChooserDialog.qml:48
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr "ნაგულისხმევ აპად დაყენება %1 ფაილების გასახსნელად"
 
-#: src/AppChooserDialog.qml:123
+#: src/AppChooserDialog.qml:122
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "ყველა დაყენებული აპლიკაციის ჩვენება"
 
-#: src/AppChooserDialog.qml:136
+#: src/AppChooserDialog.qml:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "სხვის არჩევა…"
 
-#: src/AppChooserDialog.qml:195
+#: src/AppChooserDialog.qml:194
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>ნაგულისხმევი აპი ამ ფაილის ტიპისთვის</emphasis>"
 
-#: src/AppChooserDialog.qml:197
+#: src/AppChooserDialog.qml:196
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>ბოლოს გამოყენებული აპი ამ ფაილის ტიპისთვის</emphasis>"
 
-#: src/AppChooserDialog.qml:219
+#: src/AppChooserDialog.qml:218
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "გავხსნა <command>%1</command>-ით?"
 
-#: src/AppChooserDialog.qml:221
+#: src/AppChooserDialog.qml:220
 #, kde-format
 msgid "No matches"
 msgstr "დათხვევა არ არსებობს"
 
-#: src/AppChooserDialog.qml:223
+#: src/AppChooserDialog.qml:222
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
@@ -112,13 +112,13 @@ msgstr ""
 "<filename>%1</filename>-ის გახსნა ამჟამად დაყენებულ არც ერთ აპლიკაციას არ "
 "შეუძლია"
 
-#: src/AppChooserDialog.qml:242
+#: src/AppChooserDialog.qml:241
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "ტერმინალში გაშვება"
 
-#: src/AppChooserDialog.qml:250
+#: src/AppChooserDialog.qml:249
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -210,31 +210,31 @@ msgid ""
 msgstr ""
 "გამშვები, რომ გაიხსნას შემდეგი აპლიკაცია, გამოჩნდება აპლიკაციის გამშვებებში:"
 
-#: src/DynamicLauncherDialog.qml:71
+#: src/DynamicLauncherDialog.qml:73
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
 msgstr "სახელი"
 
-#: src/DynamicLauncherDialog.qml:83
+#: src/DynamicLauncherDialog.qml:85
 #, kde-format
 msgctxt "@title Something asked to create a launcher for an app or a website"
 msgid "Launcher Requested"
 msgstr "მოთხოვნილია გამშვები"
 
-#: src/DynamicLauncherDialog.qml:98
+#: src/DynamicLauncherDialog.qml:100
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
 msgstr "ინფორმაციის ჩასწორება…"
 
-#: src/DynamicLauncherDialog.qml:104
+#: src/DynamicLauncherDialog.qml:106
 #, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Create"
 msgstr "შექმნა"
 
-#: src/DynamicLauncherDialog.qml:109
+#: src/DynamicLauncherDialog.qml:111
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
@@ -404,7 +404,7 @@ msgstr ""
 "გაარხევთ და ვერც კლავიატურაზე აკრეფთ."
 
 #: src/InputCaptureDialog.qml:29 src/RemoteDesktopDialog.qml:32
-#: src/ScreenChooserDialog.qml:195
+#: src/ScreenChooserDialog.qml:194
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow the application to do this without asking next time"
@@ -529,47 +529,47 @@ msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
 msgstr "“%1”-ის გაზიარება"
 
-#: src/region-select/RegionSelectOverlay.qml:148
+#: src/region-select/RegionSelectOverlay.qml:150
 #, kde-format
 msgid "Start streaming:"
 msgstr "ნაკადის გაშვება:"
 
-#: src/region-select/RegionSelectOverlay.qml:152
+#: src/region-select/RegionSelectOverlay.qml:154
 #, kde-format
 msgid "Clear selection:"
 msgstr "მონიშნულის გასუფთავება:"
 
-#: src/region-select/RegionSelectOverlay.qml:156
-#: src/region-select/RegionSelectOverlay.qml:200
+#: src/region-select/RegionSelectOverlay.qml:158
+#: src/region-select/RegionSelectOverlay.qml:202
 #, kde-format
 msgid "Cancel:"
 msgstr "გაუქმება:"
 
-#: src/region-select/RegionSelectOverlay.qml:162
+#: src/region-select/RegionSelectOverlay.qml:164
 #, kde-format
 msgctxt "Mouse action"
 msgid "Release left-click"
 msgstr "გაუშვით მარცხენა წკაპს"
 
-#: src/region-select/RegionSelectOverlay.qml:166
+#: src/region-select/RegionSelectOverlay.qml:168
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
 msgstr "მარჯვენა-წკაპი"
 
-#: src/region-select/RegionSelectOverlay.qml:170
-#: src/region-select/RegionSelectOverlay.qml:210
+#: src/region-select/RegionSelectOverlay.qml:172
+#: src/region-select/RegionSelectOverlay.qml:212
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
 msgstr "Escape"
 
-#: src/region-select/RegionSelectOverlay.qml:196
+#: src/region-select/RegionSelectOverlay.qml:198
 #, kde-format
 msgid "Create selection:"
 msgstr "მონიშნულის შექმნა:"
 
-#: src/region-select/RegionSelectOverlay.qml:206
+#: src/region-select/RegionSelectOverlay.qml:208
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
@@ -888,26 +888,26 @@ msgid "Only share anything if you know which application made the request."
 msgstr ""
 "გაუზიარეტ, მხოლოდ, მაშინ, თუ იცით, რომელმა აპლიკაციამ გააკეთა მოთხოვნა."
 
-#: src/ScreenChooserDialog.qml:122
+#: src/ScreenChooserDialog.qml:121
 #, kde-format
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
 msgstr "ძებნა…"
 
-#: src/ScreenChooserDialog.qml:168
+#: src/ScreenChooserDialog.qml:167
 #, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "ფანჯრები"
 
-#: src/ScreenChooserDialog.qml:187
+#: src/ScreenChooserDialog.qml:186
 #, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Requested"
 msgstr "მოთხოვნილია ეკრანის გაზიარება"
 
-#: src/ScreenChooserDialog.qml:200
+#: src/ScreenChooserDialog.qml:199
 #, kde-format
 msgid "Share"
 msgstr "ზიარი"
@@ -927,81 +927,81 @@ msgstr "მიმდინარე ეკრანი"
 msgid "Active Window"
 msgstr "აქტიური ფანჯარა"
 
-#: src/ScreenshotDialog.qml:25
+#: src/ScreenshotDialog.qml:26
 #, kde-format
 msgctxt "@title:window"
 msgid "Screenshot Requested"
 msgstr "მოთხოვნილია ეკრანის ანაბეჭდი"
 
-#: src/ScreenshotDialog.qml:27
+#: src/ScreenshotDialog.qml:28
 #, kde-format
 msgctxt "@info"
 msgid "Allow an unidentifiable application to take a screenshot?"
 msgstr "მივცე უცნობ აპლიკაციას ნებართვა, ეკრანის ანაბეჭდი გადაიღოს?"
 
-#: src/ScreenshotDialog.qml:28
+#: src/ScreenshotDialog.qml:29
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid "Allow %1 to take a screenshot?"
 msgstr "მივცე %1-ს ნებართვა, ეკრანის ანაბეჭდი გადაიღოს?"
 
-#: src/ScreenshotDialog.qml:29 src/UsbDialog.qml:26 src/WallpaperDialog.qml:44
+#: src/ScreenshotDialog.qml:30 src/UsbDialog.qml:26 src/WallpaperDialog.qml:42
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Only allow if you know which application made the request."
 msgstr "დაუშვით, მხოლოდ, მაშინ, თუ იცით, რომელმა აპლიკაციამ გააკეთა მოთხოვნა."
 
-#: src/ScreenshotDialog.qml:41
+#: src/ScreenshotDialog.qml:42
 #, kde-format
 msgid "Capture Mode"
 msgstr "ჩაჭერის რეჟიმი"
 
-#: src/ScreenshotDialog.qml:45
+#: src/ScreenshotDialog.qml:46
 #, kde-format
 msgid "Area:"
 msgstr "ფართობი:"
 
-#: src/ScreenshotDialog.qml:50
+#: src/ScreenshotDialog.qml:51
 #, kde-format
 msgid "Delay:"
 msgstr "დაყოვნება:"
 
-#: src/ScreenshotDialog.qml:54
+#: src/ScreenshotDialog.qml:55
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 წამი"
 msgstr[1] "%1 წამი"
 
-#: src/ScreenshotDialog.qml:59
+#: src/ScreenshotDialog.qml:60
 #, kde-format
 msgid "Content Options"
 msgstr "შემცველობის პარამეტრები"
 
-#: src/ScreenshotDialog.qml:63
+#: src/ScreenshotDialog.qml:64
 #, kde-format
 msgctxt "@option:check Refers to the on-screen 'mouse pointer'"
 msgid "Include pointer"
 msgstr "კურსორის ჩათვლით"
 
-#: src/ScreenshotDialog.qml:68
+#: src/ScreenshotDialog.qml:69
 #, kde-format
 msgid "Include window borders"
 msgstr "ფანჯრის საზღვრების ჩათვლით"
 
-#: src/ScreenshotDialog.qml:82
+#: src/ScreenshotDialog.qml:83
 #, kde-format
 msgctxt "@action:button Allow the application to use the screenshot"
 msgid "Allow"
 msgstr "დაშვება"
 
-#: src/ScreenshotDialog.qml:83
+#: src/ScreenshotDialog.qml:84
 #, kde-format
 msgctxt "@action:button Deny the application's request to take a screenshot"
 msgid "Deny"
 msgstr "უარყოფა"
 
-#: src/ScreenshotDialog.qml:93
+#: src/ScreenshotDialog.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Take Screenshot"
@@ -1081,19 +1081,19 @@ msgctxt "@action:button"
 msgid "Share"
 msgstr "გაზიარება"
 
-#: src/WallpaperDialog.qml:22
+#: src/WallpaperDialog.qml:20
 #, kde-format
 msgctxt "@title:window"
 msgid "Wallpaper Change Requested"
 msgstr "მოთხოვნილია ფონის სურათის შეცვლა"
 
-#: src/WallpaperDialog.qml:27
+#: src/WallpaperDialog.qml:25
 #, kde-format
 msgctxt "@info"
 msgid "Allow an unidentifiable application to change the desktop wallpaper?"
 msgstr "მივცე უცნობ აპლიკაციას უფლება, სამუშაო მაგიდის ფონის სურათი შეცვალოს?"
 
-#: src/WallpaperDialog.qml:29
+#: src/WallpaperDialog.qml:27
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1101,7 +1101,7 @@ msgid ""
 msgstr ""
 "მივცე უცნობ აპლიკაციას ნებართვა, ჩაკეტილი ეკრანის ფონის სურათი შეცვალოს?"
 
-#: src/WallpaperDialog.qml:31
+#: src/WallpaperDialog.qml:29
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1111,19 +1111,19 @@ msgstr ""
 "მივცე უცნობ აპლიკაციას ნებართვა, სამუშაო მაგიდის და ჩაკეტილი ეკრანის ფონი "
 "შეცვალოს?"
 
-#: src/WallpaperDialog.qml:36
+#: src/WallpaperDialog.qml:34
 #, kde-format
 msgctxt "@info %1 is the application name"
 msgid "Allow %1 to change the desktop wallpaper?"
 msgstr "მივცე %1-ს ნებართვა, სამუშაო მაგიდის ფონის სურათი შეცვალოს?"
 
-#: src/WallpaperDialog.qml:38
+#: src/WallpaperDialog.qml:36
 #, kde-format
 msgctxt "@info %1 is the application name"
 msgid "Allow %1 to change the lock screen wallpaper?"
 msgstr "მივცე %1-ს ნებართვა, ჩაკეტილი ეკრანის ფონის სურათ შეცვალოს?"
 
-#: src/WallpaperDialog.qml:40
+#: src/WallpaperDialog.qml:38
 #, kde-format
 msgctxt "@info %1 is the application name"
 msgid "Allow %1 to change desktop and lock screen wallpapers?"
@@ -1131,13 +1131,13 @@ msgstr ""
 "მივცე %1-ს ნებართვა, შეცვალოს ჩაკეტილი ეკრანის და სამუშაო მაგიდის ფონის "
 "სურათი?"
 
-#: src/WallpaperDialog.qml:57
+#: src/WallpaperDialog.qml:55
 #, kde-format
 msgctxt "@action:button Allow the application to change the wallpaper"
 msgid "Allow"
 msgstr "დაშვება"
 
-#: src/WallpaperDialog.qml:58
+#: src/WallpaperDialog.qml:56
 #, kde-format
 msgctxt ""
 "@action:button Deny the applicatinon's request to change the wallpaper"

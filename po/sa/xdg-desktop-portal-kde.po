@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-17 00:46+0000\n"
+"POT-Creation-Date: 2026-07-30 00:47+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -52,7 +52,7 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "<filename>%1</filename> उद्घाटयितुं अनुप्रयोगं चिनोतु"
 
-#: src/AppChooserDialog.qml:36
+#: src/AppChooserDialog.qml:35
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Find some more apps that can open this content using the Discover app"
@@ -62,37 +62,37 @@ msgctxt ""
 msgid "Find More in Discover…"
 msgstr "Discover इत्यत्र अधिकं अन्वेष्टुम्"
 
-#: src/AppChooserDialog.qml:41
+#: src/AppChooserDialog.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "उद्घाटित"
 
-#: src/AppChooserDialog.qml:49
+#: src/AppChooserDialog.qml:48
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr ""
 
-#: src/AppChooserDialog.qml:123
+#: src/AppChooserDialog.qml:122
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "सर्वाणि संस्थापितानि अनुप्रयोगाः दर्शयतु"
 
-#: src/AppChooserDialog.qml:136
+#: src/AppChooserDialog.qml:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "अन्यं चिनोतु..."
 
-#: src/AppChooserDialog.qml:195
+#: src/AppChooserDialog.qml:194
 #, fuzzy, kde-kuit-format
 #| msgid "Default app for this file type"
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "अस्य सञ्चिकाप्रकारस्य पूर्वनिर्धारितं एप्"
 
-#: src/AppChooserDialog.qml:197
+#: src/AppChooserDialog.qml:196
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:whatsthis"
 #| msgid "Last used app for this file type"
@@ -100,30 +100,30 @@ msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "अस्य सञ्चिकाप्रकारस्य कृते अन्तिमप्रयुक्तम् एप्"
 
-#: src/AppChooserDialog.qml:219
+#: src/AppChooserDialog.qml:218
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "<command>%1</command> इत्यनेन उद्घाटयतु?"
 
-#: src/AppChooserDialog.qml:221
+#: src/AppChooserDialog.qml:220
 #, kde-format
 msgid "No matches"
 msgstr "न मेलनं"
 
-#: src/AppChooserDialog.qml:223
+#: src/AppChooserDialog.qml:222
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "कोऽपि संस्थापितः अनुप्रयोगः <filename>%1</filename> उद्घाटयितुं न शक्नोति"
 
-#: src/AppChooserDialog.qml:242
+#: src/AppChooserDialog.qml:241
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "टर्मिनल् मध्ये चालयन्तु"
 
-#: src/AppChooserDialog.qml:250
+#: src/AppChooserDialog.qml:249
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -231,13 +231,13 @@ msgid ""
 "launchers:"
 msgstr ""
 
-#: src/DynamicLauncherDialog.qml:71
+#: src/DynamicLauncherDialog.qml:73
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
 msgstr "नामः"
 
-#: src/DynamicLauncherDialog.qml:83
+#: src/DynamicLauncherDialog.qml:85
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Input Capture Requested"
@@ -245,20 +245,20 @@ msgctxt "@title Something asked to create a launcher for an app or a website"
 msgid "Launcher Requested"
 msgstr "इनपुट कैप्चर अनुरोधित"
 
-#: src/DynamicLauncherDialog.qml:98
+#: src/DynamicLauncherDialog.qml:100
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
 msgstr "सूचना सम्पादयतु..."
 
-#: src/DynamicLauncherDialog.qml:104
+#: src/DynamicLauncherDialog.qml:106
 #, fuzzy, kde-format
 #| msgid "Create Folder"
 msgctxt "@action accept dialog and create launcher"
 msgid "Create"
 msgstr "Folder रचयन्तु"
 
-#: src/DynamicLauncherDialog.qml:109
+#: src/DynamicLauncherDialog.qml:111
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
@@ -426,7 +426,7 @@ msgid ""
 msgstr ""
 
 #: src/InputCaptureDialog.qml:29 src/RemoteDesktopDialog.qml:32
-#: src/ScreenChooserDialog.qml:195
+#: src/ScreenChooserDialog.qml:194
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow the application to do this without asking next time"
@@ -555,47 +555,47 @@ msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
 msgstr ""
 
-#: src/region-select/RegionSelectOverlay.qml:148
+#: src/region-select/RegionSelectOverlay.qml:150
 #, kde-format
 msgid "Start streaming:"
 msgstr "स्ट्रीमिंग् आरभत :"
 
-#: src/region-select/RegionSelectOverlay.qml:152
+#: src/region-select/RegionSelectOverlay.qml:154
 #, kde-format
 msgid "Clear selection:"
 msgstr "चयनं स्पष्टं कुरुत :"
 
-#: src/region-select/RegionSelectOverlay.qml:156
-#: src/region-select/RegionSelectOverlay.qml:200
+#: src/region-select/RegionSelectOverlay.qml:158
+#: src/region-select/RegionSelectOverlay.qml:202
 #, kde-format
 msgid "Cancel:"
 msgstr "निरसयतु:"
 
-#: src/region-select/RegionSelectOverlay.qml:162
+#: src/region-select/RegionSelectOverlay.qml:164
 #, kde-format
 msgctxt "Mouse action"
 msgid "Release left-click"
 msgstr "वाम-क्लिक् मुक्तं कुर्वन्तु"
 
-#: src/region-select/RegionSelectOverlay.qml:166
+#: src/region-select/RegionSelectOverlay.qml:168
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
 msgstr "राइट्-क्लिक् कुर्वन्तु"
 
-#: src/region-select/RegionSelectOverlay.qml:170
-#: src/region-select/RegionSelectOverlay.qml:210
+#: src/region-select/RegionSelectOverlay.qml:172
+#: src/region-select/RegionSelectOverlay.qml:212
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
 msgstr "परिभ्रंशति"
 
-#: src/region-select/RegionSelectOverlay.qml:196
+#: src/region-select/RegionSelectOverlay.qml:198
 #, kde-format
 msgid "Create selection:"
 msgstr "चयनं रचयन्तु :"
 
-#: src/region-select/RegionSelectOverlay.qml:206
+#: src/region-select/RegionSelectOverlay.qml:208
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
@@ -914,13 +914,13 @@ msgctxt "@info:usagetip"
 msgid "Only share anything if you know which application made the request."
 msgstr ""
 
-#: src/ScreenChooserDialog.qml:122
+#: src/ScreenChooserDialog.qml:121
 #, kde-format
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
 msgstr ""
 
-#: src/ScreenChooserDialog.qml:168
+#: src/ScreenChooserDialog.qml:167
 #, fuzzy, kde-format
 #| msgid "Windows"
 msgctxt ""
@@ -928,14 +928,14 @@ msgctxt ""
 msgid "Windows"
 msgstr "विण्डोज"
 
-#: src/ScreenChooserDialog.qml:187
+#: src/ScreenChooserDialog.qml:186
 #, fuzzy, kde-format
 #| msgid "Screen Sharing"
 msgctxt "@title:window"
 msgid "Screen Sharing Requested"
 msgstr "स्क्रीन साझाकरणम्"
 
-#: src/ScreenChooserDialog.qml:200
+#: src/ScreenChooserDialog.qml:199
 #, kde-format
 msgid "Share"
 msgstr "संविभागः"
@@ -955,70 +955,70 @@ msgstr "वर्तमान स्क्रीन"
 msgid "Active Window"
 msgstr "सक्रिय विण्डो"
 
-#: src/ScreenshotDialog.qml:25
+#: src/ScreenshotDialog.qml:26
 #, kde-format
 msgctxt "@title:window"
 msgid "Screenshot Requested"
 msgstr ""
 
-#: src/ScreenshotDialog.qml:27
+#: src/ScreenshotDialog.qml:28
 #, kde-format
 msgctxt "@info"
 msgid "Allow an unidentifiable application to take a screenshot?"
 msgstr ""
 
-#: src/ScreenshotDialog.qml:28
+#: src/ScreenshotDialog.qml:29
 #, kde-format
 msgctxt "@info %1 is the name of an application"
 msgid "Allow %1 to take a screenshot?"
 msgstr ""
 
-#: src/ScreenshotDialog.qml:29 src/UsbDialog.qml:26 src/WallpaperDialog.qml:44
+#: src/ScreenshotDialog.qml:30 src/UsbDialog.qml:26 src/WallpaperDialog.qml:42
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Only allow if you know which application made the request."
 msgstr ""
 
-#: src/ScreenshotDialog.qml:41
+#: src/ScreenshotDialog.qml:42
 #, kde-format
 msgid "Capture Mode"
 msgstr "कैप्चर मोड"
 
-#: src/ScreenshotDialog.qml:45
+#: src/ScreenshotDialog.qml:46
 #, kde-format
 msgid "Area:"
 msgstr "क्षेत्र:"
 
-#: src/ScreenshotDialog.qml:50
+#: src/ScreenshotDialog.qml:51
 #, kde-format
 msgid "Delay:"
 msgstr "विलम्बः:"
 
-#: src/ScreenshotDialog.qml:54
+#: src/ScreenshotDialog.qml:55
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 द्वितीयम्"
 msgstr[1] "%1 सेकण्ड्"
 
-#: src/ScreenshotDialog.qml:59
+#: src/ScreenshotDialog.qml:60
 #, kde-format
 msgid "Content Options"
 msgstr "सामग्रीविकल्पाः"
 
-#: src/ScreenshotDialog.qml:63
+#: src/ScreenshotDialog.qml:64
 #, fuzzy, kde-format
 #| msgid "Include cursor pointer"
 msgctxt "@option:check Refers to the on-screen 'mouse pointer'"
 msgid "Include pointer"
 msgstr "कर्सर सूचकं समावेशयन्तु"
 
-#: src/ScreenshotDialog.qml:68
+#: src/ScreenshotDialog.qml:69
 #, kde-format
 msgid "Include window borders"
 msgstr "खिडकीसीमाः समाविष्टाः कुर्वन्तु"
 
-#: src/ScreenshotDialog.qml:82
+#: src/ScreenshotDialog.qml:83
 #, fuzzy, kde-format
 #| msgctxt "@action:button Allow the app to keep running with no open windows"
 #| msgid "Allow"
@@ -1026,13 +1026,13 @@ msgctxt "@action:button Allow the application to use the screenshot"
 msgid "Allow"
 msgstr "अनुमन्यताम्‌"
 
-#: src/ScreenshotDialog.qml:83
+#: src/ScreenshotDialog.qml:84
 #, kde-format
 msgctxt "@action:button Deny the application's request to take a screenshot"
 msgid "Deny"
 msgstr ""
 
-#: src/ScreenshotDialog.qml:93
+#: src/ScreenshotDialog.qml:94
 #, fuzzy, kde-format
 #| msgid "Request Screenshot"
 msgctxt "@action:button"
@@ -1116,7 +1116,7 @@ msgctxt "@action:button"
 msgid "Share"
 msgstr "संविभागः"
 
-#: src/WallpaperDialog.qml:22
+#: src/WallpaperDialog.qml:20
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Input Capture Requested"
@@ -1124,20 +1124,20 @@ msgctxt "@title:window"
 msgid "Wallpaper Change Requested"
 msgstr "इनपुट कैप्चर अनुरोधित"
 
-#: src/WallpaperDialog.qml:27
+#: src/WallpaperDialog.qml:25
 #, kde-format
 msgctxt "@info"
 msgid "Allow an unidentifiable application to change the desktop wallpaper?"
 msgstr ""
 
-#: src/WallpaperDialog.qml:29
+#: src/WallpaperDialog.qml:27
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Allow an unidentifiable application to change the lock screen wallpaper?"
 msgstr ""
 
-#: src/WallpaperDialog.qml:31
+#: src/WallpaperDialog.qml:29
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1145,25 +1145,25 @@ msgid ""
 "wallpapers?"
 msgstr ""
 
-#: src/WallpaperDialog.qml:36
+#: src/WallpaperDialog.qml:34
 #, kde-format
 msgctxt "@info %1 is the application name"
 msgid "Allow %1 to change the desktop wallpaper?"
 msgstr ""
 
-#: src/WallpaperDialog.qml:38
+#: src/WallpaperDialog.qml:36
 #, kde-format
 msgctxt "@info %1 is the application name"
 msgid "Allow %1 to change the lock screen wallpaper?"
 msgstr ""
 
-#: src/WallpaperDialog.qml:40
+#: src/WallpaperDialog.qml:38
 #, kde-format
 msgctxt "@info %1 is the application name"
 msgid "Allow %1 to change desktop and lock screen wallpapers?"
 msgstr ""
 
-#: src/WallpaperDialog.qml:57
+#: src/WallpaperDialog.qml:55
 #, fuzzy, kde-format
 #| msgctxt "@action:button Allow the app to keep running with no open windows"
 #| msgid "Allow"
@@ -1171,7 +1171,7 @@ msgctxt "@action:button Allow the application to change the wallpaper"
 msgid "Allow"
 msgstr "अनुमन्यताम्‌"
 
-#: src/WallpaperDialog.qml:58
+#: src/WallpaperDialog.qml:56
 #, kde-format
 msgctxt ""
 "@action:button Deny the applicatinon's request to change the wallpaper"

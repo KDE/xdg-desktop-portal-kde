@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-17 00:46+0000\n"
+"POT-Creation-Date: 2026-07-30 00:47+0000\n"
 "PO-Revision-Date: 2026-01-05 20:37+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -52,74 +52,74 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "Valitse sovellus, johon <filename>%1</filename> avataan"
 
-#: src/AppChooserDialog.qml:36
+#: src/AppChooserDialog.qml:35
 #, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
 msgstr "Etsi Discoverista lisää…"
 
-#: src/AppChooserDialog.qml:41
+#: src/AppChooserDialog.qml:40
 #, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Avaa"
 
-#: src/AppChooserDialog.qml:49
+#: src/AppChooserDialog.qml:48
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr "Aseta oletussovellukseksi tyypin ”%1” tiedostojen avaamiseksi"
 
-#: src/AppChooserDialog.qml:123
+#: src/AppChooserDialog.qml:122
 #, kde-format
 msgid "Show All Installed Applications"
 msgstr "Näytä kaikki asennetut sovellukset"
 
-#: src/AppChooserDialog.qml:136
+#: src/AppChooserDialog.qml:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "Valitse muu…"
 
-#: src/AppChooserDialog.qml:195
+#: src/AppChooserDialog.qml:194
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>Tämän tiedostotyypin oletussovellus</emphasis>"
 
-#: src/AppChooserDialog.qml:197
+#: src/AppChooserDialog.qml:196
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr ""
 "%1<nl/><emphasis>Viimeksi tälle tiedostotyypille käytetty sovellus</emphasis>"
 
-#: src/AppChooserDialog.qml:219
+#: src/AppChooserDialog.qml:218
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Avataanko ohjelmalla <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:221
+#: src/AppChooserDialog.qml:220
 #, kde-format
 msgid "No matches"
 msgstr "Ei osumia"
 
-#: src/AppChooserDialog.qml:223
+#: src/AppChooserDialog.qml:222
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
 "Yksikään asennettu sovellus ei voi avata tiedostoa <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:242
+#: src/AppChooserDialog.qml:241
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Suorita päätteessä"
 
-#: src/AppChooserDialog.qml:250
+#: src/AppChooserDialog.qml:249
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -229,13 +229,13 @@ msgid ""
 "launchers:"
 msgstr ""
 
-#: src/DynamicLauncherDialog.qml:71
+#: src/DynamicLauncherDialog.qml:73
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
 msgstr "Nimi"
 
-#: src/DynamicLauncherDialog.qml:83
+#: src/DynamicLauncherDialog.qml:85
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Input Capture Requested"
@@ -243,20 +243,20 @@ msgctxt "@title Something asked to create a launcher for an app or a website"
 msgid "Launcher Requested"
 msgstr "Syötekaappausta pyydetty"
 
-#: src/DynamicLauncherDialog.qml:98
+#: src/DynamicLauncherDialog.qml:100
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
 msgstr "Muokkaa tietoja…"
 
-#: src/DynamicLauncherDialog.qml:104
+#: src/DynamicLauncherDialog.qml:106
 #, fuzzy, kde-format
 #| msgid "Create Folder"
 msgctxt "@action accept dialog and create launcher"
 msgid "Create"
 msgstr "Luo kansio"
 
-#: src/DynamicLauncherDialog.qml:109
+#: src/DynamicLauncherDialog.qml:111
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
@@ -430,7 +430,7 @@ msgid ""
 msgstr ""
 
 #: src/InputCaptureDialog.qml:29 src/RemoteDesktopDialog.qml:32
-#: src/ScreenChooserDialog.qml:195
+#: src/ScreenChooserDialog.qml:194
 #, fuzzy, kde-format
 #| msgctxt "the app is unknown"
 #| msgid "Allow an application to set the desktop background?"
@@ -562,47 +562,47 @@ msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
 msgstr ""
 
-#: src/region-select/RegionSelectOverlay.qml:148
+#: src/region-select/RegionSelectOverlay.qml:150
 #, kde-format
 msgid "Start streaming:"
 msgstr "Aloita suoratoisto:"
 
-#: src/region-select/RegionSelectOverlay.qml:152
+#: src/region-select/RegionSelectOverlay.qml:154
 #, kde-format
 msgid "Clear selection:"
 msgstr "Tyhjennä valinta:"
 
-#: src/region-select/RegionSelectOverlay.qml:156
-#: src/region-select/RegionSelectOverlay.qml:200
+#: src/region-select/RegionSelectOverlay.qml:158
+#: src/region-select/RegionSelectOverlay.qml:202
 #, kde-format
 msgid "Cancel:"
 msgstr "Peru:"
 
-#: src/region-select/RegionSelectOverlay.qml:162
+#: src/region-select/RegionSelectOverlay.qml:164
 #, kde-format
 msgctxt "Mouse action"
 msgid "Release left-click"
 msgstr "Vapauta vasen napsautus"
 
-#: src/region-select/RegionSelectOverlay.qml:166
+#: src/region-select/RegionSelectOverlay.qml:168
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
 msgstr "Oikea napsautus"
 
-#: src/region-select/RegionSelectOverlay.qml:170
-#: src/region-select/RegionSelectOverlay.qml:210
+#: src/region-select/RegionSelectOverlay.qml:172
+#: src/region-select/RegionSelectOverlay.qml:212
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
 msgstr "Esc"
 
-#: src/region-select/RegionSelectOverlay.qml:196
+#: src/region-select/RegionSelectOverlay.qml:198
 #, kde-format
 msgid "Create selection:"
 msgstr "Luo valinta:"
 
-#: src/region-select/RegionSelectOverlay.qml:206
+#: src/region-select/RegionSelectOverlay.qml:208
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
@@ -928,28 +928,28 @@ msgctxt "@info:usagetip"
 msgid "Only share anything if you know which application made the request."
 msgstr ""
 
-#: src/ScreenChooserDialog.qml:122
+#: src/ScreenChooserDialog.qml:121
 #, fuzzy, kde-format
 #| msgid "Search"
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
 msgstr "Etsi"
 
-#: src/ScreenChooserDialog.qml:168
+#: src/ScreenChooserDialog.qml:167
 #, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
 msgstr "Ikkunat"
 
-#: src/ScreenChooserDialog.qml:187
+#: src/ScreenChooserDialog.qml:186
 #, fuzzy, kde-format
 #| msgid "Screen Sharing"
 msgctxt "@title:window"
 msgid "Screen Sharing Requested"
 msgstr "Näytönjako"
 
-#: src/ScreenChooserDialog.qml:200
+#: src/ScreenChooserDialog.qml:199
 #, kde-format
 msgid "Share"
 msgstr "Jaa"
@@ -969,7 +969,7 @@ msgstr "Nykyinen näyttö"
 msgid "Active Window"
 msgstr "Aktiivinen ikkuna"
 
-#: src/ScreenshotDialog.qml:25
+#: src/ScreenshotDialog.qml:26
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Global Shortcuts Requested"
@@ -977,7 +977,7 @@ msgctxt "@title:window"
 msgid "Screenshot Requested"
 msgstr "Yleispikanäppäimiä pyydetty"
 
-#: src/ScreenshotDialog.qml:27
+#: src/ScreenshotDialog.qml:28
 #, fuzzy, kde-format
 #| msgctxt "the app is unknown"
 #| msgid "Allow an application to set the lock screen background?"
@@ -985,7 +985,7 @@ msgctxt "@info"
 msgid "Allow an unidentifiable application to take a screenshot?"
 msgstr "Sallitaanko sovelluksen asettaa lukitusnäytön tausta?"
 
-#: src/ScreenshotDialog.qml:28
+#: src/ScreenshotDialog.qml:29
 #, fuzzy, kde-format
 #| msgctxt "%1 is the application name"
 #| msgid "Allow %1 to set the lock screen background?"
@@ -993,52 +993,52 @@ msgctxt "@info %1 is the name of an application"
 msgid "Allow %1 to take a screenshot?"
 msgstr "Sallitaanko, että %1 asettaa lukitusnäytön taustan?"
 
-#: src/ScreenshotDialog.qml:29 src/UsbDialog.qml:26 src/WallpaperDialog.qml:44
+#: src/ScreenshotDialog.qml:30 src/UsbDialog.qml:26 src/WallpaperDialog.qml:42
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Only allow if you know which application made the request."
 msgstr ""
 
-#: src/ScreenshotDialog.qml:41
+#: src/ScreenshotDialog.qml:42
 #, kde-format
 msgid "Capture Mode"
 msgstr "Kaappaustapa"
 
-#: src/ScreenshotDialog.qml:45
+#: src/ScreenshotDialog.qml:46
 #, kde-format
 msgid "Area:"
 msgstr "Alue:"
 
-#: src/ScreenshotDialog.qml:50
+#: src/ScreenshotDialog.qml:51
 #, kde-format
 msgid "Delay:"
 msgstr "Viive:"
 
-#: src/ScreenshotDialog.qml:54
+#: src/ScreenshotDialog.qml:55
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 sekunti"
 msgstr[1] "%1 sekuntia"
 
-#: src/ScreenshotDialog.qml:59
+#: src/ScreenshotDialog.qml:60
 #, kde-format
 msgid "Content Options"
 msgstr "Sisältövalinnat"
 
-#: src/ScreenshotDialog.qml:63
+#: src/ScreenshotDialog.qml:64
 #, fuzzy, kde-format
 #| msgid "Include cursor pointer"
 msgctxt "@option:check Refers to the on-screen 'mouse pointer'"
 msgid "Include pointer"
 msgstr "Sisällytä hiiriosoitin"
 
-#: src/ScreenshotDialog.qml:68
+#: src/ScreenshotDialog.qml:69
 #, kde-format
 msgid "Include window borders"
 msgstr "Ota ikkunareunat mukaan"
 
-#: src/ScreenshotDialog.qml:82
+#: src/ScreenshotDialog.qml:83
 #, fuzzy, kde-format
 #| msgctxt "@action:button Allow the app to keep running with no open windows"
 #| msgid "Allow"
@@ -1046,7 +1046,7 @@ msgctxt "@action:button Allow the application to use the screenshot"
 msgid "Allow"
 msgstr "Salli"
 
-#: src/ScreenshotDialog.qml:83
+#: src/ScreenshotDialog.qml:84
 #, fuzzy, kde-format
 #| msgctxt "@action:button Deny the application gaining extra privileges"
 #| msgid "Deny"
@@ -1054,7 +1054,7 @@ msgctxt "@action:button Deny the application's request to take a screenshot"
 msgid "Deny"
 msgstr "Kiellä"
 
-#: src/ScreenshotDialog.qml:93
+#: src/ScreenshotDialog.qml:94
 #, fuzzy, kde-format
 #| msgid "Take screenshot"
 msgctxt "@action:button"
@@ -1149,7 +1149,7 @@ msgctxt "@action:button"
 msgid "Share"
 msgstr "Jaa"
 
-#: src/WallpaperDialog.qml:22
+#: src/WallpaperDialog.qml:20
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Input Capture Requested"
@@ -1157,7 +1157,7 @@ msgctxt "@title:window"
 msgid "Wallpaper Change Requested"
 msgstr "Syötekaappausta pyydetty"
 
-#: src/WallpaperDialog.qml:27
+#: src/WallpaperDialog.qml:25
 #, fuzzy, kde-format
 #| msgctxt "the app is unknown"
 #| msgid "Allow an application to set the desktop background?"
@@ -1165,7 +1165,7 @@ msgctxt "@info"
 msgid "Allow an unidentifiable application to change the desktop wallpaper?"
 msgstr "Sallitaanko sovelluksen asettaa työpöydän tausta?"
 
-#: src/WallpaperDialog.qml:29
+#: src/WallpaperDialog.qml:27
 #, fuzzy, kde-format
 #| msgctxt "the app is unknown"
 #| msgid "Allow an application to set the lock screen background?"
@@ -1174,7 +1174,7 @@ msgid ""
 "Allow an unidentifiable application to change the lock screen wallpaper?"
 msgstr "Sallitaanko sovelluksen asettaa lukitusnäytön tausta?"
 
-#: src/WallpaperDialog.qml:31
+#: src/WallpaperDialog.qml:29
 #, fuzzy, kde-format
 #| msgctxt "the app is unknown"
 #| msgid "Allow an application to set desktop and lock screen backgrounds?"
@@ -1184,7 +1184,7 @@ msgid ""
 "wallpapers?"
 msgstr "Sallitaanko sovelluksen asettaa työpöydän ja lukitusnäytön taustat?"
 
-#: src/WallpaperDialog.qml:36
+#: src/WallpaperDialog.qml:34
 #, fuzzy, kde-format
 #| msgctxt "%1 is the application name"
 #| msgid "Allow %1 to set the desktop background?"
@@ -1192,7 +1192,7 @@ msgctxt "@info %1 is the application name"
 msgid "Allow %1 to change the desktop wallpaper?"
 msgstr "Sallitaanko, että %1 asettaa työpöydän taustan?"
 
-#: src/WallpaperDialog.qml:38
+#: src/WallpaperDialog.qml:36
 #, fuzzy, kde-format
 #| msgctxt "%1 is the application name"
 #| msgid "Allow %1 to set the lock screen background?"
@@ -1200,7 +1200,7 @@ msgctxt "@info %1 is the application name"
 msgid "Allow %1 to change the lock screen wallpaper?"
 msgstr "Sallitaanko, että %1 asettaa lukitusnäytön taustan?"
 
-#: src/WallpaperDialog.qml:40
+#: src/WallpaperDialog.qml:38
 #, fuzzy, kde-format
 #| msgctxt "%1 is the application name"
 #| msgid "Allow %1 to set desktop and lock screen backgrounds?"
@@ -1208,7 +1208,7 @@ msgctxt "@info %1 is the application name"
 msgid "Allow %1 to change desktop and lock screen wallpapers?"
 msgstr "Sallitaanko, että %1 asettaa työpöydän ja lukitusnäytön taustat?"
 
-#: src/WallpaperDialog.qml:57
+#: src/WallpaperDialog.qml:55
 #, fuzzy, kde-format
 #| msgctxt "@action:button Allow the app to keep running with no open windows"
 #| msgid "Allow"
@@ -1216,7 +1216,7 @@ msgctxt "@action:button Allow the application to change the wallpaper"
 msgid "Allow"
 msgstr "Salli"
 
-#: src/WallpaperDialog.qml:58
+#: src/WallpaperDialog.qml:56
 #, fuzzy, kde-format
 #| msgctxt "@action:button Deny the application gaining extra privileges"
 #| msgid "Deny"

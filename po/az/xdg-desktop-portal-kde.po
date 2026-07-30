@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-17 00:46+0000\n"
+"POT-Creation-Date: 2026-07-30 00:47+0000\n"
 "PO-Revision-Date: 2022-08-24 17:55+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -53,76 +53,76 @@ msgctxt "@info"
 msgid "Choose an application to open <filename>%1</filename>"
 msgstr "\"%1\" açacaq üçün bir tətbiq seçin"
 
-#: src/AppChooserDialog.qml:36
+#: src/AppChooserDialog.qml:35
 #, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
 msgstr ""
 
-#: src/AppChooserDialog.qml:41
+#: src/AppChooserDialog.qml:40
 #, fuzzy, kde-format
 #| msgid "Open"
 msgctxt "@action:button"
 msgid "Open"
 msgstr "Açmaq"
 
-#: src/AppChooserDialog.qml:49
+#: src/AppChooserDialog.qml:48
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Set as default app to open %1 files"
 msgstr ""
 
-#: src/AppChooserDialog.qml:123
+#: src/AppChooserDialog.qml:122
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Add Application…"
 msgid "Show All Installed Applications"
 msgstr "Tətbiq əlavə edin..."
 
-#: src/AppChooserDialog.qml:136
+#: src/AppChooserDialog.qml:135
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr ""
 
-#: src/AppChooserDialog.qml:195
+#: src/AppChooserDialog.qml:194
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr ""
 
-#: src/AppChooserDialog.qml:197
+#: src/AppChooserDialog.qml:196
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr ""
 
-#: src/AppChooserDialog.qml:219
+#: src/AppChooserDialog.qml:218
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr ""
 
-#: src/AppChooserDialog.qml:221
+#: src/AppChooserDialog.qml:220
 #, kde-format
 msgid "No matches"
 msgstr ""
 
-#: src/AppChooserDialog.qml:223
+#: src/AppChooserDialog.qml:222
 #, fuzzy, kde-kuit-format
 #| msgid "Select an application to open '%1'"
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "\"%1\" açacaq üçün bir tətbiq seçin"
 
-#: src/AppChooserDialog.qml:242
+#: src/AppChooserDialog.qml:241
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr ""
 
-#: src/AppChooserDialog.qml:250
+#: src/AppChooserDialog.qml:249
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -213,32 +213,32 @@ msgid ""
 "launchers:"
 msgstr ""
 
-#: src/DynamicLauncherDialog.qml:71
+#: src/DynamicLauncherDialog.qml:73
 #, kde-format
 msgctxt "@label name of a launcher/application"
 msgid "Name"
 msgstr ""
 
-#: src/DynamicLauncherDialog.qml:83
+#: src/DynamicLauncherDialog.qml:85
 #, kde-format
 msgctxt "@title Something asked to create a launcher for an app or a website"
 msgid "Launcher Requested"
 msgstr ""
 
-#: src/DynamicLauncherDialog.qml:98
+#: src/DynamicLauncherDialog.qml:100
 #, kde-format
 msgctxt "@action edit launcher name/icon"
 msgid "Edit Info…"
 msgstr ""
 
-#: src/DynamicLauncherDialog.qml:104
+#: src/DynamicLauncherDialog.qml:106
 #, fuzzy, kde-format
 #| msgid "Select Folder"
 msgctxt "@action accept dialog and create launcher"
 msgid "Create"
 msgstr "Qovluq Seçmək"
 
-#: src/DynamicLauncherDialog.qml:109
+#: src/DynamicLauncherDialog.qml:111
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
@@ -395,7 +395,7 @@ msgid ""
 msgstr ""
 
 #: src/InputCaptureDialog.qml:29 src/RemoteDesktopDialog.qml:32
-#: src/ScreenChooserDialog.qml:195
+#: src/ScreenChooserDialog.qml:194
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow the application to do this without asking next time"
@@ -533,47 +533,47 @@ msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
 msgstr ""
 
-#: src/region-select/RegionSelectOverlay.qml:148
+#: src/region-select/RegionSelectOverlay.qml:150
 #, kde-format
 msgid "Start streaming:"
 msgstr ""
 
-#: src/region-select/RegionSelectOverlay.qml:152
+#: src/region-select/RegionSelectOverlay.qml:154
 #, kde-format
 msgid "Clear selection:"
 msgstr ""
 
-#: src/region-select/RegionSelectOverlay.qml:156
-#: src/region-select/RegionSelectOverlay.qml:200
+#: src/region-select/RegionSelectOverlay.qml:158
+#: src/region-select/RegionSelectOverlay.qml:202
 #, kde-format
 msgid "Cancel:"
 msgstr ""
 
-#: src/region-select/RegionSelectOverlay.qml:162
+#: src/region-select/RegionSelectOverlay.qml:164
 #, kde-format
 msgctxt "Mouse action"
 msgid "Release left-click"
 msgstr ""
 
-#: src/region-select/RegionSelectOverlay.qml:166
+#: src/region-select/RegionSelectOverlay.qml:168
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
 msgstr ""
 
-#: src/region-select/RegionSelectOverlay.qml:170
-#: src/region-select/RegionSelectOverlay.qml:210
+#: src/region-select/RegionSelectOverlay.qml:172
+#: src/region-select/RegionSelectOverlay.qml:212
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
 msgstr ""
 
-#: src/region-select/RegionSelectOverlay.qml:196
+#: src/region-select/RegionSelectOverlay.qml:198
 #, kde-format
 msgid "Create selection:"
 msgstr ""
 
-#: src/region-select/RegionSelectOverlay.qml:206
+#: src/region-select/RegionSelectOverlay.qml:208
 #, kde-format
 msgctxt "Mouse action"
 msgid "Left-click and drag"
@@ -888,13 +888,13 @@ msgctxt "@info:usagetip"
 msgid "Only share anything if you know which application made the request."
 msgstr ""
 
-#: src/ScreenChooserDialog.qml:122
+#: src/ScreenChooserDialog.qml:121
 #, kde-format
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
 msgstr ""
 
-#: src/ScreenChooserDialog.qml:168
+#: src/ScreenChooserDialog.qml:167
 #, fuzzy, kde-format
 #| msgid "Windows"
 msgctxt ""
@@ -902,14 +902,14 @@ msgctxt ""
 msgid "Windows"
 msgstr "Pəncərələr"
 
-#: src/ScreenChooserDialog.qml:187
+#: src/ScreenChooserDialog.qml:186
 #, fuzzy, kde-format
 #| msgid "Screen Sharing"
 msgctxt "@title:window"
 msgid "Screen Sharing Requested"
 msgstr "Ekran paylaşılır"
 
-#: src/ScreenChooserDialog.qml:200
+#: src/ScreenChooserDialog.qml:199
 #, kde-format
 msgid "Share"
 msgstr "Paylaşmaq"
@@ -929,86 +929,86 @@ msgstr "Cari Ekran"
 msgid "Active Window"
 msgstr "Aktiv Pəncərə"
 
-#: src/ScreenshotDialog.qml:25
+#: src/ScreenshotDialog.qml:26
 #, kde-format
 msgctxt "@title:window"
 msgid "Screenshot Requested"
 msgstr ""
 
-#: src/ScreenshotDialog.qml:27
+#: src/ScreenshotDialog.qml:28
 #, kde-format
 msgctxt "@info"
 msgid "Allow an unidentifiable application to take a screenshot?"
 msgstr ""
 
-#: src/ScreenshotDialog.qml:28
+#: src/ScreenshotDialog.qml:29
 #, fuzzy, kde-format
 #| msgid "Take screenshot"
 msgctxt "@info %1 is the name of an application"
 msgid "Allow %1 to take a screenshot?"
 msgstr "Skrinşot saxlamaq"
 
-#: src/ScreenshotDialog.qml:29 src/UsbDialog.qml:26 src/WallpaperDialog.qml:44
+#: src/ScreenshotDialog.qml:30 src/UsbDialog.qml:26 src/WallpaperDialog.qml:42
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Only allow if you know which application made the request."
 msgstr ""
 
-#: src/ScreenshotDialog.qml:41
+#: src/ScreenshotDialog.qml:42
 #, fuzzy, kde-format
 #| msgid "<b>Capture Mode</b>"
 msgid "Capture Mode"
 msgstr "<b>Çəkiliş Rejimi</b>"
 
-#: src/ScreenshotDialog.qml:45
+#: src/ScreenshotDialog.qml:46
 #, kde-format
 msgid "Area:"
 msgstr "Sahə:"
 
-#: src/ScreenshotDialog.qml:50
+#: src/ScreenshotDialog.qml:51
 #, kde-format
 msgid "Delay:"
 msgstr "Müddət:"
 
-#: src/ScreenshotDialog.qml:54
+#: src/ScreenshotDialog.qml:55
 #, kde-format
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/ScreenshotDialog.qml:59
+#: src/ScreenshotDialog.qml:60
 #, fuzzy, kde-format
 #| msgid "<b>Content Options</b>"
 msgid "Content Options"
 msgstr "<b>Tərkiblərin Parametrləri</b>"
 
-#: src/ScreenshotDialog.qml:63
+#: src/ScreenshotDialog.qml:64
 #, fuzzy, kde-format
 #| msgid "Include mouse pointer"
 msgctxt "@option:check Refers to the on-screen 'mouse pointer'"
 msgid "Include pointer"
 msgstr "Kusrsor daxil olmaqla"
 
-#: src/ScreenshotDialog.qml:68
+#: src/ScreenshotDialog.qml:69
 #, kde-format
 msgid "Include window borders"
 msgstr "Pəncərə çərçivəsi daxil"
 
-#: src/ScreenshotDialog.qml:82
+#: src/ScreenshotDialog.qml:83
 #, fuzzy, kde-format
 #| msgid "Allow"
 msgctxt "@action:button Allow the application to use the screenshot"
 msgid "Allow"
 msgstr "İcazə Vermək"
 
-#: src/ScreenshotDialog.qml:83
+#: src/ScreenshotDialog.qml:84
 #, kde-format
 msgctxt "@action:button Deny the application's request to take a screenshot"
 msgid "Deny"
 msgstr ""
 
-#: src/ScreenshotDialog.qml:93
+#: src/ScreenshotDialog.qml:94
 #, fuzzy, kde-format
 #| msgid "Take screenshot"
 msgctxt "@action:button"
@@ -1089,26 +1089,26 @@ msgctxt "@action:button"
 msgid "Share"
 msgstr "Paylaşmaq"
 
-#: src/WallpaperDialog.qml:22
+#: src/WallpaperDialog.qml:20
 #, kde-format
 msgctxt "@title:window"
 msgid "Wallpaper Change Requested"
 msgstr ""
 
-#: src/WallpaperDialog.qml:27
+#: src/WallpaperDialog.qml:25
 #, kde-format
 msgctxt "@info"
 msgid "Allow an unidentifiable application to change the desktop wallpaper?"
 msgstr ""
 
-#: src/WallpaperDialog.qml:29
+#: src/WallpaperDialog.qml:27
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Allow an unidentifiable application to change the lock screen wallpaper?"
 msgstr ""
 
-#: src/WallpaperDialog.qml:31
+#: src/WallpaperDialog.qml:29
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -1116,32 +1116,32 @@ msgid ""
 "wallpapers?"
 msgstr ""
 
-#: src/WallpaperDialog.qml:36
+#: src/WallpaperDialog.qml:34
 #, kde-format
 msgctxt "@info %1 is the application name"
 msgid "Allow %1 to change the desktop wallpaper?"
 msgstr ""
 
-#: src/WallpaperDialog.qml:38
+#: src/WallpaperDialog.qml:36
 #, kde-format
 msgctxt "@info %1 is the application name"
 msgid "Allow %1 to change the lock screen wallpaper?"
 msgstr ""
 
-#: src/WallpaperDialog.qml:40
+#: src/WallpaperDialog.qml:38
 #, kde-format
 msgctxt "@info %1 is the application name"
 msgid "Allow %1 to change desktop and lock screen wallpapers?"
 msgstr ""
 
-#: src/WallpaperDialog.qml:57
+#: src/WallpaperDialog.qml:55
 #, fuzzy, kde-format
 #| msgid "Allow"
 msgctxt "@action:button Allow the application to change the wallpaper"
 msgid "Allow"
 msgstr "İcazə Vermək"
 
-#: src/WallpaperDialog.qml:58
+#: src/WallpaperDialog.qml:56
 #, kde-format
 msgctxt ""
 "@action:button Deny the applicatinon's request to change the wallpaper"
