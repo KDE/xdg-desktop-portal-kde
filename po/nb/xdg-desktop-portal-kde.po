@@ -1,5 +1,6 @@
 # Translation of xdg-desktop-portal-kde to Norwegian Bokmål
 #
+# Martin Hansen <mh306602@gmail.com>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
