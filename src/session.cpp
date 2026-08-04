@@ -68,6 +68,19 @@ Session *Session::getSession(const QString &sessionHandle)
     return sessionList.value(sessionHandle);
 }
 
+void Session::closeAll()
+{
+    // Iterate over a copy: close() removes the session from sessionList.
+    const auto sessions = sessionList.values();
+    if (sessions.isEmpty()) {
+        return;
+    }
+    qCInfo(XdgSessionKdeSession) << "Closing" << sessions.count() << "session(s) after the portal frontend disappeared";
+    for (Session *session : sessions) {
+        session->close();
+    }
+}
+
 void Session::Close()
 {
     close();

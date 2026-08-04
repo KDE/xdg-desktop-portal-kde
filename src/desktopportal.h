@@ -10,6 +10,7 @@
 #define XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
 
 #include <QDBusContext>
+#include <QDBusServiceWatcher>
 #include <QObject>
 
 class AccessPortal;
@@ -48,6 +49,7 @@ private:
     ScreenCastPortal *m_screenCast = nullptr;
     RemoteDesktopPortal *m_remoteDesktop = nullptr;
     DynamicLauncherPortal *const m_dynamicLauncher;
+    QDBusServiceWatcher m_frontendWatcher;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_DESKTOP_PORTAL_H
