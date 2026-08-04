@@ -16,6 +16,7 @@ import QtQuick
 */
 PortalDialog {
     property bool multiple: false
+    property size virtualScreenResolution
 
     signal clearSelection()
 }

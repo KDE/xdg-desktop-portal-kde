@@ -307,6 +307,11 @@ void ScreenChooserDialog::setRegion(const QRect region)
     m_region = region;
 }
 
+QSize ScreenChooserDialog::virtualScreenResolution() const
+{
+    return m_theDialog->property("virtualScreenResolution").toSize();
+}
+
 bool ScreenChooserDialog::allowRestore() const
 {
     return m_theDialog->property("allowRestore").toBool();

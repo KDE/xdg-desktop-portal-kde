@@ -46,6 +46,7 @@ Kirigami.CardsLayout {
             autoExclusive: exclusive
             checked: model.checked === Qt.Checked
             nodeId: waylandItem.nodeId
+            showResolutionPicker: model.uniqueId === "Virtual"
             syntheticCount: {
                 let model = repeater.model.sourceModel
                 if (model instanceof OutputsModel) {
@@ -59,6 +60,11 @@ Kirigami.CardsLayout {
 
             activeFocusOnTab: true
             highlighted: activeFocus
+
+            Binding {
+                when: delegate.showResolutionPicker
+                root.dialog.virtualScreenResolution: delegate.pickedResolution
+            }
 
             Accessible.role: root.dialog.multiple ? Accessible.CheckBox : Accessible.Button
 

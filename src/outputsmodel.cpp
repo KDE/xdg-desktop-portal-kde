@@ -79,12 +79,12 @@ OutputsModel::OutputsModel(Options o, QObject *parent)
     // Specifically should we ever need to listen to QGuiApplication::screenAdded.
     connect(m_outputOrder.get(), &OutputOrder::outputsChanged, this, &OutputsModel::onOutputsChanged);
 
-    if (o & VirtualIncluded) {
-        m_outputs << Output{Output::Virtual, nullptr, i18n("Share virtual screen"), QStringLiteral("Virtual"), {}, nullptr};
-    }
-
     if (o & RegionIncluded) {
         m_outputs << Output{Output::Region, nullptr, i18n("Share region"), u"Region"_s, {}, nullptr};
+    }
+
+    if (o & VirtualIncluded) {
+        m_outputs << Output{Output::Virtual, nullptr, i18n("Share virtual screen"), QStringLiteral("Virtual"), {}, nullptr};
     }
 
     if (o & OutputsExcluded) {
@@ -222,6 +222,7 @@ QHash<int, QByteArray> OutputsModel::roleNames() const
         {DescriptionRole, "description"},
         {GeometryRole, "geometry"},
         {ImageUrlRole, "imageUrl"},
+        {IdRole, "uniqueId"},
     };
 }
 
@@ -251,6 +252,8 @@ QVariant OutputsModel::data(const QModelIndex &index, int role) const
         return output.display();
     case Qt::CheckStateRole:
         return m_selectedRows.contains(index.row()) ? Qt::Checked : Qt::Unchecked;
+    case IdRole:
+        return output.uniqueId();
     }
     return {};
 }

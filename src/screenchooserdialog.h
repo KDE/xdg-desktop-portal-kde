@@ -34,6 +34,7 @@ public:
     QList<KWayland::Client::PlasmaWindow *> selectedWindows() const;
     bool allowRestore() const;
     QRect selectedRegion() const;
+    QSize virtualScreenResolution() const;
 
 public Q_SLOTS:
     void accept() override;

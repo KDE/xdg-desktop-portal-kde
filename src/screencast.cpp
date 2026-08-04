@@ -211,6 +211,7 @@ std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(Screen
                                                                           const QList<Output> &selectedOutputs,
                                                                           const QRect &selectedRegion,
                                                                           const QList<KWayland::Client::PlasmaWindow *> &selectedWindows,
+                                                                          const QSize &virtualScreenSize,
                                                                           bool allowRestore)
 {
     QVariantList outputs;
@@ -231,7 +232,8 @@ std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(Screen
             const QString outputName = session->appId().isEmpty()
                 ? i18n("Virtual Output")
                 : i18nc("%1 is the application name", "Virtual Output (shared with %1)", Utils::applicationName(session->appId()));
-            stream = WaylandIntegration::startStreamingVirtual(OutputsModel::virtualScreenIdForApp(session->appId()), outputName, {1920, 1080}, cursorMode);
+            stream =
+                WaylandIntegration::startStreamingVirtual(OutputsModel::virtualScreenIdForApp(session->appId()), outputName, virtualScreenSize, cursorMode);
             break;
         }
         default:
@@ -282,13 +284,16 @@ std::pair<PortalResponse::Response, QVariantMap> continueStartAfterDialog(Screen
     if (allowRestore) {
         results.insert(u"persist_mode"_s, quint32(session->persistMode()));
         if (session->persistMode() != ScreenCastPortal::NoPersist) {
-            const RestoreData restoreData = {u"KDE"_s,
-                                             RestoreData::currentRestoreDataVersion(),
-                                             QVariantMap{
-                                                 {u"outputs"_s, outputs},
-                                                 {u"windows"_s, QVariant::fromValue(windows)},
-                                                 {u"region"_s, selectedRegion},
-                                             }};
+            RestoreData restoreData = {u"KDE"_s,
+                                       RestoreData::currentRestoreDataVersion(),
+                                       QVariantMap{
+                                           {u"outputs"_s, outputs},
+                                           {u"windows"_s, QVariant::fromValue(windows)},
+                                           {u"region"_s, selectedRegion},
+                                       }};
+            if (virtualScreenSize.isValid()) {
+                restoreData.payload.insert(u"virtualSize"_s, virtualScreenSize);
+            }
             results.insert(u"restore_data"_s, QVariant::fromValue<RestoreData>(restoreData));
         }
     }
@@ -334,6 +339,7 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
     QList<Output> selectedOutputs;
     QList<KWayland::Client::PlasmaWindow *> selectedWindows;
     QRect selectedRegion;
+    QSize virtualScreenSize{1920, 1080};
     if (session->restoreData().isValid()) {
         const RestoreData restoreData = qdbus_cast<RestoreData>(session->restoreData().value<QDBusArgument>());
         if (restoreData.session == QLatin1String("KDE") && restoreData.version == RestoreData::currentRestoreDataVersion()) {
@@ -363,6 +369,11 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
                 valid = fullWorkspace.contains(selectedRegion);
             }
 
+            const QSize restoreSize = restoreDataPayload[QStringLiteral("virtualSize")].value<QSize>();
+            if (restoreSize.isValid()) {
+                virtualScreenSize = restoreSize;
+            }
+
             const auto restoreWindows = restoreDataPayload[QStringLiteral("windows")].value<QList<WindowRestoreInfo>>();
             if (!restoreWindows.isEmpty()) {
                 selectedWindows = tryMatchWindows(restoreWindows);
@@ -372,7 +383,7 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
     }
 
     if (valid) {
-        std::tie(replyResponse, replyResults) = continueStartAfterDialog(session, selectedOutputs, selectedRegion, selectedWindows, true);
+        std::tie(replyResponse, replyResults) = continueStartAfterDialog(session, selectedOutputs, selectedRegion, selectedWindows, virtualScreenSize, true);
         return;
     }
 
@@ -387,6 +398,7 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
                                                             screenDialog->selectedOutputs(),
                                                             screenDialog->selectedRegion(),
                                                             screenDialog->selectedWindows(),
+                                                            screenDialog->virtualScreenResolution(),
                                                             screenDialog->allowRestore());
         return {response, results};
     });

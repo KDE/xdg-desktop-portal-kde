@@ -119,6 +119,7 @@ public:
         DescriptionRole,
         GeometryRole,
         ImageUrlRole,
+        IdRole,
     };
     Q_ENUM(Roles)
 

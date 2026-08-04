@@ -32,6 +32,9 @@ Kirigami.AbstractCard {
     required property rect geometry
     /*! The background image to use for the card. Should only be set for outputs! Applied via onCompleted. */
     required property url backgroundImage
+    /*! Whether show a resolution picker, only applies ot synthetic items */
+    required property bool showResolutionPicker
+    property size pickedResolution: showResolutionPicker ? resolutionCombobox.currentValue : Qt.size(-1, -1)
 
     function selectAndAccept(): void {
         // To be implemented by the user of the delegate. Depends entirely on context (dialog, model, etc).
@@ -144,6 +147,57 @@ Kirigami.AbstractCard {
             wrapMode: Text.Wrap
             visible: text.length > 0
             opacity: 0.75 // in lieu of a semantic subtitle color
+        }
+
+        Item { // spacer
+            visible: resolutionPicker.visible
+        }
+
+        RowLayout {
+            id: resolutionPicker
+
+            visible: root.synthetic && root.showResolutionPicker
+            Layout.columnSpan: 2
+            spacing: Kirigami.Units.smallSpacing
+
+            QQC2.Label {
+                id: resolutionLabel
+                text: KI18n.i18nc("@label:listbox size of a screen, width($1) x height($2", "Resolution:")
+                opacity: 0.75  // in lieu of a semantic subtitle color
+            }
+            QQC2.ComboBox {
+                id: resolutionCombobox
+                // we want to shrink the combobox a bit but not make it look supersquished with no padding at all
+                bottomPadding: 1
+                topPadding: 1
+                implicitHeight: implicitContentHeight + topPadding + bottomPadding
+
+                currentValue: Qt.size(1920, 1080)
+
+                valueRole: "value"
+                textRole: "text"
+                model: [
+                    /* 4:3 (1.33) */
+                    Qt.size(1600, 1200),
+                    /* 5:4 (1.25) */
+                    Qt.size(1280, 1024),
+                    Qt.size(1024, 768),
+                    /* 16:10 (1.6) */
+                    Qt.size(2560, 1600),
+                    Qt.size(1920, 1200),
+                    Qt.size(1280, 800),
+                    /* 16:9 (1.77) */
+                    Qt.size(5120, 2880),
+                    Qt.size(3840, 2160),
+                    Qt.size(3200, 1800),
+                    Qt.size(2880, 1620),
+                    Qt.size(2560, 1440),
+                    Qt.size(1920, 1080),
+                    Qt.size(1600, 900),
+                    Qt.size(1368, 768),
+                    Qt.size(1280, 720),
+                ].map((size) => ({value: size, text:  KI18n.i18nc("size of a screen, width($1) x height($2)", "%1 × %2", size.width.toString(), size.height.toString())}))
+            }
         }
     }
 
