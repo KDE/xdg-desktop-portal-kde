@@ -253,7 +253,7 @@ std::unique_ptr<ScreencastingStream> WaylandIntegration::WaylandIntegrationPriva
         notification->setText(error);
         notification->setIconName(QStringLiteral("dialog-error"));
         notification->sendEvent();
-
+        stream->deleteLater();
         loop.quit();
     });
     connect(stream, &ScreencastingStream::created, &loop, [&ret, &loop, stream] {
