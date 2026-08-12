@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:19+0000\n"
-"PO-Revision-Date: 2024-06-08 11:49+0400\n"
+"PO-Revision-Date: 2026-06-13 20:12+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -56,7 +56,7 @@ msgstr "اختر تطبيق لفتح '<filename>%1</filename>"
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr "افتح ملفات %1 في التطبيق المختار دائماً"
+msgstr "افتح ملفات %1 في التطبيق المختار دائمًا"
 
 #: src/AppChooserDialog.qml:64
 #, kde-format
