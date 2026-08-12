@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-17 02:43+0000\n"
-"PO-Revision-Date: 2026-06-05 11:52+0400\n"
+"PO-Revision-Date: 2026-06-13 20:12+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -326,7 +326,7 @@ msgstr "تطبيق سيتمكن من إدارة الإدخال في المستق
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to manage input in the future."
-msgstr "سيتمكن %1 من إدارة المدخلات مستقبلاً."
+msgstr "سيتمكن %1 من إدارة المدخلات مستقبلًا."
 
 #: src/InputCaptureDialog.qml:17
 #, kde-format
