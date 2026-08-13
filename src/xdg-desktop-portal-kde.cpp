@@ -60,6 +60,12 @@ int main(int argc, char *argv[])
         } else {
             qCDebug(XdgDesktopPortalKde) << "Failed to register desktop portal";
         }
+        QObject::connect(QDBusConnection::sessionBus().interface(), &QDBusConnectionInterface::serviceUnregistered, &a, [](const QString &name) {
+            if (name == u"org.freedesktop.impl.portal.desktop.kde"_s) {
+                qCDebug(XdgDesktopPortalKde) << "Lost name org.freedesktop.impl.portal.desktop.kde. Exiting";
+                QCoreApplication::quit();
+            }
+        });
     } else {
         qCDebug(XdgDesktopPortalKde) << "Failed to register org.freedesktop.impl.portal.desktop.kde service";
         return 1;
