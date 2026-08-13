@@ -327,7 +327,7 @@ WaylandIntegration::Stream WaylandIntegration::WaylandIntegrationPrivate::startS
         notification->setText(error);
         notification->setIconName(QStringLiteral("dialog-error"));
         notification->sendEvent();
-
+        stream->deleteLater();
         loop.quit();
     });
     connect(stream, &ScreencastingStream::created, &loop, [&](uint32_t nodeid) {
