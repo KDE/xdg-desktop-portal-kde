@@ -18,6 +18,7 @@
 #include <QGuiApplication>
 
 #include <KNotification>
+#include <QApplicationStatic>
 #include <QEventLoop>
 #include <QImage>
 #include <QMenu>
@@ -37,7 +38,7 @@
 
 #include <waylandintegration_debug.h>
 
-Q_GLOBAL_STATIC(WaylandIntegration::WaylandIntegrationPrivate, globalWaylandIntegration)
+Q_APPLICATION_STATIC(WaylandIntegration::WaylandIntegrationPrivate, globalWaylandIntegration)
 
 namespace WaylandIntegration
 {
