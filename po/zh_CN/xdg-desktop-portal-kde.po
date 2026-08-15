@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-30 00:47+0000\n"
+"POT-Creation-Date: 2026-08-15 00:49+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -457,15 +457,15 @@ msgstr "选择"
 
 #: src/outputsmodel.cpp:83
 #, kde-format
-msgid "Share virtual screen"
-msgstr "共享虚拟屏幕"
-
-#: src/outputsmodel.cpp:87
-#, kde-format
 msgid "Share region"
 msgstr "共享屏幕区域"
 
-#: src/outputsmodel.cpp:98 src/screencast.cpp:351
+#: src/outputsmodel.cpp:87
+#, kde-format
+msgid "Share virtual screen"
+msgstr "共享虚拟屏幕"
+
+#: src/outputsmodel.cpp:98 src/screencast.cpp:357
 #, kde-format
 msgid "Share full Workspace"
 msgstr "共享完整工作区"
@@ -475,37 +475,49 @@ msgstr "共享完整工作区"
 msgid "Laptop screen"
 msgstr "笔记本屏幕"
 
-#: src/outputsmodel.cpp:369
+#: src/outputsmodel.cpp:372
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "共享全部屏幕的完整工作区"
 
-#: src/outputsmodel.cpp:371
+#: src/outputsmodel.cpp:374
 #, kde-format
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
 msgstr "创建虚拟屏幕并共享"
 
-#: src/outputsmodel.cpp:373
+#: src/outputsmodel.cpp:376
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
 msgstr "裁剪屏幕的一个特定区域"
 
-#: src/PipeWireDelegate.qml:232
+#: src/PipeWireDelegate.qml:165
+#, kde-format
+msgctxt "@label:listbox size of a screen, width($1) x height($2"
+msgid "Resolution:"
+msgstr ""
+
+#: src/PipeWireDelegate.qml:199
+#, kde-format
+msgctxt "size of a screen, width($1) x height($2)"
+msgid "%1 × %2"
+msgstr ""
+
+#: src/PipeWireDelegate.qml:286
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
 msgstr "没有打开的窗口"
 
-#: src/PipeWireDelegate.qml:237
+#: src/PipeWireDelegate.qml:291
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
 msgstr "+%1"
 
-#: src/PipeWireDelegate.qml:250
+#: src/PipeWireDelegate.qml:304
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
@@ -586,12 +598,12 @@ msgstr ""
 "应用程序 <application>%1</application> 尝试启动远程桌面会话，但远程桌面在 "
 "X11 会话中不可用。请切换到 Wayland 会话后重试。"
 
-#: src/remotedesktop.cpp:190 src/screencast.cpp:232
+#: src/remotedesktop.cpp:190 src/screencast.cpp:233
 #, kde-format
 msgid "Virtual Output"
 msgstr "虚拟输出"
 
-#: src/remotedesktop.cpp:191 src/screencast.cpp:233
+#: src/remotedesktop.cpp:191 src/screencast.cpp:234
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
@@ -747,26 +759,26 @@ msgstr ""
 "应用程序 <application>%1</application> 尝试启动屏幕共享会话，但屏幕共享在 "
 "X11 会话中不可用。请切换到 Wayland 会话后重试。"
 
-#: src/screencast.cpp:297
+#: src/screencast.cpp:302
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "正在共享屏幕"
 
-#: src/screencast.cpp:404
+#: src/screencast.cpp:416
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "终止"
 
-#: src/screencast.cpp:456
+#: src/screencast.cpp:468
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
 msgid_plural "%1 video streams to %2"
 msgstr[0] "%1 视频推流到 %2"
 
-#: src/screencast.cpp:460
+#: src/screencast.cpp:472
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"

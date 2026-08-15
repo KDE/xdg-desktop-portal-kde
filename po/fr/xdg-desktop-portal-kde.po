@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-30 00:47+0000\n"
+"POT-Creation-Date: 2026-08-15 00:49+0000\n"
 "PO-Revision-Date: 2026-06-13 14:57+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -488,15 +488,15 @@ msgstr "Sélectionner"
 
 #: src/outputsmodel.cpp:83
 #, kde-format
-msgid "Share virtual screen"
-msgstr "Partager l'écran virtuel"
-
-#: src/outputsmodel.cpp:87
-#, kde-format
 msgid "Share region"
 msgstr "Partager la zone"
 
-#: src/outputsmodel.cpp:98 src/screencast.cpp:351
+#: src/outputsmodel.cpp:87
+#, kde-format
+msgid "Share virtual screen"
+msgstr "Partager l'écran virtuel"
+
+#: src/outputsmodel.cpp:98 src/screencast.cpp:357
 #, kde-format
 msgid "Share full Workspace"
 msgstr "Partager la totalité de l'espace de travail"
@@ -506,37 +506,49 @@ msgstr "Partager la totalité de l'espace de travail"
 msgid "Laptop screen"
 msgstr "Écran d'ordinateur portable"
 
-#: src/outputsmodel.cpp:369
+#: src/outputsmodel.cpp:372
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "Partager la totalité de l'espace de travail sur tous les écrans"
 
-#: src/outputsmodel.cpp:371
+#: src/outputsmodel.cpp:374
 #, kde-format
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
 msgstr "Créer un écran virtuel puis le partager"
 
-#: src/outputsmodel.cpp:373
+#: src/outputsmodel.cpp:376
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
 msgstr "Rogne une zone spécifique de vos écrans"
 
-#: src/PipeWireDelegate.qml:232
+#: src/PipeWireDelegate.qml:165
+#, kde-format
+msgctxt "@label:listbox size of a screen, width($1) x height($2"
+msgid "Resolution:"
+msgstr ""
+
+#: src/PipeWireDelegate.qml:199
+#, kde-format
+msgctxt "size of a screen, width($1) x height($2)"
+msgid "%1 × %2"
+msgstr ""
+
+#: src/PipeWireDelegate.qml:286
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
 msgstr "Aucune fenêtre ouverte"
 
-#: src/PipeWireDelegate.qml:237
+#: src/PipeWireDelegate.qml:291
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
 msgstr "+ %1"
 
-#: src/PipeWireDelegate.qml:250
+#: src/PipeWireDelegate.qml:304
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
@@ -621,12 +633,12 @@ msgstr ""
 "les sessions sous X11. Veuillez basculer vers une session Wayland et essayer "
 "à nouveau."
 
-#: src/remotedesktop.cpp:190 src/screencast.cpp:232
+#: src/remotedesktop.cpp:190 src/screencast.cpp:233
 #, kde-format
 msgid "Virtual Output"
 msgstr "Sortie virtuelle"
 
-#: src/remotedesktop.cpp:191 src/screencast.cpp:233
+#: src/remotedesktop.cpp:191 src/screencast.cpp:234
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
@@ -791,19 +803,19 @@ msgstr ""
 "les sessions sous X11. Veuillez basculer vers une session Wayland et essayer "
 "à nouveau."
 
-#: src/screencast.cpp:297
+#: src/screencast.cpp:302
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Partage d'écrans en cours"
 
-#: src/screencast.cpp:404
+#: src/screencast.cpp:416
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Terminer"
 
-#: src/screencast.cpp:456
+#: src/screencast.cpp:468
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -811,7 +823,7 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "Partage de contenus vers %2"
 msgstr[1] "%1 flux de vidéos vers %2"
 
-#: src/screencast.cpp:460
+#: src/screencast.cpp:472
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
