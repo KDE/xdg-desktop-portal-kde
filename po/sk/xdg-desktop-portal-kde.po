@@ -515,13 +515,13 @@ msgstr "Crops a specific area of your screens"
 #, kde-format
 msgctxt "@label:listbox size of a screen, width($1) x height($2"
 msgid "Resolution:"
-msgstr ""
+msgstr "Rozlíšenie:"
 
 #: src/PipeWireDelegate.qml:199
 #, kde-format
 msgctxt "size of a screen, width($1) x height($2)"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: src/PipeWireDelegate.qml:286
 #, kde-format
