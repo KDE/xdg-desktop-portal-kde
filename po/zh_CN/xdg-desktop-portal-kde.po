@@ -497,13 +497,13 @@ msgstr "裁剪屏幕的一个特定区域"
 #, kde-format
 msgctxt "@label:listbox size of a screen, width($1) x height($2"
 msgid "Resolution:"
-msgstr ""
+msgstr "分辨率："
 
 #: src/PipeWireDelegate.qml:199
 #, kde-format
 msgctxt "size of a screen, width($1) x height($2)"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: src/PipeWireDelegate.qml:286
 #, kde-format
