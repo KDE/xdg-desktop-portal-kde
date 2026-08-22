@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2026 Mint <5602mint@gmail.com>
 # Ryuichi Yamada <ryuichi_ya220@outlook.jp>, 2023.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2023.
+# SPDX-FileCopyrightText: 2026 Mint <5602mint@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:19+0000\n"
-"PO-Revision-Date: 2026-07-23 17:14+0900\n"
+"PO-Revision-Date: 2026-08-19 19:48+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
@@ -55,7 +55,7 @@ msgstr "<filename>%1</filename> を開くためのアプリケーションを選
 #, kde-format
 msgctxt "@option:check %1 is description of a file type, like 'PNG image'"
 msgid "Always open %1 files with the chosen app"
-msgstr "常に選択したアプリケーションで %1 を開く"
+msgstr "常に選択したアプリで %1 を開く"
 
 #: src/AppChooserDialog.qml:64
 #, kde-format
@@ -65,7 +65,7 @@ msgstr "すべてのインストールされたアプリケーションを表示
 #: src/AppChooserDialog.qml:171
 #, kde-format
 msgid "Default app for this file type"
-msgstr "このファイルタイプのためのデフォルトのアプリケーション"
+msgstr "このファイルタイプのためのデフォルトのアプリ"
 
 #: src/AppChooserDialog.qml:190
 #, kde-format
@@ -83,14 +83,13 @@ msgstr ""
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr "Discover でアプリケーションを探す"
+msgstr "Discover でアプリを探す"
 
 #: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
-msgstr ""
-"適切なアプリケーションがない場合は、<link>Discover</link> で探してください。"
+msgstr "適切なアプリがない場合は、<link>Discover</link> で探してください。"
 
 #: src/background.cpp:104
 #, kde-format
@@ -328,7 +327,7 @@ msgstr "画面共有"
 #: src/screenchooserdialog.cpp:167
 #, kde-format
 msgid "Choose what to share with the requesting application:"
-msgstr "画面共有を求めているアプリに共有するものを選択してください:"
+msgstr "画面共有を求めているアプリケーションに共有するものを選択してください:"
 
 #: src/screenchooserdialog.cpp:169
 #, kde-format
@@ -338,7 +337,7 @@ msgstr "%1 に共有するものを選択してください:"
 #: src/screenchooserdialog.cpp:177
 #, kde-format
 msgid "Share this screen with the requesting application?"
-msgstr "画面共有を求めているアプリにこの画面を共有しますか？"
+msgstr "画面共有を求めているアプリケーションにこの画面を共有しますか？"
 
 #: src/screenchooserdialog.cpp:179
 #, kde-format
@@ -349,7 +348,8 @@ msgstr "%1 にこの画面を共有しますか？"
 #, kde-format
 msgid "Choose screens to share with the requesting application:"
 msgstr ""
-"画面共有を求めているアプリに共有する画面を選択してください (複数選択可):"
+"画面共有を求めているアプリケーションに共有する画面を選択してください (複数選"
+"択可):"
 
 #: src/screenchooserdialog.cpp:186
 #, kde-format
@@ -359,7 +359,7 @@ msgstr "%1 に共有する画面を選択してください (複数選択可):"
 #: src/screenchooserdialog.cpp:190
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
-msgstr "画面共有を求めているアプリに共有する画面を選択してください"
+msgstr "画面共有を求めているアプリケーションに共有する画面を選択してください:"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -369,7 +369,7 @@ msgstr "%1 に共有する画面を選択してください:"
 #: src/screenchooserdialog.cpp:202
 #, kde-format
 msgid "Share this window with the requesting application?"
-msgstr "画面共有を求めているアプリにこのウィンドウを共有しますか？"
+msgstr "画面共有を求めているアプリケーションにこのウィンドウを共有しますか？"
 
 #: src/screenchooserdialog.cpp:204
 #, kde-format
@@ -380,8 +380,8 @@ msgstr "%1 にこのウィンドウを共有しますか？"
 #, kde-format
 msgid "Choose windows to share with the requesting application:"
 msgstr ""
-"画面共有を求めているアプリに共有するウィンドウを選択してください (複数選択"
-"可):"
+"画面共有を求めているアプリケーションに共有するウィンドウを選択してください "
+"(複数選択可):"
 
 #: src/screenchooserdialog.cpp:211
 #, kde-format
@@ -391,7 +391,8 @@ msgstr "%1 に共有するウィンドウを選択してください (複数選�
 #: src/screenchooserdialog.cpp:215
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
-msgstr "画面共有を求めているアプリに共有するウィンドウを選択してください:"
+msgstr ""
+"画面共有を求めているアプリケーションに共有するウィンドウを選択してください:"
 
 #: src/screenchooserdialog.cpp:217
 #, kde-format
