@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2026 Mint <5602mint@gmail.com>
 # Ryuichi Yamada <ryuichi_ya220@outlook.jp>, 2023.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2023.
+# SPDX-FileCopyrightText: 2026 Mint <5602mint@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-15 00:49+0000\n"
-"PO-Revision-Date: 2026-07-23 17:14+0900\n"
+"PO-Revision-Date: 2026-08-19 19:48+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
@@ -56,7 +56,7 @@ msgstr "<filename>%1</filename> を開くためのアプリケーションを選
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "Discover でアプリケーションを探す…"
+msgstr "Discover でアプリを探す…"
 
 #: src/AppChooserDialog.qml:40
 #, fuzzy, kde-format
@@ -137,7 +137,7 @@ msgid ""
 "request, the application will quit when its last window is closed."
 msgstr ""
 "%1 が表示されているウィンドウがない状態でも実行を続ける許可を求めています。拒"
-"否すると、すべてのウィンドウを閉じた時にアプリが終了します。"
+"否すると、すべてのウィンドウを閉じた時にアプリケーションが終了します。"
 
 #: src/background.cpp:143 src/background.cpp:160
 #, kde-format
@@ -209,7 +209,8 @@ msgid ""
 "A launcher to open the following application will appear in application "
 "launchers:"
 msgstr ""
-"以下のアプリを開くランチャーがアプリケーションランチャーに追加されます:"
+"以下のアプリケーションを開くランチャーがアプリケーションランチャーに追加され"
+"ます:"
 
 #: src/DynamicLauncherDialog.qml:73
 #, kde-format
@@ -290,7 +291,8 @@ msgctxt "@info"
 msgid "An unidentifiable application wants to register the following shortcut."
 msgid_plural ""
 "An unidentifiable application wants to register the following %1 shortcuts."
-msgstr[0] "アプリ (特定不可) が以下の%1個のショートカットの登録を求めています"
+msgstr[0] ""
+"アプリケーション (特定不可) が以下の%1個のショートカットの登録を求めています"
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
@@ -309,7 +311,7 @@ msgstr "その他のショートカット…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "View other shortcuts registered by this application"
-msgstr "このアプリが登録したほかのショートカットを表示"
+msgstr "このアプリケーションが登録したほかのショートカットを表示"
 
 #: src/inputcapture.cpp:116
 #, kde-format
@@ -334,8 +336,8 @@ msgid ""
 "An unidentifiable application has taken over the pointer and keyboard. Press "
 "<shortcut>%1</shortcut> to stop this."
 msgstr ""
-"アプリ (特定不可) がポインタとキーボードを制御しています。<shortcut>%1</"
-"shortcut> で停止できます。"
+"アプリケーション (特定不可) がポインタとキーボードを制御しています。"
+"<shortcut>%1</shortcut> で停止できます。"
 
 #: src/inputcapture.cpp:225
 #, kde-format
@@ -350,7 +352,8 @@ msgid ""
 "An unidentifiable application will be able to take over the pointer and "
 "keyboard in the future."
 msgstr ""
-"アプリ (特定不可) がポインタとキーボードの制御を行えるようになりました。"
+"アプリケーション (特定不可) がポインタとキーボードの制御を行えるようになりま"
+"した。"
 
 #: src/inputcapture.cpp:228
 #, kde-format
@@ -369,7 +372,9 @@ msgstr "操作キャプチャの要求"
 msgctxt "@info"
 msgid ""
 "An unidentifiable application wants to take over the pointer and keyboard."
-msgstr "アプリ (特定不可) がポインタとキーボードの制御の許可を求めています。"
+msgstr ""
+"アプリケーション (特定不可) がポインタとキーボードの制御の許可を求めていま"
+"す。"
 
 #: src/InputCaptureDialog.qml:21
 #, kde-format
@@ -385,9 +390,9 @@ msgid ""
 "pointer yourself or type on the keyboard.<nl/><nl/>Only allow if you know "
 "which application made the request."
 msgstr ""
-"このアプリが操作をキャプチャしている間、ポインタを動かしたりキーボードを入力"
-"することはできなくなります。<nl/><nl/>どのアプリがキャプチャを要求しているか"
-"把握している場合のみ許可してください。"
+"このアプリケーションが操作をキャプチャしている間、ポインタを動かしたりキー"
+"ボードを入力することはできなくなります。<nl/><nl/>どのアプリケーションがキャ"
+"プチャを要求しているか把握している場合のみ許可してください。"
 
 #: src/InputCaptureDialog.qml:24
 #, kde-format
@@ -396,8 +401,8 @@ msgid ""
 "While the application is capturing input, you will not be able to move the "
 "pointer yourself or type on the keyboard."
 msgstr ""
-"このアプリが操作をキャプチャしている間、ポインタを動かしたりキーボードを入力"
-"することはできなくなります。"
+"このアプリケーションが操作をキャプチャしている間、ポインタを動かしたりキー"
+"ボードを入力することはできなくなります。"
 
 #: src/InputCaptureDialog.qml:29 src/RemoteDesktopDialog.qml:32
 #: src/ScreenChooserDialog.qml:194
@@ -648,7 +653,7 @@ msgstr "リモート操作の要求"
 #, kde-format
 msgctxt "@info"
 msgid "Allow an unidentifiable application to gain remote control privileges?"
-msgstr "アプリ (特定不可) にリモート操作権限を与えますか？"
+msgstr "アプリケーション (特定不可) にリモート操作権限を与えますか？"
 
 #: src/remotedesktopdialog.cpp:43
 #, kde-format
@@ -661,13 +666,14 @@ msgstr "%1 にリモート操作権限を与えますか？"
 msgctxt "@info"
 msgid "Only allow if you know which application made the request."
 msgstr ""
-"どのアプリがキャプチャを要求しているか把握している場合のみ許可してください。"
+"どのアプリケーションがキャプチャを要求しているか把握している場合のみ許可して"
+"ください。"
 
 #: src/remotedesktopdialog.cpp:56
 #, kde-format
 msgctxt "@info"
 msgid "The application will be able to:"
-msgstr "このアプリは以下の処理を行えるようになります:"
+msgstr "このアプリケーションは以下の処理を行えるようになります:"
 
 #: src/remotedesktopdialog.cpp:56
 #, kde-format
@@ -703,7 +709,8 @@ msgstr ""
 #, kde-format
 msgctxt "@info"
 msgid "An unidentifiable application is exercising remote control privileges:"
-msgstr "現在アプリ (特定不可) が以下のリモート操作権限を使用しています。"
+msgstr ""
+"現在アプリケーション (特定不可) が以下のリモート操作権限を使用しています。"
 
 #: src/remotedesktopdialog.cpp:73
 #, kde-format
@@ -808,7 +815,7 @@ msgstr "画面録画"
 #: src/screenchooserdialog.cpp:201
 #, kde-format
 msgid "Share this screen with an unidentifiable application?"
-msgstr "アプリ (特定不可) にこの画面を共有しますか？"
+msgstr "アプリケーション (特定不可) にこの画面を共有しますか？"
 
 #: src/screenchooserdialog.cpp:203
 #, kde-format
@@ -818,7 +825,8 @@ msgstr "%1 にこの画面を共有しますか？"
 #: src/screenchooserdialog.cpp:208
 #, kde-format
 msgid "Choose screens to share with an unidentifiable application:"
-msgstr "アプリ (特定不可) に共有する画面を選択してください (複数選択可):"
+msgstr ""
+"アプリケーション (特定不可) に共有する画面を選択してください (複数選択可):"
 
 #: src/screenchooserdialog.cpp:210
 #, kde-format
@@ -828,7 +836,7 @@ msgstr "%1 に共有する画面を選択してください (複数選択可):"
 #: src/screenchooserdialog.cpp:214
 #, kde-format
 msgid "Choose a screen to share with an unidentifiable application:"
-msgstr "アプリ (特定不可) に共有する画面を選択してください"
+msgstr "アプリケーション (特定不可) に共有する画面を選択してください:"
 
 #: src/screenchooserdialog.cpp:216
 #, kde-format
@@ -838,7 +846,7 @@ msgstr "%1 に共有する画面を選択してください:"
 #: src/screenchooserdialog.cpp:225
 #, kde-format
 msgid "Share this window with an unidentifiable application?"
-msgstr "アプリ (特定不可) にこのウィンドウを共有しますか？"
+msgstr "アプリケーション (特定不可) にこのウィンドウを共有しますか？"
 
 #: src/screenchooserdialog.cpp:227
 #, kde-format
@@ -848,7 +856,9 @@ msgstr "%1 にこのウィンドウを共有しますか？"
 #: src/screenchooserdialog.cpp:232
 #, kde-format
 msgid "Choose windows to share with an unidentifiable application:"
-msgstr "アプリ (特定不可) に共有するウィンドウを選択してください (複数選択可):"
+msgstr ""
+"アプリケーション (特定不可) に共有するウィンドウを選択してください (複数選択"
+"可):"
 
 #: src/screenchooserdialog.cpp:234
 #, kde-format
@@ -858,7 +868,7 @@ msgstr "%1 に共有するウィンドウを選択してください (複数選�
 #: src/screenchooserdialog.cpp:238
 #, kde-format
 msgid "Choose a window to share with an unidentifiable application:"
-msgstr "アプリ (特定不可) に共有するウィンドウを選択してください:"
+msgstr "アプリケーション (特定不可) に共有するウィンドウを選択してください:"
 
 #: src/screenchooserdialog.cpp:240
 #, kde-format
@@ -869,7 +879,8 @@ msgstr "%1 に共有するウィンドウを選択してください:"
 #, kde-format
 msgid ""
 "Create a new virtual display to share with an unidentifiable application:"
-msgstr "アプリ (特定不可) に共有する仮想ディスプレイを選択してください:"
+msgstr ""
+"アプリケーション (特定不可) に共有する仮想ディスプレイを選択してください:"
 
 #: src/screenchooserdialog.cpp:249
 #, kde-format
@@ -879,7 +890,7 @@ msgstr "%1 に共有する仮想ディスプレイを選択してください:"
 #: src/screenchooserdialog.cpp:255
 #, kde-format
 msgid "Choose what to share with an unidentifiable application:"
-msgstr "アプリ (特定不可) に共有するものを選択してください:"
+msgstr "アプリケーション (特定不可) に共有するものを選択してください:"
 
 #: src/screenchooserdialog.cpp:257
 #, kde-format
@@ -891,8 +902,8 @@ msgstr "%1 に共有するものを選択してください:"
 msgctxt "@info:usagetip"
 msgid "Only share anything if you know which application made the request."
 msgstr ""
-"どのアプリがキャプチャを要求しているか把握している場合のみ画面共有を行ってく"
-"ださい。"
+"どのアプリケーションがキャプチャを要求しているか把握している場合のみ画面共有"
+"を行ってください。"
 
 #: src/ScreenChooserDialog.qml:121
 #, kde-format
@@ -943,7 +954,7 @@ msgstr "画面撮影の要求"
 #, kde-format
 msgctxt "@info"
 msgid "Allow an unidentifiable application to take a screenshot?"
-msgstr "アプリ (特定不可) による画面撮影を許可しますか？"
+msgstr "アプリケーション (特定不可) による画面撮影を許可しますか？"
 
 #: src/ScreenshotDialog.qml:29
 #, kde-format
@@ -955,7 +966,7 @@ msgstr "%1 による画面撮影を許可しますか？"
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Only allow if you know which application made the request."
-msgstr "どのアプリか把握している場合のみ許可してください。"
+msgstr "どのアプリケーションか把握している場合のみ許可してください。"
 
 #: src/ScreenshotDialog.qml:42
 #, kde-format
@@ -1024,7 +1035,8 @@ msgctxt "@info"
 msgid "Allow an unidentifiable application to access the following device?"
 msgid_plural ""
 "Allow an unidentifiable application to access the following devices?"
-msgstr[0] "アプリ (特定不可) による以下のデバイスへのアクセスを許可しますか？"
+msgstr[0] ""
+"アプリケーション (特定不可) による以下のデバイスへのアクセスを許可しますか？"
 
 #: src/UsbDialog.qml:24
 #, kde-format
@@ -1058,8 +1070,8 @@ msgid ""
 "The application will be able to see your username, full name, and profile "
 "picture.<nl/><nl/>The application did not provide a reason."
 msgstr ""
-"このアプリはユーザー名、フルネーム、プロファイル画像にアクセスできるようにな"
-"ります。<nl/><nl/>理由は提供されていません。"
+"このアプリケーションはユーザー名、フルネーム、プロファイル画像にアクセスでき"
+"るようになります。<nl/><nl/>理由は提供されていません。"
 
 #: src/userinfodialog.cpp:57
 #, kde-kuit-format
@@ -1068,8 +1080,8 @@ msgid ""
 "The application will be able to see your username, full name, and profile "
 "picture.<nl/><nl/>Reason: “%1”"
 msgstr ""
-"このアプリはユーザー名、フルネーム、プロファイル画像にアクセスできるようにな"
-"ります。<nl/><nl/>理由: “%1”"
+"このアプリケーションはユーザー名、フルネーム、プロファイル画像にアクセスでき"
+"るようになります。<nl/><nl/>理由: “%1”"
 
 #: src/UserInfoDialog.qml:19
 #, kde-format
@@ -1093,14 +1105,16 @@ msgstr "壁紙の変更の要求"
 #, kde-format
 msgctxt "@info"
 msgid "Allow an unidentifiable application to change the desktop wallpaper?"
-msgstr "アプリ (特定不可) によるデスクトップの壁紙の変更を許可しますか？"
+msgstr ""
+"アプリケーション (特定不可) によるデスクトップの壁紙の変更を許可しますか？"
 
 #: src/WallpaperDialog.qml:27
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Allow an unidentifiable application to change the lock screen wallpaper?"
-msgstr "アプリ (特定不可) によるロック画面の壁紙の変更を許可しますか？"
+msgstr ""
+"アプリケーション (特定不可) によるロック画面の壁紙の変更を許可しますか？"
 
 #: src/WallpaperDialog.qml:29
 #, kde-format
@@ -1109,7 +1123,8 @@ msgid ""
 "Allow an unidentifiable application to change desktop and lock screen "
 "wallpapers?"
 msgstr ""
-"アプリ (特定不可) によるデスクトップとロック画面の壁紙の変更を許可しますか？"
+"アプリケーション (特定不可) によるデスクトップとロック画面の壁紙の変更を許可"
+"しますか？"
 
 #: src/WallpaperDialog.qml:34
 #, kde-format
