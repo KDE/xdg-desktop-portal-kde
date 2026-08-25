@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-15 00:49+0000\n"
+"POT-Creation-Date: 2026-08-25 00:47+0000\n"
 "PO-Revision-Date: 2022-08-24 17:55+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -617,27 +617,27 @@ msgid ""
 "switch to a Wayland session and try again."
 msgstr ""
 
-#: src/remotedesktop.cpp:190 src/screencast.cpp:233
+#: src/remotedesktop.cpp:188 src/screencast.cpp:232
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgid "Virtual Output"
 msgstr "Yeni virtual çıxarış"
 
-#: src/remotedesktop.cpp:191 src/screencast.cpp:234
+#: src/remotedesktop.cpp:189 src/screencast.cpp:233
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Yeni virtual çıxarış"
 
-#: src/remotedesktop.cpp:300
+#: src/remotedesktop.cpp:303
 #, fuzzy, kde-format
 #| msgid "Remote desktop"
 msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "Şəbəkədəki İş masası"
 
-#: src/remotedesktop.cpp:590
+#: src/remotedesktop.cpp:602
 #, fuzzy, kde-format
 #| msgid "Remote desktop"
 msgctxt ""
@@ -774,19 +774,19 @@ msgid ""
 "switch to a Wayland session and try again."
 msgstr ""
 
-#: src/screencast.cpp:302
+#: src/screencast.cpp:301
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Ekran paylaşımı icra olunur"
 
-#: src/screencast.cpp:416
+#: src/screencast.cpp:431
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr ""
 
-#: src/screencast.cpp:468
+#: src/screencast.cpp:483
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -794,7 +794,7 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/screencast.cpp:472
+#: src/screencast.cpp:487
 #, fuzzy, kde-format
 #| msgid "Screen Sharing"
 msgctxt ""
@@ -1160,12 +1160,12 @@ msgctxt ""
 msgid "Deny"
 msgstr ""
 
-#: src/waylandintegration.cpp:213 src/waylandintegration.cpp:252
+#: src/waylandintegration.cpp:215 src/waylandintegration.cpp:258
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Ekranın paylaşımı baş tutmadı"
 
-#: src/waylandintegration.cpp:376
+#: src/waylandintegration.cpp:379
 #, kde-format
 msgid "Remote desktop"
 msgstr "Şəbəkədəki İş masası"

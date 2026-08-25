@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-15 00:49+0000\n"
+"POT-Creation-Date: 2026-08-25 00:47+0000\n"
 "PO-Revision-Date: 2026-08-15 17:34+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -621,24 +621,24 @@ msgstr ""
 "afstand te starten, maar bureaublad op afstand is niet beschikbaar in X11-"
 "sessies. Schakel om naar een Wayland-sessie en probeer het opnieuw."
 
-#: src/remotedesktop.cpp:190 src/screencast.cpp:233
+#: src/remotedesktop.cpp:188 src/screencast.cpp:232
 #, kde-format
 msgid "Virtual Output"
 msgstr "Virtuele uitvoer"
 
-#: src/remotedesktop.cpp:191 src/screencast.cpp:234
+#: src/remotedesktop.cpp:189 src/screencast.cpp:233
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Virtuele uitvoer (gedeeld met %1)"
 
-#: src/remotedesktop.cpp:300
+#: src/remotedesktop.cpp:303
 #, kde-format
 msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "Afstandsbediening gestart"
 
-#: src/remotedesktop.cpp:590
+#: src/remotedesktop.cpp:602
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -788,19 +788,19 @@ msgstr ""
 "van scherm te starten maar delen van scherm is niet beschikbaar in X11-"
 "sessies. Schakel om naar een Wayland-sessie en probeer het opnieuw."
 
-#: src/screencast.cpp:302
+#: src/screencast.cpp:301
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Delen van schermen is bezig"
 
-#: src/screencast.cpp:416
+#: src/screencast.cpp:431
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Einde"
 
-#: src/screencast.cpp:468
+#: src/screencast.cpp:483
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -808,7 +808,7 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "Inhoud delen met %2"
 msgstr[1] "%1 videostreams naar %2"
 
-#: src/screencast.cpp:472
+#: src/screencast.cpp:487
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
@@ -1161,12 +1161,12 @@ msgctxt ""
 msgid "Deny"
 msgstr "Weigeren"
 
-#: src/waylandintegration.cpp:213 src/waylandintegration.cpp:252
+#: src/waylandintegration.cpp:215 src/waylandintegration.cpp:258
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Beginnen van screencasting is mislukt"
 
-#: src/waylandintegration.cpp:376
+#: src/waylandintegration.cpp:379
 #, kde-format
 msgid "Remote desktop"
 msgstr "Bureaublad op afstand"

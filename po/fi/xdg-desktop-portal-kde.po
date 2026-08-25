@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-15 00:49+0000\n"
-"PO-Revision-Date: 2026-01-05 20:37+0200\n"
+"POT-Creation-Date: 2026-08-25 00:47+0000\n"
+"PO-Revision-Date: 2026-02-25 19:26+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -621,13 +621,10 @@ msgid "Left-click and drag"
 msgstr "Napsauta vasemmalla ja vedä"
 
 #: src/remotedesktop.cpp:118
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "Etätyöpöytä"
+msgstr "Etätyöpöytä ei ole käytettävissä"
 
 #: src/remotedesktop.cpp:120
 #, kde-kuit-format
@@ -648,18 +645,18 @@ msgid ""
 "switch to a Wayland session and try again."
 msgstr ""
 
-#: src/remotedesktop.cpp:190 src/screencast.cpp:233
+#: src/remotedesktop.cpp:188 src/screencast.cpp:232
 #, kde-format
 msgid "Virtual Output"
 msgstr "Virtuaaliulostulo"
 
-#: src/remotedesktop.cpp:191 src/screencast.cpp:234
+#: src/remotedesktop.cpp:189 src/screencast.cpp:233
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Virtuaaliulostulo (jaettu sovelluksen %1 kanssa)"
 
-#: src/remotedesktop.cpp:300
+#: src/remotedesktop.cpp:303
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "SNI title that indicates there's a process remotely controlling the system"
@@ -668,7 +665,7 @@ msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "Etähallinta"
 
-#: src/remotedesktop.cpp:590
+#: src/remotedesktop.cpp:602
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -790,11 +787,10 @@ msgid "Deny"
 msgstr "Kiellä"
 
 #: src/screencast.cpp:151
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "Näytönjako"
+msgstr "Näytönjako ei ole käytettävissä"
 
 #: src/screencast.cpp:153
 #, kde-kuit-format
@@ -805,6 +801,9 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Sovellus <application>%1</application> yritti käynnistää näytönjakoistunnon, "
+"mutta näytönjako ei ole käytettävissä tässä järjestelmässä. Varmista, että "
+"olet Wayland-istunnossa ja ikkunointiohjelma on yhteensopiva, esim. KWin."
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -814,20 +813,23 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Sovellus <application>%1</application> yritti käynnistää näytönjakoistunnon, "
+"mutta näytönjako ei ole käytettävissä X11-istunnoissa. Vaihda Wayland-"
+"istuntoon ja yritä uudelleen."
 
-#: src/screencast.cpp:302
+#: src/screencast.cpp:301
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Näytönjako käynnissä"
 
-#: src/screencast.cpp:416
+#: src/screencast.cpp:431
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Lopeta"
 
-#: src/screencast.cpp:468
+#: src/screencast.cpp:483
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -835,7 +837,7 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "Jaetaan sisältöä sovellukseen %2"
 msgstr[1] "%1 videovirtaa sovellukseen %2"
 
-#: src/screencast.cpp:472
+#: src/screencast.cpp:487
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
@@ -941,11 +943,10 @@ msgid "Only share anything if you know which application made the request."
 msgstr ""
 
 #: src/ScreenChooserDialog.qml:121
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
-msgstr "Etsi"
+msgstr "Etsi…"
 
 #: src/ScreenChooserDialog.qml:167
 #, kde-format
@@ -1237,12 +1238,12 @@ msgctxt ""
 msgid "Deny"
 msgstr "Kiellä"
 
-#: src/waylandintegration.cpp:213 src/waylandintegration.cpp:252
+#: src/waylandintegration.cpp:215 src/waylandintegration.cpp:258
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Näytöntoiston käynnistäminen epäonnistui"
 
-#: src/waylandintegration.cpp:376
+#: src/waylandintegration.cpp:379
 #, kde-format
 msgid "Remote desktop"
 msgstr "Etätyöpöytä"
