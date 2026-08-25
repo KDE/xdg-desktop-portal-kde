@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-17 02:43+0000\n"
-"PO-Revision-Date: 2026-01-05 20:37+0200\n"
+"PO-Revision-Date: 2026-02-25 19:26+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -517,13 +517,10 @@ msgid "Left-click and drag"
 msgstr "Napsauta vasemmalla ja vedä"
 
 #: src/remotedesktop.cpp:118
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "Etätyöpöytä"
+msgstr "Etätyöpöytä ei ole käytettävissä"
 
 #: src/remotedesktop.cpp:120
 #, kde-kuit-format
@@ -534,6 +531,9 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Sovellus <application>%1</application> yritti käynnistää näytönjakoistunnon, "
+"mutta etätyöpöytä ei ole käytettävissä tässä järjestelmäss. Varmista, että "
+"olet Wayland-istunnossa ja ikkunointiohjelma on yhteensopiva, esim. KWin."
 
 #: src/remotedesktop.cpp:124
 #, kde-kuit-format
@@ -543,6 +543,9 @@ msgid ""
 "desktop session but remote desktop is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Sovellus <application>%1</application> yritti käynnistää näytönjakoistunnon, "
+"mutta etätyöpöytä ei ole käytettävissä X11-istunnoissa. Vaihda Wayland-"
+"istuntoon ja yritä uudelleen."
 
 #: src/remotedesktop.cpp:190 src/screencast.cpp:232
 #, kde-format
@@ -664,11 +667,10 @@ msgid "Deny"
 msgstr "Kiellä"
 
 #: src/screencast.cpp:151
-#, fuzzy, kde-format
-#| msgid "Screen Sharing"
+#, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
-msgstr "Näytönjako"
+msgstr "Näytönjako ei ole käytettävissä"
 
 #: src/screencast.cpp:153
 #, kde-kuit-format
@@ -679,6 +681,9 @@ msgid ""
 "ensure you are running a Wayland session with a compatible window manager "
 "such as KWin."
 msgstr ""
+"Sovellus <application>%1</application> yritti käynnistää näytönjakoistunnon, "
+"mutta näytönjako ei ole käytettävissä tässä järjestelmässä. Varmista, että "
+"olet Wayland-istunnossa ja ikkunointiohjelma on yhteensopiva, esim. KWin."
 
 #: src/screencast.cpp:157
 #, kde-kuit-format
@@ -688,6 +693,9 @@ msgid ""
 "sharing session but screen sharing is not available in X11 sessions. Please "
 "switch to a Wayland session and try again."
 msgstr ""
+"Sovellus <application>%1</application> yritti käynnistää näytönjakoistunnon, "
+"mutta näytönjako ei ole käytettävissä X11-istunnoissa. Vaihda Wayland-"
+"istuntoon ja yritä uudelleen."
 
 #: src/screencast.cpp:297
 #, kde-format
@@ -803,11 +811,10 @@ msgid "Choose what to share with %1:"
 msgstr "Valitse mitä käyttäjälle %1 jaetaan:"
 
 #: src/ScreenChooserDialog.qml:122
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
-msgstr "Etsi"
+msgstr "Etsi…"
 
 #: src/ScreenChooserDialog.qml:168
 #, kde-format
