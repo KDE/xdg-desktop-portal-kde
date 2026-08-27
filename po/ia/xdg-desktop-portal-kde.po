@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:51+0000\n"
+"POT-Creation-Date: 2026-08-27 00:47+0000\n"
 "PO-Revision-Date: 2026-07-27 12:09+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -486,7 +486,7 @@ msgstr "Comparti Region"
 msgid "Share virtual screen"
 msgstr "Comparti schermo  virtual"
 
-#: src/outputsmodel.cpp:98 src/screencast.cpp:357
+#: src/outputsmodel.cpp:98 src/screencast.cpp:360
 #, kde-format
 msgid "Share full Workspace"
 msgstr "Comparti Spatio de labor Plen"
@@ -622,24 +622,24 @@ msgstr ""
 "scriptorio remote, sed le scriptorio remote non es disponibile in sessiones "
 "de X11. Per favor, cambia a un session Wayland e tenta de novo."
 
-#: src/remotedesktop.cpp:188 src/screencast.cpp:232
+#: src/remotedesktop.cpp:188 src/screencast.cpp:235
 #, kde-format
 msgid "Virtual Output"
 msgstr "Sortita Virtual"
 
-#: src/remotedesktop.cpp:189 src/screencast.cpp:233
+#: src/remotedesktop.cpp:189 src/screencast.cpp:236
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Sortita Virtual (compartite con %1)"
 
-#: src/remotedesktop.cpp:303
+#: src/remotedesktop.cpp:301
 #, kde-format
 msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "Controlo remote o teleguidage initiava"
 
-#: src/remotedesktop.cpp:602
+#: src/remotedesktop.cpp:601
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -758,13 +758,13 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "Nega"
 
-#: src/screencast.cpp:151
+#: src/screencast.cpp:154
 #, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
 msgstr "Compartir de schermo non disponibile"
 
-#: src/screencast.cpp:153
+#: src/screencast.cpp:156
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -778,7 +778,7 @@ msgstr ""
 "systema.  Per favor, assecura te que tu executa un session de Wayland con un "
 "gerente  de fenestras compatibile tal como KWin."
 
-#: src/screencast.cpp:157
+#: src/screencast.cpp:160
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -790,19 +790,19 @@ msgstr ""
 "compartir le schermo, sed le compartir de schermo non es disponibile  in "
 "sessiones de X11. Per favor, cambia a un session Wayland e tenta de novo."
 
-#: src/screencast.cpp:301
+#: src/screencast.cpp:304
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Compartir de schermo in progresso"
 
-#: src/screencast.cpp:431
+#: src/screencast.cpp:478
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Fin"
 
-#: src/screencast.cpp:483
+#: src/screencast.cpp:493
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -810,7 +810,7 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "Compartir conmtentos a %2"
 msgstr[1] "%1 fluxos de video a %2"
 
-#: src/screencast.cpp:487
+#: src/screencast.cpp:497
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"

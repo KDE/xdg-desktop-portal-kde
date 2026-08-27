@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:51+0000\n"
+"POT-Creation-Date: 2026-08-27 00:47+0000\n"
 "PO-Revision-Date: 2026-02-25 19:26+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -514,7 +514,7 @@ msgstr "Jaa näyttöalue"
 msgid "Share virtual screen"
 msgstr "Jaa virtuaalinäyttö"
 
-#: src/outputsmodel.cpp:98 src/screencast.cpp:357
+#: src/outputsmodel.cpp:98 src/screencast.cpp:360
 #, kde-format
 msgid "Share full Workspace"
 msgstr "Jaa koko työtila"
@@ -645,18 +645,18 @@ msgid ""
 "switch to a Wayland session and try again."
 msgstr ""
 
-#: src/remotedesktop.cpp:188 src/screencast.cpp:232
+#: src/remotedesktop.cpp:188 src/screencast.cpp:235
 #, kde-format
 msgid "Virtual Output"
 msgstr "Virtuaaliulostulo"
 
-#: src/remotedesktop.cpp:189 src/screencast.cpp:233
+#: src/remotedesktop.cpp:189 src/screencast.cpp:236
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Virtuaaliulostulo (jaettu sovelluksen %1 kanssa)"
 
-#: src/remotedesktop.cpp:303
+#: src/remotedesktop.cpp:301
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "SNI title that indicates there's a process remotely controlling the system"
@@ -665,7 +665,7 @@ msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "Etähallinta"
 
-#: src/remotedesktop.cpp:602
+#: src/remotedesktop.cpp:601
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -786,13 +786,13 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "Kiellä"
 
-#: src/screencast.cpp:151
+#: src/screencast.cpp:154
 #, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
 msgstr "Näytönjako ei ole käytettävissä"
 
-#: src/screencast.cpp:153
+#: src/screencast.cpp:156
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -805,7 +805,7 @@ msgstr ""
 "mutta näytönjako ei ole käytettävissä tässä järjestelmässä. Varmista, että "
 "olet Wayland-istunnossa ja ikkunointiohjelma on yhteensopiva, esim. KWin."
 
-#: src/screencast.cpp:157
+#: src/screencast.cpp:160
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -817,19 +817,19 @@ msgstr ""
 "mutta näytönjako ei ole käytettävissä X11-istunnoissa. Vaihda Wayland-"
 "istuntoon ja yritä uudelleen."
 
-#: src/screencast.cpp:301
+#: src/screencast.cpp:304
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Näytönjako käynnissä"
 
-#: src/screencast.cpp:431
+#: src/screencast.cpp:478
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Lopeta"
 
-#: src/screencast.cpp:483
+#: src/screencast.cpp:493
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -837,7 +837,7 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "Jaetaan sisältöä sovellukseen %2"
 msgstr[1] "%1 videovirtaa sovellukseen %2"
 
-#: src/screencast.cpp:487
+#: src/screencast.cpp:497
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"

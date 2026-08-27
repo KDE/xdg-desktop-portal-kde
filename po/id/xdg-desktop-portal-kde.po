@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:51+0000\n"
+"POT-Creation-Date: 2026-08-27 00:47+0000\n"
 "PO-Revision-Date: 2023-02-21 20:18+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -481,7 +481,7 @@ msgstr ""
 msgid "Share virtual screen"
 msgstr "Bagikan layar ini dengan %1?"
 
-#: src/outputsmodel.cpp:98 src/screencast.cpp:357
+#: src/outputsmodel.cpp:98 src/screencast.cpp:360
 #, fuzzy, kde-format
 #| msgid "Full Workspace"
 msgid "Share full Workspace"
@@ -615,20 +615,20 @@ msgid ""
 "switch to a Wayland session and try again."
 msgstr ""
 
-#: src/remotedesktop.cpp:188 src/screencast.cpp:232
+#: src/remotedesktop.cpp:188 src/screencast.cpp:235
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgid "Virtual Output"
 msgstr "Keluaran Virtual Baru"
 
-#: src/remotedesktop.cpp:189 src/screencast.cpp:233
+#: src/remotedesktop.cpp:189 src/screencast.cpp:236
 #, fuzzy, kde-format
 #| msgid "New Virtual Output"
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Keluaran Virtual Baru"
 
-#: src/remotedesktop.cpp:303
+#: src/remotedesktop.cpp:301
 #, fuzzy, kde-format
 #| msgctxt "Title of the dialog that requests remote input privileges"
 #| msgid "Remote control requested"
@@ -636,7 +636,7 @@ msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "Kontrol jarak jauh diminta"
 
-#: src/remotedesktop.cpp:602
+#: src/remotedesktop.cpp:601
 #, fuzzy, kde-format
 #| msgctxt "Title of the dialog that requests remote input privileges"
 #| msgid "Remote control requested"
@@ -750,14 +750,14 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr ""
 
-#: src/screencast.cpp:151
+#: src/screencast.cpp:154
 #, fuzzy, kde-format
 #| msgid "Screen Sharing"
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
 msgstr "Pembagian Layar"
 
-#: src/screencast.cpp:153
+#: src/screencast.cpp:156
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -767,7 +767,7 @@ msgid ""
 "such as KWin."
 msgstr ""
 
-#: src/screencast.cpp:157
+#: src/screencast.cpp:160
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -776,19 +776,19 @@ msgid ""
 "switch to a Wayland session and try again."
 msgstr ""
 
-#: src/screencast.cpp:301
+#: src/screencast.cpp:304
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Pembagian layar sedang dilakukan"
 
-#: src/screencast.cpp:431
+#: src/screencast.cpp:478
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Akhiri"
 
-#: src/screencast.cpp:483
+#: src/screencast.cpp:493
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -796,7 +796,7 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "Membagikan konten ke %2"
 msgstr[1] "%1 saluran video ke %2"
 
-#: src/screencast.cpp:487
+#: src/screencast.cpp:497
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"

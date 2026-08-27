@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:51+0000\n"
+"POT-Creation-Date: 2026-08-27 00:47+0000\n"
 "PO-Revision-Date: 2026-08-15 20:21+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -484,7 +484,7 @@ msgstr "Bölgeyi paylaş"
 msgid "Share virtual screen"
 msgstr "Sanal ekranı paylaş"
 
-#: src/outputsmodel.cpp:98 src/screencast.cpp:357
+#: src/outputsmodel.cpp:98 src/screencast.cpp:360
 #, kde-format
 msgid "Share full Workspace"
 msgstr "Tüm çalışma alanını paylaş"
@@ -620,24 +620,24 @@ msgstr ""
 "başlatmaya çalıştı; ancak uzak masaüstü X11 oturumlarında kullanılamıyor. "
 "Lütfen bir Wayland oturumuna geçiş yapın ve yeniden deneyin."
 
-#: src/remotedesktop.cpp:188 src/screencast.cpp:232
+#: src/remotedesktop.cpp:188 src/screencast.cpp:235
 #, kde-format
 msgid "Virtual Output"
 msgstr "Sanal Çıktı"
 
-#: src/remotedesktop.cpp:189 src/screencast.cpp:233
+#: src/remotedesktop.cpp:189 src/screencast.cpp:236
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Sanal Çıktı (%1 ile Paylaşılan)"
 
-#: src/remotedesktop.cpp:303
+#: src/remotedesktop.cpp:301
 #, kde-format
 msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "Uzaktan Denetim Başlatıldı"
 
-#: src/remotedesktop.cpp:602
+#: src/remotedesktop.cpp:601
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -757,13 +757,13 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "Reddet"
 
-#: src/screencast.cpp:151
+#: src/screencast.cpp:154
 #, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
 msgstr "Ekran Paylaşımı Kullanılamıyor"
 
-#: src/screencast.cpp:153
+#: src/screencast.cpp:156
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -777,7 +777,7 @@ msgstr ""
 "KWin gibi uyumlu bir pencere yöneticisiyle bir Wayland oturumu "
 "çalıştırdığınızdan emin olun."
 
-#: src/screencast.cpp:157
+#: src/screencast.cpp:160
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -789,19 +789,19 @@ msgstr ""
 "başlatmaya çalıştı; ancak ekran paylaşımı X11 oturumlarında kullanılamıyor. "
 "Lütfen bir Wayland oturumuna geçiş yapın ve yeniden deneyin."
 
-#: src/screencast.cpp:301
+#: src/screencast.cpp:304
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "Ekran paylaşımı sürüyor"
 
-#: src/screencast.cpp:431
+#: src/screencast.cpp:478
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "Sonlandır"
 
-#: src/screencast.cpp:483
+#: src/screencast.cpp:493
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -809,7 +809,7 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "İçerik şuna paylaşılıyor: %2"
 msgstr[1] "%1, %2 kişisine video akışı sağlıyor"
 
-#: src/screencast.cpp:487
+#: src/screencast.cpp:497
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"

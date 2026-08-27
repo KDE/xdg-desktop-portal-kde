@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:51+0000\n"
+"POT-Creation-Date: 2026-08-27 00:47+0000\n"
 "PO-Revision-Date: 2026-08-17 21:17+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -479,7 +479,7 @@ msgstr "شارك منطقة"
 msgid "Share virtual screen"
 msgstr "شارك شاشة افتراضية"
 
-#: src/outputsmodel.cpp:98 src/screencast.cpp:357
+#: src/outputsmodel.cpp:98 src/screencast.cpp:360
 #, kde-format
 msgid "Share full Workspace"
 msgstr "شارك كامل مساحة العمل"
@@ -614,24 +614,24 @@ msgstr ""
 "المكتب البعيد غير متاح في جلسات X11. يُرجى التبديل إلى جلسة Wayland والمحاولة "
 "مجددًا."
 
-#: src/remotedesktop.cpp:188 src/screencast.cpp:232
+#: src/remotedesktop.cpp:188 src/screencast.cpp:235
 #, kde-format
 msgid "Virtual Output"
 msgstr "الخرج الافتراضي"
 
-#: src/remotedesktop.cpp:189 src/screencast.cpp:233
+#: src/remotedesktop.cpp:189 src/screencast.cpp:236
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "الخرج الافتراضي (مشارك مع %1)"
 
-#: src/remotedesktop.cpp:303
+#: src/remotedesktop.cpp:301
 #, kde-format
 msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "بدأ التحكم عن بُعد"
 
-#: src/remotedesktop.cpp:602
+#: src/remotedesktop.cpp:601
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -746,13 +746,13 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "امنع"
 
-#: src/screencast.cpp:151
+#: src/screencast.cpp:154
 #, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
 msgstr "مشاركة الشاشة غير متاحة"
 
-#: src/screencast.cpp:153
+#: src/screencast.cpp:156
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -765,7 +765,7 @@ msgstr ""
 "الشاشة غير متاحة على هذا النظام. يرجى التأكد من تشغيل جلسة ويلاند باستخدام "
 "مدير نوافذ متوافق مثل كوين."
 
-#: src/screencast.cpp:157
+#: src/screencast.cpp:160
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -777,19 +777,19 @@ msgstr ""
 "مشاركة الشاشة غير متاحة في جلسات X11. يرجى التبديل إلى جلسة ويلاند والمحاولة "
 "مرة أخرى."
 
-#: src/screencast.cpp:301
+#: src/screencast.cpp:304
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "يجري مشاركة الشاشة"
 
-#: src/screencast.cpp:431
+#: src/screencast.cpp:478
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "أنهِ"
 
-#: src/screencast.cpp:483
+#: src/screencast.cpp:493
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -801,7 +801,7 @@ msgstr[3] "%1 فيديوات يبثثن إلى %2"
 msgstr[4] "%1 فيديوات يبثثن إلى %2"
 msgstr[5] "%1 فيديوات يبثثن إلى %2"
 
-#: src/screencast.cpp:487
+#: src/screencast.cpp:497
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"

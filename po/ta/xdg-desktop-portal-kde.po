@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-26 00:51+0000\n"
+"POT-Creation-Date: 2026-08-27 00:47+0000\n"
 "PO-Revision-Date: 2026-02-01 18:39+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -511,7 +511,7 @@ msgstr "திரையின் பகுதியைப் பகிர்"
 msgid "Share virtual screen"
 msgstr "மெய்நிகர் திரையைப் பகிர்"
 
-#: src/outputsmodel.cpp:98 src/screencast.cpp:357
+#: src/outputsmodel.cpp:98 src/screencast.cpp:360
 #, kde-format
 msgid "Share full Workspace"
 msgstr "முழுப் பணிமேடையைப் பகிர்"
@@ -658,18 +658,18 @@ msgstr ""
 "<application>%1</application> ஓர் தொலையியக்கு பணிமேடை அமர்வைத் துவக்க முயற்சித்தது, "
 "ஆனால் X11 அமர்வுகளில் அந்த அம்சம் இயங்காது. Wayland அமர்வுக்கு மாறி மீண்டும் முயற்சிக்கவும்."
 
-#: src/remotedesktop.cpp:188 src/screencast.cpp:232
+#: src/remotedesktop.cpp:188 src/screencast.cpp:235
 #, kde-format
 msgid "Virtual Output"
 msgstr "மெய்நிகர் வெளியீடு"
 
-#: src/remotedesktop.cpp:189 src/screencast.cpp:233
+#: src/remotedesktop.cpp:189 src/screencast.cpp:236
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "மெய்நிகர் வெளியீடு (%1 உடன் பகிரப்பட்டுள்ளது)"
 
-#: src/remotedesktop.cpp:303
+#: src/remotedesktop.cpp:301
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "SNI title that indicates there's a process remotely controlling the system"
@@ -678,7 +678,7 @@ msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "தொலையியக்கி பயனிலுள்ளது"
 
-#: src/remotedesktop.cpp:602
+#: src/remotedesktop.cpp:601
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -799,13 +799,13 @@ msgctxt "@action:button Deny the application gaining extra privileges"
 msgid "Deny"
 msgstr "நிராகரி"
 
-#: src/screencast.cpp:151
+#: src/screencast.cpp:154
 #, kde-format
 msgctxt "@title:window"
 msgid "Screen Sharing Not Available"
 msgstr "திரைப் பகிர்வு இயங்கவில்லை"
 
-#: src/screencast.cpp:153
+#: src/screencast.cpp:156
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -818,7 +818,7 @@ msgstr ""
 "அந்த அம்சம் இயங்காது. Wayland அமர்வில் இருப்பதையும் பணிமேடை தொலையியக்கத்தை ஆதரிக்கும் "
 "சாளரநிரலை (எ.கா. கேவின்) பயன்படுத்துவதையும் உறுதி செய்யவும்."
 
-#: src/screencast.cpp:157
+#: src/screencast.cpp:160
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -829,19 +829,19 @@ msgstr ""
 "<application>%1</application> திரைப்பகிர்வைத் துவக்க முயற்சித்தது, ஆனால் இந்த அமர்வில் "
 "அந்த அம்சம் இயங்காது. Wayland அமர்வுக்கு மாறி மீண்டும் முயற்சிக்கவும்."
 
-#: src/screencast.cpp:301
+#: src/screencast.cpp:304
 #, kde-format
 msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "திரை பகிரப்படுகிறது"
 
-#: src/screencast.cpp:431
+#: src/screencast.cpp:478
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "நிறுத்து"
 
-#: src/screencast.cpp:483
+#: src/screencast.cpp:493
 #, kde-format
 msgctxt "%1 number of screens, %2 the app that receives them"
 msgid "Sharing contents to %2"
@@ -849,7 +849,7 @@ msgid_plural "%1 video streams to %2"
 msgstr[0] "உள்ளடக்கத்தை %2 பெறுகிறது"
 msgstr[1] "%1 காட்சிகளை %2 பெறுகிறது"
 
-#: src/screencast.cpp:487
+#: src/screencast.cpp:497
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
