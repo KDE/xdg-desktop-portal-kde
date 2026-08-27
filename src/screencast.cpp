@@ -489,11 +489,7 @@ void ScreenCastSession::showStatusNotifier()
 void ScreenCastSession::setupStatusNotifier()
 {
     const bool isWindow = m_streams[0]->metaData()[QLatin1String("source_type")] == ScreenCastPortal::Window;
-    m_item->setToolTipSubTitle(i18ncp("%1 number of screens, %2 the app that receives them",
-                                      "Sharing contents to %2",
-                                      "%1 video streams to %2",
-                                      m_streams.size(),
-                                      Utils::applicationName(m_appId)));
+    m_item->setToolTipSubTitle(i18nc("@info:tooltip %1 the app that receives the screencast", "Sharing contents to %1", Utils::applicationName(m_appId)));
     m_item->setTitle(i18nc("SNI title that indicates there's a process seeing our windows or screens", "Screen casting"));
     if (isWindow) {
         m_item->setOverlayIconByName(QStringLiteral("window"));
