@@ -425,11 +425,6 @@ void ScreenCastPortal::Start(const QDBusObjectPath &handle,
 ScreenCastSession::ScreenCastSession(QObject *parent, const QString &appId, const QString &path)
     : Session(parent, appId, path)
 {
-    if (type() == Session::ScreenCast) {
-        connect(static_cast<ScreenCastPortal *>(parent)->mediamonitor(), &MediaMonitor::countChanged, this, &ScreenCastSession::updateSniVisiblity);
-        connect(static_cast<ScreenCastPortal *>(parent)->mediamonitor(), &MediaMonitor::dataChanged, this, &ScreenCastSession::updateSniVisiblity);
-        updateSniVisiblity();
-    }
 }
 
 ScreenCastSession::~ScreenCastSession()
@@ -506,6 +501,11 @@ void ScreenCastSession::setStreams(std::vector<std::unique_ptr<ScreencastingStre
 
     for (const auto &s : m_streams) {
         connect(s.get(), &ScreencastingStream::closed, this, &ScreenCastSession::streamClosed);
+    }
+    if (type() == Session::ScreenCast) {
+        connect(static_cast<ScreenCastPortal *>(parent())->mediamonitor(), &MediaMonitor::countChanged, this, &ScreenCastSession::updateSniVisiblity);
+        connect(static_cast<ScreenCastPortal *>(parent())->mediamonitor(), &MediaMonitor::dataChanged, this, &ScreenCastSession::updateSniVisiblity);
+        updateSniVisiblity();
     }
 }
 
