@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-27 00:47+0000\n"
+"POT-Creation-Date: 2026-08-28 00:48+0000\n"
 "PO-Revision-Date: 2022-08-24 17:55+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -786,15 +786,14 @@ msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr ""
 
-#: src/screencast.cpp:493
-#, kde-format
-msgctxt "%1 number of screens, %2 the app that receives them"
-msgid "Sharing contents to %2"
-msgid_plural "%1 video streams to %2"
-msgstr[0] ""
-msgstr[1] ""
+#: src/screencast.cpp:492
+#, fuzzy, kde-format
+#| msgid "Share this screen with %1?"
+msgctxt "@info:tooltip %1 the app that receives the screencast"
+msgid "Sharing contents to %1"
+msgstr "Bu ekran %1 ilə paylaşılsın?"
 
-#: src/screencast.cpp:497
+#: src/screencast.cpp:493
 #, fuzzy, kde-format
 #| msgid "Screen Sharing"
 msgctxt ""
@@ -1189,12 +1188,6 @@ msgstr "Şəbəkədəki İş masası"
 #~ msgctxt "@action:button"
 #~ msgid "Allow"
 #~ msgstr "İcazə Vermək"
-
-#, fuzzy
-#~| msgid "Share this screen with %1?"
-#~ msgctxt "@title:window %1 is an application name (e.g. Falkon)"
-#~ msgid "Share screen with %1"
-#~ msgstr "Bu ekran %1 ilə paylaşılsın?"
 
 #~ msgid "Choose which screen to share with the requesting application:"
 #~ msgstr "Tələb edilən tətbiqlə paylaşmaq üçün ekranı seçin:"

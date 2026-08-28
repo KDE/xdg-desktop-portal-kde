@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-27 00:47+0000\n"
+"POT-Creation-Date: 2026-08-28 00:48+0000\n"
 "PO-Revision-Date: 2026-08-15 06:24+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -780,17 +780,16 @@ msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "סיום"
 
-#: src/screencast.cpp:493
-#, kde-format
-msgctxt "%1 number of screens, %2 the app that receives them"
-msgid "Sharing contents to %2"
-msgid_plural "%1 video streams to %2"
-msgstr[0] "התוכן משותף אל %2"
-msgstr[1] "%1 תזרימי וידאו אל %2"
-msgstr[2] "%1 תזרימי וידאו אל %2"
-msgstr[3] "%1 תזרימי וידאו אל %2"
+#: src/screencast.cpp:492
+#, fuzzy, kde-format
+#| msgctxt "%1 number of screens, %2 the app that receives them"
+#| msgid "Sharing contents to %2"
+#| msgid_plural "%1 video streams to %2"
+msgctxt "@info:tooltip %1 the app that receives the screencast"
+msgid "Sharing contents to %1"
+msgstr "התוכן משותף אל %2"
 
-#: src/screencast.cpp:497
+#: src/screencast.cpp:493
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"

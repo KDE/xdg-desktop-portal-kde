@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-27 00:47+0000\n"
+"POT-Creation-Date: 2026-08-28 00:48+0000\n"
 "PO-Revision-Date: 2020-10-11 01:46+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -774,15 +774,14 @@ msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr ""
 
-#: src/screencast.cpp:493
-#, kde-format
-msgctxt "%1 number of screens, %2 the app that receives them"
-msgid "Sharing contents to %2"
-msgid_plural "%1 video streams to %2"
-msgstr[0] ""
-msgstr[1] ""
+#: src/screencast.cpp:492
+#, fuzzy, kde-format
+#| msgid "Select screen to share with %1"
+msgctxt "@info:tooltip %1 the app that receives the screencast"
+msgid "Sharing contents to %1"
+msgstr "Ekraani valimine rakendusega %1 jagamiseks"
 
-#: src/screencast.cpp:497
+#: src/screencast.cpp:493
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
@@ -1172,12 +1171,6 @@ msgstr "Kaugtöölaud"
 #~ msgctxt "@action:button"
 #~ msgid "Allow"
 #~ msgstr "Lubamine"
-
-#, fuzzy
-#~| msgid "Select screen to share with %1"
-#~ msgctxt "@title:window %1 is an application name (e.g. Falkon)"
-#~ msgid "Share screen with %1"
-#~ msgstr "Ekraani valimine rakendusega %1 jagamiseks"
 
 #, fuzzy
 #~| msgid "Select screen to share with the requesting application"
