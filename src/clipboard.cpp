@@ -158,7 +158,7 @@ protected:
     void ext_data_control_device_v1_selection(::ext_data_control_offer_v1 *id) override
     {
         if (!id) {
-            m_source.reset();
+            m_currentOffer.reset();
         } else {
             m_currentOffer.reset(DataControlOffer::get(id));
         }
