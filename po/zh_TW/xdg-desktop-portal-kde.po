@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-28 00:48+0000\n"
+"POT-Creation-Date: 2026-08-29 00:47+0000\n"
 "PO-Revision-Date: 2026-06-25 23:56+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -764,13 +764,13 @@ msgctxt "Do not disturb mode is enabled because..."
 msgid "Screen sharing in progress"
 msgstr "正在分享螢幕"
 
-#: src/screencast.cpp:478
+#: src/screencast.cpp:473
 #, kde-format
 msgctxt "@action:inmenu stops screen/window sharing"
 msgid "End"
 msgstr "結束"
 
-#: src/screencast.cpp:492
+#: src/screencast.cpp:487
 #, fuzzy, kde-format
 #| msgctxt "%1 number of screens, %2 the app that receives them"
 #| msgid "Sharing contents to %2"
@@ -779,7 +779,7 @@ msgctxt "@info:tooltip %1 the app that receives the screencast"
 msgid "Sharing contents to %1"
 msgstr "正在分享 %1 個影像串流給 %2"
 
-#: src/screencast.cpp:493
+#: src/screencast.cpp:488
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process seeing our windows or screens"
