@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-29 00:47+0000\n"
+"POT-Creation-Date: 2026-09-01 00:48+0000\n"
 "PO-Revision-Date: 2026-06-15 15:30+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -538,31 +538,31 @@ msgctxt "@info"
 msgid "Crops a specific area of your screens"
 msgstr "Decupează o anumită zonă a ecranelor"
 
-#: src/PipeWireDelegate.qml:165
+#: src/PipeWireDelegate.qml:166
 #, kde-format
 msgctxt "@label:listbox size of a screen, width($1) x height($2"
 msgid "Resolution:"
 msgstr ""
 
-#: src/PipeWireDelegate.qml:199
+#: src/PipeWireDelegate.qml:200
 #, kde-format
 msgctxt "size of a screen, width($1) x height($2)"
 msgid "%1 × %2"
 msgstr ""
 
-#: src/PipeWireDelegate.qml:286
+#: src/PipeWireDelegate.qml:287
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
 msgstr "Nu sunt ferestre deschise"
 
-#: src/PipeWireDelegate.qml:291
+#: src/PipeWireDelegate.qml:292
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
 msgstr "+%1"
 
-#: src/PipeWireDelegate.qml:304
+#: src/PipeWireDelegate.qml:305
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"

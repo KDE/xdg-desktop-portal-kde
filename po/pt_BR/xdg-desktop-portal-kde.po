@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-29 00:47+0000\n"
+"POT-Creation-Date: 2026-09-01 00:48+0000\n"
 "PO-Revision-Date: 2026-08-28 07:33-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -518,31 +518,31 @@ msgctxt "@info"
 msgid "Crops a specific area of your screens"
 msgstr "Recorta uma área específica da sua tela"
 
-#: src/PipeWireDelegate.qml:165
+#: src/PipeWireDelegate.qml:166
 #, kde-format
 msgctxt "@label:listbox size of a screen, width($1) x height($2"
 msgid "Resolution:"
 msgstr "Resolução:"
 
-#: src/PipeWireDelegate.qml:199
+#: src/PipeWireDelegate.qml:200
 #, kde-format
 msgctxt "size of a screen, width($1) x height($2)"
 msgid "%1 × %2"
 msgstr "%1 × %2"
 
-#: src/PipeWireDelegate.qml:286
+#: src/PipeWireDelegate.qml:287
 #, kde-format
 msgctxt "@info:status"
 msgid "No windows open"
 msgstr "Nenhuma janela aberta"
 
-#: src/PipeWireDelegate.qml:291
+#: src/PipeWireDelegate.qml:292
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
 msgstr "+%1"
 
-#: src/PipeWireDelegate.qml:304
+#: src/PipeWireDelegate.qml:305
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
