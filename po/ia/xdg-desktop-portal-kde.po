@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-01 00:48+0000\n"
-"PO-Revision-Date: 2026-07-27 12:09+0200\n"
+"PO-Revision-Date: 2026-09-02 16:09+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -518,13 +518,13 @@ msgstr "Talia un specific area de tu schermos"
 #, kde-format
 msgctxt "@label:listbox size of a screen, width($1) x height($2"
 msgid "Resolution:"
-msgstr ""
+msgstr "Resolution:"
 
 #: src/PipeWireDelegate.qml:200
 #, kde-format
 msgctxt "size of a screen, width($1) x height($2)"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: src/PipeWireDelegate.qml:287
 #, kde-format
@@ -803,13 +803,10 @@ msgid "End"
 msgstr "Fin"
 
 #: src/screencast.cpp:487
-#, fuzzy, kde-format
-#| msgctxt "%1 number of screens, %2 the app that receives them"
-#| msgid "Sharing contents to %2"
-#| msgid_plural "%1 video streams to %2"
+#, kde-format
 msgctxt "@info:tooltip %1 the app that receives the screencast"
 msgid "Sharing contents to %1"
-msgstr "Compartir conmtentos a %2"
+msgstr "Compartir contentos a %1"
 
 #: src/screencast.cpp:488
 #, kde-format
