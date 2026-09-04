@@ -775,7 +775,7 @@ msgstr "终止"
 #, kde-format
 msgctxt "@info:tooltip %1 the app that receives the screencast"
 msgid "Sharing contents to %1"
-msgstr ""
+msgstr "正在共享内容到 %1"
 
 #: src/screencast.cpp:488
 #, kde-format
