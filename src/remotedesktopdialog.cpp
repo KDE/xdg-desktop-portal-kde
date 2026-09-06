@@ -46,7 +46,7 @@ QString RemoteDesktopDialog::buildMainText(const QString &appName)
 QString RemoteDesktopDialog::buildSubText(const QString &appName)
 {
     const QString applicationName = Utils::applicationName(appName);
-    return applicationName.isEmpty() ? i18nc("@info", "Only allow if you know which application made the request.") : QString();
+    return applicationName.isEmpty() ? i18nc("@info:usagetip", "Only allow if you know which application made the request.") : QString();
 }
 
 QString RemoteDesktopDialog::buildRequestDescription(const QString &appName, RemoteDesktopPortal::DeviceTypes deviceTypes, bool screenSharingEnabled)
