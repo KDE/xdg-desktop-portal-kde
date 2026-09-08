@@ -35,7 +35,9 @@ public:
 
     ~DataControlManager() override
     {
-        destroy();
+        if (object()) {
+            destroy();
+        }
     }
 };
 
