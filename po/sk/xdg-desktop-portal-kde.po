@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-01 00:48+0000\n"
+"POT-Creation-Date: 2026-09-08 00:48+0000\n"
 "PO-Revision-Date: 2024-03-24 11:38+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -663,9 +663,10 @@ msgctxt "@info"
 msgid "Allow %1 to gain remote control privileges?"
 msgstr "Povoliť aplikácii %1 získať oprávnenia na vzdialené ovládanie?"
 
-#: src/remotedesktopdialog.cpp:49
+#: src/remotedesktopdialog.cpp:49 src/ScreenshotDialog.qml:30
+#: src/UsbDialog.qml:26 src/WallpaperDialog.qml:42
 #, kde-format
-msgctxt "@info"
+msgctxt "@info:usagetip"
 msgid "Only allow if you know which application made the request."
 msgstr "Povoľte to len vtedy, ak viete, ktorá aplikácia požiadavku odoslala."
 
@@ -960,12 +961,6 @@ msgctxt "@info %1 is the name of an application"
 msgid "Allow %1 to take a screenshot?"
 msgstr "Povoliť aplikácii %1 urobiť snímku obrazovky?"
 
-#: src/ScreenshotDialog.qml:30 src/UsbDialog.qml:26 src/WallpaperDialog.qml:42
-#, kde-format
-msgctxt "@info:usagetip"
-msgid "Only allow if you know which application made the request."
-msgstr "Povoľte to len vtedy, ak viete, ktorá aplikácia požiadavku odoslala."
-
 #: src/ScreenshotDialog.qml:42
 #, kde-format
 msgid "Capture Mode"
@@ -1171,6 +1166,11 @@ msgstr "Spustenie zdieľania obrazovky zlyhalo"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Vzdialená pracovná plocha"
+
+#~ msgctxt "@info"
+#~ msgid "Only allow if you know which application made the request."
+#~ msgstr ""
+#~ "Povoľte to len vtedy, ak viete, ktorá aplikácia požiadavku odoslala."
 
 #~ msgctxt ""
 #~ "@action:button Don't allow the app to keep running without any open "

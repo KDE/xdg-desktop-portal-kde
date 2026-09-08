@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-01 00:48+0000\n"
+"POT-Creation-Date: 2026-09-08 00:48+0000\n"
 "PO-Revision-Date: 2026-06-25 23:56+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -639,9 +639,10 @@ msgctxt "@info"
 msgid "Allow %1 to gain remote control privileges?"
 msgstr "要允許 %1 取得遠端控制權限嗎？"
 
-#: src/remotedesktopdialog.cpp:49
+#: src/remotedesktopdialog.cpp:49 src/ScreenshotDialog.qml:30
+#: src/UsbDialog.qml:26 src/WallpaperDialog.qml:42
 #, kde-format
-msgctxt "@info"
+msgctxt "@info:usagetip"
 msgid "Only allow if you know which application made the request."
 msgstr "請只在您知道是哪個應用程式進行此請求的時候才允許。"
 
@@ -930,12 +931,6 @@ msgctxt "@info %1 is the name of an application"
 msgid "Allow %1 to take a screenshot?"
 msgstr "要允許 %1 擷取螢幕截圖嗎？"
 
-#: src/ScreenshotDialog.qml:30 src/UsbDialog.qml:26 src/WallpaperDialog.qml:42
-#, kde-format
-msgctxt "@info:usagetip"
-msgid "Only allow if you know which application made the request."
-msgstr "請只在您知道是哪個應用程式進行此請求的時候才允許。"
-
 #: src/ScreenshotDialog.qml:42
 #, kde-format
 msgid "Capture Mode"
@@ -1128,6 +1123,10 @@ msgstr "無法開始螢幕錄製"
 #, kde-format
 msgid "Remote desktop"
 msgstr "遠端桌面"
+
+#~ msgctxt "@info"
+#~ msgid "Only allow if you know which application made the request."
+#~ msgstr "請只在您知道是哪個應用程式進行此請求的時候才允許。"
 
 #~ msgctxt ""
 #~ "@action:button Don't allow the app to keep running without any open "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-01 00:48+0000\n"
+"POT-Creation-Date: 2026-09-08 00:48+0000\n"
 "PO-Revision-Date: 2026-08-28 06:42+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -661,9 +661,10 @@ msgctxt "@info"
 msgid "Allow %1 to gain remote control privileges?"
 msgstr "მივცე %1-ს უფლება, მიიღოს დაშორებული მართვის პრივილეგიები?"
 
-#: src/remotedesktopdialog.cpp:49
+#: src/remotedesktopdialog.cpp:49 src/ScreenshotDialog.qml:30
+#: src/UsbDialog.qml:26 src/WallpaperDialog.qml:42
 #, kde-format
-msgctxt "@info"
+msgctxt "@info:usagetip"
 msgid "Only allow if you know which application made the request."
 msgstr "დაუშვით, მხოლოდ, მაშინ, თუ იცით, რომელმა აპლიკაციამ გააკეთა მოთხოვნა."
 
@@ -955,12 +956,6 @@ msgctxt "@info %1 is the name of an application"
 msgid "Allow %1 to take a screenshot?"
 msgstr "მივცე %1-ს ნებართვა, ეკრანის ანაბეჭდი გადაიღოს?"
 
-#: src/ScreenshotDialog.qml:30 src/UsbDialog.qml:26 src/WallpaperDialog.qml:42
-#, kde-format
-msgctxt "@info:usagetip"
-msgid "Only allow if you know which application made the request."
-msgstr "დაუშვით, მხოლოდ, მაშინ, თუ იცით, რომელმა აპლიკაციამ გააკეთა მოთხოვნა."
-
 #: src/ScreenshotDialog.qml:42
 #, kde-format
 msgid "Capture Mode"
@@ -1163,3 +1158,8 @@ msgstr "ეკრანის გადაცემის დაწყები�
 #, kde-format
 msgid "Remote desktop"
 msgstr "დაშორებული სამუშაო მაგიდა"
+
+#~ msgctxt "@info"
+#~ msgid "Only allow if you know which application made the request."
+#~ msgstr ""
+#~ "დაუშვით, მხოლოდ, მაშინ, თუ იცით, რომელმა აპლიკაციამ გააკეთა მოთხოვნა."

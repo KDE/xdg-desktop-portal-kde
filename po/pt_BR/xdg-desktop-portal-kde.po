@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-01 00:48+0000\n"
+"POT-Creation-Date: 2026-09-08 00:48+0000\n"
 "PO-Revision-Date: 2026-08-28 07:33-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -670,9 +670,10 @@ msgctxt "@info"
 msgid "Allow %1 to gain remote control privileges?"
 msgstr "Permitir que %1 obtenha privilégios de controle remoto?"
 
-#: src/remotedesktopdialog.cpp:49
+#: src/remotedesktopdialog.cpp:49 src/ScreenshotDialog.qml:30
+#: src/UsbDialog.qml:26 src/WallpaperDialog.qml:42
 #, kde-format
-msgctxt "@info"
+msgctxt "@info:usagetip"
 msgid "Only allow if you know which application made the request."
 msgstr "Permitir somente se souber qual aplicativo fez a solicitação."
 
@@ -967,12 +968,6 @@ msgctxt "@info %1 is the name of an application"
 msgid "Allow %1 to take a screenshot?"
 msgstr "Permitir que %1 faça uma captura de tela?"
 
-#: src/ScreenshotDialog.qml:30 src/UsbDialog.qml:26 src/WallpaperDialog.qml:42
-#, kde-format
-msgctxt "@info:usagetip"
-msgid "Only allow if you know which application made the request."
-msgstr "Permitir somente se souber qual aplicativo fez a solicitação."
-
 #: src/ScreenshotDialog.qml:42
 #, kde-format
 msgid "Capture Mode"
@@ -1179,6 +1174,10 @@ msgstr "Não foi possível iniciar a transmissão de tela"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Área de trabalho remota"
+
+#~ msgctxt "@info"
+#~ msgid "Only allow if you know which application made the request."
+#~ msgstr "Permitir somente se souber qual aplicativo fez a solicitação."
 
 #~ msgctxt ""
 #~ "@action:button Don't allow the app to keep running without any open "

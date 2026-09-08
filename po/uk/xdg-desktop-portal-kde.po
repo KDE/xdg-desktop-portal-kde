@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-01 00:48+0000\n"
+"POT-Creation-Date: 2026-09-08 00:48+0000\n"
 "PO-Revision-Date: 2026-08-28 12:38+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -674,9 +674,10 @@ msgctxt "@info"
 msgid "Allow %1 to gain remote control privileges?"
 msgstr "Дозволити %1 отримувати привілеї дистанційного керування?"
 
-#: src/remotedesktopdialog.cpp:49
+#: src/remotedesktopdialog.cpp:49 src/ScreenshotDialog.qml:30
+#: src/UsbDialog.qml:26 src/WallpaperDialog.qml:42
 #, kde-format
-msgctxt "@info"
+msgctxt "@info:usagetip"
 msgid "Only allow if you know which application made the request."
 msgstr "Дозволяти, лише якщо вам відома програм, яка надіслала запит."
 
@@ -970,12 +971,6 @@ msgctxt "@info %1 is the name of an application"
 msgid "Allow %1 to take a screenshot?"
 msgstr "Дозволити %1 зробити знімок екрана?"
 
-#: src/ScreenshotDialog.qml:30 src/UsbDialog.qml:26 src/WallpaperDialog.qml:42
-#, kde-format
-msgctxt "@info:usagetip"
-msgid "Only allow if you know which application made the request."
-msgstr "Дозволяти, лише якщо вам відома програм, яка надіслала запит."
-
 #: src/ScreenshotDialog.qml:42
 #, kde-format
 msgid "Capture Mode"
@@ -1186,6 +1181,10 @@ msgstr "Не вдалося розпочати трансляцію з екра�
 #, kde-format
 msgid "Remote desktop"
 msgstr "Віддалена стільниця"
+
+#~ msgctxt "@info"
+#~ msgid "Only allow if you know which application made the request."
+#~ msgstr "Дозволяти, лише якщо вам відома програм, яка надіслала запит."
 
 #~ msgctxt ""
 #~ "@action:button Don't allow the app to keep running without any open "

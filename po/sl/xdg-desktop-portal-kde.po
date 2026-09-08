@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-01 00:48+0000\n"
+"POT-Creation-Date: 2026-09-08 00:48+0000\n"
 "PO-Revision-Date: 2026-08-28 07:19+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -669,11 +669,12 @@ msgctxt "@info"
 msgid "Allow %1 to gain remote control privileges?"
 msgstr "Naj dovolim %1 pridobitev pravic za oddaljeno upravljanje?"
 
-#: src/remotedesktopdialog.cpp:49
+#: src/remotedesktopdialog.cpp:49 src/ScreenshotDialog.qml:30
+#: src/UsbDialog.qml:26 src/WallpaperDialog.qml:42
 #, kde-format
-msgctxt "@info"
+msgctxt "@info:usagetip"
 msgid "Only allow if you know which application made the request."
-msgstr "Dovolite le, če veste, katera aplikacija je oddala zahtevo."
+msgstr "Dovolite samo, če veste, katera aplikacija je oddala zahtevo."
 
 #: src/remotedesktopdialog.cpp:56
 #, kde-format
@@ -960,12 +961,6 @@ msgctxt "@info %1 is the name of an application"
 msgid "Allow %1 to take a screenshot?"
 msgstr "Naj dovolim %1, da naredi posnetek zaslona?"
 
-#: src/ScreenshotDialog.qml:30 src/UsbDialog.qml:26 src/WallpaperDialog.qml:42
-#, kde-format
-msgctxt "@info:usagetip"
-msgid "Only allow if you know which application made the request."
-msgstr "Dovolite samo, če veste, katera aplikacija je oddala zahtevo."
-
 #: src/ScreenshotDialog.qml:42
 #, kde-format
 msgid "Capture Mode"
@@ -1172,6 +1167,10 @@ msgstr "Zagon video zajemanja zaslona ni uspel"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Oddaljeni zaslon"
+
+#~ msgctxt "@info"
+#~ msgid "Only allow if you know which application made the request."
+#~ msgstr "Dovolite le, če veste, katera aplikacija je oddala zahtevo."
 
 #~ msgctxt ""
 #~ "@action:button Don't allow the app to keep running without any open "
