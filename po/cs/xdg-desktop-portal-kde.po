@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:19+0000\n"
-"PO-Revision-Date: 2026-05-21 23:41+0200\n"
+"PO-Revision-Date: 2026-09-07 21:13+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -18,17 +18,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Vít Pelčák,Jan Papež"
+msgstr "Vít Pelčák,Jan Papež,Libor Filípek"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "vit@pelcak.org,honyczek@centrum.cz"
+msgstr "vit@pelcak.org,honyczek@centrum.cz,libor.filipek@gmail.com"
 
 #: src/accessdialog.cpp:22
 #, kde-format
@@ -333,7 +333,7 @@ msgstr "Sdílení obrazovky"
 #: src/screenchooserdialog.cpp:167
 #, kde-format
 msgid "Choose what to share with the requesting application:"
-msgstr "Vyberte co chcete sdílet s aplikací, která to požaduje:"
+msgstr "Vyberte, co chcete sdílet s aplikací, která to požaduje:"
 
 #: src/screenchooserdialog.cpp:169
 #, kde-format
@@ -364,7 +364,7 @@ msgstr "Vyberte obrazovky, které chcete sdílet s %1:"
 #, kde-format
 msgid "Choose which screen to share with the requesting application:"
 msgstr ""
-"Vyberte kterou obrazovku, kterou chcete sdílet s aplikací, která to požaduje:"
+"Vyberte, kterou obrazovku chcete sdílet s aplikací, která o to požádala:"
 
 #: src/screenchooserdialog.cpp:192
 #, kde-format
@@ -394,7 +394,7 @@ msgstr "Vyberte okna, která chcete sdílet s %1:"
 #: src/screenchooserdialog.cpp:215
 #, kde-format
 msgid "Choose which window to share with the requesting application:"
-msgstr "Vyberte která okna chcete sdílet s aplikací, která to požaduje:"
+msgstr "Vyberte, které okno chcete sdílet s aplikací, která o to požádala:"
 
 #: src/screenchooserdialog.cpp:217
 #, kde-format
