@@ -28,25 +28,25 @@ using namespace Qt::Literals::StringLiterals;
 
 static bool groupMatches(const QString &group, const QStringList &patterns)
 {
-    return std::any_of(patterns.cbegin(), patterns.cend(), [&group](const auto &pattern) {
-        if (pattern.isEmpty()) {
-            return true;
-        }
+    return patterns.empty() || std::ranges::any_of(patterns, [&group](const auto &pattern) {
+               if (pattern.isEmpty()) {
+                   return true;
+               }
 
-        if (pattern == group) {
-            return true;
-        }
+               if (pattern == group) {
+                   return true;
+               }
 
-        if (pattern.startsWith(group)) {
-            return true;
-        }
+               if (pattern.startsWith(group)) {
+                   return true;
+               }
 
-        if (pattern.endsWith(QLatin1Char('*')) && group.startsWith(pattern.left(pattern.length() - 1))) {
-            return true;
-        }
+               if (pattern.endsWith(QLatin1Char('*')) && group.startsWith(pattern.left(pattern.length() - 1))) {
+                   return true;
+               }
 
-        return false;
-    });
+               return false;
+           });
 }
 
 class VirtualKeyboardSettings : public SettingsModule
@@ -526,8 +526,8 @@ QDBusVariant SettingsPortal::Read(const QString &group, const QString &key)
     qCDebug(XdgDesktopPortalKdeSettings) << "    group: " << group;
     qCDebug(XdgDesktopPortalKdeSettings) << "    key: " << key;
 
-    auto setting = std::ranges::find(m_settings, group, [](const auto &setting) {
-        return setting->group();
+    auto setting = std::ranges::find_if(m_settings, [&group](const auto &setting) {
+        return group.startsWith(setting->group());
     });
     if (setting == std::ranges::end(m_settings)) {
         qCWarning(XdgDesktopPortalKdeSettings) << "Namespace " << group << " is not supported";
