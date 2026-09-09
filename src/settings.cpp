@@ -490,9 +490,9 @@ private:
     KSharedConfigPtr m_kdeglobals = KSharedConfig::openConfig();
 };
 
-SettingsPortal::SettingsPortal(DesktopPortal *parent)
+SettingsPortal::SettingsPortal(QObject *parent, std::move_only_function<void(const QDBusError &)> errorSender)
     : QDBusAbstractAdaptor(parent)
-    , m_parent(parent)
+    , m_errorSender(std::move(errorSender))
 {
     m_settings.push_back(std::make_unique<FdoAppearanceSettings>(this));
     m_settings.push_back(std::make_unique<VirtualKeyboardSettings>(this));
@@ -531,13 +531,13 @@ QDBusVariant SettingsPortal::Read(const QString &group, const QString &key)
     });
     if (setting == std::ranges::end(m_settings)) {
         qCWarning(XdgDesktopPortalKdeSettings) << "Namespace " << group << " is not supported";
-        m_parent->sendErrorReply(QDBusError::UnknownProperty, QStringLiteral("Namespace is not supported"));
+        m_errorSender({QDBusError::UnknownProperty, QStringLiteral("Namespace is not supported")});
         return {};
     }
 
     const QVariant result = (*setting)->read(group, key);
     if (result.isNull()) {
-        m_parent->sendErrorReply(QDBusError::UnknownProperty, QStringLiteral("Property doesn't exist"));
+        m_errorSender({QDBusError::UnknownProperty, QStringLiteral("Property doesn't exist")});
         return {};
     }
 
