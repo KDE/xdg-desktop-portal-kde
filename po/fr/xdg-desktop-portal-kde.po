@@ -364,14 +364,14 @@ msgid ""
 "keyboard in the future."
 msgstr ""
 "Une application non identifiable pourra prendre le contrôle du pointeur et "
-"du clavier à l’avenir."
+"du clavier à l'avenir."
 
 #: src/inputcapture.cpp:228
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to take over the pointer and keyboard in the future."
 msgstr ""
-"%1 sera capable de prendre en charge le pointeur et le clavier à l’avenir."
+"%1 sera capable de prendre en charge le pointeur et le clavier à l'avenir."
 
 #: src/InputCaptureDialog.qml:18
 #, kde-format
@@ -1089,8 +1089,8 @@ msgid ""
 "The application will be able to see your username, full name, and profile "
 "picture.<nl/><nl/>The application did not provide a reason."
 msgstr ""
-"L’application pourra afficher votre nom d’utilisateur, votre nom complet et "
-"votre image de profil. <nl/><nl/>L’application n’a fourni aucune raison."
+"L'application pourra afficher votre nom d'utilisateur, votre nom complet et "
+"votre image de profil. <nl/><nl/>L'application n'a fourni aucune raison."
 
 #: src/userinfodialog.cpp:57
 #, kde-kuit-format
@@ -1125,7 +1125,7 @@ msgstr "Une modification de fonds d'écran est demandée."
 msgctxt "@info"
 msgid "Allow an unidentifiable application to change the desktop wallpaper?"
 msgstr ""
-"Autoriser une application non identifiable à modifier le fonds d'écran du "
+"Autoriser une application non identifiable à modifier le fond d'écran du "
 "bureau ?"
 
 #: src/WallpaperDialog.qml:27
@@ -1134,7 +1134,7 @@ msgctxt "@info"
 msgid ""
 "Allow an unidentifiable application to change the lock screen wallpaper?"
 msgstr ""
-"Autoriser une application non identifiable à modifier le fonds d’écran de "
+"Autoriser une application non identifiable à modifier le fonds d'écran de "
 "verrouillage ?"
 
 #: src/WallpaperDialog.qml:29
