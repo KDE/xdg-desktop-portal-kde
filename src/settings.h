@@ -16,7 +16,7 @@
 
 #include "dbushelpers.h"
 
-class DesktopPortal;
+class QDBusContext;
 class FdoAppearanceSettings;
 class KDEGlobalsSettings;
 class SettingsModule;
@@ -40,7 +40,7 @@ class SettingsPortal : public QDBusAbstractAdaptor
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Settings")
     Q_PROPERTY(uint version READ version CONSTANT)
 public:
-    explicit SettingsPortal(DesktopPortal *parent);
+    explicit SettingsPortal(QObject *parent);
 
     uint version() const
     {
@@ -55,7 +55,7 @@ Q_SIGNALS:
     void SettingChanged(const QString &group, const QString &key, const QDBusVariant &value);
 
 private:
-    DesktopPortal *const m_parent;
+    QDBusContext *const m_parent;
     std::vector<std::unique_ptr<SettingsModule>> m_settings;
 };
 

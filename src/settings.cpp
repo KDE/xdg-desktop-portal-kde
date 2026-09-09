@@ -181,6 +181,8 @@ struct AccentColorArray {
     double g = 0.0; // 0-1
     double b = 0.0; // 0-1
 
+    friend bool operator==(const AccentColorArray &, const AccentColorArray &) = default;
+
     operator QVariant() const
     {
         return QVariant::fromValue(*this);
@@ -490,9 +492,9 @@ private:
     KSharedConfigPtr m_kdeglobals = KSharedConfig::openConfig();
 };
 
-SettingsPortal::SettingsPortal(DesktopPortal *parent)
+SettingsPortal::SettingsPortal(QObject *parent)
     : QDBusAbstractAdaptor(parent)
-    , m_parent(parent)
+    , m_parent(dynamic_cast<QDBusContext *>(parent))
 {
     m_settings.push_back(std::make_unique<FdoAppearanceSettings>(this));
     m_settings.push_back(std::make_unique<VirtualKeyboardSettings>(this));
