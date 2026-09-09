@@ -13,3 +13,11 @@ add_test(
 set_tests_properties(colorschemetest PROPERTIES ENVIRONMENT "CMAKE_RUNTIME_OUTPUT_DIRECTORY=${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
 
 ecm_add_test(inputcapturebarriertest.cpp ${CMAKE_SOURCE_DIR}/src/inputcapturebarrier.cpp TEST_NAME inputcapturebarriertest LINK_LIBRARIES Qt::Test Qt::Gui)
+
+ecm_add_test(
+    settingsportaltest.cpp
+    TEST_NAME settingsportaltest
+    LINK_LIBRARIES
+        Qt::Test
+        settingsportal
+)

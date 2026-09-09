@@ -181,6 +181,8 @@ struct AccentColorArray {
     double g = 0.0; // 0-1
     double b = 0.0; // 0-1
 
+    friend bool operator==(const AccentColorArray &, const AccentColorArray &) = default;
+
     operator QVariant() const
     {
         return QVariant::fromValue(*this);

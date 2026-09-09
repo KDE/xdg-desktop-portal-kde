@@ -1,7 +1,26 @@
-
 add_definitions(-DTRANSLATION_DOMAIN="xdg-desktop-portal-kde")
 
 add_subdirectory(kirigami-filepicker)
+
+add_library(settingsportal OBJECT)
+qt_add_dbus_interface(settingsportalAdditional_SRCS org.kde.KWin.TabletModeManager.xml tabletmodemanager_interface)
+qt_add_dbus_interface(settingsportalAdditional_SRCS org.kde.KWin.VirtualKeyboard.xml virtualkeyboard_interface)
+target_sources(settingsportal PRIVATE settings.cpp settings.h ${settingsportal_SRCS})
+ecm_qt_declare_logging_category(settingsportal
+    IDENTIFIER "XdgDesktopPortalKdeSettings"
+    CATEGORY_NAME "xdp-kde-settings"
+    HEADER settings_debug.h
+    DESCRIPTION "XDG Desktop Portal KDE Settings"
+    EXPORT XDPKDE
+)
+target_link_libraries(settingsportal
+    PUBLIC
+        Qt::Core
+        Qt::DBus
+        Qt::Gui
+        Qt::Widgets
+        KF6::ConfigCore
+)
 
 add_executable(xdg-desktop-portal-kde)
 ecm_add_qml_module(xdg-desktop-portal-kde
@@ -82,8 +101,6 @@ set(xdg_desktop_portal_kde_SRCS
     screenshot.h
     session.cpp
     session.h
-    settings.cpp
-    settings.h
     userinfodialog.cpp
     userinfodialog.h
     usb.cpp
@@ -130,13 +147,6 @@ ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeAccount"
     CATEGORY_NAME "xdp-kde-account"
     HEADER account_debug.h)
-ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
-    IDENTIFIER "XdgDesktopPortalKdeSettings"
-    CATEGORY_NAME "xdp-kde-settings"
-    HEADER settings_debug.h
-    DESCRIPTION "XDG Desktop Portal KDE Settings"
-    EXPORT XDPKDE
-)
 ecm_qt_declare_logging_category(xdg_desktop_portal_kde_SRCS
     IDENTIFIER "XdgDesktopPortalKdeAppChooser"
     CATEGORY_NAME "xdp-kde-app-chooser"
@@ -299,9 +309,6 @@ set_source_files_properties(${kglobalaccel_component_xml} PROPERTIES
 )
 qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS ${kglobalaccel_component_xml} kglobalaccel_component_interface)
 
-qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS org.kde.KWin.TabletModeManager.xml tabletmodemanager_interface)
-qt_add_dbus_interface(xdg_desktop_portal_kde_SRCS org.kde.KWin.VirtualKeyboard.xml virtualkeyboard_interface)
-
 qt_add_dbus_adaptor(xdg_desktop_portal_kde_SRCS org.freedesktop.impl.portal.Session.xml session.h Session)
 
 qt6_generate_wayland_protocol_client_sources(xdg-desktop-portal-kde
@@ -333,6 +340,7 @@ target_sources(xdg-desktop-portal-kde PRIVATE ${xdg_desktop_portal_kde_SRCS})
 
 target_link_libraries(xdg-desktop-portal-kde
 PRIVATE
+    settingsportal
     Qt::Core
     Qt::GuiPrivate
     Qt::DBus
@@ -371,4 +379,3 @@ install(FILES
     DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})
 
 ecm_qt_install_logging_categories(EXPORT XDPKDE FILE xdp-kde.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
-
