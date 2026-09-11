@@ -1120,7 +1120,3 @@ msgstr "启动屏幕录像失败"
 #, kde-format
 msgid "Remote desktop"
 msgstr "远程桌面"
-
-#~ msgctxt "@info"
-#~ msgid "Only allow if you know which application made the request."
-#~ msgstr "请仅在您知道是哪个应用程序发出请求时才允许此操作。"
