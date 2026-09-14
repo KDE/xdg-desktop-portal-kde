@@ -1167,7 +1167,3 @@ msgstr "Неуспешно стартиране на видеозапис на �
 #, kde-format
 msgid "Remote desktop"
 msgstr "Отдалечен работен плот"
-
-#~ msgctxt "@info"
-#~ msgid "Only allow if you know which application made the request."
-#~ msgstr "Разрешавайте само ако знаете кое приложение е направило заявката."
