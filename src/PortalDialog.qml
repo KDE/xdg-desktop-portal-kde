@@ -104,7 +104,7 @@ Kirigami.AbstractApplicationWindow {
 
     readonly property alias contentWidth: contentLayout.implicitWidth
     readonly property alias contentHeight: contentLayout.implicitHeight
-    readonly property real edgeSpacing: Kirigami.Units.largeSpacing * 2
+    readonly property real edgeSpacing: Kirigami.Units.largeSpacing
 
     flags: Qt.Dialog | Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
     visible: false
