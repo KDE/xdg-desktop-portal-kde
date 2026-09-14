@@ -49,7 +49,6 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices,
     };
 
     auto filterModel = new AppFilterModel(this);
-    filterModel->setSourceModel(m_model);
 
     m_appChooserData->setFileName(fileDisplay);
     m_appChooserData->setLastUsedApp(lastUsedApp);
@@ -87,6 +86,8 @@ AppChooserDialog::AppChooserDialog(const QStringList &choices,
 
     props.insert(u"appModel"_s, QVariant::fromValue(filterModel));
     props.insert(u"appChooserData"_s, QVariant::fromValue(m_appChooserData));
+
+    filterModel->setSourceModel(m_model);
 
     create(QStringLiteral("AppChooserDialog"), props);
 
@@ -189,7 +190,8 @@ QString ApplicationItem::applicationUntranslatedGenericName() const
 
 QString ApplicationItem::applicationIcon() const
 {
-    return m_applicationService->icon();
+    const QString &icon = m_applicationService->icon();
+    return icon.isEmpty() ? QLatin1String("unknown") : icon;
 }
 
 QString ApplicationItem::applicationDesktopFile() const

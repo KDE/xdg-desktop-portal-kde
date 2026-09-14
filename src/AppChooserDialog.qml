@@ -157,6 +157,7 @@ PortalDialog {
                 currentIndex = 0;
             }
         }
+
         clip: true
 
         Keys.onReturnPressed: currentItemDelegate.click()
@@ -173,6 +174,8 @@ PortalDialog {
         implicitHeight: contentHeight
 
         model: root.appModel
+
+        reuseItems: true
         delegate: QQC2.ItemDelegate {
             id: delegate
 
