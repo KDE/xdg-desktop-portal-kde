@@ -246,6 +246,7 @@ Kirigami.AbstractApplicationWindow {
 
                             Kirigami.Icon {
                                 id: icon
+                                Layout.alignment: Qt.AlignTop
                                 visible: source
                                 implicitWidth: Kirigami.Units.iconSizes.medium
                                 implicitHeight: Kirigami.Units.iconSizes.medium
