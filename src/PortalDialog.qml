@@ -102,9 +102,12 @@ Kirigami.AbstractApplicationWindow {
     */
     property bool contentPadding: true
 
-    readonly property alias contentWidth: contentLayout.implicitWidth
-    readonly property alias contentHeight: contentLayout.implicitHeight
     readonly property real edgeSpacing: Kirigami.Units.largeSpacing
+
+    minimumWidth: contentLayout.implicitWidth
+    minimumHeight: contentLayout.implicitHeight
+    width: minimumWidth
+    height: minimumHeight
 
     flags: Qt.Dialog | Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint
     visible: false
@@ -238,6 +241,7 @@ Kirigami.AbstractApplicationWindow {
                             visible: titleHeading.text.length > 0 || subtitleLabel.text.length > 0 || icon.source
 
                             Layout.fillWidth: true
+                            Layout.minimumWidth: Kirigami.Units.gridUnit * 16
                             spacing: Kirigami.Units.largeSpacing
 
                             Kirigami.Icon {
