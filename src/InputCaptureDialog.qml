@@ -29,9 +29,6 @@ PortalDialog {
         text: KI18n.i18nc("@option:check", "Allow the application to do this without asking next time")
     }
 
-    width: contentWidth
-    height: contentHeight
-
     Component.onCompleted: {
         dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = KI18n.i18nc("@action:button Allow the application to monitor input", "Allow");
         dialogButtonBox.standardButton(QQC2.DialogButtonBox.Cancel).text = KI18n.i18nc("@action:button Deny the application's request to monitor input", "Deny");

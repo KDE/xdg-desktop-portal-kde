@@ -19,9 +19,6 @@ PortalDialog {
     property var choices
     property var selectedChoices: new Object()
 
-    width: contentWidth
-    height: contentHeight
-
     ColumnLayout {
         spacing: Kirigami.Units.smallSpacing
         QQC2.Label {
