@@ -32,7 +32,7 @@ PortalDialog {
         KirigamiComponents.Avatar {
             id: avatar
 
-            readonly property int size: 8 * Kirigami.Units.gridUnit
+            readonly property int size: 6 * Kirigami.Units.gridUnit
 
             Layout.preferredWidth: size
             Layout.preferredHeight: size
