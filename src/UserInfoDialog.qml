@@ -22,9 +22,6 @@ PortalDialog {
     required property string username
     property alias avatar: avatar.source
 
-    width: Kirigami.Units.gridUnit * 28
-    height: Kirigami.Units.gridUnit * 30
-
     ColumnLayout {
         spacing: Kirigami.Units.largeSpacing
 
