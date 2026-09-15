@@ -23,45 +23,51 @@ PortalDialog {
     property alias avatar: avatar.source
 
     ColumnLayout {
-        spacing: Kirigami.Units.largeSpacing
+        spacing: 0
 
         Item {
             Layout.fillHeight: true
         }
 
-        KirigamiComponents.Avatar {
-            id: avatar
+        ColumnLayout {
+            spacing: Kirigami.Units.largeSpacing
 
-            readonly property int size: 6 * Kirigami.Units.gridUnit
+            KirigamiComponents.Avatar {
+                id: avatar
 
-            Layout.preferredWidth: size
-            Layout.preferredHeight: size
-            Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
-        }
+                readonly property int size: 6 * Kirigami.Units.gridUnit
 
-        component Heading: Kirigami.Heading {
-            visible: text.length > 0
-            wrapMode: Text.WordWrap
+                Layout.preferredWidth: size
+                Layout.preferredHeight: size
+                Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
+            }
 
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignTop
+            component Heading: Kirigami.Heading {
+                visible: text.length > 0
+                wrapMode: Text.WordWrap
 
-            Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-            Layout.fillWidth: true
-        }
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignTop
 
-        Heading {
-            level: 1
-            text: root.realname
-        }
+                Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
+                Layout.fillWidth: true
+            }
 
-        Heading {
-            // Take away the spacing here so things look a bit more packed since they are related information.
-            Layout.topMargin: -parent.spacing
+            Heading {
+                id: realNameHeading
 
-            level: 2
-            text: root.username
-            color: Kirigami.Theme.disabledTextColor
+                level: 1
+                text: root.realname
+            }
+
+            Heading {
+                // Take away the spacing here so things look a bit more packed since they are related information.
+                Layout.topMargin: realNameHeading.visible ? -parent.spacing : 0
+
+                level: 2
+                text: root.username
+                color: Kirigami.Theme.disabledTextColor
+            }
         }
 
         Item {
