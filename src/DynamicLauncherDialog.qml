@@ -20,27 +20,31 @@ PortalDialog {
 
     readonly property Component displayComponent: Component {
         ColumnLayout {
+            Layout.alignment: Qt.AlignHCenter
+
+            spacing: Kirigami.Units.smallSpacing
+
             Kirigami.Icon {
                 id: icon
                 Layout.alignment: Qt.AlignHCenter
-                implicitWidth: Kirigami.Units.iconSizes.enormous
+
+                implicitWidth: Kirigami.Units.iconSizes.huge
                 implicitHeight: implicitWidth
                 source: root.dialog.icon
             }
 
             Kirigami.Heading {
-                horizontalAlignment: Text.AlignHCenter
-                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignHCenter
+
                 level: 3
                 wrapMode: Text.Wrap
                 text: root.dialog.name
-                verticalAlignment: Qt.AlignTop
             }
 
             Kirigami.LinkButton {
-                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignHCenter
+
                 visible: text.length > 0
-                horizontalAlignment: Text.AlignHCenter
                 elide: Text.ElideMiddle
                 text: root.dialog.launcherURL
                 onClicked: Qt.openUrlExternally(root.dialog.launcherURL)
@@ -50,12 +54,15 @@ PortalDialog {
 
     readonly property Component editComponent: Component {
         ColumnLayout {
+            spacing: Kirigami.Units.smallSpacing
+
             QQC2.Button {
                 Layout.alignment: Qt.AlignHCenter
+
                 contentItem: Kirigami.Icon {
                     id: icon
                     implicitHeight: implicitWidth
-                    implicitWidth: Kirigami.Units.iconSizes.enormous
+                    implicitWidth: Kirigami.Units.iconSizes.huge
                     source: root.dialog.icon
 
                     KIconThemes.IconDialog {
@@ -70,12 +77,18 @@ PortalDialog {
             }
 
             QQC2.Label {
+                id: editNameLabel
+                Layout.alignment: Qt.AlignHCenter
+                Layout.preferredWidth: Math.max(implicitWidth, editNameTextField.width)
+
                 text: KI18n.i18nc("@label name of a launcher/application", "Name")
-                Layout.fillWidth: true
             }
+
             QQC2.TextField {
-                verticalAlignment: Qt.AlignTop
-                Layout.fillWidth: true
+                id: editNameTextField
+                Layout.alignment: Qt.AlignHCenter
+                Layout.preferredWidth: Math.max(implicitWidth, editNameLabel.width)
+
                 onTextChanged: root.dialog.name = text
                 Component.onCompleted: text = root.dialog.name
             }
@@ -88,8 +101,22 @@ PortalDialog {
 
     standardButtons: QQC2.DialogButtonBox.NoButton
 
-    Loader {
-        sourceComponent: root.edit ? root.editComponent : root.displayComponent
+    ColumnLayout {
+        spacing: 0
+
+        Item {
+            Layout.fillHeight: true
+        }
+
+        Loader {
+            Layout.alignment: Qt.AlignHCenter
+
+            sourceComponent: root.edit ? root.editComponent : root.displayComponent
+        }
+
+        Item {
+            Layout.fillHeight: true
+        }
     }
 
     actions: [
