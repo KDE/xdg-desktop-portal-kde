@@ -121,7 +121,7 @@ PortalDialog {
 
     actions: [
         Kirigami.Action {
-            text: KI18n.i18nc("@action edit launcher name/icon", "Edit Info…")
+            text: KI18n.i18nc("@action edit launcher name/icon", "Edit Info")
             icon.name: "document-edit"
             onCheckedChanged: root.edit = checked
             checkable: true
