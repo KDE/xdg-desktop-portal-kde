@@ -20,46 +20,62 @@ PortalDialog {
     property var selectedChoices: new Object()
 
     ColumnLayout {
-        spacing: Kirigami.Units.smallSpacing
-        QQC2.Label {
-            id: bodyLabel
-            Layout.fillWidth: true
-            wrapMode: Text.WordWrap
+        spacing: 0
+
+        Item {
+            Layout.fillHeight: true
         }
 
-        Kirigami.FormLayout {
-            Layout.fillWidth: true
-            visible: root.choices?.length > 0
-            Repeater {
-                model: root.choices
-                delegate: Loader {
-                    id: loader
-                    required property var modelData
-                    Kirigami.FormData.label: modelData.label
-                    sourceComponent: modelData.choices.length == 0 ? checkBox : comboBox
-                    Component {
-                        id: checkBox
-                        QQC2.CheckBox {
-                            Kirigami.FormData.label: loader.modelData.label
-                            checked: loader.modelData.initialChoiceId === "true"
-                            onToggled: {
-                                root.selectedChoices[loader.modelData.id] = checked ? "true" : "false"
+        ColumnLayout {
+            spacing: Kirigami.Units.largeSpacing
+
+            QQC2.Label {
+                id: bodyLabel
+                Layout.fillWidth: true
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WordWrap
+            }
+
+            Kirigami.FormLayout {
+                Layout.alignment: Qt.AlignHCenter
+
+                visible: root.choices?.length > 0
+
+                Repeater {
+                    model: root.choices
+                    delegate: Loader {
+                        id: loader
+                        required property var modelData
+                        Kirigami.FormData.label: modelData.label
+                        sourceComponent: modelData.choices.length == 0 ? checkBox : comboBox
+                        Component {
+                            id: checkBox
+                            QQC2.CheckBox {
+                                Kirigami.FormData.label: loader.modelData.label
+                                checked: loader.modelData.initialChoiceId === "true"
+                                onToggled: {
+                                    root.selectedChoices[loader.modelData.id] = checked ? "true" : "false"
+                                }
                             }
                         }
-                    }
-                    Component {
-                        id: comboBox
-                        QQC2.ComboBox {
-                            model: loader.modelData.choices
-                            textRole: "value"
-                            valueRole: "id"
-                            onActivated: root.selectedChoices[loader.modelData.id] = currentValue
-                            Component.onCompleted: currentIndex = indexOfValue(loader.modelData.initialChoiceId)
+                        Component {
+                            id: comboBox
+                            QQC2.ComboBox {
+                                model: loader.modelData.choices
+                                textRole: "value"
+                                valueRole: "id"
+                                onActivated: root.selectedChoices[loader.modelData.id] = currentValue
+                                Component.onCompleted: currentIndex = indexOfValue(loader.modelData.initialChoiceId)
+                            }
                         }
+                        Component.onCompleted: root.selectedChoices[modelData.id] = modelData.initialChoiceId
                     }
-                    Component.onCompleted: root.selectedChoices[modelData.id] = modelData.initialChoiceId
                 }
             }
+        }
+
+        Item {
+            Layout.fillHeight: true
         }
     }
 
