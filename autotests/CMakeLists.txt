@@ -3,8 +3,7 @@ ecm_add_tests(
 
     LINK_LIBRARIES Qt::Test Qt::Gui
 )
-target_sources(xdgshortcuttest PRIVATE ${CMAKE_SOURCE_DIR}/src/xdgshortcut.cpp ${CMAKE_SOURCE_DIR}/src/xdgshortcut.h)
-target_link_libraries(xdgshortcuttest Qt::GuiPrivate)
+target_link_libraries(xdgshortcuttest Qt::GuiPrivate xdg-desktop-portal-kde-internal)
 
 add_test(
     NAME colorschemetest
@@ -12,4 +11,4 @@ add_test(
 )
 set_tests_properties(colorschemetest PROPERTIES ENVIRONMENT "CMAKE_RUNTIME_OUTPUT_DIRECTORY=${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
 
-ecm_add_test(inputcapturebarriertest.cpp ${CMAKE_SOURCE_DIR}/src/inputcapturebarrier.cpp TEST_NAME inputcapturebarriertest LINK_LIBRARIES Qt::Test Qt::Gui)
+ecm_add_test(inputcapturebarriertest.cpp TEST_NAME inputcapturebarriertest LINK_LIBRARIES xdg-desktop-portal-kde-internal Qt::Test)
