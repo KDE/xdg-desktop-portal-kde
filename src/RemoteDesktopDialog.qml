@@ -18,10 +18,22 @@ PortalDialog {
 
     iconName: "krfb"
 
-    QQC2.Label {
-        id: desc
-        textFormat: Text.MarkdownText
-        Layout.fillHeight: true
+    ColumnLayout {
+        spacing: 0
+
+        Item {
+            Layout.fillHeight: true
+        }
+
+        QQC2.Label {
+            id: desc
+            Layout.alignment: Qt.AlignHCenter
+            textFormat: Text.MarkdownText
+        }
+
+        Item {
+            Layout.fillHeight: true
+        }
     }
 
     footerItem: QQC2.CheckBox {
