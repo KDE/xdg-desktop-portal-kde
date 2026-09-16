@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:48+0000\n"
+"POT-Creation-Date: 2026-09-16 00:48+0000\n"
 "PO-Revision-Date: 2024-07-18 12:45+0200\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -85,14 +85,14 @@ msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "Vælg andre…"
 
-#: src/AppChooserDialog.qml:194
+#: src/AppChooserDialog.qml:197
 #, fuzzy, kde-kuit-format
 #| msgid "Default app for this file type"
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "Standardapp for denne filtype"
 
-#: src/AppChooserDialog.qml:196
+#: src/AppChooserDialog.qml:199
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:whatsthis"
 #| msgid "Last used app for this file type"
@@ -100,30 +100,30 @@ msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "Sidst brugt app for dinne filtype"
 
-#: src/AppChooserDialog.qml:218
+#: src/AppChooserDialog.qml:221
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr ""
 
-#: src/AppChooserDialog.qml:220
+#: src/AppChooserDialog.qml:223
 #, kde-format
 msgid "No matches"
 msgstr "Ingen fund"
 
-#: src/AppChooserDialog.qml:222
+#: src/AppChooserDialog.qml:225
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Ingen installerede programmer kan åbne <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:241
+#: src/AppChooserDialog.qml:244
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Kør i terminal"
 
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:252
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"

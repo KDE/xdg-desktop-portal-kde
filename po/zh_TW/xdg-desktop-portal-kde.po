@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:48+0000\n"
-"PO-Revision-Date: 2026-06-25 23:56+0900\n"
+"POT-Creation-Date: 2026-09-16 00:48+0000\n"
+"PO-Revision-Date: 2026-09-15 16:57+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 26.07.70\n"
+"X-Generator: Lokalize 26.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -81,42 +81,42 @@ msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "選擇別的…"
 
-#: src/AppChooserDialog.qml:194
+#: src/AppChooserDialog.qml:197
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>這個檔案類型的預設應用程式</emphasis>"
 
-#: src/AppChooserDialog.qml:196
+#: src/AppChooserDialog.qml:199
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>這個檔案類型上次使用的應用程式</emphasis>"
 
-#: src/AppChooserDialog.qml:218
+#: src/AppChooserDialog.qml:221
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "要使用 <command>%1</command> 開啟嗎？"
 
-#: src/AppChooserDialog.qml:220
+#: src/AppChooserDialog.qml:223
 #, kde-format
 msgid "No matches"
 msgstr "無相符項目"
 
-#: src/AppChooserDialog.qml:222
+#: src/AppChooserDialog.qml:225
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "已安裝應用程式中沒有可以開啟 <filename>%1</filename> 的應用程式"
 
-#: src/AppChooserDialog.qml:241
+#: src/AppChooserDialog.qml:244
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "在終端機執行"
 
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:252
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -496,13 +496,13 @@ msgstr "裁剪您的螢幕的某個區域"
 #, kde-format
 msgctxt "@label:listbox size of a screen, width($1) x height($2"
 msgid "Resolution:"
-msgstr ""
+msgstr "解析度："
 
 #: src/PipeWireDelegate.qml:200
 #, kde-format
 msgctxt "size of a screen, width($1) x height($2)"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: src/PipeWireDelegate.qml:287
 #, kde-format
@@ -772,13 +772,10 @@ msgid "End"
 msgstr "結束"
 
 #: src/screencast.cpp:487
-#, fuzzy, kde-format
-#| msgctxt "%1 number of screens, %2 the app that receives them"
-#| msgid "Sharing contents to %2"
-#| msgid_plural "%1 video streams to %2"
+#, kde-format
 msgctxt "@info:tooltip %1 the app that receives the screencast"
 msgid "Sharing contents to %1"
-msgstr "正在分享 %1 個影像串流給 %2"
+msgstr "正在分享內容給 %1"
 
 #: src/screencast.cpp:488
 #, kde-format

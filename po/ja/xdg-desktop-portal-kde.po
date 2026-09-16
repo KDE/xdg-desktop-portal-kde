@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:48+0000\n"
+"POT-Creation-Date: 2026-09-16 00:48+0000\n"
 "PO-Revision-Date: 2026-08-19 19:48+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -82,43 +82,43 @@ msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "その他を選択…"
 
-#: src/AppChooserDialog.qml:194
+#: src/AppChooserDialog.qml:197
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "%1<nl/>(このファイル形式の標準アプリ)"
 
-#: src/AppChooserDialog.qml:196
+#: src/AppChooserDialog.qml:199
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "%1<nl/>(最近このファイル形式を開いたアプリ)"
 
-#: src/AppChooserDialog.qml:218
+#: src/AppChooserDialog.qml:221
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr ""
 
-#: src/AppChooserDialog.qml:220
+#: src/AppChooserDialog.qml:223
 #, kde-format
 msgid "No matches"
 msgstr "一致なし"
 
-#: src/AppChooserDialog.qml:222
+#: src/AppChooserDialog.qml:225
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
 "<filename>%1</filename> を開けるアプリケーションはインストールされていません"
 
-#: src/AppChooserDialog.qml:241
+#: src/AppChooserDialog.qml:244
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "ターミナルで実行"
 
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:252
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"

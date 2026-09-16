@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:48+0000\n"
+"POT-Creation-Date: 2026-09-16 00:48+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -85,14 +85,14 @@ msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "अन्यं चिनोतु..."
 
-#: src/AppChooserDialog.qml:194
+#: src/AppChooserDialog.qml:197
 #, fuzzy, kde-kuit-format
 #| msgid "Default app for this file type"
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "अस्य सञ्चिकाप्रकारस्य पूर्वनिर्धारितं एप्"
 
-#: src/AppChooserDialog.qml:196
+#: src/AppChooserDialog.qml:199
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:whatsthis"
 #| msgid "Last used app for this file type"
@@ -100,30 +100,30 @@ msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "अस्य सञ्चिकाप्रकारस्य कृते अन्तिमप्रयुक्तम् एप्"
 
-#: src/AppChooserDialog.qml:218
+#: src/AppChooserDialog.qml:221
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "<command>%1</command> इत्यनेन उद्घाटयतु?"
 
-#: src/AppChooserDialog.qml:220
+#: src/AppChooserDialog.qml:223
 #, kde-format
 msgid "No matches"
 msgstr "न मेलनं"
 
-#: src/AppChooserDialog.qml:222
+#: src/AppChooserDialog.qml:225
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "कोऽपि संस्थापितः अनुप्रयोगः <filename>%1</filename> उद्घाटयितुं न शक्नोति"
 
-#: src/AppChooserDialog.qml:241
+#: src/AppChooserDialog.qml:244
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "टर्मिनल् मध्ये चालयन्तु"
 
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:252
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:48+0000\n"
+"POT-Creation-Date: 2026-09-16 00:48+0000\n"
 "PO-Revision-Date: 2026-02-01 18:39+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -80,42 +80,42 @@ msgctxt "@action:button"
 msgid "Choose Other…"
 msgstr "இன்னொன்றை தேர்வு செய்…"
 
-#: src/AppChooserDialog.qml:194
+#: src/AppChooserDialog.qml:197
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Default app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>இக்கோப்புவகைக்கான இயல்பிருப்பு செயலி</emphasis>"
 
-#: src/AppChooserDialog.qml:196
+#: src/AppChooserDialog.qml:199
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>இக்கோப்புவகைக்கு கடைசியாக பயன்படுத்திய செயலி</emphasis>"
 
-#: src/AppChooserDialog.qml:218
+#: src/AppChooserDialog.qml:221
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "<command>%1</command> தனில் திறக்கலாமா?"
 
-#: src/AppChooserDialog.qml:220
+#: src/AppChooserDialog.qml:223
 #, kde-format
 msgid "No matches"
 msgstr "பொருத்தங்கள் இல்லை"
 
-#: src/AppChooserDialog.qml:222
+#: src/AppChooserDialog.qml:225
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "<filename>%1</filename> என்பதை எந்த நிறுவியுள்ள செயலியாலும் திறக்க முடியாது"
 
-#: src/AppChooserDialog.qml:241
+#: src/AppChooserDialog.qml:244
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "முனையத்தில் இயக்கு"
 
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:252
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
