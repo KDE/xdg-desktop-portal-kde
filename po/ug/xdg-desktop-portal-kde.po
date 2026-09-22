@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 00:48+0000\n"
-"PO-Revision-Date: 2026-06-01 18:59-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -136,18 +136,14 @@ msgid ""
 msgstr ""
 
 #: src/background.cpp:143 src/background.cpp:160
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt ""
 "@action:button Allow the application to keep running with no open windows"
 msgid "Allow"
 msgstr "يول قوي"
 
 #: src/background.cpp:150
-#, fuzzy, kde-format
-#| msgctxt "@action:button Deny the application gaining extra privileges"
-#| msgid "Deny"
+#, kde-format
 msgctxt ""
 "@action:button Don't allow the application to keep running without any open "
 "windows"
@@ -185,12 +181,10 @@ msgid "Create Web Application Launcher?"
 msgstr ""
 
 #: src/dynamiclauncher.cpp:83
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgctxt "@info"
 msgid "Create Application Launcher?"
-msgstr "پىروگرامما تاللا"
+msgstr ""
 
 #: src/dynamiclauncher.cpp:90
 #, kde-format
@@ -227,11 +221,10 @@ msgid "Edit Info…"
 msgstr ""
 
 #: src/DynamicLauncherDialog.qml:106
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Create"
-msgstr "قىسقۇچ قۇر"
+msgstr "ياسا"
 
 #: src/DynamicLauncherDialog.qml:111
 #, kde-format
@@ -309,7 +302,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture Started"
-msgstr ""
+msgstr "كىرگۈزۈشنى تۇتۇش باشلاندى"
 
 #: src/inputcapture.cpp:119
 #, kde-kuit-format
@@ -391,17 +384,13 @@ msgid "Allow the application to do this without asking next time"
 msgstr ""
 
 #: src/InputCaptureDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the application to monitor input"
 msgid "Allow"
 msgstr "يول قوي"
 
 #: src/InputCaptureDialog.qml:37
-#, fuzzy, kde-format
-#| msgctxt "@action:button Deny the application gaining extra privileges"
-#| msgid "Deny"
+#, kde-format
 msgctxt "@action:button Deny the application's request to monitor input"
 msgid "Deny"
 msgstr "رەت قىل"
@@ -498,7 +487,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox size of a screen, width($1) x height($2"
 msgid "Resolution:"
-msgstr ""
+msgstr "ئېنىقلىق دەرىجىسى:"
 
 #: src/PipeWireDelegate.qml:200
 #, kde-format
@@ -516,7 +505,7 @@ msgstr ""
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
-msgstr "+%1"
+msgstr ""
 
 #: src/PipeWireDelegate.qml:305
 #, kde-format
@@ -550,14 +539,14 @@ msgstr ""
 #, kde-format
 msgctxt "Mouse action"
 msgid "Right-click"
-msgstr ""
+msgstr "ئوڭ چېكىش"
 
 #: src/region-select/RegionSelectOverlay.qml:172
 #: src/region-select/RegionSelectOverlay.qml:212
 #, kde-format
 msgctxt "Keyboard action"
 msgid "Escape"
-msgstr "Escape"
+msgstr ""
 
 #: src/region-select/RegionSelectOverlay.qml:198
 #, kde-format
@@ -709,9 +698,7 @@ msgid ""
 msgstr ""
 
 #: src/RemoteDesktopDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the application to gain extra privileges"
 msgid "Allow"
 msgstr "يول قوي"
@@ -870,7 +857,7 @@ msgstr "ئىزدە…"
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
-msgstr "Windows"
+msgstr ""
 
 #: src/ScreenChooserDialog.qml:186
 #, kde-format
@@ -954,17 +941,13 @@ msgid "Include window borders"
 msgstr ""
 
 #: src/ScreenshotDialog.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the application to use the screenshot"
 msgid "Allow"
 msgstr "يول قوي"
 
 #: src/ScreenshotDialog.qml:84
-#, fuzzy, kde-format
-#| msgctxt "@action:button Deny the application gaining extra privileges"
-#| msgid "Deny"
+#, kde-format
 msgctxt "@action:button Deny the application's request to take a screenshot"
 msgid "Deny"
 msgstr "رەت قىل"
@@ -997,17 +980,13 @@ msgid_plural "Allow %2 to access the following devices?"
 msgstr[0] ""
 
 #: src/UsbDialog.qml:67
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the application to access devices"
 msgid "Allow"
 msgstr "يول قوي"
 
 #: src/UsbDialog.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@action:button Deny the application gaining extra privileges"
-#| msgid "Deny"
+#, kde-format
 msgctxt "@action:button Deny the application's request to access devices"
 msgid "Deny"
 msgstr "رەت قىل"
@@ -1092,17 +1071,13 @@ msgid "Allow %1 to change desktop and lock screen wallpapers?"
 msgstr ""
 
 #: src/WallpaperDialog.qml:55
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the application to change the wallpaper"
 msgid "Allow"
 msgstr "يول قوي"
 
 #: src/WallpaperDialog.qml:56
-#, fuzzy, kde-format
-#| msgctxt "@action:button Deny the application gaining extra privileges"
-#| msgid "Deny"
+#, kde-format
 msgctxt ""
 "@action:button Deny the applicatinon's request to change the wallpaper"
 msgid "Deny"
