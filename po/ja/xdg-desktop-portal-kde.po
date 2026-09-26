@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-08 00:48+0000\n"
-"PO-Revision-Date: 2026-08-19 19:48+0900\n"
+"PO-Revision-Date: 2026-09-12 19:36+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -59,8 +59,7 @@ msgid "Find More in Discover…"
 msgstr "Discover でアプリを探す…"
 
 #: src/AppChooserDialog.qml:40
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open"
 msgstr "開く"
@@ -98,7 +97,7 @@ msgstr "%1<nl/>(最近このファイル形式を開いたアプリ)"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
-msgstr ""
+msgstr "<command>%1</command> で開きますか？"
 
 #: src/AppChooserDialog.qml:220
 #, kde-format
@@ -200,7 +199,8 @@ msgid ""
 "A launcher to open the following website will appear in application "
 "launchers:"
 msgstr ""
-"以下のウェブサイトを開くランチャーがアプリケーションランチャーに追加されます:"
+"以下のウェブサイトを開くランチャーがアプリケーションランチャーに追加されま"
+"す。"
 
 #: src/dynamiclauncher.cpp:95
 #, kde-format
@@ -210,7 +210,7 @@ msgid ""
 "launchers:"
 msgstr ""
 "以下のアプリケーションを開くランチャーがアプリケーションランチャーに追加され"
-"ます:"
+"ます。"
 
 #: src/DynamicLauncherDialog.qml:73
 #, kde-format
@@ -292,14 +292,15 @@ msgid "An unidentifiable application wants to register the following shortcut."
 msgid_plural ""
 "An unidentifiable application wants to register the following %1 shortcuts."
 msgstr[0] ""
-"アプリケーション (特定不可) が以下の%1個のショートカットの登録を求めています"
+"アプリケーション (特定不可) が以下の%1個のショートカットの登録を求めていま"
+"す。"
 
 #: src/GlobalShortcutsDialog.qml:31
 #, kde-format
 msgctxt "@info %2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
-msgstr[0] "%2 が以下の%1個のショートカットの登録を求めています:"
+msgstr[0] "%2 が以下の%1個のショートカットの登録を求めています。"
 
 #: src/GlobalShortcutsDialog.qml:91
 #, kde-format
@@ -515,13 +516,13 @@ msgstr "画面の特定の範囲を切り抜きます"
 #, kde-format
 msgctxt "@label:listbox size of a screen, width($1) x height($2"
 msgid "Resolution:"
-msgstr ""
+msgstr "解像度:"
 
 #: src/PipeWireDelegate.qml:200
 #, kde-format
 msgctxt "size of a screen, width($1) x height($2)"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: src/PipeWireDelegate.qml:287
 #, kde-format
@@ -539,7 +540,7 @@ msgstr "+%1"
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
-msgstr "\"%1\" を共有"
+msgstr "“%1” を共有"
 
 #: src/region-select/RegionSelectOverlay.qml:150
 #, kde-format
@@ -672,13 +673,13 @@ msgstr "どのアプリケーションか把握している場合のみ許可し
 #, kde-format
 msgctxt "@info"
 msgid "The application will be able to:"
-msgstr "このアプリケーションは以下の処理を行えるようになります:"
+msgstr "このアプリケーションは以下の処理を行えるようになります。"
 
 #: src/remotedesktopdialog.cpp:56
 #, kde-format
 msgctxt "@info"
 msgid "%1 will be able to:"
-msgstr "%1 は以下の処理を行えるようになります:"
+msgstr "%1 は以下の処理を行えるようになります。"
 
 #: src/remotedesktopdialog.cpp:60
 #, kde-format
@@ -798,13 +799,10 @@ msgid "End"
 msgstr "終了"
 
 #: src/screencast.cpp:487
-#, fuzzy, kde-format
-#| msgctxt "%1 number of screens, %2 the app that receives them"
-#| msgid "Sharing contents to %2"
-#| msgid_plural "%1 video streams to %2"
+#, kde-format
 msgctxt "@info:tooltip %1 the app that receives the screencast"
 msgid "Sharing contents to %1"
-msgstr "%2 にコンテンツを共有中 (%1 個)"
+msgstr "%1 にコンテンツを共有中"
 
 #: src/screencast.cpp:488
 #, kde-format
@@ -827,22 +825,22 @@ msgstr "%1 にこの画面を共有しますか？"
 #, kde-format
 msgid "Choose screens to share with an unidentifiable application:"
 msgstr ""
-"アプリケーション (特定不可) に共有する画面を選択してください (複数選択可):"
+"アプリケーション (特定不可) に共有する画面を選択してください。(複数選択可)"
 
 #: src/screenchooserdialog.cpp:210
 #, kde-format
 msgid "Choose screens to share with %1:"
-msgstr "%1 に共有する画面を選択してください (複数選択可):"
+msgstr "%1 に共有する画面を選択してください。(複数選択可)"
 
 #: src/screenchooserdialog.cpp:214
 #, kde-format
 msgid "Choose a screen to share with an unidentifiable application:"
-msgstr "アプリケーション (特定不可) に共有する画面を選択してください:"
+msgstr "アプリケーション (特定不可) に共有する画面を選択してください。"
 
 #: src/screenchooserdialog.cpp:216
 #, kde-format
 msgid "Choose a screen to share with %1:"
-msgstr "%1 に共有する画面を選択してください:"
+msgstr "%1 に共有する画面を選択してください。"
 
 #: src/screenchooserdialog.cpp:225
 #, kde-format
@@ -858,45 +856,45 @@ msgstr "%1 にこのウィンドウを共有しますか？"
 #, kde-format
 msgid "Choose windows to share with an unidentifiable application:"
 msgstr ""
-"アプリケーション (特定不可) に共有するウィンドウを選択してください (複数選択"
-"可):"
+"アプリケーション (特定不可) に共有するウィンドウを選択してください。(複数選択"
+"可)"
 
 #: src/screenchooserdialog.cpp:234
 #, kde-format
 msgid "Choose windows to share with %1:"
-msgstr "%1 に共有するウィンドウを選択してください (複数選択可):"
+msgstr "%1 に共有するウィンドウを選択してください。(複数選択可)"
 
 #: src/screenchooserdialog.cpp:238
 #, kde-format
 msgid "Choose a window to share with an unidentifiable application:"
-msgstr "アプリケーション (特定不可) に共有するウィンドウを選択してください:"
+msgstr "アプリケーション (特定不可) に共有するウィンドウを選択してください。"
 
 #: src/screenchooserdialog.cpp:240
 #, kde-format
 msgid "Choose a window to share with %1:"
-msgstr "%1 に共有するウィンドウを選択してください:"
+msgstr "%1 に共有するウィンドウを選択してください。"
 
 #: src/screenchooserdialog.cpp:247
 #, kde-format
 msgid ""
 "Create a new virtual display to share with an unidentifiable application:"
 msgstr ""
-"アプリケーション (特定不可) に共有する仮想ディスプレイを選択してください:"
+"アプリケーション (特定不可) に共有する仮想ディスプレイを選択してください。"
 
 #: src/screenchooserdialog.cpp:249
 #, kde-format
 msgid "Create a new virtual display to share with %1:"
-msgstr "%1 に共有する仮想ディスプレイを選択してください:"
+msgstr "%1 に共有する仮想ディスプレイを選択してください。"
 
 #: src/screenchooserdialog.cpp:255
 #, kde-format
 msgid "Choose what to share with an unidentifiable application:"
-msgstr "アプリケーション (特定不可) に共有するものを選択してください:"
+msgstr "アプリケーション (特定不可) に共有するものを選択してください。"
 
 #: src/screenchooserdialog.cpp:257
 #, kde-format
 msgid "Choose what to share with %1:"
-msgstr "%1 に共有するものを選択してください:"
+msgstr "%1 に共有するものを選択してください"
 
 #: src/screenchooserdialog.cpp:263
 #, kde-format
@@ -1161,9 +1159,3 @@ msgstr "画面録画を開始できませんでした"
 #, kde-format
 msgid "Remote desktop"
 msgstr "リモートデスクトップ"
-
-#~ msgctxt "@info"
-#~ msgid "Only allow if you know which application made the request."
-#~ msgstr ""
-#~ "どのアプリケーションがキャプチャを要求しているか把握している場合のみ許可し"
-#~ "てください。"
