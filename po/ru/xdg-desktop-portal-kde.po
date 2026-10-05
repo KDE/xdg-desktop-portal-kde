@@ -61,7 +61,7 @@ msgstr "Выберите приложение для открытия <filename>
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "Найти больше приложений в центре программ Discover…"
+msgstr "Найти другие приложения в Discover…"
 
 #: src/AppChooserDialog.qml:40
 #, kde-format
