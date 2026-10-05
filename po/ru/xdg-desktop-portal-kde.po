@@ -86,14 +86,14 @@ msgstr ""
 #, kde-format
 msgctxt "Find some more apps that can open this content using the Discover app"
 msgid "Find More in Discover"
-msgstr "Найти больше приложений в центре программ Discover"
+msgstr "Найти другие приложения в Discover"
 
 #: src/AppChooserDialog.qml:209
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Don't see the right app? Find more in <link>Discover</link>."
 msgstr ""
-"Если нужное приложение отсутствует, загрузите его в центре программ "
+"Если нужное приложение отсутствует, загрузите его в центре приложений "
 "<link>Discover</link>."
 
 #: src/background.cpp:104
