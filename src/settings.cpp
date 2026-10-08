@@ -493,7 +493,7 @@ private:
     KSharedConfigPtr m_kdeglobals = KSharedConfig::openConfig();
 };
 
-SettingsPortal::SettingsPortal(QObject *parent, std::move_only_function<void(const QDBusError &)> errorSender)
+SettingsPortal::SettingsPortal(QObject *parent, function<void(const QDBusError &)> errorSender)
     : QDBusAbstractAdaptor(parent)
     , m_errorSender(std::move(errorSender))
 {
