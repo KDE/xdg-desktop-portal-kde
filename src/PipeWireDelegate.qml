@@ -171,7 +171,7 @@ Kirigami.AbstractCard {
                 // we want to shrink the combobox a bit but not make it look supersquished with no padding at all
                 bottomPadding: 1
                 topPadding: 1
-                implicitHeight: implicitContentHeight + topPadding + bottomPadding
+                implicitHeight: contentItem.contentHeight + topPadding + bottomPadding
 
                 currentValue: Qt.size(1920, 1080)
 
