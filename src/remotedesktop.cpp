@@ -208,7 +208,11 @@ std::pair<PortalResponse::Response, QVariantMap> continueStart(RemoteDesktopSess
                     streams.push_back(std::move(stream));
                 }
             } else {
-                streams.push_back(WaylandIntegration::startStreamingWorkspace(Screencasting::CursorMode(session->cursorMode())));
+                auto stream = WaylandIntegration::startStreamingWorkspace(Screencasting::CursorMode(session->cursorMode()));
+                if (!stream || !guardedSession) {
+                    return {PortalResponse::OtherError, {}};
+                }
+                streams.push_back(std::move(stream));
             }
         }
 
