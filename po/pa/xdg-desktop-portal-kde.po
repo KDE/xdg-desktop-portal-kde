@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2022, 2023, 2024, 2025 A S Alam <aalam@users.sf.net>
+# SPDX-FileCopyrightText: 2017-2020, 2022-2026 A S Alam <aalam@users.sf.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-16 00:48+0000\n"
-"PO-Revision-Date: 2025-02-28 11:01-0600\n"
+"PO-Revision-Date: 2026-10-12 20:00-0500\n"
 "Last-Translator: A S Alam <aman@punlinux.org>\n"
 "Language-Team: pa\n"
 "Language: pa\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -51,14 +51,11 @@ msgid "Choose an application to open <filename>%1</filename>"
 msgstr "<filename>%1</filename> ਖੋਲ੍ਹਣ ਲਈ ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
 
 #: src/AppChooserDialog.qml:35
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Find some more apps that can open this content using the Discover app"
-#| msgid "Find More in Discover"
+#, kde-format
 msgctxt ""
 "Find some more apps that can open this content using the Discover app store"
 msgid "Find More in Discover…"
-msgstr "ਡਿਸਕਵਰ ਵਿੱਚ ਹੋਰ ਲੱਭੋ"
+msgstr "ਡਿਸਕਵਰ ਵਿੱਚ ਹੋਰ ਲੱਭੋ…"
 
 #: src/AppChooserDialog.qml:40
 #, kde-format
@@ -147,9 +144,7 @@ msgstr ""
 "ਐਪਲੀਕੇਸ਼ਨ ਆਖਰੀ ਵਿੰਡੋ ਬੰਦ ਹੋਣ ਉੱਤੇ ਬੰਦ ਹੋ ਜਾਵੇਗੀ।"
 
 #: src/background.cpp:143 src/background.cpp:160
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt ""
 "@action:button Allow the application to keep running with no open windows"
 msgid "Allow"
@@ -164,16 +159,12 @@ msgid "Deny"
 msgstr ""
 
 #: src/background.cpp:154
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@title title of a dialog to confirm whether to allow an app to remain "
-#| "running with no visible windows"
-#| msgid "Background App Usage"
+#, kde-format
 msgctxt ""
 "@title title of a dialog to confirm whether to allow an application to "
 "remain running with no visible windows"
 msgid "Deny Background Usage?"
-msgstr "ਬੈਕਗਰਾਊਂਡ ਐਪ ਵਰਤੋਂ"
+msgstr "ਬੈਕਗਰਾਊਂਡ ਵਰਤੋਂ ਉੱਤੇ ਇਨਕਾਰ?"
 
 #: src/background.cpp:156
 #, fuzzy, kde-format
@@ -196,21 +187,19 @@ msgctxt ""
 "@action:button Don't allow the application to keep running without any open "
 "windows"
 msgid "Deny Anyway"
-msgstr ""
+msgstr "ਕਿਵੇਂ ਵੀ ਇਨਕਾਰ"
 
 #: src/dynamiclauncher.cpp:78
 #, kde-format
 msgctxt "@info"
 msgid "Create Web Application Launcher?"
-msgstr ""
+msgstr "ਕੀ ਵੈੱਬ ਐਪਲੀਕੇਸ਼ਨ ਲਾਂਚਰ ਬਣਾਉਣਾ ਹੈ?"
 
 #: src/dynamiclauncher.cpp:83
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Choose Application"
+#, kde-format
 msgctxt "@info"
 msgid "Create Application Launcher?"
-msgstr "ਐਪਲੀਕੇਸ਼ਨ ਚੁਣੋ"
+msgstr "ਕੀ ਐਪਲੀਕੇਸ਼ਨ ਲਾਂਚਰ ਬਣਾਉਣਾ ਹੈ?"
 
 #: src/dynamiclauncher.cpp:90
 #, kde-format
@@ -249,11 +238,10 @@ msgid "Edit Info…"
 msgstr "…ਜਾਣਕਾਰੀ ਨੂੰ ਸੋਧੋ"
 
 #: src/DynamicLauncherDialog.qml:106
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@action accept dialog and create launcher"
 msgid "Create"
-msgstr "ਫੋਲਡਰ ਬਣਾਓ"
+msgstr "ਬਣਾਓ"
 
 #: src/DynamicLauncherDialog.qml:111
 #, kde-format
@@ -334,9 +322,7 @@ msgid "View other shortcuts registered by this application"
 msgstr ""
 
 #: src/inputcapture.cpp:116
-#, fuzzy, kde-format
-#| msgctxt "@title:notification"
-#| msgid "Input Capture started"
+#, kde-format
 msgctxt "@title:notification"
 msgid "Input Capture Started"
 msgstr "ਇਨਪੁੱਟ ਕੈਪਚਰ ਸ਼ੁਰੂ ਕੀਤਾ"
@@ -427,9 +413,7 @@ msgid "Allow the application to do this without asking next time"
 msgstr ""
 
 #: src/InputCaptureDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the application to monitor input"
 msgid "Allow"
 msgstr "ਮਨਜ਼ੂਰ"
@@ -496,16 +480,14 @@ msgid "Share region"
 msgstr ""
 
 #: src/outputsmodel.cpp:87
-#, fuzzy, kde-format
-#| msgid "Share this screen with %1?"
+#, kde-format
 msgid "Share virtual screen"
-msgstr "ਇਹ ਸਕਰੀਨ %1 ਨਾਲ ਸਾਂਝੀ ਕਰਨੀ ਹੈ?"
+msgstr "ਵਰਚੁਅਲ ਸਕਰੀਨ ਸਾਂਝੀ ਕਰੋ"
 
 #: src/outputsmodel.cpp:98 src/screencast.cpp:360
-#, fuzzy, kde-format
-#| msgid "Full Workspace"
+#, kde-format
 msgid "Share full Workspace"
-msgstr "ਪੂਰਾ ਵਰਕਸਪੇਸ"
+msgstr "ਪੂਰਾ ਵਰਕਸਪੇਸ ਸਾਂਝਾ ਕਰੋ"
 
 #: src/outputsmodel.cpp:133
 #, kde-format
@@ -535,13 +517,13 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox size of a screen, width($1) x height($2"
 msgid "Resolution:"
-msgstr ""
+msgstr "ਰੈਜ਼ੋਲੇਸ਼ਨ:"
 
 #: src/PipeWireDelegate.qml:200
 #, kde-format
 msgctxt "size of a screen, width($1) x height($2)"
 msgid "%1 × %2"
-msgstr ""
+msgstr "%1 × %2"
 
 #: src/PipeWireDelegate.qml:287
 #, kde-format
@@ -553,13 +535,13 @@ msgstr ""
 #, kde-format
 msgctxt "%1 is a number of elided icon entries"
 msgid "+%1"
-msgstr ""
+msgstr "+%1"
 
 #: src/PipeWireDelegate.qml:305
 #, kde-format
 msgctxt "@title %1 refers to a screen name"
 msgid "Share “%1”"
-msgstr ""
+msgstr "“%1” ਨੂੰ ਸਾਂਝਾ ਕਰੋ"
 
 #: src/region-select/RegionSelectOverlay.qml:150
 #, kde-format
@@ -608,13 +590,10 @@ msgid "Left-click and drag"
 msgstr "ਖੱਬਾ-ਕਲਿੱਕ ਅਤੇ ਖਿੱਚੋ"
 
 #: src/remotedesktop.cpp:118
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "SNI title that indicates there's a process remotely controlling the system"
-#| msgid "Remote Desktop"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
-msgstr "ਰਿਮੋਟ ਡੈਸਕਟਾਪ"
+msgstr "ਰਿਮੋਟ ਡੈਸਕਟਾਪ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
 
 #: src/remotedesktop.cpp:120
 #, kde-kuit-format
@@ -647,26 +626,20 @@ msgid "Virtual Output (shared with %1)"
 msgstr "ਵਰਚੁਅਲ ਆਉਟਪੁੱਟ (%1 ਨਾਲ ਸਾਂਝਾ ਕੀਤਾ)"
 
 #: src/remotedesktop.cpp:301
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
-msgstr "ਰਿਮੋਟ ਕੰਟਰੋਲ ਦੀ ਬੇਨਤੀ ਕੀਤੀ"
+msgstr "ਰਿਮੋਟ ਕੰਟਰੋਲ ਸ਼ੁਰੂ ਕੀਤਾ"
 
 #: src/remotedesktop.cpp:601
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
 msgid "Remote Control"
-msgstr "ਰਿਮੋਟ ਕੰਟਰੋਲ ਦੀ ਬੇਨਤੀ ਕੀਤੀ"
+msgstr "ਰਿਮੋਟ ਕੰਟਰੋਲ"
 
 #: src/remotedesktopdialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "Title of the dialog that requests remote input privileges"
-#| msgid "Remote control requested"
+#, kde-format
 msgctxt "Title of the dialog that requests remote input privileges"
 msgid "Remote Control Requested"
 msgstr "ਰਿਮੋਟ ਕੰਟਰੋਲ ਦੀ ਬੇਨਤੀ ਕੀਤੀ"
@@ -757,9 +730,7 @@ msgid ""
 msgstr ""
 
 #: src/RemoteDesktopDialog.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the application to gain extra privileges"
 msgid "Allow"
 msgstr "ਮਨਜ਼ੂਰ"
@@ -923,15 +894,13 @@ msgid "Only share anything if you know which application made the request."
 msgstr ""
 
 #: src/ScreenChooserDialog.qml:121
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgctxt "placeholder text for searchfield"
 msgid "Search…"
-msgstr "ਖੋਜ"
+msgstr "…ਖੋਜੋ"
 
 #: src/ScreenChooserDialog.qml:167
-#, fuzzy, kde-format
-#| msgid "Windows"
+#, kde-format
 msgctxt ""
 "@label separator line label between screen selection and window selection"
 msgid "Windows"
@@ -1011,11 +980,10 @@ msgid "Content Options"
 msgstr "ਸਮੱਗਰੀ ਚੋਣਾਂ"
 
 #: src/ScreenshotDialog.qml:64
-#, fuzzy, kde-format
-#| msgid "Include cursor pointer"
+#, kde-format
 msgctxt "@option:check Refers to the on-screen 'mouse pointer'"
 msgid "Include pointer"
-msgstr "ਮਾਊਸ ਪੁਆਇੰਟਰ ਸਮੇਤ"
+msgstr "ਪੁਆਇੰਟਰ ਸਮੇਤ"
 
 #: src/ScreenshotDialog.qml:69
 #, kde-format
@@ -1023,9 +991,7 @@ msgid "Include window borders"
 msgstr "ਵਿੰਡੋ ਹਾਸ਼ੀਏ ਦੇ ਸਮੇਤ"
 
 #: src/ScreenshotDialog.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the application to use the screenshot"
 msgid "Allow"
 msgstr "ਮਨਜ਼ੂਰ"
@@ -1037,8 +1003,7 @@ msgid "Deny"
 msgstr ""
 
 #: src/ScreenshotDialog.qml:94
-#, fuzzy, kde-format
-#| msgid "Take screenshot"
+#, kde-format
 msgctxt "@action:button"
 msgid "Take Screenshot"
 msgstr "ਸਕਰੀਨ-ਸ਼ਾਟ ਲਵੋ"
@@ -1071,9 +1036,7 @@ msgstr[0] "ਐਪਲੀਕੇਸ਼ਨ ਨੇ ਇਸ ਲਈ ਪਹੁੰਚ ਬੇ�
 msgstr[1] "ਐਪਲੀਕੇਸ਼ਨ ਨੇ ਇਸ ਲਈ ਪਹੁੰਚ ਬੇਨਤੀ:\n"
 
 #: src/UsbDialog.qml:67
-#, fuzzy, kde-format
-#| msgctxt "@action:button Allow the app to keep running with no open windows"
-#| msgid "Allow"
+#, kde-format
 msgctxt "@action:button Allow the application to access devices"
 msgid "Allow"
 msgstr "ਮਨਜ਼ੂਰ"
@@ -1180,7 +1143,7 @@ msgstr "ਮਨਜ਼ੂਰ"
 msgctxt ""
 "@action:button Deny the applicatinon's request to change the wallpaper"
 msgid "Deny"
-msgstr ""
+msgstr "ਇਨਕਾਰ"
 
 #: src/waylandintegration.cpp:217 src/waylandintegration.cpp:260
 #, kde-format
