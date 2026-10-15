@@ -8,13 +8,13 @@
  */
 
 #include "remotedesktop.h"
+#include "eiconnection.h"
 #include "remotedesktop_debug.h"
 #include "remotedesktopdialog.h"
 #include "request.h"
 #include "restoredata.h"
 #include "session.h"
 #include "utils.h"
-#include "waylandintegration.h"
 #include <KLocalizedString>
 #include <KNotification>
 #include <KStatusNotifierItem>
@@ -87,6 +87,20 @@ static QString kwinRemoteDesktopPath()
 static QString kwinRemoteDesktopInterface()
 {
     return QStringLiteral("org.kde.KWin.EIS.RemoteDesktop");
+}
+
+static std::optional<std::pair<QDBusUnixFileDescriptor, int>> kwinConnectToEIS(RemoteDesktopPortal::DeviceTypes capabilities)
+{
+    auto msg = QDBusMessage::createMethodCall(kwinService(), kwinRemoteDesktopPath(), kwinRemoteDesktopInterface(), QStringLiteral("connectToEIS"));
+    msg.setArguments({static_cast<int>(capabilities)});
+    // Using pending reply for multiple return values
+    QDBusPendingReply<QDBusUnixFileDescriptor, int> reply = QDBusConnection::sessionBus().call(msg);
+    reply.waitForFinished();
+    if (reply.isError()) {
+        qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Failed to connect to EIS:" << reply.error();
+        return {};
+    }
+    return {{reply.argumentAt<0>(), reply.argumentAt<1>()}};
 }
 
 RemoteDesktopPortal::RemoteDesktopPortal(QObject *parent)
@@ -206,7 +220,6 @@ QFuture<QVariantList> continueStart(RemoteDesktopSession *session)
         }
     }
 
-    session->acquireStreamingInput();
     auto all = QtFuture::whenAll(streams.begin(), streams.end());
     return all.then(session, [session](QList<QFuture<std::unique_ptr<ScreencastingStream>>> streamFutures) -> QVariantList {
         session->showStatusNotifier();
@@ -347,7 +360,9 @@ void RemoteDesktopPortal::NotifyPointerMotion(const QDBusObjectPath &session_han
         return;
     }
 
-    WaylandIntegration::requestPointerMotion(QSizeF(dx, dy));
+    if (auto ei = session->fallbackEiConnection()) {
+        ei->requestPointerMotion(dx, dy);
+    }
 }
 
 void RemoteDesktopPortal::NotifyPointerMotionAbsolute(const QDBusObjectPath &session_handle, const QVariantMap &options, uint stream, double x, double y)
@@ -370,7 +385,13 @@ void RemoteDesktopPortal::NotifyPointerMotionAbsolute(const QDBusObjectPath &ses
         return stream->nodeid() == nodeId;
     });
 
-    WaylandIntegration::requestPointerMotionAbsolute(it != session->streams().end() ? it->get() : nullptr, QPointF(x, y));
+    if (it == std::ranges::end(session->streams())) {
+        qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Couldn't find stream " << stream;
+    }
+
+    if (auto ei = session->fallbackEiConnection()) {
+        ei->requestPointerMotionAbsolute((*it)->metaData().value(u"mapping-id"_s).toString(), x, y);
+    }
 }
 
 void RemoteDesktopPortal::NotifyPointerButton(const QDBusObjectPath &session_handle, const QVariantMap &options, int button, uint state)
@@ -386,12 +407,6 @@ void RemoteDesktopPortal::NotifyPointerButton(const QDBusObjectPath &session_han
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerButton on non-existing session " << session_handle.path();
         return;
-    }
-
-    if (state) {
-        WaylandIntegration::requestPointerButtonPress(button);
-    } else {
-        WaylandIntegration::requestPointerButtonRelease(button);
     }
 }
 
@@ -410,7 +425,9 @@ void RemoteDesktopPortal::NotifyPointerAxis(const QDBusObjectPath &session_handl
         return;
     }
 
-    WaylandIntegration::requestPointerAxis(dx, dy);
+    if (auto ei = session->fallbackEiConnection()) {
+        ei->requestPointerAxis(dx, dy);
+    }
 }
 
 void RemoteDesktopPortal::NotifyPointerAxisDiscrete(const QDBusObjectPath &session_handle, const QVariantMap &options, uint axis, int steps)
@@ -428,7 +445,9 @@ void RemoteDesktopPortal::NotifyPointerAxisDiscrete(const QDBusObjectPath &sessi
         return;
     }
 
-    WaylandIntegration::requestPointerAxisDiscrete(!axis ? Qt::Vertical : Qt::Horizontal, steps);
+    if (auto ei = session->fallbackEiConnection()) {
+        ei->requestPointerAxisDiscrete(!axis ? Qt::Vertical : Qt::Horizontal, steps);
+    }
 }
 
 void RemoteDesktopPortal::NotifyKeyboardKeysym(const QDBusObjectPath &session_handle, const QVariantMap &options, int keysym, uint state)
@@ -442,7 +461,9 @@ void RemoteDesktopPortal::NotifyKeyboardKeysym(const QDBusObjectPath &session_ha
         return;
     }
 
-    WaylandIntegration::requestKeyboardKeysym(keysym, state != 0);
+    if (auto ei = session->fallbackEiConnection()) {
+        ei->requestKeyboardKeysym(keysym, state != 0);
+    }
 }
 
 void RemoteDesktopPortal::NotifyKeyboardKeycode(const QDBusObjectPath &session_handle, const QVariantMap &options, int keycode, uint state)
@@ -460,20 +481,32 @@ void RemoteDesktopPortal::NotifyKeyboardKeycode(const QDBusObjectPath &session_h
         return;
     }
 
-    WaylandIntegration::requestKeyboardKeycode(keycode, state != 0);
+    if (auto ei = session->fallbackEiConnection()) {
+        ei->requestKeyboardKeycode(keycode, state != 0);
+    }
 }
 
 void RemoteDesktopPortal::NotifyTouchDown(const QDBusObjectPath &session_handle, const QVariantMap &options, uint stream, uint slot, double x, double y)
 {
     Q_UNUSED(options)
-    Q_UNUSED(stream)
 
     RemoteDesktopSession *session = Session::getSession<RemoteDesktopSession>(session_handle.path());
     if (!session) {
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerAxisDiscrete on non-existing session " << session_handle.path();
         return;
     }
-    WaylandIntegration::requestTouchDown(slot, QPointF(x, y));
+
+    auto it = std::ranges::find_if(session->streams(), [nodeId = stream](const std::unique_ptr<ScreencastingStream> &stream) {
+        return stream->nodeid() == nodeId;
+    });
+
+    if (it == std::ranges::end(session->streams())) {
+        qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Couldn't find stream " << stream;
+    }
+
+    if (auto ei = session->fallbackEiConnection()) {
+        ei->requestTouchDown(slot, (*it)->metaData().value(u"mapping-id"_s).toString(), x, y);
+    }
 }
 
 void RemoteDesktopPortal::NotifyTouchMotion(const QDBusObjectPath &session_handle, const QVariantMap &options, uint stream, uint slot, double x, double y)
@@ -486,7 +519,10 @@ void RemoteDesktopPortal::NotifyTouchMotion(const QDBusObjectPath &session_handl
         qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Tried to call NotifyPointerAxisDiscrete on non-existing session " << session_handle.path();
         return;
     }
-    WaylandIntegration::requestTouchMotion(slot, QPointF(x, y));
+
+    if (auto ei = session->fallbackEiConnection()) {
+        ei->requestTouchMotion(slot, x, y);
+    }
 }
 
 void RemoteDesktopPortal::NotifyTouchUp(const QDBusObjectPath &session_handle, const QVariantMap &options, uint slot)
@@ -499,7 +535,9 @@ void RemoteDesktopPortal::NotifyTouchUp(const QDBusObjectPath &session_handle, c
         return;
     }
 
-    WaylandIntegration::requestTouchUp(slot);
+    if (auto ei = session->fallbackEiConnection()) {
+        ei->requestTouchUp(slot);
+    }
 }
 
 QDBusUnixFileDescriptor
@@ -514,19 +552,17 @@ RemoteDesktopPortal::ConnectToEIS(const QDBusObjectPath &session_handle, const Q
         return QDBusUnixFileDescriptor();
     }
 
-    auto msg = QDBusMessage::createMethodCall(kwinService(), kwinRemoteDesktopPath(), kwinRemoteDesktopInterface(), QStringLiteral("connectToEIS"));
-    msg.setArguments({static_cast<int>(session->deviceTypes())});
-    // Using pending reply for multiple return values
-    QDBusPendingReply<QDBusUnixFileDescriptor, int> reply = QDBusConnection::sessionBus().call(msg);
-    reply.waitForFinished();
-    if (reply.isError()) {
-        qCWarning(XdgDesktopPortalKdeRemoteDesktop) << "Failed to connect to EIS:" << reply.error();
+    auto result = kwinConnectToEIS(session->deviceTypes());
+    if (!result) {
         auto error = message.createErrorReply(QDBusError::Failed, QStringLiteral("Failed to connect to to EIS"));
         QDBusConnection::sessionBus().send(error);
-        return QDBusUnixFileDescriptor();
     }
-    session->setEisCookie(reply.argumentAt<1>());
-    return reply.argumentAt<0>();
+
+    // Once an application connected to Ei it's not allowed to use Notify* methods anymore
+    session->disconnectFallbackEi();
+
+    session->setEisCookie(result->second);
+    return result->first;
 }
 
 RemoteDesktopSession::RemoteDesktopSession(QObject *parent, const QString &appId, const QString &path)
@@ -534,15 +570,13 @@ RemoteDesktopSession::RemoteDesktopSession(QObject *parent, const QString &appId
     , m_screenSharingEnabled(false)
     , m_clipboardEnabled(false)
 {
-    connect(this, &RemoteDesktopSession::closed, this, [this] {
-        if (m_acquired) {
-            WaylandIntegration::acquireStreamingInput(false);
-        }
-    });
 }
 
 RemoteDesktopSession::~RemoteDesktopSession()
 {
+    if (m_fallbackEiConnection) {
+        disconnectFallbackEi();
+    }
 }
 
 RemoteDesktopPortal::DeviceTypes RemoteDesktopSession::deviceTypes() const
@@ -589,18 +623,37 @@ int RemoteDesktopSession::eisCookie() const
     return m_cookie;
 }
 
-void RemoteDesktopSession::acquireStreamingInput()
-{
-    WaylandIntegration::acquireStreamingInput(true);
-    m_acquired = true;
-}
-
 void RemoteDesktopSession::setupStatusNotifier()
 {
     m_item->setIconByName(u"krfb"_s);
     m_item->setTitle(i18nc("SNI title that indicates there's a process remotely controlling the system", "Remote Control"));
     m_item->setToolTipTitle(m_item->title());
     m_item->setToolTipSubTitle(RemoteDesktopDialog::buildNotificationDescription(m_appId, deviceTypes(), screenSharingEnabled()));
+}
+
+EiConnection *RemoteDesktopSession::fallbackEiConnection()
+{
+    if (!m_fallbackEiConnection) {
+        if (auto result = kwinConnectToEIS(deviceTypes())) {
+            m_fallbackEiCookie = result->second;
+            m_fallbackEiConnection = EiConnection::connect(result->first.takeFileDescriptor(), u"xdp-kde for "_s + appId());
+            if (!m_fallbackEiConnection) {
+                disconnectFallbackEi();
+            }
+        }
+    }
+    return m_fallbackEiConnection.get();
+}
+
+void RemoteDesktopSession::disconnectFallbackEi()
+{
+    if (!m_fallbackEiConnection) {
+        return;
+    }
+    auto msg = QDBusMessage::createMethodCall(kwinService(), kwinRemoteDesktopPath(), kwinRemoteDesktopInterface(), QStringLiteral("disconnect"));
+    msg.setArguments({m_fallbackEiCookie});
+    QDBusConnection::sessionBus().send(msg);
+    m_fallbackEiConnection.reset();
 }
 
 #include "moc_remotedesktop.cpp"

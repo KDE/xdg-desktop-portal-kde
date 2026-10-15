@@ -96,6 +96,8 @@ set_package_properties(KPipeWire PROPERTIES
 
 pkg_check_modules(PipeWire REQUIRED IMPORTED_TARGET libpipewire-0.3>=1.0.9)
 
+pkg_check_modules(Libei REQUIRED IMPORTED_TARGET libei-1.0>=1.6)
+
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX XDPK
     VERSION_HEADER ${CMAKE_BINARY_DIR}/version.h)
