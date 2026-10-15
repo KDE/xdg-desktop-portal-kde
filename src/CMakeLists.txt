@@ -46,6 +46,8 @@ set(xdg_desktop_portal_kde_SRCS
     dbushelpers.cpp dbushelpers.h
     desktopportal.cpp
     desktopportal.h
+    eiconnection.cpp
+    eiconnection.h
     email.cpp
     email.h
     filechooser.cpp
@@ -359,6 +361,7 @@ PUBLIC
     PkgConfig::XKB
     K::KPipeWireMonitor
     PkgConfig::PipeWire
+    PkgConfig::Libei
 )
 target_link_libraries(xdg-desktop-portal-kde-internal PRIVATE Qt::PrintSupportPrivate Qt::GuiPrivate)
 

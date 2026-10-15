@@ -12,10 +12,12 @@
 #include <QDBusAbstractAdaptor>
 #include <QDBusObjectPath>
 #include <QDBusUnixFileDescriptor>
+#include <memory>
 
 #include "screencast.h"
 
 class QDBusMessage;
+class EiConnection;
 
 class RemoteDesktopPortal : public QDBusAbstractAdaptor
 {
@@ -108,11 +110,13 @@ public:
     bool clipboardEnabled() const;
     void setClipboardEnabled(bool enabled);
 
-    void acquireStreamingInput();
     void setupStatusNotifier() override;
 
     void setEisCookie(int cookie);
     int eisCookie() const;
+
+    EiConnection *fallbackEiConnection();
+    void disconnectFallbackEi();
 
     SessionType type() const override
     {
@@ -123,8 +127,9 @@ private:
     bool m_screenSharingEnabled;
     bool m_clipboardEnabled;
     RemoteDesktopPortal::DeviceTypes m_deviceTypes;
-    bool m_acquired = false;
     int m_cookie = 0;
+    std::unique_ptr<EiConnection> m_fallbackEiConnection;
+    int m_fallbackEiCookie;
 };
 
 #endif // XDG_DESKTOP_PORTAL_KDE_REMOTEDESKTOP_H

@@ -77,25 +77,10 @@ public:
     QFuture<std::unique_ptr<ScreencastingStream>>
     startStreamingVirtualOutput(const QString &name, const QString &description, const QSize &size, Screencasting::CursorMode mode);
 
-    void requestPointerButtonPress(quint32 linuxButton);
-    void requestPointerButtonRelease(quint32 linuxButton);
-    void requestPointerMotion(const QSizeF &delta);
-    void requestPointerMotionAbsolute(ScreencastingStream *const stream, const QPointF &pos);
-    void requestPointerAxis(qreal x, qreal y);
-    void requestPointerAxisDiscrete(Qt::Orientation axis, qreal delta);
-    void requestKeyboardKeycode(int keycode, bool state);
-    void requestKeyboardKeysym(int keysym, bool state);
-    void requestTouchDown(quint32 touchPoint, const QPointF &pos);
-    void requestTouchMotion(quint32 touchPoint, const QPointF &pos);
-    void requestTouchUp(quint32 touchPoint);
-
     void setParentWindow(QWindow *window, const QString &parentHandle);
 
 private:
     QFuture<std::unique_ptr<ScreencastingStream>> startStreaming(ScreencastingStream *stream, const QVariantMap &streamOptions = {});
-
-    uint m_streamInput = 0;
-    bool m_waylandAuthenticationRequested = false;
 
     std::unique_ptr<FakeInput> m_fakeInput;
     Screencasting *m_screencasting = nullptr;
