@@ -1181,7 +1181,3 @@ msgstr "Ha fallat mentre s'iniciava el vídeo de captura de pantalla"
 #, kde-format
 msgid "Remote desktop"
 msgstr "Escriptori remot"
-
-#~ msgctxt "@info"
-#~ msgid "Only allow if you know which application made the request."
-#~ msgstr "Permeteu-ho només si sabeu quina sol·licitud ha fet la sol·licitud."
