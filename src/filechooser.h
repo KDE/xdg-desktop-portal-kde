@@ -19,6 +19,7 @@
 
 #include <KConfigGroup>
 #include <KFileFilter>
+#include <KSharedConfig>
 
 class KFileWidget;
 class QDialogButtonBox;
@@ -32,13 +33,17 @@ public:
     friend class FileChooserPortal;
     friend class AppModel;
 
-    explicit FileDialog(QDialog *parent = nullptr, Qt::WindowFlags flags = {});
+    explicit FileDialog(const QString &appId, QDialog *parent = nullptr, Qt::WindowFlags flags = {});
     ~FileDialog() override;
     Q_DISABLE_COPY_MOVE(FileDialog)
 
 public:
     KFileWidget *const m_fileWidget;
-    KConfigGroup m_configGroup;
+    KSharedConfig::Ptr m_stateConfig;
+    KConfigGroup m_sizeGroup;
+
+    KConfigGroup m_dialogGroup;
+    KConfigGroup m_appSpecificGroup;
 };
 
 class FileChooserPortal : public QDBusAbstractAdaptor

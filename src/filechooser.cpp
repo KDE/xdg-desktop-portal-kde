@@ -105,11 +105,18 @@ static QString decodeFileName(const QByteArray &name)
     return QFile::decodeName(decodedName);
 }
 
-FileDialog::FileDialog(QDialog *parent, Qt::WindowFlags flags)
+FileDialog::FileDialog(const QString &appId, QDialog *parent, Qt::WindowFlags flags)
     : QDialog(parent, flags)
     , m_fileWidget(new KFileWidget(QUrl(), this))
-    , m_configGroup(KSharedConfig::openStateConfig()->group(QStringLiteral("FileDialogSize")))
+    , m_stateConfig(KSharedConfig::openStateConfig())
+    , m_sizeGroup(m_stateConfig->group(QStringLiteral("FileDialogSize")))
+    , m_dialogGroup(m_stateConfig->group(QStringLiteral("KFileDialog Settings")))
 {
+    if (!appId.isEmpty()) {
+        m_appSpecificGroup = KConfigGroup(&m_dialogGroup, appId);
+        m_fileWidget->readStateConfig(m_appSpecificGroup);
+    }
+
     setLayout(new QVBoxLayout);
     layout()->setContentsMargins({});
     layout()->addWidget(m_fileWidget);
@@ -127,12 +134,12 @@ FileDialog::FileDialog(QDialog *parent, Qt::WindowFlags flags)
     connect(this, &QDialog::rejected, m_fileWidget, &KFileWidget::slotCancel);
 
     KSharedConfig::Ptr oldConf = KSharedConfig::openConfig();
-    oldConf->group(u"FileDialogSize"_s).moveValuesTo(m_configGroup);
+    oldConf->group(u"FileDialogSize"_s).moveValuesTo(m_sizeGroup);
 
     // restore window size
-    if (m_configGroup.exists()) {
+    if (m_sizeGroup.exists()) {
         winId(); // ensure there's a window created
-        KWindowConfig::restoreWindowSize(windowHandle(), m_configGroup);
+        KWindowConfig::restoreWindowSize(windowHandle(), m_sizeGroup);
         resize(windowHandle()->size());
     }
 }
@@ -140,7 +147,7 @@ FileDialog::FileDialog(QDialog *parent, Qt::WindowFlags flags)
 FileDialog::~FileDialog()
 {
     // save window size
-    KWindowConfig::saveWindowSize(windowHandle(), m_configGroup);
+    KWindowConfig::saveWindowSize(windowHandle(), m_sizeGroup);
 }
 
 FileChooserPortal::FileChooserPortal(QObject *parent)
@@ -334,8 +341,6 @@ void FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
                                  uint &replyResponse,
                                  QVariantMap &replyResults)
 {
-    Q_UNUSED(app_id);
-
     qCDebug(XdgDesktopPortalKdeFileChooser) << "OpenFile called with parameters:";
     qCDebug(XdgDesktopPortalKdeFileChooser) << "    handle: " << handle.path();
     qCDebug(XdgDesktopPortalKdeFileChooser) << "    parent_window: " << parent_window;
@@ -458,7 +463,7 @@ void FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     QMap<QString, QCheckBox *> checkboxes;
     QMap<QString, QComboBox *> comboboxes;
 
-    auto fileDialog = new FileDialog();
+    auto fileDialog = new FileDialog(app_id);
     Utils::setParentWindow(fileDialog, parent_window);
     Request::makeClosableDialogRequest(handle, fileDialog);
     fileDialog->setWindowModality(modalDialog ? Qt::WindowModal : Qt::NonModal);
@@ -517,8 +522,6 @@ void FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
                                  uint &replyResponse,
                                  QVariantMap &replyResults)
 {
-    Q_UNUSED(app_id);
-
     qCDebug(XdgDesktopPortalKdeFileChooser) << "SaveFile called with parameters:";
     qCDebug(XdgDesktopPortalKdeFileChooser) << "    handle: " << handle.path();
     qCDebug(XdgDesktopPortalKdeFileChooser) << "    parent_window: " << parent_window;
@@ -603,7 +606,7 @@ void FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     QMap<QString, QCheckBox *> checkboxes;
     QMap<QString, QComboBox *> comboboxes;
 
-    auto fileDialog = new FileDialog();
+    auto fileDialog = new FileDialog(app_id);
     Utils::setParentWindow(fileDialog, parent_window);
     Request::makeClosableDialogRequest(handle, fileDialog);
     fileDialog->setWindowModality(modalDialog ? Qt::WindowModal : Qt::NonModal);

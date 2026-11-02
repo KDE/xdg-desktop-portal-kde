@@ -161,7 +161,7 @@ public:
 public Q_SLOTS:
     void openFileDialog(QWindow *parent = nullptr)
     {
-        auto fileDialog = new FileDialog;
+        auto fileDialog = new FileDialog(QString());
         fileDialog->winId(); // so it creates windowHandle
         fileDialog->windowHandle()->setTransientParent(parent);
         fileDialog->setWindowModality(Qt::WindowModal);
