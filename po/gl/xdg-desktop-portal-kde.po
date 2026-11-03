@@ -318,10 +318,7 @@ msgstr[0] "Unha aplicación quere rexistrar o seguinte atallo:"
 msgstr[1] "Unha aplicación quere rexistrar os seguintes %1 atallos:"
 
 #: src/GlobalShortcutsDialog.qml:31
-#, fuzzy, kde-format
-#| msgctxt "%2 is the name of the application"
-#| msgid "%2 wants to register the following shortcut:"
-#| msgid_plural "%2 wants to register the following %1 shortcuts:"
+#, kde-format
 msgctxt "@info %2 is the name of the application"
 msgid "%2 wants to register the following shortcut:"
 msgid_plural "%2 wants to register the following %1 shortcuts:"
