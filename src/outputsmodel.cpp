@@ -334,10 +334,12 @@ QList<Output> OutputsModel::selectedOutputs() const
 QString OutputsModel::virtualScreenIdForApp(const QString &appId)
 {
     const QString baseId = QStringLiteral("virtual-xdp-kde-") + appId;
+    const QString kwinVirtualPrefix = QStringLiteral("Virtual-");
     QString id = baseId;
     int i = 1;
     const auto screens = qApp->screens();
-    while (std::ranges::find(screens, id, &QScreen::name) != std::ranges::end(screens)) {
+    // KWin adds "Virtual-" to the name of virtual outputs.
+    while (std::ranges::find(screens, kwinVirtualPrefix + id, &QScreen::name) != std::ranges::end(screens)) {
         id = baseId + u'-' + QString::number(i);
         ++i;
     }
