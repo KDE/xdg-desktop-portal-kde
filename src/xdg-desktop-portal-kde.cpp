@@ -28,10 +28,15 @@ int main(int argc, char *argv[])
     // Do not try to reconnect to the compositor as KWayland can't handle that
     // Reconsider enabling when we do not use KWayland anymore
     qunsetenv("QT_WAYLAND_RECONNECT");
+    // Prevent Qt from making portal calls, some of these are blocking which could
+    // potentially deadlock us
+    qputenv("QT_NO_XDG_DESKTOP_PORTAL", "1");
     QCoreApplication::setAttribute(Qt::AA_DisableSessionManager);
     QApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(false);
     a.setQuitLockEnabled(false);
+
+    qunsetenv("QT_NO_XDG_DESKTOP_PORTAL");
 
     // Guard against an app closing the reading end when the clipboard portal writes current clipboard contents
     signal(SIGPIPE, SIG_IGN);
