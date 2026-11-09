@@ -85,6 +85,9 @@ void ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
                                   uint &replyResponse,
                                   QVariantMap &replyResults)
 {
+    Q_UNUSED(replyResponse)
+    Q_UNUSED(replyResults)
+
     qCDebug(XdgDesktopPortalKdeScreenshot) << "Screenshot called with parameters:";
     qCDebug(XdgDesktopPortalKdeScreenshot) << "    handle: " << handle.path();
     qCDebug(XdgDesktopPortalKdeScreenshot) << "    app_id: " << app_id;
@@ -108,8 +111,19 @@ void ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
     };
 
     if (!interactive) {
-        const auto image = ScreenshotDialog::takeScreenshotNonInteractive();
-        std::tie(replyResponse, replyResults) = createReply(image);
+        message.setDelayedReply(true);
+
+        ScreenshotDialog::takeScreenshot(ScreenshotDialog::FullScreen, ScreenshotDialog::Cursor)
+            .then([message, createReply](const QImage &image) {
+                const auto &[response, results] = createReply(image);
+                QDBusConnection::sessionBus().send(message.createReply({response, results}));
+            })
+            .onCanceled([message]() {
+                const uint response = PortalResponse::Response::Cancelled;
+                const QVariantMap results;
+                QDBusConnection::sessionBus().send(message.createReply({response, results}));
+            });
+
         return;
     }
     auto screenshotDialog = new ScreenshotDialog(app_id);

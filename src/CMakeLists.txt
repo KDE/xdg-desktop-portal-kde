@@ -337,7 +337,6 @@ PUBLIC
     Qt::Core
     Qt::GuiPrivate
     Qt::DBus
-    Qt::Concurrent
     Qt::PrintSupport
     Qt::QuickWidgets
     Qt::Widgets
@@ -375,4 +374,3 @@ install(FILES
     DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})
 
 ecm_qt_install_logging_categories(EXPORT XDPKDE FILE xdp-kde.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
-
