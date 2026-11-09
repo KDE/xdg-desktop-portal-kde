@@ -101,7 +101,7 @@ ecm_setup_version(${PROJECT_VERSION}
     VERSION_HEADER ${CMAKE_BINARY_DIR}/version.h)
 
 ecm_set_disabled_deprecation_versions(QT 5.15.0
-    KF 6.4.0
+    KF 6.32.0
 )
 
 add_subdirectory(data)

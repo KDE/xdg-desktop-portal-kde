@@ -10,7 +10,7 @@
 #include <QQuickWindow>
 #include <QStandardPaths>
 
-#include <KLocalizedContext>
+#include <KLocalizedQmlContext>
 #include <KLocalizedString>
 
 #include "dirmodel.h"
@@ -37,9 +37,7 @@ MobileFileDialog::MobileFileDialog(QObject *parent)
 
     Q_INIT_RESOURCE(filepicker);
 
-    auto *i18nContext = new KLocalizedContext(m_engine);
-    i18nContext->setTranslationDomain(QStringLiteral(TRANSLATION_DOMAIN));
-    m_engine->rootContext()->setContextObject(i18nContext);
+    KLocalization::setupLocalizedContext(m_engine);
 
     m_engine->load(QStringLiteral("qrc:/org.kde.kirigamifilepicker/FilePickerWindow.qml"));
     m_window = qobject_cast<QQuickWindow *>(m_engine->rootObjects().first());

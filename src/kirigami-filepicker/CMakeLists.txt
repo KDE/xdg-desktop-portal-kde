@@ -24,6 +24,7 @@ target_link_libraries(KirigamiFilepicker
     Qt::Quick
     Qt::Qml
     KF6::I18n
+    KF6::I18nQml
     KF6::KIOCore
     KF6::KIOFileWidgets
 )
