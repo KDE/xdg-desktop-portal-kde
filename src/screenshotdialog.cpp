@@ -12,102 +12,80 @@
 #include <QPushButton>
 
 #include <KLocalizedString>
+#include <QColorSpace>
 #include <QDBusConnection>
 #include <QDBusMessage>
-#include <QDBusReply>
+#include <QDBusPendingReply>
 #include <QDBusUnixFileDescriptor>
 #include <QFutureWatcher>
 #include <QStandardItemModel>
-#include <QTimer>
 #include <QWindow>
-#include <QtConcurrentRun>
-#include <qplatformdefs.h>
 
 #include <fcntl.h>
-#include <poll.h>
+#include <sys/mman.h>
 #include <unistd.h>
 
 using namespace Qt::StringLiterals;
 
-static int readData(int fd, QByteArray &data)
-{
-    char buffer[4096];
-    pollfd pfds[1];
-    pfds[0].fd = fd;
-    pfds[0].events = POLLIN;
-
-    while (true) {
-        // give user 30 sec to click a window, afterwards considered as error
-        const int ready = poll(pfds, 1, 30000);
-        if (ready < 0) {
-            if (errno != EINTR) {
-                qWarning() << "poll() failed:" << strerror(errno);
-                return -1;
-            }
-        } else if (ready == 0) {
-            qDebug() << "failed to read screenshot: timeout";
-            return -1;
-        } else if (pfds[0].revents & POLLIN) {
-            const int n = QT_READ(fd, buffer, sizeof(buffer));
-
-            if (n < 0) {
-                qWarning() << "read() failed:" << strerror(errno);
-                return -1;
-            } else if (n == 0) {
-                return 0;
-            } else { // (n > 0)
-                data.append(buffer, n);
-            }
-        } else if (pfds[0].revents & POLLHUP) {
-            return 0;
-        } else {
-            qWarning() << "failed to read screenshot: pipe is broken";
-            return -1;
+struct MemoryMap {
+    static MemoryMap *tryMap(int fileDescriptor, size_t size)
+    {
+        void *data = mmap(nullptr, size, PROT_READ, MAP_SHARED, fileDescriptor, 0);
+        if (data == MAP_FAILED) {
+            return nullptr;
         }
+
+        return new MemoryMap{
+            .data = data,
+            .size = size,
+        };
     }
 
-    Q_UNREACHABLE();
-}
+    ~MemoryMap()
+    {
+        munmap(data, size);
+    }
 
-static QImage allocateImage(const QVariantMap &metadata)
+    void *data;
+    size_t size;
+};
+
+static QImage readImage(int fileDescriptor, const QVariantMap &metadata)
 {
-    bool ok;
-
-    const uint width = metadata.value(QStringLiteral("width")).toUInt(&ok);
-    if (!ok) {
+    const int width = metadata.value(u"width"_s).toInt();
+    if (width <= 0) {
         return QImage();
     }
 
-    const uint height = metadata.value(QStringLiteral("height")).toUInt(&ok);
-    if (!ok) {
+    const int height = metadata.value(u"height"_s).toInt();
+    if (height <= 0) {
         return QImage();
     }
 
-    const uint format = metadata.value(QStringLiteral("format")).toUInt(&ok);
-    if (!ok) {
+    const int stride = metadata.value(u"stride"_s).toInt();
+    if (stride <= 0) {
         return QImage();
     }
 
-    return QImage(width, height, QImage::Format(format));
-}
-
-static QImage readImage(int pipeFd, const QVariantMap &metadata)
-{
-    QByteArray content;
-    if (readData(pipeFd, content) != 0) {
-        close(pipeFd);
-        return QImage();
-    }
-    close(pipeFd);
-
-    QImage result = allocateImage(metadata);
-    if (result.isNull()) {
+    // We use uint because QImage::Format values are all above 0.
+    const uint format = metadata.value(u"format"_s).toUInt();
+    if (format <= QImage::Format_Invalid || format >= QImage::NImageFormats) {
         return QImage();
     }
 
-    QDataStream ds(content);
-    ds.readRawData(reinterpret_cast<char *>(result.bits()), result.sizeInBytes());
-    return result;
+    auto memoryMap = MemoryMap::tryMap(fileDescriptor, stride * height);
+    if (!memoryMap) {
+        return QImage();
+    }
+
+    const auto cleanupMemoryMap = [](void *data) {
+        delete static_cast<MemoryMap *>(data);
+    };
+
+    QImage image(static_cast<uchar *>(memoryMap->data), width, height, QImage::Format(format), cleanupMemoryMap, memoryMap);
+    image.setColorSpace(QColorSpace::SRgb);
+
+    return image;
 }
 
 ScreenshotDialog::ScreenshotDialog(const QString &appName, QObject *parent)
@@ -128,22 +106,6 @@ ScreenshotDialog::ScreenshotDialog(const QString &appName, QObject *parent)
 QImage ScreenshotDialog::image() const
 {
     return m_image;
-}
-
-void ScreenshotDialog::takeScreenshotNonInteractive()
-{
-    QFuture<QImage> future = takeScreenshot();
-    if (!future.isStarted()) {
-        return;
-    }
-
-    future.waitForFinished();
-
-    if (future.isCanceled()) {
-        return;
-    }
-
-    m_image = future.result();
 }
 
 void ScreenshotDialog::takeScreenshotInteractive()
@@ -170,11 +132,8 @@ void ScreenshotDialog::takeScreenshotInteractive()
 
 QFuture<QImage> ScreenshotDialog::takeScreenshot()
 {
-    int pipeFds[2];
-    if (pipe2(pipeFds, O_CLOEXEC | O_NONBLOCK) != 0) {
-        Q_EMIT failed();
-        return {};
-    }
+    QPromise<QImage> promise;
+    QFuture<QImage> future = promise.future();
 
     QVariantMap options;
     options.insert(QStringLiteral("native-resolution"), true); // match xdg-desktop-portal-gnome, and fixes flameshot!3164
@@ -198,25 +157,31 @@ QFuture<QImage> ScreenshotDialog::takeScreenshot()
         break;
     }
 
-    QVariantList arguments;
-    arguments.append(options);
-    arguments.append(QVariant::fromValue(QDBusUnixFileDescriptor(pipeFds[1])));
+    auto message = QDBusMessage::createMethodCall(u"org.kde.KWin.ScreenShot3"_s, u"/org/kde/KWin/ScreenShot3"_s, u"org.kde.KWin.ScreenShot3"_s, method);
+    message.setArguments({options});
 
-    QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.KWin.ScreenShot2"),
-                                                          QStringLiteral("/org/kde/KWin/ScreenShot2"),
-                                                          QStringLiteral("org.kde.KWin.ScreenShot2"),
-                                                          method);
-    message.setArguments(arguments);
+    promise.start();
 
-    QDBusReply<QVariantMap> reply = QDBusConnection::sessionBus().call(message);
-    ::close(pipeFds[1]);
-    if (!reply.isValid()) {
-        qCWarning(XdgDesktopPortalKdeScreenshotDialog) << method << "failed:" << reply.error();
-        close(pipeFds[0]);
-        return QFuture<QImage>();
-    }
+    const QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(message);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingCall);
+    connect(watcher, &QDBusPendingCallWatcher::finished, watcher, [watcher, p = std::move(promise)]() mutable {
+        watcher->deleteLater();
 
-    return QtConcurrent::run(readImage, pipeFds[0], reply);
+        const QDBusPendingReply<QDBusUnixFileDescriptor, QVariantMap> reply = *watcher;
+        if (reply.isError()) {
+            qCWarning(XdgDesktopPortalKdeScreenshotDialog) << "Failed to take a screenshot:" << reply.error();
+
+            // The promise will be canceled when its destructor runs, don't call finish().
+            return;
+        }
+
+        const QDBusUnixFileDescriptor image = reply.argumentAt<0>();
+        const QVariantMap metadata = reply.argumentAt<1>();
+        p.addResult(readImage(image.fileDescriptor(), metadata));
+        p.finish();
+    });
+
+    return future;
 }
 
 #include "moc_screenshotdialog.cpp"

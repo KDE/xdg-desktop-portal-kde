@@ -35,7 +35,7 @@ public:
     Q_ENUM(ScreenshotType)
 
     QImage image() const;
-    void takeScreenshotNonInteractive();
+    QFuture<QImage> takeScreenshot();
 
 public Q_SLOTS:
     void takeScreenshotInteractive();
@@ -44,8 +44,6 @@ Q_SIGNALS:
     void failed();
 
 private:
-    QFuture<QImage> takeScreenshot();
-
     QImage m_image;
 };
 
