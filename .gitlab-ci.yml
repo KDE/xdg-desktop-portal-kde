@@ -11,3 +11,4 @@ include:
       - /gitlab-templates/freebsd-qt6.yml
       - /gitlab-templates/linux-qt6-next.yml
       - /gitlab-templates/cppcheck.yml
+      - /gitlab-templates/reuse-lint-relaxed.yml
