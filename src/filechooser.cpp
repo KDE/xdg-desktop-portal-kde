@@ -346,6 +346,7 @@ void FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     bool modalDialog = true;
     bool multipleFiles = false;
     QString currentFolder;
+    QString dialogTitle = title;
 
     const QString acceptLabel = ExtractAcceptLabel(options);
 
@@ -369,6 +370,14 @@ void FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
         }
     }
 
+    if (dialogTitle.isEmpty()) {
+        if (directory) {
+            dialogTitle = i18nc("@title:window", "Select Folder");
+        } else {
+            dialogTitle = i18nc("@title:window", "Save File");
+        }
+    }
+
     const auto [filters, currentFilter] = ExtractFilters(options);
 
     if (isMobile()) {
@@ -379,7 +388,7 @@ void FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
             m_mobileFileDialog = new MobileFileDialog(this);
         }
 
-        m_mobileFileDialog->setTitle(title);
+        m_mobileFileDialog->setTitle(dialogTitle);
 
         // Always true when we are opening a file
         m_mobileFileDialog->setSelectExisting(true);
@@ -468,7 +477,7 @@ void FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
         optionsWidget = CreateChoiceControls(optionList, checkboxes, comboboxes);
     }
 
-    fileDialog->setWindowTitle(title);
+    fileDialog->setWindowTitle(dialogTitle);
     KFile::Mode mode = directory ? KFile::Mode::Directory : multipleFiles ? KFile::Mode::Files : KFile::Mode::File;
     fileDialog->m_fileWidget->setMode(mode | KFile::Mode::ExistingOnly);
     if (!isKIOFuseAvailable()) {
@@ -529,6 +538,7 @@ void FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
     QString currentName;
     QString currentFolder;
     QString currentFile;
+    QString dialogTitle = title;
 
     if (options.contains(QStringLiteral("modal"))) {
         modalDialog = options.value(QStringLiteral("modal")).toBool();
@@ -552,6 +562,10 @@ void FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
         currentFile = decodeFileName(options.value(QStringLiteral("current_file")).toByteArray());
     }
 
+    if (dialogTitle.isEmpty()) {
+        dialogTitle = i18nc("@title:window", "Save File");
+    }
+
     const auto [filters, currentFilter] = ExtractFilters(options);
 
     if (isMobile()) {
@@ -562,7 +576,7 @@ void FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
             m_mobileFileDialog = new MobileFileDialog(this);
         }
 
-        m_mobileFileDialog->setTitle(title);
+        m_mobileFileDialog->setTitle(dialogTitle);
 
         // Always false when we are saving a file
         m_mobileFileDialog->setSelectExisting(false);
@@ -613,7 +627,7 @@ void FileChooserPortal::SaveFile(const QDBusObjectPath &handle,
         optionsWidget = CreateChoiceControls(optionList, checkboxes, comboboxes);
     }
 
-    fileDialog->setWindowTitle(title);
+    fileDialog->setWindowTitle(dialogTitle);
     fileDialog->m_fileWidget->setOperationMode(KFileWidget::Saving);
     fileDialog->m_fileWidget->setConfirmOverwrite(true);
 
