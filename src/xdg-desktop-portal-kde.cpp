@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
     // Do not try to reconnect to the compositor as KWayland can't handle that
     // Reconsider enabling when we do not use KWayland anymore
     qunsetenv("QT_WAYLAND_RECONNECT");
+    qputenv("PLASMA_INTEGRATION_USE_PORTAL", "0");
     QCoreApplication::setAttribute(Qt::AA_DisableSessionManager);
     QApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(false);
