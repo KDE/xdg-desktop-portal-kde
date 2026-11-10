@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:48+0000\n"
+"POT-Creation-Date: 2026-11-10 03:06+0000\n"
 "PO-Revision-Date: 2026-06-01 16:54+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -526,19 +526,19 @@ msgstr "Samnýta allt vinnusvæðið"
 msgid "Laptop screen"
 msgstr "Fartölvuskjár"
 
-#: src/outputsmodel.cpp:372
+#: src/outputsmodel.cpp:374
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "Samnýta allt vinnusvæðið yfir alla skjái"
 
-#: src/outputsmodel.cpp:374
+#: src/outputsmodel.cpp:376
 #, kde-format
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
 msgstr "Útbúa sýndarskjá, deila síðan"
 
-#: src/outputsmodel.cpp:376
+#: src/outputsmodel.cpp:378
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"

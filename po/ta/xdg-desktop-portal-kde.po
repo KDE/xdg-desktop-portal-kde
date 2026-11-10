@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:48+0000\n"
+"POT-Creation-Date: 2026-11-10 03:06+0000\n"
 "PO-Revision-Date: 2026-02-01 18:39+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -521,13 +521,13 @@ msgstr "முழுப் பணிமேடையைப் பகிர்"
 msgid "Laptop screen"
 msgstr "மடிக்கணினித் திரை"
 
-#: src/outputsmodel.cpp:372
+#: src/outputsmodel.cpp:374
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "முழுப் பணிமேடையையும் (அனைத்து திரைகளிலுள்ளவற்றையும்) பகிரும்"
 
-#: src/outputsmodel.cpp:374
+#: src/outputsmodel.cpp:376
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Creates a screen inside a window, then share"
@@ -535,7 +535,7 @@ msgctxt "@info"
 msgid "Create a virtual screen, then share"
 msgstr "தனிப்பட்ட சாளரத்தை மட்டும் காட்டும் மெய்நிகர் திரையை உருவாக்கி, அதைப் பகிரும்"
 
-#: src/outputsmodel.cpp:376
+#: src/outputsmodel.cpp:378
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"

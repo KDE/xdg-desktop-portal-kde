@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:48+0000\n"
+"POT-Creation-Date: 2026-11-10 03:06+0000\n"
 "PO-Revision-Date: 2026-07-05 16:07+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -485,20 +485,20 @@ msgstr "Fullt arbeidsområde"
 msgid "Laptop screen"
 msgstr "Skjerm på berbar"
 
-#: src/outputsmodel.cpp:372
+#: src/outputsmodel.cpp:374
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr ""
 
-#: src/outputsmodel.cpp:374
+#: src/outputsmodel.cpp:376
 #, fuzzy, kde-format
 #| msgid "Choose windows to share with %1:"
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
 msgstr "Vel vindauge du vil dela med %1:"
 
-#: src/outputsmodel.cpp:376
+#: src/outputsmodel.cpp:378
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"

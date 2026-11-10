@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:48+0000\n"
+"POT-Creation-Date: 2026-11-10 03:06+0000\n"
 "PO-Revision-Date: 2026-10-29 18:24+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -490,19 +490,19 @@ msgstr "Jaa koko työtila"
 msgid "Laptop screen"
 msgstr "Kannettavan näyttö"
 
-#: src/outputsmodel.cpp:372
+#: src/outputsmodel.cpp:374
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "Jaa koko työtila kaikkien näyttöjen kesken"
 
-#: src/outputsmodel.cpp:374
+#: src/outputsmodel.cpp:376
 #, kde-format
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
 msgstr "Luo virtuaalinäyttö ja jaa sitten"
 
-#: src/outputsmodel.cpp:376
+#: src/outputsmodel.cpp:378
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:48+0000\n"
+"POT-Creation-Date: 2026-11-10 03:06+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -475,19 +475,19 @@ msgstr "共享完整工作区"
 msgid "Laptop screen"
 msgstr "笔记本屏幕"
 
-#: src/outputsmodel.cpp:372
+#: src/outputsmodel.cpp:374
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "共享全部屏幕的完整工作区"
 
-#: src/outputsmodel.cpp:374
+#: src/outputsmodel.cpp:376
 #, kde-format
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
 msgstr "创建虚拟屏幕并共享"
 
-#: src/outputsmodel.cpp:376
+#: src/outputsmodel.cpp:378
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"

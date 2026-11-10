@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:48+0000\n"
+"POT-Creation-Date: 2026-11-10 03:06+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -514,20 +514,20 @@ msgstr "पूर्ण कार्यक्षेत्र"
 msgid "Laptop screen"
 msgstr "लैपटॉप स्क्रीन"
 
-#: src/outputsmodel.cpp:372
+#: src/outputsmodel.cpp:374
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr ""
 
-#: src/outputsmodel.cpp:374
+#: src/outputsmodel.cpp:376
 #, fuzzy, kde-format
 #| msgid "Choose windows to share with %1:"
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
 msgstr "%1 के साथ साझा करने के लिए विंडोज़ चुनें:"
 
-#: src/outputsmodel.cpp:376
+#: src/outputsmodel.cpp:378
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"

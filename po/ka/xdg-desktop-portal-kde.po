@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:48+0000\n"
+"POT-Creation-Date: 2026-11-10 03:06+0000\n"
 "PO-Revision-Date: 2026-08-28 06:42+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -493,19 +493,19 @@ msgstr "სრული სამუშაო სივრცის გაზი
 msgid "Laptop screen"
 msgstr "ნოუთბუქის ეკრანი"
 
-#: src/outputsmodel.cpp:372
+#: src/outputsmodel.cpp:374
 #, kde-format
 msgctxt "@info"
 msgid "Share the entire workspace across all screens"
 msgstr "სამუშაო სივრცის სრულად გაზიარება ყველა ეკრანზე"
 
-#: src/outputsmodel.cpp:374
+#: src/outputsmodel.cpp:376
 #, kde-format
 msgctxt "@info"
 msgid "Create a virtual screen, then share"
 msgstr "ვირტუალური ეკრანის შექმნა, შემდეგ კი გაზიარება"
 
-#: src/outputsmodel.cpp:376
+#: src/outputsmodel.cpp:378
 #, kde-format
 msgctxt "@info"
 msgid "Crops a specific area of your screens"
