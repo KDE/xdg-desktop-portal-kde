@@ -15,7 +15,6 @@
 #include <QDBusMetaType>
 #include <QDialogButtonBox>
 #include <QFile>
-#include <QFileDialog>
 #include <QFileInfo>
 #include <QGridLayout>
 #include <QLabel>
@@ -414,43 +413,6 @@ void FileChooserPortal::OpenFile(const QDBusObjectPath &handle,
     }
 
     const QUrl translatedCurrentFolderUrl = kioUrlFromSandboxPath(currentFolder, Entity::Folder);
-
-    // Use QFileDialog for most directory requests to utilize
-    // plasma-integration's KDirSelectDialog
-    if (directory && !options.contains(QStringLiteral("choices"))) {
-        auto dirDialog = new QFileDialog;
-        dirDialog->setWindowTitle(title);
-        dirDialog->setFileMode(QFileDialog::Directory);
-        dirDialog->setOptions(QFileDialog::ShowDirsOnly);
-        if (!isKIOFuseAvailable()) {
-            dirDialog->setSupportedSchemes(QStringList{QStringLiteral("file")});
-        }
-        if (!acceptLabel.isEmpty()) {
-            dirDialog->setLabelText(QFileDialog::Accept, acceptLabel);
-        }
-        if (!translatedCurrentFolderUrl.isEmpty()) {
-            dirDialog->setDirectoryUrl(translatedCurrentFolderUrl);
-        }
-
-        dirDialog->winId(); // Trigger window creation
-        Utils::setParentWindow(dirDialog, parent_window);
-        Request::makeClosableDialogRequest(handle, dirDialog);
-        dirDialog->setWindowModality(modalDialog ? Qt::WindowModal : Qt::NonModal);
-
-        delayReply(message, dirDialog, this, [dirDialog](int result) -> QVariantList {
-            dirDialog->deleteLater();
-            if (result != QDialog::Accepted) {
-                return {PortalResponse::Cancelled, QVariantMap{}};
-            }
-            const auto urls = dirDialog->selectedUrls();
-            if (urls.empty()) {
-                return {PortalResponse::OtherError, QVariantMap{}};
-            }
-            return {PortalResponse::Success, QVariantMap{{QStringLiteral("uris"), fuseRedirect(urls)}, {QStringLiteral("writable"), true}}};
-        });
-        dirDialog->open();
-        return;
-    }
 
     // for handling of options - choices
     QWidget *optionsWidget = nullptr;
