@@ -26,7 +26,6 @@ MobileFileDialog::MobileFileDialog(QObject *parent)
     : QObject(parent)
     , m_engine(new QQmlApplicationEngine(this))
     , m_window(nullptr)
-    , m_customTitleSet(false)
 {
     qmlRegisterType<DirModel>(URI, 0, 1, "DirModel");
     qmlRegisterSingletonType<DirModelUtils>(URI, 0, 1, "DirModelUtils", [=](QQmlEngine *, QJSEngine *) {
@@ -81,11 +80,7 @@ QString MobileFileDialog::title() const
 
 void MobileFileDialog::setTitle(const QString &title)
 {
-    // Don't accept an empty titles
-    if (!title.isEmpty()) {
-        m_customTitleSet = true;
-        m_callback->setTitle(title);
-    }
+    m_callback->setTitle(title);
 }
 
 bool MobileFileDialog::selectMultiple() const
@@ -106,19 +101,6 @@ bool MobileFileDialog::selectExisting() const
 void MobileFileDialog::setSelectExisting(bool selectExisting)
 {
     m_callback->setSelectExisting(selectExisting);
-
-    // Detect that no custom title is set
-    if (!m_customTitleSet) {
-        if (selectFolder()) {
-            setTitle(i18n("Select Folder"));
-        } else {
-            if (selectExisting) {
-                setTitle(i18n("Open File"));
-            } else {
-                setTitle(i18n("Save File"));
-            }
-        }
-    }
 }
 
 QStringList MobileFileDialog::nameFilters() const

@@ -71,6 +71,4 @@ private:
     FileChooserQmlCallback *m_callback;
     QList<QUrl> m_results;
     QQuickWindow *m_window;
-
-    bool m_customTitleSet;
 };
