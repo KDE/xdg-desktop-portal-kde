@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-10 01:00+0000\n"
+"POT-Creation-Date: 2026-11-11 01:04+0000\n"
 "PO-Revision-Date: 2026-02-01 18:39+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -451,17 +451,17 @@ msgctxt "@action:button Deny the application's request to monitor input"
 msgid "Deny"
 msgstr "நிராகரி"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:113
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:111
 #, kde-format
 msgid "Select Folder"
 msgstr "அடைவை தேர்வு செய்தல்"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:116
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:114
 #, kde-format
 msgid "Open File"
 msgstr "கோப்பை திறத்தல்"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:118
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:116
 #, kde-format
 msgid "Save File"
 msgstr "கோப்பை சேமித்தல்"

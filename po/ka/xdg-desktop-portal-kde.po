@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-10 01:00+0000\n"
+"POT-Creation-Date: 2026-11-11 01:04+0000\n"
 "PO-Revision-Date: 2026-08-28 06:42+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -423,17 +423,17 @@ msgctxt "@action:button Deny the application's request to monitor input"
 msgid "Deny"
 msgstr "უარყოფა"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:113
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:111
 #, kde-format
 msgid "Select Folder"
 msgstr "აირჩიეთ საქაღალდე"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:116
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:114
 #, kde-format
 msgid "Open File"
 msgstr "ფაილის გახსნა"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:118
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:116
 #, kde-format
 msgid "Save File"
 msgstr "ფაილის შენახვა"

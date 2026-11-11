@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-10 01:00+0000\n"
+"POT-Creation-Date: 2026-11-11 01:04+0000\n"
 "PO-Revision-Date: 2026-08-28 16:13+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -436,17 +436,17 @@ msgctxt "@action:button Deny the application's request to monitor input"
 msgid "Deny"
 msgstr "Denegar"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:113
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:111
 #, kde-format
 msgid "Select Folder"
 msgstr "Seleccionar carpeta"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:116
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:114
 #, kde-format
 msgid "Open File"
 msgstr "Abrir archivo"
 
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:118
+#: src/kirigami-filepicker/api/mobilefiledialog.cpp:116
 #, kde-format
 msgid "Save File"
 msgstr "Guardar archivo"
