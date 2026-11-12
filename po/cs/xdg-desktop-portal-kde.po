@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 01:04+0000\n"
+"POT-Creation-Date: 2026-11-12 01:04+0000\n"
 "PO-Revision-Date: 2026-09-07 21:13+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -596,13 +596,13 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Klikněte levým tlačítkem a táhněte"
 
-#: src/remotedesktop.cpp:118
+#: src/remotedesktop.cpp:132
 #, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
 msgstr "Vzdálená pracovní plocha není dostupná"
 
-#: src/remotedesktop.cpp:120
+#: src/remotedesktop.cpp:134
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -616,7 +616,7 @@ msgstr ""
 "používáte relaci Wayland s kompatibilním správcem oken, jako je například "
 "KWin."
 
-#: src/remotedesktop.cpp:124
+#: src/remotedesktop.cpp:138
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -628,24 +628,24 @@ msgstr ""
 "plochy, ale vzdálená plocha není v relacích X11 k dispozici. Přepněte prosím "
 "na relaci Wayland a zkuste to znovu."
 
-#: src/remotedesktop.cpp:188 src/screencast.cpp:235
+#: src/remotedesktop.cpp:202 src/screencast.cpp:235
 #, kde-format
 msgid "Virtual Output"
 msgstr "Virtuální výstup"
 
-#: src/remotedesktop.cpp:189 src/screencast.cpp:236
+#: src/remotedesktop.cpp:203 src/screencast.cpp:236
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Virtuální výstup (sdílený s %1)"
 
-#: src/remotedesktop.cpp:301
+#: src/remotedesktop.cpp:314
 #, kde-format
 msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "Vzdálené ovládání spuštěno"
 
-#: src/remotedesktop.cpp:601
+#: src/remotedesktop.cpp:636
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -1163,15 +1163,13 @@ msgctxt ""
 msgid "Deny"
 msgstr "Zakázat"
 
-#: src/waylandintegration.cpp:217 src/waylandintegration.cpp:260
+#: src/waylandintegration.cpp:117 src/waylandintegration.cpp:160
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Spuštění vysílání obrazovky selhalo"
 
-#: src/waylandintegration.cpp:381
-#, kde-format
-msgid "Remote desktop"
-msgstr "Vzdálená plocha"
+#~ msgid "Remote desktop"
+#~ msgstr "Vzdálená plocha"
 
 #~ msgctxt "@info"
 #~ msgid "Only allow if you know which application made the request."

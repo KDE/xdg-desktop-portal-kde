@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 01:04+0000\n"
+"POT-Creation-Date: 2026-11-12 01:04+0000\n"
 "PO-Revision-Date: 2026-08-28 12:38+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -599,13 +599,13 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Клацання лівою і перетягування"
 
-#: src/remotedesktop.cpp:118
+#: src/remotedesktop.cpp:132
 #, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
 msgstr "Віддалена стільниця недоступна"
 
-#: src/remotedesktop.cpp:120
+#: src/remotedesktop.cpp:134
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -619,7 +619,7 @@ msgstr ""
 "що ви запускаєте сеанс Wayland із сумісним засобом керування вікнами, таким "
 "як KWin."
 
-#: src/remotedesktop.cpp:124
+#: src/remotedesktop.cpp:138
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -631,24 +631,24 @@ msgstr ""
 "стільниці, але віддалена стільниця у цій системі недоступна у сеансах X11. "
 "Будь ласка, перемкніться на сеанс Wayland і повторіть спробу."
 
-#: src/remotedesktop.cpp:188 src/screencast.cpp:235
+#: src/remotedesktop.cpp:202 src/screencast.cpp:235
 #, kde-format
 msgid "Virtual Output"
 msgstr "Віртуальне виведення"
 
-#: src/remotedesktop.cpp:189 src/screencast.cpp:236
+#: src/remotedesktop.cpp:203 src/screencast.cpp:236
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Віртуальне виведення (оприлюднено за допомогою %1)"
 
-#: src/remotedesktop.cpp:301
+#: src/remotedesktop.cpp:314
 #, kde-format
 msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "Запущено дистанційне керування"
 
-#: src/remotedesktop.cpp:601
+#: src/remotedesktop.cpp:636
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -1172,15 +1172,13 @@ msgctxt ""
 msgid "Deny"
 msgstr "Заборонити"
 
-#: src/waylandintegration.cpp:217 src/waylandintegration.cpp:260
+#: src/waylandintegration.cpp:117 src/waylandintegration.cpp:160
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Не вдалося розпочати трансляцію з екрана"
 
-#: src/waylandintegration.cpp:381
-#, kde-format
-msgid "Remote desktop"
-msgstr "Віддалена стільниця"
+#~ msgid "Remote desktop"
+#~ msgstr "Віддалена стільниця"
 
 #~ msgctxt "@info"
 #~ msgid "Only allow if you know which application made the request."

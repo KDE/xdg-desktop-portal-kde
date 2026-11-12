@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 01:04+0000\n"
+"POT-Creation-Date: 2026-11-12 01:04+0000\n"
 "PO-Revision-Date: 2026-08-28 16:13+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -600,13 +600,13 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Clic izquierdo y arrastrar"
 
-#: src/remotedesktop.cpp:118
+#: src/remotedesktop.cpp:132
 #, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
 msgstr "Escritorio remoto no disponible"
 
-#: src/remotedesktop.cpp:120
+#: src/remotedesktop.cpp:134
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -620,7 +620,7 @@ msgstr ""
 "sistema. Asegúrese de que está ejecutando una sesión de Wayland con un "
 "gestor de ventanas compatible, como KWin."
 
-#: src/remotedesktop.cpp:124
+#: src/remotedesktop.cpp:138
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -632,24 +632,24 @@ msgstr ""
 "de escritorio remoto, pero el escritorio remoto no está disponible en "
 "sesiones de X11. Cambie a una sesión de Wayland y vuelva a probar."
 
-#: src/remotedesktop.cpp:188 src/screencast.cpp:235
+#: src/remotedesktop.cpp:202 src/screencast.cpp:235
 #, kde-format
 msgid "Virtual Output"
 msgstr "Salida virtual"
 
-#: src/remotedesktop.cpp:189 src/screencast.cpp:236
+#: src/remotedesktop.cpp:203 src/screencast.cpp:236
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Salida virtual (compartida con %1)"
 
-#: src/remotedesktop.cpp:301
+#: src/remotedesktop.cpp:314
 #, kde-format
 msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "Control remoto iniciado"
 
-#: src/remotedesktop.cpp:601
+#: src/remotedesktop.cpp:636
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -1172,15 +1172,13 @@ msgctxt ""
 msgid "Deny"
 msgstr "Denegar"
 
-#: src/waylandintegration.cpp:217 src/waylandintegration.cpp:260
+#: src/waylandintegration.cpp:117 src/waylandintegration.cpp:160
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "No se ha podido iniciar la grabación de la pantalla"
 
-#: src/waylandintegration.cpp:381
-#, kde-format
-msgid "Remote desktop"
-msgstr "Escritorio remoto"
+#~ msgid "Remote desktop"
+#~ msgstr "Escritorio remoto"
 
 #~ msgctxt "@info"
 #~ msgid "Only allow if you know which application made the request."

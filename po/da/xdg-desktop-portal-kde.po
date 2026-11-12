@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 01:04+0000\n"
+"POT-Creation-Date: 2026-11-12 01:04+0000\n"
 "PO-Revision-Date: 2026-10-04 15:53+0200\n"
 "Last-Translator: Peter Andreasen <noesgaard@gmail.com>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -588,13 +588,13 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Venstreklik og træk"
 
-#: src/remotedesktop.cpp:118
+#: src/remotedesktop.cpp:132
 #, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
 msgstr "Fjernskrivebord er ikke tilgængeligt"
 
-#: src/remotedesktop.cpp:120
+#: src/remotedesktop.cpp:134
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -607,7 +607,7 @@ msgstr ""
 "men fjernskrivebord er ikke tilgængelig på dette system. Sørg for, at du har "
 "en Wayland session med en kompatibel vindueshåndtering så som KWin."
 
-#: src/remotedesktop.cpp:124
+#: src/remotedesktop.cpp:138
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -619,24 +619,24 @@ msgstr ""
 "men fjernskrivebord er ikke tilgængelig i X11. Skift til en Wayland session "
 "og prøv igen."
 
-#: src/remotedesktop.cpp:188 src/screencast.cpp:235
+#: src/remotedesktop.cpp:202 src/screencast.cpp:235
 #, kde-format
 msgid "Virtual Output"
 msgstr "Virtuelt output"
 
-#: src/remotedesktop.cpp:189 src/screencast.cpp:236
+#: src/remotedesktop.cpp:203 src/screencast.cpp:236
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Virtuelt output (delt med %1)"
 
-#: src/remotedesktop.cpp:301
+#: src/remotedesktop.cpp:314
 #, kde-format
 msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "Fjernbetjening startet"
 
-#: src/remotedesktop.cpp:601
+#: src/remotedesktop.cpp:636
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -1141,15 +1141,13 @@ msgctxt ""
 msgid "Deny"
 msgstr "Afvis"
 
-#: src/waylandintegration.cpp:217 src/waylandintegration.cpp:260
+#: src/waylandintegration.cpp:117 src/waylandintegration.cpp:160
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Kunne ikke starte skærmoptagelse"
 
-#: src/waylandintegration.cpp:381
-#, kde-format
-msgid "Remote desktop"
-msgstr "Fjernskrivebord"
+#~ msgid "Remote desktop"
+#~ msgstr "Fjernskrivebord"
 
 #~ msgctxt ""
 #~ "@action:button Don't allow the app to keep running without any open "

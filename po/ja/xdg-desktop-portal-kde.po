@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 01:04+0000\n"
+"POT-Creation-Date: 2026-11-12 01:04+0000\n"
 "PO-Revision-Date: 2026-09-12 19:36+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -588,13 +588,13 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "左クリックとドラッグ"
 
-#: src/remotedesktop.cpp:118
+#: src/remotedesktop.cpp:132
 #, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
 msgstr "リモートデスクトップ利用不可"
 
-#: src/remotedesktop.cpp:120
+#: src/remotedesktop.cpp:134
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -608,7 +608,7 @@ msgstr ""
 "せん。Wayland セッションと互換性のあるウィンドウマネージャ (KWin など) を実行"
 "しているか確認してください。"
 
-#: src/remotedesktop.cpp:124
+#: src/remotedesktop.cpp:138
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -620,24 +620,24 @@ msgstr ""
 "ンを開始しようとしましたが、X11 セッションはリモートデスクトップに対応してい"
 "ません。Wayland セッションに切り替えてもう一度実行してください。"
 
-#: src/remotedesktop.cpp:188 src/screencast.cpp:235
+#: src/remotedesktop.cpp:202 src/screencast.cpp:235
 #, kde-format
 msgid "Virtual Output"
 msgstr "仮想出力"
 
-#: src/remotedesktop.cpp:189 src/screencast.cpp:236
+#: src/remotedesktop.cpp:203 src/screencast.cpp:236
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "仮想出力 (%1 に共有中)"
 
-#: src/remotedesktop.cpp:301
+#: src/remotedesktop.cpp:314
 #, kde-format
 msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "リモート操作開始"
 
-#: src/remotedesktop.cpp:601
+#: src/remotedesktop.cpp:636
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -1150,12 +1150,10 @@ msgctxt ""
 msgid "Deny"
 msgstr "拒否"
 
-#: src/waylandintegration.cpp:217 src/waylandintegration.cpp:260
+#: src/waylandintegration.cpp:117 src/waylandintegration.cpp:160
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "画面録画を開始できませんでした"
 
-#: src/waylandintegration.cpp:381
-#, kde-format
-msgid "Remote desktop"
-msgstr "リモートデスクトップ"
+#~ msgid "Remote desktop"
+#~ msgstr "リモートデスクトップ"

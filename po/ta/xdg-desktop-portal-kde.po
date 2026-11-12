@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 01:04+0000\n"
+"POT-Creation-Date: 2026-11-12 01:04+0000\n"
 "PO-Revision-Date: 2026-02-01 18:39+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -617,13 +617,13 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "இடது கிளிக் செய்து இழுக்கவும்"
 
-#: src/remotedesktop.cpp:118
+#: src/remotedesktop.cpp:132
 #, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
 msgstr "பணிமேடை தொலையியக்கம் இயங்கவில்லை"
 
-#: src/remotedesktop.cpp:120
+#: src/remotedesktop.cpp:134
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -642,7 +642,7 @@ msgstr ""
 "ஆனால் இந்த அமர்வில் அந்த அம்சம் இயங்காது. Wayland அமர்வில் இருப்பதையும் பணிமேடை "
 "தொலையியக்கத்தை ஆதரிக்கும் சாளரநிரலை (எ.கா. கேவின்) பயன்படுத்துவதையும் உறுதி செய்யவும்."
 
-#: src/remotedesktop.cpp:124
+#: src/remotedesktop.cpp:138
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -658,18 +658,18 @@ msgstr ""
 "<application>%1</application> ஓர் தொலையியக்கு பணிமேடை அமர்வைத் துவக்க முயற்சித்தது, "
 "ஆனால் X11 அமர்வுகளில் அந்த அம்சம் இயங்காது. Wayland அமர்வுக்கு மாறி மீண்டும் முயற்சிக்கவும்."
 
-#: src/remotedesktop.cpp:188 src/screencast.cpp:235
+#: src/remotedesktop.cpp:202 src/screencast.cpp:235
 #, kde-format
 msgid "Virtual Output"
 msgstr "மெய்நிகர் வெளியீடு"
 
-#: src/remotedesktop.cpp:189 src/screencast.cpp:236
+#: src/remotedesktop.cpp:203 src/screencast.cpp:236
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "மெய்நிகர் வெளியீடு (%1 உடன் பகிரப்பட்டுள்ளது)"
 
-#: src/remotedesktop.cpp:301
+#: src/remotedesktop.cpp:314
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "SNI title that indicates there's a process remotely controlling the system"
@@ -678,7 +678,7 @@ msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "தொலையியக்கி பயனிலுள்ளது"
 
-#: src/remotedesktop.cpp:601
+#: src/remotedesktop.cpp:636
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -1247,15 +1247,13 @@ msgctxt ""
 msgid "Deny"
 msgstr "நிராகரி"
 
-#: src/waylandintegration.cpp:217 src/waylandintegration.cpp:260
+#: src/waylandintegration.cpp:117 src/waylandintegration.cpp:160
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "திரைப்பகிர்வை தொடங்குதல் தோல்வியடைந்தது"
 
-#: src/waylandintegration.cpp:381
-#, kde-format
-msgid "Remote desktop"
-msgstr "பணிமேடை தொலையியக்கி"
+#~ msgid "Remote desktop"
+#~ msgstr "பணிமேடை தொலையியக்கி"
 
 #~ msgctxt ""
 #~ "@action:button Don't allow the app to keep running without any open "

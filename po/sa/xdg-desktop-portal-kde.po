@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 01:04+0000\n"
+"POT-Creation-Date: 2026-11-12 01:04+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -613,7 +613,7 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "वाम-क्लिक् कृत्वा कर्षयन्तु"
 
-#: src/remotedesktop.cpp:118
+#: src/remotedesktop.cpp:132
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "SNI title that indicates there's a process remotely controlling the system"
@@ -622,7 +622,7 @@ msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
 msgstr "दूरस्थ डेस्कटॉप"
 
-#: src/remotedesktop.cpp:120
+#: src/remotedesktop.cpp:134
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -632,7 +632,7 @@ msgid ""
 "such as KWin."
 msgstr ""
 
-#: src/remotedesktop.cpp:124
+#: src/remotedesktop.cpp:138
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -641,18 +641,18 @@ msgid ""
 "switch to a Wayland session and try again."
 msgstr ""
 
-#: src/remotedesktop.cpp:188 src/screencast.cpp:235
+#: src/remotedesktop.cpp:202 src/screencast.cpp:235
 #, kde-format
 msgid "Virtual Output"
 msgstr "वर्चुअल आउटपुट"
 
-#: src/remotedesktop.cpp:189 src/screencast.cpp:236
+#: src/remotedesktop.cpp:203 src/screencast.cpp:236
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "वर्चुअल् आउटपुट् (%1 इत्यनेन सह साझाः)"
 
-#: src/remotedesktop.cpp:301
+#: src/remotedesktop.cpp:314
 #, fuzzy, kde-format
 #| msgctxt "Title of the dialog that requests remote input privileges"
 #| msgid "Remote control requested"
@@ -660,7 +660,7 @@ msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "दूरनियन्त्रणं अनुरोधितम्"
 
-#: src/remotedesktop.cpp:601
+#: src/remotedesktop.cpp:636
 #, fuzzy, kde-format
 #| msgctxt "Title of the dialog that requests remote input privileges"
 #| msgid "Remote control requested"
@@ -1186,15 +1186,13 @@ msgctxt ""
 msgid "Deny"
 msgstr ""
 
-#: src/waylandintegration.cpp:217 src/waylandintegration.cpp:260
+#: src/waylandintegration.cpp:117 src/waylandintegration.cpp:160
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "स्क्रीनकास्टिंग् आरभ्यतुं असफलम्"
 
-#: src/waylandintegration.cpp:381
-#, kde-format
-msgid "Remote desktop"
-msgstr "दूरस्थः डेस्कटॉपः"
+#~ msgid "Remote desktop"
+#~ msgstr "दूरस्थः डेस्कटॉपः"
 
 #~ msgctxt ""
 #~ "@action:button Don't allow the app to keep running without any open "

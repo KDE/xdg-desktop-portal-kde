@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 01:04+0000\n"
+"POT-Creation-Date: 2026-11-12 01:04+0000\n"
 "PO-Revision-Date: 2026-09-19 08:08+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -599,13 +599,13 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Ezkerreko klik eta arrastatzea"
 
-#: src/remotedesktop.cpp:118
+#: src/remotedesktop.cpp:132
 #, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
 msgstr "Urruneko mahaigaina ez dago erabilgarri"
 
-#: src/remotedesktop.cpp:120
+#: src/remotedesktop.cpp:134
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -619,7 +619,7 @@ msgstr ""
 "erabilgarri. Mesedez, ziurtatu Wayland saio bat leiho-kudeatzaile "
 "bateragarri batekin, KWin esaterako, ibiltzen ari zarela."
 
-#: src/remotedesktop.cpp:124
+#: src/remotedesktop.cpp:138
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -631,24 +631,24 @@ msgstr ""
 "abiatzen saiatu da, baina urruneko mahaigaina ez dago erabilgarri X11 "
 "saioetan . Mesedez, aldatu Wayland saio batera eta berriz saiatu."
 
-#: src/remotedesktop.cpp:188 src/screencast.cpp:235
+#: src/remotedesktop.cpp:202 src/screencast.cpp:235
 #, kde-format
 msgid "Virtual Output"
 msgstr "Alegiazko irteera"
 
-#: src/remotedesktop.cpp:189 src/screencast.cpp:236
+#: src/remotedesktop.cpp:203 src/screencast.cpp:236
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Alegiazko irteera (%1(e)rekin partekatua)"
 
-#: src/remotedesktop.cpp:301
+#: src/remotedesktop.cpp:314
 #, kde-format
 msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "Urruneko agintea hasi da"
 
-#: src/remotedesktop.cpp:601
+#: src/remotedesktop.cpp:636
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -1167,15 +1167,13 @@ msgctxt ""
 msgid "Deny"
 msgstr "Ukatu"
 
-#: src/waylandintegration.cpp:217 src/waylandintegration.cpp:260
+#: src/waylandintegration.cpp:117 src/waylandintegration.cpp:160
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Huts egin du pantaila-grabatzea abiatzea"
 
-#: src/waylandintegration.cpp:381
-#, kde-format
-msgid "Remote desktop"
-msgstr "Urruneko mahaigaina"
+#~ msgid "Remote desktop"
+#~ msgstr "Urruneko mahaigaina"
 
 #~ msgctxt "@info"
 #~ msgid "Only allow if you know which application made the request."

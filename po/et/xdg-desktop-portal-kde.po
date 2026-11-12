@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 01:04+0000\n"
+"POT-Creation-Date: 2026-11-12 01:04+0000\n"
 "PO-Revision-Date: 2020-10-11 01:46+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -581,14 +581,14 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr ""
 
-#: src/remotedesktop.cpp:118
+#: src/remotedesktop.cpp:132
 #, fuzzy, kde-format
 #| msgid "Remote desktop"
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
 msgstr "Kaugtöölaud"
 
-#: src/remotedesktop.cpp:120
+#: src/remotedesktop.cpp:134
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -598,7 +598,7 @@ msgid ""
 "such as KWin."
 msgstr ""
 
-#: src/remotedesktop.cpp:124
+#: src/remotedesktop.cpp:138
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -607,26 +607,26 @@ msgid ""
 "switch to a Wayland session and try again."
 msgstr ""
 
-#: src/remotedesktop.cpp:188 src/screencast.cpp:235
+#: src/remotedesktop.cpp:202 src/screencast.cpp:235
 #, kde-format
 msgid "Virtual Output"
 msgstr ""
 
-#: src/remotedesktop.cpp:189 src/screencast.cpp:236
+#: src/remotedesktop.cpp:203 src/screencast.cpp:236
 #, fuzzy, kde-format
 #| msgid "Select what to share with %1"
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Valimine, mida rakendusega %1 jagada"
 
-#: src/remotedesktop.cpp:301
+#: src/remotedesktop.cpp:314
 #, fuzzy, kde-format
 #| msgid "Remote desktop"
 msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "Kaugtöölaud"
 
-#: src/remotedesktop.cpp:601
+#: src/remotedesktop.cpp:636
 #, fuzzy, kde-format
 #| msgid "Remote desktop"
 msgctxt ""
@@ -1145,15 +1145,13 @@ msgctxt ""
 msgid "Deny"
 msgstr ""
 
-#: src/waylandintegration.cpp:217 src/waylandintegration.cpp:260
+#: src/waylandintegration.cpp:117 src/waylandintegration.cpp:160
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Ekraanivideo tegemise alustamine nurjus"
 
-#: src/waylandintegration.cpp:381
-#, kde-format
-msgid "Remote desktop"
-msgstr "Kaugtöölaud"
+#~ msgid "Remote desktop"
+#~ msgstr "Kaugtöölaud"
 
 #, fuzzy
 #~| msgid "Request device access"

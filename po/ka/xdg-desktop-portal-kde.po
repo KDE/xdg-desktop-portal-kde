@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 01:04+0000\n"
+"POT-Creation-Date: 2026-11-12 01:04+0000\n"
 "PO-Revision-Date: 2026-08-28 06:42+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -587,13 +587,13 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "მარცხენა-წკაპი და გადათრევა"
 
-#: src/remotedesktop.cpp:118
+#: src/remotedesktop.cpp:132
 #, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
 msgstr "დაშორებული სამუშაო მაგიდა ხელმისაწვდომი არაა"
 
-#: src/remotedesktop.cpp:120
+#: src/remotedesktop.cpp:134
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -607,7 +607,7 @@ msgstr ""
 "არაა. დარწმუნდით, რომ გაშვებული გაქვთ Wayland-ის სესია ისეთი თავსებადი "
 "ფანჯრების მმართველიც, როგორიცაა KWin."
 
-#: src/remotedesktop.cpp:124
+#: src/remotedesktop.cpp:138
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -619,24 +619,24 @@ msgstr ""
 "სესია, მაგრამ ის ხელმისაწვდომი არაა X11-ის სესიებში. გადაერთეთ Wayland-ის "
 "სესიაზე და თავიდან სცადეთ."
 
-#: src/remotedesktop.cpp:188 src/screencast.cpp:235
+#: src/remotedesktop.cpp:202 src/screencast.cpp:235
 #, kde-format
 msgid "Virtual Output"
 msgstr "ვირტუალური გამოტანა"
 
-#: src/remotedesktop.cpp:189 src/screencast.cpp:236
+#: src/remotedesktop.cpp:203 src/screencast.cpp:236
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "ვირტუალური გამოტანა (გაზიარებულია %1-სთან)"
 
-#: src/remotedesktop.cpp:301
+#: src/remotedesktop.cpp:314
 #, kde-format
 msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "დაშორებული მართვა დაიწყო"
 
-#: src/remotedesktop.cpp:601
+#: src/remotedesktop.cpp:636
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -1149,15 +1149,13 @@ msgctxt ""
 msgid "Deny"
 msgstr "უარყოფა"
 
-#: src/waylandintegration.cpp:217 src/waylandintegration.cpp:260
+#: src/waylandintegration.cpp:117 src/waylandintegration.cpp:160
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "ეკრანის გადაცემის დაწყების შეცდომა"
 
-#: src/waylandintegration.cpp:381
-#, kde-format
-msgid "Remote desktop"
-msgstr "დაშორებული სამუშაო მაგიდა"
+#~ msgid "Remote desktop"
+#~ msgstr "დაშორებული სამუშაო მაგიდა"
 
 #~ msgctxt "@info"
 #~ msgid "Only allow if you know which application made the request."

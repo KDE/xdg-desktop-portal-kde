@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 01:04+0000\n"
+"POT-Creation-Date: 2026-11-12 01:04+0000\n"
 "PO-Revision-Date: 2026-10-15 13:13+0300\n"
 "Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -587,13 +587,13 @@ msgctxt "Mouse action"
 msgid "Left-click and drag"
 msgstr "Kreisais klikšķis un vilkšana"
 
-#: src/remotedesktop.cpp:118
+#: src/remotedesktop.cpp:132
 #, kde-format
 msgctxt "@title:window"
 msgid "Remote Desktop Not Available"
 msgstr "Attālā darbvirsma nav pieejama"
 
-#: src/remotedesktop.cpp:120
+#: src/remotedesktop.cpp:134
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -607,7 +607,7 @@ msgstr ""
 "Pārliecinieties, ka darbināt „Wayland“ sesiju ar saderīgu logu pārvaldnieku, "
 "piemēram, „KWin“."
 
-#: src/remotedesktop.cpp:124
+#: src/remotedesktop.cpp:138
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -619,24 +619,24 @@ msgstr ""
 "darbvirsmas sesiju, tomēr X11 neatbalsta attālas darbvirsmas. Pārslēdzieties "
 "uz „Wayland“ sesiju un mēģiniet vēlreiz."
 
-#: src/remotedesktop.cpp:188 src/screencast.cpp:235
+#: src/remotedesktop.cpp:202 src/screencast.cpp:235
 #, kde-format
 msgid "Virtual Output"
 msgstr "Virtuālā izvade"
 
-#: src/remotedesktop.cpp:189 src/screencast.cpp:236
+#: src/remotedesktop.cpp:203 src/screencast.cpp:236
 #, kde-format
 msgctxt "%1 is the application name"
 msgid "Virtual Output (shared with %1)"
 msgstr "Virtuālā izvade (dalīta ar „%1“)"
 
-#: src/remotedesktop.cpp:301
+#: src/remotedesktop.cpp:314
 #, kde-format
 msgctxt "@title:window title of notification about input systems taken over"
 msgid "Remote Control Started"
 msgstr "Sākta attālā vadība"
 
-#: src/remotedesktop.cpp:601
+#: src/remotedesktop.cpp:636
 #, kde-format
 msgctxt ""
 "SNI title that indicates there's a process remotely controlling the system"
@@ -1149,15 +1149,13 @@ msgctxt ""
 msgid "Deny"
 msgstr "Neļaut"
 
-#: src/waylandintegration.cpp:217 src/waylandintegration.cpp:260
+#: src/waylandintegration.cpp:117 src/waylandintegration.cpp:160
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Neizdevās sākt ekrāna ierakstīšanu"
 
-#: src/waylandintegration.cpp:381
-#, kde-format
-msgid "Remote desktop"
-msgstr "Attālā darbvirsma"
+#~ msgid "Remote desktop"
+#~ msgstr "Attālā darbvirsma"
 
 #~ msgctxt "@info"
 #~ msgid "Only allow if you know which application made the request."
