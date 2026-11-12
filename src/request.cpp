@@ -25,7 +25,7 @@ Request::Request(const QDBusObjectPath &handle, QObject *parent)
             QDBusConnection::sessionBus().unregisterObject(handle.path());
             deleteLater();
         });
-
+        Q_EMIT Created();
     } else {
         qCDebug(XdgRequestKdeRequest) << sessionBus.lastError().message();
         qCDebug(XdgRequestKdeRequest) << "Failed to register request object for" << handle.path();

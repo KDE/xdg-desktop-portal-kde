@@ -22,8 +22,11 @@ class Request : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.impl.portal.Request")
+    Q_PROPERTY(uint version MEMBER version CONSTANT)
 public:
     explicit Request(const QDBusObjectPath &handle, QObject *parent = nullptr);
+
+    static constexpr uint version = 2;
 
     template<class T>
     static Request *makeClosableDialogRequest(const QDBusObjectPath &handle, T *dialogAndParent)
@@ -43,6 +46,7 @@ public:
 
 Q_SIGNALS:
     void closeRequested();
+    Q_SCRIPTABLE void Created();
 
 public Q_SLOTS:
     Q_SCRIPTABLE void Close()
