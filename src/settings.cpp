@@ -211,16 +211,21 @@ class FdoAppearanceSettings : public SettingsModule
     static constexpr auto colorScheme = "color-scheme"_L1;
     static constexpr auto accentColor = "accent-color"_L1;
     static constexpr auto reducedMotion = "reduced-motion"_L1;
+    static constexpr auto buttonPlacement = "button-placement"_L1;
 
 public:
     explicit FdoAppearanceSettings(QObject *parent = nullptr)
         : SettingsModule(parent)
     {
         qDBusRegisterMetaType<AccentColorArray>();
+        qDBusRegisterMetaType<std::pair<QStringList, QStringList>>();
         connect(qGuiApp, &QGuiApplication::paletteChanged, this, &FdoAppearanceSettings::onPaletteChanged);
 
         m_kdeglobalsWatcher = KConfigWatcher::create(KSharedConfig::openConfig(u"kdeglobals"_s));
         connect(m_kdeglobalsWatcher.get(), &KConfigWatcher::configChanged, this, &FdoAppearanceSettings::kdeglobalsChanged);
+
+        m_kwinWatcher = KConfigWatcher::create(KSharedConfig::openConfig(u"kwinrc"_s));
+        connect(m_kwinWatcher.get(), &KConfigWatcher::configChanged, this, &FdoAppearanceSettings::kwinrcChanged);
     }
 
     inline QString group() final
@@ -236,6 +241,7 @@ public:
         appearanceSettings.insert(colorScheme, readFdoColorScheme().variant());
         appearanceSettings.insert(accentColor, readAccentColor().variant());
         appearanceSettings.insert(reducedMotion, readReducedMotion().variant());
+        appearanceSettings.insert(buttonPlacement, readButtonPlacement().variant());
         result.insert(group(), appearanceSettings);
         return result;
     }
@@ -251,6 +257,8 @@ public:
             return readAccentColor().variant();
         } else if (key == reducedMotion) {
             return readReducedMotion().variant();
+        } else if (key == buttonPlacement) {
+            return readButtonPlacement().variant();
         }
         return {};
     }
@@ -291,6 +299,33 @@ private:
         return QDBusVariant(noMotion ? 1U : 0U);
     }
 
+    QDBusVariant readButtonPlacement() const
+    {
+        auto toPortalNotation = [](QStringView buttons) {
+            QStringList result;
+            for (auto button : buttons) {
+                switch (button.unicode()) {
+                case 'X':
+                    result.append(u"close"_s);
+                    break;
+                case 'I':
+                    result.append(u"minimize"_s);
+                    break;
+                case 'A':
+                    result.append(u"maximize"_s);
+                    break;
+                default:;
+                }
+            }
+            return result;
+        };
+
+        auto config = KSharedConfig::openConfig(u"kwinrc"_s)->group(u"org.kde.kdecoration2"_s);
+        const QString leftButtons = config.readEntry(QStringLiteral("ButtonsOnLeft"), "MS");
+        const QString rightButtons = config.readEntry(QStringLiteral("ButtonsOnRight"), "HIAX");
+        return QDBusVariant(QVariant::fromValue(std::pair(toPortalNotation(leftButtons), toPortalNotation(rightButtons))));
+    }
+
 private Q_SLOTS:
     void onPaletteChanged()
     {
@@ -305,8 +340,16 @@ private Q_SLOTS:
         }
     }
 
+    void kwinrcChanged(const KConfigGroup &configGroup, const QByteArrayList &names)
+    {
+        if (configGroup.name() == "org.kde.kdecoration2"_L1 && (names.contains("ButtonsOnLeft") || names.contains("ButtonsOnRight"))) {
+            Q_EMIT settingChanged(group(), buttonPlacement, readButtonPlacement());
+        }
+    }
+
 private:
     KConfigWatcher::Ptr m_kdeglobalsWatcher;
+    KConfigWatcher::Ptr m_kwinWatcher;
 };
 
 class KDEGlobalsSettings : public SettingsModule
