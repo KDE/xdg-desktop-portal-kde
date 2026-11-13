@@ -1235,6 +1235,3 @@ msgstr "Avvis"
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Klarte ikke starte skjermdeling"
-
-#~ msgid "Remote desktop"
-#~ msgstr "Eksternt skrivebord"
