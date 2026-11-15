@@ -1162,6 +1162,3 @@ msgstr "Забраняване"
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Неуспешно стартиране на видеозапис на екрана"
-
-#~ msgid "Remote desktop"
-#~ msgstr "Отдалечен работен плот"
