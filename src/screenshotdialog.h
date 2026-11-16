@@ -10,6 +10,7 @@
 #define XDG_DESKTOP_PORTAL_KDE_SCREENSHOT_DIALOG_H
 
 #include "quickdialog.h"
+#include <QFlags>
 #include <QFuture>
 #include <QImage>
 #include <qqmlintegration.h>
@@ -35,7 +36,7 @@ public:
     Q_ENUM(ScreenshotType)
 
     QImage image() const;
-    void takeScreenshotNonInteractive();
+    static QImage takeScreenshotNonInteractive();
 
 public Q_SLOTS:
     void takeScreenshotInteractive();
@@ -44,7 +45,7 @@ Q_SIGNALS:
     void failed();
 
 private:
-    QFuture<QImage> takeScreenshot();
+    static QFuture<QImage> takeScreenshot(ScreenshotType type, QFlags<Flags> flags);
 
     QImage m_image;
 };
