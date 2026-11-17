@@ -129,26 +129,35 @@ QImage ScreenshotDialog::image() const
     return m_image;
 }
 
-void ScreenshotDialog::takeScreenshotNonInteractive()
+QImage ScreenshotDialog::takeScreenshotNonInteractive()
 {
-    QFuture<QImage> future = takeScreenshot();
+    QFuture<QImage> future = takeScreenshot(FullScreen, Cursor);
     if (!future.isStarted()) {
-        return;
+        return {};
     }
 
     future.waitForFinished();
 
     if (future.isCanceled()) {
-        return;
+        return {};
     }
 
-    m_image = future.result();
+    return future.result();
 }
 
 void ScreenshotDialog::takeScreenshotInteractive()
 {
-    const QFuture<QImage> future = takeScreenshot();
+    const auto type = static_cast<ScreenshotType>(m_theDialog->property("screenshotType").toInt());
+    QFlags<Flags> options;
+    if (m_theDialog->property("withCursor").toBool()) {
+        options |= Flags::Cursor;
+    }
+    if (m_theDialog->property("withBorders").toBool()) {
+        options |= Flags::Borders;
+    }
+    const QFuture<QImage> future = takeScreenshot(type, options);
     if (!future.isStarted()) {
+        Q_EMIT failed();
         return;
     }
 
@@ -167,25 +176,24 @@ void ScreenshotDialog::takeScreenshotInteractive()
     watcher->setFuture(future);
 }
 
-QFuture<QImage> ScreenshotDialog::takeScreenshot()
+QFuture<QImage> ScreenshotDialog::takeScreenshot(ScreenshotType type, QFlags<Flags> flags)
 {
     int pipeFds[2];
     if (pipe2(pipeFds, O_CLOEXEC | O_NONBLOCK) != 0) {
-        Q_EMIT failed();
         return {};
     }
 
     QVariantMap options;
     options.insert(QStringLiteral("native-resolution"), true); // match xdg-desktop-portal-gnome, and fixes flameshot!3164
-    if (m_theDialog->property("withCursor").toBool()) {
+    if (flags & Flags::Cursor) {
         options.insert(QStringLiteral("include-cursor"), true);
     }
-    if (m_theDialog->property("withBorders").toBool()) {
+    if (flags & Flags::Borders) {
         options.insert(QStringLiteral("include-decoration"), true);
     }
 
     QString method;
-    switch (ScreenshotType(m_theDialog->property("screenshotType").toInt())) {
+    switch (type) {
     case FullScreen:
         method = QStringLiteral("CaptureWorkspace");
         break;

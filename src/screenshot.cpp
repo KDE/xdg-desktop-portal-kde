@@ -91,13 +91,7 @@ void ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
     qCDebug(XdgDesktopPortalKdeScreenshot) << "    parent_window: " << parent_window;
     qCDebug(XdgDesktopPortalKdeScreenshot) << "    options: " << options;
 
-    QPointer<ScreenshotDialog> screenshotDialog = new ScreenshotDialog;
-    Utils::setParentWindow(screenshotDialog->windowHandle(), parent_window);
-    Request::makeClosableDialogRequest(handle, screenshotDialog.data());
-
     const bool modal = options.value(QStringLiteral("modal"), true).toBool();
-    screenshotDialog->windowHandle()->setModality(modal ? Qt::WindowModal : Qt::NonModal);
-
     const bool interactive = options.value(QStringLiteral("interactive"), false).toBool();
 
     auto createReply = [](const QImage &screenshot) -> std::pair<PortalResponse::Response, QVariantMap> {
@@ -114,14 +108,17 @@ void ScreenshotPortal::Screenshot(const QDBusObjectPath &handle,
     };
 
     if (!interactive) {
-        qDebug() << "take non interactive";
-        screenshotDialog->takeScreenshotNonInteractive();
-        std::tie(replyResponse, replyResults) = createReply(screenshotDialog->image());
-        screenshotDialog->deleteLater();
+        const auto image = ScreenshotDialog::takeScreenshotNonInteractive();
+        std::tie(replyResponse, replyResults) = createReply(image);
         return;
     }
 
-    delayReply(message, screenshotDialog.get(), this, [screenshotDialog, createReply](DialogResult dialogResult) {
+    auto screenshotDialog = new ScreenshotDialog();
+    screenshotDialog->windowHandle()->setModality(modal ? Qt::WindowModal : Qt::NonModal);
+    Utils::setParentWindow(screenshotDialog->windowHandle(), parent_window);
+    Request::makeClosableDialogRequest(handle, screenshotDialog);
+
+    delayReply(message, screenshotDialog, this, [screenshotDialog, createReply](DialogResult dialogResult) {
         auto response = PortalResponse::fromDialogResult(dialogResult);
         QVariantMap results;
         if (dialogResult == DialogResult::Accepted) {
