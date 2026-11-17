@@ -95,7 +95,7 @@ ScreenshotDialog::ScreenshotDialog(const QString &appName, QObject *parent)
     model->appendRow(new QStandardItem(i18n("Full Screen")));
     model->appendRow(new QStandardItem(i18n("Current Screen")));
     model->appendRow(new QStandardItem(i18n("Active Window")));
-    create(QStringLiteral("ScreenshotDialog"),
+    create(u"ScreenshotDialog"_s,
            {
                {u"app"_s, QVariant::fromValue<QObject *>(this)},
                {u"appName"_s, Utils::applicationName(appName)},
@@ -145,24 +145,24 @@ QFuture<QImage> ScreenshotDialog::takeScreenshot(ScreenshotType type, QFlags<Fla
     QFuture<QImage> future = promise.future();
 
     QVariantMap options;
-    options.insert(QStringLiteral("native-resolution"), true); // match xdg-desktop-portal-gnome, and fixes flameshot!3164
+    options.insert(u"native-resolution"_s, true); // match xdg-desktop-portal-gnome, and fixes flameshot!3164
     if (flags & Flags::Cursor) {
-        options.insert(QStringLiteral("include-cursor"), true);
+        options.insert(u"include-cursor"_s, true);
     }
     if (flags & Flags::Borders) {
-        options.insert(QStringLiteral("include-decoration"), true);
+        options.insert(u"include-decoration"_s, true);
     }
 
     QString method;
     switch (type) {
     case FullScreen:
-        method = QStringLiteral("CaptureWorkspace");
+        method = u"CaptureWorkspace"_s;
         break;
     case CurrentScreen:
-        method = QStringLiteral("CaptureActiveScreen");
+        method = u"CaptureActiveScreen"_s;
         break;
     case ActiveWindow:
-        method = QStringLiteral("CaptureActiveWindow");
+        method = u"CaptureActiveWindow"_s;
         break;
     }
 
