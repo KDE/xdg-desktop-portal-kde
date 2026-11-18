@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-12 01:04+0000\n"
+"POT-Creation-Date: 2026-11-18 01:12+0000\n"
 "PO-Revision-Date: 2026-06-01 16:54+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -989,17 +989,17 @@ msgstr "Skjádeiling ekki tiltæk"
 msgid "Share"
 msgstr "Samnýta"
 
-#: src/screenshotdialog.cpp:117
+#: src/screenshotdialog.cpp:95
 #, kde-format
 msgid "Full Screen"
 msgstr "Fylla skjáinn"
 
-#: src/screenshotdialog.cpp:118
+#: src/screenshotdialog.cpp:96
 #, kde-format
 msgid "Current Screen"
 msgstr "Núverandi skjár"
 
-#: src/screenshotdialog.cpp:119
+#: src/screenshotdialog.cpp:97
 #, kde-format
 msgid "Active Window"
 msgstr "Virkur gluggi"

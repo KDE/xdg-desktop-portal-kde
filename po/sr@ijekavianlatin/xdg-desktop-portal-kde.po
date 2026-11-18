@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-12 01:04+0000\n"
+"POT-Creation-Date: 2026-11-18 01:12+0000\n"
 "PO-Revision-Date: 2026-10-02 11:27+0200\n"
 "Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -922,17 +922,17 @@ msgstr "Zahtjev za dijeljenje ekrana"
 msgid "Share"
 msgstr "Podijeli"
 
-#: src/screenshotdialog.cpp:117
+#: src/screenshotdialog.cpp:95
 #, kde-format
 msgid "Full Screen"
 msgstr "cio ekran"
 
-#: src/screenshotdialog.cpp:118
+#: src/screenshotdialog.cpp:96
 #, kde-format
 msgid "Current Screen"
 msgstr "trenutni ekran"
 
-#: src/screenshotdialog.cpp:119
+#: src/screenshotdialog.cpp:97
 #, kde-format
 msgid "Active Window"
 msgstr "aktivni prozor"

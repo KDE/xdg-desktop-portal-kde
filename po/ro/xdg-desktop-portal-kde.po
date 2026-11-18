@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-12 01:04+0000\n"
+"POT-Creation-Date: 2026-11-18 01:12+0000\n"
 "PO-Revision-Date: 2026-06-15 15:30+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -963,17 +963,17 @@ msgstr "Partajarea ecranului nu e disponibilă"
 msgid "Share"
 msgstr "Partajează"
 
-#: src/screenshotdialog.cpp:117
+#: src/screenshotdialog.cpp:95
 #, kde-format
 msgid "Full Screen"
 msgstr "Ecran complet"
 
-#: src/screenshotdialog.cpp:118
+#: src/screenshotdialog.cpp:96
 #, kde-format
 msgid "Current Screen"
 msgstr "Ecranul actual"
 
-#: src/screenshotdialog.cpp:119
+#: src/screenshotdialog.cpp:97
 #, kde-format
 msgid "Active Window"
 msgstr "Fereastra activă"

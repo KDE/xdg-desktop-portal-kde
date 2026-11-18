@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-12 01:04+0000\n"
+"POT-Creation-Date: 2026-11-18 01:12+0000\n"
 "PO-Revision-Date: 2026-07-11 16:54+0200\n"
 "Last-Translator: davro <david.brwinow@gmail.com>\n"
 "Language-Team: pl\n"
@@ -930,17 +930,17 @@ msgstr "Zażądano udostępniania ekranu"
 msgid "Share"
 msgstr "Udostępnij"
 
-#: src/screenshotdialog.cpp:117
+#: src/screenshotdialog.cpp:95
 #, kde-format
 msgid "Full Screen"
 msgstr "Pełny ekran"
 
-#: src/screenshotdialog.cpp:118
+#: src/screenshotdialog.cpp:96
 #, kde-format
 msgid "Current Screen"
 msgstr "Bieżącego ekranu"
 
-#: src/screenshotdialog.cpp:119
+#: src/screenshotdialog.cpp:97
 #, kde-format
 msgid "Active Window"
 msgstr "Bieżącego okna"

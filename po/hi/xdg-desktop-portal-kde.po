@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-12 01:04+0000\n"
+"POT-Creation-Date: 2026-11-18 01:12+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -950,17 +950,17 @@ msgstr "स्क्रीन शेयरिंग"
 msgid "Share"
 msgstr "शेयर करना"
 
-#: src/screenshotdialog.cpp:117
+#: src/screenshotdialog.cpp:95
 #, kde-format
 msgid "Full Screen"
 msgstr "पूर्ण स्क्रीन"
 
-#: src/screenshotdialog.cpp:118
+#: src/screenshotdialog.cpp:96
 #, kde-format
 msgid "Current Screen"
 msgstr "वर्तमान स्क्रीन"
 
-#: src/screenshotdialog.cpp:119
+#: src/screenshotdialog.cpp:97
 #, kde-format
 msgid "Active Window"
 msgstr "सक्रिय विंडो"
