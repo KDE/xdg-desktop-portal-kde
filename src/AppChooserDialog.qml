@@ -195,7 +195,8 @@ PortalDialog {
                 case root.appChooserData.lastUsedApp:
                     return KI18n.xi18nc("@info", "%1<nl/><emphasis>Last used app for this file type</emphasis>", delegate.model.applicationName);
                 default:
-                    return delegate.model.applicationName;
+                    // TODO Qt6.12: use Qt.escapeHtml(delegate.model.applicationName)
+                    return KI18n.xi18nc("@info", "%1", delegate.model.applicationName);
             }
             font.bold: delegate.model.applicationDesktopFile === root.appChooserData.defaultApp
 
