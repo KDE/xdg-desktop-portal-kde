@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-10 03:06+0000\n"
+"POT-Creation-Date: 2026-11-19 03:23+0000\n"
 "PO-Revision-Date: 2026-09-07 21:13+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -96,30 +96,38 @@ msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr ""
 "%1<nl/><emphasis>Naposledy použitá aplikace pro tento typ souborů</emphasis>"
 
-#: src/AppChooserDialog.qml:218
+#: src/AppChooserDialog.qml:199
+#, fuzzy, kde-kuit-format
+#| msgctxt "%1 is a number of elided icon entries"
+#| msgid "+%1"
+msgctxt "@info"
+msgid "%1"
+msgstr "+%1"
+
+#: src/AppChooserDialog.qml:219
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Otevřít pomocí <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:220
+#: src/AppChooserDialog.qml:221
 #, kde-format
 msgid "No matches"
 msgstr "Žádné shody"
 
-#: src/AppChooserDialog.qml:222
+#: src/AppChooserDialog.qml:223
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Žádná nainstalovaná aplikace neumí otevřít <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:241
+#: src/AppChooserDialog.qml:242
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Spustit v terminálu"
 
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:250
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"

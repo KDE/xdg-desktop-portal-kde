@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-10 03:06+0000\n"
+"POT-Creation-Date: 2026-11-19 03:23+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -93,30 +93,38 @@ msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "%1<nl/><emphasis>上次打开此文件类型的应用</emphasis>"
 
-#: src/AppChooserDialog.qml:218
+#: src/AppChooserDialog.qml:199
+#, fuzzy, kde-kuit-format
+#| msgctxt "%1 is a number of elided icon entries"
+#| msgid "+%1"
+msgctxt "@info"
+msgid "%1"
+msgstr "+%1"
+
+#: src/AppChooserDialog.qml:219
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "使用 <command>%1</command> 打开吗？"
 
-#: src/AppChooserDialog.qml:220
+#: src/AppChooserDialog.qml:221
 #, kde-format
 msgid "No matches"
 msgstr "没有匹配项目"
 
-#: src/AppChooserDialog.qml:222
+#: src/AppChooserDialog.qml:223
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "没有任何已安装的应用能够打开 <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:241
+#: src/AppChooserDialog.qml:242
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "在终端中运行"
 
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:250
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-10 03:06+0000\n"
+"POT-Creation-Date: 2026-11-19 03:23+0000\n"
 "PO-Revision-Date: 2023-11-11 21:18+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
@@ -95,30 +95,36 @@ msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr ""
 
-#: src/AppChooserDialog.qml:218
+#: src/AppChooserDialog.qml:199
+#, kde-kuit-format
+msgctxt "@info"
+msgid "%1"
+msgstr ""
+
+#: src/AppChooserDialog.qml:219
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr ""
 
-#: src/AppChooserDialog.qml:220
+#: src/AppChooserDialog.qml:221
 #, kde-format
 msgid "No matches"
 msgstr "Nun hai nenguna coincidencia"
 
-#: src/AppChooserDialog.qml:222
+#: src/AppChooserDialog.qml:223
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
 
-#: src/AppChooserDialog.qml:241
+#: src/AppChooserDialog.qml:242
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr ""
 
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:250
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"

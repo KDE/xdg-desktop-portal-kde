@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-10 03:06+0000\n"
+"POT-Creation-Date: 2026-11-19 03:23+0000\n"
 "PO-Revision-Date: 2026-06-01 16:54+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -94,30 +94,38 @@ msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr ""
 "%1<nl/><emphasis>Forrit notað síðast fyrir þessa skráartegund</emphasis>"
 
-#: src/AppChooserDialog.qml:218
+#: src/AppChooserDialog.qml:199
+#, fuzzy, kde-kuit-format
+#| msgctxt "%1 is a number of elided icon entries"
+#| msgid "+%1"
+msgctxt "@info"
+msgid "%1"
+msgstr "+%1"
+
+#: src/AppChooserDialog.qml:219
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Opna með <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:220
+#: src/AppChooserDialog.qml:221
 #, kde-format
 msgid "No matches"
 msgstr "Engar samsvaranir"
 
-#: src/AppChooserDialog.qml:222
+#: src/AppChooserDialog.qml:223
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Engin uppsett forrit geta opnað <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:241
+#: src/AppChooserDialog.qml:242
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Keyra í skjáhermi"
 
-#: src/AppChooserDialog.qml:249
+#: src/AppChooserDialog.qml:250
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
