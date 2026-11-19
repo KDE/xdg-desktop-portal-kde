@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:12+0000\n"
+"POT-Creation-Date: 2026-11-19 01:10+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -100,30 +100,36 @@ msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "अस्य सञ्चिकाप्रकारस्य कृते अन्तिमप्रयुक्तम् एप्"
 
-#: src/AppChooserDialog.qml:221
+#: src/AppChooserDialog.qml:202
+#, kde-kuit-format
+msgctxt "@info"
+msgid "%1"
+msgstr ""
+
+#: src/AppChooserDialog.qml:222
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "<command>%1</command> इत्यनेन उद्घाटयतु?"
 
-#: src/AppChooserDialog.qml:223
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgid "No matches"
 msgstr "न मेलनं"
 
-#: src/AppChooserDialog.qml:225
+#: src/AppChooserDialog.qml:226
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "कोऽपि संस्थापितः अनुप्रयोगः <filename>%1</filename> उद्घाटयितुं न शक्नोति"
 
-#: src/AppChooserDialog.qml:244
+#: src/AppChooserDialog.qml:245
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "टर्मिनल् मध्ये चालयन्तु"
 
-#: src/AppChooserDialog.qml:252
+#: src/AppChooserDialog.qml:253
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -264,7 +270,21 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "निरसयतु"
 
-#: src/filechooser.cpp:477
+#: src/filechooser.cpp:374
+#, fuzzy, kde-format
+#| msgid "Select Folder"
+msgctxt "@title:window"
+msgid "Select Folder"
+msgstr "Folder इति चिनोतु"
+
+#: src/filechooser.cpp:376 src/filechooser.cpp:528
+#, fuzzy, kde-format
+#| msgid "Save File"
+msgctxt "@title:window"
+msgid "Save File"
+msgstr "सञ्चिकां रक्षतु"
+
+#: src/filechooser.cpp:448
 #, kde-format
 msgid "Open"
 msgstr "उद्घाटित"
@@ -445,21 +465,6 @@ msgstr "अनुमन्यताम्‌"
 msgctxt "@action:button Deny the application's request to monitor input"
 msgid "Deny"
 msgstr ""
-
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:111
-#, kde-format
-msgid "Select Folder"
-msgstr "Folder इति चिनोतु"
-
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:114
-#, kde-format
-msgid "Open File"
-msgstr "सञ्चिकां उद्घाटयन्तु"
-
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:116
-#, kde-format
-msgid "Save File"
-msgstr "सञ्चिकां रक्षतु"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
@@ -1190,6 +1195,9 @@ msgstr ""
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "स्क्रीनकास्टिंग् आरभ्यतुं असफलम्"
+
+#~ msgid "Open File"
+#~ msgstr "सञ्चिकां उद्घाटयन्तु"
 
 #~ msgid "Remote desktop"
 #~ msgstr "दूरस्थः डेस्कटॉपः"

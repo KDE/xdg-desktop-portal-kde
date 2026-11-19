@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:12+0000\n"
+"POT-Creation-Date: 2026-11-19 01:10+0000\n"
 "PO-Revision-Date: 2026-09-06 18:11+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -101,18 +101,26 @@ msgstr ""
 "%1<nl/><emphasis>Последнее использованное приложение для открытия этого типа "
 "файлов</emphasis>"
 
-#: src/AppChooserDialog.qml:221
+#: src/AppChooserDialog.qml:202
+#, fuzzy, kde-kuit-format
+#| msgctxt "%1 is a number of elided icon entries"
+#| msgid "+%1"
+msgctxt "@info"
+msgid "%1"
+msgstr "+%1"
+
+#: src/AppChooserDialog.qml:222
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Открыть с помощью <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:223
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgid "No matches"
 msgstr "Совпадений не найдено"
 
-#: src/AppChooserDialog.qml:225
+#: src/AppChooserDialog.qml:226
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
@@ -120,13 +128,13 @@ msgstr ""
 "Ни одно из установленных приложений не может быть использовано для открытия "
 "<filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:244
+#: src/AppChooserDialog.qml:245
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Запускать в терминале"
 
-#: src/AppChooserDialog.qml:252
+#: src/AppChooserDialog.qml:253
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -249,7 +257,21 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Отмена"
 
-#: src/filechooser.cpp:477
+#: src/filechooser.cpp:374
+#, fuzzy, kde-format
+#| msgid "Select Folder"
+msgctxt "@title:window"
+msgid "Select Folder"
+msgstr "Выбор папки"
+
+#: src/filechooser.cpp:376 src/filechooser.cpp:528
+#, fuzzy, kde-format
+#| msgid "Save File"
+msgctxt "@title:window"
+msgid "Save File"
+msgstr "Сохранение файла"
+
+#: src/filechooser.cpp:448
 #, kde-format
 msgid "Open"
 msgstr "Открыть"
@@ -439,21 +461,6 @@ msgstr "Разрешить"
 msgctxt "@action:button Deny the application's request to monitor input"
 msgid "Deny"
 msgstr "Запретить"
-
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:111
-#, kde-format
-msgid "Select Folder"
-msgstr "Выбор папки"
-
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:114
-#, kde-format
-msgid "Open File"
-msgstr "Открытие файла"
-
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:116
-#, kde-format
-msgid "Save File"
-msgstr "Сохранение файла"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
@@ -1176,6 +1183,9 @@ msgstr "Запретить"
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Ошибка при запуске трансляции экрана"
+
+#~ msgid "Open File"
+#~ msgstr "Открытие файла"
 
 #~ msgid "Remote desktop"
 #~ msgstr "Удалённый рабочий стол"

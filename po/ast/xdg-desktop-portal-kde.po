@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:12+0000\n"
+"POT-Creation-Date: 2026-11-19 01:10+0000\n"
 "PO-Revision-Date: 2023-11-11 21:18+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
@@ -95,30 +95,36 @@ msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr ""
 
-#: src/AppChooserDialog.qml:221
+#: src/AppChooserDialog.qml:202
+#, kde-kuit-format
+msgctxt "@info"
+msgid "%1"
+msgstr ""
+
+#: src/AppChooserDialog.qml:222
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr ""
 
-#: src/AppChooserDialog.qml:223
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgid "No matches"
 msgstr "Nun hai nenguna coincidencia"
 
-#: src/AppChooserDialog.qml:225
+#: src/AppChooserDialog.qml:226
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
 
-#: src/AppChooserDialog.qml:244
+#: src/AppChooserDialog.qml:245
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr ""
 
-#: src/AppChooserDialog.qml:252
+#: src/AppChooserDialog.qml:253
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -240,7 +246,19 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr ""
 
-#: src/filechooser.cpp:477
+#: src/filechooser.cpp:374
+#, kde-format
+msgctxt "@title:window"
+msgid "Select Folder"
+msgstr ""
+
+#: src/filechooser.cpp:376 src/filechooser.cpp:528
+#, kde-format
+msgctxt "@title:window"
+msgid "Save File"
+msgstr ""
+
+#: src/filechooser.cpp:448
 #, kde-format
 msgid "Open"
 msgstr ""
@@ -403,21 +421,6 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button Deny the application's request to monitor input"
 msgid "Deny"
-msgstr ""
-
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:111
-#, kde-format
-msgid "Select Folder"
-msgstr ""
-
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:114
-#, kde-format
-msgid "Open File"
-msgstr ""
-
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:116
-#, kde-format
-msgid "Save File"
 msgstr ""
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17

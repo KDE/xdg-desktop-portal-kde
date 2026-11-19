@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:12+0000\n"
+"POT-Creation-Date: 2026-11-19 01:10+0000\n"
 "PO-Revision-Date: 2024-09-19 16:07+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -100,31 +100,37 @@ msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "Τελευταία χρησιμοποιούμενη εφαρμογή για αυτόν τον τύπο αρχείου"
 
-#: src/AppChooserDialog.qml:221
+#: src/AppChooserDialog.qml:202
+#, kde-kuit-format
+msgctxt "@info"
+msgid "%1"
+msgstr ""
+
+#: src/AppChooserDialog.qml:222
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr ""
 
-#: src/AppChooserDialog.qml:223
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgid "No matches"
 msgstr "Καμιά αντιστοιχία"
 
-#: src/AppChooserDialog.qml:225
+#: src/AppChooserDialog.qml:226
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr ""
 "Καμία εγκατεστημένη εφαρμογή δεν μπορεί να ανοίξει το <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:244
+#: src/AppChooserDialog.qml:245
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr ""
 
-#: src/AppChooserDialog.qml:252
+#: src/AppChooserDialog.qml:253
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -264,7 +270,21 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: src/filechooser.cpp:477
+#: src/filechooser.cpp:374
+#, fuzzy, kde-format
+#| msgid "Select Folder"
+msgctxt "@title:window"
+msgid "Select Folder"
+msgstr "Επιλογή φακέλου"
+
+#: src/filechooser.cpp:376 src/filechooser.cpp:528
+#, fuzzy, kde-format
+#| msgid "Save File"
+msgctxt "@title:window"
+msgid "Save File"
+msgstr "Αποθήκευση αρχείου"
+
+#: src/filechooser.cpp:448
 #, kde-format
 msgid "Open"
 msgstr "Άνοιγμα"
@@ -438,21 +458,6 @@ msgstr "Επιτρέπεται"
 msgctxt "@action:button Deny the application's request to monitor input"
 msgid "Deny"
 msgstr ""
-
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:111
-#, kde-format
-msgid "Select Folder"
-msgstr "Επιλογή φακέλου"
-
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:114
-#, kde-format
-msgid "Open File"
-msgstr "Άνοιγμα αρχείου"
-
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:116
-#, kde-format
-msgid "Save File"
-msgstr "Αποθήκευση αρχείου"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
@@ -1185,6 +1190,9 @@ msgstr ""
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Αποτυχία έναρξης αποτύπωσης οθόνης"
+
+#~ msgid "Open File"
+#~ msgstr "Άνοιγμα αρχείου"
 
 #~ msgid "Remote desktop"
 #~ msgstr "Απομακρυσμένη επιφάνεια εργασίας"

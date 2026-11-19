@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:12+0000\n"
+"POT-Creation-Date: 2026-11-19 01:10+0000\n"
 "PO-Revision-Date: 2024-11-23 12:11+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -98,30 +98,36 @@ msgctxt "@info"
 msgid "%1<nl/><emphasis>Last used app for this file type</emphasis>"
 msgstr "Last used app for this file type"
 
-#: src/AppChooserDialog.qml:221
+#: src/AppChooserDialog.qml:202
+#, kde-kuit-format
+msgctxt "@info"
+msgid "%1"
+msgstr ""
+
+#: src/AppChooserDialog.qml:222
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Open with <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:223
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgid "No matches"
 msgstr "No matches"
 
-#: src/AppChooserDialog.qml:225
+#: src/AppChooserDialog.qml:226
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "No installed applications can open <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:244
+#: src/AppChooserDialog.qml:245
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Run in terminal"
 
-#: src/AppChooserDialog.qml:252
+#: src/AppChooserDialog.qml:253
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -262,7 +268,21 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/filechooser.cpp:477
+#: src/filechooser.cpp:374
+#, fuzzy, kde-format
+#| msgid "Select Folder"
+msgctxt "@title:window"
+msgid "Select Folder"
+msgstr "Select Folder"
+
+#: src/filechooser.cpp:376 src/filechooser.cpp:528
+#, fuzzy, kde-format
+#| msgid "Save File"
+msgctxt "@title:window"
+msgid "Save File"
+msgstr "Save File"
+
+#: src/filechooser.cpp:448
 #, kde-format
 msgid "Open"
 msgstr "Open"
@@ -440,21 +460,6 @@ msgstr "Allow"
 msgctxt "@action:button Deny the application's request to monitor input"
 msgid "Deny"
 msgstr ""
-
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:111
-#, kde-format
-msgid "Select Folder"
-msgstr "Select Folder"
-
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:114
-#, kde-format
-msgid "Open File"
-msgstr "Open File"
-
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:116
-#, kde-format
-msgid "Save File"
-msgstr "Save File"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
@@ -1188,6 +1193,9 @@ msgstr ""
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Failed to start screencasting"
+
+#~ msgid "Open File"
+#~ msgstr "Open File"
 
 #~ msgid "Remote desktop"
 #~ msgstr "Remote desktop"

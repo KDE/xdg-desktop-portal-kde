@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:12+0000\n"
+"POT-Creation-Date: 2026-11-19 01:10+0000\n"
 "PO-Revision-Date: 2026-08-28 10:37+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -101,30 +101,38 @@ msgstr ""
 "%1<nl/><emphasis>Darrera aplicació utilitzada per a aquest tipus de fitxer</"
 "emphasis>"
 
-#: src/AppChooserDialog.qml:221
+#: src/AppChooserDialog.qml:202
+#, fuzzy, kde-kuit-format
+#| msgctxt "%1 is a number of elided icon entries"
+#| msgid "+%1"
+msgctxt "@info"
+msgid "%1"
+msgstr "+%1"
+
+#: src/AppChooserDialog.qml:222
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Open with <command>%1</command>?"
 msgstr "Obro amb <command>%1</command>?"
 
-#: src/AppChooserDialog.qml:223
+#: src/AppChooserDialog.qml:224
 #, kde-format
 msgid "No matches"
 msgstr "Sense coincidències"
 
-#: src/AppChooserDialog.qml:225
+#: src/AppChooserDialog.qml:226
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No installed applications can open <filename>%1</filename>"
 msgstr "Cap aplicació instal·lada pot obrir <filename>%1</filename>"
 
-#: src/AppChooserDialog.qml:244
+#: src/AppChooserDialog.qml:245
 #, kde-format
 msgctxt "@option:check"
 msgid "Run in terminal"
 msgstr "Executa en un terminal"
 
-#: src/AppChooserDialog.qml:252
+#: src/AppChooserDialog.qml:253
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not close when command exits"
@@ -250,7 +258,21 @@ msgctxt "@action"
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/filechooser.cpp:477
+#: src/filechooser.cpp:374
+#, fuzzy, kde-format
+#| msgid "Select Folder"
+msgctxt "@title:window"
+msgid "Select Folder"
+msgstr "Selecciona una carpeta"
+
+#: src/filechooser.cpp:376 src/filechooser.cpp:528
+#, fuzzy, kde-format
+#| msgid "Save File"
+msgctxt "@title:window"
+msgid "Save File"
+msgstr "Desa el fitxer"
+
+#: src/filechooser.cpp:448
 #, kde-format
 msgid "Open"
 msgstr "Obre"
@@ -432,21 +454,6 @@ msgstr "Permet"
 msgctxt "@action:button Deny the application's request to monitor input"
 msgid "Deny"
 msgstr "Denega"
-
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:111
-#, kde-format
-msgid "Select Folder"
-msgstr "Selecciona una carpeta"
-
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:114
-#, kde-format
-msgid "Open File"
-msgstr "Obre un fitxer"
-
-#: src/kirigami-filepicker/api/mobilefiledialog.cpp:116
-#, kde-format
-msgid "Save File"
-msgstr "Desa el fitxer"
 
 #: src/kirigami-filepicker/declarative/CreateDirectorySheet.qml:17
 #, kde-format
@@ -1170,6 +1177,9 @@ msgstr "Denegueu"
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Ha fallat en iniciar el vídeo de captura de pantalla"
+
+#~ msgid "Open File"
+#~ msgstr "Obre un fitxer"
 
 #~ msgid "Remote desktop"
 #~ msgstr "Escriptori remot"
