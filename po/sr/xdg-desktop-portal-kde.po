@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-19 01:10+0000\n"
-"PO-Revision-Date: 2026-10-02 11:27+0200\n"
+"PO-Revision-Date: 2026-11-19 17:02+0100\n"
 "Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr\n"
@@ -98,12 +98,10 @@ msgstr ""
 "%1<nl/><emphasis>Последњи коришћени програм за овај тип фајла</emphasis>"
 
 #: src/AppChooserDialog.qml:202
-#, fuzzy, kde-kuit-format
-#| msgctxt "%1 is a number of elided icon entries"
-#| msgid "+%1"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1"
-msgstr "+%1"
+msgstr "%1"
 
 #: src/AppChooserDialog.qml:222
 #, kde-kuit-format
@@ -252,15 +250,13 @@ msgid "Cancel"
 msgstr "Одустани"
 
 #: src/filechooser.cpp:374
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Folder"
 msgstr "Избор фасцикле"
 
 #: src/filechooser.cpp:376 src/filechooser.cpp:528
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save File"
 msgstr "Уписивање фајла"
@@ -1158,9 +1154,3 @@ msgstr "Одбиј"
 #, kde-format
 msgid "Failed to start screencasting"
 msgstr "Не могу да покренем емитовање екрана"
-
-#~ msgid "Open File"
-#~ msgstr "Отварање фајла"
-
-#~ msgid "Remote desktop"
-#~ msgstr "Удаљена површ"

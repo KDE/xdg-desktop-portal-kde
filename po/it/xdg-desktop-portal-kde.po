@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-19 01:10+0000\n"
-"PO-Revision-Date: 2026-08-30 16:34+0200\n"
+"PO-Revision-Date: 2026-11-19 15:51+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -96,12 +96,10 @@ msgstr ""
 "%1<nl/><emphasis>Ultima applicazione usata per questo tipo di file</emphasis>"
 
 #: src/AppChooserDialog.qml:202
-#, fuzzy, kde-kuit-format
-#| msgctxt "%1 is a number of elided icon entries"
-#| msgid "+%1"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1"
-msgstr "+%1"
+msgstr "%1"
 
 #: src/AppChooserDialog.qml:222
 #, kde-kuit-format
@@ -253,15 +251,13 @@ msgid "Cancel"
 msgstr "Annulla"
 
 #: src/filechooser.cpp:374
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Folder"
 msgstr "Seleziona cartella"
 
 #: src/filechooser.cpp:376 src/filechooser.cpp:528
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save File"
 msgstr "Salva file"

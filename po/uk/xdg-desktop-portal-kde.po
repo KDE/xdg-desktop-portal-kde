@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xdg-desktop-portal-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-19 01:10+0000\n"
-"PO-Revision-Date: 2026-08-28 12:38+0300\n"
+"PO-Revision-Date: 2026-11-19 10:20+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -98,12 +98,10 @@ msgstr ""
 "emphasis>"
 
 #: src/AppChooserDialog.qml:202
-#, fuzzy, kde-kuit-format
-#| msgctxt "%1 is a number of elided icon entries"
-#| msgid "+%1"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1"
-msgstr "+%1"
+msgstr "%1"
 
 #: src/AppChooserDialog.qml:222
 #, kde-kuit-format
@@ -255,18 +253,16 @@ msgid "Cancel"
 msgstr "Скасувати"
 
 #: src/filechooser.cpp:374
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Folder"
 msgstr "Вибір теки"
 
 #: src/filechooser.cpp:376 src/filechooser.cpp:528
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save File"
-msgstr "Зберегти файл"
+msgstr "Збереження файла"
 
 #: src/filechooser.cpp:448
 #, kde-format
