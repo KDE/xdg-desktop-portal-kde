@@ -97,12 +97,10 @@ msgstr ""
 "%1<nl/><emphasis>Naposledy použitá aplikace pro tento typ souborů</emphasis>"
 
 #: src/AppChooserDialog.qml:202
-#, fuzzy, kde-kuit-format
-#| msgctxt "%1 is a number of elided icon entries"
-#| msgid "+%1"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "%1"
-msgstr "+%1"
+msgstr "%1"
 
 #: src/AppChooserDialog.qml:222
 #, kde-kuit-format
@@ -254,15 +252,13 @@ msgid "Cancel"
 msgstr "Zrušit"
 
 #: src/filechooser.cpp:374
-#, fuzzy, kde-format
-#| msgid "Select Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Folder"
-msgstr "Vybrat složku"
+msgstr "Vyberte složku"
 
 #: src/filechooser.cpp:376 src/filechooser.cpp:528
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save File"
 msgstr "Uložit soubor"
